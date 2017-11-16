@@ -1,0 +1,71 @@
+---
+ms.date: 2017-06-12
+author: JKeithB
+ms.topic: reference
+keywords: "WMF, prostředí powershell, instalační program"
+contributor: jianyunt, quoctruong
+title: "Vylepšení správy balíčků v WMF 5.1"
+ms.openlocfilehash: b55a1742530b7cd48d60d79b7d4866ebee80a3b6
+ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 06/12/2017
+---
+# <a name="improvements-to-package-management-in-wmf-51"></a><span data-ttu-id="4f413-103">Vylepšení správy balíčků v WMF 5.1#</span><span class="sxs-lookup"><span data-stu-id="4f413-103">Improvements to Package Management in WMF 5.1#</span></span>
+
+## <a name="improvements-in-packagemanagement"></a><span data-ttu-id="4f413-104">Vylepšení v PackageManagement</span><span class="sxs-lookup"><span data-stu-id="4f413-104">Improvements in PackageManagement</span></span> ##
+<span data-ttu-id="4f413-105">Toto jsou opravy provedené v WMF 5.1:</span><span class="sxs-lookup"><span data-stu-id="4f413-105">The following are the fixes made in the WMF 5.1:</span></span> 
+
+### <a name="version-alias"></a><span data-ttu-id="4f413-106">Alias verze</span><span class="sxs-lookup"><span data-stu-id="4f413-106">Version Alias</span></span>
+
+<span data-ttu-id="4f413-107">**Scénář**: Pokud máte verzi 1.0 nebo 2.0 balíčku P1, nainstaluje do systému a chcete provést odinstalaci verze 1.0, spustili byste `Uninstall-Package -Name P1 -Version 1.0` a očekávají, že verze 1.0, který se má odinstalovat po spuštění rutiny.</span><span class="sxs-lookup"><span data-stu-id="4f413-107">**Scenario**: If you have version 1.0 and 2.0 of a package, P1, installed on your system, and you want to uninstall version 1.0, you would run `Uninstall-Package -Name P1 -Version 1.0` and expect version 1.0 to be uninstalled after running the cmdlet.</span></span> <span data-ttu-id="4f413-108">Ale získá odinstalovat výsledkem je, že verze 2.0.</span><span class="sxs-lookup"><span data-stu-id="4f413-108">However the result is that version 2.0 gets uninstalled.</span></span>  
+    
+<span data-ttu-id="4f413-109">K tomu dochází, protože `-Version` parametr je zástupce `-MinimumVersion` parametr.</span><span class="sxs-lookup"><span data-stu-id="4f413-109">This occurs because the `-Version` parameter is an alias of the `-MinimumVersion` parameter.</span></span> <span data-ttu-id="4f413-110">Když PackageManagement hledá kvalifikovaný balíček s minimální verzi 1.0, vrátí na nejnovější verzi.</span><span class="sxs-lookup"><span data-stu-id="4f413-110">When PackageManagement is looking for a qualified package with the minimum version of 1.0, it returns the latest version.</span></span> <span data-ttu-id="4f413-111">Toto chování se očekává v případech, Normální, protože hledání, že nejnovější verze je obvykle požadovaný výsledek.</span><span class="sxs-lookup"><span data-stu-id="4f413-111">This behavior is expected in normal cases because finding the latest version is usually the desired result.</span></span> <span data-ttu-id="4f413-112">Ale neměla vztahovat na `Uninstall-Package` případu.</span><span class="sxs-lookup"><span data-stu-id="4f413-112">However, it should not apply to the `Uninstall-Package` case.</span></span>
+    
+<span data-ttu-id="4f413-113">**Řešení**: Odebrat `-Version` alias zcela v PackageManagement (také známa jako</span><span class="sxs-lookup"><span data-stu-id="4f413-113">**Solution**:removed `-Version` alias entirely in PackageManagement (a.k.a.</span></span> <span data-ttu-id="4f413-114">OneGet) a PowerShellGet.</span><span class="sxs-lookup"><span data-stu-id="4f413-114">OneGet) and PowerShellGet.</span></span> 
+
+### <a name="multiple-prompts-for-bootstrapping-the-nuget-provider"></a><span data-ttu-id="4f413-115">Více výzev k zavedení spouštěcího programu NuGet zprostředkovatele</span><span class="sxs-lookup"><span data-stu-id="4f413-115">Multiple prompts for bootstrapping the NuGet provider</span></span>
+
+<span data-ttu-id="4f413-116">**Scénář**: při spuštění `Find-Module` nebo `Install-Module` nebo jinými rutinami PackageManagement ve vašem počítači poprvé, PackageManagement pokusí bootstrap zprostředkovatele NuGet.</span><span class="sxs-lookup"><span data-stu-id="4f413-116">**Scenario**: When you run `Find-Module` or `Install-Module` or other PackageManagement cmdlets on your computer for the first time, PackageManagement tries to bootstrap the NuGet provider.</span></span> <span data-ttu-id="4f413-117">Dělá to, protože zprostředkovatel PowerShellGet také používá zprostředkovatele NuGet Stáhnout moduly Powershellu.</span><span class="sxs-lookup"><span data-stu-id="4f413-117">It does this because the PowerShellGet provider also uses the NuGet provider to download PowerShell modules.</span></span> <span data-ttu-id="4f413-118">PackageManagement potom zobrazí výzvu uživateli pro oprávnění k instalaci zprostředkovatele NuGet.</span><span class="sxs-lookup"><span data-stu-id="4f413-118">PackageManagement then prompts the user for permission to install the NuGet provider.</span></span> <span data-ttu-id="4f413-119">Poté, co uživatel vybere "Ano" zavedení spouštěcího programu, se nainstalují nejnovější verzi zprostředkovatele NuGet.</span><span class="sxs-lookup"><span data-stu-id="4f413-119">After the user selects "yes" for the bootstrapping, the latest version of the NuGet provider will be installed.</span></span> 
+    
+<span data-ttu-id="4f413-120">Ale v některých případech, když máte starší verzi NuGet provider nainstalovaný na počítači, starší verze balíčku NuGet někdy získá načíst nejprve do relace prostředí PowerShell (který je časování ve PackageManagement).</span><span class="sxs-lookup"><span data-stu-id="4f413-120">However, in some cases, when you have an old version of NuGet provider installed on your computer, the older version of NuGet sometimes gets loaded first into the PowerShell session (that's the race condition in PackageManagement).</span></span> <span data-ttu-id="4f413-121">Ale PowerShellGet vyžaduje novější verzi zprostředkovatele NuGet, který má fungovat, proto PowerShellGet požádá PackageManagement k navázání připojení poskytovatele NuGet znovu.</span><span class="sxs-lookup"><span data-stu-id="4f413-121">However PowerShellGet requires the later version of the NuGet provider to work, so PowerShellGet asks PackageManagement to bootstrap the NuGet provider again.</span></span> <span data-ttu-id="4f413-122">Výsledkem více výzev k zavedení spouštěcího programu NuGet zprostředkovatele.</span><span class="sxs-lookup"><span data-stu-id="4f413-122">This results in multiple prompts for bootstrapping the NuGet provider.</span></span>
+
+<span data-ttu-id="4f413-123">**Řešení**: V WMF5.1, PackageManagement načte nejnovější verzi zprostředkovatele NuGet více výzev zavedení spouštěcího programu NuGet zprostředkovatele.</span><span class="sxs-lookup"><span data-stu-id="4f413-123">**Solution**: In WMF5.1, PackageManagement loads the latest version of the NuGet provider to avoid multiple prompts for bootstrapping the NuGet provider.</span></span>
+
+<span data-ttu-id="4f413-124">Může také pracovat řešení problému ručním odstraněním stará verze zprostředkovatele NuGet (NuGet-Anycpu.exe), pokud existuje z $env: ProgramFiles\PackageManagement\ProviderAssemblies $env: LOCALAPPDATA\PackageManagement\ProviderAssemblies</span><span class="sxs-lookup"><span data-stu-id="4f413-124">You could also work around this issue by manually deleting the old version of the NuGet provider (NuGet-Anycpu.exe) if exists from $env:ProgramFiles\PackageManagement\ProviderAssemblies $env:LOCALAPPDATA\PackageManagement\ProviderAssemblies</span></span>
+
+
+### <a name="support-for-packagemanagement-on-computers-with-intranet-access-only"></a><span data-ttu-id="4f413-125">Podpora pro PackageManagement na počítačích s přístup v intranetu</span><span class="sxs-lookup"><span data-stu-id="4f413-125">Support for PackageManagement on computers with Intranet access only</span></span>
+
+<span data-ttu-id="4f413-126">**Scénář**: pro podnikový scénář, uživatelé pracují v rámci prostředí kde neexistuje žádný přístup k Internetu, ale intranetu jenom.</span><span class="sxs-lookup"><span data-stu-id="4f413-126">**Scenario**: For the enterprise scenario, people are working under an environment where there is no Internet access but Intranet only.</span></span> <span data-ttu-id="4f413-127">PackageManagement nepodporoval tento případ v WMF 5.0.</span><span class="sxs-lookup"><span data-stu-id="4f413-127">PackageManagement did not support this case in WMF 5.0.</span></span>
+
+<span data-ttu-id="4f413-128">**Scénář**: WMF 5.0, PackageManagement nepodporoval počítačů, které mají jenom. intranetu (ale ne Internet) přístup.</span><span class="sxs-lookup"><span data-stu-id="4f413-128">**Scenario**: In WMF 5.0, PackageManagement did not support computers that have only Intranet (but not Internet) access.</span></span>
+
+<span data-ttu-id="4f413-129">**Řešení**: V 5.1 WMF můžete následujícím postupem povolit použití PackageManagement počítače v síti Intranet:</span><span class="sxs-lookup"><span data-stu-id="4f413-129">**Solution**: In WMF 5.1, you can follow these steps to allow Intranet computers to use PackageManagement:</span></span>
+
+1. <span data-ttu-id="4f413-130">Stáhnout poskytovatele NuGet použijete jiný počítač, který má připojení k Internetu pomocí `Install-PackageProvider -Name NuGet`.</span><span class="sxs-lookup"><span data-stu-id="4f413-130">Download the NuGet provider using another computer that has an Internet connection by using `Install-PackageProvider -Name NuGet`.</span></span>
+
+2. <span data-ttu-id="4f413-131">Vyhledejte poskytovatele NuGet v rámci buď `$env:ProgramFiles\PackageManagement\ProviderAssemblies\nuget` nebo `$env:LOCALAPPDATA\PackageManagement\ProviderAssemblies\nuget`.</span><span class="sxs-lookup"><span data-stu-id="4f413-131">Find the NuGet provider under either `$env:ProgramFiles\PackageManagement\ProviderAssemblies\nuget`  or  `$env:LOCALAPPDATA\PackageManagement\ProviderAssemblies\nuget`.</span></span>
+
+3. <span data-ttu-id="4f413-132">Zkopírujte binární soubory složku nebo síťovou umístění sdílené složky, které počítače v síti Intranet přístup a pak nainstalujte zprostředkovatele NuGet s `Install-PackageProvider -Name NuGet -Source <Path to folder>`.</span><span class="sxs-lookup"><span data-stu-id="4f413-132">Copy the binaries to a folder or network share location that the Intranet computer can access, and then install the NuGet provider with `Install-PackageProvider -Name NuGet -Source <Path to folder>`.</span></span>
+
+
+### <a name="event-logging-improvements"></a><span data-ttu-id="4f413-133">Vylepšení události protokolování</span><span class="sxs-lookup"><span data-stu-id="4f413-133">Event logging improvements</span></span>
+
+<span data-ttu-id="4f413-134">Při instalaci balíčků, se změní stav počítače.</span><span class="sxs-lookup"><span data-stu-id="4f413-134">When you install packages, you are changing the state of the computer.</span></span> <span data-ttu-id="4f413-135">V WMF 5.1 PackageManagement nyní protokoluje události do protokolu událostí systému Windows pro `Install-Package`, `Uninstall-Package`, a `Save-Package` aktivity.</span><span class="sxs-lookup"><span data-stu-id="4f413-135">In WMF 5.1, PackageManagement now logs events to the Windows event log for `Install-Package`, `Uninstall-Package`, and `Save-Package` activities.</span></span> <span data-ttu-id="4f413-136">Protokol událostí je stejná jako v prostředí PowerShell, který je `Microsoft-Windows-PowerShell, Operational`.</span><span class="sxs-lookup"><span data-stu-id="4f413-136">The Event log  is the same as for PowerShell, that is, `Microsoft-Windows-PowerShell, Operational`.</span></span>
+
+### <a name="support-for-basic-authentication"></a><span data-ttu-id="4f413-137">Podpora pro základní ověřování</span><span class="sxs-lookup"><span data-stu-id="4f413-137">Support for basic authentication</span></span>
+
+<span data-ttu-id="4f413-138">V WMF 5.1 PackageManagement podporuje hledání a instalaci balíčků z úložiště, který vyžaduje základní ověřování.</span><span class="sxs-lookup"><span data-stu-id="4f413-138">In WMF 5.1, PackageManagement supports finding and installing packages from a repository that requires basic authentication.</span></span> <span data-ttu-id="4f413-139">Můžete zadat vaše přihlašovací údaje pro `Find-Package` a `Install-Package` rutiny.</span><span class="sxs-lookup"><span data-stu-id="4f413-139">You can supply your credentials to the `Find-Package` and `Install-Package` cmdlets.</span></span> <span data-ttu-id="4f413-140">Příklad:</span><span class="sxs-lookup"><span data-stu-id="4f413-140">For example:</span></span>
+
+``` PowerShell
+Find-Package -Source <SourceWithCredential> -Credential (Get-Credential)
+```
+### <a name="support-for-using-packagemanagement-behind-a-proxy"></a><span data-ttu-id="4f413-141">Podpora pro použití PackageManagement za proxy server</span><span class="sxs-lookup"><span data-stu-id="4f413-141">Support for using PackageManagement behind a proxy</span></span>
+
+<span data-ttu-id="4f413-142">V WMF 5.1 PackageManagement teď používá nové parametry proxy `-ProxyCredential` a `-Proxy`.</span><span class="sxs-lookup"><span data-stu-id="4f413-142">In WMF 5.1, PackageManagement now takes new proxy parameters `-ProxyCredential` and `-Proxy`.</span></span> <span data-ttu-id="4f413-143">Pomocí těchto parametrů, můžete zadat adresu URL proxy serveru a přihlašovací údaje pro PackageManagement rutiny.</span><span class="sxs-lookup"><span data-stu-id="4f413-143">Using these parameters, you can specify the proxy URL and credentials to PackageManagement cmdlets.</span></span> <span data-ttu-id="4f413-144">Ve výchozím nastavení proxy serveru systému používají.</span><span class="sxs-lookup"><span data-stu-id="4f413-144">By default, system proxy settings are used.</span></span> <span data-ttu-id="4f413-145">Příklad:</span><span class="sxs-lookup"><span data-stu-id="4f413-145">For example:</span></span>
+
+``` PowerShell
+Find-Package -Source http://www.nuget.org/api/v2/ -Proxy http://www.myproxyserver.com -ProxyCredential (Get-Credential)
+```
+
