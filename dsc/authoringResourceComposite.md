@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Složené prostředků – pomocí konfigurace DSC jako prostředek"
-ms.openlocfilehash: 6c9a878c45a3e999e20dec5766ee8bda409905d3
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: d889384c8d9c0746200ad424c6ab448a0e41d66c
+ms.sourcegitcommit: 60c6f9d8cf316e6d5b285854e6e5641ac7648f3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="composite-resources-using-a-dsc-configuration-as-a-resource"></a>Složené prostředky: použití konfigurace DSC jako prostředek
 
@@ -98,7 +98,7 @@ Configuration xVirtualMachine
         DependsOn = "[File]ParentVHDFile"
     }
 
-    # Creae VM specific diff VHD
+    # Create VM specific diff VHD
     foreach ($Name in $VMName)
     {
         xVHD "VHD$Name"

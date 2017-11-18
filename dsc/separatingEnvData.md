@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Oddělení dat konfigurace a prostředí"
-ms.openlocfilehash: df3cfea08419c37716b408fdbd6b43e78be2331c
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 861a4cecc28b2d93b2cfa2743d47ee0e5025e1f4
+ms.sourcegitcommit: 60c6f9d8cf316e6d5b285854e6e5641ac7648f3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="separating-configuration-and-environment-data"></a>Oddělení dat konfigurace a prostředí
 
@@ -102,6 +102,7 @@ Budeme definovat dat vývoj a produkční prostředí v souboru namd `DevProdEnv
             SQLServerName   = "MySQLServer"
             SqlSource       = "C:\Software\Sql"
             DotNetSrc       = "C:\Software\sxs"
+        WebSiteName     = "New website"
         },
 
         @{
@@ -213,7 +214,7 @@ Configuration MyWebApp
         {
 
             Ensure          = 'Present'
-            Name            = $WebSiteName
+            Name            = $Node.WebSiteName
             State           = 'Started'
             PhysicalPath    = $Node.SitePath
             DependsOn       = '[File]WebContent'
