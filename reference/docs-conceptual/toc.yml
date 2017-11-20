@@ -1,0 +1,244 @@
+- name: Základní koncepce
+  href: PowerShell-Scripting.md
+  items:
+    - name: Jádro PowerShellu
+      href: core-powershell/core-powershell.md
+      items:
+        - name: Konzola
+          href: ''
+          items:
+            - name: Nápověda k příkazovém řádku programu PowerShell.exe
+              href: core-powershell/console/powershell.exe-command-line-help.md
+            - name: Použití rozšíření Tab
+              href: core-powershell/console/using-tab-expansion.md
+        - name: Příručka ke konzole
+          href: core-powershell/console-guide.md
+        - name: ISE
+          href: core-powershell/ise/introducing-the-windows-powershell-ise.md
+          items:
+            - name: Vytvoření powershellové karty v prostředí Windows PowerShell ISE
+              href: core-powershell/ise/how-to-create-a-powershell-tab-in-windows-powershell-ise.md
+            - name: Ladění skriptů v prostředí Windows PowerShell ISE
+              href: core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise.md
+            - name: Použití profilů v prostředí Windows PowerShell ISE
+              href: core-powershell/ise/how-to-use-profiles-in-windows-powershell-ise.md
+            - name: Použití klávesy Tab k dokončování příkazů ve skriptovacím podokně a v podokně konzoly
+              href: core-powershell/ise/how-to-use-tab-completion-in-the-script-pane-and-console-pane.md
+            - name: Použití pokokna konzoly v prostředí PowerShell ISE
+              href: core-powershell/ise/how-to-use-the-console-pane-in-the-windows-powershell-ise.md
+            - name: Psání a spouštění skriptů v prostředí Windows PowerShell ISE
+              href: core-powershell/ise/how-to-write-and-run-scripts-in-the-windows-powershell-ise.md
+            - name: Úvod do prostředí PowerShell ISE
+              href: core-powershell/ise/introducing-the-windows-powershell-ise.md
+            - name: Modul ISE
+              href: core-powershell/ise/ise-module.md
+            - name: Klávesové zkratky prostředí Windows PowerShell ISE
+              href: core-powershell/ise/keyboard-shortcuts-for-the-windows-powershell-ise.md
+            - name: Účel skriptovacího objektového modelu prostředí Windows PowerShell ISE
+              href: core-powershell/ise/purpose-of-the-windows-powershell-ise-scripting-object-model.md
+            - name: Objekt ISEAddOnToolCollection
+              href: core-powershell/ise/the-iseaddontoolcollection-object.md
+            - name: Objekt ISEAddOnTool
+              href: core-powershell/ise/the-iseaddontool-object.md
+            - name: Objekt ISEEditor
+              href: core-powershell/ise/the-iseeditor-object.md
+            - name: Objekt ISEFileCollection
+              href: core-powershell/ise/the-isefilecollection-object.md
+            - name: Objekt ISEFile
+              href: core-powershell/ise/the-isefile-object.md
+            - name: Objekt ISEMenuItemCollection
+              href: core-powershell/ise/the-isemenuitemcollection-object.md
+            - name: Objekt ISEMenuItem
+              href: core-powershell/ise/the-isemenuitem-object.md
+            - name: Hierarchie objektového modelu prostředí ISE
+              href: core-powershell/ise/the-ise-object-model-hierarchy.md
+            - name: Objekt ISEOptions
+              href: core-powershell/ise/the-iseoptions-object.md
+            - name: Objekt ISESnippetCollection
+              href: core-powershell/ise/the-isesnippetcollection-object.md
+            - name: Objekt ISESnippetObject
+              href: core-powershell/ise/the-isesnippetobject.md
+            - name: Objekt ObjectModelRoot
+              href: core-powershell/ise/the-objectmodelroot-object.md
+            - name: Objekt PowerShellTabCollection
+              href: core-powershell/ise/the-powershelltabcollection-object.md
+            - name: Objekt PowerShellTab
+              href: core-powershell/ise/the-powershelltab-object.md
+            - name: Skriptovací objektový model prostředí Windows PowerShell ISE
+              href: core-powershell/ise/the-windows-powershell-ise-scripting-object-model.md
+            - name: Používání prostředí Windows PowerShell ISE
+              href: core-powershell/ise/using-the-windows-powershell-ise.md
+            - name: Referenční informace o objektovém modelu prostředí Windows PowerShell ISE
+              href: core-powershell/ise/windows-powershell-ise-object-model-reference.md
+        - name: Příručka k prostředí ISE
+          href: core-powershell/ise-guide.md
+        - name: Spuštění vzdálených příkazů
+          href: core-powershell/running-remote-commands.md
+        - name: Webový přístup
+          href: core-powershell/web-access.md
+          items:
+            - name: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
+              href: core-powershell/web-access/authorization-rules-and-security-features-of-windows-powershell-web-access.md
+            - name: Instalace a používání Windows PowerShell Web Accessu
+              href: core-powershell/web-access/install-and-use-windows-powershell-web-access.md
+            - name: Řešení problémů s přístupem ve Windows PowerShell Web Accessu
+              href: core-powershell/web-access/troubleshooting-access-problems-in-windows-powershell-web-access.md
+            - name: Odinstalace Windows PowerShell Web Accessu
+              href: core-powershell/web-access/uninstall-windows-powershell-web-access.md
+            - name: Používání webové konzoly Windows PowerShellu
+              href: core-powershell/web-access/use-the-web-based-windows-powershell-console.md
+        - name: Příručka pracovních postupů
+          href: core-powershell/workflows-guide.md
+    - name: Začínáme
+      href: ''
+      items:
+        - name: Základní návody
+          href: getting-started/basic-cookbooks.md
+          items:
+            - name: Příloha 1 – kompatibilní aliasy
+              href: getting-started/cookbooks/appendix-1---compatibility-aliases.md
+            - name: Příloha 2 – vytvoření vlastního zástupce PowerShellu
+              href: getting-started/cookbooks/appendix-2---creating-a-custom-powershell-shortcut.md
+            - name: Odkazy na základní návody
+              href: getting-started/cookbooks/basic-cookbooks-reference.md
+            - name: Změna stavu počítače
+              href: getting-started/cookbooks/changing-computer-state.md
+            - name: Shromažďování informací o počítačích
+              href: getting-started/cookbooks/collecting-information-about-computers.md
+            - name: Vytváření objektů .NET a COM (New-Object)
+              href: getting-started/cookbooks/creating-.net-and-com-objects--new-object-.md
+            - name: Vytvoření vlastního vstupního pole
+              href: getting-started/cookbooks/creating-a-custom-input-box.md
+            - name: Vytvoření grafického ovládacího prvku pro výběr data
+              href: getting-started/cookbooks/creating-a-graphical-date-picker.md
+            - name: Získávání objektů WMI (Get-WmiObject)
+              href: getting-started/cookbooks/getting-wmi-objects--get-wmiobject-.md
+            - name: Správa aktuálního umístění
+              href: getting-started/cookbooks/managing-current-location.md
+            - name: Správa procesů procesními rutinami
+              href: getting-started/cookbooks/managing-processes-with-process-cmdlets.md
+            - name: Správa služeb
+              href: getting-started/cookbooks/managing-services.md
+            - name: Správa jednotek Windows PowerShellu
+              href: getting-started/cookbooks/managing-windows-powershell-drives.md
+            - name: Přímá manipulace s položkami
+              href: getting-started/cookbooks/manipulating-items-directly.md
+            - name: Pole se seznamem umožňujícím vícenásobný výběr
+              href: getting-started/cookbooks/multiple-selection-list-boxes.md
+            - name: Další užitečné skriptovací objekty
+              href: getting-started/cookbooks/other-useful-scripting-objects.md
+            - name: Provádění síťových úloh
+              href: getting-started/cookbooks/performing-networking-tasks.md
+            - name: Přesměrování dat rutinami Out-*
+              href: getting-started/cookbooks/redirecting-data-with-out---cmdlets.md
+            - name: Odebrání objektů z kanálu (Where-Object)
+              href: getting-started/cookbooks/removing-objects-from-the-pipeline--where-object-.md
+            - name: Opakování úlohy s více objekty (ForEach-Object)
+              href: getting-started/cookbooks/repeating-a-task-for-multiple-objects--foreach-object-.md
+            - name: Výběr položek ze seznamu
+              href: getting-started/cookbooks/selecting-items-from-a-list-box.md
+            - name: Výběr částí objektů (Select-Object)
+              href: getting-started/cookbooks/selecting-parts-of-objects--select-object-.md
+            - name: Řazení objektů
+              href: getting-started/cookbooks/sorting-objects.md
+            - name: Použití formátovacích příkazů ke změně zobrazení výstupů
+              href: getting-started/cookbooks/using-format-commands-to-change-output-view.md
+            - name: Použití statických tříd a metod
+              href: getting-started/cookbooks/using-static-classes-and-methods.md
+            - name: Zobrazení struktury objektu (Get-Member)
+              href: getting-started/cookbooks/viewing-object-structure--get-member-.md
+            - name: Práce se soubory a složkami
+              href: getting-started/cookbooks/working-with-files-and-folders.md
+            - name: Práce se složkami souborů a klíči registru
+              href: getting-started/cookbooks/working-with-files-folders-and-registry-keys.md
+            - name: Práce s objekty
+              href: getting-started/cookbooks/working-with-objects.md
+            - name: Práce s tiskárnami
+              href: getting-started/cookbooks/working-with-printers.md
+            - name: Práce s položkami registru
+              href: getting-started/cookbooks/working-with-registry-entries.md
+            - name: Práce s klíči registru
+              href: getting-started/cookbooks/working-with-registry-keys.md
+            - name: Práce s nainstalovaným softwarem
+              href: getting-started/cookbooks/working-with-software-installations.md
+        - name: Základní parametry
+          href: ''
+          items:
+            - name: Informace o Windows PowerShellu
+              href: getting-started/fundamental/about-windows-powershell.md
+            - name: Seznámení s prostředím Windows PowerShell ISE
+              href: getting-started/fundamental/exploring-the-windows-powershell-ise.md
+            - name: Získání podrobné nápovědy
+              href: getting-started/fundamental/getting-detailed-help-information.md
+            - name: Získání informací o příkazech
+              href: getting-started/fundamental/getting-information-about-commands.md
+            - name: Učení názvů Windows PowerShellu
+              href: getting-started/fundamental/learning-windows-powershell-names.md
+            - name: Kanál objektů
+              href: getting-started/fundamental/object-pipeline.md
+            - name: Skriptování ve Windows PowerShellu
+              href: getting-started/fundamental/scripting-with-windows-powershell.md
+            - name: Vysvětlení důležitých pojmů Windows PowerShellu
+              href: getting-started/fundamental/understanding-important-windows-powershell-concepts.md
+            - name: Vysvětlení kanálu Windows PowerShellu
+              href: getting-started/fundamental/understanding-the-windows-powershell-pipeline.md
+            - name: Použití známých názvů příkazů
+              href: getting-started/fundamental/using-familiar-command-names.md
+            - name: Použití proměnných k ukládání objektů
+              href: getting-started/fundamental/using-variables-to-store-objects.md
+            - name: Použití Windows PowerShellu
+              href: getting-started/fundamental/using-windows-powershell.md
+            - name: Použití Windows PowerShellu ke správě
+              href: getting-started/fundamental/using-windows-powershell-for-administration.md
+            - name: Základy Windows PowerShellu
+              href: getting-started/fundamental/windows-powershell-basics.md
+            - name: Integrované skriptovací prostředí (ISE) Windows PowerShellu
+              href: getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-.md
+        - name: Základní pojmy
+          href: getting-started/fundamental-concepts.md
+        - name: Příprava na použití Windows PowerShellu
+          href: getting-started/getting-ready-to-use-windows-powershell.md
+        - name: Začínáme s Windows PowerShellem
+          href: getting-started/getting-started-with-windows-powershell.md
+        - name: Další zdroje informací o PowerShellu
+          href: getting-started/more-powershell-learning.md
+        - name: Odkazy na vysvětlení pojmů
+          href: getting-started/understanding-concepts-reference.md
+    - name: Nastavení
+      href: ''
+      items:
+        - name: Přístupnost prostředí Windows PowerShell ISE
+          href: setup/accessibility-in-windows-powershell-ise.md
+        - name: Instalace jádra Windows PowerShellu 2.0
+          href: setup/installing-the-windows-powershell-2.0-engine.md
+        - name: Instalace sady SDK Windows PowerShellu
+          href: setup/installing-the-windows-powershell-sdk.md
+        - name: Instalace Windows PowerShellu
+          href: setup/installing-windows-powershell.md
+        - name: Druhé směrování vzdálené komunikace PowerShellu
+          href: setup/ps-remoting-second-hop.md
+        - name: Referenční informace o nastavení
+          href: setup/setup-reference.md
+        - name: Spuštění 32bitové verze Windows PowerShellu
+          href: setup/starting-the-32-bit-version-of-windows-powershell.md
+        - name: Spuštění jádra Windows PowerShellu 2.0
+          href: setup/starting-the-windows-powershell-2.0-engine.md
+        - name: Spuštění Windows PowerShellu
+          href: setup/starting-windows-powershell.md
+        - name: Spuštění Windows PowerShellu v předchozích verzích Windows
+          href: setup/starting-windows-powershell-on-earlier-versions-of-windows.md
+        - name: Systémové požadavky Windows PowerShellu
+          href: setup/windows-powershell-system-requirements.md
+        - name: WinRMSecurity
+          href: setup/winrmsecurity.md
+    - name: Novinky
+      href: ''
+      items:
+        - name: Co je nového v PowerShellu 5.0 ISE
+          href: whats-new/what-s-new-in-the-powershell-50-ise.md
+        - name: Co je nového ve Windows PowerShell 5.0
+          href: whats-new/what-s-new-in-windows-powershell-50.md
+        - name: Co je nového v PowerShellu
+          href: whats-new/what-s-new-with-powershell.md
+    - name: Slovník
+      href: windows-powershell-glossary.md
