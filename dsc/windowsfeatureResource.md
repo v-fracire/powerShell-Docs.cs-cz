@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Prostředek DSC WindowsFeature"
-ms.openlocfilehash: a3433577a122f6c7e31360e094a089f6ceef77c2
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: b4f50cb9ee172600b1811175e9cf67f6a7ed2d55
+ms.sourcegitcommit: cd5a1f054cbf9eb95c5242a995f9741e031ddb24
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dsc-windowsfeature-resource"></a>Prostředek DSC WindowsFeature
 
@@ -35,7 +35,7 @@ WindowsFeature [string] #ResourceName
 
 |  Vlastnost  |  Popis   | 
 |---|---| 
-| Název| Určuje název role nebo funkce, které chcete zajistit přidat nebo odebrat. Je to stejné jako __název__ vlastnost z [Get-WindowsFeature](https://technet.microsoft.com/en-us/library/jj205469.aspx) rutiny a nikoli zobrazovaný název role nebo funkce.| 
+| Název| Určuje název role nebo funkce, které chcete zajistit přidat nebo odebrat. Je to stejné jako __název__ vlastnost z [Get-WindowsFeature](/powershell/module/servermanager/Get-WindowsFeature) rutiny a nikoli zobrazovaný název role nebo funkce.| 
 | přihlašovací údaje| Určuje pověření, které můžete přidat nebo odebrat roli nebo funkci.| 
 | Ujistěte se| Označuje, pokud je přidána role nebo funkce. K zajištění, že je role nebo funkce přidané, nastavte tuto vlastnost "Přítomen" se ujistěte, že je odebrán roli nebo funkci, nastavte vlastnost na "Chybí".| 
 | IncludeAllSubFeature| Tuto vlastnost nastavit na __$true__ zajistit stav všechny požadované položky se stavem funkci zadáte pomocí __název__ vlastnost.| 

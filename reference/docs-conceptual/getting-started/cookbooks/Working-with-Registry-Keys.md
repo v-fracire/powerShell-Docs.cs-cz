@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Práce s klíče registru"
+title: "Práce s klíči registru"
 ms.assetid: 91bfaecd-8684-48b4-ad86-065dfe6dc90a
-ms.openlocfilehash: efb2c016afa2212c2907c0740ad26c4e4cddd3af
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: e7c16fe5f03330da3ea8f60b141d9e35eed474b9
+ms.sourcegitcommit: cd5a1f054cbf9eb95c5242a995f9741e031ddb24
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="working-with-registry-keys"></a>Práce s klíče registru
+# <a name="working-with-registry-keys"></a>Práce s klíči registru
 Protože jsou klíče registru položky v prostředí Windows PowerShell jednotky, je velmi podobné práce se soubory a složky práci s nimi. Jeden kritické rozdílem je, že každá položka na jednotce založenou na registru prostředí Windows PowerShell je kontejner, stejně jako složky na jednotce systému souborů. Vlastnosti těchto položek, není odlišné položky jsou však položky registru a jejich přidružené hodnoty.
 
 ### <a name="listing-all-subkeys-of-a-registry-key"></a>Výpis všech podklíčů klíče registru
@@ -49,7 +49,7 @@ Tyto příkazy seznamu jenom přímo obsažených položek, podobně jako pomoc�
 Get-ChildItem -Path hkcu:\ -Recurse
 ```
 
-**Get-ChildItem** můžete provádět komplexní možnosti filtrování prostřednictvím jeho **cesta**, **filtru**, **zahrnout**, a **vyloučit** parametry, ale tyto parametry jsou obvykle pouze na základě názvu. Můžete provádět komplexní filtrování založené na jiné vlastnosti položky pomocí **Where-Object**rutiny. Následující příkaz vyhledá všechny klíče v rámci HKCU:\\softwaru, které mají více než jeden podklíčů a také mít přesně čtyři hodnoty:
+**Get-ChildItem** můžete provádět komplexní možnosti filtrování prostřednictvím jeho **cesta**, **filtru**, **zahrnout**, a **vyloučit** parametry, ale tyto parametry jsou obvykle pouze na základě názvu. Můžete provádět komplexní filtrování založené na jiné vlastnosti položky pomocí **Where-Object** rutiny. Následující příkaz vyhledá všechny klíče v rámci HKCU:\\softwaru, které mají více než jeden podklíčů a také mít přesně čtyři hodnoty:
 
 ```
 Get-ChildItem -Path HKCU:\Software -Recurse | Where-Object -FilterScript {($_.SubKeyCount -le 1) -and ($_.ValueCount -eq 4) }
