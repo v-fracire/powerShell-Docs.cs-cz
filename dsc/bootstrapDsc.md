@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC"
-ms.openlocfilehash: a3592c50fa7f2232538fbec07129fac86c1d00b5
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: c793e36eb9caa194104f9dda2aa1d335b21b676c
+ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 12/05/2017
 ---
 >Platí pro: Prostředí Windows PowerShell 5.0
 
@@ -21,7 +21,7 @@ Informace o tom, jak konfigurovat nové virtuální počítače na počáteční
 
 Pokud chcete spustit tyto příklady, budete potřebovat:
 
-- Spouštěcí virtuální pevný disk pro práci s. Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na   [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/en-us/library/gg318049.aspx).
+- Spouštěcí virtuální pevný disk pro práci s. Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/en-us/library/gg318049.aspx).
 - Hostitelský počítač, který má technologie Hyper-V povolena. Informace najdete v tématu [Přehled technologie Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).
 
 Pomocí DSC můžete automatizovat instalaci softwaru a konfigurace pro počítač v počáteční spouštěcí up.
@@ -83,7 +83,7 @@ Configuration SampleIISInstall
 Přejmenování a přesunutí tento soubor do příslušného umístění na virtuální pevný disk jako `Pending.mof` pomocí [přesunout položku](https://technet.microsoft.comlibrary/hh849852.aspx) rutiny. Příklad:
 
     ```powershell
-        Move-Item -Path C:\DSCTest\SampleIISInstall\localhost.mof -Destination E:\Windows\Sytem32\Configuration\Pending.mof
+        Move-Item -Path C:\DSCTest\SampleIISInstall\localhost.mof -Destination E:\Windows\System32\Configuration\Pending.mof
     ```
 6. Odpojte virtuální pevný disk pomocí volání [odpojení virtuálního pevného disku](https://technet.microsoft.com/library/hh848562.aspx) rutiny. Příklad:
 
@@ -202,6 +202,6 @@ Výchozí hodnota **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
 
 - [Konfigurace DSC](configurations.md)
 - [Klíč registru DSCAutomationHostEnabled](DSCAutomationHostEnabled.md)
-- [Konfigurace správce místní konfigurace (LCM)](metaConfig.md)
+- [Konfigurace Local Configuration Manageru (LCM)](metaConfig.md)
 - [Nastavení webového serveru vyžádané replikace DSC](pullServer.md)
 
