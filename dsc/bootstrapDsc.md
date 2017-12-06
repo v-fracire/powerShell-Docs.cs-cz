@@ -4,46 +4,46 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC"
-ms.openlocfilehash: a3592c50fa7f2232538fbec07129fac86c1d00b5
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: c793e36eb9caa194104f9dda2aa1d335b21b676c
+ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 12/05/2017
 ---
-><span data-ttu-id="b08c7-103">Platí pro: Prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="b08c7-103">Applies To: Windows PowerShell 5.0</span></span>
+><span data-ttu-id="d652f-103">Platí pro: Prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="d652f-103">Applies To: Windows PowerShell 5.0</span></span>
 
-><span data-ttu-id="b08c7-104">**Poznámka:** **DSCAutomationHostEnabled** klíče registru popsané v tomto tématu není k dispozici v prostředí PowerShell 4.0.</span><span class="sxs-lookup"><span data-stu-id="b08c7-104">**Note:** The **DSCAutomationHostEnabled** registry key described in this topic is not available in PowerShell 4.0.</span></span>
-<span data-ttu-id="b08c7-105">Informace o tom, jak konfigurovat nové virtuální počítače na počáteční telefonického spouštění v prostředí PowerShell 4.0 najdete v tématu [chcete automaticky nakonfigurovat vaše počítače pomocí DSC v počáteční spouštěcí up?](https://blogs.msdn.microsoft.com/powershell/2014/02/28/want-to-automatically-configure-your-machines-using-dsc-at-initial-boot-up/)</span><span class="sxs-lookup"><span data-stu-id="b08c7-105">For information on how to configure new virtual machines at initial boot-up in PowerShell 4.0, see [Want to Automatically Configure Your Machines Using DSC at Initial Boot-up?](https://blogs.msdn.microsoft.com/powershell/2014/02/28/want-to-automatically-configure-your-machines-using-dsc-at-initial-boot-up/)</span></span>
+><span data-ttu-id="d652f-104">**Poznámka:** **DSCAutomationHostEnabled** klíče registru popsané v tomto tématu není k dispozici v prostředí PowerShell 4.0.</span><span class="sxs-lookup"><span data-stu-id="d652f-104">**Note:** The **DSCAutomationHostEnabled** registry key described in this topic is not available in PowerShell 4.0.</span></span>
+<span data-ttu-id="d652f-105">Informace o tom, jak konfigurovat nové virtuální počítače na počáteční telefonického spouštění v prostředí PowerShell 4.0 najdete v tématu [chcete automaticky nakonfigurovat vaše počítače pomocí DSC v počáteční spouštěcí up?](https://blogs.msdn.microsoft.com/powershell/2014/02/28/want-to-automatically-configure-your-machines-using-dsc-at-initial-boot-up/)</span><span class="sxs-lookup"><span data-stu-id="d652f-105">For information on how to configure new virtual machines at initial boot-up in PowerShell 4.0, see [Want to Automatically Configure Your Machines Using DSC at Initial Boot-up?](https://blogs.msdn.microsoft.com/powershell/2014/02/28/want-to-automatically-configure-your-machines-using-dsc-at-initial-boot-up/)</span></span>
 
-# <a name="configure-a-virtual-machines-at-initial-boot-up-by-using-dsc"></a><span data-ttu-id="b08c7-106">Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC</span><span class="sxs-lookup"><span data-stu-id="b08c7-106">Configure a virtual machines at initial boot-up by using DSC</span></span>
+# <a name="configure-a-virtual-machines-at-initial-boot-up-by-using-dsc"></a><span data-ttu-id="d652f-106">Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC</span><span class="sxs-lookup"><span data-stu-id="d652f-106">Configure a virtual machines at initial boot-up by using DSC</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="b08c7-107">Požadavky</span><span class="sxs-lookup"><span data-stu-id="b08c7-107">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="d652f-107">Požadavky</span><span class="sxs-lookup"><span data-stu-id="d652f-107">Requirements</span></span>
 
-<span data-ttu-id="b08c7-108">Pokud chcete spustit tyto příklady, budete potřebovat:</span><span class="sxs-lookup"><span data-stu-id="b08c7-108">To run these examples, you will need:</span></span>
+<span data-ttu-id="d652f-108">Pokud chcete spustit tyto příklady, budete potřebovat:</span><span class="sxs-lookup"><span data-stu-id="d652f-108">To run these examples, you will need:</span></span>
 
-- <span data-ttu-id="b08c7-109">Spouštěcí virtuální pevný disk pro práci s.</span><span class="sxs-lookup"><span data-stu-id="b08c7-109">A bootable VHD to work with.</span></span> <span data-ttu-id="b08c7-110">Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na   [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016).</span><span class="sxs-lookup"><span data-stu-id="b08c7-110">You can download an ISO with an evaluation copy of Windows Server 2016 at   [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016).</span></span> <span data-ttu-id="b08c7-111">Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/en-us/library/gg318049.aspx).</span><span class="sxs-lookup"><span data-stu-id="b08c7-111">You can find instructions on how to create a VHD from an ISO image at [Creating Bootable Virtual Hard Disks](https://technet.microsoft.com/en-us/library/gg318049.aspx).</span></span>
-- <span data-ttu-id="b08c7-112">Hostitelský počítač, který má technologie Hyper-V povolena.</span><span class="sxs-lookup"><span data-stu-id="b08c7-112">A host computer that has Hyper-V enabled.</span></span> <span data-ttu-id="b08c7-113">Informace najdete v tématu [Přehled technologie Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).</span><span class="sxs-lookup"><span data-stu-id="b08c7-113">For information, see [Hyper-V overview](https://technet.microsoft.com/library/hh831531.aspx).</span></span>
+- <span data-ttu-id="d652f-109">Spouštěcí virtuální pevný disk pro práci s.</span><span class="sxs-lookup"><span data-stu-id="d652f-109">A bootable VHD to work with.</span></span> <span data-ttu-id="d652f-110">Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016).</span><span class="sxs-lookup"><span data-stu-id="d652f-110">You can download an ISO with an evaluation copy of Windows Server 2016 at [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016).</span></span> <span data-ttu-id="d652f-111">Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/en-us/library/gg318049.aspx).</span><span class="sxs-lookup"><span data-stu-id="d652f-111">You can find instructions on how to create a VHD from an ISO image at [Creating Bootable Virtual Hard Disks](https://technet.microsoft.com/en-us/library/gg318049.aspx).</span></span>
+- <span data-ttu-id="d652f-112">Hostitelský počítač, který má technologie Hyper-V povolena.</span><span class="sxs-lookup"><span data-stu-id="d652f-112">A host computer that has Hyper-V enabled.</span></span> <span data-ttu-id="d652f-113">Informace najdete v tématu [Přehled technologie Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).</span><span class="sxs-lookup"><span data-stu-id="d652f-113">For information, see [Hyper-V overview](https://technet.microsoft.com/library/hh831531.aspx).</span></span>
 
-<span data-ttu-id="b08c7-114">Pomocí DSC můžete automatizovat instalaci softwaru a konfigurace pro počítač v počáteční spouštěcí up.</span><span class="sxs-lookup"><span data-stu-id="b08c7-114">By using DSC, you can automate software installation and configuration for a computer at initial boot-up.</span></span>
-<span data-ttu-id="b08c7-115">To provedete vložením buď MOF dokumentu konfigurace nebo metakonfiguraci do spouštěcí médium (například virtuální pevný disk) tak, aby se při prvním procesu spouštění up spouštět.</span><span class="sxs-lookup"><span data-stu-id="b08c7-115">You do this by either injecting a configuration MOF document or a metaconfiguration into bootable media (such as a VHD) so that they are run during the initial boot-up process.</span></span>
-<span data-ttu-id="b08c7-116">Toto chování je zadána [klíč registru DSCAutomationHostEnabled](DSCAutomationHostEnabled.md) klíč registru v **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies**.</span><span class="sxs-lookup"><span data-stu-id="b08c7-116">This behavior is specified by the [DSCAutomationHostEnabled registry key](DSCAutomationHostEnabled.md) registry key under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies**.</span></span>
-<span data-ttu-id="b08c7-117">Hodnota tohoto klíče je ve výchozím nastavení, 2, který umožňuje DSC na spuštění při spuštění.</span><span class="sxs-lookup"><span data-stu-id="b08c7-117">By default, the value of this key is 2, which allows DSC to run at boot time.</span></span>
+<span data-ttu-id="d652f-114">Pomocí DSC můžete automatizovat instalaci softwaru a konfigurace pro počítač v počáteční spouštěcí up.</span><span class="sxs-lookup"><span data-stu-id="d652f-114">By using DSC, you can automate software installation and configuration for a computer at initial boot-up.</span></span>
+<span data-ttu-id="d652f-115">To provedete vložením buď MOF dokumentu konfigurace nebo metakonfiguraci do spouštěcí médium (například virtuální pevný disk) tak, aby se při prvním procesu spouštění up spouštět.</span><span class="sxs-lookup"><span data-stu-id="d652f-115">You do this by either injecting a configuration MOF document or a metaconfiguration into bootable media (such as a VHD) so that they are run during the initial boot-up process.</span></span>
+<span data-ttu-id="d652f-116">Toto chování je zadána [klíč registru DSCAutomationHostEnabled](DSCAutomationHostEnabled.md) klíč registru v **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies**.</span><span class="sxs-lookup"><span data-stu-id="d652f-116">This behavior is specified by the [DSCAutomationHostEnabled registry key](DSCAutomationHostEnabled.md) registry key under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies**.</span></span>
+<span data-ttu-id="d652f-117">Hodnota tohoto klíče je ve výchozím nastavení, 2, který umožňuje DSC na spuštění při spuštění.</span><span class="sxs-lookup"><span data-stu-id="d652f-117">By default, the value of this key is 2, which allows DSC to run at boot time.</span></span>
 
-<span data-ttu-id="b08c7-118">Pokud nechcete, aby DSC na spuštění při spuštění, nastavte hodnotu [klíč registru DSCAutomationHostEnabled](DSCAutomationHostEnabled.md) klíč registru na hodnotu 0.</span><span class="sxs-lookup"><span data-stu-id="b08c7-118">If you do not want DSC to run at boot time, set the value of the [DSCAutomationHostEnabled registry key](DSCAutomationHostEnabled.md) registry key to 0.</span></span>
+<span data-ttu-id="d652f-118">Pokud nechcete, aby DSC na spuštění při spuštění, nastavte hodnotu [klíč registru DSCAutomationHostEnabled](DSCAutomationHostEnabled.md) klíč registru na hodnotu 0.</span><span class="sxs-lookup"><span data-stu-id="d652f-118">If you do not want DSC to run at boot time, set the value of the [DSCAutomationHostEnabled registry key](DSCAutomationHostEnabled.md) registry key to 0.</span></span>
 
-- <span data-ttu-id="b08c7-119">Vložit dokument MOF konfigurace do virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="b08c7-119">Inject a configuration MOF document into a VHD</span></span>
-- <span data-ttu-id="b08c7-120">Vložit metakonfiguraci DSC do virtuálního pevného disku</span><span class="sxs-lookup"><span data-stu-id="b08c7-120">Inject a DSC metaconfiguration into a VHD</span></span>
-- <span data-ttu-id="b08c7-121">Zakázat DSC při spuštění</span><span class="sxs-lookup"><span data-stu-id="b08c7-121">Disable DSC at boot time</span></span>
+- <span data-ttu-id="d652f-119">Vložit dokument MOF konfigurace do virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="d652f-119">Inject a configuration MOF document into a VHD</span></span>
+- <span data-ttu-id="d652f-120">Vložit metakonfiguraci DSC do virtuálního pevného disku</span><span class="sxs-lookup"><span data-stu-id="d652f-120">Inject a DSC metaconfiguration into a VHD</span></span>
+- <span data-ttu-id="d652f-121">Zakázat DSC při spuštění</span><span class="sxs-lookup"><span data-stu-id="d652f-121">Disable DSC at boot time</span></span>
 
-><span data-ttu-id="b08c7-122">**Poznámka:** můžete vložit obě `Pending.mof` a `MetaConfig.mof` do počítače ve stejnou dobu.</span><span class="sxs-lookup"><span data-stu-id="b08c7-122">**Note:** You can inject both `Pending.mof` and `MetaConfig.mof` into a computer at the same time.</span></span>
-<span data-ttu-id="b08c7-123">Pokud nejsou oba soubory, nastavení zadané v `MetaConfig.mof` přednost.</span><span class="sxs-lookup"><span data-stu-id="b08c7-123">If both files are present, the settings specified in `MetaConfig.mof` take precedence.</span></span>
+><span data-ttu-id="d652f-122">**Poznámka:** můžete vložit obě `Pending.mof` a `MetaConfig.mof` do počítače ve stejnou dobu.</span><span class="sxs-lookup"><span data-stu-id="d652f-122">**Note:** You can inject both `Pending.mof` and `MetaConfig.mof` into a computer at the same time.</span></span>
+<span data-ttu-id="d652f-123">Pokud nejsou oba soubory, nastavení zadané v `MetaConfig.mof` přednost.</span><span class="sxs-lookup"><span data-stu-id="d652f-123">If both files are present, the settings specified in `MetaConfig.mof` take precedence.</span></span>
 
-## <a name="inject-a-configuration-mof-document-into-a-vhd"></a><span data-ttu-id="b08c7-124">Vložit dokument MOF konfigurace do virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="b08c7-124">Inject a configuration MOF document into a VHD</span></span>
+## <a name="inject-a-configuration-mof-document-into-a-vhd"></a><span data-ttu-id="d652f-124">Vložit dokument MOF konfigurace do virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="d652f-124">Inject a configuration MOF document into a VHD</span></span>
 
-<span data-ttu-id="b08c7-125">K uplatní konfigurace na počáteční spouštěcí up, můžete vložit dokument MOF kompilované konfigurace do virtuálního pevného disku jako jeho `Pending.mof` souboru.</span><span class="sxs-lookup"><span data-stu-id="b08c7-125">To enact a configuration at initial boot-up, you can inject a compiled configuration MOF document into the VHD as its `Pending.mof` file.</span></span>
-<span data-ttu-id="b08c7-126">Pokud **DSCAutomationHostEnabled** klíč registru je nastavena na 2 (výchozí hodnota), DSC se použijí konfigurace definované `Pending.mof` když se počítač spustí službu poprvé.</span><span class="sxs-lookup"><span data-stu-id="b08c7-126">If the **DSCAutomationHostEnabled** registry key is set to 2 (the default value), DSC will apply the configuration defined by `Pending.mof` when the computer boots up for the first time.</span></span>
+<span data-ttu-id="d652f-125">K uplatní konfigurace na počáteční spouštěcí up, můžete vložit dokument MOF kompilované konfigurace do virtuálního pevného disku jako jeho `Pending.mof` souboru.</span><span class="sxs-lookup"><span data-stu-id="d652f-125">To enact a configuration at initial boot-up, you can inject a compiled configuration MOF document into the VHD as its `Pending.mof` file.</span></span>
+<span data-ttu-id="d652f-126">Pokud **DSCAutomationHostEnabled** klíč registru je nastavena na 2 (výchozí hodnota), DSC se použijí konfigurace definované `Pending.mof` když se počítač spustí službu poprvé.</span><span class="sxs-lookup"><span data-stu-id="d652f-126">If the **DSCAutomationHostEnabled** registry key is set to 2 (the default value), DSC will apply the configuration defined by `Pending.mof` when the computer boots up for the first time.</span></span>
 
-<span data-ttu-id="b08c7-127">V tomto příkladu použijeme následující konfiguraci, která nainstaluje službu IIS na novém počítači:</span><span class="sxs-lookup"><span data-stu-id="b08c7-127">For this example, we will use the following configuration, which will install IIS on the new computer:</span></span>
+<span data-ttu-id="d652f-127">V tomto příkladu použijeme následující konfiguraci, která nainstaluje službu IIS na novém počítači:</span><span class="sxs-lookup"><span data-stu-id="d652f-127">For this example, we will use the following configuration, which will install IIS on the new computer:</span></span>
 
 ```powershell
 Configuration SampleIISInstall
@@ -61,47 +61,47 @@ Configuration SampleIISInstall
 }
 ```
 
-### <a name="to-inject-the-configuration-mof-document-on-the-vhd"></a><span data-ttu-id="b08c7-128">Vložení dokumentu MOF konfigurace na virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="b08c7-128">To inject the configuration MOF document on the VHD</span></span>
+### <a name="to-inject-the-configuration-mof-document-on-the-vhd"></a><span data-ttu-id="d652f-128">Vložení dokumentu MOF konfigurace na virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="d652f-128">To inject the configuration MOF document on the VHD</span></span>
 
-1. <span data-ttu-id="b08c7-129">Připojit virtuální pevný disk, do kterého chcete vložit konfigurace voláním [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-129">Mount the VHD into which you want to inject the configuration by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-130">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-130">For example:</span></span>
+1. <span data-ttu-id="d652f-129">Připojit virtuální pevný disk, do kterého chcete vložit konfigurace voláním [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-129">Mount the VHD into which you want to inject the configuration by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-130">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-130">For example:</span></span>
 
     ```powershell
     Mount-VHD -Path C:\users\public\documents\vhd\Srv16.vhd
     ```
-2. <span data-ttu-id="b08c7-131">V počítači se systémem PowerShell 5.0 nebo novější, uložte výše konfiguraci (**SampleIISInstall**) jako soubor skriptu (.ps1) v prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b08c7-131">On a computer running PowerShell 5.0 or later, save the above configuration (**SampleIISInstall**) as a PowerShell script (.ps1) file.</span></span>
+2. <span data-ttu-id="d652f-131">V počítači se systémem PowerShell 5.0 nebo novější, uložte výše konfiguraci (**SampleIISInstall**) jako soubor skriptu (.ps1) v prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="d652f-131">On a computer running PowerShell 5.0 or later, save the above configuration (**SampleIISInstall**) as a PowerShell script (.ps1) file.</span></span>
 
-3. <span data-ttu-id="b08c7-132">V konzole Powershellu přejděte do složky, kam jste uložili soubor .ps1.</span><span class="sxs-lookup"><span data-stu-id="b08c7-132">In a PowerShell console, navigate to the folder where you saved the .ps1 file.</span></span>
+3. <span data-ttu-id="d652f-132">V konzole Powershellu přejděte do složky, kam jste uložili soubor .ps1.</span><span class="sxs-lookup"><span data-stu-id="d652f-132">In a PowerShell console, navigate to the folder where you saved the .ps1 file.</span></span>
 
-4. <span data-ttu-id="b08c7-133">Spusťte následující příkazy prostředí PowerShell zkompilovat soubor MOF dokumentu (informace o kompilaci konfigurace DSC najdete v tématu [konfigurace DSC](configurations.md):</span><span class="sxs-lookup"><span data-stu-id="b08c7-133">Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](configurations.md):</span></span>
+4. <span data-ttu-id="d652f-133">Spusťte následující příkazy prostředí PowerShell zkompilovat soubor MOF dokumentu (informace o kompilaci konfigurace DSC najdete v tématu [konfigurace DSC](configurations.md):</span><span class="sxs-lookup"><span data-stu-id="d652f-133">Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](configurations.md):</span></span>
 
     ```powershell
     . .\SampleIISInstall.ps1
     SampleIISInstall
     ```
 
-5. <span data-ttu-id="b08c7-134">Tím se vytvoří `localhost.mof` souboru do nové složky s názvem `SampleIISInstall`.</span><span class="sxs-lookup"><span data-stu-id="b08c7-134">This will create a `localhost.mof` file in a new folder named `SampleIISInstall`.</span></span>
-<span data-ttu-id="b08c7-135">Přejmenování a přesunutí tento soubor do příslušného umístění na virtuální pevný disk jako `Pending.mof` pomocí [přesunout položku](https://technet.microsoft.comlibrary/hh849852.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-135">Rename and move that file into the proper location on the VHD as `Pending.mof` by using the [Move-Item](https://technet.microsoft.comlibrary/hh849852.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-136">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-136">For example:</span></span>
+5. <span data-ttu-id="d652f-134">Tím se vytvoří `localhost.mof` souboru do nové složky s názvem `SampleIISInstall`.</span><span class="sxs-lookup"><span data-stu-id="d652f-134">This will create a `localhost.mof` file in a new folder named `SampleIISInstall`.</span></span>
+<span data-ttu-id="d652f-135">Přejmenování a přesunutí tento soubor do příslušného umístění na virtuální pevný disk jako `Pending.mof` pomocí [přesunout položku](https://technet.microsoft.comlibrary/hh849852.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-135">Rename and move that file into the proper location on the VHD as `Pending.mof` by using the [Move-Item](https://technet.microsoft.comlibrary/hh849852.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-136">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-136">For example:</span></span>
 
     ```powershell
-        Move-Item -Path C:\DSCTest\SampleIISInstall\localhost.mof -Destination E:\Windows\Sytem32\Configuration\Pending.mof
+        Move-Item -Path C:\DSCTest\SampleIISInstall\localhost.mof -Destination E:\Windows\System32\Configuration\Pending.mof
     ```
-6. <span data-ttu-id="b08c7-137">Odpojte virtuální pevný disk pomocí volání [odpojení virtuálního pevného disku](https://technet.microsoft.com/library/hh848562.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-137">Dismount the VHD by calling the [Dismount-VHD](https://technet.microsoft.com/library/hh848562.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-138">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-138">For example:</span></span>
+6. <span data-ttu-id="d652f-137">Odpojte virtuální pevný disk pomocí volání [odpojení virtuálního pevného disku](https://technet.microsoft.com/library/hh848562.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-137">Dismount the VHD by calling the [Dismount-VHD](https://technet.microsoft.com/library/hh848562.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-138">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-138">For example:</span></span>
 
     ```powershell
     Dismount-VHD -Path C:\users\public\documents\vhd\Srv16.vhd
     ```
 
-7. <span data-ttu-id="b08c7-139">Vytvoření virtuálního počítače pomocí virtuálního pevného disku, kam jste nainstalovali DSC MOF dokumentu.</span><span class="sxs-lookup"><span data-stu-id="b08c7-139">Create a VM by using the VHD where you installed the DSC MOF document.</span></span> <span data-ttu-id="b08c7-140">Po instalaci operačního systému a vyhledá spouštěcí up bude nainstalována služba IIS.</span><span class="sxs-lookup"><span data-stu-id="b08c7-140">After intial boot-up and operating system installation, IIS will be installed.</span></span>
-<span data-ttu-id="b08c7-141">Můžete to ověřit pomocí volání [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-141">You can verify this by calling the [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) cmdlet.</span></span>
+7. <span data-ttu-id="d652f-139">Vytvoření virtuálního počítače pomocí virtuálního pevného disku, kam jste nainstalovali DSC MOF dokumentu.</span><span class="sxs-lookup"><span data-stu-id="d652f-139">Create a VM by using the VHD where you installed the DSC MOF document.</span></span> <span data-ttu-id="d652f-140">Po instalaci operačního systému a vyhledá spouštěcí up bude nainstalována služba IIS.</span><span class="sxs-lookup"><span data-stu-id="d652f-140">After intial boot-up and operating system installation, IIS will be installed.</span></span>
+<span data-ttu-id="d652f-141">Můžete to ověřit pomocí volání [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-141">You can verify this by calling the [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) cmdlet.</span></span>
 
-## <a name="inject-a-dsc-metaconfiguration-into-a-vhd"></a><span data-ttu-id="b08c7-142">Vložit metakonfiguraci DSC do virtuálního pevného disku</span><span class="sxs-lookup"><span data-stu-id="b08c7-142">Inject a DSC metaconfiguration into a VHD</span></span>
+## <a name="inject-a-dsc-metaconfiguration-into-a-vhd"></a><span data-ttu-id="d652f-142">Vložit metakonfiguraci DSC do virtuálního pevného disku</span><span class="sxs-lookup"><span data-stu-id="d652f-142">Inject a DSC metaconfiguration into a VHD</span></span>
 
-<span data-ttu-id="b08c7-143">Můžete také nakonfigurovat počítač načítat konfigurace v vyhledá spouštěcí up vložením metakonfiguraci (najdete v části [konfigurace místní Configuration Manager (LCM)](metaConfig.md)) do virtuálního pevného disku jako jeho `MetaConfig.mof` souboru.</span><span class="sxs-lookup"><span data-stu-id="b08c7-143">You can also configure a computer to pull a configuration at intial boot-up by injecting a metaconfiguration (see [Configuring the Local Configuration Manager (LCM)](metaConfig.md)) into the VHD as its `MetaConfig.mof` file.</span></span>
-<span data-ttu-id="b08c7-144">Pokud **DSCAutomationHostEnabled** klíč registru je nastavena na 2 (výchozí hodnota), DSC se použijí metakonfiguraci definované `MetaConfig.mof` k LCM, když se počítač spustí službu poprvé.</span><span class="sxs-lookup"><span data-stu-id="b08c7-144">If the **DSCAutomationHostEnabled** registry key is set to 2 (the default value),  DSC will apply the metaconfiguration defined by `MetaConfig.mof` to the LCM when the computer boots up for the first time.</span></span>
-<span data-ttu-id="b08c7-145">Pokud metakonfiguraci Určuje, že by měl LCM přijetí změn konfigurace z načítacího serveru, počítač se pokusí o konfiguraci z tohoto serveru vyžádané replikace pro vyžádání obsahu na počáteční spouštěcí up.</span><span class="sxs-lookup"><span data-stu-id="b08c7-145">If the metaconfiguration specifies that the LCM should pull configurations from a pull server, the computer will attempt to pull a configuration from that pull server at inital boot-up.</span></span>
-<span data-ttu-id="b08c7-146">Informace o nastavení server DSC za najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md).</span><span class="sxs-lookup"><span data-stu-id="b08c7-146">For information about setting up a DSC pull server, see [Setting up a DSC web pull server](pullServer.md).</span></span>
+<span data-ttu-id="d652f-143">Můžete také nakonfigurovat počítač načítat konfigurace v vyhledá spouštěcí up vložením metakonfiguraci (najdete v části [konfigurace místní Configuration Manager (LCM)](metaConfig.md)) do virtuálního pevného disku jako jeho `MetaConfig.mof` souboru.</span><span class="sxs-lookup"><span data-stu-id="d652f-143">You can also configure a computer to pull a configuration at intial boot-up by injecting a metaconfiguration (see [Configuring the Local Configuration Manager (LCM)](metaConfig.md)) into the VHD as its `MetaConfig.mof` file.</span></span>
+<span data-ttu-id="d652f-144">Pokud **DSCAutomationHostEnabled** klíč registru je nastavena na 2 (výchozí hodnota), DSC se použijí metakonfiguraci definované `MetaConfig.mof` k LCM, když se počítač spustí službu poprvé.</span><span class="sxs-lookup"><span data-stu-id="d652f-144">If the **DSCAutomationHostEnabled** registry key is set to 2 (the default value),  DSC will apply the metaconfiguration defined by `MetaConfig.mof` to the LCM when the computer boots up for the first time.</span></span>
+<span data-ttu-id="d652f-145">Pokud metakonfiguraci Určuje, že by měl LCM přijetí změn konfigurace z načítacího serveru, počítač se pokusí o konfiguraci z tohoto serveru vyžádané replikace pro vyžádání obsahu na počáteční spouštěcí up.</span><span class="sxs-lookup"><span data-stu-id="d652f-145">If the metaconfiguration specifies that the LCM should pull configurations from a pull server, the computer will attempt to pull a configuration from that pull server at inital boot-up.</span></span>
+<span data-ttu-id="d652f-146">Informace o nastavení server DSC za najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md).</span><span class="sxs-lookup"><span data-stu-id="d652f-146">For information about setting up a DSC pull server, see [Setting up a DSC web pull server](pullServer.md).</span></span>
 
-<span data-ttu-id="b08c7-147">V tomto příkladu použijeme konfiguraci popsané v předchozí části (**SampleIISInstall**) a následující metakonfiguraci:</span><span class="sxs-lookup"><span data-stu-id="b08c7-147">For this example, we will use both the configuration described in the previous section (**SampleIISInstall**), and the following metaconfiguration:</span></span>
+<span data-ttu-id="d652f-147">V tomto příkladu použijeme konfiguraci popsané v předchozí části (**SampleIISInstall**) a následující metakonfiguraci:</span><span class="sxs-lookup"><span data-stu-id="d652f-147">For this example, we will use both the configuration described in the previous section (**SampleIISInstall**), and the following metaconfiguration:</span></span>
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -125,83 +125,83 @@ configuration PullClientBootstrap
 }
 ```
 
-### <a name="to-inject-the-metaconfiguration-mof-document-on-the-vhd"></a><span data-ttu-id="b08c7-148">Chcete-li vložit dokument MOF metakonfiguraci na virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="b08c7-148">To inject the metaconfiguration MOF document on the VHD</span></span>
+### <a name="to-inject-the-metaconfiguration-mof-document-on-the-vhd"></a><span data-ttu-id="d652f-148">Chcete-li vložit dokument MOF metakonfiguraci na virtuální pevný disk</span><span class="sxs-lookup"><span data-stu-id="d652f-148">To inject the metaconfiguration MOF document on the VHD</span></span>
 
-1. <span data-ttu-id="b08c7-149">Připojit virtuální pevný disk, do kterého chcete vložit metakonfiguraci voláním [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-149">Mount the VHD into which you want to inject the metaconfiguration by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-150">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-150">For example:</span></span>
+1. <span data-ttu-id="d652f-149">Připojit virtuální pevný disk, do kterého chcete vložit metakonfiguraci voláním [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-149">Mount the VHD into which you want to inject the metaconfiguration by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-150">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-150">For example:</span></span>
 
     ```powershell
     Mount-VHD -Path C:\users\public\documents\vhd\Srv16.vhd
     ```
 
-2. <span data-ttu-id="b08c7-151">[Nastavení webového serveru vyžádané replikace DSC](pullServer.md)a uložte **SampleIISInistall** konfigurace do příslušné složky.</span><span class="sxs-lookup"><span data-stu-id="b08c7-151">[Set up a DSC web pull server](pullServer.md), and save the **SampleIISInistall** configuration to the appropriate folder.</span></span>
+2. <span data-ttu-id="d652f-151">[Nastavení webového serveru vyžádané replikace DSC](pullServer.md)a uložte **SampleIISInistall** konfigurace do příslušné složky.</span><span class="sxs-lookup"><span data-stu-id="d652f-151">[Set up a DSC web pull server](pullServer.md), and save the **SampleIISInistall** configuration to the appropriate folder.</span></span>
 
-3. <span data-ttu-id="b08c7-152">V počítači se systémem PowerShell 5.0 nebo novější, uložit výše metakonfiguraci (**PullClientBootstrap**) jako soubor skriptu (.ps1) v prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b08c7-152">On a computer running PowerShell 5.0 or later, save the above metaconfiguration (**PullClientBootstrap**) as a PowerShell script (.ps1) file.</span></span>
+3. <span data-ttu-id="d652f-152">V počítači se systémem PowerShell 5.0 nebo novější, uložit výše metakonfiguraci (**PullClientBootstrap**) jako soubor skriptu (.ps1) v prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="d652f-152">On a computer running PowerShell 5.0 or later, save the above metaconfiguration (**PullClientBootstrap**) as a PowerShell script (.ps1) file.</span></span>
 
-4. <span data-ttu-id="b08c7-153">V konzole Powershellu přejděte do složky, kam jste uložili soubor .ps1.</span><span class="sxs-lookup"><span data-stu-id="b08c7-153">In a PowerShell console, navigate to the folder where you saved the .ps1 file.</span></span>
+4. <span data-ttu-id="d652f-153">V konzole Powershellu přejděte do složky, kam jste uložili soubor .ps1.</span><span class="sxs-lookup"><span data-stu-id="d652f-153">In a PowerShell console, navigate to the folder where you saved the .ps1 file.</span></span>
 
-5. <span data-ttu-id="b08c7-154">Spusťte následující příkazy prostředí PowerShell zkompilovat soubor MOF dokumentu metakonfiguraci (informace o kompilaci konfigurace DSC najdete v tématu [konfigurace DSC](configurations.md):</span><span class="sxs-lookup"><span data-stu-id="b08c7-154">Run the following PowerShell commands to compile the  metaconfiguration MOF document (for information about compiling DSC configurations, see [DSC Configurations](configurations.md):</span></span>
+5. <span data-ttu-id="d652f-154">Spusťte následující příkazy prostředí PowerShell zkompilovat soubor MOF dokumentu metakonfiguraci (informace o kompilaci konfigurace DSC najdete v tématu [konfigurace DSC](configurations.md):</span><span class="sxs-lookup"><span data-stu-id="d652f-154">Run the following PowerShell commands to compile the  metaconfiguration MOF document (for information about compiling DSC configurations, see [DSC Configurations](configurations.md):</span></span>
 
     ```powershell
     . .\PullClientBootstrap.ps1
     PullClientBootstrap
     ```
 
-6. <span data-ttu-id="b08c7-155">Tím se vytvoří `localhost.meta.mof` souboru do nové složky s názvem `PullClientBootstrap`.</span><span class="sxs-lookup"><span data-stu-id="b08c7-155">This will create a `localhost.meta.mof` file in a new folder named `PullClientBootstrap`.</span></span>
-<span data-ttu-id="b08c7-156">Přejmenování a přesunutí tento soubor do příslušného umístění na virtuální pevný disk jako `MetaConfig.mof` pomocí [přesunout položku](https://technet.microsoft.comlibrary/hh849852.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-156">Rename and move that file into the proper location on the VHD as `MetaConfig.mof` by using the [Move-Item](https://technet.microsoft.comlibrary/hh849852.aspx) cmdlet.</span></span>
+6. <span data-ttu-id="d652f-155">Tím se vytvoří `localhost.meta.mof` souboru do nové složky s názvem `PullClientBootstrap`.</span><span class="sxs-lookup"><span data-stu-id="d652f-155">This will create a `localhost.meta.mof` file in a new folder named `PullClientBootstrap`.</span></span>
+<span data-ttu-id="d652f-156">Přejmenování a přesunutí tento soubor do příslušného umístění na virtuální pevný disk jako `MetaConfig.mof` pomocí [přesunout položku](https://technet.microsoft.comlibrary/hh849852.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-156">Rename and move that file into the proper location on the VHD as `MetaConfig.mof` by using the [Move-Item](https://technet.microsoft.comlibrary/hh849852.aspx) cmdlet.</span></span>
 
     ```powershell
     Move-Item -Path C:\DSCTest\PullClientBootstrap\localhost.meta.mof -Destination E:\Windows\Sytem32\Configuration\MetaConfig.mof
     ```
 
-7. <span data-ttu-id="b08c7-157">Odpojte virtuální pevný disk pomocí volání [odpojení virtuálního pevného disku](https://technet.microsoft.com/library/hh848562.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-157">Dismount the VHD by calling the [Dismount-VHD](https://technet.microsoft.com/library/hh848562.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-158">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-158">For example:</span></span>
+7. <span data-ttu-id="d652f-157">Odpojte virtuální pevný disk pomocí volání [odpojení virtuálního pevného disku](https://technet.microsoft.com/library/hh848562.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-157">Dismount the VHD by calling the [Dismount-VHD](https://technet.microsoft.com/library/hh848562.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-158">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-158">For example:</span></span>
 
     ```powershell
     Dismount-VHD -Path C:\users\public\documents\vhd\Srv16.vhd
     ```
 
-8. <span data-ttu-id="b08c7-159">Vytvoření virtuálního počítače pomocí virtuálního pevného disku, kam jste nainstalovali DSC MOF dokumentu.</span><span class="sxs-lookup"><span data-stu-id="b08c7-159">Create a VM by using the VHD where you installed the DSC MOF document.</span></span>
-<span data-ttu-id="b08c7-160">Po instalaci operačního systému a vyhledá spouštěcí up DSC načte konfiguraci z načítacího serveru a služby IIS se nainstalují.</span><span class="sxs-lookup"><span data-stu-id="b08c7-160">After intial boot-up and operating system installation, DSC will pull the configuration from the pull server, and IIS will be installed.</span></span>
-<span data-ttu-id="b08c7-161">Můžete to ověřit pomocí volání [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-161">You can verify this by calling the [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) cmdlet.</span></span>
+8. <span data-ttu-id="d652f-159">Vytvoření virtuálního počítače pomocí virtuálního pevného disku, kam jste nainstalovali DSC MOF dokumentu.</span><span class="sxs-lookup"><span data-stu-id="d652f-159">Create a VM by using the VHD where you installed the DSC MOF document.</span></span>
+<span data-ttu-id="d652f-160">Po instalaci operačního systému a vyhledá spouštěcí up DSC načte konfiguraci z načítacího serveru a služby IIS se nainstalují.</span><span class="sxs-lookup"><span data-stu-id="d652f-160">After intial boot-up and operating system installation, DSC will pull the configuration from the pull server, and IIS will be installed.</span></span>
+<span data-ttu-id="d652f-161">Můžete to ověřit pomocí volání [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-161">You can verify this by calling the [Get-WindowsFeature](https://technet.microsoft.com/library/jj205469.aspx) cmdlet.</span></span>
 
-## <a name="disable-dsc-at-boot-time"></a><span data-ttu-id="b08c7-162">Zakázat DSC při spuštění</span><span class="sxs-lookup"><span data-stu-id="b08c7-162">Disable DSC at boot time</span></span>
+## <a name="disable-dsc-at-boot-time"></a><span data-ttu-id="d652f-162">Zakázat DSC při spuštění</span><span class="sxs-lookup"><span data-stu-id="d652f-162">Disable DSC at boot time</span></span>
 
-<span data-ttu-id="b08c7-163">Výchozí hodnota **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DSCAutomationHostEnabled** klíč je nastavena na 2, což umožňuje konfiguraci DSC ke spuštění, pokud je počítač v aktuální nebo čekající na vyřízení stav.</span><span class="sxs-lookup"><span data-stu-id="b08c7-163">By default, the value of the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DSCAutomationHostEnabled** key is set to 2, which allows a DSC configuration to run if the computer is in pending or current state.</span></span> <span data-ttu-id="b08c7-164">Pokud nechcete, aby konfiguraci, kterou chcete spustit počáteční spouštěcí up, třeba, nastavte hodnotu tohoto klíče na hodnotu 0:</span><span class="sxs-lookup"><span data-stu-id="b08c7-164">If you do not want a configuration to run at initial boot-up, you need so set the value of this key to 0:</span></span>
+<span data-ttu-id="d652f-163">Výchozí hodnota **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DSCAutomationHostEnabled** klíč je nastavena na 2, což umožňuje konfiguraci DSC ke spuštění, pokud je počítač v aktuální nebo čekající na vyřízení stav.</span><span class="sxs-lookup"><span data-stu-id="d652f-163">By default, the value of the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DSCAutomationHostEnabled** key is set to 2, which allows a DSC configuration to run if the computer is in pending or current state.</span></span> <span data-ttu-id="d652f-164">Pokud nechcete, aby konfiguraci, kterou chcete spustit počáteční spouštěcí up, třeba, nastavte hodnotu tohoto klíče na hodnotu 0:</span><span class="sxs-lookup"><span data-stu-id="d652f-164">If you do not want a configuration to run at initial boot-up, you need so set the value of this key to 0:</span></span>
 
-1. <span data-ttu-id="b08c7-165">Připojit virtuální pevný disk pomocí volání [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="b08c7-165">Mount the VHD by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="b08c7-166">Příklad:</span><span class="sxs-lookup"><span data-stu-id="b08c7-166">For example:</span></span>
+1. <span data-ttu-id="d652f-165">Připojit virtuální pevný disk pomocí volání [připojit virtuální pevný disk](https://technet.microsoft.com/library/hh848551.aspx) rutiny.</span><span class="sxs-lookup"><span data-stu-id="d652f-165">Mount the VHD by calling the [Mount-VHD](https://technet.microsoft.com/library/hh848551.aspx) cmdlet.</span></span> <span data-ttu-id="d652f-166">Příklad:</span><span class="sxs-lookup"><span data-stu-id="d652f-166">For example:</span></span>
 
     ```powershell
     Mount-VHD -Path C:\users\public\documents\vhd\Srv16.vhd
     ```
 
-2. <span data-ttu-id="b08c7-167">Načíst registr **klíče HKLM\Software** podklíčů z virtuálního pevného disku voláním `reg load`.</span><span class="sxs-lookup"><span data-stu-id="b08c7-167">Load the registry **HKLM\Software** subkey from the VHD by calling `reg load`.</span></span>
+2. <span data-ttu-id="d652f-167">Načíst registr **klíče HKLM\Software** podklíčů z virtuálního pevného disku voláním `reg load`.</span><span class="sxs-lookup"><span data-stu-id="d652f-167">Load the registry **HKLM\Software** subkey from the VHD by calling `reg load`.</span></span>
 
     ```
     reg load HKLM\Vhd E:\Windows\System32\Config\Software`
     ```
 
-3. <span data-ttu-id="b08c7-168">Přejděte na **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\***  pomocí poskytovatele prostředí PowerShell registru.</span><span class="sxs-lookup"><span data-stu-id="b08c7-168">Navigate to the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\*** by using the PowerShell Registry provider.</span></span>
+3. <span data-ttu-id="d652f-168">Přejděte na **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\***  pomocí poskytovatele prostředí PowerShell registru.</span><span class="sxs-lookup"><span data-stu-id="d652f-168">Navigate to the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\*** by using the PowerShell Registry provider.</span></span>
 
     ```powershell
     Set-Location HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies`
     ```
 
-4. <span data-ttu-id="b08c7-169">Změňte hodnotu `DSCAutomationHostEnabled` na hodnotu 0.</span><span class="sxs-lookup"><span data-stu-id="b08c7-169">Change the value of `DSCAutomationHostEnabled` to 0.</span></span>
+4. <span data-ttu-id="d652f-169">Změňte hodnotu `DSCAutomationHostEnabled` na hodnotu 0.</span><span class="sxs-lookup"><span data-stu-id="d652f-169">Change the value of `DSCAutomationHostEnabled` to 0.</span></span>
 
     ```powershell
     Set-ItemProperty -Path . -Name DSCAutomationHostEnabled -Value 0
     ```
 
-5. <span data-ttu-id="b08c7-170">Uvolnění registru tak, že spustíte následující příkazy:</span><span class="sxs-lookup"><span data-stu-id="b08c7-170">Unload the registry by running the following commands:</span></span>
+5. <span data-ttu-id="d652f-170">Uvolnění registru tak, že spustíte následující příkazy:</span><span class="sxs-lookup"><span data-stu-id="d652f-170">Unload the registry by running the following commands:</span></span>
 
     ```powershell
     [gc]::Collect()
     reg unload HKLM\Vhd
     ```
 
-## <a name="see-also"></a><span data-ttu-id="b08c7-171">Viz také</span><span class="sxs-lookup"><span data-stu-id="b08c7-171">See Also</span></span>
+## <a name="see-also"></a><span data-ttu-id="d652f-171">Viz také</span><span class="sxs-lookup"><span data-stu-id="d652f-171">See Also</span></span>
 
-- [<span data-ttu-id="b08c7-172">Konfigurace DSC</span><span class="sxs-lookup"><span data-stu-id="b08c7-172">DSC Configurations</span></span>](configurations.md)
-- [<span data-ttu-id="b08c7-173">Klíč registru DSCAutomationHostEnabled</span><span class="sxs-lookup"><span data-stu-id="b08c7-173">DSCAutomationHostEnabled registry key</span></span>](DSCAutomationHostEnabled.md)
-- [<span data-ttu-id="b08c7-174">Konfigurace správce místní konfigurace (LCM)</span><span class="sxs-lookup"><span data-stu-id="b08c7-174">Configuring the Local Configuration Manager (LCM)</span></span>](metaConfig.md)
-- [<span data-ttu-id="b08c7-175">Nastavení webového serveru vyžádané replikace DSC</span><span class="sxs-lookup"><span data-stu-id="b08c7-175">Setting up a DSC web pull server</span></span>](pullServer.md)
+- [<span data-ttu-id="d652f-172">Konfigurace DSC</span><span class="sxs-lookup"><span data-stu-id="d652f-172">DSC Configurations</span></span>](configurations.md)
+- [<span data-ttu-id="d652f-173">Klíč registru DSCAutomationHostEnabled</span><span class="sxs-lookup"><span data-stu-id="d652f-173">DSCAutomationHostEnabled registry key</span></span>](DSCAutomationHostEnabled.md)
+- [<span data-ttu-id="d652f-174">Konfigurace Local Configuration Manageru (LCM)</span><span class="sxs-lookup"><span data-stu-id="d652f-174">Configuring the Local Configuration Manager (LCM)</span></span>](metaConfig.md)
+- [<span data-ttu-id="d652f-175">Nastavení webového serveru vyžádané replikace DSC</span><span class="sxs-lookup"><span data-stu-id="d652f-175">Setting up a DSC web pull server</span></span>](pullServer.md)
 
