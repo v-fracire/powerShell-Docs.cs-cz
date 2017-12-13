@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 2429e0fa6ef982d3c722c62c7b1aed8f36ce9959
-ms.sourcegitcommit: cd5a1f054cbf9eb95c5242a995f9741e031ddb24
+ms.openlocfilehash: d01fd70e60e65c9d787431ee505388c3737c635f
+ms.sourcegitcommit: ea01285a3aa7818d67d4761fbd8793b9b66bd5f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="product-compatibility-status"></a>Stav kompatibility produktu
 
@@ -15,9 +15,11 @@ ms.lasthandoff: 11/28/2017
 > Systémy, které jsou následující serverové aplikace **můžete spustit** Windows Management Framework 5.1:
 
 - Microsoft SharePoint Server 2013
-- Skype pro Business Server 2015
+- Skype pro firmy Server 2015 (_viz Poznámka_) 
 - Microsoft Lync Server 2013
 - System Center 2012 Configuration Manager
+
+_Poznámka: Skype pro firmy Server 2015 kompatibilitu s WMF 5.1 byl testován pouze s Windows serverem 2012 R2._ 
 
 ## <a name="not-tested"></a>Netestováno:
 > Systémy, které jsou následující serverové aplikace **nebyly testovány** proti Windows Management Framework 5.1:

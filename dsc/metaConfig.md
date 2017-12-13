@@ -4,11 +4,11 @@ author: eslesar;mgreenegit
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace správce místní konfigurace"
-ms.openlocfilehash: 98470f45ca7c11ea63d68da7dec9fcd844f06192
-ms.sourcegitcommit: 9a5da3f739b1eebb81ede58bd4fc8037bad87224
+ms.openlocfilehash: 6ca527aae263637bbca5a064e0d770fe9384d679
+ms.sourcegitcommit: ea01285a3aa7818d67d4761fbd8793b9b66bd5f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuring-the-local-configuration-manager"></a>Konfigurace správce místní konfigurace
 
@@ -73,7 +73,7 @@ Následující vlastnosti jsou k dispozici v **nastavení** bloku.
 
 |  Vlastnost  |  Typ  |  Popis   |
 |----------- |------- |--------------- |
-| ActionAfterReboot| řetězec| Určuje, co se stane po restartu během použití konfigurace. Možné hodnoty jsou __"ContinueConfiguration"__ a __"StopConfiguration"__. <ul><li> __ContinueConfiguration__: pokračovat v použití aktuální konfiguraci po restartování počítače. Toto je výchozí falue</li><li>__StopConfiguration__: Zastavit aktuální konfiguraci po restartování počítače.</li></ul>|
+| ActionAfterReboot| řetězec| Určuje, co se stane po restartu během použití konfigurace. Možné hodnoty jsou __"ContinueConfiguration"__ a __"StopConfiguration"__. <ul><li> __ContinueConfiguration__: pokračovat v použití aktuální konfiguraci po restartování počítače. Toto je výchozí hodnota</li><li>__StopConfiguration__: Zastavit aktuální konfiguraci po restartování počítače.</li></ul>|
 | AllowModuleOverwrite| BOOL| __$TRUE__ Pokud nové konfigurace stažené z službu vyžádání obsahu se smí přepsat staré na cílovém uzlu. Jinak hodnota $FALSE.|
 | CertificateID| řetězec| Kryptografický otisk certifikátu k zabezpečení přihlašovacích údajů předaných v konfiguraci. Další informace najdete v části [chcete zabezpečit přihlašovací údaje v části Konfigurace požadovaného stavu aplikace Windows PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/31/want-to-secure-credentials-in-windows-powershell-desired-state-configuration.aspx)?. <br> __Poznámka:__ to probíhá automaticky při použití služby Azure Automation DSC vyžádání obsahu.|
 | ConfigurationDownloadManagers| [CimInstance]| Zastaralé. Použití __ConfigurationRepositoryWeb__ a __ConfigurationRepositoryShare__ bloky k definování konfigurace vyžadování koncové body služby.|
