@@ -39,6 +39,7 @@
 ### [Publikování](psget/module/psget_publish-module.md)
 ### [Moduly s PSEditions](psget/module/modulewithpseditionsupport.md)
 ### [Moduly vyžadující přijetí licence](psget/module/RequireLicenseAcceptance.md)
+### [Předběžné verze](psget/module/PreReleaseModule.md)
 ### [Řešení potíží](psget/psget_cmdlets_troubleshooting.md)
 
 ## Skript
@@ -54,7 +55,7 @@
 ### [Publikování](psget/script/psget_publish-script.md)
 ### [Skripty s PSEditions](psget/script/scriptwithpseditionsupport.md)
 ### [Vyžadování přijetí licence u skriptů](psget/script/script_RequireLicenseAcceptance.md)
-
+### [Předběžné verze](psget/script/PreReleaseScript.md)
 ## Správa úložiště
 ### [Zavedení poskytovatele balíčku NuGet a programu NuGet.exe](psget/repository/bootstrapping_nuget_proivder_and_exe.md)
 ### [Registrace úložiště](psget/repository/psget_register-psrepository.md)
