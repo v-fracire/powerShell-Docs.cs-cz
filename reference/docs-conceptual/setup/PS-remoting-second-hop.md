@@ -2,11 +2,11 @@
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell"
-ms.openlocfilehash: f3b8280819e43bd67bd608ffd0ba9484c2bbc26c
-ms.sourcegitcommit: 4102ecc35d473211f50a453f6ae3fbea31cb3428
+ms.openlocfilehash: 2518409369a75a49b975b9b944320c1878819421
+ms.sourcegitcommit: 1a0a0928c1e3cae4e8df8d79b0737bd7ed6b4e47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="making-the-second-hop-in-powershell-remoting"></a>Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell
 
@@ -256,12 +256,12 @@ Můžete předat pověření uvnitř **ScriptBlock** parametr volání [Invoke-C
 - Nevyžaduje konfiguraci speciální serveru.
 - Funguje na všechny servery se spuštěným WMF 2.0 nebo novější.
 
-## <a name="cons"></a>Nevýhody
+### <a name="cons"></a>Nevýhody
 
 - Vyžaduje technika nevhodných kódu.
 - Pokud systém WMF 2.0, vyžaduje jinou syntaxi pro předání argumentů ke vzdálené relaci.
 
-## <a name="example"></a>Příklad
+### <a name="example"></a>Příklad
 
 Následující příklad ukazuje, jak předat přihlašovací údaje v **Invoke-Command** bloku skriptu:
 
@@ -277,7 +277,7 @@ Invoke-Command -ComputerName ServerB -Credential $cred -ScriptBlock {
 
 ## <a name="see-also"></a>Viz taky
 
-[Důležité informace o zabezpečení pro vzdálenou komunikaci prostředí PowerShell](WinRMSecurity.md)
+[Aspekty zabezpečení vzdálené komunikace PowerShellu](WinRMSecurity.md)
 
 
 
