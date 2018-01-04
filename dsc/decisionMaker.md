@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Přehled stavu konfigurace požadovaných pro rozhodují"
-ms.openlocfilehash: e39ab5138b20653e46ac35fa32b99d268f96b2df
-ms.sourcegitcommit: f069ff0689006fece768f178c10e3e3eeaee09f0
+ms.openlocfilehash: 1800acfa9edae4f65e34db380ff719ad4c034921
+ms.sourcegitcommit: 60f06a06c2fce63024f3f4cbd7657b1dfe7fcb1a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="desired-state-configuration-overview-for-decision-makers"></a>Přehled stavu konfigurace požadovaných pro rozhodují
 
@@ -34,7 +34,7 @@ Konfigurace je také možné sdílet prostřednictvím [Galerie prostředí Powe
 
 ## <a name="desired-state-configuration-and-devops"></a>Konfigurace požadovaného stavu a DevOps
 
-[DevOps](http://blogs.technet.com/b/ashleymcglone/archive/2015/11/20/devops-for-n00bs-ie-windows-people.aspx) je kombinací osoby, technologie a jazykovou verzi, která umožňuje rychlé nasazení a iterací. DSC byla vytvořena DevOps v paměti. S konfigurací jedné definovat prostředí znamená, že vývojáři mohou kódování požadavky do konfigurace, zkontrolujte, že konfigurace do správy zdrojového kódu a oddělení můžete snadno nasadit kód aniž by museli projít k chybám Manuální procesy. 
+[DevOps](http://blogs.technet.com/b/ashleymcglone/archive/2015/11/20/devops-for-n00bs-ie-windows-people.aspx) je kombinací osoby, proces a nástroje, které umožňují pro rychlé nasazení a iterace zaměřuje na hodnotu koncovým uživatelům, ať už interní nebo externí. DSC byla vytvořena DevOps v paměti. S konfigurací jedné definovat prostředí znamená, že vývojáři mohou kódování požadavky do konfigurace, zkontrolujte, že konfigurace do správy zdrojového kódu a oddělení můžete snadno nasadit kód aniž by museli projít k chybám Manuální procesy. 
 
 Konfigurace jsou také [řízené daty](https://msdn.microsoft.com/en-us/powershell/dsc/configdata), což usnadňuje ops týmy identifikovat a změnit prostředí bez zásahu vývojáře. 
 

@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Pomocí konfigurační data"
-ms.openlocfilehash: a70cd8f0f6c24eb02743b02d198cebcc3d775756
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 60c6c2d5694a03275e1a08522bdcf4b1bc5bb068
+ms.sourcegitcommit: 60f06a06c2fce63024f3f4cbd7657b1dfe7fcb1a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="using-configuration-data-in-dsc"></a>Pomocí konfigurační data v DSC
 
@@ -153,7 +153,7 @@ Například můžete vytvořit soubor s názvem `MyData.psd1` s tímto obsahem:
 
 ## <a name="compiling-a-configuration-with-configuration-data"></a>Kompilování konfigurace s konfigurační data
 
-Kompilace konfigurace, pro který jste definovali konfigurační data, můžete předat data konfigurace jako hodnotu **ConfigurationData** parametr.
+Kompilace konfigurace, pro který jste definovali konfigurační data, předáte konfigurační data jako hodnotu **ConfigurationData** parametr.
 
 Tím se vytvoří pro každou položku v souboru MOF **AllNodes** pole.
 Každý soubor MOF budou mít názvy `NodeName` vlastnost odpovídající položky pole.
@@ -187,7 +187,7 @@ DSC poskytuje tři speciální proměnné, které lze použít v konfigurační 
 ## <a name="using-non-node-data"></a>Pomocí data bez uzlu
 
 Jak jsme viděli v předchozích příkladech **ConfigurationData** zatřiďovací tabulka může mít jeden či více klíčů kromě požadované **AllNodes** klíč.
-V příkladech v tomto tématu jsme použít pouze jeden addiontal uzel a s názvem ho `NonNodeData`. Však můžete definovat libovolný počet addiontal klíče a název je všechno, co chcete.
+V příkladech v tomto tématu jsme používá jenom jeden další uzel a s názvem ho `NonNodeData`. Však můžete definovat libovolný počet dalších klíčů a název je všechno, co chcete.
 
 Příklad použití dat na jiný uzel, naleznete v části [oddělení dat konfigurace a prostředí](separatingEnvData.md).
 

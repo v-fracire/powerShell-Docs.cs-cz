@@ -4,11 +4,11 @@ author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: Konfigurace DSC
-ms.openlocfilehash: c0cf0e7aa1d18898c50a0662e4fc76ab02932f08
-ms.sourcegitcommit: 7bb75bfb8d12aaa6b6071dcb2ca639d4ecceef26
+ms.openlocfilehash: eeee18e6a4bd09cc22d1ac4ed5cbfaea02346170
+ms.sourcegitcommit: 60f06a06c2fce63024f3f4cbd7657b1dfe7fcb1a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="dsc-configurations"></a>Konfigurace DSC
 
@@ -67,7 +67,7 @@ MyDscConfiguration
 
 ```
 
-V tomto příkladu zadejte název uzlu předáním jej jako **ComputerName** parametr při kompilaci zobrazí. Výchozí název "localhost".
+V tomto příkladu zadejte název uzlu předáním jej jako **ComputerName** parametr při kompilaci konfigurace. Výchozí název "localhost".
 
 ## <a name="compiling-the-configuration"></a>Kompilování konfigurace
 
