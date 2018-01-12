@@ -224,7 +224,7 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
   - `PSEdition`: Tato hodnota je nastavena `Core` na základní prostředí PowerShell a `Desktop` na prostředí Windows PowerShell
   - `GitCommitId`: Jedná se o ID potvrzení Git Git větev nebo značky, které bylo vytvořeno prostředí PowerShell.
     U vydaných sestavení, pravděpodobně bude stejná jako `PSVersion`.
-  - `OS`: Toto je řetězec verze operačního systému vrácené`[System.Environment]::OSVersion.VersionString`
+  - `OS`: Toto je řetězec verze operačního systému vrácené`[System.Runtime.InteropServices.RuntimeInformation]::OSDescription`
   - `Platform`: Toto je vrácen rutinou `[System.Environment]::OSVersion.Platform` je nastaven na hodnotu `Win32NT` v systému Windows, `MacOSX` v systému macOS, a `Unix` v systému Linux.
 - Odebrat `BuildVersion` vlastnost z `$PSVersionTable`.
   Tato vlastnost byla důrazně vázaný na verzi Windows sestavení.

@@ -2,10 +2,10 @@
 
 ## <a name="msi"></a>MSI
 
-K instalaci prostředí PowerShell na Windows serveru nebo klienta Windows (funguje v Server 2008 R2, Windows 7 SP1 a novější), stáhněte balíček Instalační služby MSI
-<!-- TODO: either the Download Center or -->
-Naše Githubu [uvolní][] stránky.
+K instalaci prostředí PowerShell na Windows serveru nebo klienta Windows (funguje na Server 2008 R2, Windows 7 SP1 a novější), stáhněte si balíček Instalační služby MSI z našich Githubu [uvolní][] stránky.
+
 Soubor MSI vypadá takto-`PowerShell-6.0.0.<buildversion>.<os-arch>.msi`
+<!-- TODO: should be updated to point to the Download Center as well -->
 
 Po stažení poklikejte na instalační program a postupujte podle pokynů.
 

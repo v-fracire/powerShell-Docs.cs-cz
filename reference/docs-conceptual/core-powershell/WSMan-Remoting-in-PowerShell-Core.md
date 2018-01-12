@@ -35,13 +35,14 @@ Install-PowerShellRemoting.ps1
 #### <a name="executed-by-another-instance-of-powershell-on-behalf-of-the-instance-that-it-will-register"></a>Provedený jiná instance prostředí PowerShell jménem instanci, která se budou registrovat
 
 ``` powershell
-<path to powershell>\Install-PowerShellRemoting.ps1 -PowerShellHome "<absolute path to the instance's $PSHOME>" -PowerShellVersion "<the powershell version tag>"
+<path to powershell>\Install-PowerShellRemoting.ps1 -PowerShellHome "<absolute path to the instance's $PSHOME>"
 ```
 
 Například:
 
 ``` powershell
-C:\Program Files\PowerShell\6.0.0.9\Install-PowerShellRemoting.ps1 -PowerShellHome "C:\Program Files\PowerShell\6.0.0.9\" -PowerShellVersion "6.0.0-alpha.9"
+Set-Location -Path 'C:\Program Files\PowerShell\6.0.0\'
+.\Install-PowerShellRemoting.ps1 -PowerShellHome "C:\Program Files\PowerShell\6.0.0\"
 ```
 
 **Poznámka:** skript registrace vzdálené komunikace restartuje WinRM, tak všechny existující relace PSRP přeruší okamžitě po spuštění skriptu. Je-li spustit v průběhu vzdálené relace, to se ukončí připojení.
@@ -51,8 +52,8 @@ C:\Program Files\PowerShell\6.0.0.9\Install-PowerShellRemoting.ps1 -PowerShellHo
 Vytvořte relaci prostředí PowerShell na nový koncový bod prostředí PowerShell zadáním `-ConfigurationName "some endpoint name"`. Připojit k instanci prostředí PowerShell z v předchozím příkladu, použijte buď:
 
 ``` powershell
-New-PSSession ... -ConfigurationName "powershell.6.0.0-alpha.9"
-Enter-PSSession ... -ConfigurationName "powershell.6.0.0-alpha.9"
+New-PSSession ... -ConfigurationName "powershell.6.0.0"
+Enter-PSSession ... -ConfigurationName "powershell.6.0.0"
 ```
 
 Všimněte si, že `New-PSSession` a `Enter-PSSession` volání, které neurčují `-ConfigurationName` se zaměří na výchozí koncový bod prostředí PowerShell, `microsoft.powershell`.
