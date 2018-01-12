@@ -1,27 +1,39 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Spouštění vzdálených příkazů"
+title: "Spuštění vzdálených příkazů"
 ms.assetid: d6938b56-7dc8-44ba-b4d4-cd7b169fd74d
-ms.openlocfilehash: 5cf9690b8fe4549a99186f172cb6f0de156a4dea
-ms.sourcegitcommit: c5251755c4442487f99ff74fadf7e37bbf039089
+ms.openlocfilehash: 43f07abd642e7de235647fa151537c46ebe86cae
+ms.sourcegitcommit: 6aed37d7f0c9652ae09bb8c11928da7e4783ed7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="running-remote-commands"></a>Spouštění vzdálených příkazů
+# <a name="running-remote-commands"></a>Spuštění vzdálených příkazů
+
 Příkazy můžete spustit na jednom nebo stovky počítačů pomocí jednoho příkazu prostředí Windows PowerShell. Prostředí Windows PowerShell podporuje vzdálený přístup pomocí různých technologií, včetně WS-Management, rozhraní WMI a RPC.
+
+## <a name="remoting-in-powershell-core"></a>Vzdálená komunikace prostředí PowerShell jádra
+
+Jádro prostředí PowerShell, na novější edici prostředí PowerShell v systému Windows, systému macOS a Linux, podporuje rozhraní WMI, WS-Management a vzdálené komunikace s SSH.
+(RPC již není podporována.)
+
+Další informace o toto nastavení najdete v tématu:
+
+* [SSH vzdálené komunikace v prostředí PowerShell základní] [ssh-vzdálené komunikace]
+* [WinRM vzdálené komunikace v prostředí PowerShell základní] [winrm vzdálené komunikace]
 
 ## <a name="remoting-without-configuration"></a>Vzdálená komunikace bez konfigurace
 Mnoho rutin prostředí Windows PowerShell mít parametr ComputerName, která umožňuje shromažďování dat a změňte nastavení na jeden nebo více vzdálených počítačích. Používají různé technologie komunikace a mnoho pracovních na všechny operační systémy Windows, které podporuje prostředí Windows PowerShell bez žádnou zvláštní konfiguraci.
 
 Zahrnout tyto rutiny:
+
 * [Restartování počítače](https://go.microsoft.com/fwlink/?LinkId=821625)
 * [Test připojení](https://go.microsoft.com/fwlink/?LinkId=821646)
 * [Clear – protokolu událostí](https://go.microsoft.com/fwlink/?LinkId=821568)
 * [Get-protokolu událostí](https://go.microsoft.com/fwlink/?LinkId=821585)
 * [Get-oprav HotFix](https://go.microsoft.com/fwlink/?LinkId=821586)
-  - [Get-Process](https://go.microsoft.com/fwlink/?linkid=821590)
+* [Get-Process](https://go.microsoft.com/fwlink/?linkid=821590)
 * [Get-Service](https://go.microsoft.com/fwlink/?LinkId=821593)
 * [Nastavení služby](https://go.microsoft.com/fwlink/?LinkId=821633)
 * [Get-WinEvent.](https://go.microsoft.com/fwlink/?linkid=821529)
@@ -135,3 +147,6 @@ Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troublesh
 - [Nový PSSession](https://go.microsoft.com/fwlink/?LinkId=821498)
 - [Register-PSSessionConfiguration](https://go.microsoft.com/fwlink/?LinkId=821508)
 - [Zprostředkovatel služby WSMan](https://technet.microsoft.com/en-us/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
+
+[wsman-remoting]: WSMan-Remoting-in-PowerShell-Core.md
+[ssh-resmoting]: SSH-Remoting-in-PowerShell-Core.md
