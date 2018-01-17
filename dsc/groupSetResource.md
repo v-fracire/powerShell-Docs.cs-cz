@@ -1,15 +1,14 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 description: "Poskytuje mechanismus ke správě místních skupin na cílový uzel."
 title: "GroupSet prostředek DSC"
-ms.openlocfilehash: 0907a968bfc660adc873c28e8be6572d1d5cb993
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 158cb28747c5fe1987eb62b2cc0f6d6f6fb14332
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="dsc-groupset-resource"></a>GroupSet prostředek DSC
 
@@ -42,7 +41,7 @@ Group [string] #ResourceName
 | Ujistěte se| Určuje, zda existují skupiny. Nastavením této vlastnosti "Chybí" zajistit, že skupiny nejsou k dispozici. Nastavení jej do "K dispozici" (výchozí hodnota) zajišťuje, že existují skupiny.| 
 | Členové| Pomocí této vlastnosti můžete nahradit členství v aktuální skupině zadaný členy. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.| 
 | MembersToInclude| Postup přidání členů do stávajícího členství skupiny pomocí této vlastnosti. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[ Typ prostředku] ResourceName"".| 
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".| 
 
 ## <a name="example-1"></a>Příklad 1
 
