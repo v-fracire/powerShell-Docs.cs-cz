@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-10-31
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Zabezpečení souboru MOF"
-ms.openlocfilehash: ed9d259e2cd963560ad6f5b60702c54e2fa36900
-ms.sourcegitcommit: cd5a1f054cbf9eb95c5242a995f9741e031ddb24
+ms.openlocfilehash: fdb8fa17e9b5e92b56e0a62bf850529c241eee41
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="securing-the-mof-file"></a>Zabezpečení souboru MOF
 
@@ -81,7 +80,7 @@ V následujícím příkladu:
  3. Importuje certifikátu veřejného klíče do **Moje** úložiště certifikátů na **vytváření uzlu**.
 
 #### <a name="on-the-target-node-create-and-export-the-certificate"></a>Na cílovém uzlu: vytvoření a export certifikátu
->Pro tvorbu uzlu: Windows Server 2016 a Windows 10
+>Cílový uzel: Windows Server 2016 a Windows 10
 
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
@@ -91,7 +90,7 @@ $cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 Po exportu ```DscPublicKey.cer``` by bylo potřeba kopírovat do **vytváření uzlu**.
 
->Vytváření uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
+>Cílový uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
 
 Protože rutinu New-SelfSignedCertificate na Windows operačních systémech starších než Windows 10 a Windows Server 2016 nepodporují **typ** parametr, alternativní metodu vytváření tohoto certifikátu je povinný, pokud k nim operační systémy.
 V takovém případě můžete použít ```makecert.exe``` nebo ```certutil.exe``` k vytvoření certifikátu.
@@ -109,7 +108,6 @@ New-SelfsignedCertificateEx `
     -FriendlyName 'DSC Credential Encryption certificate' `
     -Exportable `
     -StoreLocation 'LocalMachine' `
-    -StoreName 'My' `
     -KeyLength 2048 `
     -ProviderName 'Microsoft Enhanced Cryptographic Provider v1.0' `
     -AlgorithmName 'RSA' `

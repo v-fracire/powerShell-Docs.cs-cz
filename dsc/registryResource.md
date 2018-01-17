@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Prostředek DSC registru"
-ms.openlocfilehash: 649cb60578c053c04a7fcc7446881fb76daee26a
-ms.sourcegitcommit: 79e8f03afb8d0b0bb0a167e56464929b27f51990
+ms.openlocfilehash: 1e73e4275c0d9db5d8fac7641514ea8190f719ca
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="dsc-registry-resource"></a>Prostředek DSC registru
 
@@ -36,12 +35,12 @@ Registry [string] #ResourceName
 |  Vlastnost  |  Popis   | 
 |---|---| 
 | Klávesa| Určuje cestu klíč registru, pro které chcete zajistit určitý stav. Tato cesta musí obsahovat podregistr.| 
-| Název hodnoty| Určuje název hodnoty registru. Chcete-li přidat nebo odebrat klíč registru, zadejte tuto vlastnost jako prázdný řetězec bez zadání ValueType nebo data. Změnit nebo odebrat výchozí hodnota klíče registru, zadejte tuto vlastnost při zadávání také ValueType nebo data jako prázdný řetězec.| 
+| ValueName| Určuje název hodnoty registru. Chcete-li přidat nebo odebrat klíč registru, zadejte tuto vlastnost jako prázdný řetězec bez zadání ValueType nebo data. Změnit nebo odebrat výchozí hodnota klíče registru, zadejte tuto vlastnost při zadávání také ValueType nebo data jako prázdný řetězec.| 
 | Ujistěte se| Určuje, zda existují klíč a hodnotu. Aby se zajistilo, že udělají, nastavte tuto vlastnost na "Dispozici". Aby se zajistilo, že neexistují, nastavte vlastnost na "Chybí". Výchozí hodnota je "Dispozici".| 
 | Force| Pokud zadaný klíč registru existuje, __Force__ přepíše s novou hodnotou. Pokud odstraníte klíč registru s podklíče, musí se jednat __$true__| 
 | Hex| Označuje, pokud budou data vyjádřeny v šestnáctkovém formátu. -Li zadána, data hodnotu DWORD nebo QWORD jsou zobrazena v šestnáctkovém formátu. Pro jiné typy není platná. Výchozí hodnota je __$false__.| 
 | dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.| 
-| Data| Data pro hodnotu registru.| 
+| ValueData| Data pro hodnotu registru.| 
 | ValueType| Označuje typ hodnoty. Podporované typy jsou: 
 <ul><li>Řetězec (REG_SZ)</li>
 

@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Oddělení dat konfigurace a prostředí"
-ms.openlocfilehash: 861a4cecc28b2d93b2cfa2743d47ee0e5025e1f4
-ms.sourcegitcommit: 60c6f9d8cf316e6d5b285854e6e5641ac7648f3f
+ms.openlocfilehash: cf0d4a12efe4998176d3c80841740c5f9d9a103b
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="separating-configuration-and-environment-data"></a>Oddělení dat konfigurace a prostředí
 

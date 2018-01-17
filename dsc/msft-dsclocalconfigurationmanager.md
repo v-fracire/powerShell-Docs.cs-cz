@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "MSFT_DSCLocalConfigurationManager – třída"
-ms.openlocfilehash: 35f732698fcc58f7bd43945edd10c143ffb79af9
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: b2d2ce000988f2c10ab04c4ba5a4650bd3c75ec7
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="msftdsclocalconfigurationmanager-class"></a>MSFT_DSCLocalConfigurationManager – třída
 
@@ -51,7 +50,7 @@ class MSFT_DSCLocalConfigurationManager
 | [ResourceGet](msft-dsclocalconfigurationmanager-resourceget.md)| Volá přímo **získat** metoda prostředek DSC.| 
 | [ResourceSet](msft-dsclocalconfigurationmanager-resourceset.md)| Volá přímo **nastavit** metoda prostředek DSC.| 
 | [ResourceTest](msft-dsclocalconfigurationmanager-resourcetest.md)| Volá přímo **Test** metoda prostředek DSC.| 
-| [Vrácení zpět](msft-dsclocalconfigurationmanager-rollback.md)| Zobrazí souhrn zpět na předchozí konfiguraci.| 
+| [RollBack](msft-dsclocalconfigurationmanager-rollback.md)| Zobrazí souhrn zpět na předchozí konfiguraci.| 
 | [SendConfiguration](msft-dsclocalconfigurationmanager-sendconfiguration.md)| Odešle spravovaný uzel dokumentu konfigurace a uloží ji jako nevyřízenou změnu.| 
 | [SendConfigurationApply](msft-dsclocalconfigurationmanager-sendconfigurationapply.md)| Odešle spravovaný uzel dokumentu konfigurace a používá Agent konfigurace můžete použít konfiguraci.| 
 | [SendConfigurationApplyAsync](msft-dsclocalconfigurationmanager-sendconfigurationapplyasync.md)| Poslat spravovaný uzel dokumentu konfigurace a spustí pomocí konfigurace agenta pro použití v konfiguraci. Pomocí GetConfigurationResultOutput načíst výstup výsledků.| 

@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Doporučené postupy pro vyžádání obsahu"
-ms.openlocfilehash: 66b97f4edb43926866b39731d720a2dc8c91eb2e
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 045f98475d6182b329ecf048038a98e933684a82
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="pull-server-best-practices"></a>Doporučené postupy pro vyžádání obsahu
 
@@ -110,7 +109,7 @@ Jaké velikost serveru bude požadovat?|
 
 Nejsou žádné požadavky na účet služby pro nasazení do instance serveru vyžádané replikace. Existují však scénáře, kde může web spustit v kontextu místního uživatelského účtu. Například pokud je potřeba přístup sdílené složky úložiště pro obsah webu a Windows Server nebo zařízení hostování sdílenou složku úložiště nejsou připojené k doméně.
 
-### <a name="dns-records"></a>Záznamy DNS
+### <a name="dns-records"></a>DNS records
 
 Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru vyžádané replikace. V testovacích prostředích obvykle se používá název hostitele serveru nebo adresu IP serveru lze použít, pokud překlad názvu DNS není k dispozici. V produkčních prostředích nebo v testovacím prostředí, který reprezentuje produkční nasazení osvědčeným postupem je vytvořit záznam DNS CNAME.
 

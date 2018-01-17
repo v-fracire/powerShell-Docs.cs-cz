@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Nastavení webového serveru vyžádané replikace DSC"
-ms.openlocfilehash: 03d4d148c87854b146091aa0e8d815b8c35def72
-ms.sourcegitcommit: 4102ecc35d473211f50a453f6ae3fbea31cb3428
+ms.openlocfilehash: 9a09804ef0efe3e4c92923910884710187d44ac5
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="setting-up-a-dsc-web-pull-server"></a>Nastavení webového serveru vyžádané replikace DSC
 
@@ -184,5 +183,5 @@ Následující témata popisují nastavení klientů pro vyžádání obsahu pod
 ## <a name="see-also"></a>Viz taky
 * [Přehled stavu konfigurace požadovaného prostředí Windows PowerShell](overview.md)
 * [Přijetí konfigurace](enactingConfigurations.md)
-* [Pomocí serveru sestav DSC](reportServer.md)
+* [Použití serveru sestav DSC](reportServer.md)
 

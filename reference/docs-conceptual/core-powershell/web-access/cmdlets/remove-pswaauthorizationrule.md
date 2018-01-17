@@ -1,18 +1,16 @@
 ---
 description: 
-manager: carmonm
 ms.topic: article
-author: jpjofre
 ms.prod: powershell
 keywords: "rutiny prostředí PowerShell"
 ms.date: 2016-12-12
 title: odebrat pswaauthorizationrule
 ms.technology: powershell
-ms.openlocfilehash: a8304b68a446de0be98aa732304c71302fb8389e
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 4d039e7e00f87bc7aebb89217251edbbb5c3f5be
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="remove-pswaauthorizationrule"></a>Remove-PswaAuthorizationRule
 
@@ -20,7 +18,7 @@ ms.lasthandoff: 09/08/2017
 
 Odebere zadané autorizační pravidlo z Windows PowerShell® Web Access.
 
-## <a name="syntax"></a>SYNTAXE
+## <a name="syntax"></a>SYNTAX
 
 ### <a name="id"></a>Id
 ```

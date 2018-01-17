@@ -3,11 +3,11 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell"
 ms.assetid: f156b92d-0203-46d2-89c7-b4989d32e3d2
-ms.openlocfilehash: 6bddb953a7f17e220f92d357eb59dfedc5496272
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 66f36371cbb8ad8523aa1e1e3cd791cc692194c9
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="windows-powershell-integrated-scripting-environment-ise"></a>Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell
 Systému Windows PowerShell Integrované skriptovací prostředí (ISE) je jedním ze dvou hostitelů pro modul prostředí Windows PowerShell a jazyk. S ním můžete napsat, spuštění a testování skriptů způsoby, které nejsou k dispozici v konzole Windows PowerShell. ISE přidá barevné zvýrazňování syntaxe, dokončování pomocí tabulátorů, IntelliSense, ladění visual a kontextovou nápovědu.
@@ -63,5 +63,5 @@ Upozorňujeme, že všechny položky označené jako "Náhled", jsou předběžn
 > Protože Windows PowerShell ISE vyžaduje grafické uživatelské rozhraní, nelze jej spustit v jádra serveru systému Windows Server.
 
 ## <a name="see-also"></a>Viz taky
-- [Pomocí Windows PowerShell Integrované skriptovací prostředí](Using-the-Windows-PowerShell-ISE.md)
+- [Pomocí Windows PowerShell Integrované skriptovací prostředí](../../core-powershell/ise/Using-the-Windows-PowerShell-ISE.md)
 

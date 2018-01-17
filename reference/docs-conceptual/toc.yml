@@ -11,8 +11,6 @@
               href: core-powershell/console/powershell.exe-command-line-help.md
             - name: Použití rozšíření Tab
               href: core-powershell/console/using-tab-expansion.md
-        - name: Příručka ke konzole
-          href: core-powershell/console-guide.md
         - name: ISE
           href: core-powershell/ise/introducing-the-windows-powershell-ise.md
           items:
@@ -70,8 +68,6 @@
               href: core-powershell/ise/using-the-windows-powershell-ise.md
             - name: Referenční informace o objektovém modelu prostředí Windows PowerShell ISE
               href: core-powershell/ise/windows-powershell-ise-object-model-reference.md
-        - name: Příručka k prostředí ISE
-          href: core-powershell/ise-guide.md
         - name: Visual Studio Code
           items:
             - name: Používání nástroje Visual Studio Code
@@ -211,8 +207,6 @@
           href: getting-started/getting-started-with-windows-powershell.md
         - name: Další zdroje informací o PowerShellu
           href: getting-started/more-powershell-learning.md
-        - name: Odkazy na vysvětlení pojmů
-          href: getting-started/understanding-concepts-reference.md
     - name: Nastavení
       href: ''
       items:

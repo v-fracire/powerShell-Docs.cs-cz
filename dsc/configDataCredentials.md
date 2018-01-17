@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Možnosti přihlašovací údaje v konfiguračních dat"
-ms.openlocfilehash: 94ff541fc517254ef2876c424307513eaf1d362a
-ms.sourcegitcommit: 28e71b0ae868014523631fec3f5417de751944f3
+ms.openlocfilehash: 15cdb29127d9774c58e1d6518bbba56273e7defd
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovací údaje v konfiguračních dat
 >Platí pro: Prostředí Windows PowerShell 5.0
@@ -21,7 +20,10 @@ Chcete-li potlačit tyto chybové zprávy a upozornění používat klíčová s
 * **PsDscAllowPlainTextPassword**
 * **PsDscAllowDomainUser**
 
->**Poznámky:** <p>Ukládání nebo přenos hesel ve formátu prostého textu bez šifrování není zabezpečený. Doporučuje se zabezpečení přihlašovacích údajů pomocí techniky popsané dál v tomto tématu.</p> <p>Služba Azure Automation DSC umožňuje centrálně spravovat pověření k kompilovat v konfiguracích a bezpečně uložit.  Informace najdete v tématu: [kompilaci konfigurace DSC / prostředků přihlašovacích údajů](https://docs.microsoft.com/en-in/azure/automation/automation-dsc-compile#credential-assets)</p>
+> [!NOTE]
+> Ukládání nebo přenos hesel ve formátu prostého textu bez šifrování není zabezpečený. Doporučuje se zabezpečení přihlašovacích údajů pomocí techniky popsané dál v tomto tématu.
+> Služba Azure Automation DSC umožňuje centrálně spravovat pověření k kompilovat v konfiguracích a bezpečně uložit.
+> Informace najdete v tématu: [kompilaci konfigurace DSC / prostředků přihlašovacích údajů](/azure/automation/automation-dsc-compile#credential-assets)
 
 Následuje příklad předávání přihlašovací údaje ve formátu prostého textu:
 
@@ -133,7 +135,8 @@ WMF 5.0 přidat automatické `PsDscRunAsCredential` vlastnost pro všechny prost
 Informace o používání `PsDscRunAsCredential`, najdete v části [DSC spuštěná s pověřeními uživatele](runAsUser.md).
 Novější a vlastních prostředků pomocí této vlastnosti automatické místo vytvoření vlastní vlastnost pro přihlašovací údaje.
 
->**Poznámka:** návrh některé prostředky se mají používat více přihlašovací údaje pro konkrétní důvod, proč a budou mít vlastní vlastnosti přihlašovacích údajů.
+> [!NOTE]
+> Návrh některé prostředky se mají používat více přihlašovací údaje pro konkrétní důvod, proč a budou mít vlastní vlastnosti přihlašovacích údajů.
 
 K vyhledání dostupných přihlašovacích údajů vlastnosti prostředku, použijte buď `Get-DscResource -Name ResourceName -Syntax` nebo Intellisense (ISE) v (`CTRL+SPACE`).
 
@@ -222,8 +225,8 @@ for node 'localhost'.
 ```
 
 V tomto příkladu má dva problémy:
-1.  Chybu vysvětluje, že se nedoporučují hesla v prostém textu
-2.  Upozornění informuje o tom proti pomocí pověření domény
+1. Chybu vysvětluje, že se nedoporučují hesla v prostém textu
+2. Upozornění informuje o tom proti pomocí pověření domény
 
 ## <a name="psdscallowplaintextpassword"></a>PsDscAllowPlainTextPassword
 
@@ -266,12 +269,14 @@ $cred = Get-Credential -UserName contoso\genericuser -Message "Password please"
 DomainCredentialExample -DomainCredential $cred -ConfigurationData $cd
 ```
 
->**Poznámka:** `NodeName` se nesmí rovnat hvězdičky, konkrétním uzlu jméno je povinné.
+> [!NOTE]
+> `NodeName`se nesmí rovnat hvězdičky, konkrétním uzlu jméno je povinné.
 
 **Microsoft informuje o tom, aby se zabránilo hesla v prostém textu z důvodu významné bezpečnostní riziko.**
+
 Výjimku by při použití služby Azure Automation DSC, protože data se vždy ukládají zašifrovaně (na cestě, umístěná ve službě a v klidovém stavu uložených v uzlu).
 
-## <a name="domain-credentials"></a>Přihlašovací údaje do domény
+## <a name="domain-credentials"></a>Domain Credentials
 
 Spuštění skriptu konfigurace příklad opakujte (s nebo bez šifrování), stále generuje upozornění, že používáte doménu účtu pro přihlašovací údaje se nedoporučuje.
 Pomocí místního účtu eliminuje potenciální ohrožení pověření domény, které by mohly být použity na jiných serverech.

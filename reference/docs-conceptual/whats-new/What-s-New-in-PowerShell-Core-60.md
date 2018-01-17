@@ -13,7 +13,7 @@ To znamená, že prostředí Windows PowerShell zpřístupní sada rozhraní API
 
 Rozhraní API sdílena mezi .NET Core a rozhraní .NET Framework, které jsou definované jako součást [.NET Standard][].
 
-Další informace o tom, jak ovlivňuje kompatibilitu modulu nebo skript základní prostředí PowerShell a prostředí Windows PowerShell najdete v tématu [Backwards compatibility pomocí prostředí Windows PowerShell] [#backwards kompatibility s windows-powershell]
+Další informace o tom, jak ovlivňuje kompatibilitu modulu nebo skript základní prostředí PowerShell a prostředí Windows PowerShell najdete v tématu [Backwards compatibility pomocí prostředí Windows PowerShell](#backwards-compatibility-with-windows-powershell).
 
 ## <a name="support-for-macos-and-linux"></a>Podpora systému macOS a Linux
 
@@ -28,7 +28,7 @@ PowerShell teď oficiálně podporuje systému macOS a Linux, včetně:
 - Red Hat Enterprise Linux 7
 - OpenSUSE 42.2
 - Fedora 25, 26
-- systému macOS 10.12 +
+- macOS 10.12+
 
 Naše komunita také přispívá balíčky pro tyto platformy, ale nejsou oficiálně podporované:
 
@@ -176,10 +176,10 @@ Tato změna se týká následující rutiny:
 - Export-Clixml
 - Export-Csv
 - Export-PSSession
-- Šestnáctkový formátu
+- Format-Hex
 - Get obsahu
 - Import-Csv
-- Nové ModuleManifest
+- New-ModuleManifest
 - Out-File
 - Vyberte řetězec
 - Poštovní odesílání – zpráva

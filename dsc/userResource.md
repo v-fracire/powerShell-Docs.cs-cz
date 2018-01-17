@@ -1,14 +1,13 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Prostředek DSC uživatele"
-ms.openlocfilehash: a4e4e8af4fcfe5c997c460613174d8583261dedf
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: c1b8487d9adc899950d185036ada3a2fa3747417
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 #<a name="dsc-user-resource"></a>Prostředek DSC uživatele #
 
@@ -44,7 +43,7 @@ User [string] #ResourceName
 | Popis| Určuje popis, který chcete použít pro uživatelský účet.| 
 | Zakázáno| Určuje, zda je povolen účet. Tuto vlastnost nastavit na __$true__ zajistit, že tento účet je zakázané a nastavte ji na __$false__ zajistit, že je povolena.| 
 | Ujistěte se| Určuje, jestli účet existuje. Nastavením této vlastnosti "Přítomen" zajistit, že existuje účet a nastavte ji na "Chybí" zajistit, že účet neexistuje.| 
-| Úplný název| Představuje řetězec s úplný název, který chcete použít pro uživatelský účet.| 
+| FullName| Představuje řetězec s úplný název, který chcete použít pro uživatelský účet.| 
 | Heslo| Určuje heslo, které chcete použít pro tento účet. | 
 | PasswordChangeNotAllowed| Určuje, pokud uživatel změnit heslo. Tuto vlastnost nastavit na __$true__ zajistit, že uživatel nemůže změnit heslo a nastavte ji na __$false__ umožňuje uživatelům změnit heslo. Výchozí hodnota je __$false__.| 
 | PasswordChangeRequired| Označuje, pokud uživatel musí změnit heslo při příštím přihlašování. Tuto vlastnost nastavit na __$true__ Pokud musí uživatel změnit heslo. Výchozí hodnota je __$true__.| 
