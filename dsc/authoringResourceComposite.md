@@ -1,24 +1,23 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Složené prostředků – pomocí konfigurace DSC jako prostředek"
-ms.openlocfilehash: d889384c8d9c0746200ad424c6ab448a0e41d66c
-ms.sourcegitcommit: 60c6f9d8cf316e6d5b285854e6e5641ac7648f3f
+ms.openlocfilehash: 4a9574081d3579ffa910bf2ee595ba2550f40a15
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="composite-resources-using-a-dsc-configuration-as-a-resource"></a><span data-ttu-id="8fa43-103">Složené prostředky: použití konfigurace DSC jako prostředek</span><span class="sxs-lookup"><span data-stu-id="8fa43-103">Composite resources: Using a DSC configuration as a resource</span></span>
+# <a name="composite-resources-using-a-dsc-configuration-as-a-resource"></a><span data-ttu-id="dad70-103">Složené prostředky: použití konfigurace DSC jako prostředek</span><span class="sxs-lookup"><span data-stu-id="dad70-103">Composite resources: Using a DSC configuration as a resource</span></span>
 
-> <span data-ttu-id="8fa43-104">Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="8fa43-104">Applies To: Windows PowerShell 4.0, Windows PowerShell 5.0</span></span>
+> <span data-ttu-id="dad70-104">Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="dad70-104">Applies To: Windows PowerShell 4.0, Windows PowerShell 5.0</span></span>
 
-<span data-ttu-id="8fa43-105">V situacích, reálného může stát konfigurace dlouhá a složitá, volání mnoha různými prostředky a nastavení velká počet vlastností.</span><span class="sxs-lookup"><span data-stu-id="8fa43-105">In real-world situations, configurations can become long and complex, calling many different resources and setting a vast number of properties.</span></span> <span data-ttu-id="8fa43-106">K vám budou snadněji řešit tento složitost, můžete konfiguraci požadovaného stavu aplikace Windows PowerShell (DSC) jako prostředek pro ostatní konfigurace.</span><span class="sxs-lookup"><span data-stu-id="8fa43-106">To help address this complexity, you can use a Windows PowerShell Desired State Configuration (DSC) configuration as a resource for other configurations.</span></span> <span data-ttu-id="8fa43-107">Říkáme to složené prostředků.</span><span class="sxs-lookup"><span data-stu-id="8fa43-107">We call this a composite resource.</span></span> <span data-ttu-id="8fa43-108">Složené prostředek je konfigurace DSC, která přebírá parametry.</span><span class="sxs-lookup"><span data-stu-id="8fa43-108">A composite resource is a DSC configuration that takes parameters.</span></span> <span data-ttu-id="8fa43-109">Parametry konfigurace fungovat jako vlastnosti prostředku.</span><span class="sxs-lookup"><span data-stu-id="8fa43-109">The parameters of the configuration act as the properties of the resource.</span></span> <span data-ttu-id="8fa43-110">Konfigurace je uloženo jako soubor s **. schema.psm1** rozšíření a trvá místo schéma MOF a prostředek skript v typické prostředek DSC (Další informace o prostředcích DSC najdete v tématu [Windows Prostředí PowerShell Desired State Configuration prostředky](resources.md).</span><span class="sxs-lookup"><span data-stu-id="8fa43-110">The configuration is saved as a file with a **.schema.psm1** extension, and takes the place of both the MOF schema and the resource script in a typical DSC resource (for more information about DSC resources, see [Windows PowerShell Desired State Configuration Resources](resources.md).</span></span>
+<span data-ttu-id="dad70-105">V situacích, reálného může stát konfigurace dlouhá a složitá, volání mnoha různými prostředky a nastavení velká počet vlastností.</span><span class="sxs-lookup"><span data-stu-id="dad70-105">In real-world situations, configurations can become long and complex, calling many different resources and setting a vast number of properties.</span></span> <span data-ttu-id="dad70-106">K vám budou snadněji řešit tento složitost, můžete konfiguraci požadovaného stavu aplikace Windows PowerShell (DSC) jako prostředek pro ostatní konfigurace.</span><span class="sxs-lookup"><span data-stu-id="dad70-106">To help address this complexity, you can use a Windows PowerShell Desired State Configuration (DSC) configuration as a resource for other configurations.</span></span> <span data-ttu-id="dad70-107">Říkáme to složené prostředků.</span><span class="sxs-lookup"><span data-stu-id="dad70-107">We call this a composite resource.</span></span> <span data-ttu-id="dad70-108">Složené prostředek je konfigurace DSC, která přebírá parametry.</span><span class="sxs-lookup"><span data-stu-id="dad70-108">A composite resource is a DSC configuration that takes parameters.</span></span> <span data-ttu-id="dad70-109">Parametry konfigurace fungovat jako vlastnosti prostředku.</span><span class="sxs-lookup"><span data-stu-id="dad70-109">The parameters of the configuration act as the properties of the resource.</span></span> <span data-ttu-id="dad70-110">Konfigurace je uloženo jako soubor s **. schema.psm1** rozšíření a trvá místo schéma MOF a prostředek skript v typické prostředek DSC (Další informace o prostředcích DSC najdete v tématu [Windows Prostředí PowerShell Desired State Configuration prostředky](resources.md).</span><span class="sxs-lookup"><span data-stu-id="dad70-110">The configuration is saved as a file with a **.schema.psm1** extension, and takes the place of both the MOF schema and the resource script in a typical DSC resource (for more information about DSC resources, see [Windows PowerShell Desired State Configuration Resources](resources.md).</span></span>
 
-## <a name="creating-the-composite-resource"></a><span data-ttu-id="8fa43-111">Vytváření složených prostředků</span><span class="sxs-lookup"><span data-stu-id="8fa43-111">Creating the composite resource</span></span>
+## <a name="creating-the-composite-resource"></a><span data-ttu-id="dad70-111">Vytváření složených prostředků</span><span class="sxs-lookup"><span data-stu-id="dad70-111">Creating the composite resource</span></span>
 
-<span data-ttu-id="8fa43-112">V našem příkladu vytvoříme konfigurace, která volá počet stávajících prostředků ke konfiguraci virtuálních počítačů.</span><span class="sxs-lookup"><span data-stu-id="8fa43-112">In our example, we create a configuration that invokes a number of existing resources to configure virtual machines.</span></span> <span data-ttu-id="8fa43-113">Místo zadání hodnoty, které mají být nastavena v konfiguraci bloky, konfigurace trvá několik parametrů, které jsou pak použito v blocích konfigurace.</span><span class="sxs-lookup"><span data-stu-id="8fa43-113">Instead of specifying the values to be set in configuration blocks, the configuration takes a number of parameters that are then used in the configuration blocks.</span></span>
+<span data-ttu-id="dad70-112">V našem příkladu vytvoříme konfigurace, která volá počet stávajících prostředků ke konfiguraci virtuálních počítačů.</span><span class="sxs-lookup"><span data-stu-id="dad70-112">In our example, we create a configuration that invokes a number of existing resources to configure virtual machines.</span></span> <span data-ttu-id="dad70-113">Místo zadání hodnoty, které mají být nastavena v konfiguraci bloky, konfigurace trvá několik parametrů, které jsou pak použito v blocích konfigurace.</span><span class="sxs-lookup"><span data-stu-id="dad70-113">Instead of specifying the values to be set in configuration blocks, the configuration takes a number of parameters that are then used in the configuration blocks.</span></span>
 
 ```powershell
 Configuration xVirtualMachine
@@ -132,15 +131,15 @@ Configuration xVirtualMachine
 }
 ```
 
-### <a name="saving-the-configuration-as-a-composite-resource"></a><span data-ttu-id="8fa43-114">Ukládání konfigurace jako složený prostředek</span><span class="sxs-lookup"><span data-stu-id="8fa43-114">Saving the configuration as a composite resource</span></span>
+### <a name="saving-the-configuration-as-a-composite-resource"></a><span data-ttu-id="dad70-114">Ukládání konfigurace jako složený prostředek</span><span class="sxs-lookup"><span data-stu-id="dad70-114">Saving the configuration as a composite resource</span></span>
 
-<span data-ttu-id="8fa43-115">Použití parametrizovaného konfigurace jako prostředek DSC, uložte ho do struktury adresářů jako u jiných na základě MOF prostředků a pojmenujte ji s **. schema.psm1** rozšíření.</span><span class="sxs-lookup"><span data-stu-id="8fa43-115">To use the parameterized configuration as a DSC resource, save it in a directory structure like that of any other MOF-based resource, and name it with a **.schema.psm1** extension.</span></span> <span data-ttu-id="8fa43-116">V tomto příkladu jsme budete název souboru **xVirtualMachine.schema.psm1**.</span><span class="sxs-lookup"><span data-stu-id="8fa43-116">For this example, we’ll name the file **xVirtualMachine.schema.psm1**.</span></span> <span data-ttu-id="8fa43-117">Budete také muset vytvoření manifestu s názvem **xVirtualMachine.psd1** obsahující následující řádek.</span><span class="sxs-lookup"><span data-stu-id="8fa43-117">You also need to create a manifest named **xVirtualMachine.psd1** that contains the following line.</span></span> <span data-ttu-id="8fa43-118">Všimněte si, že toto je kromě **MyDscResources.psd1**, modul manifestu pro všechny prostředky pod **MyDscResources** složky.</span><span class="sxs-lookup"><span data-stu-id="8fa43-118">Note that this is in addition to **MyDscResources.psd1**, the module manifest for all resources under the **MyDscResources** folder.</span></span>
+<span data-ttu-id="dad70-115">Použití parametrizovaného konfigurace jako prostředek DSC, uložte ho do struktury adresářů jako u jiných na základě MOF prostředků a pojmenujte ji s **. schema.psm1** rozšíření.</span><span class="sxs-lookup"><span data-stu-id="dad70-115">To use the parameterized configuration as a DSC resource, save it in a directory structure like that of any other MOF-based resource, and name it with a **.schema.psm1** extension.</span></span> <span data-ttu-id="dad70-116">V tomto příkladu jsme budete název souboru **xVirtualMachine.schema.psm1**.</span><span class="sxs-lookup"><span data-stu-id="dad70-116">For this example, we’ll name the file **xVirtualMachine.schema.psm1**.</span></span> <span data-ttu-id="dad70-117">Budete také muset vytvoření manifestu s názvem **xVirtualMachine.psd1** obsahující následující řádek.</span><span class="sxs-lookup"><span data-stu-id="dad70-117">You also need to create a manifest named **xVirtualMachine.psd1** that contains the following line.</span></span> <span data-ttu-id="dad70-118">Všimněte si, že toto je kromě **MyDscResources.psd1**, modul manifestu pro všechny prostředky pod **MyDscResources** složky.</span><span class="sxs-lookup"><span data-stu-id="dad70-118">Note that this is in addition to **MyDscResources.psd1**, the module manifest for all resources under the **MyDscResources** folder.</span></span>
 
 ```powershell
 RootModule = 'xVirtualMachine.schema.psm1'
 ```
 
-<span data-ttu-id="8fa43-119">Až skončíte, struktura složek by měl vypadat takto.</span><span class="sxs-lookup"><span data-stu-id="8fa43-119">When you are done, the folder structure should be as follows.</span></span>
+<span data-ttu-id="dad70-119">Až skončíte, struktura složek by měl vypadat takto.</span><span class="sxs-lookup"><span data-stu-id="dad70-119">When you are done, the folder structure should be as follows.</span></span>
 
 ```
 $env: psmodulepath
@@ -152,11 +151,11 @@ $env: psmodulepath
                 |- xVirtualMachine.schema.psm1
 ```
 
-<span data-ttu-id="8fa43-120">Prostředek je teď zjistitelný pomocí rutiny Get-DscResource a jeho vlastnosti jsou zjistitelný pomocí buď rutinu nebo pomocí **Ctrl + mezerník** automatického dokončování v Windows PowerShell ISE.</span><span class="sxs-lookup"><span data-stu-id="8fa43-120">The resource is now discoverable by using the Get-DscResource cmdlet, and its properties are discoverable by either that cmdlet or by using **Ctrl+Space** auto-complete in the Windows PowerShell ISE.</span></span>
+<span data-ttu-id="dad70-120">Prostředek je teď zjistitelný pomocí rutiny Get-DscResource a jeho vlastnosti jsou zjistitelný pomocí buď rutinu nebo pomocí **Ctrl + mezerník** automatického dokončování v Windows PowerShell ISE.</span><span class="sxs-lookup"><span data-stu-id="dad70-120">The resource is now discoverable by using the Get-DscResource cmdlet, and its properties are discoverable by either that cmdlet or by using **Ctrl+Space** auto-complete in the Windows PowerShell ISE.</span></span>
 
-## <a name="using-the-composite-resource"></a><span data-ttu-id="8fa43-121">Pomocí složeného prostředků</span><span class="sxs-lookup"><span data-stu-id="8fa43-121">Using the composite resource</span></span>
+## <a name="using-the-composite-resource"></a><span data-ttu-id="dad70-121">Pomocí složeného prostředků</span><span class="sxs-lookup"><span data-stu-id="dad70-121">Using the composite resource</span></span>
 
-<span data-ttu-id="8fa43-122">Dále vytvoříme konfigurace, která volá složené prostředků.</span><span class="sxs-lookup"><span data-stu-id="8fa43-122">Next we create a configuration that calls the composite resource.</span></span> <span data-ttu-id="8fa43-123">Tato konfigurace volá xVirtualMachine složené prostředek pro vytvoření virtuálního počítače a pak zavolá **xComputer** prostředků, pokud ji chcete přejmenovat.</span><span class="sxs-lookup"><span data-stu-id="8fa43-123">This configuration calls the xVirtualMachine composite resource to create a virtual machine, and then calls the **xComputer** resource to rename it.</span></span>
+<span data-ttu-id="dad70-122">Dále vytvoříme konfigurace, která volá složené prostředků.</span><span class="sxs-lookup"><span data-stu-id="dad70-122">Next we create a configuration that calls the composite resource.</span></span> <span data-ttu-id="dad70-123">Tato konfigurace volá xVirtualMachine složené prostředek pro vytvoření virtuálního počítače a pak zavolá **xComputer** prostředků, pokud ji chcete přejmenovat.</span><span class="sxs-lookup"><span data-stu-id="dad70-123">This configuration calls the xVirtualMachine composite resource to create a virtual machine, and then calls the **xComputer** resource to rename it.</span></span>
 
 ```powershell
 
@@ -189,16 +188,16 @@ configuration RenameVM
 }
 ```
 
-## <a name="supporting-psdscrunascredential"></a><span data-ttu-id="8fa43-124">Podpora PsDscRunAsCredential</span><span class="sxs-lookup"><span data-stu-id="8fa43-124">Supporting PsDscRunAsCredential</span></span>
+## <a name="supporting-psdscrunascredential"></a><span data-ttu-id="dad70-124">Podpora PsDscRunAsCredential</span><span class="sxs-lookup"><span data-stu-id="dad70-124">Supporting PsDscRunAsCredential</span></span>
 
-><span data-ttu-id="8fa43-125">**Poznámka:** **PsDscRunAsCredential** je podporována v prostředí PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="8fa43-125">**Note:** **PsDscRunAsCredential** is supported in PowerShell 5.0 and later.</span></span>
+><span data-ttu-id="dad70-125">**Poznámka:** **PsDscRunAsCredential** je podporována v prostředí PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="dad70-125">**Note:** **PsDscRunAsCredential** is supported in PowerShell 5.0 and later.</span></span>
 
-<span data-ttu-id="8fa43-126">**PsDscRunAsCredential** vlastnost lze použít v [konfigurace DSC](configurations.md) prostředků bloku určí prostředek by měl být spuštění pod zadanou sadu přihlašovacích údajů.</span><span class="sxs-lookup"><span data-stu-id="8fa43-126">The **PsDscRunAsCredential** property can be used in [DSC configurations](configurations.md) resource block to specify that the resource should be run under a specified set of credentials.</span></span>
-<span data-ttu-id="8fa43-127">Další informace najdete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).</span><span class="sxs-lookup"><span data-stu-id="8fa43-127">For more information, see [Running DSC with user credentials](runAsUser.md).</span></span>
+<span data-ttu-id="dad70-126">**PsDscRunAsCredential** vlastnost lze použít v [konfigurace DSC](configurations.md) prostředků bloku určí prostředek by měl být spuštění pod zadanou sadu přihlašovacích údajů.</span><span class="sxs-lookup"><span data-stu-id="dad70-126">The **PsDscRunAsCredential** property can be used in [DSC configurations](configurations.md) resource block to specify that the resource should be run under a specified set of credentials.</span></span>
+<span data-ttu-id="dad70-127">Další informace najdete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).</span><span class="sxs-lookup"><span data-stu-id="dad70-127">For more information, see [Running DSC with user credentials](runAsUser.md).</span></span>
 
-<span data-ttu-id="8fa43-128">Pro přístup k kontext uživatele z v rámci vlastní prostředek, můžete použít automatické proměnné `$PsDscContext`.</span><span class="sxs-lookup"><span data-stu-id="8fa43-128">To access the user context from within a custom resource, you can use the automatic variable `$PsDscContext`.</span></span>
+<span data-ttu-id="dad70-128">Pro přístup k kontext uživatele z v rámci vlastní prostředek, můžete použít automatické proměnné `$PsDscContext`.</span><span class="sxs-lookup"><span data-stu-id="dad70-128">To access the user context from within a custom resource, you can use the automatic variable `$PsDscContext`.</span></span>
 
-<span data-ttu-id="8fa43-129">Například následující kód zapíše kontextu uživatele, pod kterým běží prostředku do datového proudu podrobný výstup:</span><span class="sxs-lookup"><span data-stu-id="8fa43-129">For example the following code would write the user context under which the resource is running to the verbose output stream:</span></span>
+<span data-ttu-id="dad70-129">Například následující kód zapíše kontextu uživatele, pod kterým běží prostředku do datového proudu podrobný výstup:</span><span class="sxs-lookup"><span data-stu-id="dad70-129">For example the following code would write the user context under which the resource is running to the verbose output stream:</span></span>
 
 ```powershell
 if (PsDscContext.RunAsUser) {
@@ -206,8 +205,8 @@ if (PsDscContext.RunAsUser) {
 }
 ```
 
-## <a name="see-also"></a><span data-ttu-id="8fa43-130">Viz také</span><span class="sxs-lookup"><span data-stu-id="8fa43-130">See Also</span></span>
-### <a name="concepts"></a><span data-ttu-id="8fa43-131">Koncepty</span><span class="sxs-lookup"><span data-stu-id="8fa43-131">Concepts</span></span>
-* [<span data-ttu-id="8fa43-132">Psaní vlastních prostředků DSC s MOF</span><span class="sxs-lookup"><span data-stu-id="8fa43-132">Writing a custom DSC resource with MOF</span></span>](authoringResourceMOF.md)
-* [<span data-ttu-id="8fa43-133">Začínáme s Windows PowerShell Desired State Configuration</span><span class="sxs-lookup"><span data-stu-id="8fa43-133">Get Started with Windows PowerShell Desired State Configuration</span></span>](overview.md)
+## <a name="see-also"></a><span data-ttu-id="dad70-130">Viz také</span><span class="sxs-lookup"><span data-stu-id="dad70-130">See Also</span></span>
+### <a name="concepts"></a><span data-ttu-id="dad70-131">Koncepty</span><span class="sxs-lookup"><span data-stu-id="dad70-131">Concepts</span></span>
+* [<span data-ttu-id="dad70-132">Psaní vlastních prostředků DSC s MOF</span><span class="sxs-lookup"><span data-stu-id="dad70-132">Writing a custom DSC resource with MOF</span></span>](authoringResourceMOF.md)
+* [<span data-ttu-id="dad70-133">Začínáme s Windows PowerShell Desired State Configuration</span><span class="sxs-lookup"><span data-stu-id="dad70-133">Get Started with Windows PowerShell Desired State Configuration</span></span>](overview.md)
 

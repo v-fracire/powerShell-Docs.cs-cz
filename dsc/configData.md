@@ -1,30 +1,29 @@
 ---
 ms.date: 2017-06-12
-author: eslesar
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Pomocí konfigurační data"
-ms.openlocfilehash: 60c6c2d5694a03275e1a08522bdcf4b1bc5bb068
-ms.sourcegitcommit: 60f06a06c2fce63024f3f4cbd7657b1dfe7fcb1a
+ms.openlocfilehash: b56a3f970b0b5121585dc4ed2f32da3243b980bd
+ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="using-configuration-data-in-dsc"></a><span data-ttu-id="0b158-103">Pomocí konfigurační data v DSC</span><span class="sxs-lookup"><span data-stu-id="0b158-103">Using configuration data in DSC</span></span>
+# <a name="using-configuration-data-in-dsc"></a><span data-ttu-id="60bf9-103">Pomocí konfigurační data v DSC</span><span class="sxs-lookup"><span data-stu-id="60bf9-103">Using configuration data in DSC</span></span>
 
-><span data-ttu-id="0b158-104">Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="0b158-104">Applies To: Windows PowerShell 4.0, Windows PowerShell 5.0</span></span>
+><span data-ttu-id="60bf9-104">Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="60bf9-104">Applies To: Windows PowerShell 4.0, Windows PowerShell 5.0</span></span>
 
-<span data-ttu-id="0b158-105">Pomocí předdefinovaných DSC **ConfigurationData** parametr, můžete definovat data, která lze použít v konfiguraci.</span><span class="sxs-lookup"><span data-stu-id="0b158-105">By using the built-in DSC **ConfigurationData** parameter, you can define data that can be used within a configuration.</span></span> <span data-ttu-id="0b158-106">To umožňuje vytvoření jedné konfigurace, které lze použít pro více uzly nebo v různých prostředích.</span><span class="sxs-lookup"><span data-stu-id="0b158-106">This allows you to create a single configuration that can be used for multiple nodes or for different environments.</span></span> <span data-ttu-id="0b158-107">Například pokud vyvíjíte aplikaci, můžete použít jednu konfiguraci pro vývoj a produkční prostředí a konfigurační data použijte k určení dat pro každé prostředí.</span><span class="sxs-lookup"><span data-stu-id="0b158-107">For example, if you are developing an application, you can use one configuration for both development and production environments, and use configuration data to specify data for each environment.</span></span>
+<span data-ttu-id="60bf9-105">Pomocí předdefinovaných DSC **ConfigurationData** parametr, můžete definovat data, která lze použít v konfiguraci.</span><span class="sxs-lookup"><span data-stu-id="60bf9-105">By using the built-in DSC **ConfigurationData** parameter, you can define data that can be used within a configuration.</span></span> <span data-ttu-id="60bf9-106">To umožňuje vytvoření jedné konfigurace, které lze použít pro více uzly nebo v různých prostředích.</span><span class="sxs-lookup"><span data-stu-id="60bf9-106">This allows you to create a single configuration that can be used for multiple nodes or for different environments.</span></span> <span data-ttu-id="60bf9-107">Například pokud vyvíjíte aplikaci, můžete použít jednu konfiguraci pro vývoj a produkční prostředí a konfigurační data použijte k určení dat pro každé prostředí.</span><span class="sxs-lookup"><span data-stu-id="60bf9-107">For example, if you are developing an application, you can use one configuration for both development and production environments, and use configuration data to specify data for each environment.</span></span>
 
-<span data-ttu-id="0b158-108">Toto téma popisuje strukturu **ConfigurationData** zatřiďovací tabulky.</span><span class="sxs-lookup"><span data-stu-id="0b158-108">This topic describes the structure of the **ConfigurationData** hashtable.</span></span> <span data-ttu-id="0b158-109">Příklady použití konfiguračních dat najdete v tématu [oddělení dat konfigurace a prostředí](separatingEnvData.md).</span><span class="sxs-lookup"><span data-stu-id="0b158-109">For examples of how to use configuration data, see [Separating configuration and environment data](separatingEnvData.md).</span></span>
+<span data-ttu-id="60bf9-108">Toto téma popisuje strukturu **ConfigurationData** zatřiďovací tabulky.</span><span class="sxs-lookup"><span data-stu-id="60bf9-108">This topic describes the structure of the **ConfigurationData** hashtable.</span></span> <span data-ttu-id="60bf9-109">Příklady použití konfiguračních dat najdete v tématu [oddělení dat konfigurace a prostředí](separatingEnvData.md).</span><span class="sxs-lookup"><span data-stu-id="60bf9-109">For examples of how to use configuration data, see [Separating configuration and environment data](separatingEnvData.md).</span></span>
 
-## <a name="the-configurationdata-common-parameter"></a><span data-ttu-id="0b158-110">Společný parametr ConfigurationData</span><span class="sxs-lookup"><span data-stu-id="0b158-110">The ConfigurationData common parameter</span></span>
+## <a name="the-configurationdata-common-parameter"></a><span data-ttu-id="60bf9-110">Společný parametr ConfigurationData</span><span class="sxs-lookup"><span data-stu-id="60bf9-110">The ConfigurationData common parameter</span></span>
 
-<span data-ttu-id="0b158-111">Konfigurace DSC trvá společný parametr **ConfigurationData**, zda jste zadali při kompilaci konfigurace.</span><span class="sxs-lookup"><span data-stu-id="0b158-111">A DSC configuration takes a common parameter, **ConfigurationData**, that you specify when you compile the configuration.</span></span> <span data-ttu-id="0b158-112">Informace o kompilování konfigurace najdete v tématu [konfigurace DSC](configurations.md).</span><span class="sxs-lookup"><span data-stu-id="0b158-112">For information about compiling configurations, see [DSC configurations](configurations.md).</span></span>
+<span data-ttu-id="60bf9-111">Konfigurace DSC trvá společný parametr **ConfigurationData**, zda jste zadali při kompilaci konfigurace.</span><span class="sxs-lookup"><span data-stu-id="60bf9-111">A DSC configuration takes a common parameter, **ConfigurationData**, that you specify when you compile the configuration.</span></span> <span data-ttu-id="60bf9-112">Informace o kompilování konfigurace najdete v tématu [konfigurace DSC](configurations.md).</span><span class="sxs-lookup"><span data-stu-id="60bf9-112">For information about compiling configurations, see [DSC configurations](configurations.md).</span></span>
 
-<span data-ttu-id="0b158-113">**ConfigurationData** parametr je hasthtable, kterou musí mít alespoň jeden klíč s názvem **AllNodes**.</span><span class="sxs-lookup"><span data-stu-id="0b158-113">The **ConfigurationData** parameter is a hasthtable that must have at least one key named **AllNodes**.</span></span> <span data-ttu-id="0b158-114">Může také obsahovat jeden či více klíčů.</span><span class="sxs-lookup"><span data-stu-id="0b158-114">It can also have one or more other keys.</span></span>
+<span data-ttu-id="60bf9-113">**ConfigurationData** parametr je hasthtable, kterou musí mít alespoň jeden klíč s názvem **AllNodes**.</span><span class="sxs-lookup"><span data-stu-id="60bf9-113">The **ConfigurationData** parameter is a hasthtable that must have at least one key named **AllNodes**.</span></span> <span data-ttu-id="60bf9-114">Může také obsahovat jeden či více klíčů.</span><span class="sxs-lookup"><span data-stu-id="60bf9-114">It can also have one or more other keys.</span></span>
 
-><span data-ttu-id="0b158-115">**Poznámka:** v příkladech v tomto tématu použijte jeden další klíč (než pojmenované **AllNodes** klíč) s názvem `NonNodeData`, ale může obsahovat libovolný počet dalších klíčů a název je všechno.</span><span class="sxs-lookup"><span data-stu-id="0b158-115">**Note:** The examples in this topic use a single additional key (other than the named **AllNodes** key) named `NonNodeData`, but you can include any number of additional keys, and name them whatever you want.</span></span>
+><span data-ttu-id="60bf9-115">**Poznámka:** v příkladech v tomto tématu použijte jeden další klíč (než pojmenované **AllNodes** klíč) s názvem `NonNodeData`, ale může obsahovat libovolný počet dalších klíčů a název je všechno.</span><span class="sxs-lookup"><span data-stu-id="60bf9-115">**Note:** The examples in this topic use a single additional key (other than the named **AllNodes** key) named `NonNodeData`, but you can include any number of additional keys, and name them whatever you want.</span></span>
 
 ```powershell
 $MyData = 
@@ -34,7 +33,7 @@ $MyData =
 }
 ```
 
-<span data-ttu-id="0b158-116">Hodnota **AllNodes** klíč je pole.</span><span class="sxs-lookup"><span data-stu-id="0b158-116">The value of the **AllNodes** key is an array.</span></span> <span data-ttu-id="0b158-117">Každý prvek toto pole je také zatřiďovací tabulka, která musí mít alespoň jeden klíč s názvem **NodeName**:</span><span class="sxs-lookup"><span data-stu-id="0b158-117">Each element of this array is also a hash table that must have at least one key named **NodeName**:</span></span>
+<span data-ttu-id="60bf9-116">Hodnota **AllNodes** klíč je pole.</span><span class="sxs-lookup"><span data-stu-id="60bf9-116">The value of the **AllNodes** key is an array.</span></span> <span data-ttu-id="60bf9-117">Každý prvek toto pole je také zatřiďovací tabulka, která musí mít alespoň jeden klíč s názvem **NodeName**:</span><span class="sxs-lookup"><span data-stu-id="60bf9-117">Each element of this array is also a hash table that must have at least one key named **NodeName**:</span></span>
 
 ```powershell
 $MyData = 
@@ -60,7 +59,7 @@ $MyData =
 }
 ```
 
-<span data-ttu-id="0b158-118">Můžete přidat další klíče pro každou zatřiďovací tabulku:</span><span class="sxs-lookup"><span data-stu-id="0b158-118">You can add other keys to each hash table as well:</span></span>
+<span data-ttu-id="60bf9-118">Můžete přidat další klíče pro každou zatřiďovací tabulku:</span><span class="sxs-lookup"><span data-stu-id="60bf9-118">You can add other keys to each hash table as well:</span></span>
 
 ```powershell
 $MyData = 
@@ -89,7 +88,7 @@ $MyData =
 }
 ```
 
-<span data-ttu-id="0b158-119">Použít vlastnosti na všech uzlech, můžete vytvořit členem **AllNodes** pole, které má **NodeName** z `*`.</span><span class="sxs-lookup"><span data-stu-id="0b158-119">To apply a property to all nodes, you can create a member of the **AllNodes** array that has a **NodeName** of `*`.</span></span> <span data-ttu-id="0b158-120">Například pro poskytnutí každý uzel `LogPath` vlastnost, můžete to udělat toto:</span><span class="sxs-lookup"><span data-stu-id="0b158-120">For example, to give every node a `LogPath` property, you could do this:</span></span>
+<span data-ttu-id="60bf9-119">Použít vlastnosti na všech uzlech, můžete vytvořit členem **AllNodes** pole, které má **NodeName** z `*`.</span><span class="sxs-lookup"><span data-stu-id="60bf9-119">To apply a property to all nodes, you can create a member of the **AllNodes** array that has a **NodeName** of `*`.</span></span> <span data-ttu-id="60bf9-120">Například pro poskytnutí každý uzel `LogPath` vlastnost, můžete to udělat toto:</span><span class="sxs-lookup"><span data-stu-id="60bf9-120">For example, to give every node a `LogPath` property, you could do this:</span></span>
 
 ```powershell
 $MyData = 
@@ -126,13 +125,13 @@ $MyData =
 }
 ```
 
-<span data-ttu-id="0b158-121">Jedná se o ekvivalent přidávání vlastnost s názvem `LogPath` s hodnotou `"C:\Logs"` všechny ostatní bloky (`VM-1`, `VM-2`, a `VM-3`).</span><span class="sxs-lookup"><span data-stu-id="0b158-121">This is the equivalent of adding a property with a name of `LogPath` with a value of `"C:\Logs"` to each of the other blocks (`VM-1`, `VM-2`, and `VM-3`).</span></span>
+<span data-ttu-id="60bf9-121">Jedná se o ekvivalent přidávání vlastnost s názvem `LogPath` s hodnotou `"C:\Logs"` všechny ostatní bloky (`VM-1`, `VM-2`, a `VM-3`).</span><span class="sxs-lookup"><span data-stu-id="60bf9-121">This is the equivalent of adding a property with a name of `LogPath` with a value of `"C:\Logs"` to each of the other blocks (`VM-1`, `VM-2`, and `VM-3`).</span></span>
 
-## <a name="defining-the-configurationdata-hashtable"></a><span data-ttu-id="0b158-122">Definování ConfigurationData zatřiďovací tabulky</span><span class="sxs-lookup"><span data-stu-id="0b158-122">Defining the ConfigurationData hashtable</span></span>
+## <a name="defining-the-configurationdata-hashtable"></a><span data-ttu-id="60bf9-122">Definování ConfigurationData zatřiďovací tabulky</span><span class="sxs-lookup"><span data-stu-id="60bf9-122">Defining the ConfigurationData hashtable</span></span>
 
-<span data-ttu-id="0b158-123">Můžete definovat **ConfigurationData** buď jako proměnné v souboru skriptu jako konfigurace (jako v předchozí příklady) nebo v samostatném `.psd1` souboru.</span><span class="sxs-lookup"><span data-stu-id="0b158-123">You can define **ConfigurationData** either as a variable within the same script file as a configuration (as in our previous examples) or in a separate `.psd1` file.</span></span> <span data-ttu-id="0b158-124">Chcete-li definovat **ConfigurationData** v `.psd1` souboru, vytvořte soubor, který obsahuje pouze zatřiďovací tabulky, který představuje konfigurační data.</span><span class="sxs-lookup"><span data-stu-id="0b158-124">To define **ConfigurationData** in a `.psd1` file, create a file that contains only the hashtable that represents the configuration data.</span></span>
+<span data-ttu-id="60bf9-123">Můžete definovat **ConfigurationData** buď jako proměnné v souboru skriptu jako konfigurace (jako v předchozí příklady) nebo v samostatném `.psd1` souboru.</span><span class="sxs-lookup"><span data-stu-id="60bf9-123">You can define **ConfigurationData** either as a variable within the same script file as a configuration (as in our previous examples) or in a separate `.psd1` file.</span></span> <span data-ttu-id="60bf9-124">Chcete-li definovat **ConfigurationData** v `.psd1` souboru, vytvořte soubor, který obsahuje pouze zatřiďovací tabulky, který představuje konfigurační data.</span><span class="sxs-lookup"><span data-stu-id="60bf9-124">To define **ConfigurationData** in a `.psd1` file, create a file that contains only the hashtable that represents the configuration data.</span></span>
 
-<span data-ttu-id="0b158-125">Například můžete vytvořit soubor s názvem `MyData.psd1` s tímto obsahem:</span><span class="sxs-lookup"><span data-stu-id="0b158-125">For example, you could create a file named `MyData.psd1` with the following contents:</span></span>
+<span data-ttu-id="60bf9-125">Například můžete vytvořit soubor s názvem `MyData.psd1` s tímto obsahem:</span><span class="sxs-lookup"><span data-stu-id="60bf9-125">For example, you could create a file named `MyData.psd1` with the following contents:</span></span>
 
 ```powershell
 @{
@@ -151,47 +150,47 @@ $MyData =
 }
 ```
 
-## <a name="compiling-a-configuration-with-configuration-data"></a><span data-ttu-id="0b158-126">Kompilování konfigurace s konfigurační data</span><span class="sxs-lookup"><span data-stu-id="0b158-126">Compiling a configuration with configuration data</span></span>
+## <a name="compiling-a-configuration-with-configuration-data"></a><span data-ttu-id="60bf9-126">Kompilování konfigurace s konfigurační data</span><span class="sxs-lookup"><span data-stu-id="60bf9-126">Compiling a configuration with configuration data</span></span>
 
-<span data-ttu-id="0b158-127">Kompilace konfigurace, pro který jste definovali konfigurační data, předáte konfigurační data jako hodnotu **ConfigurationData** parametr.</span><span class="sxs-lookup"><span data-stu-id="0b158-127">To compile a configuration for which you have defined configuration data, you pass the configuration data as the value of the **ConfigurationData** parameter.</span></span>
+<span data-ttu-id="60bf9-127">Kompilace konfigurace, pro který jste definovali konfigurační data, předáte konfigurační data jako hodnotu **ConfigurationData** parametr.</span><span class="sxs-lookup"><span data-stu-id="60bf9-127">To compile a configuration for which you have defined configuration data, you pass the configuration data as the value of the **ConfigurationData** parameter.</span></span>
 
-<span data-ttu-id="0b158-128">Tím se vytvoří pro každou položku v souboru MOF **AllNodes** pole.</span><span class="sxs-lookup"><span data-stu-id="0b158-128">This will create a MOF file for each entry in the **AllNodes** array.</span></span>
-<span data-ttu-id="0b158-129">Každý soubor MOF budou mít názvy `NodeName` vlastnost odpovídající položky pole.</span><span class="sxs-lookup"><span data-stu-id="0b158-129">Each MOF file will be named with the `NodeName` property of the corresponding array entry.</span></span>
+<span data-ttu-id="60bf9-128">Tím se vytvoří pro každou položku v souboru MOF **AllNodes** pole.</span><span class="sxs-lookup"><span data-stu-id="60bf9-128">This will create a MOF file for each entry in the **AllNodes** array.</span></span>
+<span data-ttu-id="60bf9-129">Každý soubor MOF budou mít názvy `NodeName` vlastnost odpovídající položky pole.</span><span class="sxs-lookup"><span data-stu-id="60bf9-129">Each MOF file will be named with the `NodeName` property of the corresponding array entry.</span></span>
 
-<span data-ttu-id="0b158-130">Například pokud definujete konfigurační data jako v `MyData.psd1` souboru výše, kompilace konfigurace by vytvořit i `VM-1.mof` a `VM-2.mof` soubory.</span><span class="sxs-lookup"><span data-stu-id="0b158-130">For example, if you define configuration data as in the `MyData.psd1` file above, compiling a configuration would create both `VM-1.mof` and `VM-2.mof` files.</span></span>
+<span data-ttu-id="60bf9-130">Například pokud definujete konfigurační data jako v `MyData.psd1` souboru výše, kompilace konfigurace by vytvořit i `VM-1.mof` a `VM-2.mof` soubory.</span><span class="sxs-lookup"><span data-stu-id="60bf9-130">For example, if you define configuration data as in the `MyData.psd1` file above, compiling a configuration would create both `VM-1.mof` and `VM-2.mof` files.</span></span>
 
-### <a name="compiling-a-configuration-with-configuration-data-using-a-variable"></a><span data-ttu-id="0b158-131">Kompilování konfiguraci pomocí konfiguračních dat pomocí proměnné</span><span class="sxs-lookup"><span data-stu-id="0b158-131">Compiling a configuration with configuration data using a variable</span></span>
+### <a name="compiling-a-configuration-with-configuration-data-using-a-variable"></a><span data-ttu-id="60bf9-131">Kompilování konfiguraci pomocí konfiguračních dat pomocí proměnné</span><span class="sxs-lookup"><span data-stu-id="60bf9-131">Compiling a configuration with configuration data using a variable</span></span>
 
-<span data-ttu-id="0b158-132">Použít konfigurační data, která je definována jako proměnné ve stejné `.ps1` soubor jako konfiguraci, předáte název proměnné jako hodnotu **ConfigurationData** parametr při kompilaci konfigurace:</span><span class="sxs-lookup"><span data-stu-id="0b158-132">To use configuration data that is defined as a variable in the same `.ps1` file as the configuration, you pass the variable name as the value of the **ConfigurationData** parameter when compiling the configuration:</span></span>
+<span data-ttu-id="60bf9-132">Použít konfigurační data, která je definována jako proměnné ve stejné `.ps1` soubor jako konfiguraci, předáte název proměnné jako hodnotu **ConfigurationData** parametr při kompilaci konfigurace:</span><span class="sxs-lookup"><span data-stu-id="60bf9-132">To use configuration data that is defined as a variable in the same `.ps1` file as the configuration, you pass the variable name as the value of the **ConfigurationData** parameter when compiling the configuration:</span></span>
 
 ```powershell
 MyDscConfiguration -ConfigurationData $MyData
 ```
 
-### <a name="compiling-a-configuration-with-configuration-data-using-a-data-file"></a><span data-ttu-id="0b158-133">Kompilování konfiguraci pomocí konfiguračních dat pomocí a datový soubor.</span><span class="sxs-lookup"><span data-stu-id="0b158-133">Compiling a configuration with configuration data using a data file</span></span>
+### <a name="compiling-a-configuration-with-configuration-data-using-a-data-file"></a><span data-ttu-id="60bf9-133">Kompilování konfiguraci pomocí konfiguračních dat pomocí a datový soubor.</span><span class="sxs-lookup"><span data-stu-id="60bf9-133">Compiling a configuration with configuration data using a data file</span></span>
 
-<span data-ttu-id="0b158-134">Pokud chcete používat konfigurační data, která je definována v souboru .psd1, předáte cesta a název souboru jako hodnotu **ConfigurationData** parametr při kompilaci konfigurace:</span><span class="sxs-lookup"><span data-stu-id="0b158-134">To use configuration data that is defined in a .psd1 file, you pass the path and name of that file as the value of the **ConfigurationData** parameter when compiling the configuration:</span></span>
+<span data-ttu-id="60bf9-134">Pokud chcete používat konfigurační data, která je definována v souboru .psd1, předáte cesta a název souboru jako hodnotu **ConfigurationData** parametr při kompilaci konfigurace:</span><span class="sxs-lookup"><span data-stu-id="60bf9-134">To use configuration data that is defined in a .psd1 file, you pass the path and name of that file as the value of the **ConfigurationData** parameter when compiling the configuration:</span></span>
 
 ```powershell
 MyDscConfiguration -ConfigurationData .\MyData.psd1
 ```
 
-## <a name="using-configurationdata-variables-in-a-configuration"></a><span data-ttu-id="0b158-135">Použití proměnných ConfigurationData v konfiguraci</span><span class="sxs-lookup"><span data-stu-id="0b158-135">Using ConfigurationData variables in a configuration</span></span>
+## <a name="using-configurationdata-variables-in-a-configuration"></a><span data-ttu-id="60bf9-135">Použití proměnných ConfigurationData v konfiguraci</span><span class="sxs-lookup"><span data-stu-id="60bf9-135">Using ConfigurationData variables in a configuration</span></span>
 
-<span data-ttu-id="0b158-136">DSC poskytuje tři speciální proměnné, které lze použít v konfigurační skript: **$AllNodes**, **$Node**, a **$ConfigurationData**.</span><span class="sxs-lookup"><span data-stu-id="0b158-136">DSC provides three special variables that can be used in a configuration script: **$AllNodes**, **$Node**, and **$ConfigurationData**.</span></span>
+<span data-ttu-id="60bf9-136">DSC poskytuje tři speciální proměnné, které lze použít v konfigurační skript: **$AllNodes**, **$Node**, a **$ConfigurationData**.</span><span class="sxs-lookup"><span data-stu-id="60bf9-136">DSC provides three special variables that can be used in a configuration script: **$AllNodes**, **$Node**, and **$ConfigurationData**.</span></span>
 
-- <span data-ttu-id="0b158-137">**$AllNodes** odkazuje na celou kolekci uzlů, které jsou definované v **ConfigurationData**.</span><span class="sxs-lookup"><span data-stu-id="0b158-137">**$AllNodes** refers to the entire collection of nodes defined in **ConfigurationData**.</span></span> <span data-ttu-id="0b158-138">Můžete filtrovat **AllNodes** kolekce pomocí **. WHERE()** a **. ForEach()**.</span><span class="sxs-lookup"><span data-stu-id="0b158-138">You can filter the **AllNodes** collection by using **.Where()** and **.ForEach()**.</span></span>
-- <span data-ttu-id="0b158-139">**Uzel** odkazuje na konkrétní položky v **AllNodes** kolekci po je filtrován pomocí **. WHERE()** nebo **. ForEach()**.</span><span class="sxs-lookup"><span data-stu-id="0b158-139">**Node** refers to a particular entry in the **AllNodes** collection after it is filtered by using **.Where()** or **.ForEach()**.</span></span>
-- <span data-ttu-id="0b158-140">**ConfigurationData** odkazuje na tabulku celou hodnotu hash, který je předán jako parametr při kompilaci konfigurace.</span><span class="sxs-lookup"><span data-stu-id="0b158-140">**ConfigurationData** refers to the entire hash table that is passed as the parameter when compiling a configuration.</span></span>
+- <span data-ttu-id="60bf9-137">**$AllNodes** odkazuje na celou kolekci uzlů, které jsou definované v **ConfigurationData**.</span><span class="sxs-lookup"><span data-stu-id="60bf9-137">**$AllNodes** refers to the entire collection of nodes defined in **ConfigurationData**.</span></span> <span data-ttu-id="60bf9-138">Můžete filtrovat **AllNodes** kolekce pomocí **. WHERE()** a **. ForEach()**.</span><span class="sxs-lookup"><span data-stu-id="60bf9-138">You can filter the **AllNodes** collection by using **.Where()** and **.ForEach()**.</span></span>
+- <span data-ttu-id="60bf9-139">**Uzel** odkazuje na konkrétní položky v **AllNodes** kolekci po je filtrován pomocí **. WHERE()** nebo **. ForEach()**.</span><span class="sxs-lookup"><span data-stu-id="60bf9-139">**Node** refers to a particular entry in the **AllNodes** collection after it is filtered by using **.Where()** or **.ForEach()**.</span></span>
+- <span data-ttu-id="60bf9-140">**ConfigurationData** odkazuje na tabulku celou hodnotu hash, který je předán jako parametr při kompilaci konfigurace.</span><span class="sxs-lookup"><span data-stu-id="60bf9-140">**ConfigurationData** refers to the entire hash table that is passed as the parameter when compiling a configuration.</span></span>
 
-## <a name="using-non-node-data"></a><span data-ttu-id="0b158-141">Pomocí data bez uzlu</span><span class="sxs-lookup"><span data-stu-id="0b158-141">Using non-node data</span></span>
+## <a name="using-non-node-data"></a><span data-ttu-id="60bf9-141">Pomocí data bez uzlu</span><span class="sxs-lookup"><span data-stu-id="60bf9-141">Using non-node data</span></span>
 
-<span data-ttu-id="0b158-142">Jak jsme viděli v předchozích příkladech **ConfigurationData** zatřiďovací tabulka může mít jeden či více klíčů kromě požadované **AllNodes** klíč.</span><span class="sxs-lookup"><span data-stu-id="0b158-142">As we've seen in previous examples, the **ConfigurationData** hashtable can have one or more keys in addition to the required **AllNodes** key.</span></span>
-<span data-ttu-id="0b158-143">V příkladech v tomto tématu jsme používá jenom jeden další uzel a s názvem ho `NonNodeData`.</span><span class="sxs-lookup"><span data-stu-id="0b158-143">In the examples in this topic, we have used only a single additional node, and named it `NonNodeData`.</span></span> <span data-ttu-id="0b158-144">Však můžete definovat libovolný počet dalších klíčů a název je všechno, co chcete.</span><span class="sxs-lookup"><span data-stu-id="0b158-144">However, you can define any number of additional keys, and name them anything you want.</span></span>
+<span data-ttu-id="60bf9-142">Jak jsme viděli v předchozích příkladech **ConfigurationData** zatřiďovací tabulka může mít jeden či více klíčů kromě požadované **AllNodes** klíč.</span><span class="sxs-lookup"><span data-stu-id="60bf9-142">As we've seen in previous examples, the **ConfigurationData** hashtable can have one or more keys in addition to the required **AllNodes** key.</span></span>
+<span data-ttu-id="60bf9-143">V příkladech v tomto tématu jsme používá jenom jeden další uzel a s názvem ho `NonNodeData`.</span><span class="sxs-lookup"><span data-stu-id="60bf9-143">In the examples in this topic, we have used only a single additional node, and named it `NonNodeData`.</span></span> <span data-ttu-id="60bf9-144">Však můžete definovat libovolný počet dalších klíčů a název je všechno, co chcete.</span><span class="sxs-lookup"><span data-stu-id="60bf9-144">However, you can define any number of additional keys, and name them anything you want.</span></span>
 
-<span data-ttu-id="0b158-145">Příklad použití dat na jiný uzel, naleznete v části [oddělení dat konfigurace a prostředí](separatingEnvData.md).</span><span class="sxs-lookup"><span data-stu-id="0b158-145">For an example of using non-node data, see [Separating configuration and environment data](separatingEnvData.md).</span></span>
+<span data-ttu-id="60bf9-145">Příklad použití dat na jiný uzel, naleznete v části [oddělení dat konfigurace a prostředí](separatingEnvData.md).</span><span class="sxs-lookup"><span data-stu-id="60bf9-145">For an example of using non-node data, see [Separating configuration and environment data](separatingEnvData.md).</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="0b158-146">Viz také</span><span class="sxs-lookup"><span data-stu-id="0b158-146">See Also</span></span>
-- [<span data-ttu-id="0b158-147">Možnosti přihlašovací údaje v konfiguračních dat</span><span class="sxs-lookup"><span data-stu-id="0b158-147">Credentials Options in Configuration Data</span></span>](configDataCredentials.md)
-- [<span data-ttu-id="0b158-148">Konfigurace DSC</span><span class="sxs-lookup"><span data-stu-id="0b158-148">DSC Configurations</span></span>](configurations.md)
+## <a name="see-also"></a><span data-ttu-id="60bf9-146">Viz také</span><span class="sxs-lookup"><span data-stu-id="60bf9-146">See Also</span></span>
+- [<span data-ttu-id="60bf9-147">Možnosti přihlašovací údaje v konfiguračních dat</span><span class="sxs-lookup"><span data-stu-id="60bf9-147">Credentials Options in Configuration Data</span></span>](configDataCredentials.md)
+- [<span data-ttu-id="60bf9-148">Konfigurace DSC</span><span class="sxs-lookup"><span data-stu-id="60bf9-148">DSC Configurations</span></span>](configurations.md)
 
