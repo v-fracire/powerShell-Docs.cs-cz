@@ -234,7 +234,7 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
 - Přidat tři nové automatické proměnné k určení, zda je spuštěn prostředí PowerShell v dané operačního systému: `$IsWindows`, `$IsMacOs`, a `$IsLinux`.
 - Přidat `GitCommitId` nápis základní prostředí PowerShell.
   Teď není nutné spustit `$PSVersionTable` při spuštění prostředí PowerShell získat verzi! (#3916) (Poděkování @iSazonov!)
-- Přidejte konfigurační soubor JSON s názvem `PowerShellProperties.json` v `$PSHome` k uložení některých nastavení potřebné před časem spuštění (například `ExecutionPolicy`).
+- Přidejte konfigurační soubor JSON s názvem `powershell.config.json` v `$PSHome` k uložení některých nastavení potřebné před časem spuštění (například `ExecutionPolicy`).
 - Nedošlo k blokování kanálu při spuštění Windows EXE
 - Povoleno výčtu COM kolekcí. (#4553)
 

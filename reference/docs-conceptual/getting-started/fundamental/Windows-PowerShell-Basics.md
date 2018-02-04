@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Základy prostředí PowerShell systému Windows"
+title: "Základy Windows PowerShellu"
 ms.assetid: 6b3cbbc8-060c-4877-b00b-7300dbbe4e28
-ms.openlocfilehash: 7b5cdfce876aa7d5559fe772379829011b275a02
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: bd17786d2d8690b89a2d107e0da98ee45f5b2ff7
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="windows-powershell-basics"></a>Základy prostředí PowerShell systému Windows
+# <a name="windows-powershell-basics"></a>Základy Windows PowerShellu
 Grafické uživatelské rozhraní pomocí některé základní pojmy, které jsou dobře známé pro většinu uživatelů počítače. Uživatelé využívají znalosti těchto rozhraní k provádění úloh. Operační systémy představovat grafické reprezentace položky, které mohou procházet, obvykle pomocí rozevíracích nabídek pro přístup k určité funkce a kontext nabídky pro přístup k funkci konkrétní uživatelé.
 
 Rozhraní příkazového řádku (CLI), jako je Windows PowerShell, musíte použít jiný přístup ke zveřejnění informací, protože nemá nabídek nebo grafické systémy pomoct uživateli. Musíte znát názvy příkazů, abyste mohli používat. I když můžete zadat komplexní příkazy, které odpovídají funkcí v prostředí s grafickým uživatelským rozhraním, musí seznámit s běžně používané příkazy a parametry příkazu.
@@ -18,13 +18,10 @@ Většina CLIs nemají vzorů, které pomáhají uživatelům další rozhraní.
 
 Prostředí Windows PowerShell byla navržená tak, že chcete využít výhod historické znalosti CLIs uživatele. V této kapitole se věnuje některé základní nástroje a koncepty, které vám pomůže rychle další prostředí Windows PowerShell. Patří mezi ně:
 
-- Pomocí příkazu Get
+- Pomocí [Get-Command](/powershell/module/Microsoft.PowerShell.Core/get-command)
 
-- Pomocí příkazů Cmd.exe a UNIX
+- Pomocí [Cmd.exe](/windows-server/administration/windows-commands/cmd) a [příkazů systému UNIX](/windows/wsl/reference)
 
-- Pomocí externích příkazů
+- [Pomocí karty dokončení](../../core-powershell/console/using-tab-expansion.md)
 
-- Pomocí karty dokončení
-
-- Pomocí Get-Help
-
+- [Pomocí Get-Help](./getting-detailed-help-information.md)
