@@ -11,6 +11,7 @@
 ### [Vytvoření účtu PowerShellGallery](psgallery/psgallery_creating_an_account.md)
 ### [Vytvoření a publikování položek](psgallery/Creating-and-Publishing-an-item.md)
 ### [Pokyny a osvědčené postupy k publikování](psgallery/psgallery-PublishingGuidelines.md)
+### [Manifest položky a uživatelské rozhraní Galerie](psgallery/psgallery_ItemManifestAffectingUI.md)
 ### [Vynětí položek ze seznamu](psgallery/psgallery_unlist_items.md)
 ### [Odstranění položek](psgallery/Deleting-Items.md)
 ### [Správa vlastníků položek](psgallery/Managing-Item-Owners.md)
