@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Spuštění prostředí Windows PowerShell na starších verzích systému Windows"
+title: "Spuštění Windows PowerShellu v předchozích verzích Windows"
 ms.assetid: 57125436-3d1e-4e7f-b5c4-8f0ecb49d642
 ms.openlocfilehash: 52e3acc1fd3009ecad3b7134008e38d4edfb5ca7
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/08/2018
 ---
-# <a name="starting-windows-powershell-on-earlier-versions-of-windows"></a>Spuštění prostředí Windows PowerShell na starších verzích systému Windows
+# <a name="starting-windows-powershell-on-earlier-versions-of-windows"></a>Spuštění Windows PowerShellu v předchozích verzích Windows
 Tato část vysvětluje, jak spustit prostředí Windows PowerShell a Windows PowerShell Integrované skriptovací prostředí (ISE) v systému Windows® 7, Windows Server® 2008 R2 a Windows Server® 2008. Také vysvětluje, jak povolit volitelné funkce pro Windows PowerShell ISE v prostředí Windows PowerShell 2.0 na Windows Server® 2008 R2 a Windows Server® 2008.
 
 Chcete-li nainstalovat prostředí Windows PowerShell 4.0 na podporovaných systémů, stáhněte a nainstalujte [Windows Management Framework 4.0](http://go.microsoft.com/fwlink/?LinkID=293881). Další informace najdete v tématu [instalace prostředí Windows PowerShell](Installing-Windows-PowerShell.md).

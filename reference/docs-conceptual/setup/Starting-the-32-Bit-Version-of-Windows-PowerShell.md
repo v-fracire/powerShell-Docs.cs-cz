@@ -1,13 +1,13 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Spuštění 32bitové verze prostředí Windows PowerShell"
+title: "Spuštění 32bitové verze Windows PowerShellu"
 ms.assetid: 12b31890-2609-4a76-8c24-0ebe78084f50
 ms.openlocfilehash: d682ce45ebc92cda3a9008ab608bacf9ef8eba57
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/08/2018
 ---
 # <a name="starting-the-32-bit-version-of-windows-powershell"></a>Spuštění 32bitové verze prostředí Windows PowerShell
 Při instalaci prostředí Windows PowerShell na 64bitovém počítači **prostředí Windows PowerShell (x86)**, 32bitová verze prostředí Windows PowerShell je nainstalovaný kromě 64bitovou verzi. Při spuštění prostředí Windows PowerShell ve výchozím nastavení spustí 64bitovou verzi.
@@ -16,7 +16,7 @@ Však může někdy musíte spustit **prostředí Windows PowerShell (x86)**, na
 
 Spusťte 32bitovou verzi prostředí Windows PowerShell, použijte některý z následujících postupů.
 
-#### <a name="in-windows-server-2012-r2"></a>V systému Windows Server® 2012 R2
+#### <a name="in-windows-server-2012-r2"></a>In Windows Server® 2012 R2
 
 - Na **spustit** zadejte **prostředí Windows PowerShell (x86)**. Klikněte **prostředí Windows PowerShell x86** dlaždici.
 
@@ -26,7 +26,7 @@ Spusťte 32bitovou verzi prostředí Windows PowerShell, použijte některý z n
 
 - Prostřednictvím příkazového řádku zadejte:`%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
 
-#### <a name="in-windows-server-2012"></a>V systému Windows Server® 2012
+#### <a name="in-windows-server-2012"></a>In Windows Server® 2012
 
 - Na **spustit** zadejte **prostředí PowerShell** a pak klikněte na **prostředí Windows PowerShell (x86)**.
 

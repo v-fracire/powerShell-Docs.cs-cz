@@ -1,14 +1,14 @@
 ---
 ms.date: 2017-08-09
 keywords: "prostředí PowerShell, rutiny, stažení, instalace, instalační program, windows 10, windows 8.1, windows 8.0, windows 7"
-title: "Instalace prostředí Windows PowerShell"
-ms.openlocfilehash: 781bf50b6ac649e72bcdbb708555275fb7422d94
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+title: Instalace Windows PowerShellu
+ms.openlocfilehash: ec8f09087a5c5f2e7ea6237faa01ea3f447ad1f3
+ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="installing-windows-powershell"></a>Instalace prostředí Windows PowerShell
+# <a name="installing-windows-powershell"></a>Instalace Windows PowerShellu
 
 Prostředí PowerShell nainstalovaný ve výchozím nastavení v každé Windows od verze Windows 7 SP1 a Windows Server 2008 R2 SP1.
 
@@ -17,7 +17,7 @@ Uživatelé Linuxu, systému macOS a systému Windows, které chcete nainstalova
 1. Získat prostředí PowerShell pro konkrétní operační systém a verze, ze [Githubu](https://github.com/powershell/powershell#get-powershell)
 1. Postupujte podle pokynů pro instalaci
   - [Linux](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md)
-  - [systému macOS](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#macos-1012)
+  - [macOS](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md)
   - [Windows](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi)
 
 6 prostředí PowerShell je také k dispozici pro Docker; v tématu [Docker instalace](https://github.com/PowerShell/PowerShell/tree/master/docker) pokyny.
@@ -35,7 +35,7 @@ Verze | Umístění
 -- | --
 Windows 10 | Klikněte levém dolním rohu Windows ikonu, začněte psát prostředí PowerShell
 Windows 8.1, 8.0 | Na obrazovce start začněte psát prostředí PowerShell.<br/>Pokud na ploše klikněte levém dolním rohu Windows ikonu, začněte psát prostředí PowerShell
-Windows 7 s aktualizací SP1 | Klikněte na levém dolním rohu Windows ikonu, při spuštění pole hledání zadáte prostředí PowerShell
+Windows 7 SP1 | Klikněte na levém dolním rohu Windows ikonu, při spuštění pole hledání zadáte prostředí PowerShell
 
 ### <a name="for-ise"></a>Pro ISE
 
@@ -43,7 +43,7 @@ Verze | Umístění
 -- | --
 Windows 10 | Klikněte levém dolním rohu Windows ikonu, začněte psát ISE
 Windows 8.1, 8.0 | Na obrazovce start zadejte **prostředí PowerShell ISE**.<br/>Pokud je na ploše, klikněte na ikonu Windows dolním rohu, zadejte **prostředí PowerShell ISE**
-Windows 7 s aktualizací SP1 | Klikněte na levém dolním rohu Windows ikonu, při spuštění pole hledání zadáte prostředí PowerShell
+Windows 7 SP1 | Klikněte na levém dolním rohu Windows ikonu, při spuštění pole hledání zadáte prostředí PowerShell
 
 ## <a name="finding-powershell-in-windows-server-versions"></a>Hledání v systému Windows Server verze prostředí PowerShell
 
@@ -78,8 +78,8 @@ Windows | PS 3.0 | PS 4.0 | PS 5.0 | PS 5.1 |
 --|--|--|--|--|
 Windows 10 (viz Note1)<br/>Windows Server 2016 | - | - | - | nainstalovaná
 Windows 8.1<br/>Windows Server 2012 R2 | - | nainstalovaná | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
-Windows 8<br/>Windows Server 2012 | nainstalovaná | [FORMÁT WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
-Windows 7 s aktualizací SP1<br/>Windows Server 2008 R2 SP1 | [PODPORA PRODUKTU WMF 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) | [FORMÁT WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+Windows 8<br/>Windows Server 2012 | nainstalovaná | [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+Windows 7 SP1<br/>Windows Server 2008 R2 SP1 | [WMF 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) | [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
 
 > **Poznámka: 1**:
   >>

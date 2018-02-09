@@ -3,11 +3,11 @@ ms.date: 2017-10-11
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace správce místní konfigurace"
-ms.openlocfilehash: 81434b57e453ba7b64cc32dffdf309da16ef8882
-ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
+ms.openlocfilehash: b8e0749cf2f67e395e9fd8eaf9cde33b97c0cb67
+ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configuring-the-local-configuration-manager"></a>Konfigurace správce místní konfigurace
 
@@ -25,8 +25,8 @@ Je také zodpovědná za několik dalších aspektů DSC, včetně následujíc�
 Použít speciální typ konfigurace konfigurace LCM zadat každou z těchto chování.
 Následující části popisují postup konfigurace LCM.
 
-> **Poznámka:**: Toto téma se týká LCM byla zavedená v prostředí Windows PowerShell 5.0.
-Informace o konfiguraci LCM v prostředí Windows PowerShell 4.0 najdete v tématu [Windows PowerShell 4.0 požadovaného stavu konfigurace správce místní konfigurace](metaconfig4.md).
+Prostředí Windows PowerShell 5.0 zavedená nová nastavení pro správu správce místní konfigurace.
+Informace o konfiguraci LCM v prostředí Windows PowerShell 4.0 najdete v tématu [konfigurace správce místní konfigurace v předchozích verzích Windows PowerShell](metaconfig4.md).
 
 ## <a name="writing-and-enacting-an-lcm-configuration"></a>Psaní a přijetí konfigurace aplikace LCM
 
@@ -90,38 +90,13 @@ Následující vlastnosti jsou k dispozici v **nastavení** bloku.
 
 ## <a name="pull-service"></a>Služba pro vyžádání obsahu
 
-Nastavení DSC umožňují uzlu, který bude spravován stahování modulů a konfigurace a publikování data pro generování sestav, do vzdáleného umístění.
-Aktuální možnosti pro vyžádání obsahu službu:
-
-- Služba konfigurace stavu žádaný automatizace Azure
-- Instance služby z vlastního systémem Windows Server
-- Sdílené složce SMB (nepodporuje publikování data pro generování sestav)
-
 Konfigurace LCM podporuje, definování následující typy koncových bodů pro vyžádání obsahu služby:
 
 - **Konfigurační server**: úložiště konfigurace DSC. Definovat konfigurační servery pomocí **ConfigurationRepositoryWeb** (pro webové servery) a **ConfigurationRepositoryShare** (pro servery založeného na protokolu SMB) bloky.
 - **Server prostředků**: úložiště prostředků DSC, zabalené jako moduly Powershellu. Definovat servery prostředků pomocí **ResourceRepositoryWeb** (pro webové servery) a **ResourceRepositoryShare** (pro servery založeného na protokolu SMB) bloky.
 - **Server sestav**: služba, která odesílá data sestavy DSC. Definovat servery sestav pomocí **ReportServerWeb** bloky. Webové služby musí být serveru sestav.
 
-**Doporučené řešení**, a s nejvíce funkcemi, které jsou k dispozici, není [Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-getting-started).
-
-Uzly na místě v datových centrech privátní nebo veřejné cloudy, například Azure a AWS můžete spravovat službu Azure.
-U privátních prostředí, kde nelze servery připojit přímo k Internetu, zvažte omezení odchozí provoz jenom publikované Azure rozsah IP adres (viz [rozsahy IP Datacentra Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653)).
-
-Funkce služby online, které nejsou momentálně k dispozici ve službě vyžádání v systému Windows Server:
-- Všechna data se šifrují během přenosu a v klidovém stavu
-- Klientské certifikáty se vytváří a spravují automaticky
-- Ukládat tajné klíče pro centrální správu [hesla nebo přihlašovací údaje](https://docs.microsoft.com/en-us/azure/automation/automation-credentials), nebo [proměnné](https://docs.microsoft.com/en-us/azure/automation/automation-variables) například názvy serverů nebo připojovací řetězce
-- Centrálně spravovat uzlu [LCM konfigurace](metaConfig.md#basic-settings)
-- Centrálně přiřadit konfigurace pro klienta uzly
-- Konfigurace verze se změní na "lesknice skupiny" pro testování dříve, než dorazila produkční
-- Grafické vytváření sestav
-  - Podrobná sestava stavu na úrovni prostředků DSC členitosti
-  - Podrobné chybové zprávy z klientských počítačů pro řešení potíží
-- [Integrace s Azure Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics) pro výstrahy, automatizované úlohy, aplikace pro Android nebo iOS pro vytváření sestav a výstrahy
-
-Můžete taky informace o nastavení a použití služby pro vyžádání obsahu HTTP v systému Windows Server najdete v tématu [nastavení server DSC za](pullServer.md).
-Mějte na paměti, že je omezená implementace s pouze základní funkce ukládání konfigurace nebo moduly a zaznamenávání dat sestav v do místní databáze.
+Další informace o přijetí změn služby najdete [požadovaného stavu konfigurace vyžadování služby](pullServer.md).
 
 ## <a name="configuration-server-blocks"></a>Konfigurace serveru bloky
 

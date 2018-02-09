@@ -2,54 +2,60 @@
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Skriptů prostředí PowerShell"
-ms.openlocfilehash: 8d2386dc49c59a106ecdddf0feabe3344834a86d
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 9214b9e40ff6c181f921f89ef78406af20c30e5f
+ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="powershell"></a>PowerShell
 
-Postaveno na rozhraní .NET Framework a prostředí Windows PowerShell je prostředí příkazového řádku založené na úlohách a skriptovací jazyk; je určený speciálně pro správce systémů a power users, rychle automatizovat správu více operačních systémů (Linux, systému macOS, Unix a Windows) a procesů, které souvisí s aplikacemi, které běží na těchto operačních systémů.
+Postaveno na rozhraní .NET Framework a prostředí PowerShell je prostředí příkazového řádku založené na úlohách a skriptovací jazyk; je určený speciálně pro správce systémů a power users, rychle automatizovat správu více operačních systémů (Linux, systému macOS, Unix a Windows) a procesů, které souvisí s aplikacemi, které běží na těchto operačních systémů.
 
-### <a name="powershell-is-now-open-source"></a>Prostředí PowerShell je teď open source
+## <a name="powershell-is-open-source"></a>Prostředí PowerShell je open source
 
-Prostředí PowerShell základní zdrojový kód je nyní k dispozici na webu GitHub a otevřený a komunitní příspěvky, najdete v části [prostředí PowerShell](https://github.com/powershell/powershell).
+Prostředí PowerShell základní zdrojový kód je nyní k dispozici na webu GitHub a otevřené příspěvky ze strany komunity. V tématu [zdroj PowerShell na Githubu](https://github.com/powershell/powershell).
 
 Můžete začít s bits, je nutné v [získat prostředí PowerShell](https://github.com/PowerShell/PowerShell#get-powershell).
 Nebo možná, s krátkou prohlídku v [Začínáme](https://github.com/PowerShell/PowerShell/blob/master/docs/learning-powershell)
 
-> **Poznámka:**  
-> Všechny odkazy na prostředí PowerShell v Githubu se dostanete na Githubu.
+## <a name="powershell-design-goals"></a>Cíle návrhu prostředí PowerShell
+Prostředí Windows PowerShell je navržen pro zlepšení je prostředí příkazového řádku a skriptovací odstraňuje problémy, dlouhotrvající a přidáním nové funkce.
 
-# <a name="documentation"></a>Dokumentace
+### <a name="discoverability"></a>Možnosti rozpoznání
+Prostředí Windows PowerShell snadno zjistit její funkce. Například pokud chcete najít seznam rutin, které zobrazení a změna služby systému Windows, zadejte:
 
-Kolekce dokumentace se věnuje 4 hlavní části:
+```
+Get-Command *-Service
+```
 
-## <a name="whats-new-with-powershellwhats-newwhat-s-new-with-powershellmd"></a>[Co je nového v prostředí PowerShell](whats-new/What-s-New-With-PowerShell.md)
-V této části najdete všechna hlášení o produktu (verze podle verze a verze ve verzi).
+Po zjištění, které rutina provede úlohu, se více o rutině pomocí rutiny Get-Help. Například pokud chcete zobrazit nápovědu k nástroji rutinu Get-Service, zadejte:
 
-## <a name="powershell-setupsetupsetup-referencemd"></a>[Instalace prostředí PowerShell](setup/setup-reference.md)
-V této části, které naleznete všechny, které potřebujete vědět, chcete-li nainstalovat všechny verze prostředí PowerShell ve všech podporovaných prostředí.  
+```
+Get-Help Get-Service
+```
+Většina rutiny emitování objekty, které můžete s nimi manipulovat a pak se vykresluje do textu pro zobrazení. Abyste plně porozuměli tomu výstup této rutiny, prostřednictvím kanálu její výstup do rutiny Get-člen. Následující příkaz například zobrazí informace o členů výstupní objekt rutiny Get-Service.
 
-Také zjistíte, jak nakonfigurovat pro: zabezpečení, usnadnění, vzdálený přístup a správu, pracovních postupů a webový přístup.
+```
+Get-Service | Get-Member
+```
 
-## <a name="getting-started-with-powershellgetting-startedgetting-started-with-windows-powershellmd"></a>[Začínáme s prostředím PowerShell](getting-started/Getting-Started-with-Windows-PowerShell.md)
-V této části je pro uživatele nové prostředí PowerShell získat všechny informace potřebné k použití produktu.  
-V této části:
-- [Získávání připraven k použití prostředí Windows PowerShell](getting-started/Getting-Ready-to-Use-Windows-PowerShell.md) vysvětlující potřebné kroky potřebné k instalaci prostředí PowerShell ke spouštění a zkuste to všechny fragmenty kódu a příkaz kódu, které jsou uvedené v části "Začínáme s prostředím PowerShell.
-- [Základní koncepty](getting-started/fundamental-concepts.md) příručce, která vysvětluje, co prostředí PowerShell a se základními koncepty potřebné k jej začít používat.
-- Řadu '[Principy &lt;koncept&gt;](getting-started/understanding-concepts-reference.md), témata, které se týkají základní informace o prostředí PowerShell.
-- Řadu '[základní kuchařka pro &lt;využití&gt;](getting-started/cookbooks/basic-cookbooks-reference.md), témata, které obsahují recepty provést standardní úlohy kolem soubory, systém souborů, registru, procesy, služby a podobné každodenní témata.
-- Kurátorované průvodce další zdroje pro [učení prostředí PowerShell](getting-started/more-powershell-learning.md).
+### <a name="consistency"></a>Konzistence
+Správa systémů může být složité omezené úsilí a nástroje, které mají konzistentní rozhraní pomohou řídit vyplývajících složitost. Bohužel nástroje příkazového řádku ani Skriptovatelná COM – objekty mají známo, jejich konzistence.
 
-## <a name="common-powershellcore-powershellcore-powershellmd"></a>[Běžné prostředí PowerShell](core-powershell/core-powershell.md)
-Tato část obsahuje všechny referenčního materiálu prostředí PowerShell.  
-Najít v této části:
-- [Integrované skriptovací prostředí v prostředí PowerShell \(ISE\)](core-powershell/ise-guide.md)
-- [Okna konzoly prostředí PowerShell](core-powershell/console-guide.md)
-- [Prostředí PowerShell vzdálené správy](core-powershell/Running-Remote-Commands.md)
-- [Pracovních postupů prostředí PowerShell](core-powershell/workflows-guide.md)
-- [PowerShell Web Accessu](core-powershell/web-access.md)
-- [Prostředí PowerShell Glosář](Windows-PowerShell-Glossary.md)
+Konzistence prostředí Windows PowerShell je jedním z jeho primární prostředky. Například pokud zjistíte, jak pomocí rutiny řazení objekt, můžete použít dané znalosti seřadit výstup všechny rutiny. Nemáte další rutiny různých řazení každou rutinu.
 
+Vývojáři rutiny navíc nemusí návrh řazení funkce pro jejich rutiny. Prostředí Windows PowerShell je poskytuje rozhraní, které poskytuje základní funkce a vynutí, aby byl konzistentní o mnoho aspektů rozhraní. Rozhraní framework eliminuje některé z těchto možností, které jsou obvykle zleva vývojář, ale naopak umožňuje vývoj robustní a snadné použití rutin mnohem jednodušší.
+
+### <a name="interactive-and-scripting-environments"></a>Interaktivní a skriptovací prostředí
+Prostředí Windows PowerShell je kombinované interaktivní a skriptovací prostředí, který umožňuje přístup nástroje příkazového řádku a objekty modelu COM a také umožňuje používat power z rozhraní .NET Framework – třída Library (FCL).
+
+Toto prostředí zlepšuje při na příkazovém řádku Windows, která poskytuje interaktivní prostředí s více nástroje příkazového řádku. Také zlepšuje při skripty skriptu hostitele prostředí WSH (Windows), které umožňují použít několik nástrojů příkazového řádku a objekty automatizace modelu COM, ale neposkytuje interaktivní prostředí.
+
+Kombinací přístup ke všem z těchto funkcí prostředí Windows PowerShell rozšiřuje možnosti interaktivního uživatele a skripty a umožňuje lepší správu bitlockeru systému správy.
+
+### <a name="object-orientation"></a>Orientace objektu
+I když budete používat v prostředí Windows PowerShell zadáním příkazů v textu, prostředí Windows PowerShell je založena na objekty, nikoli textu. Výstup příkazu je objekt. Můžete odeslat objekt výstup do jiného příkazu jako vstup. V důsledku toho prostředí Windows PowerShell poskytuje známé rozhraní osobám s další součásti pro došlo při zavedení nových a výkonné zlepší příkazového řádku. Je nadstavbou konceptu odesílání dat mezi příkazy tím, že vám odeslat objekty, nikoli text.
+
+### <a name="easy-transition-to-scripting"></a>Snadný přechod skriptování
+Díky prostředí Windows PowerShell, které usnadňují přechod z zadáním příkazů interaktivně k vytváření a spouštění skriptů. Příkazy můžete zadat na příkazovém řádku prostředí Windows PowerShell ke zjištění příkazy, které provádějí úlohu. Pak můžete uložit tyto příkazy přepis nebo historii před jejich zkopírováním do souboru pro použití jako skript.

@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "O prostředí Windows PowerShell"
+title: Informace o Windows PowerShellu
 ms.assetid: 979654ae-7994-47f8-be43-d79e7a140143
 ms.openlocfilehash: 5e6d1bb4d8915ba3c83ba0020b959e444b5211cd
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 02/08/2018
 ---
-# <a name="about-windows-powershell"></a>O prostředí Windows PowerShell
+# <a name="about-windows-powershell"></a>Informace o Windows PowerShellu
 Prostředí Windows PowerShell je navržen pro zlepšení je prostředí příkazového řádku a skriptovací odstraňuje problémy, dlouhotrvající a přidáním nové funkce.
 
 ## <a name="discoverability"></a>Možnosti rozpoznání

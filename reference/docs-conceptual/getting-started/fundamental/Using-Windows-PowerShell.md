@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Pomocí prostředí Windows PowerShell"
+title: "Použití Windows PowerShellu"
 ms.assetid: cf06f1e5-3945-47e4-98be-412f5a1f43fe
 ms.openlocfilehash: 874c6fc6f0b09b0f586725ed7df7bc68c31e1733
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/08/2018
 ---
-# <a name="using-windows-powershell"></a>Pomocí prostředí Windows PowerShell
+# <a name="using-windows-powershell"></a>Použití Windows PowerShellu
 Prostředí Windows PowerShell® je prostředí příkazového řádku založené na úlohách a skriptovací jazyk, které jsou určené hlavně pro správu systému. Postaveno na rozhraní .NET Framework a prostředí Windows PowerShell pomáhá Odborníci v oblasti IT a uživatelé řízení spotřeby a automatizovat správu systému Windows operační systém a aplikace, které běží v systému Windows.
 
 Prostředky v této části můžete další informace o prostředí Windows PowerShell, funkce, které jsou součástí prostředí Windows PowerShell, a grafický editor prostředí Windows PowerShell, Windows PowerShell Integrované skriptovací prostředí.

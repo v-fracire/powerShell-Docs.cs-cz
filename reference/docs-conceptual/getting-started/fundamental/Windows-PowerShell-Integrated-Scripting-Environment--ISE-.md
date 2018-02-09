@@ -3,26 +3,31 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell"
 ms.assetid: f156b92d-0203-46d2-89c7-b4989d32e3d2
-ms.openlocfilehash: 66f36371cbb8ad8523aa1e1e3cd791cc692194c9
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 6a2d2bada2d8d6a1d5bedffc7b1b28fe9472544a
+ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-powershell-integrated-scripting-environment-ise"></a>Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell
+
 Systému Windows PowerShell Integrované skriptovací prostředí (ISE) je jedním ze dvou hostitelů pro modul prostředí Windows PowerShell a jazyk. S ním můžete napsat, spuštění a testování skriptů způsoby, které nejsou k dispozici v konzole Windows PowerShell. ISE přidá barevné zvýrazňování syntaxe, dokončování pomocí tabulátorů, IntelliSense, ladění visual a kontextovou nápovědu.
 
 ISE umožňuje spouštět příkazy v podokně konzoly, ale také podporuje podokny, která vám pomůže současně zobrazit zdrojový kód vašeho skriptu a jiných nástrojů, které lze zařadit do ISE. I více skriptu Windows můžete otevřít ve stejnou dobu, která je zvlášť užitečné, pokud ladíte skript, který používá funkce definované v další skripty či moduly.
 
 ## <a name="whats-new"></a>Co je nového
+
 Zde jsou některé funkce, které jsou přidané do ISE nejnovější verze prostředí PowerShell.
 
 ### <a name="added-in-powershell-30-windows-server-2012-windows-8"></a>Přidat v prostředí PowerShell 3.0 (Windows Server 2012, Windows 8)
+
 **IntelliSense** zobrazením nabídky odpovídající rutiny, parametry, hodnoty parametrů, soubory nebo složky při psaní automaticky dokončení příkazech.
 
 **Fragmenty kódu** krátké části kódu, který lze snadno vložit do skriptů vaší zápisu. Kolekce užitečné fragmenty kódu je součástí pole a více můžete pomocí **New-fragment** rutiny.
 
-**Rozšíření nástrojů** přidá funkce, které mají ISE lze vytvořit pomocí psaní kódu, který komunikuje s [systému Windows PowerShell ISE skriptování objektový Model](../../core-powershell/ise/The-Windows-PowerShell-ISE-Scripting-Object-Model.md). Tyto nástroje můžete zobrazit ovládací prvky v podokně s kartami nebo pracovat tedy bez zásahu uživatele na pozadí. **Příkazy** rozšíření je dobrým příkladem je součástí verze 3.0 a novější, který zobrazí seznam dostupných příkazů a jejich nápovědy.
+**Rozšíření nástrojů** přidá funkce, které mají ISE lze vytvořit pomocí psaní kódu, který komunikuje s [systému Windows PowerShell ISE skriptování objektový Model](../../core-powershell/ise/The-ISE-Object-Model-Hierarchy.md).
+
+Tyto nástroje můžete zobrazit ovládací prvky v podokně s kartami nebo pracovat tedy bez zásahu uživatele na pozadí. **Příkazy** rozšíření je dobrým příkladem je součástí verze 3.0 a novější, který zobrazí seznam dostupných příkazů a jejich nápovědy.
 
 **Restartujte Manager a automatického ukládání** automaticky uloží skripty každé dvě minuty, abyste nedošlo ke ztrátě práce v případě havárie nebo neočekávaně restartován.
 
@@ -51,17 +56,16 @@ Zde jsou některé funkce, které jsou přidané do ISE nejnovější verze pros
 - **Blokovat výběr**. Můžete vybrat bloku dat ve tvaru bloku textu, podržte stisknutou klávesu ALT a výběr textu v podokně skriptu s myší nebo stisknutím klávesy **Alt + Shift + šipka**.
 
 ### <a name="added-in-powershell-20-windows-server-2008-r2-windows-7"></a>Přidat v prostředí PowerShell 2.0 (Windows Server 2008 R2, Windows 7)
+
 ISE byla zavedena v systému verze prostředí PowerShell 2.0.
 
 ## <a name="requirements-for-running-the-windows-powershell-ise"></a>Požadavky na spuštění Windows PowerShell ISE
-ISE je k dispozici na libovolném počítači Windows, která se může spustit prostředí Windows PowerShell verze 2.0 nebo novější.
-Každá verze nástroje Windows a Windows Server obsahuje verzi prostředí Windows PowerShell a ISE, ale můžete upgradovat na nejnovější verzi dostupnou instalací Windows Management Framework.
-Spuštění tohoto hledání najít na nejnovější dostupnou verzi: [stáhne](http://www.microsoft.com/en-us/search/DownloadResults.aspx?q=%22windows%20management%20framework%22%20PowerShell&sortby=Relevancy~Descending).
-Upozorňujeme, že všechny položky označené jako "Náhled", jsou předběžné verze kódu a nejsou funkce dokončení.
+
+ISE je k dispozici na libovolném počítači Windows, která se může spustit prostředí Windows PowerShell verze 2.0 nebo novější. Každou verzi Windows a Windows Server obsahuje verzi prostředí Windows PowerShell a ISE, ale můžete upgradovat na nejnovější verzi dostupnou instalací Windows Management Framework (WMF). Najdete v článku [WMF](/powershell/wmf/readme) Další informace naleznete v dokumentaci.
 
 > [!NOTE]
 > Protože Windows PowerShell ISE vyžaduje grafické uživatelské rozhraní, nelze jej spustit v jádra serveru systému Windows Server.
 
 ## <a name="see-also"></a>Viz taky
-- [Pomocí Windows PowerShell Integrované skriptovací prostředí](../../core-powershell/ise/Using-the-Windows-PowerShell-ISE.md)
 
+[Účelem ise windows power shell skriptování objektový model](../../core-powershell/ise/Purpose-of-the-Windows-PowerShell-ISE-Scripting-Object-Model.md)

@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: Odkaz na objekt modelu Windows PowerShell ISE
+title: "Referenční informace o objektovém modelu prostředí Windows PowerShell ISE"
 ms.assetid: e1a9e7d1-0fd5-47de-8d9b-f1be1ed13b0c
 ms.openlocfilehash: 624ddca3895ba3e24bf52a27babdb07e8714baae
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/08/2018
 ---
-# <a name="windows-powershell-ise-object-model-reference"></a>Odkaz na objekt modelu Windows PowerShell ISE
+# <a name="windows-powershell-ise-object-model-reference"></a>Referenční informace o objektovém modelu prostředí Windows PowerShell ISE
   
 ## <a name="object-model-reference"></a>Odkaz na objekt modelu
  Tato část obsahuje odkaz na základní třídy, která definují různé objekty inWindows PowerShell® Integrované skriptovací prostředí (ISE). Objekty, které jsou uspořádány do jejich hierarchie najdete v sekci [hierarchie ISE objektového modelu](The-ISE-Object-Model-Hierarchy.md).
