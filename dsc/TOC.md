@@ -108,7 +108,7 @@
 
 # Načítací model platformy DSC
 
-## [Nastavení webového serveru vyžádané replikace](pullServer.md)
+## [Načítací služba DSC](pullServer.md)
 
 ## [Nastavení serveru vyžádané replikace SMB pro DSC](pullServerSMB.md)
 
