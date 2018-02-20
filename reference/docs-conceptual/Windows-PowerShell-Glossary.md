@@ -3,11 +3,11 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Glosář služby Windows PowerShell"
 ms.assetid: b0f88cbe-cb83-4912-a301-184534cb35c7
-ms.openlocfilehash: 48e5d832ead720c8bc7753c94f757ddb21846fc9
-ms.sourcegitcommit: ced46469e064736eeb1f5608abbc792ec69bdc92
+ms.openlocfilehash: 872ceb342cc72477c5142ce28a9b3b66e32bb84f
+ms.sourcegitcommit: 05d576cf107780fa52b2db4a042816be40b00fbc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="windows-powershell-glossary"></a>Glosář služby Windows PowerShell
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/08/2017
 |hostitele|Rozhraní, které modul prostředí Windows PowerShell používá ke komunikaci s uživatelem. Například hostitele určuje způsob zpracování výzvy mezi prostředí Windows PowerShell a uživatelem.|
 |hostitelskou aplikaci|Program, který načte modul prostředí Windows PowerShell do zpracování a používá k provádění operací.|
 |vstup zpracování metody|Metoda, která rutiny můžete použít ke zpracování záznamů, které přijímá jako vstup. Vstupní zpracování metody zahrnují metodu BeginProcessing, metoda ProcessRecord, metoda EndProcessing a metodu StopProcessing.|
-|modul manifestu|Modul prostředí Windows PowerShell, který má manifestu a jejichž ModulesToProcess klíč je prázdný.|
+|modul manifestu|Modul prostředí Windows PowerShell, který má manifestu a jejichž RootModule klíč je prázdný.|
 |modul manifestu|Prostředí Windows PowerShell datový soubor (.psd1), který popisuje obsah modulu a která řídí zpracování modulu.|
 |Stav relace modulu|Stav relace, který obsahuje data veřejné a privátní modulu prostředí Windows PowerShell. Privátní data v tomto stavu relace nejsou k dispozici pro uživatele relaci prostředí Windows PowerShell.|
 |neukončující chybu|K chybě, která nezastaví pokračovat ke zpracování tohoto příkazu prostředí Windows PowerShell.|
@@ -33,8 +33,8 @@ ms.lasthandoff: 08/08/2017
 |kanálu|V prostředí Windows PowerShell k odesílání výsledky předchozí příkaz jako vstup na další příkaz v kanálu.|
 |Kanál|Řadu příkazů pomocí operátorů kanálů (&#124;) (ASCII 124). Každý operátor kanálu odesílá výsledky předchozí příkaz jako vstup dalšího příkazu.|
 |PSSession|Typ relace prostředí Windows PowerShell, který je vytvořen, spravované a uzavřené uživatele.|
-|kořenové modulu|Zadaný v klíči ModuleToProcess v manifestu modulu modul.|
-|Prostředí runspace|V prostředí Windows PowerShell, je pracovní prostředí, ve kterém se spustí každý příkaz v kanálu.|
+|kořenové modulu|Zadaný v klíči RootModule v manifestu modulu modul.|
+|runspace|V prostředí Windows PowerShell, je pracovní prostředí, ve kterém se spustí každý příkaz v kanálu.|
 |blok skriptu|V prostředí Windows PowerShell programovací jazyk, kolekci příkazy nebo výrazy, které lze použít jako na jednu jednotku. Blok skriptu můžete přijímají argumenty a návratové hodnoty.|
 |modulu skriptu|Modul prostředí Windows PowerShell, jejichž kořenové modul je soubor modulu skriptu (.psm1). Modulu skriptu může nebo nemusí obsahovat modul manifestu.|
 |soubor skriptu modulu|Soubor, který obsahuje skript prostředí Windows PowerShell. Skript definuje členy, kteří exportuje modulu skriptu. Soubory modulu skriptu mít příponu názvu souboru .psm1.|

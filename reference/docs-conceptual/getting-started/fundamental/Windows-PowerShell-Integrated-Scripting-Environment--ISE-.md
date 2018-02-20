@@ -3,11 +3,11 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell"
 ms.assetid: f156b92d-0203-46d2-89c7-b4989d32e3d2
-ms.openlocfilehash: 6a2d2bada2d8d6a1d5bedffc7b1b28fe9472544a
-ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
+ms.openlocfilehash: 413fc375ad4617bfae59d6a1217cf9f91c2cf090
+ms.sourcegitcommit: 05d576cf107780fa52b2db4a042816be40b00fbc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="windows-powershell-integrated-scripting-environment-ise"></a>Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell
 
