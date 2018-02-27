@@ -52,7 +52,7 @@ Ostatní jsou pouze přítomen nebo je použít v instalacích jiný systém ne�
 - Ignorovat `-ExecutionPolicy` přepínače při spuštění prostředí PowerShell na platformách systému Windows, protože podepisování skriptů se aktuálně nepodporuje. (#3481)
 - Pevné ConsoleHost vyhovět `NoEcho` na platformách systému Unix. (#3801)
 - Opravené `Get-Help` pro podporu rozlišování malých a velkých písmen vzor odpovídající na platformách systému Unix. (#3852)
-- `powershell`Přidání balíčku Man stránky
+- `powershell` Přidání balíčku Man stránky
 
 ### <a name="logging"></a>Protokolování
 
@@ -65,14 +65,14 @@ Počet změn, byly provedeny v systému macOS a Linux pro podporu znaků filenam
 
 - Cesty zadané rutiny jsou nyní vázané lomítko (jak / a \ pracovní jako oddělovače adresáře)
 - Specifikaci XDG základní adresáře je nyní dodrženy a ve výchozím nastavení používá:
-  - Cesta profilu systému Linux nebo macOS se nachází v`~/.config/powershell/profile.ps1`
-  - Se nachází v historii cestu uložení`~/.local/share/powershell/PSReadline/ConsoleHost_history.txt`
-  - Cesta k modulu uživatele se nachází v`~/.local/share/powershell/Modules`
+  - Cesta profilu systému Linux nebo macOS se nachází v `~/.config/powershell/profile.ps1`
+  - Se nachází v historii cestu uložení `~/.local/share/powershell/PSReadline/ConsoleHost_history.txt`
+  - Cesta k modulu uživatele se nachází v `~/.local/share/powershell/Modules`
 - Podpora pro názvy souborů a složek obsahující znak dvojtečky v systému Unix. (#4959)
 - Podpora pro názvy skriptu nebo úplné cesty, které mají čárkami. (#4136) (Poděkování @TimCurwick!)
 - Rozpoznat, kdy `-LiteralPath` je použít k potlačení rozšíření zástupného znaku rutinám navigace. (#5038)
 - Aktualizovat `Get-ChildItem` fungovat jako další * nix `ls -R` a Windows `DIR /S` nativní příkazy.
-  `Get-ChildItem`nyní vrátí symbolické odkazy došlo během rekurzivní hledání a neprohledává adresáře, tyto odkazy cíl. (#3780)
+  `Get-ChildItem` nyní vrátí symbolické odkazy došlo během rekurzivní hledání a neprohledává adresáře, tyto odkazy cíl. (#3780)
 
 ### <a name="case-sensitivity"></a>Rozlišování velkých a malých písmen
 
@@ -93,11 +93,11 @@ Vedle sebe, taky umožňuje zpětné kompatibility jako skripty lze připojit do
 > Ve výchozím nastavení Instalační služby MSI založené na Windows nepodporuje instalaci aktualizace na místě.
 >
 
-## <a name="renamed-powershellexe-to-pwshexe"></a>Přejmenovat `powershell(.exe)` na`pwsh(.exe)`
+## <a name="renamed-powershellexe-to-pwshexe"></a>Přejmenovat `powershell(.exe)` na `pwsh(.exe)`
 
 Binární název pro základní prostředí PowerShell byla změněna z hodnoty `powershell(.exe)` k `pwsh(.exe)`.
 Tato změna umožňuje deterministickou uživatelům spouštět základní prostředí PowerShell na počítačích pro podporu prostředí Windows PowerShell vedle sebe a instalací jádra prostředí PowerShell.
-`pwsh`je také mnohem kratší a jednodušší zadat.
+`pwsh` je také mnohem kratší a jednodušší zadat.
 
 Další změny, aby `pwsh(.exe)` z `powershell.exe`:
 
@@ -210,7 +210,7 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
 ## <a name="language-updates"></a>Jazyky aktualizací
 
 - Implementujte Unicode řídicí analýza tak, aby uživatelé můžou použít znaky Unicode jako argumenty, řetězce nebo názvy proměnných. (#3958) (Poděkování @rkeithhill!)
-- Přidání nové řídicí znak pro ESC:`` `e``
+- Přidání nové řídicí znak pro ESC: `` `e``
 - Přidaná podpora pro převod výčty do řetězce (#4318) (Děkujeme @KirkMunro)
 - Pole pevné přetypování jeden element pro obecnou kolekci. (#3170)
 - Přetížení rozsah přidané znak `..` operátor, takže `'a'..'z'` vrátí znaků od 'a' do 'z'. (#5026) (Děkujeme @IISResetMe!)
@@ -220,11 +220,11 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
 
 ## <a name="engine-updates"></a>Aktualizací stroje
 
-- `$PSVersionTable`má čtyři nové vlastnosti:
+- `$PSVersionTable` má čtyři nové vlastnosti:
   - `PSEdition`: Tato hodnota je nastavena `Core` na základní prostředí PowerShell a `Desktop` na prostředí Windows PowerShell
   - `GitCommitId`: Jedná se o ID potvrzení Git Git větev nebo značky, které bylo vytvořeno prostředí PowerShell.
     U vydaných sestavení, pravděpodobně bude stejná jako `PSVersion`.
-  - `OS`: Toto je řetězec verze operačního systému vrácené`[System.Runtime.InteropServices.RuntimeInformation]::OSDescription`
+  - `OS`: Toto je řetězec verze operačního systému vrácené `[System.Runtime.InteropServices.RuntimeInformation]::OSDescription`
   - `Platform`: Toto je vrácen rutinou `[System.Environment]::OSVersion.Platform` je nastaven na hodnotu `Win32NT` v systému Windows, `MacOSX` v systému macOS, a `Unix` v systému Linux.
 - Odebrat `BuildVersion` vlastnost z `$PSVersionTable`.
   Tato vlastnost byla důrazně vázaný na verzi Windows sestavení.
@@ -302,18 +302,18 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
 - Přidat `-Extension` a `-LeafBase` přepne do `Split-Path` tak, aby můžete rozdělit cest mezi příponu názvu souboru a zbytek název souboru. (#2721) (Poděkování @powercode!)
 - Přidání parametrů `-Top` a `-Bottom` k `Sort-Object` pro řazení horní nebo dolní N
 - Vystavení proces nadřazeného procesu přidáním `CodeProperty "Parent"` k `System.Diagnostics.Process`. (#2850) (Poděkování @powercode!)
-- Použití MB místo KB paměti sloupce`Get-Process`
+- Použití MB místo KB paměti sloupce `Get-Process`
 - Přidat `-NoNewLine` přepínač pro `Out-String`. (#5056) (Děkujeme @raghav710)
-- `Move-Item`rutiny ctí `-Include`, `-Exclude`, a `-Filter` parametry. (#3878)
+- `Move-Item` rutiny ctí `-Include`, `-Exclude`, a `-Filter` parametry. (#3878)
 - Povolit `*` mají být použity v cesta v registru pro `Remove-Item`. (#4866)
 - Přidat `-Title` k `Get-Credential` a sjednocení výzva prostředí napříč platformami.
 - Přidat `-TimeOut` parametru `Test-Connection`. (#2492)
-- `Get-AuthenticodeSignature`rutiny nyní můžete získat časové razítko podpis souboru. (#4061)
+- `Get-AuthenticodeSignature` rutiny nyní můžete získat časové razítko podpis souboru. (#4061)
 - Odeberte nepodporované `-ShowWindow` přejít z `Get-Help`. (#4903)
 - Opravte `Get-Content -Delimiter` možnost Nezahrnovat elementy pole oddělovač, který vrátil (#3706) (Děkujeme @mklement0)
 - Přidat `Meta`, `Charset`, a `Transitional` parametry, které `ConvertTo-HTML` (#4184) (Děkujeme @ergo3114)
 - Přidat `WindowsUBR` a `WindowsVersion` vlastnosti, které chcete `Get-ComputerInfo` výsledek
-- Přidat `-Group` parametru`Get-Verb`
+- Přidat `-Group` parametru `Get-Verb`
 - Přidat `ShouldProcess` podporují `New-FileCatalog` a `Test-FileCatalog` (opravy `-WhatIf` a `-Confirm`). (#3074) (Poděkování @iSazonov!)
 - Přidat `-WhatIf` přepnout `Start-Process` rutiny (#4735) (Děkujeme @sarithsutha)
 - Přidat `ValidateNotNullOrEmpty` existující příliš mnoho parametrů.
@@ -344,8 +344,8 @@ Další informace o nich podrobně, najdete v části [nejnovějších změn v p
 ## <a name="filesystem-updates"></a>Aktualizace systému souborů
 
 - Povolte použití zprostředkovatele systému souborů z cesty UNC. ($4998)
-- `Split-Path`nyní pracuje s kořeny UNC
-- `cd`bez argumentů nyní chová jako`cd ~`
+- `Split-Path` nyní pracuje s kořeny UNC
+- `cd` bez argumentů nyní chová jako `cd ~`
 - Opravené základní prostředí PowerShell k povolení použití cesty, které jsou větší než 260 znaků dlouhé. (#3960)
 
 ## <a name="bug-fixes-and-performance-improvements"></a>Opravy chyb a vylepšení výkonu
@@ -361,8 +361,8 @@ Vyřešili jsme také počet chyb v rámci základní prostředí PowerShell.
   - Platforma operačního systému (`$PSVersionTable.OSDescription`)
   - přesné verze prostředí PowerShell (`$PSVersionTable.GitCommitId`)
 
-Pokud se chcete odhlásit tuto telemetrii, jednoduše odstranit `$PSHome\DELETE_ME_TO_DISABLE_CONSOLEHOST_TELEMETRY`.
-Odstranění tohoto souboru obchází všechny telemetrická data i před prvním spuštěním prostředí PowerShell.
+Pokud se chcete odhlásit tuto telemetrii, jednoduše odstranit `$PSHome\DELETE_ME_TO_DISABLE_CONSOLEHOST_TELEMETRY` nebo vytvořte `POWERSHELL_TELEMETRY_OPTOUT` proměnnou prostředí s jedním z následujících hodnot: `true`, `1` nebo `yes`.
+Odstranění tohoto souboru nebo vytváření proměnné obchází všechny telemetrická data i před prvním spuštěním prostředí PowerShell.
 Plánujeme také na vystavení tato data telemetrie a statistiky jsme glean z telemetrických dat v [řídicí panel komunity][community-dashboard].
 Můžete najít další informace o tom, jak tato data používáme v tomto [příspěvku na blogu][telemetry-blog].
 

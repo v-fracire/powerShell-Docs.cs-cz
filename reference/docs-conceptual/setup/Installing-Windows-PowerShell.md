@@ -2,25 +2,16 @@
 ms.date: 2017-08-09
 keywords: "prostředí PowerShell, rutiny, stažení, instalace, instalační program, windows 10, windows 8.1, windows 8.0, windows 7"
 title: Instalace Windows PowerShellu
-ms.openlocfilehash: ec8f09087a5c5f2e7ea6237faa01ea3f447ad1f3
-ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
+ms.openlocfilehash: dffb6ec11ce265ebc4e6bc91f631650e1af5868d
+ms.sourcegitcommit: 05d576cf107780fa52b2db4a042816be40b00fbc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="installing-windows-powershell"></a>Instalace Windows PowerShellu
+Ve výchozím nastavení v každé Windows od verze Windows 7 SP1 a Windows Server 2008 R2 SP1 nainstalovaný Windows PowerShell.
 
-Prostředí PowerShell nainstalovaný ve výchozím nastavení v každé Windows od verze Windows 7 SP1 a Windows Server 2008 R2 SP1.
-
-Uživatelé Linuxu, systému macOS a systému Windows, které chcete nainstalovat **prostředí PowerShell 6** (beta) ve své počítače, třeba:
-
-1. Získat prostředí PowerShell pro konkrétní operační systém a verze, ze [Githubu](https://github.com/powershell/powershell#get-powershell)
-1. Postupujte podle pokynů pro instalaci
-  - [Linux](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md)
-  - [macOS](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md)
-  - [Windows](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi)
-
-6 prostředí PowerShell je také k dispozici pro Docker; v tématu [Docker instalace](https://github.com/PowerShell/PowerShell/tree/master/docker) pokyny.
+Pokud vás zajímá v prostředí PowerShell 6 nebo novější, musíte nainstalovat prostředí PowerShell základní místo prostředí Windows PowerShell. Pro tento, najdete v části [instalace jádra prostředí PowerShell v systému Windows](Installing-PowerShell-Core-on-Windows.md).
 
 ## <a name="finding-powershell-in-windows-10-81-80-and-7"></a>Hledání prostředí PowerShell v systému Windows 10, 8.1, 8.0 a 7
 
@@ -65,7 +56,7 @@ Jedinou výjimkou výše uvedené pravidlo je (ISE) v systému Windows Server 20
 
 ## <a name="how-to-check-the-version-of-powershell"></a>Postupy: Kontrola verze prostředí PowerShell
 
-K vyhledání, která verze prostředí PowerShell jste nainstalovali, spusťte konzolu PowerShell (nebo ISE) a typ `$PSVersionTable` a stiskněte klávesu **ENTER**.
+K vyhledání, která verze prostředí PowerShell jste nainstalovali, spusťte konzolu PowerShell (nebo ISE) a typ `$PSVersionTable` a stiskněte klávesu **ENTER**. Vyhledejte `PSVersion` hodnotu.
 
 ## <a name="upgrading-existing-windows-powershell"></a>Upgrade stávající prostředí Windows PowerShell
 
