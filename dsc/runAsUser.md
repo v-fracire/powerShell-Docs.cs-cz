@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Přihlašovací údaje uživatele s DSC"
-ms.openlocfilehash: 7b57732679e4fb29112a3ca7fe64cba2bda67207
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 11c13d852b506be3e202b798d135eba73d84cfe0
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="running-dsc-with-user-credentials"></a>Přihlašovací údaje uživatele s DSC 
 
@@ -16,8 +16,8 @@ ms.lasthandoff: 01/17/2018
 Prostředek DSC pod zadanou sadu přihlašovacích údajů můžete spustit pomocí automatického **PsDscRunAsCredential** vlastnosti v konfiguraci. Ve výchozím nastavení spouští DSC každý prostředek, jako systémový účet.
 Existují situace, kdy spuštěná jako uživatel je nezbytné, například instalaci balíčky MSI v kontextu konkrétního uživatele, nastavení klíče registru uživatele, přístup k určité místní adresáře uživatele nebo přístup k síti sdílet.
 
-Má každý prostředek DSC **PsDscRunAsCredential** vlastnost, která může být nastaven na všechny přihlašovací údaje uživatele ( [PSCredential](https://msdn.microsoft.com/en-us/library/ms572524(v=VS.85).aspx) objekt).
-Přihlašovací údaje mohou být pevně zakódované jako hodnota vlastnosti v konfiguraci, nebo nastavte hodnotu na [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx), který se zobrazí výzva pro pověření při kompilaci (pro informace o konfiguraci kompilování konfigurace, najdete v části [konfigurace](configurations.md).
+Má každý prostředek DSC **PsDscRunAsCredential** vlastnost, která může být nastaven na všechny přihlašovací údaje uživatele ( [PSCredential](https://msdn.microsoft.com/library/ms572524(v=VS.85).aspx) objekt).
+Přihlašovací údaje mohou být pevně zakódované jako hodnota vlastnosti v konfiguraci, nebo nastavte hodnotu na [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx), který se zobrazí výzva pro pověření při kompilaci (pro informace o konfiguraci kompilování konfigurace, najdete v části [konfigurace](configurations.md).
 
 >**Poznámka:** v prostředí PowerShell 5.0, pomocí **PsDscRunAsCredential** vlastnost v konfiguracích volání složené prostředků nebyla podporována. 
 >V prostředí PowerShell 5.1 **PsDscRunAsCredential** vlastnost je podporována v konfiguracích volání složené prostředky.

@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Oddělení dat konfigurace a prostředí"
-ms.openlocfilehash: cf0d4a12efe4998176d3c80841740c5f9d9a103b
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 18b18d805ac248b29526862591df5f0ff785937b
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="separating-configuration-and-environment-data"></a>Oddělení dat konfigurace a prostředí
 
@@ -81,7 +81,7 @@ Mode                LastWriteTime         Length Name
 -a----        3/31/2017   5:09 PM           1970 VM-2.mof  
 ```
  
-`$MyData`Určuje dvou různých uzlech, každou s vlastním `NodeName` a `Role`. Konfigurace dynamicky vytvoří **uzlu** bloky provedením kolekce uzlů získá ze `$MyData` (konkrétně `$AllNodes`) a filtry pro tuto kolekci `Role` vlastnost...
+`$MyData` Určuje dvou různých uzlech, každou s vlastním `NodeName` a `Role`. Konfigurace dynamicky vytvoří **uzlu** bloky provedením kolekce uzlů získá ze `$MyData` (konkrétně `$AllNodes`) a filtry pro tuto kolekci `Role` vlastnost...
 
 ## <a name="using-configuration-data-to-define-development-and-production-environments"></a>Pomocí konfigurační data, abyste definovali vývoj a produkční prostředí
 
@@ -143,7 +143,7 @@ Configuration MyWebApp
     Import-DscResource -Module xSqlPs
     Import-DscResource -Module xWebAdministration
 
-    Node $AllNodes.Where{$_.Role -contains "MSSQL"}.Nodename
+    Node $AllNodes.Where{$_.Role -contains "MSSQL"}.NodeName
    {
         # Install prerequisites
         WindowsFeature installdotNet35
@@ -246,7 +246,7 @@ Následující konfigurace zajišťuje přítomnost dva weby.
 Data pro každý web jsou definovány v **AllNodes** pole.
 Soubor `Config.xml` se používá pro oba weby, takže jsme definovali v další klíč s názvem `NonNodeData`.
 Všimněte si, že můžete mít libovolný počet dalších klíčů, přičemž můžete pojmenovat je všechno, co chcete.
-`NonNodeData`je vyhrazené slovo, je právě co jsme se rozhodli název další klíč.
+`NonNodeData` je vyhrazené slovo, je právě co jsme se rozhodli název další klíč.
 
 Máte přístup k další klíče pomocí speciální proměnná **$ConfigurationData**.
 V tomto příkladu `ConfigFileContents` přistupuje řádek:

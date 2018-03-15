@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Řešení potíží s DSC"
-ms.openlocfilehash: 4141e1f3304460dcaf310ce603fdc5d9550a5069
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: cdb11a80daecec0e0d01071752612663ac69ac6d
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="troubleshooting-dsc"></a>Řešení potíží s DSC
 
@@ -21,7 +21,7 @@ Požadovaného stavu aplikace Windows PowerShell (DSC) závisí na vzdálené sp
 
 ## <a name="using-get-dscconfigurationstatus"></a>Pomocí Get-DscConfigurationStatus
 
-[Get-DscConfigurationStatus](https://technet.microsoft.com/en-us/library/mt517868.aspx) rutiny získá informace o konfiguraci stavu z cílového uzlu. Bohaté objektu se vrátí, který obsahuje souhrnné informace o tom, jestli spuštění konfigurace byla úspěšná. Můžete můžete proniknout do objektu, který chcete zjistit podrobnosti o konfiguraci, spuštění například:
+[Get-DscConfigurationStatus](https://technet.microsoft.com/library/mt517868.aspx) rutiny získá informace o konfiguraci stavu z cílového uzlu. Bohaté objektu se vrátí, který obsahuje souhrnné informace o tom, jestli spuštění konfigurace byla úspěšná. Můžete můžete proniknout do objektu, který chcete zjistit podrobnosti o konfiguraci, spuštění například:
 
 * Všechny prostředky, které se nezdařilo
 * Jakémukoli prostředku, který požadovaný restart
@@ -117,7 +117,7 @@ Consistency engine was run successfully.
 
 DSC události jsou protokolovány v konkrétní strukturu, která umožňuje uživateli pro agregaci událostí z jedné úlohy DSC. Struktura je následující:
 
-**ID úlohy:<Guid>**
+**ID úlohy: <Guid>**
 **<Event Message>**
 
 ## <a name="gathering-events-from-a-single-dsc-operation"></a>Shromažďování událostí z jedné operace DSC
@@ -232,7 +232,7 @@ Displaying messages from built-in DSC resources:
 
 ### <a name="4-error-messages-logged-for-recent-failed-operations"></a>4: chybové zprávy pro poslední neúspěšné operace zaznamenány do protokolu
 
-`$SeparateDscOperations[0].Group`obsahuje sadu událostí pro poslední operaci. Spustit `Where-Object` rutiny filtrovat události podle jejich úrovně zobrazovaný název. Výsledky jsou uloženy ve `$myFailedEvent` proměnné, které může být dále odebrán k získání zprávy událostí:
+`$SeparateDscOperations[0].Group` obsahuje sadu událostí pro poslední operaci. Spustit `Where-Object` rutiny filtrovat události podle jejich úrovně zobrazovaný název. Výsledky jsou uloženy ve `$myFailedEvent` proměnné, které může být dále odebrán k získání zprávy událostí:
 
 ```powershell
 PS C:\> $myFailedEvent = ($SeparateDscOperations[0].Group | Where-Object {$_.LevelDisplayName -eq "Error"})
@@ -247,7 +247,7 @@ Error Code : 1
 
 ### <a name="5-all-events-generated-for-a-particular-job-id"></a>5: všechny události vytvořené pro konkrétní úlohy ID.
 
-`$SeparateDscOperations`je pole skupiny, z nichž každá má název jako úlohy jedinečné ID. Spuštěním `Where-Object` rutiny, můžete rozbalit těchto skupin události, které mají ID konkrétní úlohy:
+`$SeparateDscOperations` je pole skupiny, z nichž každá má název jako úlohy jedinečné ID. Spuštěním `Where-Object` rutiny, můžete rozbalit těchto skupin události, které mají ID konkrétní úlohy:
 
 ```powershell
 PS C:\> ($SeparateDscOperations | Where-Object {$_.Name -eq $jobX} ).Group
@@ -621,5 +621,5 @@ onlyProperty                            PSComputerName
 * [Sestavení vlastní Windows PowerShell Desired State Configuration prostředky](authoringResource.md)
 
 ### <a name="other-resources"></a>Další prostředky
-* [Požadovaného stavu konfiguračních rutin prostředí Windows PowerShell](https://technet.microsoft.com/en-us/library/dn521624(v=wps.630).aspx)
+* [Požadovaného stavu konfiguračních rutin prostředí Windows PowerShell](https://technet.microsoft.com/library/dn521624(v=wps.630).aspx)
 

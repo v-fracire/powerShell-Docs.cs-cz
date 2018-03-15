@@ -4,11 +4,11 @@ author: rpsqrd
 ms.topic: conceptual
 keywords: "jea, prostředí powershell, zabezpečení"
 title: "Pomocí JEA"
-ms.openlocfilehash: 9996a432bca27240e0f08adf932126ced116985d
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: f0c22bf0f823b9fafa203e7f98049a6a6b3b7c05
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="using-jea"></a>Pomocí JEA
 
@@ -26,7 +26,7 @@ Pokud chcete používat JEA interaktivně, budete potřebovat:
 - Název koncového bodu JEA registrovány na tomto počítači
 - Pověření pro tento počítač, které mají přístup ke koncovému bodu JEA
 
-Tyto informace v dolním můžete spouštět pomocí relace JEA [New-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/New-PSSession) nebo [Enter-PSSession](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/enter-pssession).
+Tyto informace v dolním můžete spouštět pomocí relace JEA [New-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/New-PSSession) nebo [Enter-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enter-pssession).
 
 ```powershell
 $nonAdminCred = Get-Credential
@@ -107,7 +107,7 @@ Import-PSSession -Session $jeasession -Prefix 'JEA' -CommandName $filteredComman
 ```
 
 Můžete také zachovat rutiny směrovány přes proxy server pomocí implicitní vzdálenou komunikaci [Export-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/Export-PSSession).
-Další informace o implicitní vzdálenou komunikaci, najdete v dokumentaci nápovědy [Import-PSSession](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/import-pssession) a [Import-Module](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/import-module).
+Další informace o implicitní vzdálenou komunikaci, najdete v dokumentaci nápovědy [Import-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/import-pssession) a [Import-Module](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/import-module).
 
 ## <a name="using-jea-programatically"></a>Programově pomocí JEA
 

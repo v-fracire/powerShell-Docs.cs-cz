@@ -2,13 +2,13 @@
 ms.date: 2017-06-12
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: modulewithpseditionsupport
-ms.openlocfilehash: 8122756b78e18fe55daef5c46dc299b87ddcaf1a
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 8a762ddf307f47ecec8d2a63098e75cde97c391f
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní verze prostředí PowerShell
 Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí různé sady funkcí a kompatibilitu platformy.
@@ -224,8 +224,8 @@ Mode                LastWriteTime         Length Name
 -a----         7/5/2016   1:35 PM              0 MyCoreClrRM.dl                                                                      
 ```
 
-## <a name="powershell-gallery-users-can-find-the-list-of-modules-supported-on-a-specific-powershell-edition-using-tags-pseditiondesktop-and-pseditoncore"></a>Galerie prostředí PowerShell můžou uživatelé najít seznamu modulů, které jsou podporovány na konkrétní verzi prostředí PowerShell pomocí značek PSEdition_Desktop a PSEditon_Core.
-Moduly bez PSEdition_Desktop a PSEditon_Core značky jsou považovány za bez problémů fungují na edice Desktop prostředí PowerShell.
+## <a name="powershell-gallery-users-can-find-the-list-of-modules-supported-on-a-specific-powershell-edition-using-tags-pseditiondesktop-and-pseditioncore"></a>Galerie prostředí PowerShell můžou uživatelé najít seznamu modulů, které jsou podporovány na konkrétní verzi prostředí PowerShell pomocí značek PSEdition_Desktop a PSEdition_Core.
+Moduly bez PSEdition_Desktop a PSEdition_Core značky jsou považovány za bez problémů fungují na edice Desktop prostředí PowerShell.
 
 ```powershell
 

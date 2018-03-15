@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Začínáme s prostředím PowerShell konfigurace požadovaného stavu"
-ms.openlocfilehash: 856528f1e52eafa8b2c93b825a60376a0d64cab2
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 04404696bef128805e4f1c191711eaab33cf7e4c
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="getting-started-with-powershell-desired-state-configuration"></a>Začínáme s prostředím PowerShell konfigurace požadovaného stavu #
 
@@ -16,7 +16,7 @@ Tato příručka popisuje, jak začít vytvářet dokumenty konfigurace požadov
 
 ## <a name="create-a-configuration"></a>Vytvoření konfigurace ##
 
-[**Konfigurace** ](https://msdn.microsoft.com/en-us/powershell/dsc/configurations) jsou dokumenty, které popisují prostředí. Prostředí obsahovat "**uzly**", které jsou běžně virtuálních nebo fyzických počítačích. 
+[**Konfigurace** ](https://msdn.microsoft.com/powershell/dsc/configurations) jsou dokumenty, které popisují prostředí. Prostředí obsahovat "**uzly**", které jsou běžně virtuálních nebo fyzických počítačích. 
 
 Konfigurace můžou mít v různých formách. Nejjednodušší způsob, jak vytvořit novou konfiguraci je vytvoření souboru s příponou .ps1 (skript prostředí PowerShell). K tomuto účelu otevřete váš editor výběru. Prostředí PowerShell ISE je dobrá volba, vzhledem k tomu, že nativně rozumí DSC. Uložte jako PS1 následující:
 
@@ -44,9 +44,9 @@ Na další řádek je příkaz import, podobně jako Import modulu. Bude probír
 
 "Uzel" definuje název počítače, které tato konfigurace bude fungovat na. I když tato konfigurace je upravovat místně, můžete konfigurace přístup ke vzdálené uzly a nakonfigurovat. 
 
-Uzly mohou být názvy počítačů nebo IP adresy. Může mít více uzlů v jedné konfiguraci dokumentu. Pomocí [konfigurační data](https://msdn.microsoft.com/en-us/powershell/dsc/configdata), můžete mít také stejnou konfiguraci použít na víc uzlů. V takovém případě uzlu je "localhost" – to znamená místního počítače. 
+Uzly mohou být názvy počítačů nebo IP adresy. Může mít více uzlů v jedné konfiguraci dokumentu. Pomocí [konfigurační data](https://msdn.microsoft.com/powershell/dsc/configdata), můžete mít také stejnou konfiguraci použít na víc uzlů. V takovém případě uzlu je "localhost" – to znamená místního počítače. 
 
-Další položka [ **prostředků**](https://msdn.microsoft.com/en-us/powershell/dsc/resources). Prostředky jsou stavební bloky konfigurací. Každý prostředek, je modul, který definuje logiku implementace jeden aspekt počítače. Každý prostředek na počítači můžete zobrazit spuštěním **Get-DscResource** v prostředí PowerShell. Prostředky musí být na místním počítači a importovat před použitím v konfiguraci s **Import DscResource** tedy na druhém řádku této konfigurace. 
+Další položka [ **prostředků**](https://msdn.microsoft.com/powershell/dsc/resources). Prostředky jsou stavební bloky konfigurací. Každý prostředek, je modul, který definuje logiku implementace jeden aspekt počítače. Každý prostředek na počítači můžete zobrazit spuštěním **Get-DscResource** v prostředí PowerShell. Prostředky musí být na místním počítači a importovat před použitím v konfiguraci s **Import DscResource** tedy na druhém řádku této konfigurace. 
 
 **Přijetí konfigurace**
 

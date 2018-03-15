@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "V nástroji Návrhář prostředků"
-ms.openlocfilehash: c21602e219b5830877cc211e092e93bb7fc8ad9c
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: c39b48f67d3874ee3cd2f2704aeb7390fa186fe4
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="using-the-resource-designer-tool"></a>V nástroji Návrhář prostředků
 
@@ -15,7 +15,7 @@ ms.lasthandoff: 01/17/2018
 
 Nástroj Návrhář prostředků je sada rutin, které jsou zveřejněné **xDscResourceDesigner** modul, který usnadnění vytváření prostředků požadovaného stavu aplikace Windows PowerShell (DSC). Rutiny v tento prostředek pomoci vytvořit schéma MOF, modulu skriptu a strukturu adresáře pro nový prostředek. Další informace o prostředcích DSC najdete v tématu [sestavení vlastní Windows PowerShell požadovaného stavu konfigurace prostředků](authoringResource.md).
 V tomto tématu vytvoříme prostředek DSC, která spravuje uživatelů služby Active Directory.
-Použití [instalace modulu](https://technet.microsoft.com/en-us/library/dn807162.aspx) k instalaci **xDscResourceDesigner** modulu.
+Použití [instalace modulu](https://technet.microsoft.com/library/dn807162.aspx) k instalaci **xDscResourceDesigner** modulu.
 
 >**Poznámka:**: **instalace modulu** je součástí **PowerShellGet** modul, který je součástí prostředí PowerShell 5.0. Si můžete stáhnout **PowerShellGet** modul pro prostředí PowerShell 3.0 a 4.0 na [Preview moduly Powershellu PackageManagement](https://www.microsoft.com/en-us/download/details.aspx?id=49186).
 

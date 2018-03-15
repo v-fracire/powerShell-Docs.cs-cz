@@ -1,15 +1,15 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Usnadnění přístupu v systému Windows PowerShell ISE"
+title: "Přístupnost prostředí Windows PowerShell ISE"
 ms.assetid: a078f9d1-dd6b-4323-b16d-0622cd993aa8
-ms.openlocfilehash: 505ec3aca84b5ad0b9d58a1ec84d80e3aa86db7a
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 7f758a46bdc722482b9e8a9baaff0a075f64ece9
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="accessibility-in-windows-powershell-ise"></a>Usnadnění přístupu v systému Windows PowerShell ISE
+# <a name="accessibility-in-windows-powershell-ise"></a>Přístupnost prostředí Windows PowerShell ISE
 Toto téma popisuje funkce usnadnění systému Windows PowerShell Integrované skriptovací prostředí (ISE), mohou být užitečné.
 
 * [Postup změny velikosti a umístění konzoly a podokna skriptu](#how-to-change-the-size-and-location-of-the-console-and-script-panes)
@@ -22,7 +22,7 @@ Toto téma popisuje funkce usnadnění systému Windows PowerShell Integrované 
 
 Společnost Microsoft se zavázala k tomu, aby vytvářela produkty a služby, jejichž používání je snadné pro každého. Následující témata obsahují informace o funkcích, produktech a službách, díky kterým Windows PowerShell ISE přístupnější pro osoby s postižením.
 
-Windows PowerShell ISE podporuje režimu vysokého kontrastu. Pro slabozraké zarážek informace jsou k dispozici prostřednictvím rutin pro správu zarážky, jako například [Get-PSBreakpoint](https://technet.microsoft.com/en-us/library/0bf48936-00ab-411c-b5e0-9b10a812a3c6) a [Set-PSBreakpoint](https://technet.microsoft.com/en-us/library/6afd5d2c-a285-4796-8607-3cbf49471420). Další informace najdete v tématu 'Postup správy zarážky' v [postup ladění skriptů v systému Windows PowerShell ISE](../core-powershell/ise/How-to-Debug-Scripts-in-Windows-PowerShell-ISE.md). Kromě funkcí a nástrojů usnadnění v systému Windows následující funkce společnost Windows PowerShell ISE přizpůsobila pro postižené osoby:
+Windows PowerShell ISE podporuje režimu vysokého kontrastu. Pro slabozraké zarážek informace jsou k dispozici prostřednictvím rutin pro správu zarážky, jako například [Get-PSBreakpoint](https://technet.microsoft.com/library/0bf48936-00ab-411c-b5e0-9b10a812a3c6) a [Set-PSBreakpoint](https://technet.microsoft.com/library/6afd5d2c-a285-4796-8607-3cbf49471420). Další informace najdete v tématu 'Postup správy zarážky' v [postup ladění skriptů v systému Windows PowerShell ISE](../core-powershell/ise/How-to-Debug-Scripts-in-Windows-PowerShell-ISE.md). Kromě funkcí a nástrojů usnadnění v systému Windows následující funkce společnost Windows PowerShell ISE přizpůsobila pro postižené osoby:
 
 - Klávesové zkratky
 
@@ -58,27 +58,27 @@ Při úpravách text můžete použít následující klávesové zkratky.
 |Akce|Klávesové zkratky|Použití v|
 |----------|----------------------|----------|
 |**Kopírování**|Ctrl + C|Skript nebo podokno konzoly|
-|**Vyjmout**|CTRL + X|Skript nebo podokno konzoly|
+|**Vyjmout**|CTRL+X|Skript nebo podokno konzoly|
 |**Najít ve skriptu**|CTRL+F|Podokno skriptu|
 |**Najít další ve skriptu**|F3|Podokno skriptu|
-|**Najít předchozí ve skriptu**|SHIFT + F3|Podokno skriptu|
+|**Najít předchozí ve skriptu**|SHIFT+F3|Podokno skriptu|
 |**Vložení**|CTRL + V|Skript nebo podokno konzoly|
-|**Znovu:**|CTRL + Y|Skript nebo podokno konzoly|
-|**Nahraďte ve skriptu**|CTRL + H|Podokno skriptu|
-|**Uložit**|CTRL+S|Podokno skriptu|
+|**znovu:**|CTRL+Y|Skript nebo podokno konzoly|
+|**Nahraďte ve skriptu**|CTRL+H|Podokno skriptu|
+|**Uložení**|CTRL+S|Podokno skriptu|
 |**Vybrat vše**|CTRL + A|Skript nebo podokno konzoly|
-|**Vrácení zpět**|CTRL + Z|Skript nebo podokno konzoly|
+|**vrácení zpět**|CTRL+Z|Skript nebo podokno konzoly|
 
 ## <a name="keyboard-shortcuts-for-running-scripts"></a>Klávesové zkratky pro spouštění skriptů
 Při spouštění skriptů v podokně skriptu můžete použít následující klávesové zkratky.
 
 |Akce|Klávesové zkratky|
 |----------|---------------------|
-|**Nový**|CTRL + N|
-|**Otevřete**|CTRL + O|
+|**New**|CTRL + N|
+|**Open**|CTRL+O|
 |**Spustit**|F5|
 |**Spustit výběr**|F8|
-|**Zastavit provádění**|CTRL + BREAK. CTRL + C lze použít, pokud kontext je jednoznačné (když není vybrán žádný text).|
+|**Zastavit provádění**|CTRL+BREAK. CTRL + C lze použít, pokud kontext je jednoznačné (když není vybrán žádný text).|
 |**Karta** (pro další skript)|CTRL + TAB **Poznámka:** a další skript funguje pouze v případě, že máte do jedné karty prostředí PowerShell otevřít, nebo pokud máte více než jedné karty prostředí PowerShell, otevřete, ale zaměřuje se v podokně skriptu.|
 |**Karta** (na předchozím skriptu)|CTRL + SHIFT + TAB **Poznámka:** kartě předchozí skriptu funguje, když máte jenom jeden otevřete kartu prostředí PowerShell, nebo pokud máte více než jedné karty prostředí PowerShell otevřít, a v podokně skriptu je aktivní.|
 
@@ -87,14 +87,14 @@ Chcete-li přizpůsobit zobrazení v Windows PowerShell ISE můžete použít n�
 
 |Akce|Klávesové zkratky|
 |----------|---------------------|
-|**Přejděte do podokna konzoly**|CTRL + D|
-|**Přejděte do podokna skriptu**|CTRL + I|
-|**Zobrazit podokno skriptu**|CTRL + R|
-|**Skrýt podokno skriptu**|CTRL + R|
+|**Přejděte do podokna konzoly**|CTRL+D|
+|**Přejděte do podokna skriptu**|CTRL+I|
+|**Zobrazit podokno skriptu**|CTRL+R|
+|**Skrýt podokno skriptu**|CTRL+R|
 ||
-|**Podokno skriptu přesunout nahoru**|CTRL + 1|
-|**Pravé podokno skriptu přesunutí**|CTRL + 2|
-|**Maximalizovat podokno skriptu**|CTRL + 3|
+|**Podokno skriptu přesunout nahoru**|CTRL+1|
+|**Pravé podokno skriptu přesunutí**|CTRL+2|
+|**Maximalizovat podokno skriptu**|CTRL+3|
 |**Přiblížení**|CTRL + SYMBOL PLUS|
 |**Oddálení**|CTRL + SYMBOL MÍNUS|
 
@@ -106,12 +106,12 @@ Můžete použít následující klávesové zkratky při ladění skriptů.
 |**Spustit nebo pokračovat**|F5|Podokno skriptu, při ladění skriptu|
 |**Krok do**|F11|Podokno skriptu, při ladění skriptu|
 |**Krok přes**|F10|Podokno skriptu, při ladění skriptu|
-|**Krok**|SHIFT + F11|Podokno skriptu, při ladění skriptu|
-|**Zásobník volání zobrazení**|CTRL + SHIFT + D|Podokno skriptu, při ladění skriptu|
-|**Seznam zarážky**|CTRL + SHIFT + L|Podokno skriptu, při ladění skriptu|
+|**Krok**|SHIFT+F11|Podokno skriptu, při ladění skriptu|
+|**Zásobník volání zobrazení**|CTRL+SHIFT+D|Podokno skriptu, při ladění skriptu|
+|**Seznam zarážky**|CTRL+SHIFT+L|Podokno skriptu, při ladění skriptu|
 |**Přepnout zarážku**|F9|Podokno skriptu, při ladění skriptu|
-|**Odeberte všechny zarážky**|CTRL + SHIFT + F9|Podokno skriptu, při ladění skriptu|
-|**Zastavení ladicího programu**|SHIFT + F5|Podokno skriptu, při ladění skriptu|
+|**Odeberte všechny zarážky**|CTRL+SHIFT+F9|Podokno skriptu, při ladění skriptu|
+|**Zastavení ladicího programu**|SHIFT+F5|Podokno skriptu, při ladění skriptu|
 
 > ![Poznámka:](../core-powershell/web-access/images/Note.jpeg)**Poznámka**
 >
@@ -125,7 +125,7 @@ Můžete použít následující klávesové zkratky při ladění skriptů.
 |**Krok**|O|Podokna konzoly při ladění skriptu|
 |**Zopakujte poslední příkaz** (pro krokování s vnořením nebo Krok přes)|ENTER|Podokna konzoly při ladění skriptu|
 |**Zásobník volání zobrazení**|K|Podokna konzoly při ladění skriptu|
-|**Zastavte ladění**|OTÁZKY|Podokna konzoly při ladění skriptu|
+|**Zastavte ladění**|Q|Podokna konzoly při ladění skriptu|
 |**Seznam skriptu**|L|Podokna konzoly při ladění skriptu|
 |**Zobrazení konzoly ladění příkazy**|H nebo?|Podokna konzoly při ladění skriptu|
 
@@ -135,9 +135,9 @@ Při použití karty prostředí Windows PowerShell můžete použít následuj�
 |Akce|Klávesové zkratky|
 |----------|---------------------|
 |**Zavřete kartu prostředí PowerShell**|CTRL + W|
-|**Novou kartu prostředí PowerShell**|CTRL + T|
-|**Předchozí kartu prostředí PowerShell**|CTRL + SHIFT + TAB. Tato zkratka funguje jenom v případě, že jsou na konkrétní kartě prostředí PowerShell otevřené žádné soubory.|
-|**Další karta prostředí Windows PowerShell**|CTRL + TAB. Tato zkratka funguje jenom v případě, že jsou na konkrétní kartě prostředí PowerShell otevřené žádné soubory.|
+|**Novou kartu prostředí PowerShell**|CTRL+T|
+|**Předchozí kartu prostředí PowerShell**|CTRL+SHIFT+TAB. Tato zkratka funguje jenom v případě, že jsou na konkrétní kartě prostředí PowerShell otevřené žádné soubory.|
+|**Další karta prostředí Windows PowerShell**|CTRL+TAB. Tato zkratka funguje jenom v případě, že jsou na konkrétní kartě prostředí PowerShell otevřené žádné soubory.|
 
 ## <a name="keyboard-shortcuts-for-starting-and-exiting"></a>Klávesové zkratky pro spuštění a ukončení
 Můžete použít následující klávesové zkratky a spusťte konzolu prostředí Windows PowerShell (PowerShell.exe) nebo ukončíte Windows PowerShell ISE.
@@ -145,8 +145,8 @@ Můžete použít následující klávesové zkratky a spusťte konzolu prostře
 |Akce|Klávesové zkratky|
 |----------|---------------------|
 |**Ukončení**|ALT+F4|
-|**Spustit PowerShell.exe** (konzola prostředí Windows PowerShell)|CTRL + SHIFT + P|
+|**Spustit PowerShell.exe** (konzola prostředí Windows PowerShell)|CTRL+SHIFT+P|
 
 ## <a name="see-also"></a>Viz také
-- [Pomocí Windows PowerShell ISE](../core-powershell/ise/Using-the-Windows-PowerShell-ISE.md)
+- [Použití prostředí Windows PowerShell ISE](../core-powershell/ise/Using-the-Windows-PowerShell-ISE.md)
 

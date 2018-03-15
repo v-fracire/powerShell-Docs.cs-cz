@@ -2,28 +2,28 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 6cba004890fc4b1dfac40920f751f61b0530cce9
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 134c22efe4fb86045ffb326e109dfbcc741bcf2f
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="packagemanagement-cmdlets"></a>Rutiny PackageManagement
 Toto je základní PackageManagement na podporu softwaru zjišťování, instalace a inventáře (SDII). Vyzkoušejte rutiny pro tyto operace:
--   Najít balíček
--   Najít PackageProvider
+-   Find-Package
+-   Find-PackageProvider
 -   Get-Package
 -   Get-PackageProvider
 -   Get-PackageSource
--   Import PackageProvider
--   Instalace balíčku
--   Instalace PackageProvider
--   Registrace PackageSource
--   Uložit balíček
+-   Import-PackageProvider
+-   Install-Package
+-   Install-PackageProvider
+-   Register-PackageSource
+-   Save-Package
 -   Set-PackageSource
--   Odinstalace balíčku
--   Zrušit registraci PackageSource
+-   Uninstall-Package
+-   Unregister-PackageSource
 
 PackageManagement je modul prostředí PowerShell, můžete provést následující PackageManagement sám sebe aktualizovat:
 ```powershell
@@ -31,7 +31,7 @@ PS C:\> Install-Module PackageManagement –Force
 ```
 V takovém případě bude muset znovu zadat relaci prostředí PowerShell přepnout na novou verzi PackageManagement.
 
-## <a name="find-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890709aspx"></a>[Najít balíček rutiny](https://technet.microsoft.com/en-us/library/dn890709.aspx)
+## <a name="find-package-cmdlethttpstechnetmicrosoftcomlibrarydn890709aspx"></a>[Najít balíček rutiny](https://technet.microsoft.com/library/dn890709.aspx)
 Tato rutina umožňuje zjišťování softwarové balíčky v balíčku k dispozici zdroje pomocí načíst zprostředkovatelé balíčku.
 ```powershell
 # Find all available Windows PowerShell module packages from galleries registered
@@ -51,7 +51,7 @@ Find-Package -Name jquery –Provider NuGet -Source http://www.nuget.org/api/v2/
 Find-Package -Name jquery –Provider NuGet –RequiredVersion 2.1.4 -Source nuget.org
 ```
 
-## <a name="find-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarymt676544aspx"></a>[Najít PackageProvider rutiny](https://technet.microsoft.com/en-us/library/mt676544.aspx)
+## <a name="find-packageprovider-cmdlethttpstechnetmicrosoftcomlibrarymt676544aspx"></a>[Find-PackageProvider Cmdlet](https://technet.microsoft.com/library/mt676544.aspx)
 Rutinu najít PackageProvider najde odpovídající PackageManagement poskytovatelů, které jsou k dispozici v zaregistrována PowerShellGet zdroje balíčků. Jsou to zprostředkovatelé balíčku k dispozici pro instalaci pomocí rutiny Install-PackageProvider. Ve výchozím nastavení to zahrnuje moduly, které jsou k dispozici v galerii prostředí PowerShell s 'PackageManagement' a 'Zprostředkovatel' značky. 
 
 Najít PackageProvider také najde odpovídající PackageManagement poskytovatelů, které jsou k dispozici v úložišti objektů blob v azure PackageManagement kde používáme zprostředkovatele boostrapper PackageManagement pro hledání a nainstalujete.
@@ -66,7 +66,7 @@ Find-PackageProvider -Name "Nuget" -AllVersions
 Find-PackageProvider -Name "Gistprovider" -Source "PSGallery"
 ```
 
-## <a name="get-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890704aspx"></a>[Rutina Get-Package](https://technet.microsoft.com/en-us/library/dn890704.aspx)
+## <a name="get-package-cmdlethttpstechnetmicrosoftcomlibrarydn890704aspx"></a>[Get-Package Cmdlet](https://technet.microsoft.com/library/dn890704.aspx)
 Tato rutina vrátí seznam všech softwarových balíků, které byly nainstalovány pomocí PackageManagement.
 ```powershell
 # Get all the packages installed by Programs provider
@@ -77,7 +77,7 @@ Get-Package –Provider Programs
 Get-Package –Provider NuGet -Destination c:\test
 ```
 
-## <a name="get-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890703aspx"></a>[Rutina Get-PackageProvider](https://technet.microsoft.com/en-us/library/dn890703.aspx)
+## <a name="get-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890703aspx"></a>[Get-PackageProvider Cmdlet](https://technet.microsoft.com/en-us/library/dn890703.aspx)
 Balíček zprostředkovatelé, kteří jsou načíst a připravené k použití v místním počítači může být inventarizován pomocí rutiny.
 ```powershell
 # Get all currently loaded package providers
@@ -87,7 +87,7 @@ Get-PackageProvider
 Get-PackageProvider -ListAvailable
 ```
 
-## <a name="get-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890705aspx"></a>[Rutina Get-PackageSource](https://technet.microsoft.com/en-us/library/dn890705.aspx)
+## <a name="get-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890705aspx"></a>[Get-PackageSource Cmdlet](https://technet.microsoft.com/en-us/library/dn890705.aspx)
 Tato rutina získá seznam zdroje balíčků, které jsou registrovány pro zprostředkovatele balíčku.
 ```powershelll
 # Get all package sources
@@ -97,7 +97,7 @@ Get-PackageSource
 Get-PackageSource –ProviderName PowerShellGet
 ```
 
-## <a name="import-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarymt676545aspx"></a>[Rutiny Import-PackageProvider](https://technet.microsoft.com/en-us/library/mt676545.aspx)
+## <a name="import-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarymt676545aspx"></a>[Import-PackageProvider Cmdlet](https://technet.microsoft.com/en-us/library/mt676545.aspx)
 Tato rutina přidá zprostředkovatelé balíček správy balíčků pro aktuální relaci.
 ```powershell
 # Import a package provider from the local machine
@@ -119,7 +119,7 @@ Import-PackageProvider –Name "Nuget" -RequiredVersion "2.8.5.201" -Verbose
 Import-PackageProvider –Name MyProvider –RequiredVersion xxxx -force
 ```
 
-##<a name="-install-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890711aspx"></a>[Rutina Install-Package](https://technet.microsoft.com/en-us/library/dn890711.aspx)
+##<a name="-install-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890711aspx"></a>[ Rutina Install-Package](https://technet.microsoft.com/en-us/library/dn890711.aspx)
 
 Tato rutina umožňuje instalaci softwarových balíků v balíčku k dispozici zdroje pomocí načíst zprostředkovatelé balíčku.
 ```powershell
@@ -133,7 +133,7 @@ Install-Package -Name jquery -Source nuget.org -Destination c:\test
 Find-Package -Name jquery –Provider NuGet | Install-Package -Destination c:\test
 ```
 
-## <a name="install-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarymt676543aspx"></a>[Rutina Install-PackageProvider](https://technet.microsoft.com/en-us/library/mt676543.aspx)
+## <a name="install-packageprovider-cmdlethttpstechnetmicrosoftcomen-uslibrarymt676543aspx"></a>[Install-PackageProvider Cmdlet](https://technet.microsoft.com/en-us/library/mt676543.aspx)
 Tato rutina nainstaluje jeden nebo více poskytovatelů balíček správy balíčků.
 ```powershell
 # Install a package provider from the PowerShell Gallery
@@ -150,14 +150,14 @@ Find-PackageProvider –Name "Gistprovider" | Install-PackageProvider -Verbose
 Install-PackageProvider –Name Gistprovider –Verbose –Scope CurrentUser
 ```
 
-## <a name="register-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890701aspx"></a>[Rutinu Register-PackageSource](https://technet.microsoft.com/en-us/library/dn890701.aspx)
+## <a name="register-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890701aspx"></a>[Register-PackageSource Cmdlet](https://technet.microsoft.com/en-us/library/dn890701.aspx)
 Tato rutina Přidá zdroj balíčku pro zadaný balíček zprostředkovatele.
 Každý poskytovatel PackageManagement může mít jednu nebo více zdrojů softwaru nebo úložiště. PackageManagement poskytuje rutiny prostředí PowerShell k přidání, odebrání nebo dotazu zdroji. Můžete například zaregistrovat zdroj balíčku NuGet zprostředkovatele:
 ```powershell
 Register-PackageSource -Name "NugetSource" -Location "http://www.nuget.org/api/v2" –ProviderName nuget
 ```
 
-## <a name="save-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890708aspx"></a>[Uložit balíček rutiny](https://technet.microsoft.com/en-us/library/dn890708.aspx)
+## <a name="save-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890708aspx"></a>[Save-Package Cmdlet](https://technet.microsoft.com/en-us/library/dn890708.aspx)
 Tato rutina uloží balíčky do místního počítače bez spuštění instalace.
 ```powershell
 # Saves jquery package to c:\test using NuGetProvider
@@ -169,14 +169,14 @@ Find-Package -Name jquery -Source http://www.nuget.org/api/v2/ | Save-Package -P
 Find-Package -source c:\test
 ```
 
-## <a name="set-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890710aspx"></a>[Rutiny Set-PackageSource](https://technet.microsoft.com/en-us/library/dn890710.aspx)
+## <a name="set-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890710aspx"></a>[Set-PackageSource Cmdlet](https://technet.microsoft.com/en-us/library/dn890710.aspx)
 Tato rutina změní informace o existujícím zdroji balíčku. 
 ```powershell
 #Set-PackageSource changes the values for a source that has already been registered by running the Register-PackageSource cmdlet. By #running Set-PackageSource, you can change the source name and location.
 Set-PackageSource  -Name nuget.org -Location  http://www.nuget.org/api/v2 -NewName nuget2 -NewLocation https://www.nuget.org/api/v2 
 ```
 
-## <a name="uninstall-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890702aspx"></a>[Odinstalace balíčku rutiny](https://technet.microsoft.com/en-us/library/dn890702.aspx)
+## <a name="uninstall-package-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890702aspx"></a>[Uninstall-Package Cmdlet](https://technet.microsoft.com/en-us/library/dn890702.aspx)
 Tato rutina odinstaluje balíčky nainstalované v místním počítači.
 ```powershell
 # Uninstall jquery using nuget
@@ -186,7 +186,7 @@ Uninstall-Package -Name jquery –Provider NuGet -Destination c:\test
 Get-Package -Name jquery –Provider NuGet -Destination c:\test | Uninstall-Package
 ```
 
-## <a name="unregister-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890707aspx"></a>[Zrušit registraci PackageSource rutiny](https://technet.microsoft.com/en-us/library/dn890707.aspx)
+## <a name="unregister-packagesource-cmdlethttpstechnetmicrosoftcomen-uslibrarydn890707aspx"></a>[Unregister-PackageSource Cmdlet](https://technet.microsoft.com/en-us/library/dn890707.aspx)
 ```powershell
 # Unregister a package source for the NuGet provider. You can use command Unregister-PackageSource, to disconnect with a repository, and Get-PackageSource, to discover what the repositories are associated with that provider.
 Unregister-PackageSource  -Name "NugetSource"

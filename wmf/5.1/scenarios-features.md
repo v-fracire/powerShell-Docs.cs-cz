@@ -2,13 +2,13 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
+keywords: wmf,powershell,setup
 title: "Nové scénáře a funkce v WMF 5.1"
-ms.openlocfilehash: 430781c5c9a59fc544db4f94098313ae1e9cf610
-ms.sourcegitcommit: a6ee6e64d369ecf82c730411bed9750278fdb5c1
+ms.openlocfilehash: da3dfb2243c00e3faf637d3dbcb70016cfabb011
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="new-scenarios-and-features-in-wmf-51"></a>Nové scénáře a funkce v WMF 5.1 #
 
@@ -28,9 +28,9 @@ Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí r
 
 ## <a name="catalog-cmdlets"></a>Rutiny katalogu  
 
-Byly přidány dva nové rutiny v [Microsoft.PowerShell.Security](https://technet.microsoft.com/en-us/library/hh847877.aspx) modulu; tato generovat a ověření souborů katalogu systému Windows.  
+Byly přidány dva nové rutiny v [Microsoft.PowerShell.Security](https://technet.microsoft.com/library/hh847877.aspx) modulu; tato generovat a ověření souborů katalogu systému Windows.  
 
-###<a name="new-filecatalog"></a>Nové FileCatalog 
+###<a name="new-filecatalog"></a>New-FileCatalog 
 --------------------------------
 
 Nové FileCatalog vytvoří soubor katalogu systému Windows pro sadu složek a souborů. Tento soubor katalogu obsahuje hodnoty hash pro všechny soubory v zadané cesty. Uživatele můžete distribuovat sadu složek spolu s odpovídající soubor katalogu představující těchto složek. Tyto informace jsou užitečné pro ověření, zda byly provedeny změny do složek od okamžiku vytvoření katalogu.    
@@ -51,7 +51,7 @@ Tím se vytvoří soubor katalogu.
 Chcete-li ověřit integritu soubor katalogu (Pester.cat v výše příkladu), podepište ho pomocí [Set-AuthenticodeSignature](https://technet.microsoft.com/library/hh849819.aspx) rutiny.   
 
 
-###<a name="test-filecatalog"></a>Test FileCatalog 
+###<a name="test-filecatalog"></a>Test-FileCatalog 
 --------------------------------
 
 Test FileCatalog ověří katalogu představující sadu složek. 
@@ -62,7 +62,7 @@ Test-FileCatalog [-CatalogFilePath] <string> [[-Path] <string[]>] [-Detailed] [-
 
 ![](../images/TestFileCatalog.jpg)
 
-Tato rutina porovná všechny hodnoty hash souborů a jejich relativní cesty v *katalogu* s těch, které jsou na *disku*. Pokud zjistí jakékoli neshody mezi hodnoty hash souboru a cesty vrátí stav jako *ValidationFailed*. Uživatele můžete načíst pomocí těchto informací *-podrobné* parametr. Také se zobrazí stav podpisový katalogu v *podpis* vlastnost, která je ekvivalentní volání [Get-AuthenticodeSignature](https://technet.microsoft.com/en-us/library/hh849805.aspx) na soubor katalogu rutinu. Uživatelé také přeskočit všechny soubory během ověřování pomocí *- FilesToSkip* parametr. 
+Tato rutina porovná všechny hodnoty hash souborů a jejich relativní cesty v *katalogu* s těch, které jsou na *disku*. Pokud zjistí jakékoli neshody mezi hodnoty hash souboru a cesty vrátí stav jako *ValidationFailed*. Uživatele můžete načíst pomocí těchto informací *-podrobné* parametr. Také se zobrazí stav podpisový katalogu v *podpis* vlastnost, která je ekvivalentní volání [Get-AuthenticodeSignature](https://technet.microsoft.com/library/hh849805.aspx) na soubor katalogu rutinu. Uživatelé také přeskočit všechny soubory během ověřování pomocí *- FilesToSkip* parametr. 
 
 
 ## <a name="module-analysis-cache"></a>Modul Analysis mezipaměti ##
@@ -101,13 +101,13 @@ V WMF 5.1:
 
 * Můžete použít [ModuleSpecification – konstruktor (zatřiďovací tabulky)](https://msdn.microsoft.com/library/jj136290). Tato tabulka hodnota hash má stejný formát jako `Get-Module -FullyQualifiedName`.
 
-**Příklad:**`using module @{ModuleName = 'PSReadLine'; RequiredVersion = '1.1'}`
+**Příklad:** `using module @{ModuleName = 'PSReadLine'; RequiredVersion = '1.1'}`
 
 * Pokud existuje více verzí modulu, používá prostředí PowerShell **stejné logiky, která řešení** jako `Import-Module` a nevrací chybu – stejné chování jako `Import-Module` a `Import-DscResource`.
 
 
 ##<a name="improvements-to-pester"></a>Vylepšení Pester
-V WMF 5.1 verzi Pester, který se dodává s prostředím PowerShell, má z 3.3.5 aktualizovaná tak, aby 3.4.0, a uveďte https://github.com/pester/Pester/pull/484/commits/3854ae8a1f215b39697ac6c2607baf42257b102e potvrzení, která umožňuje lepší chování Pester na Nano Server. 
+V WMF 5.1 verzi Pester, který se dodává s prostředím PowerShell, má z 3.3.5 aktualizovaná tak, aby 3.4.0 doplněný o potvrzení https://github.com/pester/Pester/pull/484/commits/3854ae8a1f215b39697ac6c2607baf42257b102e, což umožňuje lepší chování pro Pester na Nano Server. 
 
 Můžete zkontrolovat změny ve verzích 3.3.5 k 3.4.0 zkontrolováním souboru ChangeLog.md v: https://github.com/pester/Pester/blob/master/CHANGELOG.md
 

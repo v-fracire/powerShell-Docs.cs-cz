@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "DSC skriptu prostředků"
-ms.openlocfilehash: 22213b74986b45b3a8205f1584b3b0d89a92f211
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: d65a89ceba0b641ccb0ac3dfcc6d5ec1a48dc92a
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="dsc-script-resource"></a>DSC skriptu prostředků
 
@@ -42,9 +42,9 @@ Script [string] #ResourceName
 
 |  Vlastnost  |  Popis   | 
 |---|---| 
-| GetScript| Poskytuje blok skriptu prostředí Windows PowerShell, který je spuštěn při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407379.aspx) rutiny. Tento blok musí vracet zatřiďovací tabulku. Zatřiďovací tabulky musí obsahovat jenom jeden klíč **výsledek** a hodnota musí být typu **řetězec**.| 
-| SetScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny **TestScript** bloku spustí první. Pokud **TestScript** blokovat vrátí **$false**, **SetScript** bloku se spustí. Pokud **TestScript** blokovat vrátí **$true**, **SetScript** bloku se nespustí.| 
-| TestScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) spuštění rutiny, tento blok. Vrátí-li **$false**, spustí SetScript bloku. Vrátí-li **$true**, SetScript bloku se nespustí. **TestScript** bloku poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** bloku nebude spouštět, bez ohledu na to, co hodnotu TestScript blokovat vrátí. **TestScript** bloku musí vracet hodnotu True, pokud skutečné konfigurace odpovídá aktuální konfigurace požadovaného stavu a na hodnotu False, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC.)| 
+| GetScript| Poskytuje blok skriptu prostředí Windows PowerShell, který je spuštěn při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/library/dn407379.aspx) rutiny. Tento blok musí vracet zatřiďovací tabulku. Zatřiďovací tabulky musí obsahovat jenom jeden klíč **výsledek** a hodnota musí být typu **řetězec**.| 
+| SetScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) rutiny **TestScript** bloku spustí první. Pokud **TestScript** blokovat vrátí **$false**, **SetScript** bloku se spustí. Pokud **TestScript** blokovat vrátí **$true**, **SetScript** bloku se nespustí.| 
+| TestScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) spuštění rutiny, tento blok. Vrátí-li **$false**, spustí SetScript bloku. Vrátí-li **$true**, SetScript bloku se nespustí. **TestScript** bloku poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** bloku nebude spouštět, bez ohledu na to, co hodnotu TestScript blokovat vrátí. **TestScript** bloku musí vracet hodnotu True, pokud skutečné konfigurace odpovídá aktuální konfigurace požadovaného stavu a na hodnotu False, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC.)| 
 | přihlašovací údaje| Určuje pověření sloužící ke spuštění tohoto skriptu, pokud je třeba zadat pověření.| 
 | dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba **ResourceName** a její typ je **ResourceType**, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.
 

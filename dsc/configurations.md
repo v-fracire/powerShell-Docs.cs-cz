@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: Konfigurace DSC
-ms.openlocfilehash: 3fd2846d0fbfb0ae9baa44cde66afe1f5be65cf7
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 14db60126fd6c3d11d425a28c749a8e8b81122ca
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="dsc-configurations"></a>Konfigurace DSC
 
@@ -62,7 +62,7 @@ Configuration MyDscConfiguration {
         }
     }
 }
-MyDscConfiguration -ComputerName <MyComputer>
+MyDscConfiguration -ComputerName $ComputerName
 
 ```
 
@@ -141,11 +141,11 @@ Configuration DependsOnExample {
 ## <a name="using-new-resources-in-your-configuration"></a>Pomocí nové prostředky ve vaší konfiguraci
 
 Pokud jste spustili v předchozích příkladech, budete možná jste si všimli, že byly varování, že jste používali prostředku bez explicitně jeho import.
-V současné době DSC se dodává s 12 prostředky jako součást modulu PSDesiredStateConfiguration. Další prostředky v externích moduly musí být umístěny v `$env:PSModulePath` aby rozpoznala LCM. Nové rutiny [Get-DscResource](https://technet.microsoft.com/en-us/library/dn521625.aspx), můžete použít k určení, jaké prostředky jsou nainstalovaná v systému a k dispozici pro použití LCM. Jakmile tyto moduly byly umístěny do `$env:PSModulePath` a jsou správně rozpoznáno [Get-DscResource](https://technet.microsoft.com/en-us/library/dn521625.aspx), ještě musí být načíst v konfiguraci. 
+V současné době DSC se dodává s 12 prostředky jako součást modulu PSDesiredStateConfiguration. Další prostředky v externích moduly musí být umístěny v `$env:PSModulePath` aby rozpoznala LCM. Nové rutiny [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), můžete použít k určení, jaké prostředky jsou nainstalovaná v systému a k dispozici pro použití LCM. Jakmile tyto moduly byly umístěny do `$env:PSModulePath` a jsou správně rozpoznáno [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ještě musí být načíst v konfiguraci. 
 **Import DscResource** je dynamické klíčové slovo, které může být rozeznána pouze v rámci **konfigurace** bloku (tj. není rutina). 
 **Import DscResource** podporuje dva parametry:
 - **Název modulu** je doporučený způsob použití **Import DscResource**. Přijímá název modul, který obsahuje prostředky, které mají být importované (i pole řetězců názvů modulu). 
-- **Název** je název prostředku pro import. Nejedná se o popisný název vrácené jako "Název" [Get-DscResource](https://technet.microsoft.com/en-us/library/dn521625.aspx), ale název třídy, které se používá při definování schématu zdroje (vrátí jako **ResourceType** podle [Get-DscResource](https://technet.microsoft.com/en-us/library/dn521625.aspx)). 
+- **Název** je název prostředku pro import. Nejedná se o popisný název vrácené jako "Název" [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ale název třídy, které se používá při definování schématu zdroje (vrátí jako **ResourceType** podle [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx)). 
 
 ## <a name="see-also"></a>Viz také
 * [Přehled stavu konfigurace požadovaného prostředí Windows PowerShell](overview.md)

@@ -4,11 +4,11 @@ author: rpsqrd
 ms.topic: conceptual
 keywords: "jea, prostředí powershell, zabezpečení"
 title: Registrace JEA konfigurace
-ms.openlocfilehash: 0684a1c7acffbccbedab9dba4689611a24c8ae25
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: d6b007fed97be6470bfe4cf4d42f72cb4edc3a45
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="registering-jea-configurations"></a>Registrace JEA konfigurace
 
@@ -19,7 +19,7 @@ Tento proces informace o konfiguraci relace se vztahuje na systém a zpřístupn
 
 ## <a name="single-machine-configuration"></a>Konfigurace jednoho počítače
 
-Pro malá prostředí, můžete nasadit JEA registrace pomocí souboru konfigurace relace [Register-PSSessionConfiguration](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/register-pssessionconfiguration) rutiny.
+Pro malá prostředí, můžete nasadit JEA registrace pomocí souboru konfigurace relace [Register-PSSessionConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/register-pssessionconfiguration) rutiny.
 
 Než začnete, ujistěte se, že byly splněny následující požadavky:
 - Jeden nebo více rolí byla vytvořena a umístěný ve složce 'RoleCapabilities' platný modulu prostředí PowerShell.
@@ -28,7 +28,7 @@ Než začnete, ujistěte se, že byly splněny následující požadavky:
 
 Musíte také vyberte název pro svůj koncový bod JEA.
 Název koncového bodu JEA se bude vyžadovat, když uživatelé se chcete připojit k systému prostřednictvím JEA.
-Můžete použít [Get-PSSessionConfiguration](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/get-pssessionconfiguration) rutiny Zkontrolujte názvy stávající koncové body v systému.
+Můžete použít [Get-PSSessionConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/get-pssessionconfiguration) rutiny Zkontrolujte názvy stávající koncové body v systému.
 Koncové body, které začínají "microsoft", jsou obvykle dodávané se systémem Windows.
 Koncový bod, microsoft.powershell, je výchozí koncový bod používat při připojování ke vzdálený koncový bod prostředí PowerShell.
 

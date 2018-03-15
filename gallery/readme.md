@@ -4,11 +4,11 @@ contributor: JKeithB
 ms.topic: conceptual
 keywords: "Galerie prostředí powershell, rutiny, psgallery, psget"
 title: "Galerie prostředí PowerShell"
-ms.openlocfilehash: 9fe341e4b297764321f3b3f07caca8ef4b8b40e0
-ms.sourcegitcommit: f069ff0689006fece768f178c10e3e3eeaee09f0
+ms.openlocfilehash: 7389ce8286c515b0bfc25f32634a482b060cb74c
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="the-powershell-gallery"></a>Galerie prostředí PowerShell
 
@@ -22,7 +22,7 @@ Tento modul PowerShellGet obsahuje rutiny pro zjišťování, instalaci, aktuali
 
 Instalace položky z Galerie vyžaduje nejnovější verzi PowerShellGet modul, který je k dispozici v systému Windows 10, v systému Windows Management Framework (WMF) 5.0 nebo v instalačním programu na základě MSI (pro prostředí PowerShell 3 a 4).
 
-- [**Získat Windows 10**](http://go.microsoft.com/fwlink/?LinkID=624830&clcid=0x409),
+- [**Get Windows 10**](http://go.microsoft.com/fwlink/?LinkID=624830&clcid=0x409),
 - [**Získat WMF 5.0**](http://go.microsoft.com/fwlink/?LinkId=398175), nebo
 - [**Získání Instalační služby MSI**](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409)
 
@@ -45,12 +45,12 @@ Proto **PowerShellGet** vyžaduje jednu z následujících operačních systém�
 - Windows 10
 - Windows 8.1 Pro
 - Windows 8.1 Enterprise
-- Windows 7 s aktualizací SP1
+- Windows 7 SP1
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2008 R2 SP1
 
-**PowerShellGet** taky vyžaduje rozhraní .NET Framework 4.5 nebo novější. Můžete nainstalovat rozhraní .NET Framework 4.5 nebo novější z [zde](https://msdn.microsoft.com/en-us/library/5a4x27ek.aspx).
+**PowerShellGet** taky vyžaduje rozhraní .NET Framework 4.5 nebo novější. Můžete nainstalovat rozhraní .NET Framework 4.5 nebo novější z [zde](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 
 
 ## <a name="got-a-question-have-feedback"></a>Máte dotaz? Zpětné vazby máte?

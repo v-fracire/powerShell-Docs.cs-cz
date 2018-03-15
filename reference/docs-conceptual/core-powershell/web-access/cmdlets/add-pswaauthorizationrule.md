@@ -7,11 +7,11 @@ ms.date: 2016-12-12
 title: "Přidat pswaauthorizationrule"
 ms.technology: powershell
 schema: 2.0.0
-ms.openlocfilehash: 196797215a678e6f674592dc6b289816aced3c01
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 71954fc115daee4c05662d11baa2bc6a0a417896
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="add-pswaauthorizationrule"></a>Add-PswaAuthorizationRule
 
@@ -167,7 +167,7 @@ Formát je `domain\user` nebo `computer\user`.
 ### <a name="ltcommonparametersgt"></a>&lt;CommonParameters&gt;
 
 Tato rutina podporuje běžné parametry:-Verbose,-Debug, - ErrorAction, - ErrorVariable,-OutBuffer a - OutVariable.
-Další informace najdete v tématu [about_CommonParameters](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_commonparameters).
+Další informace najdete v tématu [about_CommonParameters](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_commonparameters).
 
 ## <a name="inputs"></a>VSTUPY
 
@@ -190,7 +190,7 @@ Tato rutina vrací objektu pravidla autorizace.
 ### <a name="example-1"></a>PŘÍKLAD 1
 
 Tento příklad uděluje přístup k této konfiguraci relace *Pswakoncovybod*, omezuje prostředí runspace *srv2* pro uživatele v *SMAdmins* skupiny. \
-**Poznámka:**: název počítače musí být platný plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou běžet. Definování omezeném prostředí runspace může zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolené prostředí runspace Windows PowerShell®, což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a použití Windows PowerShell Web Access](../install-and-use-windows-powershell-web-access.md).
+**Poznámka:**: název počítače musí být platný plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou běžet. Definování omezeném prostředí runspace může zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolené prostředí runspace Windows PowerShell®, což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a použití Windows PowerShell Web Access](../install-and-use-windows-powershell-web-access.md).
 
 ```PowerShell
 Add-PswaAuthorizationRule -ComputerName srv2.contoso.com -UserGroupName contoso\SMAdmins -ConfigurationName PSWAEndpoint

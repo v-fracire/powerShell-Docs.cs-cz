@@ -2,11 +2,11 @@
 ms.date: 2017-06-27
 keywords: "rutiny prostředí PowerShell"
 title: "Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu"
-ms.openlocfilehash: 6b50fdc0f2854d8af6147432fed1a155d26f57e7
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 19e4aa1bb55178ec2634af0771afe2db5db3423c
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -24,7 +24,7 @@ Po nainstalování Windows PowerShell Web Access a konfiguraci brány, uživatel
 Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel.
 V tématu [rutiny prostředí Windows PowerShell Web Access](cmdlets/web-access-cmdlets.md).
 
-Správci můžou definovat 0 - *n*  pravidla ověřování pro Windows PowerShell Web Access.
+Správci můžou definovat 0 -*n* pravidla ověřování pro Windows PowerShell Web Access.
 Výchozí zabezpečení je víc omezující než povolující, nulový počet ověřovacích pravidel znamená, že uživatelé nemají k ničemu přístup.
 
 [Add-PswaAuthorizationRule](cmdlets/add-pswaauthorizationrule.md) a [Test-PswaAuthorizationRule](cmdlets/test-pswaauthorizationrule.md) ve Windows serveru 2012 R2 obsahují parametr Credential, který umožňuje přidat a otestovat autorizační pravidla Windows PowerShell Web Access ze vzdálené počítače, nebo z v aktivní relaci Windows PowerShell Web Access.
@@ -32,7 +32,7 @@ Jako s jinými rutinami prostředí Windows PowerShell, které mají parametr Cr
 Chcete-li vytvořit objekt PSCredential obsahující pověření, které chcete předat do vzdáleného počítače, spusťte [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) rutiny.
 
 Pravidla ověřování Windows PowerShell Web Access jsou povolená pravidla.
-Každé pravidlo je definicí povolených připojení mezi uživateli, cílové počítače a konkrétní Windows PowerShellÂ [konfigurace relace](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) (také označuje jako koncové body nebo _prostředí runspace_) na zadané cílové počítače.
+Každé pravidlo je definicí povolených připojení mezi uživateli, cílové počítače a konkrétní Windows PowerShellÂ [konfigurace relace](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) (také označuje jako koncové body nebo _prostředí runspace_) na zadané cílové počítače.
 Vysvětlení na **prostředí runspace** najdete v části [začátku pomocí prostředí PowerShell prostředí runspace](https://blogs.technet.microsoft.com/heyscriptingguy/2015/11/26/beginning-use-of-powershell-runspaces-part-1/)
 
 > **Poznámka k zabezpečení**
@@ -103,7 +103,7 @@ Tato pravidla se vyhodnocují jenom po ověření uživatele bránou a před tí
 Poslední vrstva zabezpečení pro Windows PowerShell Web Access je konfigurace cílového počítače vlastní zabezpečení.
 Uživatelé musí mít příslušná přístupová práva nakonfigurovaná na cílovém počítači a také v autorizačních pravidlech Windows PowerShell Web Access, spustit webovou konzolu prostředí Windows PowerShell, která ovlivňuje cílový počítač prostřednictvím Windows PowerShell Web Access.
 
-Tato vrstva nabízí stejné mechanismy zabezpečení, které by vyhodnocovaly pokusy o připojení, pokud se uživatelé pokusili vytvořit vzdálené relace prostředí Windows PowerShell k cílovému počítači z prostředí Windows PowerShell spuštěním [Enter-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/Enter-PSSession) nebo [New-PSSession](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/new-pssession) rutiny.
+Tato vrstva nabízí stejné mechanismy zabezpečení, které by vyhodnocovaly pokusy o připojení, pokud se uživatelé pokusili vytvořit vzdálené relace prostředí Windows PowerShell k cílovému počítači z prostředí Windows PowerShell spuštěním [Enter-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/Enter-PSSession) nebo [New-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/new-pssession) rutiny.
 
 Ve výchozím nastavení používá Windows PowerShell Web Access primární uživatelské jméno a heslo pro ověřování na bráně a cílovým počítačem.
 Webová přihlašovací stránce v části s názvem **volitelná nastavení připojení**, nabízí uživatelům možnost poskytnout jiná pověření pro cílový počítač, pokud jsou požadována.

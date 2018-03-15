@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Možnosti přihlašovací údaje v konfiguračních dat"
-ms.openlocfilehash: 15cdb29127d9774c58e1d6518bbba56273e7defd
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 6ddf82c2b63309255ec3187d650677a6c3c2afb0
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovací údaje v konfiguračních dat
 >Platí pro: Prostředí Windows PowerShell 5.0
@@ -156,7 +156,7 @@ Group [String] #ResourceName
 }
 ```
 
-Tento příklad používá [skupiny](https://msdn.microsoft.com/en-us/powershell/dsc/groupresource) prostředek z `PSDesiredStateConfiguration` integrovaného modulu prostředků DSC.
+Tento příklad používá [skupiny](https://msdn.microsoft.com/powershell/dsc/groupresource) prostředek z `PSDesiredStateConfiguration` integrovaného modulu prostředků DSC.
 Můžete vytvořit místní skupiny a přidat nebo odebrat členy.
 Přijímá i `Credential` vlastnost a automatického `PsDscRunAsCredential` vlastnost.
 Ale prostředek používá jenom `Credential` vlastnost.
@@ -231,7 +231,7 @@ V tomto příkladu má dva problémy:
 ## <a name="psdscallowplaintextpassword"></a>PsDscAllowPlainTextPassword
 
 První chybovou zprávu s adresou URL naleznete v dokumentaci.
-Tento odkaz vysvětluje, jak šifrovat pomocí hesla [ConfigurationData](https://msdn.microsoft.com/en-us/powershell/dsc/configdata) struktura a certifikát.
+Tento odkaz vysvětluje, jak šifrovat pomocí hesla [ConfigurationData](https://msdn.microsoft.com/powershell/dsc/configdata) struktura a certifikát.
 Další informace o certifikátech a DSC [si tento příspěvek](http://aka.ms/certs4dsc).
 
 Chcete-li vynutit hesla v podobě prostého textu, prostředku vyžaduje `PsDscAllowPlainTextPassword` – klíčové slovo v konfigurační data části následujícím způsobem:
@@ -270,7 +270,7 @@ DomainCredentialExample -DomainCredential $cred -ConfigurationData $cd
 ```
 
 > [!NOTE]
-> `NodeName`se nesmí rovnat hvězdičky, konkrétním uzlu jméno je povinné.
+> `NodeName` se nesmí rovnat hvězdičky, konkrétním uzlu jméno je povinné.
 
 **Microsoft informuje o tom, aby se zabránilo hesla v prostém textu z důvodu významné bezpečnostní riziko.**
 

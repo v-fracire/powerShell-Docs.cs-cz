@@ -5,11 +5,11 @@ ms.topic: conceptual
 keywords: "Galerie prostředí powershell, rutiny, psgallery"
 description: Pokyny pro vydavatele
 title: "Galerie prostředí PowerShell publikování pokyny a osvědčené postupy"
-ms.openlocfilehash: 882a33c00cc024ad2bbb05a3283e058a61035e3a
-ms.sourcegitcommit: f069ff0689006fece768f178c10e3e3eeaee09f0
+ms.openlocfilehash: 25bbe31bcc805808c311829598e3c29991f72aad
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="powershellgallery-publishing-guidelines-and-best-practices"></a>PowerShellGallery publikování pokyny a osvědčené postupy
 
@@ -19,7 +19,7 @@ Položky, které jsou publikovány následující těchto pokynů bude více pra
 Uvedeném níž jsou pokyny pro díky dobrý položky galerie prostředí PowerShell, volitelné manifestu nastavení, které jsou důležité, vylepšení kód s zpětnou vazbu od počáteční kontroloři a [analyzátor skriptu prostředí Powershell](https://aka.ms/psscriptanalyzer), Správa verzí vaše modulu, dokumentace, testy a příklady pro použití, co jste sdíleli.
 Velká část této dokumentace se řídí pokyny pro publikování [vysoké kvality DSC prostředků moduly](https://github.com/PowerShell/DscResources/blob/master/HighQualityModuleGuidelines.md).
 
-Mechanismů publikování položky galerie prostředí PowerShell, najdete v části [vytváření a publikování položku](https://msdn.microsoft.com/en-us/powershell/gallery/psgallery/creating-and-publishing-an-item).
+Mechanismů publikování položky galerie prostředí PowerShell, najdete v části [vytváření a publikování položku](https://msdn.microsoft.com/powershell/gallery/psgallery/creating-and-publishing-an-item).
 
 Je uvítali zpětná vazba týkající se těchto pokynů. Pokud máte zpětnou vazbu, otevřete prosím problémy v našem [úložiště Github dokumentaci](https://github.com/powershell/powershell-docs/).
 
@@ -28,7 +28,7 @@ Je uvítali zpětná vazba týkající se těchto pokynů. Pokud máte zpětnou 
 Následující osvědčené postupy jsou, co uživatelé položek galerie Powershellu prohlašují, je důležité a jsou uvedeny v pořadí podle priority nominální.
 Položky, které tato pravidla jsou mnohem pravděpodobnější se stáhnou a ostatní přijat.
 
-* Použití PSScriptAnalyzer
+* Use PSScriptAnalyzer
 * Zahrnují příklady a dokumentaci
 * Spolupracovat s zpětné vazby
 * Zadejte moduly spíše než skripty
@@ -42,7 +42,7 @@ Položky, které tato pravidla jsou mnohem pravděpodobnější se stáhnou a os
 
 Každý z nich je stručně popsány v následujících částech.
 
-## <a name="use-psscriptanalyzer"></a>Použití PSScriptAnalyzer
+## <a name="use-psscriptanalyzer"></a>Use PSScriptAnalyzer
 
 [PSScriptAnalyzer](https://www.powershellgallery.com/packages/PSScriptAnalyzer) je nástroj pro analýzu volné statické kódu, který funguje v prostředí PowerShell kód.
 PSScriptAnalyzer určují nejběžnějších problémů zobrazená v kódu PowerShell a často doporučení, jak vyřešit problém.
@@ -71,7 +71,7 @@ Nejsou k dispozici na webu MSDN na tom, jak poskytnout dokumentaci s položkami 
 * Pokyny pro poskytnutí nápovědy jsou v [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415)
 * Vytvoření nápovědu rutiny, které je nejlepší metodou pro všechny skript prostředí PowerShell, funkci nebo rutinu.
   Informace o tom, jak vytvořit nápovědu rutiny, začínat [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
-  Přidání nápovědy v rámci skriptu naleznete v tématu [o na základě nápovědy komentář](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_comment_based_help).
+  Přidání nápovědy v rámci skriptu naleznete v tématu [o na základě nápovědy komentář](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_comment_based_help).
 * Mnoho modulů také zahrnovat dokumentace v textovém formátu, například soubory MarkDown.
   To může být zvláště užitečné, když je web projektu v Githubu, kde je Markdownu vytíženou formát.
   Osvědčeným postupem je použít [Markdownu specifického pro Github](https://help.github.com/categories/writing-on-github/)

@@ -3,11 +3,11 @@ ms.date: 2017-10-31
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Zabezpečení souboru MOF"
-ms.openlocfilehash: fdb8fa17e9b5e92b56e0a62bf850529c241eee41
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 1bb257f3237344f32c9035f3836dd317b75eef0a
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="securing-the-mof-file"></a>Zabezpečení souboru MOF
 
@@ -19,7 +19,7 @@ Toto téma popisuje, jak na cílový uzel je šifrovaný soubor.
 
 Od verze prostředí PowerShell, verze 5.0, celý soubor MOF je zašifrovaná ve výchozím nastavení při použití na uzlu pomocí **Start-DSCConfiguration** rutiny.
 Proces popsaný v tomto článku se vyžaduje jenom v případě, že implementaci řešení pro použití protokolu vyžádání obsahu, pokud nejsou spravovány certifikáty, aby konfigurace stáhne cílový uzel může dešifrovat a číst systému před jejich instalací (například službu vyžádání obsahu k dispozici v systému Windows Server).
-Uzly zaregistrované [Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview) bude automaticky certifikáty instalaci a spravuje službu s žádné režijní náklady na správu požadované.
+Uzly zaregistrované [Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-overview) bude automaticky certifikáty instalaci a spravuje službu s žádné režijní náklady na správu požadované.
 
 >**Poznámka:** Toto téma popisuje certifikátů používaných pro šifrování.
 >Certifikát podepsaný svým držitelem pro šifrování, stačí, protože privátní klíč je vždy tajný klíč a šifrování neznamená důvěryhodnosti dokumentu.
@@ -262,7 +262,7 @@ configuration CredentialEncryptionExample
 
 ## <a name="setting-up-decryption"></a>Nastavení dešifrování
 
-Před [ `Start-DscConfiguration` ](https://technet.microsoft.com/en-us/library/dn521623.aspx) můžete pracovat, je nutné zjistit správce místní konfigurace na každý cílový uzel, který certifikát má použít k dešifrování přihlašovacích údajů, pomocí prostředků CertificateID ověření kryptografický otisk certifikátu. Tento příklad funkce se najít odpovídající místní certifikát (bude pravděpodobně nutné přizpůsobit ho tak najde přesný certifikátu, který chcete použít):
+Před [ `Start-DscConfiguration` ](https://technet.microsoft.com/library/dn521623.aspx) můžete pracovat, je nutné zjistit správce místní konfigurace na každý cílový uzel, který certifikát má použít k dešifrování přihlašovacích údajů, pomocí prostředků CertificateID ověření kryptografický otisk certifikátu. Tento příklad funkce se najít odpovídající místní certifikát (bude pravděpodobně nutné přizpůsobit ho tak najde přesný certifikátu, který chcete použít):
 
 ```powershell
 # Get the certificate that works for encryption 
@@ -311,7 +311,7 @@ configuration CredentialEncryptionExample
 
 V tomto okamžiku můžete spustit konfigurace, který bude výstup dva soubory:
 
- * A *. meta.mof soubor, který konfiguruje správce místní konfigurace dešifrovat přihlašovací údaje pomocí certifikátu, který je uložen v úložišti místního počítače a identifikovaný jeho kryptografický otisk. [`Set-DscLocalConfigurationManager`](https://technet.microsoft.com/en-us/library/dn521621.aspx)se vztahuje *. meta.mof souboru.
+ * A *. meta.mof soubor, který konfiguruje správce místní konfigurace dešifrovat přihlašovací údaje pomocí certifikátu, který je uložen v úložišti místního počítače a identifikovaný jeho kryptografický otisk. [`Set-DscLocalConfigurationManager`](https://technet.microsoft.com/library/dn521621.aspx) se vztahuje *. meta.mof souboru.
  * Soubor MOF, který ve skutečnosti aplikuje konfiguraci. Spuštění DscConfiguration aplikuje konfiguraci.
 
 Tyto příkazy bude možné provést tyto kroky:

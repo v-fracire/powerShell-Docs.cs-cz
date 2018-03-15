@@ -3,11 +3,11 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Spuštění vzdálených příkazů"
 ms.assetid: d6938b56-7dc8-44ba-b4d4-cd7b169fd74d
-ms.openlocfilehash: 43f07abd642e7de235647fa151537c46ebe86cae
-ms.sourcegitcommit: 6aed37d7f0c9652ae09bb8c11928da7e4783ed7f
+ms.openlocfilehash: 24648e8f35fbc28c9ba9f9b7176ac23e72ffbe78
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="running-remote-commands"></a>Spuštění vzdálených příkazů
 
@@ -28,15 +28,15 @@ Mnoho rutin prostředí Windows PowerShell mít parametr ComputerName, která um
 
 Zahrnout tyto rutiny:
 
-* [Restartování počítače](https://go.microsoft.com/fwlink/?LinkId=821625)
+* [Restart-Computer](https://go.microsoft.com/fwlink/?LinkId=821625)
 * [Test připojení](https://go.microsoft.com/fwlink/?LinkId=821646)
-* [Clear – protokolu událostí](https://go.microsoft.com/fwlink/?LinkId=821568)
-* [Get-protokolu událostí](https://go.microsoft.com/fwlink/?LinkId=821585)
-* [Get-oprav HotFix](https://go.microsoft.com/fwlink/?LinkId=821586)
+* [Clear-EventLog](https://go.microsoft.com/fwlink/?LinkId=821568)
+* [Get-EventLog](https://go.microsoft.com/fwlink/?LinkId=821585)
+* [Get-HotFix](https://go.microsoft.com/fwlink/?LinkId=821586)
 * [Get-Process](https://go.microsoft.com/fwlink/?linkid=821590)
 * [Get-Service](https://go.microsoft.com/fwlink/?LinkId=821593)
-* [Nastavení služby](https://go.microsoft.com/fwlink/?LinkId=821633)
-* [Get-WinEvent.](https://go.microsoft.com/fwlink/?linkid=821529)
+* [Set-Service](https://go.microsoft.com/fwlink/?LinkId=821633)
+* [Get-WinEvent](https://go.microsoft.com/fwlink/?linkid=821529)
 * [Get-WmiObject](https://go.microsoft.com/fwlink/?LinkId=821595)
 
 Rutiny, které podporují vzdálené komunikace bez zvláštní konfiguraci obvykle mají parametr ComputerName a nemají parametr relace. Chcete-li v relaci najít tyto rutiny, zadejte:
@@ -48,9 +48,9 @@ Get-Command | where { $_.parameters.keys -contains "ComputerName" -and $_.parame
 ## <a name="windows-powershell-remoting"></a>Vzdálenou komunikaci Windows PowerShell
 Vzdálená komunikace prostředí Windows PowerShell, který používá protokol WS-Management, vám umožní spustit libovolný příkaz prostředí Windows PowerShell na jeden nebo více vzdálených počítačích. Umožňuje vytvořit trvalé připojení, spusťte interaktivní relace 1:1 a spouštět skripty ve více počítačích.
 
-Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač konfigurován pro vzdálenou správu. Další informace, včetně pokynů, najdete v části [vzdálené požadavky](https://technet.microsoft.com/en-us/library/dd315349.aspx).
+Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač konfigurován pro vzdálenou správu. Další informace, včetně pokynů, najdete v části [vzdálené požadavky](https://technet.microsoft.com/library/dd315349.aspx).
 
-Po dokončení konfigurace vzdálené komunikace Windows Powershellu jsou dostupné mnoho strategií vzdálené komunikace. Zbývající část tohoto dokumentu jsou uvedeny jen některé z nich. Další informace najdete v tématu [o vzdálené](https://technet.microsoft.com/en-us/library/dd347744.aspx) a [o vzdálené – nejčastější dotazy](https://technet.microsoft.com/en-us/library/dd347744.aspx).
+Po dokončení konfigurace vzdálené komunikace Windows Powershellu jsou dostupné mnoho strategií vzdálené komunikace. Zbývající část tohoto dokumentu jsou uvedeny jen některé z nich. Další informace najdete v tématu [o vzdálené](https://technet.microsoft.com/library/dd347744.aspx) a [o vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd347744.aspx).
 
 ### <a name="start-an-interactive-session"></a>Spusťte interaktivní relace.
 Spusťte interaktivní relace s jeden vzdálený počítač pomocí [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) rutiny.
@@ -141,12 +141,12 @@ Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troublesh
 - [about_Remote_Requirements](https://technet.microsoft.com/en-us/library/da213949-134c-4741-b307-81f4492ba1bd)
 - [about_Remote_Troubleshooting](https://technet.microsoft.com/en-us/library/2f890148-8578-49ed-85ea-79a489dd6317)
 - [about_PSSessions](https://technet.microsoft.com/en-us/library/7a9b4e0e-fa1b-47b0-92f6-6e2995d70acb)
-- [about_WS Management_Cmdlets](https://technet.microsoft.com/en-us/library/6ed3370a-ea10-45a5-9493-696aeace27ed)
+- [about_WS-Management_Cmdlets](https://technet.microsoft.com/en-us/library/6ed3370a-ea10-45a5-9493-696aeace27ed)
 - [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493)
 - [Import-PSSession](https://go.microsoft.com/fwlink/?LinkId=821821)
-- [Nový PSSession](https://go.microsoft.com/fwlink/?LinkId=821498)
+- [New-PSSession](https://go.microsoft.com/fwlink/?LinkId=821498)
 - [Register-PSSessionConfiguration](https://go.microsoft.com/fwlink/?LinkId=821508)
-- [Zprostředkovatel služby WSMan](https://technet.microsoft.com/en-us/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
+- [WSMan Provider](https://technet.microsoft.com/en-us/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
 
 [wsman-remoting]: WSMan-Remoting-in-PowerShell-Core.md
 [ssh-resmoting]: SSH-Remoting-in-PowerShell-Core.md

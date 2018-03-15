@@ -1,14 +1,14 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Postup ladění skriptů v systému Windows PowerShell ISE"
-ms.openlocfilehash: 0ec520dfcba5e4562258256570f140e618e77cdb
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+title: "Ladění skriptů v prostředí Windows PowerShell ISE"
+ms.openlocfilehash: d37fb6cdcd5782cf8eff89c2b124b7c81fdaca71
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="how-to-debug-scripts-in-windows-powershell-ise"></a>Postup ladění skriptů v systému Windows PowerShell ISE
+# <a name="how-to-debug-scripts-in-windows-powershell-ise"></a>Ladění skriptů v prostředí Windows PowerShell ISE
 
 Toto téma popisuje postup ladění skriptů v místním počítači pomocí funkce Windows PowerShell Integrované skriptovací prostředí (ISE) visual ladění.
 
@@ -42,7 +42,7 @@ Zobrazí všechny zarážky v aktuální relaci prostředí Windows PowerShell.
 Na **ladění** nabídky, klikněte na tlačítko **seznamu zarážky**. Následující skript je příklad, jak můžete vytvořit seznam všech zarážky z podokna konzoly pomocí [Get-PSBreakpoint](https://technet.microsoft.com/library/0bf48936-00ab-411c-b5e0-9b10a812a3c6) rutiny.
 
 ``` PowerShell
-# This command lists all breakpoints in the current session. 
+# This command lists all breakpoints in the current session.
 Get-PSBreakpoint
 ```
 
@@ -82,7 +82,7 @@ Disable-PSBreakpoint -Id 0
 Zakázání zarážku neodebere. ji vypne dokud není povoleno.  Zakázání všechny zarážky v aktuální relaci, na **ladění** nabídky, klikněte na tlačítko **zakažte všechny zarážky**. Následující skript je příklad, jak můžete zakázat všechna zarážky z podokna konzoly pomocí [zakázat PSBreakpoint](https://technet.microsoft.com/library/d4974e9b-0aaa-4e20-b87f-f599a413e4e8) rutiny.
 
 ``` PowerShell
-# This command disables all breakpoints in the current session. 
+# This command disables all breakpoints in the current session.
 # You can abbreviate this command as: "gbp | dbp".
 Get-PSBreakpoint | Disable-PSBreakpoint
 ```
@@ -99,13 +99,13 @@ Enable-PSBreakpoint -Id 0, 1, 5
 Povolit všechny zarážky definované v aktuální relaci, na **ladění** nabídky, klikněte na tlačítko **povolit všechny zarážky**. Následující skript je příklad, jak můžete povolit všechny zarážky v podokně konzoly pomocí [povolit PSBreakpoint](https://technet.microsoft.com/library/739e1091-3b3f-405f-a428-bec7543e5df0) rutiny.
 
 ``` PowerShell
-# This command enables all breakpoints in the current session. 
+# This command enables all breakpoints in the current session.
 # You can abbreviate the command by using their aliases: "gbp | ebp".
 Get-PSBreakpoint | Enable-PSBreakpoint
 ```
 
 ## <a name="how-to-manage-a-debugging-session"></a>Jak spravovat ladicí relace
-Než začnete, ladění, musíte nastavit jeden nebo více zarážky. Zarážku nelze nastavit, pokud je uložen skript, který chcete ladit. Pokyny o tom, jak nastavit zarážky, najdete v části [Správa zarážky](#how-to-manage-breakpoints) nebo [Set-PSBreakpoint](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-psbreakpoint). Po spuštění ladění, nelze upravit skript, dokud jej nezastavíte ladění. Skript, který má jeden nebo více zarážky nastavit je automaticky uloží, než je spuštěn.
+Než začnete, ladění, musíte nastavit jeden nebo více zarážky. Zarážku nelze nastavit, pokud je uložen skript, který chcete ladit. Pokyny o tom, jak nastavit zarážky, najdete v části [Správa zarážky](#how-to-manage-breakpoints) nebo [Set-PSBreakpoint](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/set-psbreakpoint). Po spuštění ladění, nelze upravit skript, dokud jej nezastavíte ladění. Skript, který má jeden nebo více zarážky nastavit je automaticky uloží, než je spuštěn.
 
 ### <a name="to-start-debugging"></a>Spustit ladění
 Stiskněte klávesu **F5** nebo na panelu nástrojů klikněte na tlačítko **spustit skript** ikonu, nebo na **ladění** nabídce klikněte na tlačítko **spustit nebo pokračovat**. Skript se spustí, dokud zjistí první zarážky. To pozastaví operaci tam a klade důraz na řádku, na kterém je pozastavena.
@@ -174,5 +174,4 @@ C:\ps-test\MyScript.ps1
 ```
 
 ## <a name="see-also"></a>Viz také
-- [Pomocí Windows PowerShell ISE](Using-the-Windows-PowerShell-ISE.md)
-
+- [Seznámení s prostředím Windows PowerShell ISE](../../getting-started/fundamental/exploring-the-windows-powershell-ise.md)

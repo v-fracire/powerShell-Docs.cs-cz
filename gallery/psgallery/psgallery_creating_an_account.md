@@ -4,11 +4,11 @@ contributor: JKeithB
 ms.topic: conceptual
 keywords: "Galerie prostředí powershell, rutiny, psgallery"
 title: "Vytvoření účtu Galerie prostředí PowerShell"
-ms.openlocfilehash: e21575320f220c1ba7ecd9bd464a814b3ebf49d9
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 5af38884d819cb9c600a061109233614bd33666f
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 ## <a name="creating-a-powershell-gallery-account"></a>Vytvoření účtu Galerie prostředí PowerShell
 
@@ -23,7 +23,7 @@ Na další stránce Pokud chcete používat účet služby Azure Active Director
 Jakmile jste přihlášení, vyzve k vytvoření uživatelské jméno pro galerii prostředí PowerShell. Přečtěte si podmínky použití a zásady ochrany osobních údajů, které jsou propojeny v, zadejte uživatelské jméno a potom kliknutím na tlačítko Registrovat.
 
 Poznámka: Tento název účtu nelze změnit po vytvoření.  
-V tématu [Správa vlastníků položky](https://msdn.microsoft.com/en-us/powershell/gallery/psgallery/managing-item-owners) další podrobnosti týkající se to.
+V tématu [Správa vlastníků položky](https://msdn.microsoft.com/powershell/gallery/psgallery/managing-item-owners) další podrobnosti týkající se to.
 
 ## <a name="recommended-practices-for-powershell-gallery-accounts"></a>Doporučené postupy pro účty Galerie prostředí PowerShell
 
@@ -35,5 +35,5 @@ Organizace, které často publikovat do Galerie prostředí PowerShell vytvořit
 V mnoha případech není pravidelně sledovat tento účet. Osvědčeným postupem je v takovém případě používat předávání Outlook k odesílání e-mailu na jiný účet, obvykle jednu v rámci organizace, které se budou monitorovat pomocí položky vlastníka/vlastníků.
 
 Pokud existují více vlastníky přidružený k položce, bude veškerá komunikace, které pocházejí z Galerie Powershellu přejděte na všechny vlastníky.
-V tématu [Správa vlastníků položky](https://msdn.microsoft.com/en-us/powershell/gallery/psgallery/managing-item-owners) další podrobnosti o přidání vlastníky k položce. 
+V tématu [Správa vlastníků položky](https://msdn.microsoft.com/powershell/gallery/psgallery/managing-item-owners) další podrobnosti o přidání vlastníky k položce. 
 

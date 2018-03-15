@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC"
-ms.openlocfilehash: 76c990ee7c98ea47d1fc3d7bd955ce6a993e28a6
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: ff06aafa6db49d93a9b42e38ac7c3e9a11657bd5
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 >Platí pro: Prostředí Windows PowerShell 5.0
 
@@ -20,7 +20,7 @@ Informace o tom, jak konfigurovat nové virtuální počítače na počáteční
 
 Pokud chcete spustit tyto příklady, budete potřebovat:
 
-- Spouštěcí virtuální pevný disk pro práci s. Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na [TechNet Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/en-us/library/gg318049.aspx).
+- Spouštěcí virtuální pevný disk pro práci s. Můžete si stáhnout soubor ISO s zkušební kopie systému Windows Server 2016 na [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). Pokyny naleznete v tom, jak vytvořit virtuální pevný disk z bitové kopie ISO na [vytváření spouštěcího virtuální pevné disky](https://technet.microsoft.com/library/gg318049.aspx).
 - Hostitelský počítač, který má technologie Hyper-V povolena. Informace najdete v tématu [Přehled technologie Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).
 
 Pomocí DSC můžete automatizovat instalaci softwaru a konfigurace pro počítač v počáteční spouštěcí up.

@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Přehled stavu konfigurace požadovaných pro rozhodují"
-ms.openlocfilehash: cbde5d22f9cf118485a0302e53ee0a75eb4b8843
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 42335d674bd23a109ad8f818d3e22ef221884ca7
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="desired-state-configuration-overview-for-decision-makers"></a>Přehled stavu konfigurace požadovaných pro rozhodují
 
@@ -17,7 +17,7 @@ Tento dokument popisuje obchodní výhody použití prostředí PowerShell poža
 
 Požadovaného stavu aplikace Windows PowerShell (DSC) je součástí systému Windows, která je založená na standardech, otevřete platforma pro správu konfigurace. DSC je dostatečně flexibilní, aby fungovat spolehlivě a konzistentní v jednotlivých fázích životního cyklu nasazení (vývoj, testovací, předprodukční, produkční), a také během Škálováním na více systémů. 
 
-DSC se soustředí kolem "[konfigurace](https://msdn.microsoft.com/en-us/powershell/dsc/configurations)".
+DSC se soustředí kolem "[konfigurace](https://msdn.microsoft.com/powershell/dsc/configurations)".
 Konfigurace je snadno číst dokument, který popisuje prostředí počítače ("uzlů"), s konkrétními vlastnostmi. Tyto charakteristiky může být stejně jednoduché jako zajistit, že určité funkce systému Windows je povolený nebo komplexní jako nasazení služby SharePoint. 
 
 DSC má také monitorování a vytváření sestav součástí. Pokud již není kompatibilní s systému, DSC můžete vygenerovat výstrahu v a fungovat na systému. 
@@ -35,11 +35,11 @@ Konfigurace je také možné sdílet prostřednictvím [Galerie prostředí Powe
 
 [DevOps](http://blogs.technet.com/b/ashleymcglone/archive/2015/11/20/devops-for-n00bs-ie-windows-people.aspx) je kombinací osoby, proces a nástroje, které umožňují pro rychlé nasazení a iterace zaměřuje na hodnotu koncovým uživatelům, ať už interní nebo externí. DSC byla vytvořena DevOps v paměti. S konfigurací jedné definovat prostředí znamená, že vývojáři mohou kódování požadavky do konfigurace, zkontrolujte, že konfigurace do správy zdrojového kódu a oddělení můžete snadno nasadit kód aniž by museli projít k chybám Manuální procesy. 
 
-Konfigurace jsou také [řízené daty](https://msdn.microsoft.com/en-us/powershell/dsc/configdata), což usnadňuje ops týmy identifikovat a změnit prostředí bez zásahu vývojáře. 
+Konfigurace jsou také [řízené daty](https://msdn.microsoft.com/powershell/dsc/configdata), což usnadňuje ops týmy identifikovat a změnit prostředí bez zásahu vývojáře. 
 
 ## <a name="desired-state-configuration-on--and-off-premises"></a>Požadované konfigurace stavu na - a mimo pracoviště
 
-DSC umožňuje spravovat místní i mimo pracoviště nasazení. Pro místní řešení pro DSC má [načítacího serveru](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) který slouží k centralizovat správu počítačů a tvorba sestav o jejich stav. Pro cloudové řešení pro DSC je použít kdekoli Windows použitelné. Existují také určité nabídky z Azure postaveny na konfigurace požadovaného stavu jako [Azure Automation](https://azure.microsoft.com/en-us/documentation/services/automation/), který centralizuje sestavy DSC. 
+DSC umožňuje spravovat místní i mimo pracoviště nasazení. Pro místní řešení pro DSC má [načítacího serveru](https://msdn.microsoft.com/powershell/dsc/pullserver) který slouží k centralizovat správu počítačů a tvorba sestav o jejich stav. Pro cloudové řešení pro DSC je použít kdekoli Windows použitelné. Existují také určité nabídky z Azure postaveny na konfigurace požadovaného stavu jako [Azure Automation](https://azure.microsoft.com/en-us/documentation/services/automation/), který centralizuje sestavy DSC. 
 
 ## <a name="dsc-and-compatibility"></a>DSC a kompatibility
 

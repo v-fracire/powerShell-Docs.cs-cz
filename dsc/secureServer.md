@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Doporučené postupy pro vyžádání obsahu"
-ms.openlocfilehash: 045f98475d6182b329ecf048038a98e933684a82
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 3d0ab969b7a0de9d428becc4b9bdb124a7a44c2c
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="pull-server-best-practices"></a>Doporučené postupy pro vyžádání obsahu
 
@@ -24,7 +24,7 @@ Publikovat | Duben 2015
 ## <a name="abstract"></a>Abstraktní
 
 Tento dokument určená k poskytování oficiální pokyny pro každý, kdo plánování implementaci serveru pro vyžádání obsahu konfigurace požadovaného stavu aplikace Windows PowerShell. Vyžádání obsahu server je jednoduchý služba, která by měla trvat jenom k nasazení. I když tento dokument nabídne technické postupy pokyny, které je možné v nasazení, hodnota tohoto dokumentu je referenční osvědčené postupy a co mají vezměte v úvahu před nasazením.
-Čtečky by měl mít základní znalost DSC a termínů používaných k popisu komponenty, které jsou zahrnuté v nasazení DSC. Další informace najdete v tématu [Přehled konfigurace prostředí Windows PowerShell požadovaného stavu](https://technet.microsoft.com/en-us/library/dn249912.aspx) tématu.
+Čtečky by měl mít základní znalost DSC a termínů používaných k popisu komponenty, které jsou zahrnuté v nasazení DSC. Další informace najdete v tématu [Přehled konfigurace prostředí Windows PowerShell požadovaného stavu](https://technet.microsoft.com/library/dn249912.aspx) tématu.
 Očekávaným DSC vyvíjí v cloudu cadence základní technologii, včetně serveru vyžádané replikace se také očekává vyvíjí a zavádět nové funkce. Tento dokument obsahuje tabulku verze v příloze, která poskytuje odkazy na předchozí verze a odkazy na budoucí vypadající řešení podporovat budoucnost návrhů.
 
 Dvě hlavní části tohoto dokumentu:
@@ -43,7 +43,7 @@ Prostředí Windows PowerShell poskytuje sadu jazyková rozšíření pro konfig
 ### <a name="pull-server-role"></a>Role serveru vyžádané replikace  
 Načítacího serveru poskytuje centralizované služby k uložení konfigurace, které budou přístupné pro cílové uzly.
  
-Role serveru vyžádané replikace se dá nasadit jako instance webového serveru nebo sdílené složky SMB. Schopnost webového serveru obsahuje rozhraní OData a může volitelně obsahovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěšné nebo neúspěšné, jako jsou použita konfigurace. Tato funkce je užitečná v prostředích, kde je velké množství cílové uzly. Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na server vyžádané replikace s nejnovější konfigurací jsou data a všechny požadované skripty stažení a použití. Tato situace může nastat, jako jednorázové nasazení nebo jako znovu se vyskytující úlohy, který také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell požadovaného stavu konfigurace pro vyžádání obsahu servery](https://technet.microsoft.com/en-us/library/dn249913.aspx) a [nabízení a režimů pro vyžádání obsahu konfigurace](https://technet.microsoft.com/en-us/library/dn249913.aspx).
+Role serveru vyžádané replikace se dá nasadit jako instance webového serveru nebo sdílené složky SMB. Schopnost webového serveru obsahuje rozhraní OData a může volitelně obsahovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěšné nebo neúspěšné, jako jsou použita konfigurace. Tato funkce je užitečná v prostředích, kde je velké množství cílové uzly. Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na server vyžádané replikace s nejnovější konfigurací jsou data a všechny požadované skripty stažení a použití. Tato situace může nastat, jako jednorázové nasazení nebo jako znovu se vyskytující úlohy, který také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell požadovaného stavu konfigurace pro vyžádání obsahu servery](https://technet.microsoft.com/library/dn249913.aspx) a [nabízení a režimů pro vyžádání obsahu konfigurace](https://technet.microsoft.com/library/dn249913.aspx).
 
 ## <a name="configuration-planning"></a>Plánování konfigurace
 

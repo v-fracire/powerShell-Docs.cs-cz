@@ -4,11 +4,11 @@ contributor: JKeithB
 ms.topic: conceptual
 keywords: "Galerie prostředí powershell, rutiny, psgallery"
 title: psgallery_faqs
-ms.openlocfilehash: 80aaaa5e50e1bd85b93df721a4859e3020d1f315
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: b856c44f3733d4a7c236d901edb391091d9d546e
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -18,7 +18,7 @@ Modul prostředí PowerShell se opakovaně použitelné balíček obsahující n
 
 ## <a name="what-is-a-powershell-script"></a>Co je skript prostředí PowerShell?
 
-Skript prostředí PowerShell je řadu příkazů, které jsou uložené v souboru s příponou .ps1 povolení sdílení a opakované použití. Pracovní postupy prostředí PowerShell jsou také skripty prostředí PowerShell, které popisují sadu úloh a zadejte sekvencování pro tyto úlohy. Další informace najdete na webu [Začínáme s pracovním postupem prostředí PowerShell](https://technet.microsoft.com/en-us/library/jj134242.aspx).
+Skript prostředí PowerShell je řadu příkazů, které jsou uložené v souboru s příponou .ps1 povolení sdílení a opakované použití. Pracovní postupy prostředí PowerShell jsou také skripty prostředí PowerShell, které popisují sadu úloh a zadejte sekvencování pro tyto úlohy. Další informace najdete na webu [Začínáme s pracovním postupem prostředí PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="how-are-powershell-scripts-different-from-powershell-modules"></a>Jak se liší od moduly Powershellu skriptů prostředí PowerShell?
 
@@ -48,7 +48,7 @@ Této chybě může dojít z následujících důvodů:
 
 ## <a name="why-cant-i-sign-in-with-my-personal-account-but-i-could-sign-in-yesterday"></a>Proč nelze I přihlásit pomocí mému osobnímu účtu, ale může přihlášení včera?
 
-Upozorňujeme, že váš účet Galerie není zohlednit změny vaší primární e-mailový alias. Další informace najdete v tématu [aliasy e-mailu Microsoft](https://windows.microsoft.com/en-us/windows/outlook/add-alias-account).
+Upozorňujeme, že váš účet Galerie není zohlednit změny vaší primární e-mailový alias. Další informace najdete v tématu [aliasy e-mailu Microsoft](https://windows.microsoft.com/windows/outlook/add-alias-account).
 
 ## <a name="why-dont-i-see-all-the-gallery-items-when-i-select-all-the-category-checkboxes-on-the-items-tab"></a>Proč se po výběru kategorie políček na kartě položky nezobrazí všechny položky galerie?
 
@@ -88,7 +88,7 @@ Zadejte, co hledáte v textovém poli. Například pokud chcete pro vyhledání 
 - Funkce
 - Rutina
 - DscResources
-- Verze prostředí PowerShell
+- PowerShellVersion
 
 Ano, například při hledání verze prostředí PowerShell: "2.0" pouze výsledky, které jsou kompatibilní s verze prostředí PowerShell 2.0 (podle jejich manifestu modulu nebo skript) se zobrazí.
 
@@ -151,12 +151,12 @@ Proto **PowerShellGet** vyžaduje jednu z následujících operačních systém�
 - Windows 10
 - Windows 8.1 Pro
 - Windows 8.1 Enterprise
-- Windows 7 s aktualizací SP1
+- Windows 7 SP1
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2008 R2 SP1
 
-**PowerShellGet** taky vyžaduje rozhraní .NET Framework 4.5 nebo novější. Můžete nainstalovat rozhraní .NET Framework 4.5 nebo novější z [zde](https://msdn.microsoft.com/en-us/library/5a4x27ek.aspx).
+**PowerShellGet** taky vyžaduje rozhraní .NET Framework 4.5 nebo novější. Můžete nainstalovat rozhraní .NET Framework 4.5 nebo novější z [zde](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 
 ## <a name="is-it-possible-to-reserve-names-for-items-that-will-be-published-in-future"></a>Je možné rezervovat názvy pro položky, které budou publikovány v budoucnosti?
 

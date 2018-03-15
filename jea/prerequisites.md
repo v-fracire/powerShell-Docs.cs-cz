@@ -4,11 +4,11 @@ author: rpsqrd
 ms.topic: conceptual
 keywords: "jea, prostředí powershell, zabezpečení"
 title: "JEA požadavky"
-ms.openlocfilehash: 75d5db2ba446df1d461050d187dc1495a22fef18
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: e6ee16e34eb9f1f0b2f3601c1aa9e90ab4f785f1
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="prerequisites"></a>Předpoklady
 
@@ -33,8 +33,8 @@ Můžete taky JEA v počítači domácí nebo pracovní:
 
 Klientský operační systém   | JEA dostupnosti
 --------------------------|-----------------------------------------------------
-Windows 10 1607 +          | Předinstalována
-Windows 10 1603 1511     | Předinstalována, se snižuje funkce<sup>2</sup>
+Windows 10 1607+          | Předinstalována
+Windows 10 1603, 1511     | Předinstalována, se snižuje funkce<sup>2</sup>
 Windows 10 1507           | Nedostupné
 Windows 8, 8.1            | Plnou funkčnost služby WMF 5.1
 Windows 7                 | Snížená funkce<sup>1</sup> s WMF 5.1
@@ -72,7 +72,7 @@ Uživatelé Windows 10 měli nainstalovat nejnovější aktualizace funkcí na a
 ## <a name="enable-powershell-remoting"></a>Povolit vzdálenou komunikaci prostředí PowerShell
 
 Vzdálená komunikace prostředí PowerShell poskytuje základ, na kterém je vytvořené JEA.
-Je proto nutné zajistit povolena vzdálená komunikace PowerShell a [správně zabezpečené](https://msdn.microsoft.com/en-us/powershell/scripting/setup/winrmsecurity) ve vašem systému, než budete moci použít JEA.
+Je proto nutné zajistit povolena vzdálená komunikace PowerShell a [správně zabezpečené](https://msdn.microsoft.com/powershell/scripting/setup/winrmsecurity) ve vašem systému, než budete moci použít JEA.
 
 Ve výchozím nastavení v systému Windows Server 2012, 2012 R2 a 2016 je povolena vzdálená komunikace prostředí PowerShell.
 Můžete povolit vzdálenou komunikaci prostředí PowerShell spuštěním následujícího příkazu v okně Powershellu se zvýšenými oprávněními.
@@ -109,6 +109,6 @@ Můžete také povolit systémového prostředí PowerShell přepis prostřednic
 
 ## <a name="see-also"></a>Viz taky
 
-- [Další informace o zabezpečení vzdálenou komunikaci prostředí PowerShell a WinRM](https://msdn.microsoft.com/en-us/powershell/scripting/setup/winrmsecurity)
+- [Další informace o zabezpečení vzdálenou komunikaci prostředí PowerShell a WinRM](https://msdn.microsoft.com/powershell/scripting/setup/winrmsecurity)
 - [*Prostředí PowerShell ♥ týmem Blue* příspěvku na blogu na zabezpečení](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/)
 

@@ -3,17 +3,17 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Nastavení serveru DSC SMB vyžádání obsahu"
-ms.openlocfilehash: 427dc8d858bd12e420fbde03b33a66f33cd654dc
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: ff3faeb1952e6116cf97b1aaf8f125d8931dd35e
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="setting-up-a-dsc-smb-pull-server"></a>Nastavení serveru DSC SMB vyžádání obsahu
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-DSC [SMB](https://technet.microsoft.com/en-us/library/hh831795.aspx) vyžádání obsahu server je počítač hostování sdílených složek SMB, které zpřístupnit DSC konfiguračních souborů a prostředků DSC pro cílové uzly při uzly, zeptejte se pro ně.
+DSC [SMB](https://technet.microsoft.com/library/hh831795.aspx) vyžádání obsahu server je počítač hostování sdílených složek SMB, které zpřístupnit DSC konfiguračních souborů a prostředků DSC pro cílové uzly při uzly, zeptejte se pro ně.
 
 Chcete-li použít vyžádání serveru SMB pro DSC, budete muset:
 - Nastavení sdílené složky SMB na serveru se systémem prostředí PowerShell 4.0 nebo vyšší
@@ -25,7 +25,7 @@ Existuje několik způsobů, jak nastavit sdílenou složku SMB, ale podíváme,
 
 ### <a name="install-the-xsmbshare-resource"></a>Nainstalujte xSmbShare prostředků
 
-Volání [instalace modulu](https://technet.microsoft.com/en-us/library/dn807162.aspx) k instalaci **xSmbShare** modulu.
+Volání [instalace modulu](https://technet.microsoft.com/library/dn807162.aspx) k instalaci **xSmbShare** modulu.
 >**Poznámka:**: **instalace modulu** je součástí **PowerShellGet** modul, který je součástí prostředí PowerShell 5.0. Si můžete stáhnout **PowerShellGet** modul pro prostředí PowerShell 3.0 a 4.0 na [Preview moduly Powershellu PackageManagement](https://www.microsoft.com/en-us/download/details.aspx?id=49186). **XSmbShare** obsahuje prostředek DSC **xSmbShare**, který slouží k vytvoření sdílené složky SMB.
 
 ### <a name="create-the-directory-and-file-share"></a>Vytvoření sdílené složky pro adresáře a souboru
@@ -208,7 +208,7 @@ $ConfigurationData = @{
 Zvláštní díky následující:
 
 - Jan F. Robbins, jejichž příspěvcích na pomocí protokolu SMB pro DSC pomohl informovat obsah v tomto tématu. Jeho blogu je na [Karel F Robbins](http://mikefrobbins.com/).
-- Serge Nikalaichyk, kdo vytvořené **cNtfsAccessControl** modulu. Zdroj pro tento modul je na https://github.com/SNikalaichyk/cNtfsAccessControl.
+- Serge Nikalaichyk, kdo vytvořené **cNtfsAccessControl** modulu. Zdroj pro tento modul je v https://github.com/SNikalaichyk/cNtfsAccessControl.
 
 ## <a name="see-also"></a>Viz taky
 - [Přehled stavu konfigurace požadovaného prostředí Windows PowerShell](overview.md)

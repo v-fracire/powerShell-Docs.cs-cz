@@ -1,22 +1,22 @@
 ---
 ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
-title: "Postup zápisu a spouštět skripty ve Windows PowerShell ISE"
+title: "Psání a spouštění skriptů v prostředí Windows PowerShell ISE"
 ms.assetid: 62f916d9-b3a1-484a-bdfb-41f57112c22b
-ms.openlocfilehash: dd3055df8c84195f0145b1a058f1d17c9c382f33
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 77d8ae81cb03f03b3b5d044e6503bbb23cb5b771
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="how-to-write-and-run-scripts-in-the-windows-powershell-ise"></a>Postup zápisu a spouštět skripty ve Windows PowerShell ISE
+# <a name="how-to-write-and-run-scripts-in-the-windows-powershell-ise"></a>Psání a spouštění skriptů v prostředí Windows PowerShell ISE
 Toto téma popisuje, jak vytvořit, upravit, spuštění a uložit skripty v podokně skriptu.
 
 ## <a name="how-to-create-and-run-scripts"></a>Postup vytvoření a spouštět skripty.
 Můžete otevírat a upravovat soubory prostředí Windows PowerShell v podokně skriptu. Určité typy souborů zájmu v prostředí Windows PowerShell jsou soubory skriptu (.ps1), skript datových souborů (.psd1) a soubory modulu skriptu (.psm1). Tyto typy souborů jsou syntaxe barevné v editoru panelu Skript. Další běžné typy souborů, které může zobrazit v podokně skriptu jsou konfigurační soubory (.ps1xml), soubory XML a textové soubory.
 
 > [!NOTE]
-> Zásady spouštění prostředí Windows PowerShell Určuje, zda můžete spouštět skripty a zatížení profily prostředí Windows PowerShell a konfigurační soubory. Výchozí zásady spouštění, brání spuštění všech skriptů s omezeným přístupem a zabrání načítání profily. Chcete-li změnit zásady spouštění umožňující profily se načíst a použít, najdete v části [Set-ExecutionPolicy [PSITPro5_Security]](https://technet.microsoft.com/en-us/library/5690a0e1-495b-4e63-8280-65ead7bf01ab) a [about_Signing [v4]](https://technet.microsoft.com/en-us/library/fcbdd3b9-0b9f-4734-b5c7-e0dcc304fa1d).
+> Zásady spouštění prostředí Windows PowerShell Určuje, zda můžete spouštět skripty a zatížení profily prostředí Windows PowerShell a konfigurační soubory. Výchozí zásady spouštění, brání spuštění všech skriptů s omezeným přístupem a zabrání načítání profily. Chcete-li změnit zásady spouštění umožňující profily se načíst a použít, najdete v části [Set-ExecutionPolicy [PSITPro5_Security]](https://technet.microsoft.com/library/5690a0e1-495b-4e63-8280-65ead7bf01ab) a [about_Signing [v4]](https://technet.microsoft.com/library/fcbdd3b9-0b9f-4734-b5c7-e0dcc304fa1d).
 
 ### <a name="to-create-a-new-script-file"></a>Chcete-li vytvořit nový soubor skriptu
 Na panelu nástrojů klikněte na tlačítko **nový** , nebo na **soubor** nabídky, klikněte na tlačítko **nový**. Vytvořený soubor se zobrazí na nové záložce souboru na kartě aktuální prostředí PowerShell. Mějte na paměti, že prostředí PowerShell karty jsou viditelné pouze když je více než jeden. Ve výchozím nastavení se vytvoří soubor skriptu typ (.ps1), ale nelze uložit s novým názvem a rozšíření. Více souborů skriptu lze vytvořit na stejné kartě prostředí PowerShell.
@@ -139,5 +139,4 @@ Windows PowerShell ISE podporuje následující možnosti kódování: ASCII, Bi
 Windows PowerShell ISE nezmění kódování skripty, které byly vytvořené v jiných editory, i když použijete uložit nebo uložit jako příkazů v systému Windows PowerShell ISE.
 
 ## <a name="see-also"></a>Viz také
-- [Pomocí Windows PowerShell ISE](Using-the-Windows-PowerShell-ISE.md)
-
+- [Seznámení s prostředím Windows PowerShell ISE](../../getting-started/fundamental/exploring-the-windows-powershell-ise.md)

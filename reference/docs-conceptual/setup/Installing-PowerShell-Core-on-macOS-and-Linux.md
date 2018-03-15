@@ -369,10 +369,21 @@ sudo yum remove powershell
 
 ## <a name="opensuse-422"></a>OpenSUSE 42.2
 
-> **Poznámka:** při instalaci prostředí PowerShell jádra, OpenSUSE může hlásit, že nic poskytuje `libcurl`.
-`libcurl`by měl být již nainstalován na podporovaných verzích OpenSUSE.
-Spustit `zypper search libcurl` k potvrzení.
-Chyba nabídne 2 'řešení'. Zvolte řešení 2 pokračovat v instalaci jádra prostředí PowerShell.
+> **Poznámka:** při instalaci prostředí PowerShell základní `zypper` může nahlaste mu následující chybu:
+>
+> ```text
+> Problem: nothing provides libcurl needed by powershell-6.0.1-1.rhel.7.x86_64
+>  Solution 1: do not install powershell-6.0.1-1.rhel.7.x86_64
+>  Solution 2: break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies
+> ```
+>
+> V takovém případě ověřte, že kompatibilní `libcurl` knihovny nachází kontrolou, že následující příkaz ukazuje `libcurl4` balíčku se po instalaci:
+>
+> ```sh
+> zypper search --file-list --match-exact '/usr/lib64/libcurl.so.4'
+> ```
+>
+> Zvolte `break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies` řešení při instalaci `powershell` balíčku.
 
 ### <a name="installation-via-package-repository-preferred---opensuse-422"></a>Instalaci přes úložiště balíčků (doporučeno) - OpenSUSE 42.2
 
@@ -384,9 +395,6 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
 # Add the Microsoft Product feed
 curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/zypp/repos.d/microsoft.repo
-
-# Update the list of products
-sudo zypper update
 
 # Install PowerShell
 sudo zypper install powershell
@@ -763,13 +771,13 @@ sudo rm -rf /usr/local/bin/pwsh /usr/local/microsoft/powershell
 
 ## <a name="paths"></a>Cesty
 
-* `$PSHOME`je`/opt/microsoft/powershell/6.0.0/`
-* Profily uživatelů, bude číst ze`~/.config/powershell/profile.ps1`
-* Výchozí profily bude číst ze`$PSHOME/profile.ps1`
-* Moduly uživatele bude číst ze`~/.local/share/powershell/Modules`
-* Sdílené moduly, bude číst ze`/usr/local/share/powershell/Modules`
-* Výchozí moduly, bude číst ze`$PSHOME/Modules`
-* Historie PSReadline budou zaznamenány do`~/.local/share/powershell/PSReadLine/ConsoleHost_history.txt`
+* `$PSHOME` je `/opt/microsoft/powershell/6.0.0/`
+* Profily uživatelů, bude číst ze `~/.config/powershell/profile.ps1`
+* Výchozí profily bude číst ze `$PSHOME/profile.ps1`
+* Moduly uživatele bude číst ze `~/.local/share/powershell/Modules`
+* Sdílené moduly, bude číst ze `/usr/local/share/powershell/Modules`
+* Výchozí moduly, bude číst ze `$PSHOME/Modules`
+* Historie PSReadline budou zaznamenány do `~/.local/share/powershell/PSReadLine/ConsoleHost_history.txt`
 
 Profily respektují konfigurace Powershellu na hostitele, takže výchozí konkrétního hostitele profily existuje v `Microsoft.PowerShell_profile.ps1` ve stejném umístění.
 

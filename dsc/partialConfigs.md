@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Konfigurace požadovaného stavu prostředí PowerShell částečné konfigurace"
-ms.openlocfilehash: 66791bb7b14898d292b9da38dd27ba45b7c75d88
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 4401ea80cffd09f4b92c9fcca16d5dcad7f6a327
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="powershell-desired-state-configuration-partial-configurations"></a>Konfigurace požadovaného stavu prostředí PowerShell částečné konfigurace
 
@@ -18,10 +18,10 @@ Konfigurace požadovaného stavu (DSC) v prostředí PowerShell 5.0 umožňuje k
 Můžete použít částečný konfigurace v režimu push, pull režimu nebo kombinaci těchto dvou.
 
 ## <a name="partial-configurations-in-push-mode"></a>Částečné konfigurace v režimu nabízení
-V režimu nabízená použít částečný konfigurace, nakonfigurujte LCM na cílový uzel pro příjem částečné konfigurace. Každá částečné konfigurace musí nabídnutých k cíli pomocí rutiny DSCConfiguration publikovat. Cílový uzel pak kombinuje částečné konfigurace do jedné konfigurace a konfigurace můžete použít při volání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny.
+V režimu nabízená použít částečný konfigurace, nakonfigurujte LCM na cílový uzel pro příjem částečné konfigurace. Každá částečné konfigurace musí nabídnutých k cíli pomocí rutiny DSCConfiguration publikovat. Cílový uzel pak kombinuje částečné konfigurace do jedné konfigurace a konfigurace můžete použít při volání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) rutiny.
 
 ### <a name="configuring-the-lcm-for-push-mode-partial-configurations"></a>Konfigurace LCM pro částečné konfigurace nabízené režimu
-Ke konfiguraci LCM pro částečné konfigurace v nabízené režimu, vytvoříte **DSCLocalConfigurationManager** konfigurace s jedním **PartialConfiguration** blok pro každé částečné konfiguraci. Další informace o konfiguraci LCM najdete v tématu [Windows konfigurace správce místní konfigurace](https://technet.microsoft.com/en-us/library/mt421188.aspx). Následující příklad ukazuje konfigurace aplikace LCM, která očekává dvě konfigurace částečné – jednu, která nasazuje operační systém a ten, který nasadí a nakonfiguruje služby SharePoint.
+Ke konfiguraci LCM pro částečné konfigurace v nabízené režimu, vytvoříte **DSCLocalConfigurationManager** konfigurace s jedním **PartialConfiguration** blok pro každé částečné konfiguraci. Další informace o konfiguraci LCM najdete v tématu [Windows konfigurace správce místní konfigurace](https://technet.microsoft.com/library/mt421188.aspx). Následující příklad ukazuje konfigurace aplikace LCM, která očekává dvě konfigurace částečné – jednu, která nasazuje operační systém a ten, který nasadí a nakonfiguruje služby SharePoint.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -51,7 +51,7 @@ PartialConfigDemo
 
 ### <a name="publishing-and-starting-push-mode-partial-configurations"></a>Publikování a počáteční konfigurace částečné nabízené režimu
 
-Potom zavolejte [publikovat DSCConfiguration](https://msdn.microsoft.com/en-us/powershell/reference/5.1/psdesiredstateconfiguration/publish-dscconfiguration) pro každou konfiguraci předávání složky, které obsahují dokumenty konfigurace jako **cesta** parametry. `Publish-DSCConfiguration`umístí konfigurační soubory MOF a cílové uzly. Po publikování obě konfigurace, můžete volat `Start-DSCConfiguration –UseExisting` na cílovém uzlu.
+Potom zavolejte [publikovat DSCConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/psdesiredstateconfiguration/publish-dscconfiguration) pro každou konfiguraci předávání složky, které obsahují dokumenty konfigurace jako **cesta** parametry. `Publish-DSCConfiguration`umístí konfigurační soubory MOF a cílové uzly. Po publikování obě konfigurace, můžete volat `Start-DSCConfiguration –UseExisting` na cílovém uzlu.
 
 Například, pokud jste sestavili v následujících dokumentech MOF konfigurace na uzlu pro vytváření obsahu:
 
@@ -96,7 +96,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 17     Job17           Configuratio... Running       True            TestVM            Start-DscConfiguration...
 ```
 
->**Poznámka:** uživatel, který spouští [publikovat DSCConfiguration](https://msdn.microsoft.com/en-us/powershell/reference/5.1/psdesiredstateconfiguration/publish-dscconfiguration) rutinu musí mít oprávnění správce na cílovém uzlu.
+>**Poznámka:** uživatel, který spouští [publikovat DSCConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/psdesiredstateconfiguration/publish-dscconfiguration) rutinu musí mít oprávnění správce na cílovém uzlu.
 
 ## <a name="partial-configurations-in-pull-mode"></a>Částečné konfigurace v režimu pro vyžádání obsahu
 
@@ -211,7 +211,7 @@ SharePointConfig.mof.checksum
 
 ### <a name="naming-and-placing-the-configuration-documents-on-the-pull-server-configurationid"></a>Názvy a umístění konfigurace dokumenty na serveru vyžádané replikace (ConfigurationID)
 
-Dokumentů částečné konfigurace musí být umístěny ve složce zadané jako **ConfigurationPath** v `web.config` soubor pro vyžádání obsahu server (obvykle `C:\Program Files\WindowsPowerShell\DscService\Configuration`). Konfigurace dokumenty musí mít název následujícím způsobem: _ConfigurationName_. _ConfigurationID_`.mof`, kde _ConfigurationName_ je název částečné konfigurace a _ConfigurationID_ ID konfigurace musí být definován v LCM Cílový uzel. Pro náš příklad konfigurace dokumenty nazván následujícím způsobem:
+Dokumentů částečné konfigurace musí být umístěny ve složce zadané jako **ConfigurationPath** v `web.config` soubor pro vyžádání obsahu server (obvykle `C:\Program Files\WindowsPowerShell\DscService\Configuration`). Konfigurace dokumenty musí mít název následujícím způsobem: _ConfigurationName_. _ConfigurationID_`.mof`, kde _ConfigurationName_ je název částečné konfigurace a _ConfigurationID_ ID konfigurace je definována v LCM na cíli uzel. Pro náš příklad konfigurace dokumenty nazván následujícím způsobem:
 
 ```
 ServiceAccountConfig.1d545e3b-60c3-47a0-bf65-5afc05182fd0.mof
@@ -377,5 +377,5 @@ SharePointConfig
 **Koncepty**
 [požadovaného stavu konfigurační servery z vlastního prostředí Windows PowerShell](pullServer.md) 
 
-[Konfigurace správce místní konfigurace systému Windows](https://technet.microsoft.com/en-us/library/mt421188.aspx) 
+[Konfigurace správce místní konfigurace systému Windows](https://technet.microsoft.com/library/mt421188.aspx) 
 

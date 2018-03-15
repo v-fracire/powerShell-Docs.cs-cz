@@ -2,13 +2,13 @@
 ms.date: 2017-06-12
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: "Najít DscResource"
-ms.openlocfilehash: 37ba7925d6f73c453126f25e0818b3f8839d3b3b
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 6c5713f122d48e9c9d5e0aa45dc14047afc56102
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="find-dscresource"></a>Najít DscResource
 
@@ -16,7 +16,7 @@ Vyhledá prostředky DSC v modulech.
 
 ## <a name="description"></a>Popis
 
-Vyhledá rutinu najít DscResource [konfigurace požadovaného stavu (DSC)](https://msdn.microsoft.com/en-us/PowerShell/dsc/overview) prostředky obsažené v moduly, které odpovídají zadaným kritériím z registrovaných úložiště.
+Vyhledá rutinu najít DscResource [konfigurace požadovaného stavu (DSC)](https://msdn.microsoft.com/PowerShell/dsc/overview) prostředky obsažené v moduly, které odpovídají zadaným kritériím z registrovaných úložiště.
 Pro každý modul, který tato rutina vyhledá najít DscResource vrátí objekt PSGetDscResourceInfo, který může vést k instalaci modulu pro instalaci modulů obsahující prostředky, které tato rutina vrací.
 
 DSC je nová platforma pro správu v prostředí Windows PowerShell, který umožňuje nasazení a Správa konfigurační data pro softwaru služby a správu prostředí, ve kterém se tyto služby spuštěny.

@@ -4,11 +4,11 @@ author: rpsqrd
 ms.topic: conceptual
 keywords: "jea, prostředí powershell, zabezpečení"
 title: Konfigurace relace JEA
-ms.openlocfilehash: 0a8931ae15caf04a3639ab46f130e5f5b0498d8c
-ms.sourcegitcommit: 0733db9a05e89e6a23f6b52b9edd784fcbe8beec
+ms.openlocfilehash: c475a90a59d91b074f954cfb656b00142444c052
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="jea-session-configurations"></a>Konfigurace relace JEA
 
@@ -38,7 +38,7 @@ New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -Path .\MyJEA
 
 Soubor konfigurace relace můžete otevřít v každém textovém editoru.
 `-SessionType RestrictedRemoteServer` Pole označuje, že konfigurace relace bude používat JEA pro zabezpečené správy.
-Relace nakonfigurovali tímto způsobem bude fungovat v [NoLanguage režimu](https://technet.microsoft.com/en-us/library/dn433292.aspx) a mít pouze následující příkazy 8 výchozí (a aliasy) k dispozici:
+Relace nakonfigurovali tímto způsobem bude fungovat v [NoLanguage režimu](https://technet.microsoft.com/library/dn433292.aspx) a mít pouze následující příkazy 8 výchozí (a aliasy) k dispozici:
 
 - Clear-Host (cls, zrušte zaškrtnutí)
 - Ukončení-PSSession (exsn, ukončení)
@@ -128,7 +128,7 @@ Standardní uživatelé musí mít žádný přístup ke složce a omezená sada
 ### <a name="user-drive"></a>Jednotka uživatele
 
 Pokud vaši uživatelé připojující bude nutné zkopírovat soubory z koncového bodu JEA aby bylo možné spustit příkaz, můžete povolit disk uživatele v konfiguračním souboru relace.
-Je jednotka uživatele [PSDrive](https://msdn.microsoft.com/en-us/powershell/scripting/getting-started/cookbooks/managing-windows-powershell-drives) který se mapuje na jedinečné složku pro každý připojující se uživatel.
+Je jednotka uživatele [PSDrive](https://msdn.microsoft.com/powershell/scripting/getting-started/cookbooks/managing-windows-powershell-drives) který se mapuje na jedinečné složku pro každý připojující se uživatel.
 Tato složka slouží jako prostor pro ně kopírovat soubory do systému, nebo z nich bez bude mít přístup k systému souborů úplné nebo vystavení zprostředkovatele systému souborů.
 Obsah jednotky uživatele je trvalé napříč relacemi, aby dokázala pojmout situacích, kde může přerušit připojení k síti.
 

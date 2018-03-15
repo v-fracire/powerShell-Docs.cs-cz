@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "WaitForAny prostředek DSC"
-ms.openlocfilehash: 795c005c67c196ef9afb08af790fe2a1695392ec
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 43922dbcccb6d06d7d9edfcf16ce4eb107e9d4e6
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="dsc-waitforany-resource"></a>WaitForAny prostředek DSC
 
@@ -36,7 +36,7 @@ WaitForAny [string] #ResourceName
 
 |  Vlastnost  |  Popis   | 
 |---|---| 
-| resourceName| Název prostředku závislý na.| 
+| resourceName| Název prostředku závislý na. Pokud tento prostředek patří do jiné konfigurace, formátu názvu jako "[__ResourceType__]__ResourceName__:: [__ConfigurationName__]:: [ __ConfigurationName__] "| 
 | NodeName| Cílové uzly závislý na prostředku.| 
 | RetryIntervalSec| Počet sekund, než se budete pokoušet. Minimální hodnota je 1.| 
 | retryCount| Maximální počet pokusů o opakování.| 

@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "WaitForSome prostředek DSC"
-ms.openlocfilehash: cbe16c543f0eeb62dbe1fb439af2f9147f1bc210
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 8b0ad0dbd31816cc673c7f77945927987e90e08b
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="dsc-waitforsome-resource"></a>WaitForSome prostředek DSC
 
@@ -40,12 +40,12 @@ WaitForSome [String] #ResourceName
 |---|---| 
 | NodeCount| Minimální počet uzlů, které musí být v požadovaném stavu pro tento prostředek proběhla úspěšně.|
 | NodeName| Cílové uzly závislý na prostředku.| 
-| resourceName| Název prostředku závislý na.| 
+| resourceName| Název prostředku závislý na. Pokud tento prostředek patří do jiné konfigurace, formátu názvu jako "[__ResourceType__]__ResourceName__:: [__ConfigurationName__]:: [ __ConfigurationName__] "| 
 | RetryIntervalSec| Počet sekund, než se budete pokoušet. Minimální hodnota je 1.| 
 | retryCount| Maximální počet pokusů o opakování.| 
 | ThrottleLimit| Počet počítačů pro připojení současně. Výchozí hodnota je výchozí pro nové cimsession.| 
 | dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
-| PsDscRunAsCredential | V tématu [DSC pomocí uživatelských přihlašovacích údajů](https://docs.microsoft.com/en-us/powershell/dsc/runasuser) |
+| PsDscRunAsCredential | V tématu [DSC pomocí uživatelských přihlašovacích údajů](https://docs.microsoft.com/powershell/dsc/runasuser) |
 
 
 ## <a name="example"></a>Příklad

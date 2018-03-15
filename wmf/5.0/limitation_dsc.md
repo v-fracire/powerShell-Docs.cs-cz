@@ -2,12 +2,12 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: f39328b240a36deb40d484c4aedb889cee91dc8d
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: ad1d19eeb70a19cd3d1493b9a09b115af755feb4
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="desired-state-configuration-dsc-known-issues-and-limitations"></a>Konfigurace požadovaného stavu (DSC) – známé problémy a omezení
 
@@ -16,7 +16,7 @@ ms.lasthandoff: 06/12/2017
 
 Ve verzích WMF 4.0 a WMF 5.0 Preview DSC nepovolí hesla v konfiguraci pro o délce maximálně 121 znaků. DSC byla vynucení použít krátký hesla i v případě, že byl potřeby náročná a silné heslo. Tato změna narušující umožňuje hesla, aby se o libovolné délce v konfiguraci DSC.
 
-**Řešení:** znovu vytvořit certifikát s využití šifrování dat nebo šifrování klíče a použití klíče pro rozšířené šifrování dokumentů (1.3.6.1.4.1.311.80.1). Článku na webu TechNet <https://technet.microsoft.com/en-us/library/dn807171.aspx> obsahuje další informace.
+**Řešení:** znovu vytvořit certifikát s využití šifrování dat nebo šifrování klíče a použití klíče pro rozšířené šifrování dokumentů (1.3.6.1.4.1.311.80.1). Článku na webu TechNet <https://technet.microsoft.com/library/dn807171.aspx> obsahuje další informace.
 
 
 <a name="dsc-cmdlets-may-fail-after-installing-wmf-50-rtm"></a>Po instalaci WMF 5.0 RTM, může selhat rutiny DSC
@@ -89,7 +89,7 @@ Rutina Invoke-DscResource nevrací podrobné nastavení, upozornění, a chybov�
 <a name="dsc-resources-cannot-be-debugged-easily-when-used-with-invoke-dscresource"></a>Prostředky DSC nelze snadno ladit, pokud se používá s Invoke-DscResource
 -----------------------------------------------------------------------
 Pokud LCM běží v režimu ladění (najdete v části [prostředky DSC ladění](https://msdn.microsoft.com/powershell/dsc/debugresource) podrobnosti), rutiny Invoke-DscResource neposkytuje informace o prostředí runspace pro připojení k pro ladění.
-**Řešení:** vyhledat a připojit k pomocí rutin prostředí runspace **Get-PSHostProcessInfo**, **Enter PSHostProcess** , **Get-prostředí Runspace** a  **Ladění Runspace** k ladění prostředek DSC.
+**Řešení:** vyhledat a připojit k pomocí rutin prostředí runspace **Get-PSHostProcessInfo**, **Enter PSHostProcess** , **Get-prostředí Runspace** a **Ladění Runspace** k ladění prostředek DSC.
 
 ```powershell
 # Find all the processes hosting PowerShell

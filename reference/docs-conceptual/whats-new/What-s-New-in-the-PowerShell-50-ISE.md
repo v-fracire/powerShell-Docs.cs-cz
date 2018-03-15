@@ -3,19 +3,19 @@ ms.date: 2017-06-05
 keywords: "rutiny prostředí PowerShell"
 title: "Jaké s 50 powershellu ISE"
 ms.assetid: 38648d47-7c27-4b37-a40e-ad29948519c2
-ms.openlocfilehash: 89dcc905ce200d06029e148c9675269e6f518fa3
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 9fd25a4759602bebf2b5df2c17d0c816a15e5e2b
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="what39s-new-in-the-windows-powershell-ise"></a>Jaký & č. 39; s nová funkce v systému Windows PowerShell ISE
+# <a name="what39s-new-in-the-windows-powershell-ise"></a>Co&#39;s nová funkce v systému Windows PowerShell ISE
 Toto téma popisuje nové a aktualizované funkce, které byly zavedeny ve verzích systému Windows PowerShell Integrované skriptovací prostředí (ISE).
 
 ## <a name="feature-description"></a>Popis funkce
 Windows PowerShell ISE je hostitelskou aplikaci, která umožňuje zápis, spustit a otestovat skriptech a modulech v grafickém uživatelském rozhraní nebo intuitivní prostředí. Klíčové funkce, jako je například barevné zvýrazňování syntaxe, kartě dokončení, visual ladění, dodržování předpisů kódování Unicode a kontextová nápověda nabízí bohaté skriptovací prostředí.
 
-Přehled Windows PowerShell ISE najdete v tématu [přehled Windows PowerShell Integrované skriptovací prostředí](https://technet.microsoft.com/en-us/library/3c1892c2-bf84-4cb6-af26-1f453be9e671).
+Přehled Windows PowerShell ISE najdete v tématu [přehled Windows PowerShell Integrované skriptovací prostředí](https://technet.microsoft.com/library/3c1892c2-bf84-4cb6-af26-1f453be9e671).
 
 ## <a name="new-and-changed-functionality-in-windows-powershell-ise"></a>Nové a změněné funkce v systému Windows PowerShell ISE
 Následující tabulka uvádí nové a změněné funkce pro tuto verzi systému Windows PowerShell ISE v prostředí Windows PowerShell.
@@ -167,7 +167,7 @@ Další úpravy funkce systému Windows PowerShell ISE zahrnují:
 
 - **Barevné zvýrazňování syntaxe XML**Windows PowerShell ISE teď barvy syntaxe jazyka XML stejným způsobem, jak ho barvy syntaxe prostředí Windows PowerShell.
 
-- **Odpovídající složené závorce** Windows PowerShell ISE obsahuje odpovídající složené závorce a zvýraznění a je možné následujícím způsobem: (například pomocí **přejděte tak, aby shodu** příkaz nebo **Ctrl +]** vyhledá pravé složené závorce, pokud máte složená závorka vybrané).
+- **Odpovídající složené závorce** Windows PowerShell ISE obsahuje odpovídající složené závorce a zvýraznění a je možné následujícím způsobem: (například pomocí **přejděte tak, aby shodu** příkaz nebo **Ctrl +]** vyhledá uzavírací závorku, pokud máte složená závorka vybrané).
 
 - **Zobrazení osnovy** podokně skriptu podporuje osnovy, což umožňuje sbalení nebo rozbalení sekcí kódu kliknutím plus nebo minus přihlásí levým okrajem. Můžete použít složené závorky nebo **#region** a **#endregion** značky k označení začátku nebo konci sbalitelné části. Chcete-li rozbalit nebo sbalit všechny oblasti, stiskněte **kombinaci kláves Ctrl + M**.
 
@@ -222,7 +222,7 @@ Zobrazit příkaz je nové prostředí Windows PowerShell ISE 3.0.
 ## <a name="see-also"></a>Viz taky
 Další informace o používání v prostředí Windows PowerShell Windows PowerShell ISE najdete v následujících tématech.
 
-- [Pomocí Windows PowerShell Integrované skriptovací prostředí](../core-powershell/ise/Using-the-Windows-PowerShell-ISE.md)
+- [Zkoumání Windows PowerShell Integrované skriptovací prostředí](../getting-started/fundamental/exploring-the-windows-powershell-ise.md)
 - [ISE na webu TechNet Wiki](http://social.technet.microsoft.com/wiki/search/searchresults.aspx?q=ISE)
 - [Centra skriptů](http://technet.microsoft.com/scriptcenter/default)
 

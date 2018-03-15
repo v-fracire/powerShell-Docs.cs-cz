@@ -2,11 +2,11 @@
 ms.date: 2017-08-23
 keywords: "rutiny prostředí PowerShell"
 title: "pomocí webové konzole na bázi windows powershell"
-ms.openlocfilehash: 31ab17f1a1ea1353abc6f770285a2dca70da446d
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: a6c9812253309ba1225141cfd48d0f1c8b8785b5
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="use-the-web-based-windows-powershell-console"></a>Používání webové konzoly Windows PowerShellu
 
@@ -58,7 +58,7 @@ Ve výchozím nastavení, je tato adresa webu *https://\<název_serveru\>/pswa*.
 
 Před přihlášením k funkci Windows PowerShell Web Access, ujistěte se, že máte název nebo IP adresu vzdáleného počítače, který chcete spravovat.
 Musíte být autorizovaným uživatelem na vzdáleném počítači a vzdálený počítač musí být nakonfigurovaný tak, aby umožňoval vzdálenou správu.
-Další informace o konfiguraci počítače povolit vzdálenou správu najdete v tématu [povolení a používání vzdálených příkazů ve Windows Powershellu](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enable-psremoting).
+Další informace o konfiguraci počítače povolit vzdálenou správu najdete v tématu [povolení a používání vzdálených příkazů ve Windows Powershellu](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting).
 
 Nejjednodušším způsobem, jak nakonfigurovat počítač, aby umožňoval vzdálenou správu je spuštění **Enable-PSRemoting - force** rutiny v počítači, v relaci prostředí Windows PowerShell, který otevřené se zvýšenými uživatelskými právy (**Spustit jako správce**).
 
@@ -70,11 +70,11 @@ Nejjednodušším způsobem, jak nakonfigurovat počítač, aby umožňoval vzd�
 
     > ![Poznámka:](images/Note.jpeg) **Poznámka**:
     >
-    > - Pokud je cílový počítač v pracovní skupině, použijte následující syntaxi zadejte uživatelské jméno a přihlaste se k počítači:`<workgroup_name>\<user_name>`
+    > - Pokud je cílový počítač v pracovní skupině, použijte následující syntaxi zadejte uživatelské jméno a přihlaste se k počítači: `<workgroup_name>\<user_name>`
     > - Pokud cílový počítač je serverem brány, můžete zadat `localhost` v poli Název počítače
     > - Pokud cílový počítač je serverem brány a server brány je v pracovní skupině, musíte použít `<workgroup name>\<user_name>` v uživatelské jméno selhala. Můžete použít `localhost` v poli Název počítače.
 
-1. **Volitelná nastavení připojení** týká požadavků na autorizaci vzdáleného počítače, který chcete spravovat. Další informace o parametrech, které jsou ekvivalentem volitelných nastavení připojení najdete v tématu [Enter-PSSession](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enter-pssession) nápovědu rutiny.
+1. **Volitelná nastavení připojení** týká požadavků na autorizaci vzdáleného počítače, který chcete spravovat. Další informace o parametrech, které jsou ekvivalentem volitelných nastavení připojení najdete v tématu [Enter-PSSession](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enter-pssession) nápovědu rutiny.
 
     Přihlašovacích údajů, které používáte k průchodu přes bránu Windows PowerShell Web Access jsou obvykle stejné těmi, která rozpoznává vzdálený počítač, který chcete spravovat. Ale pokud budete chtít použít různé přihlašovací údaje ke správě vzdáleného počítače, který jste zadali v kroku 2, rozbalte **volitelná nastavení připojení** části a zadat alternativní přihlašovací údaje. Jinak přejděte ke kroku 6.
 
@@ -228,4 +228,4 @@ Alt+F7 | Vymazání seznamu historie příkazů
 - [Prostředí Windows PowerShell na webu Microsoft TechNet](https://technet.microsoft.com/library/bb978526.aspx)
 - [Úložiště centra skriptů na webu TechNet](http://gallery.technet.microsoft.com/scriptcenter)
 - [Centrum skriptů – Hey, Scripting Guy!](https://technet.microsoft.com/scriptcenter)
-- [Blog týmu Windows PowerShell](http://blogs.msdn.com/b/powershell/)
+- [Windows PowerShell Team Blog](http://blogs.msdn.com/b/powershell/)

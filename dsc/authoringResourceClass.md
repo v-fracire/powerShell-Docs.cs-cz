@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Psaní vlastních prostředků DSC s třídami, prostředí PowerShell"
-ms.openlocfilehash: b24351a49ca11dac4687efdce39d400bfd00f399
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 53757f965c51fee699409b5a8ecda802dda9801f
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="writing-a-custom-dsc-resource-with-powershell-classes"></a>Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
 
@@ -69,7 +69,7 @@ Všimněte si, že jsou upraveny vlastnosti podle atributů. Význam atributy vy
 - **DscProperty(NotConfigurable)**: vlastnost je jen pro čtení. Vlastnosti, které jsou označené jako tento atribut nelze nastavit konfigurace, ale jsou nenaplnil **Get()** metoda, pokud jsou k dispozici.
 - **DscProperty()**: vlastnost je možné konfigurovat, ale není nutné.
 
-**$Path** a **$SourcePath** vlastnosti jsou oba řetězce. **$CreationTime** je [data a času](https://technet.microsoft.com/en-us/library/system.datetime.aspx) vlastnost. **$Ensure** vlastnost je typ výčtu definované následujícím způsobem.
+**$Path** a **$SourcePath** vlastnosti jsou oba řetězce. **$CreationTime** je [data a času](https://technet.microsoft.com/library/system.datetime.aspx) vlastnost. **$Ensure** vlastnost je typ výčtu definované následujícím způsobem.
 
 ```powershell
 enum Ensure 
@@ -484,10 +484,10 @@ Další informace najdete v tématu [DSC spuštěná s pověřeními uživatele]
 **DscResource()** atribut přebírá volitelný parametr **RunAsCredential**.
 Tento parametr má jednu ze tří hodnot:
 
-- `Optional`**PsDscRunAsCredential** pro konfigurace, které volají tento prostředek je volitelný. Tato hodnota je výchozí.
-- `Mandatory`**PsDscRunAsCredential** musí používat pro všechny konfigurace, který volá tento prostředek.
-- `NotSupported`Konfigurace, které volají tento prostředek nelze použít **PsDscRunAsCredential**.
-- `Default`Stejné jako `Optional`.
+- `Optional` **PsDscRunAsCredential** pro konfigurace, které volají tento prostředek je volitelný. Tato hodnota je výchozí.
+- `Mandatory` **PsDscRunAsCredential** musí používat pro všechny konfigurace, který volá tento prostředek.
+- `NotSupported` Konfigurace, které volají tento prostředek nelze použít **PsDscRunAsCredential**.
+- `Default` Stejné jako `Optional`.
 
 Například následující atribut použít k určení, že vlastní prostředek nepodporuje použití **PsDscRunAsCredential**:
 

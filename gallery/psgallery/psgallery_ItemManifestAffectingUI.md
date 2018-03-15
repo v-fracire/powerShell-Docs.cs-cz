@@ -2,8 +2,8 @@
 
 Toto téma obsahuje vydavatelů s souhrnné informace o tom, jak upravit manifest pro jejich publikace Galerie prostředí PowerShell tak, aby funkce PowerShellGet rutin a rozhraní Galerie prostředí PowerShell bude mít vliv. Tento obsah je seřazená podle změn umístění, od verze v části center a pak navigační oblast na levé straně. Je část Podrobnosti zahrnut značky, který identifikuje důležité značky, jakož i některé Čím více běžně používané značky. Existují dvě témata, která manifestu příklady: 
 
-* Moduly, naleznete v části [aktualizace modulu Manifest](https://docs.microsoft.com/en-us/powershell/gallery/psget/module/psget_update-modulemanifest)
-* Skripty, najdete v části [vytvoření souboru skriptu s metadaty](https://docs.microsoft.com/en-us/powershell/gallery/psget/script/psget_new-scriptfileinfo)
+* Moduly, naleznete v části [aktualizace modulu Manifest](https://docs.microsoft.com/powershell/gallery/psget/module/psget_update-modulemanifest)
+* Skripty, najdete v části [vytvoření souboru skriptu s metadaty](https://docs.microsoft.com/powershell/gallery/psget/script/psget_new-scriptfileinfo)
 
 ## <a name="powershell-gallery-feature-elements-controlled-by-the-manifest"></a>Řízené Manifest prvky funkce Galerie prostředí PowerShell
 
@@ -81,7 +81,7 @@ Je osvědčeným postupem použít jako upřednostňovaný značky, který bude 
 | **DevOps** |  |
 | **Windows** |  |
 | **Sestavení** |  |
-| **Nasazení** | Nasazení se používá méně často |
+| **nasazení** | Nasazení se používá méně často |
 | **Cloud** |  |
 | **GIT** |  |
 | **Test** | Testování je méně vhodné |

@@ -4,11 +4,11 @@ contributor: JKeithB
 ms.topic: conceptual
 keywords: "Galerie prostředí powershell, rutiny, psgallery"
 title: psgallery_gettingstarted
-ms.openlocfilehash: d13c23cd6f9cce433cd3fe1ad5f2d00e3ef0527c
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 2117712b0081db4a21f8480b458a499ed84dc512
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="get-started-with-the-powershell-gallery"></a>Začínáme s Galerie prostředí PowerShell
 
@@ -103,7 +103,7 @@ Ve výchozím nastavení [instalace modulu](https://go.microsoft.com/fwlink/?Lin
 
 Chcete-li nasadit položky z Galerie prostředí PowerShell pro Azure Automation, klikněte na tlačítko **nasadit do Azure Automation** na stránce podrobností položky. Budete přesměrováni na portálu Azure Management Portal, kde se přihlásíte pomocí svých přihlašovacích údajů účtu Azure. Všimněte si, že nasazení položky se závislostmi nasadí všechny závislosti pro Azure Automation. Tlačítko "nasadit do Azure Automation, lze zakázat tak, že přidáte **AzureAutomationNotSupported** značku metadata položky.
 
-Další informace o Azure Automation najdete v tématu [web Azure Automation](http://azure.microsoft.com/en-us/services/automation/).
+Další informace o Azure Automation najdete v tématu [web Azure Automation](http://azure.microsoft.com/services/automation/).
 
 ## <a name="updating-items-from-the-powershell-gallery"></a>Aktualizace položky z Galerie Powershellu
 

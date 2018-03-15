@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "Ladění prostředky DSC"
-ms.openlocfilehash: 35eb990705bab8190172df899c64c9f34452aa4b
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: c9534deb755e2d3ce59dbb44e55b58b59af2e7f4
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="debugging-dsc-resources"></a>Ladění prostředky DSC
 
@@ -16,9 +16,9 @@ ms.lasthandoff: 01/17/2018
 V prostředí PowerShell 5.0 nová funkce byla zavedená v požadovaného stavu konfiguraci (DSC) umožňující ladění prostředek DSC podle konfigurace se právě používá.
 
 ## <a name="enabling-dsc-debugging"></a>Povolení ladění DSC
-Než můžete ladit prostředek, je nutné povolit ladění voláním [povolit DscDebug](https://technet.microsoft.com/en-us/library/mt517870.aspx) rutiny. Tato rutina provede povinný parametr **BreakAll**. 
+Než můžete ladit prostředek, je nutné povolit ladění voláním [povolit DscDebug](https://technet.microsoft.com/library/mt517870.aspx) rutiny. Tato rutina provede povinný parametr **BreakAll**. 
 
-Můžete ověřit, že je pohledem na výsledek volání povoleno ladění [Get-DscLocalConfigurationManager](https://technet.microsoft.com/en-us/library/dn407378.aspx).
+Můžete ověřit, že je pohledem na výsledek volání povoleno ladění [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx).
 
 Následující výstup prostředí PowerShell zobrazuje výsledek povolení ladění:
 
@@ -59,7 +59,7 @@ Configuration PSWebAccess
     }
 PSWebAccess
 ```
-Po konfiguraci kompilování, spusťte ji pomocí volání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx). Konfigurace se zastaví, jakmile místní Configuration Manager (LCM) volání na první prostředek v konfiguraci. Pokud použijete `-Verbose` a `-Wait` parametry, zobrazí výstup řádků je nutné zadat spustit ladění.
+Po konfiguraci kompilování, spusťte ji pomocí volání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx). Konfigurace se zastaví, jakmile místní Configuration Manager (LCM) volání na první prostředek v konfiguraci. Pokud použijete `-Verbose` a `-Wait` parametry, zobrazí výstup řádků je nutné zadat spustit ladění.
 
 ```powershell
 Start-DscConfiguration .\PSWebAccess -Wait -Verbose
@@ -96,7 +96,7 @@ Teď můžete příkazy ladění (ISE) v kroku prostřednictvím skriptu prostř
 
 ## <a name="disabling-dsc-debugging"></a>Zakázání ladění DSC
 
-Po volání [povolit DscDebug](https://technet.microsoft.com/en-us/library/mt517870.aspx), všechna volání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) bude mít za následek konfigurace rozdělení do ladicího programu. Povolit konfigurace, které normálně spustit, je nutné zakázat ladění voláním [zakázat DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx) rutiny.
+Po volání [povolit DscDebug](https://technet.microsoft.com/library/mt517870.aspx), všechna volání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) bude mít za následek konfigurace rozdělení do ladicího programu. Povolit konfigurace, které normálně spustit, je nutné zakázat ladění voláním [zakázat DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx) rutiny.
 
 >**Poznámka:** Rebooting nezmění stav ladění LCM. Pokud je povoleno ladění, spouštění konfigurace bude stále přerušení ladicího po restartu systému.
 
