@@ -2,11 +2,11 @@
 ms.date: 2017-08-23
 keywords: "rutiny prostředí PowerShell"
 title: "řešení problémů s přístupem ve windows powershell web Accessu"
-ms.openlocfilehash: 08a9fd286ed8a40e9423deb7d29dc0a8ecf8e5b1
-ms.sourcegitcommit: 4102ecc35d473211f50a453f6ae3fbea31cb3428
+ms.openlocfilehash: 6e51df3f4c6ac196c855ad918a91394d02c7d75e
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="troubleshooting-access-problems-in-windows-powershell-web-access"></a>Řešení problémů s přístupem ve Windows PowerShell Web Accessu
 
@@ -34,7 +34,7 @@ Chyba může mít několik příčin.
 
   Ověřte, zda je Vzdálená správa povolená na počítači, ke kterému se uživatel pokouší připojit.
 
-  Další informace najdete v tématu [konfigurace počítače pro vzdálenou komunikaci](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote_requirements#how-to-configure-your-computer-for-remoting).
+  Další informace najdete v tématu [konfigurace počítače pro vzdálenou komunikaci](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote_requirements#how-to-configure-your-computer-for-remoting).
 
 ## <a name="internal-server-error"></a>Vnitřní chyba serveru
 
@@ -61,7 +61,7 @@ Problém se může stát uživatelům, kteří se přihlašují pod názvem dom�
 
 ## <a name="cannot-connect-to-a-remote-workgroup-computer"></a>Nejde se připojit ke vzdálenému počítači pracovní skupiny.
 
-Pokud cílový počítač členem pracovní skupiny, použijte následující syntaxi zadejte uživatelské jméno a přihlaste se k počítači:`<workgroup_name>\<user_name>`
+Pokud cílový počítač členem pracovní skupiny, použijte následující syntaxi zadejte uživatelské jméno a přihlaste se k počítači: `<workgroup_name>\<user_name>`
 
 ## <a name="cannot-find-web-server-iis-management-tools-even-though-the-role-was-installed"></a>Nejdou najít nástroje na správu Webového serveru (IIS), i když je role nainstalovaná.
 
@@ -92,9 +92,9 @@ Nepoužívejte tečku (.) sám o sobě skutečného názvu počítače.
 
 Parametr | Hodnota
 -- | --
-UserName | Server\_název\\uživatele\_název<br/>Localhost\\uživatele\_název<br/>. \\uživatele\_název
-UserGroup | Server\_název\\uživatele\_skupiny<br/>Localhost\\uživatele\_skupiny<br/>. \\uživatele\_skupiny
-ComputerGroup | Server\_název\\počítače\_skupiny<br/>Localhost\\počítače\_skupiny<br/>. \\počítače\_skupiny
+UserName | Server\_name\\user\_name<br/>Localhost\\user\_name<br/>. \\uživatele\_název
+UserGroup | Server\_name\\user\_group<br/>Localhost\\user\_group<br/>.\\user\_group
+ComputerGroup | Server\_name\\computer\_group<br/>Localhost\\computer\_group<br/>. \\počítače\_skupiny
 
 #### <a name="gateway-server-is-in-a-domain"></a>Server brány je v doméně.
 
@@ -112,8 +112,8 @@ ComputerName | Název serveru
 
 Přihlaste se k serveru brány jako cílový počítač. Použijte přihlašovací údaje v jednom z následujících formátů.
 
-- Server\_název\\uživatele\_název
-- Localhost\\uživatele\_název
+- Server\_name\\user\_name
+- Localhost\\user\_name
 - . \\uživatele\_název
 
 ## <a name="a-security-identifier-sid-is-displayed-in-an-authorization-rule"></a>Zobrazí se v autorizačním pravidle identifikátor zabezpečení (SID)
@@ -132,7 +132,7 @@ Autorizační pravidla nepodporují adresu IPv6, která má tvar názvu domény.
 Pokud chcete k zadání cílového počítače použít adresu IPv6, použijte v autorizačním pravidle původní adresu IPv6 (která obsahuje dvojtečky).
 Jako název cílového počítače, na přihlašovací stránce Windows PowerShell Web Access, ale není v autorizační pravidla jsou podporované doménové i číselné (s dvojtečkami) adresy IPv6. 
 
-Další informace o adresách IPv6 najdete v tématu [jak funguje IPv6](https://technet.microsoft.com/en-us/library/cc781672(v=ws.10).aspx).
+Další informace o adresách IPv6 najdete v tématu [jak funguje IPv6](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx).
 
 ## <a name="see-also"></a>Viz také
 

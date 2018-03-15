@@ -4,11 +4,11 @@ author: rpsqrd
 ms.topic: conceptual
 keywords: "jea, prostředí powershell, zabezpečení"
 title: "Možnosti JEA Role"
-ms.openlocfilehash: 10f5f390daccbb012be6ee7272041e777810ee12
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 083cab3b44348168fe20e8355f5076b28be78702
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="jea-role-capabilities"></a>Možnosti JEA Role
 
@@ -86,7 +86,7 @@ VisibleCmdlets = @{ Name = 'Restart-Service'; Parameters = @{ Name = 'Name'; Val
 ```
 
 > [!NOTE]
-> [Společné parametry prostředí PowerShell](https://technet.microsoft.com/en-us/library/hh847884.aspx) jsou vždy povoleny, i v případě, že omezíte dostupné parametry.
+> [Společné parametry prostředí PowerShell](https://technet.microsoft.com/library/hh847884.aspx) jsou vždy povoleny, i v případě, že omezíte dostupné parametry.
 > Můžete neměl by obsahovat explicitně je v poli parametrů.
 
 Následující tabulka popisuje různé způsoby, kterými můžete přizpůsobit viditelné rutiny nebo funkce.
@@ -111,7 +111,7 @@ ValidatePattern i ValidateSet nelze použít na stejné rutiny nebo funkce.
 
 Pokud ano, přepíše ValidatePattern ValidateSet.
 
-Další informace o ValidatePattern, podívejte se na [to *blogu Hey, Scripting Guy!* post](https://blogs.technet.microsoft.com/heyscriptingguy/2011/01/11/validate-powershell-parameters-before-running-the-script/) a [prostředí PowerShell regulární výrazy](https://technet.microsoft.com/en-us/library/hh847880.aspx) odkazovat na obsah.
+Další informace o ValidatePattern, podívejte se na [to *blogu Hey, Scripting Guy!* post](https://blogs.technet.microsoft.com/heyscriptingguy/2011/01/11/validate-powershell-parameters-before-running-the-script/) a [prostředí PowerShell regulární výrazy](https://technet.microsoft.com/library/hh847880.aspx) odkazovat na obsah.
 
 ### <a name="allowing-external-commands-and-powershell-scripts"></a>Povolení externí příkazy a skripty prostředí PowerShell
 
@@ -128,7 +128,7 @@ Mnoho spustitelných souborů umožňují číst aktuální stav a pak ji změň
 Představte si třeba roli správce na serveru soubor, který chce zkontrolujte, které síťové sdílené složky jsou hostované v místním počítači.
 Jeden způsob kontroly je použití `net share`.
 Však umožňuje net.exe je velmi nebezpečné, protože správce stejným způsobem použít příkaz k získání oprávnění správce s `net group Administrators unprivilegedjeauser /add`.
-Lepším řešením je povolit [Get-SmbShare](https://technet.microsoft.com/en-us/library/jj635704.aspx) která dosáhne stejného výsledku, ale má mnohem omezenější obor.
+Lepším řešením je povolit [Get-SmbShare](https://technet.microsoft.com/library/jj635704.aspx) která dosáhne stejného výsledku, ale má mnohem omezenější obor.
 
 Při provádění externích příkazů k dispozici uživatelům v relaci JEA, vždycky zadejte úplnou cestu ke spustitelnému souboru, aby nebudou program s podobným názvem (a potenciálně malicous) umístěny jinde v systému místo provedeny.
 

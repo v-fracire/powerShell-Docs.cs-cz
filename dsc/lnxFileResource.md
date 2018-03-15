@@ -3,11 +3,11 @@ ms.date: 2017-06-12
 ms.topic: conceptual
 keywords: "DSC prostředí powershell, konfiguraci, instalační program"
 title: "DSC pro Linux nxFile prostředků"
-ms.openlocfilehash: e4916414e4de29ab15d9c82c492671ebc16d5412
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 7ee8a37ee63a70b1c8c69dc79dfbc77c1f583234
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="dsc-for-linux-nxfile-resource"></a>DSC pro Linux nxFile prostředků
 
@@ -76,7 +76,7 @@ nxFile resolvConf
 ```
 
 
-Krok 2: Přečtěte si obsah souboru ve skriptu prostředí PowerShell s [Get-Content](https://technet.microsoft.com/en-us/library/hh849787.aspx) po nastavení __$OFS__ vlastnost použít znak Linux konec řádku.
+Krok 2: Přečtěte si obsah souboru ve skriptu prostředí PowerShell s [Get-Content](https://technet.microsoft.com/library/hh849787.aspx) po nastavení __$OFS__ vlastnost použít znak Linux konec řádku.
 
 
 ```

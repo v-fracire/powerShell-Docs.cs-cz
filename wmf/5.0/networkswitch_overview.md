@@ -2,12 +2,12 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 80852bf750700d549de24e150ffd89ac55b7bf88
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 4868cf657f678ee43a6c92d5ee286e9ddb490964
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="network-switch-management-with-powershell"></a>Správa přepínače sítě pomocí prostředí PowerShell
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 06/12/2017
 
 ## <a name="fundamental-network-switch-management-with-windows-powershell"></a>Správa přepínač základní sítě pomocí prostředí Windows PowerShell
 
-Rutiny síťového přepínače, ve WMF 5.0, umožňují použít přepínač virtuální sítě LAN (VLAN) a základní konfigurací portu síťového přepínače vrstvy 2 na Windows Server 2012 R2 logo certified síťové přepínače. Microsoft stále snaží podpora [Datacenter Abstraction](http://technet.microsoft.com/en-us/cloud/dal.aspx) vize Layer (DAL) a zobrazit hodnotu pro naše zákazníky a partnery v tomto prostor. Pomocí těchto rutin můžete provést:
+Rutiny síťového přepínače, ve WMF 5.0, umožňují použít přepínač virtuální sítě LAN (VLAN) a základní konfigurací portu síťového přepínače vrstvy 2 na Windows Server 2012 R2 logo certified síťové přepínače. Microsoft stále snaží podpora [Datacenter Abstraction](http://technet.microsoft.com/cloud/dal.aspx) vize Layer (DAL) a zobrazit hodnotu pro naše zákazníky a partnery v tomto prostor. Pomocí těchto rutin můžete provést:
 
 - Globální přepínači konfigurace, jako například:
     - Název hostitele sady

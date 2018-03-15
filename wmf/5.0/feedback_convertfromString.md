@@ -2,12 +2,12 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
+keywords: wmf,powershell,setup
 ms.openlocfilehash: 3413672e73705252225300a853c10a514500baa2
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="extract-and-parse-structured-objects-out-of-string"></a>Extrakce a analyzovat strukturovaných objekty z řetězce
 Vzniká některé další funkce pro rutinu ConvertFrom řetězec:
@@ -30,7 +30,7 @@ Analýza s oddělovači, ve výchozím nastavení, rozdělí vstupu v mezer a p�
 
 > 1 \[C:\\temp\] &gt; &gt; "Hello World" | Řetězec ConvertFrom | Format-Table-automaticky
 
-P1 P2
+P1    P2
 --    --
 
 Rutina podporuje také automaticky generovaný řízené příklad analýza na základě [FlashExtract](http://research.microsoft.com/en-us/um/people/sumitg/flashextract.html) zkoumání práce v [Microsoft Research](http://research.microsoft.com).
@@ -83,11 +83,11 @@ Z této sady příklady **ConvertFrom řetězec** může nyní automaticky extra
 
 > 2 \[C:\\temp\]
 >
-> &gt;&gt;Get obsah. \\addresses.output.txt | Řetězec ConvertFrom - TemplateFile. \\addresses.template.txt | &gt; &gt; &gt; Format-Table-automaticky
+> &gt;&gt; Get obsah. \\addresses.output.txt | Řetězec ConvertFrom - TemplateFile. \\addresses.template.txt | &gt; &gt; &gt; Format-Table-automaticky
 >
 > ExtentText název města stavu
 > ----------                     ----               ----     -----
-> ANA Trujillo...                ANA Trujillo Redmond WA Antonio Moreno...              Antonio Moreno Renton WA Thomas Hardy...                Thomas Hardy Seattle WA Jana Berglund...          Jana Berglund Redmond WA Hanna Moos...                  Hanna Moos Puyallup WA
+> Ana Trujillo...                ANA Trujillo Redmond WA Antonio Moreno...              Antonio Moreno Renton WA Thomas Hardy...                Thomas Hardy Seattle WA Jana Berglund...          Jana Berglund Redmond WA Hanna Moos...                  Hanna Moos Puyallup WA
 
-Udělat manipulaci s daty další na extrahované textu **ExtentText** vlastnost zaznamená nezpracovaný text, ze kterého jste extrahovali záznamu. K poskytnutí zpětné vazby o této funkci nebo pro sdílení obsahu, pro které máte potíže s zápis příklady, pošlete e-mail < psdmfb@microsoft.com >.
+Udělat manipulaci s daty další na extrahované textu **ExtentText** vlastnost zaznamená nezpracovaný text, ze kterého jste extrahovali záznamu. K poskytnutí zpětné vazby o této funkci nebo pro sdílení obsahu, pro které máte potíže s zápis příklady, pošlete e-mail <psdmfb@microsoft.com>.
 

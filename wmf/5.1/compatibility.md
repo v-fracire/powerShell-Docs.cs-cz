@@ -5,16 +5,16 @@ ms.topic: reference
 keywords: wmf,powershell,setup
 title: "Kompatibilita WMF 5.1 operačního systému"
 ms.openlocfilehash: 04217c5abb0f04a5dc6b15cd956a632f7b84c9bb
-ms.sourcegitcommit: 5dbf78ba0db482efa79e31a0e4963f8cbeb3df54
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="wmf-51-operating-system-compatibility"></a>Kompatibilita WMF 5.1 operačního systému #
 
 > Poznámka: Tyto informace jsou předběžné a může se změnit.
 
-| Verze operačního systému | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [FORMÁT WMF 4.0](https://aka.ms/wmf4download) |  [PODPORA PRODUKTU WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
+| Verze operačního systému | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [WMF 4.0](https://aka.ms/wmf4download) |  [WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
 | ------------------------ | ----------- | ----------- | ----------- | ------------ |  ------------- |
 | Windows Server 2016 | Se dodává v-pole * |  |  |  |  |
 | Windows 10 | Se dodává v-pole * | Se dodává v-pole *  | | | |  
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/15/2017
 | Windows Server 2012 | Ano | Ano | Ano |  Se dodává v poli | |
 | Windows 8 |  |  |  | Se dodává v poli | |
 | Windows Server 2008 R2 SP1 | Ano | Ano | Ano |  Ano| Se dodává v poli |
-| Windows 7 s aktualizací SP1  | Ano | Ano | Ano | Ano | Se dodává v poli |
+| Windows 7 SP1  | Ano | Ano | Ano | Ano | Se dodává v poli |
 | Windows Server 2008 SP2 | | | | Ano | Ano |
 | Windows Vista | | | | | Ano |
 | Windows Server 2003| | | |  | Ano |
