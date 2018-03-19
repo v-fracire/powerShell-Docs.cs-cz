@@ -1,0 +1,128 @@
+- name: Přehled
+  href: readme.md
+  items:
+    - name: Galerie
+      items:
+        - name: Začínáme
+          href: psgallery/psgallery_gettingstarted.md
+        - name: Stav
+          href: psgallery/psgallery_status.md
+        - name: Nejčastější dotazy ke galerii
+          href: psgallery/psgallery_faqs.md
+        - name: Karta položek galerie
+          href: psgallery/psgallery_items_tab.md
+        - name: Syntaxe hledání v galerii
+          href: psgallery/psgallery_search_syntax.md
+        - name: Položky s kompatibilními metadaty PSEditions
+          href: psgallery/psgallery_pseditions.md
+        - name: Zobrazení FileList
+          href: psgallery/psgallery_filelist_feature.md
+        - name: Nasazení ve službě Azure Automation
+          href: psgallery/psgallery_deploy_to_azure_automation.md
+        - name: Vytvoření účtu PowerShellGallery
+          href: psgallery/psgallery_creating_an_account.md
+        - name: Vytvoření a publikování položek
+          href: psgallery/Creating-and-Publishing-an-item.md
+        - name: Pokyny a osvědčené postupy k publikování
+          href: psgallery/psgallery-PublishingGuidelines.md
+        - name: Manifest položky a uživatelské rozhraní Galerie
+          href: psgallery/psgallery_ItemManifestAffectingUI.md
+        - name: Vynětí položek ze seznamu
+          href: psgallery/psgallery_unlist_items.md
+        - name: Odstranění položek
+          href: psgallery/Deleting-Items.md
+        - name: Správa vlastníků položek
+          href: psgallery/Managing-Item-Owners.md
+        - name: Ohlášení zneužití
+          href: psgallery/psgallery_report_abuse.md
+        - name: Řešení sporů
+          href: psgallery/psgallery_dispute_resolution.md
+        - name: Kontaktování vlastníků položky
+          href: psgallery/psgallery_contacting_item_owners.md
+        - name: Kontaktování správců
+          href: psgallery/psgallery_contacting_administrators.md
+        - name: Poskytování zpětné vazby na sociálních sítích a v komentářích
+          href: psgallery/psgallery-SocialMediaFeedback.md
+        - name: Vyžadování přijetí licence v podrobnostech položky
+          href: psgallery/psgallery_requires_license_acceptance.md
+        - name: Vyžadování přijetí licence při nasazení ve službě Azure Automation
+          href: psgallery/psgallery_deploy_to_azure_automation_requireLicenseAcceptance.md
+- name: PowerShellGet
+  href: psget/overview.md
+  items:
+    - name: Získání modulu PowerShellGet
+      href: psget/get_psget_module.md
+    - name: Modul
+      items:
+        - name: Hledání modulů
+          href: psget/module/psget_find-module.md
+        - name: Hledání prostředků DSC
+          href: psget/module/psget_find-dscresource.md
+        - name: Hledání funkcí role
+          href: psget/module/psget_find-rolecapability.md
+        - name: Hledání příkazů
+          href: psget/module/psget_find-command.md
+        - name: Uložit
+          href: psget/module/psget_save-module.md
+        - name: Install
+          href: psget/module/psget_install-module.md
+        - name: Aktualizace
+          href: psget/module/psget_update-module.md
+        - name: Odinstalovat
+          href: psget/module/psget_uninstall-module.md
+        - name: Získání nainstalovaných modulů
+          href: psget/module/psget_get-installedmodule.md
+        - name: Aktualizace manifestu modulu
+          href: psget/module/psget_update-modulemanifest.md
+        - name: Publikování
+          href: psget/module/psget_publish-module.md
+        - name: Moduly s PSEditions
+          href: psget/module/modulewithpseditionsupport.md
+        - name: Moduly vyžadující přijetí licence
+          href: psget/module/RequireLicenseAcceptance.md
+        - name: Předběžné verze
+          href: psget/module/PreReleaseModule.md
+        - name: Řešení potíží
+          href: psget/psget_cmdlets_troubleshooting.md
+    - name: Skript
+      items:
+        - name: Hledání
+          href: psget/script/psget_find-script.md
+        - name: Uložit
+          href: psget/script/psget_save-script.md
+        - name: Install
+          href: psget/script/psget_install-script.md
+        - name: Aktualizace
+          href: psget/script/psget_update-script.md
+        - name: Odinstalovat
+          href: psget/script/psget_uninstall-script.md
+        - name: Získání nainstalovaných skriptů
+          href: psget/script/psget_get-installedscript.md
+        - name: Vytvoření souboru skriptu s metadaty
+          href: psget/script/psget_new-scriptfileinfo.md
+        - name: Testování souboru skriptu s metadaty
+          href: psget/script/psget_test-scriptfileinfo.md
+        - name: Aktualizace souboru skriptu s metadaty
+          href: psget/script/psget_update-scriptfileinfo.md
+        - name: Publikování
+          href: psget/script/psget_publish-script.md
+        - name: Skripty s PSEditions
+          href: psget/script/scriptwithpseditionsupport.md
+        - name: Vyžadování přijetí licence u skriptů
+          href: psget/script/script_RequireLicenseAcceptance.md
+        - name: Předběžné verze
+          href: psget/script/PreReleaseScript.md
+    - name: Správa úložiště
+      items:
+        - name: Zavedení poskytovatele balíčku NuGet a programu NuGet.exe
+          href: psget/repository/bootstrapping_nuget_proivder_and_exe.md
+        - name: Registrace úložiště
+          href: psget/repository/psget_register-psrepository.md
+        - name: Výpis registrovaných úložišť
+          href: psget/repository/psget_get-psrepository.md
+        - name: Úpravy registrovaného úložiště
+          href: psget/repository/psget_set-psrepository.md
+        - name: Zrušení registrace úložiště
+          href: psget/repository/psget_unregister-psrepository.md
+    - name: Rutiny PackageManagement
+      href: psget/oneget/PackageManagement_cmdlets.md

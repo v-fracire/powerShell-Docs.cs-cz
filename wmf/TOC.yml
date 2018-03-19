@@ -1,0 +1,209 @@
+- name: Přehled Windows Management Frameworku (WMF)
+  href: README.md
+- name: WMF 5.1
+  href: 5.1/release-notes.md
+  items:
+    - name: Nové scénáře a funkce
+      href: 5.1/scenarios-features.md
+      items:
+        - name: Vylepšení platformy Desired State Configuration (DSC)
+          href: 5.1/DSC-improvements.md
+        - name: Vylepšení powershellové konzoly
+          href: 5.1/console-improvements.md
+        - name: Vylepšení powershellového jádra
+          href: 5.1/engine-improvements.md
+        - name: Vylepšení Správy balíčků
+          href: 5.1/package-management-improvements.md
+        - name: Vylepšení funkce JEA
+          href: 5.1/jea-improvements.md
+        - name: Katalogové rutiny
+          href: 5.1/catalog-cmdlets.md
+        - name: Opravy chyb ve WMF 5.1
+          href: 5.1/bugfixes.md
+    - name: Instalace a konfigurace
+      href: 5.1/install-configure.md
+    - name: Známé problémy
+      href: 5.1/known-issues.md
+    - name: Kompatibilita
+      href: 5.1/Compatibility.md
+    - name: Kompatibilita produktů
+      href: 5.1/productincompat.md
+- name: WMF 5.0
+  href: 5.0/releasenotes.md
+  items:
+    - name: Podrobné informace o instalaci
+      href: 5.0/requirements.md
+    - name: Známé problémy a omezení
+      href: 5.0/limitation_overview.md
+      items:
+        - name: Známé problémy platformy Desired State Configuration (DSC)
+          href: 5.0/limitation_dsc.md
+    - name: Stav kompatibility produktů
+      href: 5.0/productincompat.md
+    - name: Scénáře povolené ve WMF 5.0
+      href: ''
+      items:
+        - name: Funkce Just Enough Administration (JEA)
+          href: 5.0/jea_overview.md
+          items:
+            - name: Vytvoření koncového bodu JEA a připojení k tomuto bodu
+              href: 5.0/jea_endpoint.md
+            - name: Vytváření sestav funkce JEA
+              href: 5.0/jea_report.md
+        - name: Vytváření vlastních typů pomocí tříd PowerShellu
+          href: 5.0/class_overview.md
+          items:
+            - name: Definování vlastních typů
+              href: 5.0/class_newtype.md
+            - name: Deklarace základní třídy
+              href: 5.0/class_base.md
+            - name: Deklarace implementovaného rozhraní
+              href: 5.0/class_interface.md
+            - name: Volání konstruktoru základní třídy
+              href: 5.0/class_baseconstructor.md
+            - name: Volání metody základní třídy
+              href: 5.0/class_basemethod.md
+        - name: Vylepšené ladění powershellového skriptu
+          href: 5.0/debug_overview.md
+        - name: Vylepšení platformy Desired State Configuration (DSC)
+          href: 5.0/dsc_improvements.md
+          items:
+            - name: Konfigurace
+              href: ''
+              items:
+                - name: Určení závislostí mezi uzly
+                  href: 5.0/dsc_waitfor.md
+                - name: Šifrované soubory MOF
+                  href: 5.0/dsc_encryptedmof.md
+                - name: Nápověda a podpora ke konfiguraci DSC
+                  href: 5.0/dsc_confighelp.md
+                - name: Lepší vytváření v Integrovaném skriptovacím prostředí (ISE) v PowerShellu
+                  href: 5.0/dsc_authoring.md
+                - name: Povolení identických duplicitních prostředků v konfiguraci
+                  href: 5.0/dsc_identicalduplicate.md
+                - name: Klíčové slovo Import-DscResource podporuje parametr -ModuleVersion
+                  href: 5.0/dsc_importdscresource.md
+                - name: Podpora konfiguračního klíčového slova v subsystému WOW64
+                  href: 5.0/dsc_wow64.md
+            - name: Materiály
+              href: ''
+              items:
+                - name: Prostředky DSC založené na třídě
+                  href: 5.0/dsc_classbasedresource.md
+                - name: Ladění skriptů prostředků DSC
+                  href: 5.0/dsc_resourcedebugging.md
+                - name: Automatická podpora funkce RunAs u prostředků DSC
+                  href: 5.0/dsc_runas.md
+                - name: Souběžná podpora verzí prostředků DSC
+                  href: 5.0/dsc_sxsresource.md
+                - name: Nové integrované prostředky
+                  href: 5.0/dsc_newresources.md
+            - name: Local Configuration Manager
+              href: ''
+              items:
+                - name: Konfigurace uzlu několika konfiguračními fragmenty
+                  href: 5.0/dsc_partialconfig.md
+                  items:
+                    - name: Podpora smíšených režimů RefreshMode
+                      href: 5.0/dsc_partialconfig_mixedmode.md
+                - name: Konfigurace jádra DSC s novým atributem
+                  href: 5.0/dsc_metaconfiguration.md
+                - name: Podrobné informace o stavu LCM
+                  href: 5.0/dsc_lcmstate.md
+                - name: Frekvence RefreshMode a ConfigurationMode nemusí odpovídat vzájemnému součinu
+                  href: 5.0/dsc_freqnomultiple.md
+                - name: Další hodnota vlastnosti RefreshMode
+                  href: 5.0/dsc_refreshmode.md
+            - name: Rutina
+              href: ''
+              items:
+                - name: Podrobné informace o stavu konfigurace
+                  href: 5.0/dsc_getconfigurationstatus.md
+                - name: Rutina Test-DscConfiguration podporuje referenční konfigurace
+                  href: 5.0/dsc_testconfiguration.md
+                - name: Přímý přístup k metodám prostředků DSC
+                  href: 5.0/dsc_directaccess.md
+                - name: Dodání konfiguračního dokumentu bez jeho použití
+                  href: 5.0/dsc_publishconfig.md
+                - name: Odebrání dokumentů DSC
+                  href: 5.0/dsc_removeconfigdoc.md
+                - name: Jednotné vyjádření stavu
+                  href: 5.0/dsc_statestatus.md
+                - name: Rutina Set-DscLocalConfigurationManager podporuje parametr -Force
+                  href: 5.0/dsc_setdsclcm.md
+            - name: Režim načítání
+              href: ''
+              items:
+                - name: Načítání konfigurací DSC na vyžádání
+                  href: 5.0/dsc_updateconfig.md
+                - name: Oddělení ID uzlu od ID konfigurace
+                  href: 5.0/dsc_nodeid.md
+                - name: 'Oddělení úložišť konfigurace, prostředků a sestav'
+                  href: 5.0/dsc_repository.md
+                - name: Hlášení stavu konfigurace na centrální místo
+                  href: 5.0/dsc_reporting.md
+        - name: Použití přepisu a protokolování k auditování využití PowerShellu
+          href: 5.0/audit_overview.md
+          items:
+            - name: Rozšířené možnosti přepisu
+              href: 5.0/audit_transcript.md
+            - name: Trasování a protokolování skriptu
+              href: 5.0/audit_script.md
+            - name: Rutiny Cryptographic Message Syntax (CMS)
+              href: 5.0/audit_cms.md
+        - name: 'Použití správce balíčků ke zjišťování, instalaci a uchovávání softwaru'
+          href: 5.0/oneget_overview.md
+          items:
+            - name: Rutiny PackageManagement
+              href: 5.0/oneget_cmdlets.md
+        - name: 'Použití správce balíčků PowerShellGet ke zjišťování, instalaci a uchovávání powershellových modulů'
+          href: 5.0/psget_module_overview.md
+          items:
+            - name: Registrace powershellového úložiště
+              href: 5.0/psget_psrepository.md
+            - name: Souběžná podpora verzí v PowerShellu 5.0 a v novějších verzích
+              href: 5.0/psget_modulesxsinstall.md
+            - name: Instalace závislostí modulů
+              href: 5.0/psget_moduledependency.md
+            - name: Rutiny správce balíčků PowerShellGet pro správu modulů
+              href: 5.0/psget_modulecmdlets.md
+        - name: 'Použití správce balíčků PowerShelGet ke zjišťování, instalaci a správě powershellových skriptů'
+          href: 5.0/psget_script_overview.md
+          items:
+            - name: Rutiny správce balíčků PowerShellGet pro správu skriptů
+              href: 5.0/psget_scriptcmdlets.md
+        - name: Nové a aktualizované rutiny založené na připomínkách komunity
+          href: 5.0/feedback_cmdlets.md
+          items:
+            - name: Symbolické odkazy využívající rutiny položek
+              href: 5.0/feedback_symbolic.md
+            - name: Rutiny archivu
+              href: 5.0/feedback_archive.md
+            - name: Rutiny schránky
+              href: 5.0/feedback_clipboard.md
+            - name: Rutina Convert-String
+              href: 5.0/feedback_convertstring.md
+            - name: Extrakce a analýza strukturovaných objektů mimo řetězec
+              href: 5.0/feedback_convertfromString.md
+            - name: Rutina Format-Hex
+              href: 5.0/feedback_formathex.md
+            - name: Parametr NoNewLine
+              href: 5.0/feedback_nonewline.md
+            - name: Rutina New-TemporaryFile
+              href: 5.0/feedback_tempfile.md
+            - name: Rutina New-Guid
+              href: 5.0/feedback_newguid.md
+            - name: Rutina Get-ChildItem má parametr -Depth
+              href: 5.0/feedback_getchilditem.md
+            - name: Aktualizace objektu FileInfo
+              href: 5.0/feedback_fileinfo.md
+            - name: Podpora modulů při deklaraci rozsahů verzí (1.* atd.)
+              href: 5.0/feedback_moduleversionranges.md
+        - name: Informační stream
+          href: 5.0/informationstream_overview.md
+        - name: Generování powershellových rutin na základě koncového bodu OData
+          href: 5.0/odata_overview.md
+        - name: Použití PowerShellu ke správě síťového přepínače
+          href: 5.0/networkswitch_overview.md
+        - name: Protokolování softwarového inventáře (SIL)
+          href: 5.0/sil_overview.md
