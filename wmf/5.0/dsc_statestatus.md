@@ -2,14 +2,14 @@
 ms.date: 2017-06-12
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
+keywords: wmf,powershell,setup
 ms.openlocfilehash: 32f8e20889ddc526def4b925e8d0761a2e851e19
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 03/20/2018
 ---
-# <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné a konzistentní stav a stav reprezentace
+# <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 
 Řadu vylepšení byly provedeny v této verzi pro automatizaci vytvořené LCM stav a stav DSC. Patří mezi ně jednotné a konzistentní stav a stav vyjádření, vlastnost datetime spravovatelných objektů stav vrácen rutinou Get-DscConfigurationStatus a rozšířené vlastnosti podrobností LCM stav vrácený Get-DscLocalConfigurationManager rutiny.
 
@@ -27,16 +27,16 @@ Následující tabulka znázorňuje výsledné stav a stav souvisejících vlast
 |---------------------------------|----------------------|------------|---------------|------------------------------|--------------------------------|
 | S**^**                          | Nečinnosti                 | Úspěch    | $false        | S                            | $null                          |
 | F**^**                          | PendingConfiguration | Chyba    | $false        | $null                        | F                              |
-| S, F                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
-| F, S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
+| S,F                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
+| F,S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
 | S<sub>1</sub>, F, S<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S<sub>1</sub>, S<sub>2</sub> | F                              |
 | F<sub>1</sub>, S, F<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S                            | F<sub>1</sub>, F<sub>2</sub>   |
-| S, r                            | PendingReboot        | Úspěch    | $true         | S                            | R                              |
+| S, r                            | PendingReboot        | Úspěch    | $true         | S                            | r                              |
 | F, r                            | PendingReboot        | Chyba    | $true         | $null                        | F, r                           |
-| r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
-| r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
+| r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
+| r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
 
-^ S<sub>i</sub>: řadu prostředky, které bylo úspěšně použito F<sub>i</sub>: řadu prostředky, které použije neúspěšně r: A prostředků, které vyžadují restartování:\*
+^ S<sub>i</sub>: řadu prostředky, které bylo úspěšně použito F<sub>i</sub>: řadu prostředky, které použije neúspěšně r: A prostředků, které vyžadují restartování: \*
 
 ```powershell
 $LCMState = (Get-DscLocalConfigurationManager).LCMState
