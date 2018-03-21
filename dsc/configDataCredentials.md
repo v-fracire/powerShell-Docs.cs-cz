@@ -283,7 +283,7 @@ Pomocí místního účtu eliminuje potenciální ohrožení pověření domény
 
 **Pokud používáte přihlašovací údaje s prostředky DSC, raději místní účet přes účet domény, pokud je to možné.**
 
-Pokud je '\' nebo ' @' v `Username` vlastnosti přihlašovacích údajů, pak DSC bude zpracována jako účet domény.
+Pokud je '\' nebo '@' v `Username` vlastnosti přihlašovacích údajů, pak DSC bude zpracována jako účet domény.
 Dojde k výjimce pro "localhost", "127.0.0.1" a ":: 1" v části domény uživatelského jména.
 
 ## <a name="psdscallowdomainuser"></a>PSDscAllowDomainUser
