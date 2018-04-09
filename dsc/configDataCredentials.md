@@ -1,11 +1,11 @@
 ---
 ms.date: 2017-06-12
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Možnosti přihlašovací údaje v konfiguračních dat"
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Možnosti přihlašovací údaje v konfiguračních dat
 ms.openlocfilehash: 6ddf82c2b63309255ec3187d650677a6c3c2afb0
 ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/15/2018
 ---
@@ -283,7 +283,7 @@ Pomocí místního účtu eliminuje potenciální ohrožení pověření domény
 
 **Pokud používáte přihlašovací údaje s prostředky DSC, raději místní účet přes účet domény, pokud je to možné.**
 
-Pokud je '\' nebo '@' v `Username` vlastnosti přihlašovacích údajů, pak DSC bude zpracována jako účet domény.
+Pokud je '\' nebo '\@' v `Username` vlastnosti přihlašovacích údajů, pak DSC bude zpracována jako účet domény.
 Dojde k výjimce pro "localhost", "127.0.0.1" a ":: 1" v části domény uživatelského jména.
 
 ## <a name="psdscallowdomainuser"></a>PSDscAllowDomainUser

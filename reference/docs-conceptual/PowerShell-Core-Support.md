@@ -62,7 +62,7 @@ Podpora pro PowerShell základní neprodlužuje z ostatních modulů produktu, p
 Například pomocí `ActiveDirectory` modul, který se dodává jako součást systému Windows Server se o nepodporovaný scénář.
 
 Moduly, které nepodporují explicitně základní prostředí PowerShell však může být v některých případech kompatibilní.
-Nainstalováním [ `WindowsPSModulePath` ][] modulu prostředí Windows PowerShell můžete připojit `PSModulePath` pro vaše prostředí PowerShell základní `PSModulePath`.
+Nainstalováním [`WindowsPSModulePath`][] modulu prostředí Windows PowerShell můžete připojit `PSModulePath` pro vaše prostředí PowerShell základní `PSModulePath`.
 
 Nejdřív nainstalujte `WindowsPSModulePath` modulu z Galerie prostředí PowerShell:
 
