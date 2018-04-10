@@ -1,22 +1,22 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: c3645a6ba83081bd5ac31a13af0f67f6538db22a
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 9065315ef39129e6a28234d972fe350fd5e7e11d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="creating-and-connecting-to-a-jea-endpoint"></a>Vytvoření a připojení ke koncovému bodu JEA
+# <a name="creating-and-connecting-to-a-jea-endpoint"></a>Vytvoření koncového bodu JEA a připojení k tomuto bodu
 Chcete-li vytvořit koncový bod JEA, je potřeba vytvořit a registrovat souboru speciálně nakonfigurované konfiguraci relace prostředí PowerShell, který se dá vygenerovat pomocí **New-PSSessionConfigurationFile** rutiny.
 
 ```powershell
-New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -TranscriptDirectory "C:\ProgramData\JEATranscripts" -RunAsVirtualAccount -RoleDefinitions @{ 'CONTOSO\NonAdmin_Operators' = @{ RoleCapabilities = 'Maintenance' }} -Path "$env:ProgramData\JEAConfiguration\Demo.pssc" 
+New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -TranscriptDirectory "C:\ProgramData\JEATranscripts" -RunAsVirtualAccount -RoleDefinitions @{ 'CONTOSO\NonAdmin_Operators' = @{ RoleCapabilities = 'Maintenance' }} -Path "$env:ProgramData\JEAConfiguration\Demo.pssc"
 ```
 
-Tím se vytvoří soubor konfigurace relace, který vypadá takto: 
+Tím se vytvoří soubor konfigurace relace, který vypadá takto:
 ```powershell
 @{
 
@@ -52,7 +52,7 @@ RoleDefinitions = @{
     'CONTOSO\NonAdmin_Operators' = @{
         'RoleCapabilities' = 'Maintenance' } }
 
-} 
+}
 ```
 Při vytváření koncový bod JEA, musíte nastavit následující parametry příkazu (a odpovídající klíče v souboru):
 1.  SessionType k RestrictedRemoteServer
@@ -64,7 +64,7 @@ Při vytváření koncový bod JEA, musíte nastavit následující parametry p�
 Pole RoleDefinitions definuje, které skupiny mají přístup k jaké funkce Role.  Funkce Role je soubor, který definuje sadu funkcí, které se zveřejní pro připojení uživatelů.  Můžete vytvořit Role funkce **New-PSRoleCapabilityFile** příkaz.
 
 ```powershell
-New-PSRoleCapabilityFile -Path "$env:ProgramFiles\WindowsPowerShell\Modules\DemoModule\RoleCapabilities\Maintenance.psrc" 
+New-PSRoleCapabilityFile -Path "$env:ProgramFiles\WindowsPowerShell\Modules\DemoModule\RoleCapabilities\Maintenance.psrc"
 ```
 
 Tím se vygeneruje funkci role šablony, která vypadá takto:
@@ -128,7 +128,7 @@ Copyright = '(c) 2015 Administrator. All rights reserved.'
 # Assemblies to load when applied to a session
 # AssembliesToLoad = 'System.Web', 'System.OtherAssembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
 
-} 
+}
 
 ```
 Konfigurace relace JEA se má používat, musíte ho uložit možnosti Role jako platný modul prostředí PowerShell v adresáři s názvem "RoleCapabilities". Modul může obsahovat několik souborů funkce role, v případě potřeby.
@@ -138,7 +138,7 @@ Pro spuštění konfigurace rutin, funkcí, aliasy a skripty, které uživatel m
 Nakonec po dokončení přizpůsobení konfigurace relace a související možnosti Role zaregistrovat tuto konfiguraci relace a vytvořit koncový bod spuštěním **Register-PSSessionConfiguration**.
 
 ```powershell
-Register-PSSessionConfiguration -Name Maintenance -Path "C:\ProgramData\JEAConfiguration\Demo.pssc" 
+Register-PSSessionConfiguration -Name Maintenance -Path "C:\ProgramData\JEAConfiguration\Demo.pssc"
 ```
 
 ## <a name="connect-to-a-jea-endpoint"></a>Připojení ke koncovému bodu JEA
@@ -148,4 +148,3 @@ Připojení ke koncovému bodu JEA funguje stejným způsobem připojení k jak�
 Enter-PSSession -ConfigurationName Maintenance -ComputerName localhost
 ```
 Jakmile se připojíte k relaci JEA, bude omezena na seznam povolených adres příkazy spuštěné v roli možnosti, které máte přístup k. Pokud se pokusíte spustit libovolný příkaz není povolen pro vaši roli, bude dojde k chybě.
-

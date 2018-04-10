@@ -1,32 +1,35 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
 title: Objekt ISEAddOnTool
 ms.assetid: ce84d8bc-07ba-41f6-bdde-d6f3fddcd1e3
-ms.openlocfilehash: b813fcac547c8069e84741081a3ceb00044bab87
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: e091f37601c7a4fdaf5deff8c668b18ee7369e74
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="the-iseaddontool-object"></a>Objekt ISEAddOnTool
-  **ISEAddonTool** objekt představuje nástroj nainstalovaný doplněk, který poskytuje další funkce týká programu Windows PowerShell ISE. Příkladem je **příkazy** nástroj, který můžete zobrazit kliknutím na **zobrazení**, pak **zobrazit příkaz rozšíření**. Tento nástroj je pak můžete přistupovat k dispozici různé manipulací **ISEAddOnTool** objekty.
 
- Každé rozšíření nástroj může být přidružen podokně svislé nebo vodorovné podokně. V podokně svislé ukotven pravé hrany Windows PowerShell ISE. V podokně vodorovné ukotven na dolní okraj.
+**ISEAddonTool** objekt představuje nástroj nainstalovaný doplněk, který poskytuje další funkce týká programu Windows PowerShell ISE. Příkladem je **příkazy** nástroj, který můžete zobrazit kliknutím na **zobrazení**, pak **zobrazit příkaz rozšíření**. Tento nástroj je pak můžete přistupovat k dispozici různé manipulací **ISEAddOnTool** objekty.
 
- Každé kartě prostředí PowerShell v systému Windows PowerShell ISE může mít vlastní sadu rozšíření nástroje nainstalované. V tématu [$psISE.CurrentPowerShellTab.HorizontalAddOnTools](The-PowerShellTab-Object.md) a [$psISE.CurrentPowerShellTab.VerticalAddOnTools](The-PowerShellTab-Object.md) získat přístup ke kolekci nástroje dostupné pro aktuálně vybrané kartě nebo stejné vlastnosti na žádném z **PowerShellTab** objekty v [$psISE.PowerShellTabs](The-PowerShellTabCollection-Object.md) objektu kolekce.
+Každé rozšíření nástroj může být přidružen podokně svislé nebo vodorovné podokně. V podokně svislé ukotven pravé hrany Windows PowerShell ISE. V podokně vodorovné ukotven na dolní okraj.
+
+Každé kartě prostředí PowerShell v systému Windows PowerShell ISE může mít vlastní sadu rozšíření nástroje nainstalované. V tématu [$psISE.CurrentPowerShellTab.HorizontalAddOnTools](The-PowerShellTab-Object.md) a [$psISE.CurrentPowerShellTab.VerticalAddOnTools](The-PowerShellTab-Object.md) získat přístup ke kolekci nástroje dostupné pro aktuálně vybrané kartě nebo stejné vlastnosti na žádném z **PowerShellTab** objekty v [$psISE.PowerShellTabs](The-PowerShellTabCollection-Object.md) objektu kolekce.
 
 ## <a name="methods"></a>Metody
- Nejsou k dispozici pro objekty této třídy žádné metody ISE specifické pro systém Windows PowerShell.
+
+Nejsou k dispozici pro objekty této třídy žádné metody ISE specifické pro systém Windows PowerShell.
 
 ## <a name="properties"></a>Properties
 
 ### <a name="control"></a>Řízení
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
- **Řízení** vlastnost poskytuje přístup pro čtení k mnoha podrobnosti doplněk nástroje příkazy.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
-```
+**Řízení** vlastnost poskytuje přístup pro čtení k mnoha podrobnosti doplněk nástroje příkazy.
+
+```powershell
 # View the properties of the Commands add-on tool.
 # (assumes that it is visible in the vertical pane)
 $psISE.CurrentVisibleVerticalTool.Control
@@ -134,37 +137,35 @@ TouchesDirectlyOver         : {}
 DependencyObjectType        : System.Windows.DependencyObjectType
 IsSealed                    : False
 Dispatcher                  : System.Windows.Threading.Dispatcher
-
 ```
 
 ### <a name="isvisible"></a>IsVisible –
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
- Vlastnost typu Boolean, která určuje, zda je aktuálně viditelné v příslušné přiřazené podokno nástroje rozšíření. Pokud je zobrazen, můžete nastavit **IsVisible** vlastnost, která má **$false** skrýt nástroj nebo nastavit **IsVisible –** vlastnost **$true** aby rozšíření nástrojů, viditelné na své kartě prostředí PowerShell. Poté, co nástroj na rozšíření skryt, je už přístupné prostřednictvím **CurrentVisibleHorizontalTool** nebo **CurrentVisibleVerticalTool** objektů a proto nemůže být viditelné pomocí Tato vlastnost na tento objekt.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
-```
+Vlastnost typu Boolean, která určuje, zda je aktuálně viditelné v příslušné přiřazené podokno nástroje rozšíření. Pokud je zobrazen, můžete nastavit **IsVisible** vlastnost, která má **$false** skrýt nástroj nebo nastavit **IsVisible –** vlastnost **$true** aby rozšíření nástrojů, viditelné na své kartě prostředí PowerShell. Poté, co nástroj na rozšíření skryt, je už přístupné prostřednictvím **CurrentVisibleHorizontalTool** nebo **CurrentVisibleVerticalTool** objektů a proto nemůže být viditelné pomocí Tato vlastnost na tento objekt.
+
+```powershell
 # Hide the current tool in the vertical tool pane
 $psISE.CurrentVisibleVerticalTool.IsVisible = $false
 # Show the first tool on the currently selected PowerShell tab
-$psISE.CurrentPowerShellTab.VerticalAddOnTools[0].IsVisible=$true
-
+$psISE.CurrentPowerShellTab.VerticalAddOnTools[0].IsVisible = $true
 ```
 
 ### <a name="name"></a>Název
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
- Vlastnost jen pro čtení, získá název rozšíření nástroje.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
 
-```
+Vlastnost jen pro čtení, získá název rozšíření nástroje.
+
+```powershell
 # Gets the name of the visible vertical pane add-on tool.
-$psISE.CurrentVisibleVerticalTool.name
+$psISE.CurrentVisibleVerticalTool.Name
 Commands
-
 ```
 
 ## <a name="see-also"></a>Viz také
-- [Objekt ISEAddOnToolCollection](The-ISEAddOnToolCollection-Object.md)
-- [ISE Windows PowerShell skriptování objektový Model](The-Windows-PowerShell-ISE-Scripting-Object-Model.md)
-- [Odkaz na objekt modelu Windows PowerShell ISE](Windows-PowerShell-ISE-Object-Model-Reference.md)
-- [Hierarchie ISE objektů modelu](The-ISE-Object-Model-Hierarchy.md)
 
+- [Objekt ISEAddOnToolCollection](The-ISEAddOnToolCollection-Object.md)
+- [Účelem ISE Windows PowerShell skriptování objektový Model](Purpose-of-the-Windows-PowerShell-ISE-Scripting-Object-Model.md)
+- [Hierarchie objektového modelu prostředí ISE](The-ISE-Object-Model-Hierarchy.md)
