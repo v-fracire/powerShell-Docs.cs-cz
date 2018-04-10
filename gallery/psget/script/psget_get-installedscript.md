@@ -1,43 +1,43 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Get-InstalledScript
-ms.openlocfilehash: f35e57cdadd1448bd9032ab007d692003c4cf4a2
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 668327905b0dab40119940a3134b674c452f538d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="get-installedscript"></a><span data-ttu-id="12540-103">Get-InstalledScript</span><span class="sxs-lookup"><span data-stu-id="12540-103">Get-InstalledScript</span></span>
+# <a name="get-installedscript"></a><span data-ttu-id="1bde1-103">Get-InstalledScript</span><span class="sxs-lookup"><span data-stu-id="1bde1-103">Get-InstalledScript</span></span>
 
-<span data-ttu-id="12540-104">Získá nainstalované v počítači skripty.</span><span class="sxs-lookup"><span data-stu-id="12540-104">Gets installed scripts on a computer.</span></span>
+<span data-ttu-id="1bde1-104">Získá nainstalované v počítači skripty.</span><span class="sxs-lookup"><span data-stu-id="1bde1-104">Gets installed scripts on a computer.</span></span>
 
-## <a name="description"></a><span data-ttu-id="12540-105">Popis</span><span class="sxs-lookup"><span data-stu-id="12540-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="1bde1-105">Popis</span><span class="sxs-lookup"><span data-stu-id="1bde1-105">Description</span></span>
 
-<span data-ttu-id="12540-106">Rutinu Get-InstalledScript získá nainstalované skriptů prostředí PowerShell v počítači.</span><span class="sxs-lookup"><span data-stu-id="12540-106">The Get-InstalledScript cmdlet gets installed PowerShell scripts on a computer.</span></span>
+<span data-ttu-id="1bde1-106">Rutinu Get-InstalledScript získá nainstalované skriptů prostředí PowerShell v počítači.</span><span class="sxs-lookup"><span data-stu-id="1bde1-106">The Get-InstalledScript cmdlet gets installed PowerShell scripts on a computer.</span></span>
 
-<span data-ttu-id="12540-107">Pro každý nainstalovaný skript vrátí Get-InstalledScript PSRepositoryItemInfo objekt, který lze volitelně přesměrovat odinstalační skript pro odinstalaci nainstalovaného skripty.</span><span class="sxs-lookup"><span data-stu-id="12540-107">For each installed script, Get-InstalledScript returns a PSRepositoryItemInfo object which can optionally be piped to Uninstall-Script for uninstalling the installed scripts.</span></span>
+<span data-ttu-id="1bde1-107">Pro každý nainstalovaný skript vrátí Get-InstalledScript PSRepositoryItemInfo objekt, který lze volitelně přesměrovat odinstalační skript pro odinstalaci nainstalovaného skripty.</span><span class="sxs-lookup"><span data-stu-id="1bde1-107">For each installed script, Get-InstalledScript returns a PSRepositoryItemInfo object which can optionally be piped to Uninstall-Script for uninstalling the installed scripts.</span></span>
 
-- <span data-ttu-id="12540-108">Get-InstalledScript můžete filtrovat nainstalované skripty založené na název, verze parametry.</span><span class="sxs-lookup"><span data-stu-id="12540-108">Get-InstalledScript can filter installed scripts based on name, version parameters.</span></span>
-- <span data-ttu-id="12540-109">Get-InstalledScript můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="12540-109">Get-InstalledScript can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
-  - <span data-ttu-id="12540-110">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="12540-110">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
-  - <span data-ttu-id="12540-111">Tyto parametry verze jsou povoleny pouze s názvem jednoho skriptu bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="12540-111">These version parameters are allowed only with the single script name without any wildcards.</span></span>
-  - <span data-ttu-id="12540-112">Pokud není zadán parametr RequiredVersion, vrátí Get-InstalledScript nejnovější verzi nainstalovaného skript, který je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="12540-112">If the RequiredVersion parameter is not specified, Get-InstalledScript returns the latest version of the installed script that is equal to or greater than the minimum version specified or the latest version of the script if no minimum version is specified.</span></span> 
-  - <span data-ttu-id="12540-113">Pokud je zadán parametr RequiredVersion, vrátí Get-InstalledScript pouze verzi nainstalovaného skript, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="12540-113">If the RequiredVersion parameter is specified, Get-InstalledScript only returns the version of installed script that exactly matches the specified version.</span></span>
+- <span data-ttu-id="1bde1-108">Get-InstalledScript můžete filtrovat nainstalované skripty založené na název, verze parametry.</span><span class="sxs-lookup"><span data-stu-id="1bde1-108">Get-InstalledScript can filter installed scripts based on name, version parameters.</span></span>
+- <span data-ttu-id="1bde1-109">Get-InstalledScript můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="1bde1-109">Get-InstalledScript can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
+  - <span data-ttu-id="1bde1-110">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="1bde1-110">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
+  - <span data-ttu-id="1bde1-111">Tyto parametry verze jsou povoleny pouze s názvem jednoho skriptu bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="1bde1-111">These version parameters are allowed only with the single script name without any wildcards.</span></span>
+  - <span data-ttu-id="1bde1-112">Pokud není zadán parametr RequiredVersion, vrátí Get-InstalledScript nejnovější verzi nainstalovaného skript, který je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="1bde1-112">If the RequiredVersion parameter is not specified, Get-InstalledScript returns the latest version of the installed script that is equal to or greater than the minimum version specified or the latest version of the script if no minimum version is specified.</span></span>
+  - <span data-ttu-id="1bde1-113">Pokud je zadán parametr RequiredVersion, vrátí Get-InstalledScript pouze verzi nainstalovaného skript, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="1bde1-113">If the RequiredVersion parameter is specified, Get-InstalledScript only returns the version of installed script that exactly matches the specified version.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="12540-114">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="12540-114">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="1bde1-114">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="1bde1-114">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name Get-InstalledScript -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="12540-115">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="12540-115">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="1bde1-115">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="1bde1-115">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="12540-116">Get-InstalledScript</span><span class="sxs-lookup"><span data-stu-id="12540-116">Get-InstalledScript</span></span>](http://go.microsoft.com/fwlink/?LinkId=619790)
+[<span data-ttu-id="1bde1-116">Get-InstalledScript</span><span class="sxs-lookup"><span data-stu-id="1bde1-116">Get-InstalledScript</span></span>](http://go.microsoft.com/fwlink/?LinkId=619790)
 
-## <a name="example-commands"></a><span data-ttu-id="12540-117">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="12540-117">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="1bde1-117">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="1bde1-117">Example commands</span></span>
 
 ```powershell
 
@@ -98,4 +98,3 @@ InstalledLocation          : C:\Program Files\WindowsPowerShell\Scripts
 
 
 ```
-

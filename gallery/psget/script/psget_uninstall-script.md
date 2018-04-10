@@ -1,33 +1,33 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Odinstalujte skriptu
-ms.openlocfilehash: 41f2b88ee81cf9f8c1a8c415ed658f29f4f08c3b
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+ms.openlocfilehash: 3d35235d001063784226dbbdb60595c5efee928d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="uninstall-script"></a><span data-ttu-id="00fec-103">Odinstalujte skriptu</span><span class="sxs-lookup"><span data-stu-id="00fec-103">Uninstall-Script</span></span>
+# <a name="uninstall-script"></a><span data-ttu-id="bffb9-103">Odinstalujte skriptu</span><span class="sxs-lookup"><span data-stu-id="bffb9-103">Uninstall-Script</span></span>
 
-<span data-ttu-id="00fec-104">Soubor skriptu, která byla nainstalována pomocí PowerShellGet odinstaluje.</span><span class="sxs-lookup"><span data-stu-id="00fec-104">Uninstalls a script file which was installed using PowerShellGet.</span></span>
+<span data-ttu-id="bffb9-104">Soubor skriptu, která byla nainstalována pomocí PowerShellGet odinstaluje.</span><span class="sxs-lookup"><span data-stu-id="bffb9-104">Uninstalls a script file which was installed using PowerShellGet.</span></span>
 
-## <a name="description"></a><span data-ttu-id="00fec-105">Popis</span><span class="sxs-lookup"><span data-stu-id="00fec-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="bffb9-105">Popis</span><span class="sxs-lookup"><span data-stu-id="bffb9-105">Description</span></span>
 
-<span data-ttu-id="00fec-106">Odinstalační skript rutiny odinstaluje zadaný skript soubory, které byly nainstalovány z úložiště online.</span><span class="sxs-lookup"><span data-stu-id="00fec-106">The Uninstall-Script cmdlet uninstalls the specified script files which were installed from the online repository.</span></span>
+<span data-ttu-id="bffb9-106">Odinstalační skript rutiny odinstaluje zadaný skript soubory, které byly nainstalovány z úložiště online.</span><span class="sxs-lookup"><span data-stu-id="bffb9-106">The Uninstall-Script cmdlet uninstalls the specified script files which were installed from the online repository.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="00fec-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="00fec-107">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="bffb9-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="bffb9-107">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name Uninstall-Script -Module PowerShellGet -Syntax
 ```
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="00fec-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="00fec-108">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="bffb9-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="bffb9-108">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="00fec-109">Odinstalujte skriptu</span><span class="sxs-lookup"><span data-stu-id="00fec-109">Uninstall-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619789)
+[<span data-ttu-id="bffb9-109">Uninstall-Script</span><span class="sxs-lookup"><span data-stu-id="bffb9-109">Uninstall-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619789)
 
-## <a name="example-commands"></a><span data-ttu-id="00fec-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="00fec-110">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="bffb9-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="bffb9-110">Example commands</span></span>
 
 ```powershell
 Get-InstalledScript | Uninstall-Script -WhatIf
@@ -73,4 +73,3 @@ VERBOSE: Performing the operation "Uninstall-Script" on target "Version '2.5.0-a
 VERBOSE: Successfully uninstalled the script 'Required-Script1' from script base 'C:\Users\manikb\Documents\WindowsPowerShell\Scripts'.
 
 ```
-

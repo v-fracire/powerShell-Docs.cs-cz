@@ -1,71 +1,71 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Instalace modulu
-ms.openlocfilehash: c066f4b34a03206cc0f31e9d40144fd719d9e305
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+ms.openlocfilehash: 960e3a85a0f915dd9da00f6456550a335c619cea
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="install-module"></a><span data-ttu-id="e6866-103">Instalace modulu</span><span class="sxs-lookup"><span data-stu-id="e6866-103">Install-Module</span></span>
+# <a name="install-module"></a><span data-ttu-id="e12d9-103">Instalace modulu</span><span class="sxs-lookup"><span data-stu-id="e12d9-103">Install-Module</span></span>
 
-<span data-ttu-id="e6866-104">Nainstaluje na moduly Powershellu z online úložiště na místním počítači.</span><span class="sxs-lookup"><span data-stu-id="e6866-104">Installs the PowerShell modules from online repositories to the local computer.</span></span>
+<span data-ttu-id="e12d9-104">Nainstaluje na moduly Powershellu z online úložiště na místním počítači.</span><span class="sxs-lookup"><span data-stu-id="e12d9-104">Installs the PowerShell modules from online repositories to the local computer.</span></span>
 
-## <a name="description"></a><span data-ttu-id="e6866-105">Popis</span><span class="sxs-lookup"><span data-stu-id="e6866-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="e12d9-105">Popis</span><span class="sxs-lookup"><span data-stu-id="e12d9-105">Description</span></span>
 
-<span data-ttu-id="e6866-106">Rutiny Install-Module stáhne jeden nebo více modulů z online galerie, ověří a nainstaluje je do oboru zadanou instalaci místního počítače.</span><span class="sxs-lookup"><span data-stu-id="e6866-106">Install-Module cmdlet downloads one or more modules from an online gallery, validates and installs them on the local computer to the specified installation scope.</span></span>
+<span data-ttu-id="e12d9-106">Rutiny Install-Module stáhne jeden nebo více modulů z online galerie, ověří a nainstaluje je do oboru zadanou instalaci místního počítače.</span><span class="sxs-lookup"><span data-stu-id="e12d9-106">Install-Module cmdlet downloads one or more modules from an online gallery, validates and installs them on the local computer to the specified installation scope.</span></span>
 
-<span data-ttu-id="e6866-107">Rutina Install-Module získá jeden nebo více modulů, které splňují zadaná kritéria z online galerie, ověří, že výsledky hledání jsou platné moduly a kopie modulu složek do umístění instalace.</span><span class="sxs-lookup"><span data-stu-id="e6866-107">The Install-Module cmdlet gets one or more modules that meet specified criteria from an online gallery, verifies that search results are valid modules, and copies module folders to the installation location.</span></span>
+<span data-ttu-id="e12d9-107">Rutina Install-Module získá jeden nebo více modulů, které splňují zadaná kritéria z online galerie, ověří, že výsledky hledání jsou platné moduly a kopie modulu složek do umístění instalace.</span><span class="sxs-lookup"><span data-stu-id="e12d9-107">The Install-Module cmdlet gets one or more modules that meet specified criteria from an online gallery, verifies that search results are valid modules, and copies module folders to the installation location.</span></span>
 
-<span data-ttu-id="e6866-108">Pokud je definován žádný obor, nebo pokud je hodnota parametru oboru AllUsers, je modul nainstalován na %systemdrive%:\Program Files\WindowsPowerShell\Modules.</span><span class="sxs-lookup"><span data-stu-id="e6866-108">When no scope is defined, or when the value of the Scope parameter is AllUsers, the module is installed to %systemdrive%:\Program Files\WindowsPowerShell\Modules.</span></span> <span data-ttu-id="e6866-109">Pokud je hodnota oboru CurrentUser, modul nainstalován na $home\Documents\WindowsPowerShell\Modules.</span><span class="sxs-lookup"><span data-stu-id="e6866-109">When the value of Scope is CurrentUser, the module is installed to $home\Documents\WindowsPowerShell\Modules.</span></span>
+<span data-ttu-id="e12d9-108">Pokud je definován žádný obor, nebo pokud je hodnota parametru oboru AllUsers, je modul nainstalován na %systemdrive%:\Program Files\WindowsPowerShell\Modules.</span><span class="sxs-lookup"><span data-stu-id="e12d9-108">When no scope is defined, or when the value of the Scope parameter is AllUsers, the module is installed to %systemdrive%:\Program Files\WindowsPowerShell\Modules.</span></span> <span data-ttu-id="e12d9-109">Pokud je hodnota oboru CurrentUser, modul nainstalován na $home\Documents\WindowsPowerShell\Modules.</span><span class="sxs-lookup"><span data-stu-id="e12d9-109">When the value of Scope is CurrentUser, the module is installed to $home\Documents\WindowsPowerShell\Modules.</span></span>
 
-<span data-ttu-id="e6866-110">Můžete filtrovat výsledky podle minimální a přesné verze zadané moduly.</span><span class="sxs-lookup"><span data-stu-id="e6866-110">You can filter your results based on minimum and exact versions of specified modules.</span></span>
+<span data-ttu-id="e12d9-110">Můžete filtrovat výsledky podle minimální a přesné verze zadané moduly.</span><span class="sxs-lookup"><span data-stu-id="e12d9-110">You can filter your results based on minimum and exact versions of specified modules.</span></span>
 
-- <span data-ttu-id="e6866-111">Podpora verzí vedle sebe na prostředí Windows PowerShell 5.0 nebo novější</span><span class="sxs-lookup"><span data-stu-id="e6866-111">Side-by-side version support on Windows PowerShell 5.0 or newer</span></span>
-- <span data-ttu-id="e6866-112">Podpora instalace závislostí modulu</span><span class="sxs-lookup"><span data-stu-id="e6866-112">Module dependency installation support</span></span>
-- <span data-ttu-id="e6866-113">**Nedůvěryhodná zeptat:**přijetí uživateli je požadováno pro instalaci modulů z nedůvěryhodné úložiště.</span><span class="sxs-lookup"><span data-stu-id="e6866-113">**Untrusted prompt:**User acceptance is required for installing the modules from an untrusted repository.</span></span>
-- <span data-ttu-id="e6866-114">-Force přeinstaluje nainstalovaný modul</span><span class="sxs-lookup"><span data-stu-id="e6866-114">-Force reinstalls the installed module</span></span>
-- <span data-ttu-id="e6866-115">RequiredVersion nainstaluje zadaná verze v SxS s existující verze na rozhraní PowerShell verze 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="e6866-115">RequiredVersion installs the specified version in SxS with existing versions on PowerShell version 5.0 or newer.</span></span>
+- <span data-ttu-id="e12d9-111">Podpora verzí vedle sebe na prostředí Windows PowerShell 5.0 nebo novější</span><span class="sxs-lookup"><span data-stu-id="e12d9-111">Side-by-side version support on Windows PowerShell 5.0 or newer</span></span>
+- <span data-ttu-id="e12d9-112">Podpora instalace závislostí modulu</span><span class="sxs-lookup"><span data-stu-id="e12d9-112">Module dependency installation support</span></span>
+- <span data-ttu-id="e12d9-113">**Nedůvěryhodná zeptat:**přijetí uživateli je požadováno pro instalaci modulů z nedůvěryhodné úložiště.</span><span class="sxs-lookup"><span data-stu-id="e12d9-113">**Untrusted prompt:**User acceptance is required for installing the modules from an untrusted repository.</span></span>
+- <span data-ttu-id="e12d9-114">-Force přeinstaluje nainstalovaný modul</span><span class="sxs-lookup"><span data-stu-id="e12d9-114">-Force reinstalls the installed module</span></span>
+- <span data-ttu-id="e12d9-115">RequiredVersion nainstaluje zadaná verze v SxS s existující verze na rozhraní PowerShell verze 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="e12d9-115">RequiredVersion installs the specified version in SxS with existing versions on PowerShell version 5.0 or newer.</span></span>
 
-### <a name="scope"></a><span data-ttu-id="e6866-116">Obor</span><span class="sxs-lookup"><span data-stu-id="e6866-116">Scope</span></span>
-<span data-ttu-id="e6866-117">Určuje obor instalace modulu.</span><span class="sxs-lookup"><span data-stu-id="e6866-117">Specifies the installation scope of the module.</span></span> <span data-ttu-id="e6866-118">Přípustné hodnoty tohoto parametru jsou: AllUsers a CurrentUser.</span><span class="sxs-lookup"><span data-stu-id="e6866-118">The acceptable values for this parameter are: AllUsers and CurrentUser.</span></span>
+### <a name="scope"></a><span data-ttu-id="e12d9-116">Obor</span><span class="sxs-lookup"><span data-stu-id="e12d9-116">Scope</span></span>
+<span data-ttu-id="e12d9-117">Určuje obor instalace modulu.</span><span class="sxs-lookup"><span data-stu-id="e12d9-117">Specifies the installation scope of the module.</span></span> <span data-ttu-id="e12d9-118">Přípustné hodnoty tohoto parametru jsou: AllUsers a CurrentUser.</span><span class="sxs-lookup"><span data-stu-id="e12d9-118">The acceptable values for this parameter are: AllUsers and CurrentUser.</span></span>
 
-<span data-ttu-id="e6866-119">Výchozí instalace obor je AllUsers.</span><span class="sxs-lookup"><span data-stu-id="e6866-119">The default installation scope is AllUsers.</span></span>
+<span data-ttu-id="e12d9-119">Výchozí instalace obor je AllUsers.</span><span class="sxs-lookup"><span data-stu-id="e12d9-119">The default installation scope is AllUsers.</span></span>
 
-<span data-ttu-id="e6866-120">Oboru AllUsers umožňuje moduly nainstalovat do umístění, které je přístupné pro všechny uživatele počítače, který je "$env: SystemDrive\Program Files\WindowsPowerShell\Modules".</span><span class="sxs-lookup"><span data-stu-id="e6866-120">The AllUsers scope lets modules be installed in a location that is accessible to all users of the computer, that is, "$env:SystemDrive\Program Files\WindowsPowerShell\Modules".</span></span>
+<span data-ttu-id="e12d9-120">Oboru AllUsers umožňuje moduly nainstalovat do umístění, které je přístupné pro všechny uživatele počítače, který je "$env: SystemDrive\Program Files\WindowsPowerShell\Modules".</span><span class="sxs-lookup"><span data-stu-id="e12d9-120">The AllUsers scope lets modules be installed in a location that is accessible to all users of the computer, that is, "$env:SystemDrive\Program Files\WindowsPowerShell\Modules".</span></span>
 
-<span data-ttu-id="e6866-121">Oboru CurrentUser umožňuje moduly nainstalována pouze pro "$home\Documents\WindowsPowerShell\Modules", tak, aby modulu je k dispozici pouze pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="e6866-121">The CurrentUser scope lets modules be installed only to "$home\Documents\WindowsPowerShell\Modules", so that the module is available only to the current user.</span></span>
+<span data-ttu-id="e12d9-121">Oboru CurrentUser umožňuje moduly nainstalována pouze pro "$home\Documents\WindowsPowerShell\Modules", tak, aby modulu je k dispozici pouze pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="e12d9-121">The CurrentUser scope lets modules be installed only to "$home\Documents\WindowsPowerShell\Modules", so that the module is available only to the current user.</span></span>
 
-## <a name="notes"></a><span data-ttu-id="e6866-122">Poznámky</span><span class="sxs-lookup"><span data-stu-id="e6866-122">Notes</span></span>
+## <a name="notes"></a><span data-ttu-id="e12d9-122">Poznámky</span><span class="sxs-lookup"><span data-stu-id="e12d9-122">Notes</span></span>
 
-<span data-ttu-id="e6866-123">Tato rutina se spustí v prostředí Windows PowerShell 3.0 nebo novější verze prostředí Windows PowerShell na Windows 7 nebo Windows 2008 R2 a pozdějších verzích Windows.</span><span class="sxs-lookup"><span data-stu-id="e6866-123">This cmdlet runs on Windows PowerShell 3.0 or later releases of Windows PowerShell, on Windows 7 or Windows 2008 R2 and later releases of Windows.</span></span>
+<span data-ttu-id="e12d9-123">Tato rutina se spustí v prostředí Windows PowerShell 3.0 nebo novější verze prostředí Windows PowerShell na Windows 7 nebo Windows 2008 R2 a pozdějších verzích Windows.</span><span class="sxs-lookup"><span data-stu-id="e12d9-123">This cmdlet runs on Windows PowerShell 3.0 or later releases of Windows PowerShell, on Windows 7 or Windows 2008 R2 and later releases of Windows.</span></span>
 
-<span data-ttu-id="e6866-124">Pokud nainstalovaný modul nelze importovat (to znamená, pokud nemá .psm1, .psd1 nebo .dll se stejným názvem ve složce), instalace se nezdaří, pokud do příkazu přidáte parametr Force.</span><span class="sxs-lookup"><span data-stu-id="e6866-124">If an installed module cannot be imported (that is, if it does not have a .psm1, .psd1, or .dll of the same name within the folder), installation fails unless you add the Force parameter to your command.</span></span>
+<span data-ttu-id="e12d9-124">Pokud nainstalovaný modul nelze importovat (to znamená, pokud nemá .psm1, .psd1 nebo .dll se stejným názvem ve složce), instalace se nezdaří, pokud do příkazu přidáte parametr Force.</span><span class="sxs-lookup"><span data-stu-id="e12d9-124">If an installed module cannot be imported (that is, if it does not have a .psm1, .psd1, or .dll of the same name within the folder), installation fails unless you add the Force parameter to your command.</span></span>
 
-<span data-ttu-id="e6866-125">Pokud hodnota zadaná pro parametr název odpovídá verzi modulu v počítači a jste nepřidali parametr MinimumVersion nebo RequiredVersion, instalace modulu bezobslužně pokračuje bez instalace tohoto modulu.</span><span class="sxs-lookup"><span data-stu-id="e6866-125">If a version of the module on the computer matches the value specified for the Name parameter, and you have not added the MinimumVersion or RequiredVersion parameter, Install-Module silently continues without installing that module.</span></span> <span data-ttu-id="e6866-126">Pokud jsou zadány parametry MinimumVersion nebo RequiredVersion a existující modul neodpovídá hodnoty v tomto parametru, pak dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="e6866-126">If the MinimumVersion or RequiredVersion parameters are specified, and the existing module does not match the values in that parameter, then an error occurs.</span></span> <span data-ttu-id="e6866-127">Chcete-li být konkrétnější: Pokud je verze modulu aktuálně nainstalované nižší než hodnota parametru MinimumVersion nebo není stejná jako hodnota parametru RequiredVersion, dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="e6866-127">To be more specific: if the version of the currently-installed module is either lower than the value of the MinimumVersion parameter, or not equal to the value of the RequiredVersion parameter, an error occurs.</span></span> <span data-ttu-id="e6866-128">Pokud verze nainstalovaný modul je větší než hodnota parametru MinimumVersion nebo rovna hodnotě parametru RequiredVersion, bude pokračovat bezobslužná instalace modulu bez instalace tohoto modulu.</span><span class="sxs-lookup"><span data-stu-id="e6866-128">If the version of the installed module is greater than the value of the MinimumVersion parameter, or equal to the value of the RequiredVersion parameter, Install-Module silently continues without installing that module.</span></span>
+<span data-ttu-id="e12d9-125">Pokud hodnota zadaná pro parametr název odpovídá verzi modulu v počítači a jste nepřidali parametr MinimumVersion nebo RequiredVersion, instalace modulu bezobslužně pokračuje bez instalace tohoto modulu.</span><span class="sxs-lookup"><span data-stu-id="e12d9-125">If a version of the module on the computer matches the value specified for the Name parameter, and you have not added the MinimumVersion or RequiredVersion parameter, Install-Module silently continues without installing that module.</span></span> <span data-ttu-id="e12d9-126">Pokud jsou zadány parametry MinimumVersion nebo RequiredVersion a existující modul neodpovídá hodnoty v tomto parametru, pak dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="e12d9-126">If the MinimumVersion or RequiredVersion parameters are specified, and the existing module does not match the values in that parameter, then an error occurs.</span></span> <span data-ttu-id="e12d9-127">Chcete-li být konkrétnější: Pokud je verze modulu aktuálně nainstalované nižší než hodnota parametru MinimumVersion nebo není stejná jako hodnota parametru RequiredVersion, dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="e12d9-127">To be more specific: if the version of the currently-installed module is either lower than the value of the MinimumVersion parameter, or not equal to the value of the RequiredVersion parameter, an error occurs.</span></span> <span data-ttu-id="e12d9-128">Pokud verze nainstalovaný modul je větší než hodnota parametru MinimumVersion nebo rovna hodnotě parametru RequiredVersion, bude pokračovat bezobslužná instalace modulu bez instalace tohoto modulu.</span><span class="sxs-lookup"><span data-stu-id="e12d9-128">If the version of the installed module is greater than the value of the MinimumVersion parameter, or equal to the value of the RequiredVersion parameter, Install-Module silently continues without installing that module.</span></span>
 
-<span data-ttu-id="e6866-129">Instalace modulu vrátí chybu, pokud žádný modul v galerii online, který odpovídá zadaným názvem neexistuje.</span><span class="sxs-lookup"><span data-stu-id="e6866-129">Install-Module returns an error if no module exists in the online gallery that matches the specified name.</span></span>
+<span data-ttu-id="e12d9-129">Instalace modulu vrátí chybu, pokud žádný modul v galerii online, který odpovídá zadaným názvem neexistuje.</span><span class="sxs-lookup"><span data-stu-id="e12d9-129">Install-Module returns an error if no module exists in the online gallery that matches the specified name.</span></span>
 
-<span data-ttu-id="e6866-130">Pokud chcete nainstalovat více modulů, zadejte pole názvy modulů, oddělených čárkami.</span><span class="sxs-lookup"><span data-stu-id="e6866-130">To install multiple modules, specify an array of the module names, separated by commas.</span></span> <span data-ttu-id="e6866-131">Pokud zadáte více názvů modulu nelze přidat MinimumVersion nebo RequiredVersion.</span><span class="sxs-lookup"><span data-stu-id="e6866-131">You cannot add MinimumVersion or RequiredVersion if you specify multiple module names.</span></span>
+<span data-ttu-id="e12d9-130">Pokud chcete nainstalovat více modulů, zadejte pole názvy modulů, oddělených čárkami.</span><span class="sxs-lookup"><span data-stu-id="e12d9-130">To install multiple modules, specify an array of the module names, separated by commas.</span></span> <span data-ttu-id="e12d9-131">Pokud zadáte více názvů modulu nelze přidat MinimumVersion nebo RequiredVersion.</span><span class="sxs-lookup"><span data-stu-id="e12d9-131">You cannot add MinimumVersion or RequiredVersion if you specify multiple module names.</span></span>
 
-<span data-ttu-id="e6866-132">Ve výchozím nastavení jsou ke složce Program Files, aby nedošlo k záměně při instalaci požadovaného stavu aplikace Windows PowerShell (DSC) prostředky nainstalované moduly. Můžete předat více objektů PSGetItemInfo k instalaci modulu; To je další způsob zadávání více modulů k instalaci v jednom příkazu.</span><span class="sxs-lookup"><span data-stu-id="e6866-132">By default, modules are installed to the Program Files folder, to prevent confusion when you are installing Windows PowerShell Desired State Configuration (DSC) resources.You can pipe multiple PSGetItemInfo objects to Install-Module; this is another way of specifying multiple modules to install in a single command.</span></span>
+<span data-ttu-id="e12d9-132">Ve výchozím nastavení jsou ke složce Program Files, aby nedošlo k záměně při instalaci požadovaného stavu aplikace Windows PowerShell (DSC) prostředky nainstalované moduly. Můžete předat více objektů PSGetItemInfo k instalaci modulu; To je další způsob zadávání více modulů k instalaci v jednom příkazu.</span><span class="sxs-lookup"><span data-stu-id="e12d9-132">By default, modules are installed to the Program Files folder, to prevent confusion when you are installing Windows PowerShell Desired State Configuration (DSC) resources.You can pipe multiple PSGetItemInfo objects to Install-Module; this is another way of specifying multiple modules to install in a single command.</span></span>
 
-<span data-ttu-id="e6866-133">To pomáhá zabránit spuštěných modulů, které obsahují škodlivý kód, nainstalované moduly sady nejsou importovány automaticky při instalaci.</span><span class="sxs-lookup"><span data-stu-id="e6866-133">To help prevent running modules that contain malicious code, installed modules are not automatically imported by installation.</span></span> <span data-ttu-id="e6866-134">Hlediska zabezpečení doporučujeme, před spuštěním jakékoli rutiny nebo funkce v modulu první vyhodnocení modulu kódu.</span><span class="sxs-lookup"><span data-stu-id="e6866-134">As a security best practice, evaluate module code before running any cmdlets or functions in a module for the first time.</span></span>
+<span data-ttu-id="e12d9-133">To pomáhá zabránit spuštěných modulů, které obsahují škodlivý kód, nainstalované moduly sady nejsou importovány automaticky při instalaci.</span><span class="sxs-lookup"><span data-stu-id="e12d9-133">To help prevent running modules that contain malicious code, installed modules are not automatically imported by installation.</span></span> <span data-ttu-id="e12d9-134">Hlediska zabezpečení doporučujeme, před spuštěním jakékoli rutiny nebo funkce v modulu první vyhodnocení modulu kódu.</span><span class="sxs-lookup"><span data-stu-id="e12d9-134">As a security best practice, evaluate module code before running any cmdlets or functions in a module for the first time.</span></span>
 
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="e6866-135">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="e6866-135">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="e12d9-135">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="e12d9-135">Cmdlet syntax</span></span>
 ```powershell
 Get-Command -Name Install-Module -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="e6866-136">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="e6866-136">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="e12d9-136">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="e12d9-136">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="e6866-137">Instalace modulu</span><span class="sxs-lookup"><span data-stu-id="e6866-137">Install-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398573)
+[<span data-ttu-id="e12d9-137">Instalace modulu</span><span class="sxs-lookup"><span data-stu-id="e12d9-137">Install-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398573)
 
-## <a name="example-commands"></a><span data-ttu-id="e6866-138">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="e6866-138">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="e12d9-138">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="e12d9-138">Example commands</span></span>
 
 ```powershell
 
@@ -109,10 +109,10 @@ Install-Module ContosoClient -WhatIf
 Install-Module ContosoClient -Force
 
 # Install a module with dependencies
-Install-Module -Name 
+Install-Module -Name
 ```
 
-## <a name="install-module-cmdlet-in-pipeline-operations"></a><span data-ttu-id="e6866-139">Instalace modulu rutiny v operacích kanálu</span><span class="sxs-lookup"><span data-stu-id="e6866-139">Install-Module cmdlet in pipeline operations</span></span>
+## <a name="install-module-cmdlet-in-pipeline-operations"></a><span data-ttu-id="e12d9-139">Instalace modulu rutiny v operacích kanálu</span><span class="sxs-lookup"><span data-stu-id="e12d9-139">Install-Module cmdlet in pipeline operations</span></span>
 
 ```powershell
 
@@ -128,8 +128,8 @@ Find-Module -Name "MyDSC*" | Install-Module -Scope CurrentUser
 Find-Command -Repository "INT" -Name Get-ContosoClient,Get-ContosoServer | Install-Module
 Get-InstalledModule
 
-# This command finds the resource named MyResource and passes it to the Install-Module cmdlet by using the pipeline operator. The Install-Module cmdlet installs the module for the resource. 
-# If you pipe multiple resources to the Install-Module cmdlet from the same module, Install-Module attempts to install the module only once. 
+# This command finds the resource named MyResource and passes it to the Install-Module cmdlet by using the pipeline operator. The Install-Module cmdlet installs the module for the resource.
+# If you pipe multiple resources to the Install-Module cmdlet from the same module, Install-Module attempts to install the module only once.
 Find-DscResource -Name "MyResource" | Install-Module
 Get-InstalledModule
 
@@ -139,11 +139,11 @@ Get-InstalledModule
 
 ```
 
-## <a name="side-by-side-version-support-on-powershell-50-or-newer"></a><span data-ttu-id="e6866-140">Podpora verzí vedle sebe na prostředí PowerShell 5.0 nebo novější</span><span class="sxs-lookup"><span data-stu-id="e6866-140">Side-by-Side Version Support on PowerShell 5.0 or newer</span></span>
+## <a name="side-by-side-version-support-on-powershell-50-or-newer"></a><span data-ttu-id="e12d9-140">Podpora verzí vedle sebe na prostředí PowerShell 5.0 nebo novější</span><span class="sxs-lookup"><span data-stu-id="e12d9-140">Side-by-Side Version Support on PowerShell 5.0 or newer</span></span>
 
-<span data-ttu-id="e6866-141">PowerShellGet podporuje verze podpora vedle sebe (SxS) modulu v instalaci modulu, aktualizace modulu a publikovat modul rutin, které spustit v prostředí Windows PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="e6866-141">PowerShellGet supports the side-by-side (SxS) module version support in Install-Module, Update-Module, and Publish-Module cmdlets that run in Windows PowerShell 5.0 or newer.</span></span>
+<span data-ttu-id="e12d9-141">PowerShellGet podporuje verze podpora vedle sebe (SxS) modulu v instalaci modulu, aktualizace modulu a publikovat modul rutin, které spustit v prostředí Windows PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="e12d9-141">PowerShellGet supports the side-by-side (SxS) module version support in Install-Module, Update-Module, and Publish-Module cmdlets that run in Windows PowerShell 5.0 or newer.</span></span>
 
-### <a name="install-module-examples"></a><span data-ttu-id="e6866-142">Instalace modulu příklady</span><span class="sxs-lookup"><span data-stu-id="e6866-142">Install-Module examples</span></span>
+### <a name="install-module-examples"></a><span data-ttu-id="e12d9-142">Instalace modulu příklady</span><span class="sxs-lookup"><span data-stu-id="e12d9-142">Install-Module examples</span></span>
 
 ```powershell
 # Install a version of the module
@@ -158,7 +158,7 @@ ModuleBase : C:\Program Files\WindowsPowerShell\Modules\PSScriptAnalyzer\1.1.0
 Install-Module -Name PSScriptAnalyzer -RequiredVersion 1.1.1 -Repository PSGallery
 Get-Module -ListAvailable -Name PSScriptAnalyzer | Format-List Name,Version,ModuleBase
 
-Name       : PSScriptAnalyzer 
+Name       : PSScriptAnalyzer
 Version    : 1.1.1
 ModuleBase : C:\Program Files\WindowsPowerShell\Modules\PSScriptAnalyzer\1.1.1
 Name       : PSScriptAnalyzer
@@ -169,13 +169,13 @@ ModuleBase : C:\Program Files\WindowsPowerShell\Modules\PSScriptAnalyzer\1.1.0
 Get-InstalledModule -Name PSScriptAnalyzer -AllVersions
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-1.1.0      PSScriptAnalyzer                    PSGallery            PSScriptAnalyzer provides script analysis... 
+1.1.0      PSScriptAnalyzer                    PSGallery            PSScriptAnalyzer provides script analysis...
 1.1.1      PSScriptAnalyzer                    PSGallery            PSScriptAnalyzer provides script analysis...
 
 
 ```
 
-## <a name="install-module-with-its-dependencies"></a><span data-ttu-id="e6866-143">Instalace modulu s jeho závislé součásti</span><span class="sxs-lookup"><span data-stu-id="e6866-143">Install module with its dependencies</span></span>
+## <a name="install-module-with-its-dependencies"></a><span data-ttu-id="e12d9-143">Instalace modulu s jeho závislé součásti</span><span class="sxs-lookup"><span data-stu-id="e12d9-143">Install module with its dependencies</span></span>
 
 ```powershell
 
@@ -269,7 +269,7 @@ Version    Name                                Repository           Description
 
 ```
 
-## <a name="error-scenarios"></a><span data-ttu-id="e6866-144">Chyba scénáře</span><span class="sxs-lookup"><span data-stu-id="e6866-144">Error scenarios</span></span>
+## <a name="error-scenarios"></a><span data-ttu-id="e12d9-144">Chyba scénáře</span><span class="sxs-lookup"><span data-stu-id="e12d9-144">Error scenarios</span></span>
 
 ```powershell
 
@@ -286,4 +286,3 @@ Install-Module ContosoClient,ContosoServer -RequiredVersion 2.0
 Install-Module ContosoClient,ContosoServer -MinimumVersion 2.0
 
 ```
-

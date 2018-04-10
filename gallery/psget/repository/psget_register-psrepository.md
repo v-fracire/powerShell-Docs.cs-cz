@@ -1,39 +1,40 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Registrace PSRepository
-ms.openlocfilehash: badac5dc1157bbfa79058630c5c2f260d2151bd8
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 7a7d1bf56a87161f6ec735399b15b19f317282b6
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="register-psrepository"></a><span data-ttu-id="a8a28-103">Registrace PSRepository</span><span class="sxs-lookup"><span data-stu-id="a8a28-103">Register-PSRepository</span></span>
+# <a name="register-psrepository"></a><span data-ttu-id="f9946-103">Registrace PSRepository</span><span class="sxs-lookup"><span data-stu-id="f9946-103">Register-PSRepository</span></span>
 
-<span data-ttu-id="a8a28-104">Získá registrované úložiště na počítači.</span><span class="sxs-lookup"><span data-stu-id="a8a28-104">Gets the registered repositories on a computer.</span></span>
+<span data-ttu-id="f9946-104">Získá registrované úložiště na počítači.</span><span class="sxs-lookup"><span data-stu-id="f9946-104">Gets the registered repositories on a computer.</span></span>
 
-## <a name="description"></a><span data-ttu-id="a8a28-105">Popis</span><span class="sxs-lookup"><span data-stu-id="a8a28-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="f9946-105">Popis</span><span class="sxs-lookup"><span data-stu-id="f9946-105">Description</span></span>
 
-<span data-ttu-id="a8a28-106">Rutinu Register-PSRepository zaregistruje online úložiště pro moduly Powershellu.</span><span class="sxs-lookup"><span data-stu-id="a8a28-106">The Register-PSRepository cmdlet registers the online repository for PowerShell modules.</span></span> <span data-ttu-id="a8a28-107">Po registraci úložiště můžete odkazovat z najít modulu instalace modulu a rutiny modulu publikovat.</span><span class="sxs-lookup"><span data-stu-id="a8a28-107">After a repository is registered, you can reference it from the Find-Module, Install-Module, and Publish-Module cmdlets.</span></span> <span data-ttu-id="a8a28-108">Registrovaný úložiště se změní výchozí úložiště v modulu vyhledání a instalace modulu.</span><span class="sxs-lookup"><span data-stu-id="a8a28-108">The registered repository becomes the default repository in Find-Module and Install-Module.</span></span> 
+<span data-ttu-id="f9946-106">Rutinu Register-PSRepository zaregistruje online úložiště pro moduly Powershellu.</span><span class="sxs-lookup"><span data-stu-id="f9946-106">The Register-PSRepository cmdlet registers the online repository for PowerShell modules.</span></span> <span data-ttu-id="f9946-107">Po registraci úložiště můžete odkazovat z najít modulu instalace modulu a rutiny modulu publikovat.</span><span class="sxs-lookup"><span data-stu-id="f9946-107">After a repository is registered, you can reference it from the Find-Module, Install-Module, and Publish-Module cmdlets.</span></span> <span data-ttu-id="f9946-108">Registrovaný úložiště se změní výchozí úložiště v modulu vyhledání a instalace modulu.</span><span class="sxs-lookup"><span data-stu-id="f9946-108">The registered repository becomes the default repository in Find-Module and Install-Module.</span></span>
 
-<span data-ttu-id="a8a28-109">Registrovaný úložiště jsou specifické pro uživatele.</span><span class="sxs-lookup"><span data-stu-id="a8a28-109">Registered repositories are user-specific.</span></span> <span data-ttu-id="a8a28-110">Nejsou zaregistrovány v rámci celého systému.</span><span class="sxs-lookup"><span data-stu-id="a8a28-110">They are not registered in a system-wide context.</span></span>
+<span data-ttu-id="f9946-109">Registrovaný úložiště jsou specifické pro uživatele.</span><span class="sxs-lookup"><span data-stu-id="f9946-109">Registered repositories are user-specific.</span></span> <span data-ttu-id="f9946-110">Nejsou zaregistrovány v rámci celého systému.</span><span class="sxs-lookup"><span data-stu-id="f9946-110">They are not registered in a system-wide context.</span></span>
 
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="a8a28-111">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="a8a28-111">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="f9946-111">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="f9946-111">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name Register-PSRepository -Module PowerShellGet -Syntax
 ```
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="a8a28-112">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="a8a28-112">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="f9946-112">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="f9946-112">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="a8a28-113">Registrace PSRepository</span><span class="sxs-lookup"><span data-stu-id="a8a28-113">Register-PSRepository</span></span>](http://go.microsoft.com/fwlink/?LinkID=517129)
+[<span data-ttu-id="f9946-113">Register-PSRepository</span><span class="sxs-lookup"><span data-stu-id="f9946-113">Register-PSRepository</span></span>](http://go.microsoft.com/fwlink/?LinkID=517129)
 
-## <a name="example-commands"></a><span data-ttu-id="a8a28-114">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="a8a28-114">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="f9946-114">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="f9946-114">Example commands</span></span>
 
-### <a name="register-a-powershell-repository"></a><span data-ttu-id="a8a28-115">Zaregistrovat úložiště v prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="a8a28-115">Register a PowerShell Repository</span></span>
-<span data-ttu-id="a8a28-116">Můžete nakonfigurovat PowerShellGet pro práci s interní úložiště.</span><span class="sxs-lookup"><span data-stu-id="a8a28-116">You can configure PowerShellGet to work against internal repositories.</span></span> <span data-ttu-id="a8a28-117">Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.</span><span class="sxs-lookup"><span data-stu-id="a8a28-117">After a repository is registered, you can use Find-Module and Install-Module to work with it.</span></span>
+### <a name="register-a-powershell-repository"></a><span data-ttu-id="f9946-115">Registrace powershellového úložiště</span><span class="sxs-lookup"><span data-stu-id="f9946-115">Register a PowerShell Repository</span></span>
+<span data-ttu-id="f9946-116">Můžete nakonfigurovat PowerShellGet pro práci s interní úložiště.</span><span class="sxs-lookup"><span data-stu-id="f9946-116">You can configure PowerShellGet to work against internal repositories.</span></span>
+<span data-ttu-id="f9946-117">Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.</span><span class="sxs-lookup"><span data-stu-id="f9946-117">After a repository is registered, you can use Find-Module and Install-Module to work with it.</span></span>
 
 ```powershell
 # Register a default repository
@@ -62,9 +63,9 @@ Unregister-PSRepository DemoRepo
 ```
 
 
-### <a name="register-psrepository-and-set-psrepository-cmdlets-with-script-sharing-support"></a><span data-ttu-id="a8a28-118">Rutiny Register-PSRepository a Set-PSRepository pomocí skriptu sdílení podpory</span><span class="sxs-lookup"><span data-stu-id="a8a28-118">Register-PSRepository and Set-PSRepository cmdlets with script sharing support</span></span>
+### <a name="register-psrepository-and-set-psrepository-cmdlets-with-script-sharing-support"></a><span data-ttu-id="f9946-118">Rutiny Register-PSRepository a Set-PSRepository pomocí skriptu sdílení podpory</span><span class="sxs-lookup"><span data-stu-id="f9946-118">Register-PSRepository and Set-PSRepository cmdlets with script sharing support</span></span>
 
-<span data-ttu-id="a8a28-119">Použijte rutinu Register-PSRepository přidat **ScriptSourceLocation** a **ScriptPublishLocation** k PSRepository.</span><span class="sxs-lookup"><span data-stu-id="a8a28-119">Use Register-PSRepository cmdlet to add the **ScriptSourceLocation** and **ScriptPublishLocation** to the PSRepository.</span></span>
+<span data-ttu-id="f9946-119">Použijte rutinu Register-PSRepository přidat **ScriptSourceLocation** a **ScriptPublishLocation** k PSRepository.</span><span class="sxs-lookup"><span data-stu-id="f9946-119">Use Register-PSRepository cmdlet to add the **ScriptSourceLocation** and **ScriptPublishLocation** to the PSRepository.</span></span>
 
 ```powershell
 
@@ -114,4 +115,3 @@ ScriptPublishLocation : https://customgallery.cloudapp.net/api/v2/package/
 ProviderOptions : {}
 
 ```
-

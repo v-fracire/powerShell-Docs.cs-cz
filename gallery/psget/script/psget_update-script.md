@@ -1,33 +1,33 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: Skript aktualizace
-ms.openlocfilehash: 8067a502e4ecfa61c5a4347d4e9f74c7437f6502
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Update-Script
+ms.openlocfilehash: 23e558a063689d263f68d34ec3b154be1c77ae89
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="update-script"></a><span data-ttu-id="e2da6-103">Skript aktualizace</span><span class="sxs-lookup"><span data-stu-id="e2da6-103">Update-Script</span></span>
+# <a name="update-script"></a><span data-ttu-id="2f203-103">Update-Script</span><span class="sxs-lookup"><span data-stu-id="2f203-103">Update-Script</span></span>
 
-<span data-ttu-id="e2da6-104">Skript aktualizace rutina umožňuje místní aktualizace souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="e2da6-104">Update-Script cmdlet lets you to do in-place update of the script files which were installed using Install-Script cmdlet.</span></span>
+<span data-ttu-id="2f203-104">Skript aktualizace rutina umožňuje místní aktualizace souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="2f203-104">Update-Script cmdlet lets you to do in-place update of the script files which were installed using Install-Script cmdlet.</span></span>
 
-## <a name="description"></a><span data-ttu-id="e2da6-105">Popis</span><span class="sxs-lookup"><span data-stu-id="e2da6-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="2f203-105">Popis</span><span class="sxs-lookup"><span data-stu-id="2f203-105">Description</span></span>
 
-<span data-ttu-id="e2da6-106">Rutinu skript aktualizace aktualizuje zadaný skript z úložiště, ze kterého byla dříve nainstalovaná.</span><span class="sxs-lookup"><span data-stu-id="e2da6-106">The Update-Script cmdlet updates the specified script from the repository from which it was previously installed.</span></span>
+<span data-ttu-id="2f203-106">Rutinu skript aktualizace aktualizuje zadaný skript z úložiště, ze kterého byla dříve nainstalovaná.</span><span class="sxs-lookup"><span data-stu-id="2f203-106">The Update-Script cmdlet updates the specified script from the repository from which it was previously installed.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="e2da6-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="e2da6-107">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="2f203-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="2f203-107">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name Update-Script -Module PowerShellGet -Syntax
 ```
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="e2da6-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="e2da6-108">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="2f203-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="2f203-108">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="e2da6-109">Skript aktualizace</span><span class="sxs-lookup"><span data-stu-id="e2da6-109">Update-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619787)
+[<span data-ttu-id="2f203-109">Update-Script</span><span class="sxs-lookup"><span data-stu-id="2f203-109">Update-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619787)
 
-## <a name="example-commands"></a><span data-ttu-id="e2da6-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="e2da6-110">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="2f203-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="2f203-110">Example commands</span></span>
 ```powershell
 Install-Script -Name Fabrikam-Script -RequiredVersion 1.0 -Repository GalleryINT -Scope
 Get-InstalledScript -Name Fabrikam-Script
@@ -74,4 +74,3 @@ Version Name Type Repository Description
 2.5 Required-Script2 Script GalleryINT Description for the Required-Script2 script
 2.0 Script-WithDependencies2 Script GalleryINT Description for the Script-WithDependencies2 script
 ```
-

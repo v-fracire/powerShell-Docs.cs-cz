@@ -1,42 +1,42 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Najít – modul"
-ms.openlocfilehash: 65c466909c007ed08c3fa978f78483983b00ba73
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Najít – modul
+ms.openlocfilehash: 03dff4454a31638df564568ef51eec158685c8e9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="find-module"></a><span data-ttu-id="bd929-103">Najít – modul</span><span class="sxs-lookup"><span data-stu-id="bd929-103">Find-Module</span></span>
-<span data-ttu-id="bd929-104">Najde moduly z online galerie, které odpovídají zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="bd929-104">Finds modules from an online gallery that match specified criteria.</span></span>
+# <a name="find-module"></a><span data-ttu-id="37fce-103">Najít – modul</span><span class="sxs-lookup"><span data-stu-id="37fce-103">Find-Module</span></span>
+<span data-ttu-id="37fce-104">Najde moduly z online galerie, které odpovídají zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="37fce-104">Finds modules from an online gallery that match specified criteria.</span></span>
 
-## <a name="description"></a><span data-ttu-id="bd929-105">Popis</span><span class="sxs-lookup"><span data-stu-id="bd929-105">Description</span></span>
-<span data-ttu-id="bd929-106">Vyhledání modulu zjistí moduly z registrovaných úložiště, které odpovídá zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="bd929-106">Find-Module discovers the modules from registered repositories that matches the specified criteria.</span></span>
-<span data-ttu-id="bd929-107">Pro každý modul nalezena vrátí najít modulu PSRepositoryItemInfo objekt, který lze volitelně přesměrovat k instalaci modulu pro instalaci modulů.</span><span class="sxs-lookup"><span data-stu-id="bd929-107">For each module found, Find-Module returns a PSRepositoryItemInfo object which can optionally be piped to Install-Module for installing the modules.</span></span>
+## <a name="description"></a><span data-ttu-id="37fce-105">Popis</span><span class="sxs-lookup"><span data-stu-id="37fce-105">Description</span></span>
+<span data-ttu-id="37fce-106">Vyhledání modulu zjistí moduly z registrovaných úložiště, které odpovídá zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="37fce-106">Find-Module discovers the modules from registered repositories that matches the specified criteria.</span></span>
+<span data-ttu-id="37fce-107">Pro každý modul nalezena vrátí najít modulu PSRepositoryItemInfo objekt, který lze volitelně přesměrovat k instalaci modulu pro instalaci modulů.</span><span class="sxs-lookup"><span data-stu-id="37fce-107">For each module found, Find-Module returns a PSRepositoryItemInfo object which can optionally be piped to Install-Module for installing the modules.</span></span>
 
-- <span data-ttu-id="bd929-108">Můžete najít modul filtr založený na modulu obsah s-příkazového - DscResource, - RoleCapability a - obsahuje parametry.</span><span class="sxs-lookup"><span data-stu-id="bd929-108">Find-Module can filter based on module contents with the -Command, -DscResource, -RoleCapability and -Includes parameters.</span></span>
-- <span data-ttu-id="bd929-109">Vyhledání modulu můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="bd929-109">Find-Module can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
-  - <span data-ttu-id="bd929-110">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="bd929-110">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
-  - <span data-ttu-id="bd929-111">Tyto parametry verze jsou povoleny pouze s názvem modulu single bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="bd929-111">These version parameters are allowed only with the single module name without any wildcards.</span></span>
-  - <span data-ttu-id="bd929-112">Pokud není zadán parametr RequiredVersion, vrátí modul najít nejnovější verzi modulu, která je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi modulu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="bd929-112">If the RequiredVersion parameter is not specified, Find-Module returns the latest version of the module that is equal to or greater than the minimum version specified or the latest version of the module if no minimum version is specified.</span></span> 
-  - <span data-ttu-id="bd929-113">Pokud je zadán parametr RequiredVersion, modul najít pouze vrátí verzi modulu, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="bd929-113">If the RequiredVersion parameter is specified, Find-Module only returns the version of module that exactly matches the specified version.</span></span>
-- <span data-ttu-id="bd929-114">Vyhledání modulu můžete filtrovat podle metadata modulu s parametrem - značky</span><span class="sxs-lookup"><span data-stu-id="bd929-114">Find-Module can filter on module metadata with the -Tag parameter</span></span>
-- <span data-ttu-id="bd929-115">Vyhledání modulu můžete filtrovat podle jazyka vyhledávání podle úložiště s parametrem - filtru.</span><span class="sxs-lookup"><span data-stu-id="bd929-115">Find-Module can filter on repository-specific search language with the -Filter parameter.</span></span>
-- <span data-ttu-id="bd929-116">Vyhledání modulu můžete filtrovat podle moduly ze všech nebo několika registrované úložišť.</span><span class="sxs-lookup"><span data-stu-id="bd929-116">Find-Module can filter on modules from all or few of the registered repositories.</span></span>
+- <span data-ttu-id="37fce-108">Můžete najít modul filtr založený na modulu obsah s-příkazového - DscResource, - RoleCapability a - obsahuje parametry.</span><span class="sxs-lookup"><span data-stu-id="37fce-108">Find-Module can filter based on module contents with the -Command, -DscResource, -RoleCapability and -Includes parameters.</span></span>
+- <span data-ttu-id="37fce-109">Vyhledání modulu můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="37fce-109">Find-Module can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
+  - <span data-ttu-id="37fce-110">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="37fce-110">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
+  - <span data-ttu-id="37fce-111">Tyto parametry verze jsou povoleny pouze s názvem modulu single bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="37fce-111">These version parameters are allowed only with the single module name without any wildcards.</span></span>
+  - <span data-ttu-id="37fce-112">Pokud není zadán parametr RequiredVersion, vrátí modul najít nejnovější verzi modulu, která je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi modulu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="37fce-112">If the RequiredVersion parameter is not specified, Find-Module returns the latest version of the module that is equal to or greater than the minimum version specified or the latest version of the module if no minimum version is specified.</span></span>
+  - <span data-ttu-id="37fce-113">Pokud je zadán parametr RequiredVersion, modul najít pouze vrátí verzi modulu, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="37fce-113">If the RequiredVersion parameter is specified, Find-Module only returns the version of module that exactly matches the specified version.</span></span>
+- <span data-ttu-id="37fce-114">Vyhledání modulu můžete filtrovat podle metadata modulu s parametrem - značky</span><span class="sxs-lookup"><span data-stu-id="37fce-114">Find-Module can filter on module metadata with the -Tag parameter</span></span>
+- <span data-ttu-id="37fce-115">Vyhledání modulu můžete filtrovat podle jazyka vyhledávání podle úložiště s parametrem - filtru.</span><span class="sxs-lookup"><span data-stu-id="37fce-115">Find-Module can filter on repository-specific search language with the -Filter parameter.</span></span>
+- <span data-ttu-id="37fce-116">Vyhledání modulu můžete filtrovat podle moduly ze všech nebo několika registrované úložišť.</span><span class="sxs-lookup"><span data-stu-id="37fce-116">Find-Module can filter on modules from all or few of the registered repositories.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="bd929-117">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="bd929-117">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="37fce-117">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="37fce-117">Cmdlet syntax</span></span>
 ```powershell
 Get-Command -Name Find-Module -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="bd929-118">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="bd929-118">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="37fce-118">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="37fce-118">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="bd929-119">Najít – modul</span><span class="sxs-lookup"><span data-stu-id="bd929-119">Find-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398574)
+[<span data-ttu-id="37fce-119">Najít – modul</span><span class="sxs-lookup"><span data-stu-id="37fce-119">Find-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398574)
 
-## <a name="example-commands"></a><span data-ttu-id="bd929-120">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="bd929-120">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="37fce-120">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="37fce-120">Example commands</span></span>
 ```powershell
 # Find a specific module
 Find-Module Azure
@@ -54,7 +54,7 @@ Find-Module -Name AzureRM*
 # Find all versions of a module
 Find-Module -Name PSReadline -AllVersions
 
-# Find a module with -MinimumVersion. 
+# Find a module with -MinimumVersion.
 # With MinimumVersion we can find a module whose version is greate than or equal to the specified MinimumVersion value.
 Find-Module -Name PSReadline -MinimumVersion 1.0.0.12
 
@@ -142,4 +142,3 @@ PackageManagementProvider  : NuGet
 AdditionalMetadata         : {downloadCount, description, copyright, FileList...}
 
 ```
-

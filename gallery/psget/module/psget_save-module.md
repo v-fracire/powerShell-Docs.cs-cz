@@ -1,33 +1,33 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Uložit – modul"
-ms.openlocfilehash: acea38b0eebc58dafda0ab58b91dc6a70ffffd3b
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Save-Module
+ms.openlocfilehash: c9078afb03dc074ee3831c2c395c0f1e6c4ffa38
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="save-module"></a><span data-ttu-id="3d937-103">Uložit – modul</span><span class="sxs-lookup"><span data-stu-id="3d937-103">Save-Module</span></span>
+# <a name="save-module"></a><span data-ttu-id="26d43-103">Save-Module</span><span class="sxs-lookup"><span data-stu-id="26d43-103">Save-Module</span></span>
 
-<span data-ttu-id="3d937-104">Uloží modul místně bez nutnosti její instalace.</span><span class="sxs-lookup"><span data-stu-id="3d937-104">Saves a module locally without installing it.</span></span>
+<span data-ttu-id="26d43-104">Uloží modul místně bez nutnosti její instalace.</span><span class="sxs-lookup"><span data-stu-id="26d43-104">Saves a module locally without installing it.</span></span>
 
-## <a name="description"></a><span data-ttu-id="3d937-105">Popis</span><span class="sxs-lookup"><span data-stu-id="3d937-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="26d43-105">Popis</span><span class="sxs-lookup"><span data-stu-id="26d43-105">Description</span></span>
 
-<span data-ttu-id="3d937-106">Rutina modulu uložit uloží modul místně z zadané úložiště pro kontroly.</span><span class="sxs-lookup"><span data-stu-id="3d937-106">The Save-Module cmdlet saves a module locally from the specified repository for inspection.</span></span> <span data-ttu-id="3d937-107">Modul není nainstalován.</span><span class="sxs-lookup"><span data-stu-id="3d937-107">The module is not installed.</span></span>
+<span data-ttu-id="26d43-106">Rutina modulu uložit uloží modul místně z zadané úložiště pro kontroly.</span><span class="sxs-lookup"><span data-stu-id="26d43-106">The Save-Module cmdlet saves a module locally from the specified repository for inspection.</span></span> <span data-ttu-id="26d43-107">Modul není nainstalován.</span><span class="sxs-lookup"><span data-stu-id="26d43-107">The module is not installed.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="3d937-108">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="3d937-108">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="26d43-108">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="26d43-108">Cmdlet syntax</span></span>
 ```powershell
 Get-Command -Name Save-Module -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="3d937-109">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="3d937-109">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="26d43-109">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="26d43-109">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="3d937-110">Uložit – modul</span><span class="sxs-lookup"><span data-stu-id="3d937-110">Save-Module</span></span>](http://go.microsoft.com/fwlink/?LinkId=531351)
+[<span data-ttu-id="26d43-110">Save-Module</span><span class="sxs-lookup"><span data-stu-id="26d43-110">Save-Module</span></span>](http://go.microsoft.com/fwlink/?LinkId=531351)
 
-## <a name="example-commands"></a><span data-ttu-id="3d937-111">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="3d937-111">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="26d43-111">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="26d43-111">Example commands</span></span>
 
 ```powershell
 Save-Module -Repository MSPSGallery -Name ModuleWithDependencies2 -Path C:\MySavedModuleLocation
@@ -64,4 +64,3 @@ Install-Module -Name ContosoServer -Path C:\MySavedModuleLocation -AllowPrerelea
 
 
 ```
-

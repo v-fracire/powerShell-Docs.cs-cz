@@ -1,48 +1,48 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Najít skriptu"
-ms.openlocfilehash: df62a9934d8013d37bd0083c03f90fa7fa05ac0c
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Najít skriptu
+ms.openlocfilehash: 1f5076d94015c0b1041591144f1f0fe36819204b
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="find-script"></a><span data-ttu-id="c799a-103">Najít skriptu</span><span class="sxs-lookup"><span data-stu-id="c799a-103">Find-Script</span></span>
+# <a name="find-script"></a><span data-ttu-id="9c6a8-103">Najít skriptu</span><span class="sxs-lookup"><span data-stu-id="9c6a8-103">Find-Script</span></span>
 
-<span data-ttu-id="c799a-104">Vyhledá soubory skriptu prostředí PowerShell z online galerie odpovídající zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="c799a-104">Finds the PowerShell script files from an online gallery that match specified criteria.</span></span>
+<span data-ttu-id="9c6a8-104">Vyhledá soubory skriptu prostředí PowerShell z online galerie odpovídající zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-104">Finds the PowerShell script files from an online gallery that match specified criteria.</span></span>
 
-## <a name="description"></a><span data-ttu-id="c799a-105">Popis</span><span class="sxs-lookup"><span data-stu-id="c799a-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="9c6a8-105">Popis</span><span class="sxs-lookup"><span data-stu-id="9c6a8-105">Description</span></span>
 
-<span data-ttu-id="c799a-106">Najít skriptu vyhledá soubory skriptu z registrovaných úložiště, které odpovídá zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="c799a-106">Find-Script discovers the script files from registered repositories that matches the specified criteria.</span></span>
-<span data-ttu-id="c799a-107">Pro každý skript nalezena vrátí najít skriptu PSRepositoryItemInfo objekt, který lze volitelně přesměrovat instalační skript pro instalaci skripty.</span><span class="sxs-lookup"><span data-stu-id="c799a-107">For each script found, Find-Script returns a PSRepositoryItemInfo object which can optionally be piped to Install-Script for installing the scripts.</span></span>
-<span data-ttu-id="c799a-108">Najít skriptu rutina umožňuje zjišťovat soubory skriptu s kritérii vyhledat jiný název, značku, filtr, název příkazu, rozsahu verze, přesnou verzi, všechny verze, včetně jeho závislosti a z určité nebo všech registrovaných úložiště.</span><span class="sxs-lookup"><span data-stu-id="c799a-108">Find-Script cmdlet lets you to discover the script files with different search criteria like name, tag, filter, command name, version range, exact version, all versions, including its dependencies and from specific or all registered repositories.</span></span>
+<span data-ttu-id="9c6a8-106">Najít skriptu vyhledá soubory skriptu z registrovaných úložiště, které odpovídá zadaným kritériím.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-106">Find-Script discovers the script files from registered repositories that matches the specified criteria.</span></span>
+<span data-ttu-id="9c6a8-107">Pro každý skript nalezena vrátí najít skriptu PSRepositoryItemInfo objekt, který lze volitelně přesměrovat instalační skript pro instalaci skripty.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-107">For each script found, Find-Script returns a PSRepositoryItemInfo object which can optionally be piped to Install-Script for installing the scripts.</span></span>
+<span data-ttu-id="9c6a8-108">Najít skriptu rutina umožňuje zjišťovat soubory skriptu s kritérii vyhledat jiný název, značku, filtr, název příkazu, rozsahu verze, přesnou verzi, všechny verze, včetně jeho závislosti a z určité nebo všech registrovaných úložiště.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-108">Find-Script cmdlet lets you to discover the script files with different search criteria like name, tag, filter, command name, version range, exact version, all versions, including its dependencies and from specific or all registered repositories.</span></span>
 
-- <span data-ttu-id="c799a-109">Můžete najít skriptu filtr založený na skript obsah pomocí příkazu - a - obsahuje parametry.</span><span class="sxs-lookup"><span data-stu-id="c799a-109">Find-Script can filter based on script contents with the -Command and -Includes parameters.</span></span>
-- <span data-ttu-id="c799a-110">Najít skriptu můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="c799a-110">Find-Script can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
-  - <span data-ttu-id="c799a-111">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="c799a-111">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
-  - <span data-ttu-id="c799a-112">Tyto parametry verze jsou povoleny pouze s názvem jednoho skriptu bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="c799a-112">These version parameters are allowed only with the single script name without any wildcards.</span></span>
-  - <span data-ttu-id="c799a-113">Pokud není zadán parametr RequiredVersion, vrátí skript najít nejnovější verzi skriptu, která je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="c799a-113">If the RequiredVersion parameter is not specified, Find-Script returns the latest version of the script that is equal to or greater than the minimum version specified or the latest version of the script if no minimum version is specified.</span></span> 
-  - <span data-ttu-id="c799a-114">Pokud je zadán parametr RequiredVersion, vrátí skript najít pouze verzi skript, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="c799a-114">If the RequiredVersion parameter is specified, Find-Script only returns the version of script that exactly matches the specified version.</span></span>
-- <span data-ttu-id="c799a-115">Najít skriptu můžete filtrovat podle metadata skriptu s parametrem - Tag.</span><span class="sxs-lookup"><span data-stu-id="c799a-115">Find-Script can filter on script metadata with the -Tag parameter.</span></span>
-- <span data-ttu-id="c799a-116">Najít skriptu můžete filtrovat podle jazyka vyhledávání podle úložiště s parametrem - filtru.</span><span class="sxs-lookup"><span data-stu-id="c799a-116">Find-Script can filter on repository-specific search language with the -Filter parameter.</span></span>
-- <span data-ttu-id="c799a-117">Najít skriptu můžete filtrovat podle skripty ze všech nebo několika registrované úložišť.</span><span class="sxs-lookup"><span data-stu-id="c799a-117">Find-Script can filter on scripts from all or few of the registered repositories.</span></span>
+- <span data-ttu-id="9c6a8-109">Můžete najít skriptu filtr založený na skript obsah pomocí příkazu - a - obsahuje parametry.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-109">Find-Script can filter based on script contents with the -Command and -Includes parameters.</span></span>
+- <span data-ttu-id="9c6a8-110">Najít skriptu můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-110">Find-Script can filter with version parameters: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.</span></span>
+  - <span data-ttu-id="9c6a8-111">Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-111">These parameters are mutually exclusive, except MinmimumVersion and MaximumVersion.</span></span>
+  - <span data-ttu-id="9c6a8-112">Tyto parametry verze jsou povoleny pouze s názvem jednoho skriptu bez žádné zástupné znaky.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-112">These version parameters are allowed only with the single script name without any wildcards.</span></span>
+  - <span data-ttu-id="9c6a8-113">Pokud není zadán parametr RequiredVersion, vrátí skript najít nejnovější verzi skriptu, která je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-113">If the RequiredVersion parameter is not specified, Find-Script returns the latest version of the script that is equal to or greater than the minimum version specified or the latest version of the script if no minimum version is specified.</span></span>
+  - <span data-ttu-id="9c6a8-114">Pokud je zadán parametr RequiredVersion, vrátí skript najít pouze verzi skript, který přesně odpovídá zadaná verze.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-114">If the RequiredVersion parameter is specified, Find-Script only returns the version of script that exactly matches the specified version.</span></span>
+- <span data-ttu-id="9c6a8-115">Najít skriptu můžete filtrovat podle metadata skriptu s parametrem - Tag.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-115">Find-Script can filter on script metadata with the -Tag parameter.</span></span>
+- <span data-ttu-id="9c6a8-116">Najít skriptu můžete filtrovat podle jazyka vyhledávání podle úložiště s parametrem - filtru.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-116">Find-Script can filter on repository-specific search language with the -Filter parameter.</span></span>
+- <span data-ttu-id="9c6a8-117">Najít skriptu můžete filtrovat podle skripty ze všech nebo několika registrované úložišť.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-117">Find-Script can filter on scripts from all or few of the registered repositories.</span></span>
 
-<span data-ttu-id="c799a-118">**Poznámka:** registrovaná PSRepository by měl mít platný ScriptSourceLocation.</span><span class="sxs-lookup"><span data-stu-id="c799a-118">**NOTE:** Registered PSRepository should have a valid ScriptSourceLocation.</span></span> <span data-ttu-id="c799a-119">Set-PSRepository můžete nastavit hodnotu ScriptSourceLocation.</span><span class="sxs-lookup"><span data-stu-id="c799a-119">You can use the Set-PSRepository to set ScriptSourceLocation value.</span></span>
+<span data-ttu-id="9c6a8-118">**Poznámka:** registrovaná PSRepository by měl mít platný ScriptSourceLocation.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-118">**NOTE:** Registered PSRepository should have a valid ScriptSourceLocation.</span></span> <span data-ttu-id="9c6a8-119">Set-PSRepository můžete nastavit hodnotu ScriptSourceLocation.</span><span class="sxs-lookup"><span data-stu-id="9c6a8-119">You can use the Set-PSRepository to set ScriptSourceLocation value.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="c799a-120">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="c799a-120">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="9c6a8-120">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="9c6a8-120">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name Find-Script -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="c799a-121">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="c799a-121">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="9c6a8-121">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="9c6a8-121">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="c799a-122">Najít skriptu</span><span class="sxs-lookup"><span data-stu-id="c799a-122">Find-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619785)
+[<span data-ttu-id="9c6a8-122">Najít skriptu</span><span class="sxs-lookup"><span data-stu-id="9c6a8-122">Find-Script</span></span>](http://go.microsoft.com/fwlink/?LinkId=619785)
 
-## <a name="example-commands"></a><span data-ttu-id="c799a-123">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="c799a-123">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="9c6a8-123">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="9c6a8-123">Example commands</span></span>
 
 ```powershell
 # Find a script from the registered repository with ScriptSourceLocation
@@ -61,7 +61,7 @@ Find-Script -Name *Azure*
 # Find all versions of a script
 Find-Script -Name Connect-O365 -AllVersions
 
-# Find a script with -MinimumVersion. 
+# Find a script with -MinimumVersion.
 # With MinimumVersion we can find a script whose version is greate than or equal to the specified MinimumVersion value.
 Find-Script Connect-O365 -MinimumVersion 1.4
 
@@ -155,4 +155,3 @@ Cmdlet                         {}
 
 
 ```
-

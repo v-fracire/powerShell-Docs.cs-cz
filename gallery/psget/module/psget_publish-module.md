@@ -1,41 +1,41 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Publikování modulu"
-ms.openlocfilehash: 53fca3d6756ebf698023152ce5b58b45eb0ef757
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: gallery,powershell,cmdlet,psget
+title: Publikování modulu
+ms.openlocfilehash: 8b73be2814678ce143cc5b53e2b8103b3297eb6a
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="publish-module"></a><span data-ttu-id="5e511-103">Publikování modulu</span><span class="sxs-lookup"><span data-stu-id="5e511-103">Publish-Module</span></span>
+# <a name="publish-module"></a><span data-ttu-id="b96e1-103">Publikování modulu</span><span class="sxs-lookup"><span data-stu-id="b96e1-103">Publish-Module</span></span>
 
-<span data-ttu-id="5e511-104">Publikuje zadaný modul z místního počítače do online galerie.</span><span class="sxs-lookup"><span data-stu-id="5e511-104">Publishes a specified module from the local computer to an online gallery.</span></span>
+<span data-ttu-id="b96e1-104">Publikuje zadaný modul z místního počítače do online galerie.</span><span class="sxs-lookup"><span data-stu-id="b96e1-104">Publishes a specified module from the local computer to an online gallery.</span></span>
 
-## <a name="description"></a><span data-ttu-id="5e511-105">Popis</span><span class="sxs-lookup"><span data-stu-id="5e511-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="b96e1-105">Popis</span><span class="sxs-lookup"><span data-stu-id="b96e1-105">Description</span></span>
 
-<span data-ttu-id="5e511-106">**Publikovat modulu** rutiny publikuje modul do online galerie NuGet základě pomocí klíče rozhraní API, uložené v rámci profilu uživatele v galerii.</span><span class="sxs-lookup"><span data-stu-id="5e511-106">The **Publish-Module** cmdlet publishes a module to an online NuGet-based gallery by using an API key, stored as part of a user's profile in the gallery.</span></span> <span data-ttu-id="5e511-107">Zadaný modul pro publikování podle názvu modulu nebo cestě ke složce obsahující modul.</span><span class="sxs-lookup"><span data-stu-id="5e511-107">You can specify the module to publish either by the module's name, or by the path to the folder containing the module.</span></span>
+<span data-ttu-id="b96e1-106">**Publikovat modulu** rutiny publikuje modul do online galerie NuGet základě pomocí klíče rozhraní API, uložené v rámci profilu uživatele v galerii.</span><span class="sxs-lookup"><span data-stu-id="b96e1-106">The **Publish-Module** cmdlet publishes a module to an online NuGet-based gallery by using an API key, stored as part of a user's profile in the gallery.</span></span> <span data-ttu-id="b96e1-107">Zadaný modul pro publikování podle názvu modulu nebo cestě ke složce obsahující modul.</span><span class="sxs-lookup"><span data-stu-id="b96e1-107">You can specify the module to publish either by the module's name, or by the path to the folder containing the module.</span></span>
 
-<span data-ttu-id="5e511-108">Když zadáte modul podle názvu, **publikovat modulu** publikuje první modul, který bude nalezen spuštěním `Get-Module -ListAvailable <Name>`.</span><span class="sxs-lookup"><span data-stu-id="5e511-108">When you specify a module by name, **Publish-Module** publishes the first module that would be found by running `Get-Module -ListAvailable <Name>`.</span></span> <span data-ttu-id="5e511-109">Pokud zadáte minimální verze modulu k publikování, **publikovat modulu** publikuje první modul s verzí, která je větší než nebo rovna minimální verzi, která jste zadali.</span><span class="sxs-lookup"><span data-stu-id="5e511-109">If you specify a minimum version of a module to publish, **Publish-Module** publishes the first module with a version that is greater than or equal to the minimum version that you have specified.</span></span>
+<span data-ttu-id="b96e1-108">Když zadáte modul podle názvu, **publikovat modulu** publikuje první modul, který bude nalezen spuštěním `Get-Module -ListAvailable <Name>`.</span><span class="sxs-lookup"><span data-stu-id="b96e1-108">When you specify a module by name, **Publish-Module** publishes the first module that would be found by running `Get-Module -ListAvailable <Name>`.</span></span> <span data-ttu-id="b96e1-109">Pokud zadáte minimální verze modulu k publikování, **publikovat modulu** publikuje první modul s verzí, která je větší než nebo rovna minimální verzi, která jste zadali.</span><span class="sxs-lookup"><span data-stu-id="b96e1-109">If you specify a minimum version of a module to publish, **Publish-Module** publishes the first module with a version that is greater than or equal to the minimum version that you have specified.</span></span>
 
-<span data-ttu-id="5e511-110">Publikování modul vyžaduje metadata, která se zobrazí na stránce Galerie pro modul.</span><span class="sxs-lookup"><span data-stu-id="5e511-110">Publishing a module requires metadata that is displayed on the gallery page for the module.</span></span> <span data-ttu-id="5e511-111">Požadovaná metadata zahrnuje modul název, verzi, popis a autora.</span><span class="sxs-lookup"><span data-stu-id="5e511-111">Required metadata includes the module name, version, description, and author.</span></span> <span data-ttu-id="5e511-112">I když většina metadata jsou převzaty z manifestu modulu, některá metadata musí být zadány v **publikovat modulu** parametry, například *značky, ReleaseNote, IconUri, ProjectUri,* a  *LicenseUri*, protože tyto parametry odpovídaly pole v galerii na základě NuGet.</span><span class="sxs-lookup"><span data-stu-id="5e511-112">Although most metadata is taken from the module manifest, some metadata must be specified in **Publish-Module** parameters, such as *Tag, ReleaseNote, IconUri, ProjectUri,* and *LicenseUri*, because these parameters match fields in a NuGet-based gallery.</span></span>
+<span data-ttu-id="b96e1-110">Publikování modul vyžaduje metadata, která se zobrazí na stránce Galerie pro modul.</span><span class="sxs-lookup"><span data-stu-id="b96e1-110">Publishing a module requires metadata that is displayed on the gallery page for the module.</span></span> <span data-ttu-id="b96e1-111">Požadovaná metadata zahrnuje modul název, verzi, popis a autora.</span><span class="sxs-lookup"><span data-stu-id="b96e1-111">Required metadata includes the module name, version, description, and author.</span></span> <span data-ttu-id="b96e1-112">I když většina metadata jsou převzaty z manifestu modulu, některá metadata musí být zadány v **publikovat modulu** parametry, například *značky, ReleaseNote, IconUri, ProjectUri,* a  *LicenseUri*, protože tyto parametry odpovídaly pole v galerii na základě NuGet.</span><span class="sxs-lookup"><span data-stu-id="b96e1-112">Although most metadata is taken from the module manifest, some metadata must be specified in **Publish-Module** parameters, such as *Tag, ReleaseNote, IconUri, ProjectUri,* and *LicenseUri*, because these parameters match fields in a NuGet-based gallery.</span></span>
 
-<span data-ttu-id="5e511-113">Parametr RequiredVersion vám umožní určit přesnou verzi modulu k publikování.</span><span class="sxs-lookup"><span data-stu-id="5e511-113">The RequiredVersion parameter allows you to specify the exact version of a module to be published.</span></span>
-<span data-ttu-id="5e511-114">Parametr Path také podporuje základní cesta modulu se složkou verze.</span><span class="sxs-lookup"><span data-stu-id="5e511-114">The Path parameter also supports the module base path with the version folder.</span></span>
-<span data-ttu-id="5e511-115">Parametr Force přepínač na rutinu modulu publikovat bootstraps NuGet.exe bez zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="5e511-115">The Force switch parameter on Publish-Module cmdlet bootstraps the NuGet.exe without prompting.</span></span>
+<span data-ttu-id="b96e1-113">Parametr RequiredVersion vám umožní určit přesnou verzi modulu k publikování.</span><span class="sxs-lookup"><span data-stu-id="b96e1-113">The RequiredVersion parameter allows you to specify the exact version of a module to be published.</span></span>
+<span data-ttu-id="b96e1-114">Parametr Path také podporuje základní cesta modulu se složkou verze.</span><span class="sxs-lookup"><span data-stu-id="b96e1-114">The Path parameter also supports the module base path with the version folder.</span></span>
+<span data-ttu-id="b96e1-115">Parametr Force přepínač na rutinu modulu publikovat bootstraps NuGet.exe bez zobrazení výzvy.</span><span class="sxs-lookup"><span data-stu-id="b96e1-115">The Force switch parameter on Publish-Module cmdlet bootstraps the NuGet.exe without prompting.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="5e511-116">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="5e511-116">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="b96e1-116">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="b96e1-116">Cmdlet syntax</span></span>
 ```powershell
 Get-Command -Name Publish-Module -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="5e511-117">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="5e511-117">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="b96e1-117">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="b96e1-117">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="5e511-118">Publikování modulu</span><span class="sxs-lookup"><span data-stu-id="5e511-118">Publish-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398575)
+[<span data-ttu-id="b96e1-118">Publish-Module</span><span class="sxs-lookup"><span data-stu-id="b96e1-118">Publish-Module</span></span>](http://go.microsoft.com/fwlink/?LinkID=398575)
 
-## <a name="example-commands"></a><span data-ttu-id="5e511-119">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="5e511-119">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="b96e1-119">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="b96e1-119">Example commands</span></span>
 
 ```powershell
 ContosoServer module with different versions to be published.
@@ -67,13 +67,13 @@ _------ ---- ---------- -----------
 2.0 ContosoServer LocalRepo ContosoServer module
 ```
 
-## <a name="publishing-a-module-with-dependencies"></a><span data-ttu-id="5e511-120">Publikování modul s závislosti</span><span class="sxs-lookup"><span data-stu-id="5e511-120">Publishing a module with dependencies</span></span>
+## <a name="publishing-a-module-with-dependencies"></a><span data-ttu-id="b96e1-120">Publikování modul s závislosti</span><span class="sxs-lookup"><span data-stu-id="b96e1-120">Publishing a module with dependencies</span></span>
 
-### <a name="create-a-module-with-dependencies-and-version-range-specified-in-requiredmodules-property-of-its-module-manifest"></a><span data-ttu-id="5e511-121">Vytvoření modulu s závislosti a rozsahu verze zadaná ve vlastnosti RequiredModules jeho manifestu modulu.</span><span class="sxs-lookup"><span data-stu-id="5e511-121">Create a module with dependencies and version range specified in RequiredModules property of its module manifest.</span></span>
+### <a name="create-a-module-with-dependencies-and-version-range-specified-in-requiredmodules-property-of-its-module-manifest"></a><span data-ttu-id="b96e1-121">Vytvoření modulu s závislosti a rozsahu verze zadaná ve vlastnosti RequiredModules jeho manifestu modulu.</span><span class="sxs-lookup"><span data-stu-id="b96e1-121">Create a module with dependencies and version range specified in RequiredModules property of its module manifest.</span></span>
 
-<span data-ttu-id="5e511-122">**Poznámka:**</span><span class="sxs-lookup"><span data-stu-id="5e511-122">**Note:**</span></span>
-  - <span data-ttu-id="5e511-123">\*je podporováno pouze v MaximumVersion a také musí být na konci řetězec verze.</span><span class="sxs-lookup"><span data-stu-id="5e511-123">\* is supported only in MaximumVersion and also it should be at the end of version string.</span></span> 
-  - <span data-ttu-id="5e511-124">\*se nahradí 999999999 v objektu verze.</span><span class="sxs-lookup"><span data-stu-id="5e511-124">\* is replaced with 999999999 in the version object.</span></span>
+<span data-ttu-id="b96e1-122">**Poznámka:**</span><span class="sxs-lookup"><span data-stu-id="b96e1-122">**Note:**</span></span>
+  - <span data-ttu-id="b96e1-123">\* je podporováno pouze v MaximumVersion a také musí být na konci řetězec verze.</span><span class="sxs-lookup"><span data-stu-id="b96e1-123">\* is supported only in MaximumVersion and also it should be at the end of version string.</span></span>
+  - <span data-ttu-id="b96e1-124">\* se nahradí 999999999 v objektu verze.</span><span class="sxs-lookup"><span data-stu-id="b96e1-124">\* is replaced with 999999999 in the version object.</span></span>
 
 ```powershell
 PS C:\windows\system32> $requiredModules = @( @{ModuleName = 'RequiredModule1'; ModuleVersion = '0.1'; MaximumVersion = '1.9'; }, @{ModuleName = 'RequiredModule2'; MaximumVersion = '1.*'; })
@@ -83,13 +83,13 @@ PS C:\windows\system32> cd C:\MyModules\ModuleWithDependencies
 PS C:\MyModules\ModuleWithDependencies> New-ModuleManifest -Path .\ModuleWithDependencies.psd1 -ModuleVersion 1.0 -RequiredModules $requiredModules -Description 'ModuleWithDependencies demo module'
 ```
 
-### <a name="publish-modulewithdependencies-module-with-dependencies-to-the-repository"></a><span data-ttu-id="5e511-125">Modul ModuleWithDependencies s závislosti publikujte do úložiště.</span><span class="sxs-lookup"><span data-stu-id="5e511-125">Publish ModuleWithDependencies module with dependencies to the repository.</span></span>
+### <a name="publish-modulewithdependencies-module-with-dependencies-to-the-repository"></a><span data-ttu-id="b96e1-125">Modul ModuleWithDependencies s závislosti publikujte do úložiště.</span><span class="sxs-lookup"><span data-stu-id="b96e1-125">Publish ModuleWithDependencies module with dependencies to the repository.</span></span>
 
 ```powershell
 PS C:\MyModules\ModuleWithDependencies> Publish-Module -Path C:\MyModules\ModuleWithDependencies -Repository LocalRepo
 ```
 
-### <a name="find-modulewithdependencies-module-with-its-dependencies-by-specifying--includedependencies"></a><span data-ttu-id="5e511-126">Vyhledání modulu ModuleWithDependencies s jeho závislé součásti zadáním - IncludeDependencies</span><span class="sxs-lookup"><span data-stu-id="5e511-126">Find ModuleWithDependencies module with its dependencies by specifying -IncludeDependencies</span></span>
+### <a name="find-modulewithdependencies-module-with-its-dependencies-by-specifying--includedependencies"></a><span data-ttu-id="b96e1-126">Vyhledání modulu ModuleWithDependencies s jeho závislé součásti zadáním - IncludeDependencies</span><span class="sxs-lookup"><span data-stu-id="b96e1-126">Find ModuleWithDependencies module with its dependencies by specifying -IncludeDependencies</span></span>
 
 ```powershell
 PS C:\MyModules\ModuleWithDependencies> Find-Module -Name ModuleWithDependencies -Repository LocalRepo -IncludeDependencies
@@ -101,8 +101,8 @@ Version    Name                                Type       Repository           D
 1.5        RequiredModule2                     Module     localrepo            RequiredModule2 module
 ```
 
-### <a name="install-the-modulewithdependencies-module-with-dependencies"></a><span data-ttu-id="5e511-127">Nainstalujte modul ModuleWithDependencies se závislostmi.</span><span class="sxs-lookup"><span data-stu-id="5e511-127">Install the ModuleWithDependencies module with dependencies.</span></span>
-<span data-ttu-id="5e511-128">Všimněte si, že verze rozsahy jsou dodržení během instalace závislostí.</span><span class="sxs-lookup"><span data-stu-id="5e511-128">Note that version ranges are honored during the dependency installation.</span></span>
+### <a name="install-the-modulewithdependencies-module-with-dependencies"></a><span data-ttu-id="b96e1-127">Nainstalujte modul ModuleWithDependencies se závislostmi.</span><span class="sxs-lookup"><span data-stu-id="b96e1-127">Install the ModuleWithDependencies module with dependencies.</span></span>
+<span data-ttu-id="b96e1-128">Všimněte si, že verze rozsahy jsou dodržení během instalace závislostí.</span><span class="sxs-lookup"><span data-stu-id="b96e1-128">Note that version ranges are honored during the dependency installation.</span></span>
 
 ```powershell
 PS C:\windows\system32> Get-InstalledModule
@@ -118,7 +118,7 @@ Version    Name                                Type       Repository           D
 1.5        RequiredModule2                     Module     localrepo            RequiredModule2 module
 ```
 
-### <a name="contents-of-modulewithdependencies2-module-manifest-file"></a><span data-ttu-id="5e511-129">Soubor manifestu obsah ModuleWithDependencies2 modulu</span><span class="sxs-lookup"><span data-stu-id="5e511-129">Contents of ModuleWithDependencies2 module manifest file</span></span>
+### <a name="contents-of-modulewithdependencies2-module-manifest-file"></a><span data-ttu-id="b96e1-129">Soubor manifestu obsah ModuleWithDependencies2 modulu</span><span class="sxs-lookup"><span data-stu-id="b96e1-129">Contents of ModuleWithDependencies2 module manifest file</span></span>
 
 ```powershell
 @{
@@ -173,11 +173,10 @@ PrivateData = @{
 ```
 
 
-### <a name="external-dependencies"></a><span data-ttu-id="5e511-130">Externí závislosti</span><span class="sxs-lookup"><span data-stu-id="5e511-130">External dependencies</span></span>
-<span data-ttu-id="5e511-131">Několik závislostí modulu je možné spravovat externě, v takovém případě musí být přidaní do položky ExternalModuleDependencies v části PSData manifestu modulu.</span><span class="sxs-lookup"><span data-stu-id="5e511-131">Some module dependencies can be managed externally, in that case they should be added to the ExternalModuleDependencies entry in the PSData section of the module manifest.</span></span>
+### <a name="external-dependencies"></a><span data-ttu-id="b96e1-130">Externí závislosti</span><span class="sxs-lookup"><span data-stu-id="b96e1-130">External dependencies</span></span>
+<span data-ttu-id="b96e1-131">Několik závislostí modulu je možné spravovat externě, v takovém případě musí být přidaní do položky ExternalModuleDependencies v části PSData manifestu modulu.</span><span class="sxs-lookup"><span data-stu-id="b96e1-131">Some module dependencies can be managed externally, in that case they should be added to the ExternalModuleDependencies entry in the PSData section of the module manifest.</span></span>
 
-<span data-ttu-id="5e511-132">Pokud 'SnippetPx' není k dispozici v úložišti, níže chyba bude vyvolána.</span><span class="sxs-lookup"><span data-stu-id="5e511-132">If 'SnippetPx' is not available on the repository, below error will be thrown.</span></span>
+<span data-ttu-id="b96e1-132">Pokud 'SnippetPx' není k dispozici v úložišti, níže chyba bude vyvolána.</span><span class="sxs-lookup"><span data-stu-id="b96e1-132">If 'SnippetPx' is not available on the repository, below error will be thrown.</span></span>
 ```powershell
 Publish-PSArtifactUtility : PowerShellGet cannot resolve the module dependency 'SnippetPx' of the module 'TypePx' on the repository 'LocalRepo'. Verify that the dependent module 'SnippetPx' is available in the repository 'LocalRepo'. If this dependent 'SnippetPx' is managed externally, add it to the ExternalModuleDependencies entry in the PSData section of the module manifest.
 ```
-

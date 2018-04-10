@@ -1,43 +1,43 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Nové ScriptFileInfo"
-ms.openlocfilehash: 9aed0e16f2dec3681ca4b58595aae8d4972a3808
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: gallery,powershell,cmdlet,psget
+title: New-ScriptFileInfo
+ms.openlocfilehash: 2b19421111cd3daef9f7a953cc59223a38fcb79c
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="new-scriptfileinfo"></a><span data-ttu-id="9939e-103">Nové ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="9939e-103">New-ScriptFileInfo</span></span>
+# <a name="new-scriptfileinfo"></a><span data-ttu-id="10918-103">New-ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="10918-103">New-ScriptFileInfo</span></span>
 
-<span data-ttu-id="9939e-104">Vytvoří soubor skriptu s metadaty.</span><span class="sxs-lookup"><span data-stu-id="9939e-104">Creates a script file with metadata.</span></span>
+<span data-ttu-id="10918-104">Vytvoří soubor skriptu s metadaty.</span><span class="sxs-lookup"><span data-stu-id="10918-104">Creates a script file with metadata.</span></span>
 
-## <a name="description"></a><span data-ttu-id="9939e-105">Popis</span><span class="sxs-lookup"><span data-stu-id="9939e-105">Description</span></span>
+## <a name="description"></a><span data-ttu-id="10918-105">Popis</span><span class="sxs-lookup"><span data-stu-id="10918-105">Description</span></span>
 
-<span data-ttu-id="9939e-106">Rutina New-ScriptFileInfo vytvoří soubor skriptu prostředí PowerShell, včetně metadata o tomto skriptu.</span><span class="sxs-lookup"><span data-stu-id="9939e-106">The New-ScriptFileInfo cmdlet creates a PowerShell script file, including metadata about the script.</span></span>
+<span data-ttu-id="10918-106">Rutina New-ScriptFileInfo vytvoří soubor skriptu prostředí PowerShell, včetně metadata o tomto skriptu.</span><span class="sxs-lookup"><span data-stu-id="10918-106">The New-ScriptFileInfo cmdlet creates a PowerShell script file, including metadata about the script.</span></span>
 
-## <a name="cmdlet-syntax"></a><span data-ttu-id="9939e-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="9939e-107">Cmdlet syntax</span></span>
+## <a name="cmdlet-syntax"></a><span data-ttu-id="10918-107">Syntaxe rutin</span><span class="sxs-lookup"><span data-stu-id="10918-107">Cmdlet syntax</span></span>
 
 ```powershell
 Get-Command -Name New-ScriptFileInfo -Module PowerShellGet -Syntax
 ```
 
-## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="9939e-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="9939e-108">Cmdlet online help reference</span></span>
+## <a name="cmdlet-online-help-reference"></a><span data-ttu-id="10918-108">Referenční informace o rutinách online nápovědy</span><span class="sxs-lookup"><span data-stu-id="10918-108">Cmdlet online help reference</span></span>
 
-[<span data-ttu-id="9939e-109">Nové ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="9939e-109">New-ScriptFileInfo</span></span>](http://go.microsoft.com/fwlink/?LinkId=619792)
+[<span data-ttu-id="10918-109">New-ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="10918-109">New-ScriptFileInfo</span></span>](http://go.microsoft.com/fwlink/?LinkId=619792)
 
-## <a name="example-commands"></a><span data-ttu-id="9939e-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="9939e-110">Example commands</span></span>
+## <a name="example-commands"></a><span data-ttu-id="10918-110">Příklady příkazů</span><span class="sxs-lookup"><span data-stu-id="10918-110">Example commands</span></span>
 
-### <a name="passthru-parameter"></a><span data-ttu-id="9939e-111">Parametr PassThru</span><span class="sxs-lookup"><span data-stu-id="9939e-111">PassThru parameter</span></span>
+### <a name="passthru-parameter"></a><span data-ttu-id="10918-111">Parametr PassThru</span><span class="sxs-lookup"><span data-stu-id="10918-111">PassThru parameter</span></span>
 
 ```powershell
 New-ScriptFileInfo -Description "Script file description." -PassThru
 ```
 
-### <a name="new-scriptfileinfo-cmdlet"></a><span data-ttu-id="9939e-112">Nové ScriptFileInfo rutiny</span><span class="sxs-lookup"><span data-stu-id="9939e-112">New-ScriptFileInfo cmdlet</span></span>
-<span data-ttu-id="9939e-113">Nové ScriptFileInfo rutina umožňuje vytvořit nový soubor skriptu s metadaty, jako je verze, Guid, autora a popis, atd.</span><span class="sxs-lookup"><span data-stu-id="9939e-113">New-ScriptFileInfo cmdlet lets you to create a new script file with metadata like Version, Guid, Author, and Description, etc.</span></span> 
+### <a name="new-scriptfileinfo-cmdlet"></a><span data-ttu-id="10918-112">New-ScriptFileInfo cmdlet</span><span class="sxs-lookup"><span data-stu-id="10918-112">New-ScriptFileInfo cmdlet</span></span>
+<span data-ttu-id="10918-113">Nové ScriptFileInfo rutina umožňuje vytvořit nový soubor skriptu s metadaty, jako je verze, Guid, autora a popis, atd.</span><span class="sxs-lookup"><span data-stu-id="10918-113">New-ScriptFileInfo cmdlet lets you to create a new script file with metadata like Version, Guid, Author, and Description, etc.</span></span>
 
 ```powershell
 # Create a new script file with minimum required metadata values
@@ -73,11 +73,11 @@ Version Name Author Description
 
 # Add function and workflow to the script file
 Add-Content -Path C:\ScriptSharingDemo\Demo-Script.ps1 -Value @"
-   
+
     Function Demo-ScriptFunction { 'Demo-ScriptFunction' }
-   
+
     Workflow Demo-ScriptWorkflow { 'Demo-ScriptWorkflow' }
-   
+
     Demo-ScriptFunction
     Demo-ScriptWorkflow
 "@
@@ -118,11 +118,11 @@ New-ScriptFileInfo -Path 'C:\ScriptSharingDemo\Demo-ScriptWithCompletePSScriptIn
 
 # Add function and workflow to the script file
 Add-Content -Path 'C:\ScriptSharingDemo\Demo-ScriptWithCompletePSScriptInfo.ps1' -Value @"
-   
+
     Function Demo-ScriptFunction { 'Demo-ScriptFunction' }
-   
+
     Workflow Demo-ScriptWorkflow { 'Demo-ScriptWorkflow' }
-   
+
     Demo-ScriptFunction
     Demo-ScriptWorkflow
 "@
@@ -192,4 +192,3 @@ DefinedCommands : {Demo-ScriptFunction, Demo-ScriptWorkflow}
 DefinedFunctions : Demo-ScriptFunction
 DefinedWorkflows : Demo-ScriptWorkflow
 ```
-
