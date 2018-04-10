@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Spuštění jádra Windows PowerShellu 2.0"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Spuštění jádra Windows PowerShellu 2.0
 ms.assetid: edafc2fa-7576-49c2-bbba-9336f4bcfc28
-ms.openlocfilehash: f074330953164c49d9bfaa3eb7ca1c1638eeeb76
-ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
+ms.openlocfilehash: 585e1003554362d11fe99414bd3e80c497799a88
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="starting-the-windows-powershell-20-engine"></a>Spuštění jádra Windows PowerShellu 2.0
 

@@ -1,16 +1,16 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
 title: Test pswaauthorizationrule
 ms.technology: powershell
-ms.openlocfilehash: fb2937397616160c70b056e412e42fb8ff4c2f27
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: ed6d56b2f3c4ee4ac410cdaadda312bffe506ee9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="test-pswaauthorizationrule"></a>Test-PswaAuthorizationRule
 
@@ -47,7 +47,7 @@ Parametry pro tuto rutinu odpovídají pole na stránku pro přihlášení k Win
 
 Určuje název počítače, které chcete otestovat.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -60,7 +60,7 @@ Určuje název počítače, které chcete otestovat.
 
 Určuje název konfigurace relace prostředí Windows PowerShell, také známé jako koncový bod nebo prostředí runspace k testování.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -73,7 +73,7 @@ Určuje název konfigurace relace prostředí Windows PowerShell, také známé 
 
 Určuje identifikátor URI k testování připojení.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -86,7 +86,7 @@ Určuje identifikátor URI k testování připojení.
 
 Určuje **PSCredential** objekt pro uživatelský účet, který chcete použít pro testování Windows PowerShell Web Access autorizačních pravidel. Pokud tento parametr nepřidáte, rutina používá účet aktuálně přihlášeného uživatele. Chcete-li získat **PSCredential** objekt, který je potřeba otestovat autorizační pravidla vzdáleně, spusťte [Get-Credential](http://go.microsoft.com/fwlink/?LinkID=293936) rutiny.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -99,7 +99,7 @@ Určuje **PSCredential** objekt pro uživatelský účet, který chcete použít
 
 Určuje podmnožinu pravidla k testování. Pokud není tento parametr zadán, tato rutina testuje proti všechna autorizační pravidla.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -112,7 +112,7 @@ Určuje podmnožinu pravidla k testování. Pokud není tento parametr zadán, t
 
 Určuje jméno uživatele, který chcete otestovat.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |

@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Odinstalujte modul
-ms.openlocfilehash: 3c4d8faa63aba6b4434d42a19a219baf84122591
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 90f26e64a8a6bc95faf444b1d3ce82a8e3bbefc1
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="uninstall-module"></a>Odinstalujte modul
 
@@ -16,7 +16,8 @@ Odinstaluje modul, který byl nainstalován pomocí rutin PowerShellGet.
 
 ## <a name="description"></a>Popis
 
-Rutina Uninstall-Module odinstaluje zadaný modul z místního počítače. Modul nelze odinstalovat, pokud některé z ostatních modulů jsou závislé na něm.
+Rutina Uninstall-Module odinstaluje zadaný modul z místního počítače.
+Modul nelze odinstalovat, pokud některé z ostatních modulů jsou závislé na něm.
 Rutiny Uninstall-Module zároveň ověří, pokud modul Probíhá odinstalace je používán, nebo ne. Pokud modul se používá, bude vyvolána chyba.
 
 ## <a name="cmdlet-syntax"></a>Syntaxe rutin
@@ -26,7 +27,7 @@ Get-Command -Name Uninstall-Module -Module PowerShellGet -Syntax
 
 ## <a name="cmdlet-online-help-reference"></a>Referenční informace o rutinách online nápovědy
 
-[Odinstalujte modul](http://go.microsoft.com/fwlink/?LinkId=526864)
+[Uninstall-Module](http://go.microsoft.com/fwlink/?LinkId=526864)
 
 
 ## <a name="example-commands"></a>Příklady příkazů
@@ -126,4 +127,3 @@ At C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm
    , Exception
     + FullyQualifiedErrorId : NoMatchFound,Microsoft.PowerShell.PackageManagement.Cmdlets.UninstallPackage
 ```
-

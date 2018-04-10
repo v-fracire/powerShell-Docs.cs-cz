@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Seznámení s koncepty důležité Windows PowerShell"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Vysvětlení důležitých pojmů Windows PowerShellu
 ms.assetid: 3e601e38-4520-4578-a48d-b6779f1d35ee
-ms.openlocfilehash: 1ffcfefcc7ffc7c98ba4d1e3ccc9a59cd9b0baac
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 07ceaa2f3e6a192c6281cb4c99aed4c3f66afc7e
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="understanding-important-windows-powershell-concepts"></a>Seznámení s koncepty důležité Windows PowerShell
+# <a name="understanding-important-windows-powershell-concepts"></a>Vysvětlení důležitých pojmů Windows PowerShellu
 Prostředí Windows PowerShell návrhu integruje koncepty z mnoha různých prostředích. Několik z nich jsou známé uživatelům s prostředím v součásti pro konkrétní nebo programovací prostředí, ale jen několik lidí věděli o všech z nich. Vyhledávání na některé z těchto pojmech obsahuje užitečné Přehled prostředí.
 
 ### <a name="commands-are-not-text-based"></a>Příkazy nejsou založený na textu
@@ -30,7 +30,7 @@ Speciální charakter interní příkazy prostředí Windows PowerShell, bude oz
 ### <a name="windows-powershell-handles-console-input-and-display"></a>Vstup konzoly obslužných rutin prostředí PowerShell systému Windows a zobrazení
 Když zadáte příkaz, prostředí Windows PowerShell vždy zpracovává příkazového řádku vstup přímo. Prostředí Windows PowerShell taky formáty výstupu, který se zobrazí na obrazovce. To je důležité, protože snižuje práce potřebné jednotlivých rutin a zajišťuje, že můžete vždy způsobem stejným způsobem, bez ohledu na to, které rutina, kterou používáte. Jedním z příkladů jak tato funkce zjednodušuje životnosti pro nástroj vývojáři a uživatelé je Nápověda příkazového řádku.
 
-Tradiční nástroje příkazového řádku mají své vlastní schémata požaduje a zobrazení nápovědy. Některé nástroje příkazového řádku použijte **/?** k aktivaci zobrazení nápovědy; jiné používají **-?**, **/H**, nebo i  **//** . Některé zobrazí nápovědy v okně grafického uživatelského rozhraní, a nikoli v zobrazení konzoly. Některé komplexní nástroje, například aktualizační aplikace, rozbalte soubory vnitřním před zobrazení jejich nápovědy. Pokud použijete nesprávný parametr, nástroj může ignorovat zadali a zahájit provádění úlohy automaticky.
+Tradiční nástroje příkazového řádku mají své vlastní schémata požaduje a zobrazení nápovědy. Některé nástroje příkazového řádku použijte **/?** k aktivaci zobrazení nápovědy; jiné používají **-?**, **/H**, nebo i **//**. Některé zobrazí nápovědy v okně grafického uživatelského rozhraní, a nikoli v zobrazení konzoly. Některé komplexní nástroje, například aktualizační aplikace, rozbalte soubory vnitřním před zobrazení jejich nápovědy. Pokud použijete nesprávný parametr, nástroj může ignorovat zadali a zahájit provádění úlohy automaticky.
 
 Když zadáte příkaz v prostředí Windows PowerShell, vše, co zadáte je automaticky analyzovat a předem zpracovány prostředím Windows PowerShell. Pokud použijete **-?** Parametr s rutiny prostředí Windows PowerShell, vždy znamená "Zobrazit mi nápovědy pro tento příkaz". Vývojáři rutiny nemají analyzovat příkaz; Stačí, když se zadat text nápovědy.
 
@@ -43,4 +43,3 @@ Je důležité si uvědomit, že funkce nápovědy prostředí Windows PowerShel
 Prostředí Windows PowerShell má syntaxe funkce a klíčová slova, která jsou velmi podobné těm, které jsou v programovací jazyk, C# použít, protože prostředí Windows PowerShell je založena na rozhraní .NET Framework. Učení prostředí Windows PowerShell budou bylo mnohem snazší výuka C#, pokud vás zajímá v jazyce.
 
 Pokud si nejste programování v C#, není tato podobnosti důležité. Ale pokud jste již obeznámeni s C#, podobnost můžete nastavit učení mnohem jednodušší prostředí Windows PowerShell.
-

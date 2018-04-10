@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Jaké s 50 powershellu ISE"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Jaké s 50 powershellu ISE
 ms.assetid: 38648d47-7c27-4b37-a40e-ad29948519c2
-ms.openlocfilehash: 9fd25a4759602bebf2b5df2c17d0c816a15e5e2b
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: 35b825cfa6ea720d0af3537c5d1b16c5ececb701
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="what39s-new-in-the-windows-powershell-ise"></a>Co&#39;s nová funkce v systému Windows PowerShell ISE
 Toto téma popisuje nové a aktualizované funkce, které byly zavedeny ve verzích systému Windows PowerShell Integrované skriptovací prostředí (ISE).
@@ -225,4 +225,3 @@ Další informace o používání v prostředí Windows PowerShell Windows Power
 - [Zkoumání Windows PowerShell Integrované skriptovací prostředí](../getting-started/fundamental/exploring-the-windows-powershell-ise.md)
 - [ISE na webu TechNet Wiki](http://social.technet.microsoft.com/wiki/search/searchresults.aspx?q=ISE)
 - [Centra skriptů](http://technet.microsoft.com/scriptcenter/default)
-

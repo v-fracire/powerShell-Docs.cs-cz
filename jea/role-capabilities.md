@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: rpsqrd
 ms.topic: conceptual
-keywords: "jea, prostředí powershell, zabezpečení"
-title: "Možnosti JEA Role"
-ms.openlocfilehash: 083cab3b44348168fe20e8355f5076b28be78702
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: jea, prostředí powershell, zabezpečení
+title: Možnosti JEA Role
+ms.openlocfilehash: bd6d61443faf30e4056930a010103e6807c015c9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="jea-role-capabilities"></a>Možnosti JEA Role
 
@@ -280,4 +280,3 @@ Další informace o identifikaci skutečná oprávnění uživatelů lze najít 
 ## <a name="next-steps"></a>Další kroky
 
 - [Vytvoření konfiguračního souboru relace](session-configurations.md)
-

@@ -1,19 +1,20 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC"
-ms.openlocfilehash: 5f7583fb93b69bbe4103b34b79b3a859c9cee8a9
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
+ms.openlocfilehash: a3803a8e6fe6ff1b93758a73ccd54754d7bb2a84
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="building-a-continuous-integration-and-continuous-deployment-pipeline-with-dsc"></a>Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
 
 Tento příklad ukazuje, jak vytvořit kanál průběžné nasazování integrace/souvislý (CI/CD) pomocí prostředí PowerShell, DSC, Pester a Visual Studio Team Foundation Server (TFS).
 
-Po vytvoření kanálu a nakonfigurovaný, můžete použít pro plně nasazení, konfiguraci a testování serveru DNS a přidružené záznamy hostitele. Tento proces simuluje první část kanál, který se použije ve vývojovém prostředí.
+Po vytvoření kanálu a nakonfigurovaný, můžete použít pro plně nasazení, konfiguraci a testování serveru DNS a přidružené záznamy hostitele.
+Tento proces simuluje první část kanál, který se použije ve vývojovém prostředí.
 
 Kanál automatizované CI/CD umožňuje rychlejší aktualizace softwaru a spolehlivěji, zajistíte, že veškerý kód je testován a že je aktuální sestavení kódu vždy k dispozici.
 
@@ -36,7 +37,7 @@ Toto je počítač, kde, můžete to udělat všechny pracovní nastavení a spu
 
 Klientský počítač musí být počítač se systémem Windows s nainstalované tyto položky:
 - [Git](https://git-scm.com/)
-- úložiště místní git naklonována ze https://github.com/PowerShell/Demo_CI
+- klonovat úložiště místní git z https://github.com/PowerShell/Demo_CI
 - textový editor, například [Visual Studio Code](https://code.visualstudio.com/)
 
 ### <a name="tfssrv1"></a>TFSSrv1
@@ -60,7 +61,7 @@ V počítači musí být spuštěn [systému Windows Server 2016](https://www.mi
 ### <a name="testagent2"></a>TestAgent2
 
 Toto je počítač, který je hostitelem webu, který tento příklad konfiguruje.
-V počítači musí být spuštěn [systému Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). 
+V počítači musí být spuštěn [systému Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016).
 
 ## <a name="add-the-code-to-tfs"></a>Přidejte kód do sady TFS
 
@@ -156,7 +157,8 @@ To vyhledá všechny uzly, které byly definovány tak, že má role `DNSServer`
 
 Definování uzly pomocí konfiguračních dat je důležité, pokud to položek konfigurace, protože uzel informace změní pravděpodobně mezi prostředími, a pomocí konfigurační data můžete snadno provádět změny uzlu informace beze změny kódu konfigurace.
 
-V prvním bloku prostředků, konfigurace volá [WindowsFeature](windowsFeatureResource.md) zajistit, že je povolena funkce DNS. Bloky prostředků, které podle volání prostředky z [xDnsServer](https://github.com/PowerShell/xDnsServer) modulu Konfigurace primární zóna a záznamy DNS.
+V prvním bloku prostředků, konfigurace volá [WindowsFeature](windowsFeatureResource.md) zajistit, že je povolena funkce DNS.
+Bloky prostředků, které podle volání prostředky z [xDnsServer](https://github.com/PowerShell/xDnsServer) modulu Konfigurace primární zóna a záznamy DNS.
 
 Všimněte si, že dva `xDnsRecord` bloky jsou uzavřen do `foreach` cykly, které iteraci v rámci pole v konfigurační data.
 Znovu vytvoří konfigurační data `DevEnv.ps1` skript, který podíváme Další.
@@ -199,7 +201,8 @@ V našem případě pouze `RawEnvData` parametr se používá.
 ### <a name="the-psake-build-script"></a>Skript psake sestavení
 
 [Psake](https://github.com/psake/psake) skriptu definovaný v sestavení `Build.ps1` (z kořenového úložiště Demo_CI `./InfraDNS/Build.ps1`) definuje úlohy, které jsou součástí sestavení.
-Také definuje, jaké úkoly, které každý úkol závisí na. Po vyvolání skriptu psake zajistí, že zadané úloze (nebo úloha s názvem `Default` Pokud není zadaný žádný) běží a že všechny závislosti také spustit (to je rekurzivní, takže závislosti závislosti spustit, a tak dále).
+Také definuje, jaké úkoly, které každý úkol závisí na.
+Po vyvolání skriptu psake zajistí, že zadané úloze (nebo úloha s názvem `Default` Pokud není zadaný žádný) běží a že všechny závislosti také spustit (to je rekurzivní, takže závislosti závislosti spustit, a tak dále).
 
 V tomto příkladu `Default` úloh je definován jako:
 
@@ -263,7 +266,7 @@ Vytvoří složek používaných pro tento příklad a odebere z předchozích s
 
 [Psake](https://github.com/psake/psake) skript nasazení, které jsou definované v `Deploy.ps1` (z kořenového úložiště Demo_CI `./InfraDNS/Deploy.ps1`) definuje úlohy, které nasazení a spuštění konfigurace.
 
-`Deploy.ps1`definuje následující úlohy:
+`Deploy.ps1` definuje následující úlohy:
 
 #### <a name="deploymodules"></a>DeployModules
 
@@ -334,8 +337,8 @@ Tento krok sestavení běží `initiate.ps1` souboru, který volá psake skriptu
 
 ### <a name="publish-test-results"></a>Publikování výsledků testů
 
-1. Nastavit **testování výsledný formát** na`NUnit`
-1. Nastavit **výsledky testu soubory** do`InfraDNS/Tests/Results/*.xml`
+1. Nastavit **testování výsledný formát** na `NUnit`
+1. Nastavit **výsledky testu soubory** do `InfraDNS/Tests/Results/*.xml`
 1. Nastavit **testování název běhu** k `Unit`.
 1. Zajistěte, aby **možnosti řízení** **povoleno** a **vždy spustit** jsou obě vybrané.
 
@@ -352,15 +355,15 @@ Tento krok sestavení spustí testy jednotek ve skriptu Pester jsme se podívali
     **\Integration\**
     ```
 
-1. Nastavit **TargetFolder** na`$(Build.ArtifactStagingDirectory)\`
+1. Nastavit **TargetFolder** na `$(Build.ArtifactStagingDirectory)\`
 
 Tento krok zkopíruje sestavení a testů skriptů do pracovního adresáře, který lze publikovat, protože sestavení artefaktů dalším krokem.
 
 ### <a name="publish-artifact"></a>Publikování artefaktů
 
-1. Nastavit **cestu k publikování** na`$(Build.ArtifactStagingDirectory)\`
-1. Nastavit **artefaktů název** na`Deploy`
-1. Nastavit **typu artefaktu** na`Server`
+1. Nastavit **cestu k publikování** na `$(Build.ArtifactStagingDirectory)\`
+1. Nastavit **artefaktů název** na `Deploy`
+1. Nastavit **typu artefaktu** na `Server`
 1. Vyberte `Enabled` v **řízení možností**
 
 ## <a name="enable-continuous-integration"></a>Povolit průběžnou integraci
@@ -393,21 +396,21 @@ Postup úpravy následujícím způsobem:
 
 ### <a name="powershell-script"></a>Skript prostředí PowerShell
 
-1. Nastavte **cestu ke skriptu** do`$(Build.DefinitionName)\Deploy\initiate.ps1"`
-1. Nastavte **argumenty** do`-fileName Deploy`
+1. Nastavte **cestu ke skriptu** do `$(Build.DefinitionName)\Deploy\initiate.ps1"`
+1. Nastavte **argumenty** do `-fileName Deploy`
 
 ### <a name="first-publish-test-results"></a>Nejprve publikování výsledků testů
 
 1. Vyberte `NUnit` pro **testovací výsledný formát** pole
-1. Nastavte **testovací soubory výsledek** do`$(Build.DefinitionName)\Deploy\InfraDNS\Tests\Results\Integration*.xml`
-1. Nastavte **testování název běhu** na`Integration`
+1. Nastavte **testovací soubory výsledek** do `$(Build.DefinitionName)\Deploy\InfraDNS\Tests\Results\Integration*.xml`
+1. Nastavte **testování název běhu** na `Integration`
 1. V části **možnosti řízení**, zkontrolujte **vždy spustit.**
 
 ### <a name="second-publish-test-results"></a>Druhý publikování výsledků testů
 
 1. Vyberte `NUnit` pro **testovací výsledný formát** pole
-1. Nastavte **testovací soubory výsledek** do`$(Build.DefinitionName)\Deploy\InfraDNS\Tests\Results\Acceptance*.xml`
-1. Nastavte **testování název běhu** na`Acceptance`
+1. Nastavte **testovací soubory výsledek** do `$(Build.DefinitionName)\Deploy\InfraDNS\Tests\Results\Acceptance*.xml`
+1. Nastavte **testování název běhu** na `Acceptance`
 1. V části **možnosti řízení**, zkontrolujte **vždy spustit.**
 
 ## <a name="verify-your-results"></a>Zkontrolujte výsledky
@@ -422,10 +425,3 @@ Výsledek nasazení můžete zkontrolovat otevřením prohlížeče v klientské
 Tento příklad konfiguruje DNS server `TestAgent1` tak, aby adresa URL `www.contoso.com` přeloží na `TestAgent2`, ale ve skutečnosti Nenasazuje webu.
 Kostru jak to udělat najdete v úložišti v části `WebApp` složky.
 Zástupných procedur zadaná k vytvoření psake skripty, Pester testy a konfigurace DSC můžete použít k nasazení vlastního webu.
-
-
-
-
-
-
-

@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Spuštění Windows PowerShellu"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Spuštění Windows PowerShellu
 ms.assetid: 59b649a2-c90c-4cf4-bf95-a740c59148e7
-ms.openlocfilehash: 90f6992f47e62c1775cae216b4012f630e07558f
-ms.sourcegitcommit: 755d7bc0740573d73613cedcf79981ca3dc81c5e
+ms.openlocfilehash: b56ddc2f577225646729b99f3a2abcb8cc60d307
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="starting-windows-powershell"></a>Spuštění Windows PowerShellu
 PowerShell je skriptovací modulu dll, která je integrována do více hostitelů.  Nejběžnější hostitele, který se spustí jsou interaktivního příkazového řádku PowerShell.exe a interaktivní PowerShell_ISE.exe prostředí skriptování.
@@ -93,14 +93,14 @@ Spusťte 32bitovou verzi prostředí Windows PowerShell, použijte některý z n
 - Na **spustit** zadejte **prostředí Windows PowerShell (x86)**. Klikněte **prostředí Windows PowerShell x86** dlaždici.
 - V **správce serveru**, z **nástroje** nabídce vyberte možnost **prostředí Windows PowerShell (x86)**.
 - Přesunutí kurzoru do pravého horního rohu klikněte na ploše **vyhledávání**, typ **prostředí PowerShell x86** a pak klikněte na **prostředí Windows PowerShell (x86)**.
-- Prostřednictvím příkazového řádku zadejte:`%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
+- Prostřednictvím příkazového řádku zadejte: `%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
 
 #### <a name="in-windows-server-2012"></a>In Windows Server® 2012
 
 - Na **spustit** zadejte **prostředí PowerShell** a pak klikněte na **prostředí Windows PowerShell (x86)**.
 - V **správce serveru**, z **nástroje** nabídce vyberte možnost **prostředí Windows PowerShell (x86)**.
 - Přesunutí kurzoru do pravého horního rohu klikněte na ploše **vyhledávání**, typ **prostředí PowerShell** a pak klikněte na **prostředí Windows PowerShell (x86)**.
-- Prostřednictvím příkazového řádku zadejte:`%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
+- Prostřednictvím příkazového řádku zadejte: `%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
 
 #### <a name="in-windows-81"></a>V Windows® 8.1
 
@@ -108,11 +108,11 @@ Spusťte 32bitovou verzi prostředí Windows PowerShell, použijte některý z n
 - Pokud používáte [nástrojů pro vzdálenou správu serveru](http://go.microsoft.com/fwlink/?LinkID=304145) pro Windows 8.1, můžete také otevřít prostředí Windows PowerShell x86 z **Server ManagerTools** nabídky.
   Vyberte **prostředí Windows PowerShell (x86)**.
 - Přesunutí kurzoru do pravého horního rohu klikněte na ploše **vyhledávání**, typ **prostředí PowerShell x86** a pak klikněte na **prostředí Windows PowerShell (x86)**.
-- Prostřednictvím příkazového řádku zadejte:`%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
+- Prostřednictvím příkazového řádku zadejte: `%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
 
 #### <a name="in-windows-8"></a>V Windows® 8
 
 - Na **spustit** obrazovky, přesuňte se ukazatelem do pravého horního rohu, klikněte na **nastavení**, klikněte na tlačítko **dlaždice**a poté přesuňte **zobrazit nástroje pro správu** jezdec na Ano. Poté zadejte **prostředí PowerShell** a klikněte na tlačítko **prostředí Windows PowerShell (x86)**.
 - Pokud používáte [nástrojů pro vzdálenou správu serveru](http://www.microsoft.com/download/details.aspx?id=28972) pro systém Windows 8, můžete také otevřít prostředí Windows PowerShell x86 z **Server ManagerTools** nabídky. Vyberte **prostředí Windows PowerShell (x86)**.
 - Na **spustit** obrazovky nebo plocha, zadejte **prostředí PowerShell (x86)** a pak klikněte na **prostředí Windows PowerShell (x86)**.
-- Prostřednictvím příkazového řádku zadejte:`%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`
+- Prostřednictvím příkazového řádku zadejte: `%SystemRoot%\SysWOW64\WindowsPowerShell\v1.0\powershell.exe`

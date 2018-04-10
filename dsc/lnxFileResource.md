@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "DSC pro Linux nxFile prostředků"
-ms.openlocfilehash: 7ee8a37ee63a70b1c8c69dc79dfbc77c1f583234
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: DSC pro Linux nxFile prostředků
+ms.openlocfilehash: 41b5ebde299c47b38d7a6e7f71607332b24ca0e4
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-for-linux-nxfile-resource"></a>DSC pro Linux nxFile prostředků
 
@@ -37,20 +37,20 @@ nxFile <string> #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost |  Popis | 
+|  Vlastnost |  Popis |
 |---|---|
-| DestinationPath| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.| 
-| SourcePath| Určuje cestu, ze kterého chcete kopírovat prostředek souboru nebo složky. Tato cesta může být místní cesta nebo `http/https/ftp` adresy URL. Vzdálené `http/https/ftp` adresy URL jsou pouze podporovaná, až hodnotu **typ** vlastnost je soubor.| 
-| Ujistěte se| Určuje, jestli se má zkontrolovat, zda soubor existuje. Nastavte tuto vlastnost k dispozici"" zajistit, že soubor existuje. Nastavte ji na "Chybí" zajistěte, aby byl že soubor neexistuje. Výchozí hodnota je "Dispozici".| 
-| Typ| Určuje, zda je nakonfigurován prostředek adresář nebo soubor. Nastavením této vlastnosti "adresář" označuje, že prostředek adresáře. Nastavte tak, aby "soubor" k označení, že je prostředek soubor. Výchozí hodnota je "soubor"| 
-| Obsah| Určuje obsah souboru, například konkrétní řetězec.| 
-| Kontrolní součet| Definuje typ, který má použít při určování, zda dva soubory jsou stejné. Pokud **kontrolního součtu** není zadán, pro porovnání se používá pouze název souboru nebo adresáře. Hodnoty: "ctime", "mtime" nebo "md5".| 
-| Recurse| Uvádí, jestli jsou zahrnuté podadresářů. Tuto vlastnost nastavit na **$true** k označení, že chcete podadresáře, které mají být zahrnuty. Výchozí hodnota je **$false**. **Poznámka:** tato vlastnost je platná pouze když **typu** je nastavena na adresář.| 
-| Force| Některé operace souboru (například přepsání souboru nebo odstranění adresáře, který není prázdný) bude výsledkem chyba. Pomocí **Force** vlastnost má přednost před takové chyby. Výchozí hodnota je **$false**.| 
-| Odkazy| Určuje požadované chování pro symbolické odkazy. Nastavením této vlastnosti "následovat" a postupujte podle symbolické odkazy fungují na cíli odkazy (např. Zkopírujte soubor místo odkazu). Nastavením této vlastnosti "manage" tak, aby fungoval na odkaz (například) Zkopírujte odkaz sám sebe). Nastavte tuto vlastnost "Ignorovat" Ignorovat symbolické odkazy.| 
-| Skupina| Název **skupiny** udělil soubor nebo adresář.| 
-| Režim| Určuje požadované oprávnění pro prostředek, notaci osmičková nebo symbolické. (například 777 nebo rwxrwxrwx). Pokud používáte symbolický zápis, neposkytují prvního znaku, který označuje adresář nebo soubor.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.| 
+| DestinationPath| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
+| SourcePath| Určuje cestu, ze kterého chcete kopírovat prostředek souboru nebo složky. Tato cesta může být místní cesta nebo `http/https/ftp` adresy URL. Vzdálené `http/https/ftp` adresy URL jsou pouze podporovaná, až hodnotu **typ** vlastnost je soubor.|
+| Ujistěte se| Určuje, jestli se má zkontrolovat, zda soubor existuje. Nastavte tuto vlastnost k dispozici"" zajistit, že soubor existuje. Nastavte ji na "Chybí" zajistěte, aby byl že soubor neexistuje. Výchozí hodnota je "Dispozici".|
+| Typ| Určuje, zda je nakonfigurován prostředek adresář nebo soubor. Nastavením této vlastnosti "adresář" označuje, že prostředek adresáře. Nastavte tak, aby "soubor" k označení, že je prostředek soubor. Výchozí hodnota je "soubor"|
+| Obsah| Určuje obsah souboru, například konkrétní řetězec.|
+| Kontrolní součet| Definuje typ, který má použít při určování, zda dva soubory jsou stejné. Pokud **kontrolního součtu** není zadán, pro porovnání se používá pouze název souboru nebo adresáře. Hodnoty: "ctime", "mtime" nebo "md5".|
+| Recurse| Uvádí, jestli jsou zahrnuté podadresářů. Tuto vlastnost nastavit na **$true** k označení, že chcete podadresáře, které mají být zahrnuty. Výchozí hodnota je **$false**. **Poznámka:** tato vlastnost je platná pouze když **typu** je nastavena na adresář.|
+| Force| Některé operace souboru (například přepsání souboru nebo odstranění adresáře, který není prázdný) bude výsledkem chyba. Pomocí **Force** vlastnost má přednost před takové chyby. Výchozí hodnota je **$false**.|
+| Odkazy| Určuje požadované chování pro symbolické odkazy. Nastavením této vlastnosti "následovat" a postupujte podle symbolické odkazy fungují na cíli odkazy (např. Zkopírujte soubor místo odkazu). Nastavením této vlastnosti "manage" tak, aby fungoval na odkaz (například) Zkopírujte odkaz sám sebe). Nastavte tuto vlastnost "Ignorovat" Ignorovat symbolické odkazy.|
+| Skupina| Název **skupiny** udělil soubor nebo adresář.|
+| Režim| Určuje požadované oprávnění pro prostředek, notaci osmičková nebo symbolické. (například 777 nebo rwxrwxrwx). Pokud používáte symbolický zápis, neposkytují prvního znaku, který označuje adresář nebo soubor.|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="additional-information"></a>Další informace
 
@@ -67,11 +67,11 @@ nxFile resolvConf
 {
     SourcePath = "http://10.185.85.11/conf/resolv.conf"
     DestinationPath = "/etc/resolv.conf"
-    Mode = "644"        
+    Mode = "644"
     Type = "file"
-    
+
 }
-        
+
 }
 ```
 
@@ -89,7 +89,7 @@ $Contents = Get-Content C:\temp\resolv.conf
 nxFile resolvConf
 {
     DestinationPath = "/etc/resolv.conf"
-    Mode = "644"        
+    Mode = "644"
     Type = "file"
     Contents = "$Contents"
 }
@@ -122,10 +122,10 @@ $Contents = LinuxString $Contents
 nxFile resolvConf
 {
     DestinationPath = "/etc/resolv.conf"
-    Mode = "644"        
+    Mode = "644"
     Type = "file"
     Contents = $Contents
-    
+
 }
 }
 ```
@@ -135,7 +135,7 @@ nxFile resolvConf
 Následující příklad zajišťuje, že adresář `/opt/mydir` existuje, a zda existuje soubor s zadaný obsah tohoto adresáře.
 
 ```
-Import-DSCResource -Module nx 
+Import-DSCResource -Module nx
 
 Node $node {
 nxFile DirectoryExample
@@ -151,10 +151,9 @@ nxFile FileExample
     Destinationpath = "/opt/mydir/myfile"
     Contents=@"
 #!/bin/bash`necho "hello world"`n
-"@ 
+"@
     Mode = “755”
     DependsOn = "[nxFile]DirectoryExample"
-} 
+}
 }
 ```
-

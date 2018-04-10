@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda TestConfiguration MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: 04f0f3146473dc71f492086449d9dce5467c55db
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda TestConfiguration třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: 7815d458a9a67639a31c917510097212d104eb8a
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="testconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda TestConfiguration MSFT_DSCLocalConfigurationManager třídy
+# <a name="testconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda TestConfiguration třídy MSFT_DSCLocalConfigurationManager
 
 Odešle spravovaný uzel dokumentu konfigurace a zkontroluje aktuální konfiguraci proti dokumentu.
 
@@ -28,17 +28,13 @@ uint32 TestConfiguration(
 <a name="parameters"></a>Parameters
 ----------
 
-*configurationData* \[v\]  
-Data confuguration prostředí.
+*configurationData* \[v\] prostředí dat pro confuguration.
 
-*InDesiredState* \[out\]  
-Při návratu Určuje, zda spravovaný uzel je ve stavu určeného dokumentu konfigurace.
+*InDesiredState* \[out\] na vrátit, určuje, zda spravovaný uzel je ve stavu určeného dokumentu konfigurace.
 
-*ResourcesInDesiredState* \[out\]  
-Při návratu, obsahuje vložené instance **MSFT_ResourceInDesiredState** třídu, která určuje prostředky, které jsou v požadovaném stavu.
+*ResourcesInDesiredState* \[out\] na vrátí, obsahuje vložené instance **MSFT_ResourceInDesiredState** třídu, která určuje prostředky, které jsou v požadovaném stavu.
 
-*ResourcesNotInDesiredState* \[out\]  
-Při návratu, obsahuje vložené instance **MSFT_ResourceNotInDesiredState** třídu, která určuje prostředky, které nejsou v požadovaném stavu.
+*ResourcesNotInDesiredState* \[out\] na vrátí, obsahuje vložené instance **MSFT_ResourceNotInDesiredState** třídu, která určuje prostředky, které nejsou v požadovaném stavu.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -60,11 +56,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
-
- 
-
- 
-
-
-

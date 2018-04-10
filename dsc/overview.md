@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Přehled stavu konfigurace požadovaného prostředí Windows PowerShell"
-ms.openlocfilehash: 1d6ba0b2fdb514e703ddad11adf4cdace5c001a9
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Přehled stavu konfigurace požadovaného prostředí Windows PowerShell
+ms.openlocfilehash: 3f357ea11a388a05b73539a63e52e639ee906f68
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="windows-powershell-desired-state-configuration-overview"></a>Přehled stavu konfigurace požadovaného prostředí Windows PowerShell 
+# <a name="windows-powershell-desired-state-configuration-overview"></a>Přehled stavu konfigurace požadovaného prostředí Windows PowerShell
 
 > Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
@@ -24,17 +24,16 @@ DSC je platforma pro správu v prostředí PowerShell, které umožňuje spravov
 DSC je deklarativní platforma používá pro konfiguraci, nasazení a Správa systémů. Obsahuje tři hlavní komponenty:
 
 - [Konfigurace](configurations.md) jsou deklarativní skriptů prostředí PowerShell, které definují a konfigurace instance prostředků.
-    Při spuštění konfigurace DSC (a prostředky volané konfigurace) bude jednoduše "bylo tak", zajistíte, že v systému existuje ve stavu nastíněny konfigurace. 
+    Při spuštění konfigurace DSC (a prostředky volané konfigurace) bude jednoduše "bylo tak", zajistíte, že v systému existuje ve stavu nastíněny konfigurace.
     Konfigurace DSC se také idempotent: místní Configuration Manager (LCM) budou nadále počítače musí být nastaveny v ať stav konfigurace deklaruje.
-- [Prostředky](resources.md) jsou součástí DSC "bylo tak". Obsahuje kód, který put a zachovat cíl konfigurace v zadaném stavu. 
+- [Prostředky](resources.md) jsou součástí DSC "bylo tak". Obsahuje kód, který put a zachovat cíl konfigurace v zadaném stavu.
     Prostředky jsou umístěny v moduly Powershellu a je možné zapsat do modelu něco jako obecný jako soubor nebo procesu systému Windows nebo jako konkrétní jako server služby IIS nebo na virtuální počítač běží v Azure.
-- [Místní Configuration Manager (LCM)](metaConfig.md) je modulem, podle kterého DSC usnadňuje interakce mezi prostředky a konfigurace. 
-    LCM pravidelně dotazuje systému pomocí tok řízení implementované prostředky k zajištění, že se zachová stav definovaný konfigurace. 
-    Pokud systém nemá dostatek stavu, LCM volá kód v prostředky usnadnit "," závislosti na konfiguraci. 
+- [Místní Configuration Manager (LCM)](metaConfig.md) je modulem, podle kterého DSC usnadňuje interakce mezi prostředky a konfigurace.
+    LCM pravidelně dotazuje systému pomocí tok řízení implementované prostředky k zajištění, že se zachová stav definovaný konfigurace.
+    Pokud systém nemá dostatek stavu, LCM volá kód v prostředky usnadnit "," závislosti na konfiguraci.
 
 ## <a name="see-also"></a>Viz také
 
 - [Konfigurace DSC](configurations.md)
 - [Prostředky DSC](resources.md)
 - [Konfigurace správce místní konfigurace](metaConfig.md)
-

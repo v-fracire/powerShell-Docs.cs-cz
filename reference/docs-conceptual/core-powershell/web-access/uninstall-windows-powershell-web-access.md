@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-08-23
-keywords: "rutiny prostředí PowerShell"
+ms.date: 08/23/2017
+keywords: rutiny prostředí PowerShell
 title: odinstalace windows powershell web Accessu
-ms.openlocfilehash: b6e6a2374e6b4b2be8742019c5f1e4d5b5d1abe3
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 22c874d766445dccedd8494097daf16c30fa66ff
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="uninstall-windows-powershell-web-access"></a>Odinstalace Windows PowerShell Web Accessu
 
@@ -29,7 +29,7 @@ Postupy v této části vám umožní odinstalovat obě:
 
 - webové aplikace Windows PowerShell Web Access a
 - funkci Windows PowerShell Web Access
- 
+
 pomocí rutin prostředí Windows PowerShell.
 
 ### <a name="step-1-delete-the-web-application-using-cmdlets"></a>Krok 1: Odstranění webové aplikace pomocí rutin
@@ -96,9 +96,9 @@ Postupy v této části vám umožní odinstalovat webovou aplikaci Windows Powe
 
 > ![Poznámka: upozornění](images/SecurityNote.jpeg)**Poznámka**:
 >
-> Certifikát se během odinstalace neodstraní. 
+> Certifikát se během odinstalace neodstraní.
 >
-> Pokud jste vytvořili certifikát podepsaný svým držitelem nebo použili testovací certifikát a chcete ho odebrat, odstraňte certifikát ve Správci služby IIS. 
+> Pokud jste vytvořili certifikát podepsaný svým držitelem nebo použili testovací certifikát a chcete ho odebrat, odstraňte certifikát ve Správci služby IIS.
 
 ### <a name="step-2-uninstall-windows-powershell-web-access-using-the-remove-roles-and-features-wizard"></a>Krok 2: Odinstalace Windows PowerShell Web Access pomocí odebrat role a funkce Průvodce
 

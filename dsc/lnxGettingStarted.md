@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Začínáme s potřeby konfigurace stavu (DSC) pro Linux"
-ms.openlocfilehash: 4fd8460bc5d2564cab291904b60a1a0c26c3e5a7
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Začínáme s potřeby konfigurace stavu (DSC) pro Linux
+ms.openlocfilehash: b2f35ebe84dfd9f68ca07e7630534be59f8a1aa3
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-started-with-desired-state-configuration-dsc-for-linux"></a>Začínáme s potřeby konfigurace stavu (DSC) pro Linux
 
@@ -25,14 +25,14 @@ Následující verze operačního systému Linux jsou podporovány pro DSC pro L
 
 Následující tabulka popisuje závislosti požadovaný balíček pro DSC pro Linux.
 
-|  Požadovaný balíček |  Popis |  Minimální verze | 
+|  Požadovaný balíček |  Popis |  Minimální verze |
 |---|---|---|
-| glibc| Knihovna GNU| 2…4 – 31.30| 
-| Python| Python| 2.4 – 3.4| 
-| omiserver| Infrastruktura OMI (Open Management Infrastructure)| 1.0.8.1| 
-| OpenSSL| Knihovny OpenSSL| 0.9.8 nebo 1.0| 
-| ctypes| Knihovna Python CTypes| Musí odpovídat verzi jazyka Python| 
-| libcurl| Klientská knihovna pro cURL http| 7.15.1| 
+| glibc| Knihovna GNU| 2…4 – 31.30|
+| Python| Python| 2.4 – 3.4|
+| omiserver| Infrastruktura OMI (Open Management Infrastructure)| 1.0.8.1|
+| OpenSSL| Knihovny OpenSSL| 0.9.8 nebo 1.0|
+| ctypes| Knihovna Python CTypes| Musí odpovídat verzi jazyka Python|
+| libcurl| Klientská knihovna pro cURL http| 7.15.1|
 
 ## <a name="installing-dsc-for-linux"></a>Instalace DSC pro Linux
 
@@ -52,12 +52,12 @@ Spusťte následující příkaz k instalaci v systému CentOS 7 x64 OMI.
 
 ### <a name="installing-dsc"></a>Instalace DSC
 
-DSC pro Linux je k dispozici ke stažení [zde](https://github.com/Microsoft/PowerShell-DSC-for-Linux/releases/latest). 
+DSC pro Linux je k dispozici ke stažení [zde](https://github.com/Microsoft/PowerShell-DSC-for-Linux/releases/latest).
 
 Pokud chcete nainstalovat DSC, nainstalujte balíček, který je vhodný pro váš systém Linux (.rpm nebo .deb) a verzí OpenSSL (ssl_098 nebo ssl_100) a architektura (x64/x86). Ot. / min balíčky jsou vhodné pro CentOS, Red Hat Enterprise Linux, Oracle Linux a SUSE Linux Enterprise Server. Bázi DEB balíčky jsou vhodné pro Debian GNU/Linux a Ubuntu Server. Ssl_098 balíčky jsou vhodné pro počítače s OpenSSL 0.9.8 nainstalována při ssl_100 balíčky jsou vhodné pro počítače s OpenSSL 1.0 nainstalovaný.
 
 > **Poznámka:**: Chcete-li zjistit, že nainstalovaná verze OpenSSL, spusťte verze openssl příkaz.
- 
+
 Spusťte následující příkaz k instalaci v systému CentOS 7 x64 DSC.
 
 `# sudo rpm -Uvh dsc-1.0.0-254.ssl_100.x64.rpm`
@@ -74,10 +74,10 @@ Klíčové slovo konfigurace Windows Powershellu se používá k vytvoření kon
 1. Naimportujte modul nx. Modul Windows PowerShell nx obsahuje schéma pro předdefinované prostředky pro DSC pro systémy Linux a musí být nainstalované do místního počítače a importovat v konfiguraci.
 
     – Chcete-li nainstalovat modul nx, zkopírujte adresář modulu nx buď `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\` nebo `$PSHOME\Modules`. Modul nx je součástí DSC Linux instalačního balíčku (MSI). Chcete-li importovat modul nx ve vaší konfiguraci, použijte __Import DSCResource__ příkaz:
-    
+
 ```powershell
 Configuration ExampleConfiguration{
-   
+
     Import-DSCResource -Module nx
 
 }
@@ -86,9 +86,9 @@ Configuration ExampleConfiguration{
 
 ```powershell
 Configuration ExampleConfiguration{
-   
+
     Import-DscResource -Module nx
- 
+
     Node  "linuxhost.contoso.com"{
     nxFile ExampleFile {
 
@@ -100,7 +100,7 @@ Configuration ExampleConfiguration{
 
     }
 }
-ExampleConfiguration -OutputPath:"C:\temp" 
+ExampleConfiguration -OutputPath:"C:\temp"
 ```
 
 ### <a name="push-the-configuration-to-the-linux-computer"></a>Nabízená konfiguraci počítače se systémem Linux
@@ -117,15 +117,15 @@ $Credential = Get-Credential -UserName:"root" -Message:"Enter Password:"
 #$opt = New-CimSessionOption -UseSsl:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
 
 #Options for a trusted SSL certificate
-$opt = New-CimSessionOption -UseSsl:$true 
-$Sess=New-CimSession -Credential:$credential -ComputerName:$Node -Port:5986 -Authentication:basic -SessionOption:$opt -OperationTimeoutSec:90 
+$opt = New-CimSessionOption -UseSsl:$true
+$Sess=New-CimSession -Credential:$credential -ComputerName:$Node -Port:5986 -Authentication:basic -SessionOption:$opt -OperationTimeoutSec:90
 ```
 
 > **Poznámka:**:
 * "Push" režimu musí být přihlašovací údaje uživatele root uživatele na počítače se systémem Linux.
 * Pro Linux, New-CimSession musí použít s parametrem – UseSSL nastaveným na $true, podporovaná jsou jenom připojení protokolem SSL/TLS pro DSC.
 * Certifikát SSL používaný OMI (DSC) je zadána v souboru: `/opt/omi/etc/omiserver.conf` s vlastnostmi: pemfile a keyfile.
-Pokud tento certifikát není důvěryhodný počítači s Windows, kterou používáte [New-CimSession](http://go.microsoft.com/fwlink/?LinkId=227967) na rutinu, můžete ignorovat ověření certifikátu s možnostmi CIMSession:`-SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true`
+Pokud tento certifikát není důvěryhodný počítači s Windows, kterou používáte [New-CimSession](http://go.microsoft.com/fwlink/?LinkId=227967) na rutinu, můžete ignorovat ověření certifikátu s možnostmi CIMSession: `-SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true`
 
 Spusťte následující příkaz pro uložení konfigurace DSC k uzlu Linux.
 
@@ -162,7 +162,7 @@ DSC pro Linux obsahuje skripty pro práci s konfiguraci z místního počítače
 
 `# sudo ./RemoveModule.py cnx_Resource`
 
-* StartDscLocalConfigurationManager.py 
+* StartDscLocalConfigurationManager.py
 
  Konfigurační soubor MOF se vztahuje na počítač. Podobně jako [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny. Vyžaduje cesta ke konfiguraci MOF použít.
 
@@ -182,4 +182,3 @@ Následující soubory protokolu jsou generovány pro DSC pro Linux zprávy.
 |---|---|---|
 |omiserver.log|/var/OPT/OMI/log|Zprávy týkající se operace server OMI CIM.|
 |dsc.log|/var/OPT/OMI/log|Zprávy týkající se operace operace prostředků místní Configuration Manager (LCM) a DSC.|
-

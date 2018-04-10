@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: rpsqrd
 ms.topic: conceptual
-keywords: "jea, prostředí powershell, zabezpečení"
-title: "Aspekty zabezpečení JEA"
-ms.openlocfilehash: 69bbe50fb1a7580c32d657a0f084cc80c28825c7
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: jea, prostředí powershell, zabezpečení
+title: Aspekty zabezpečení JEA
+ms.openlocfilehash: 1b83a73c047b056a4cc094d7e4b0bbf31f75f53a
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="jea-security-considerations"></a>Aspekty zabezpečení JEA
 
@@ -153,4 +153,3 @@ Proto je důležité vyhodnotit vaši uživatelé JEA rozšířené oprávnění
 
 Běžnou praxí je pomocí JEA pravidelné každodenní údržby a máte "jenom v čase" privilegovaný přístup řešení pro správu povolit uživatelům dočasně stanou místní správci v případě nouze.
 Díky tomu uživatelé nejsou trvalých správců systému, ale můžete získat tato práva, pokud a jenom v případě, po dokončení pracovního postupu, který dokumenty jejich používání těchto oprávnění.
-

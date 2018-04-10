@@ -1,22 +1,22 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Začínáme s prostředím PowerShell konfigurace požadovaného stavu"
-ms.openlocfilehash: 04404696bef128805e4f1c191711eaab33cf7e4c
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Začínáme s prostředím PowerShell konfigurace požadovaného stavu
+ms.openlocfilehash: b5aff5008db5a5e45b77d8094b0e48ad98dc63fa
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="getting-started-with-powershell-desired-state-configuration"></a>Začínáme s prostředím PowerShell konfigurace požadovaného stavu #
 
-Tato příručka popisuje, jak začít vytvářet dokumenty konfigurace požadovaného stavu prostředí PowerShell a použít je k počítačům. Předpokládá základní znalost rutiny prostředí PowerShell, moduly a funkce. 
+Tato příručka popisuje, jak začít vytvářet dokumenty konfigurace požadovaného stavu prostředí PowerShell a použít je k počítačům. Předpokládá základní znalost rutiny prostředí PowerShell, moduly a funkce.
 
 
 ## <a name="create-a-configuration"></a>Vytvoření konfigurace ##
 
-[**Konfigurace** ](https://msdn.microsoft.com/powershell/dsc/configurations) jsou dokumenty, které popisují prostředí. Prostředí obsahovat "**uzly**", které jsou běžně virtuálních nebo fyzických počítačích. 
+[**Konfigurace** ](https://msdn.microsoft.com/powershell/dsc/configurations) jsou dokumenty, které popisují prostředí. Prostředí obsahovat "**uzly**", které jsou běžně virtuálních nebo fyzických počítačích.
 
 Konfigurace můžou mít v různých formách. Nejjednodušší způsob, jak vytvořit novou konfiguraci je vytvoření souboru s příponou .ps1 (skript prostředí PowerShell). K tomuto účelu otevřete váš editor výběru. Prostředí PowerShell ISE je dobrá volba, vzhledem k tomu, že nativně rozumí DSC. Uložte jako PS1 následující:
 
@@ -32,21 +32,21 @@ configuration MyFirstConfiguration
             Name = "IIS"
 
         }
-        
+
     }
 
 }
 ```
 ## <a name="parts-of-a-configuration"></a>Součástí konfigurace ##
-**Konfigurace** je klíčové slovo, který byl přidán do prostředí PowerShell 4.0. Označuje je zvláštní druh funkce prostředí PowerShell používané konfigurace požadovaného stavu. V tomto příkladu je funkce s názvem myFirstConfiguration. 
+**Konfigurace** je klíčové slovo, který byl přidán do prostředí PowerShell 4.0. Označuje je zvláštní druh funkce prostředí PowerShell používané konfigurace požadovaného stavu. V tomto příkladu je funkce s názvem myFirstConfiguration.
 
 Na další řádek je příkaz import, podobně jako Import modulu. Bude probírat později.
 
-"Uzel" definuje název počítače, které tato konfigurace bude fungovat na. I když tato konfigurace je upravovat místně, můžete konfigurace přístup ke vzdálené uzly a nakonfigurovat. 
+"Uzel" definuje název počítače, které tato konfigurace bude fungovat na. I když tato konfigurace je upravovat místně, můžete konfigurace přístup ke vzdálené uzly a nakonfigurovat.
 
-Uzly mohou být názvy počítačů nebo IP adresy. Může mít více uzlů v jedné konfiguraci dokumentu. Pomocí [konfigurační data](https://msdn.microsoft.com/powershell/dsc/configdata), můžete mít také stejnou konfiguraci použít na víc uzlů. V takovém případě uzlu je "localhost" – to znamená místního počítače. 
+Uzly mohou být názvy počítačů nebo IP adresy. Může mít více uzlů v jedné konfiguraci dokumentu. Pomocí [konfigurační data](https://msdn.microsoft.com/powershell/dsc/configdata), můžete mít také stejnou konfiguraci použít na víc uzlů. V takovém případě uzlu je "localhost" – to znamená místního počítače.
 
-Další položka [ **prostředků**](https://msdn.microsoft.com/powershell/dsc/resources). Prostředky jsou stavební bloky konfigurací. Každý prostředek, je modul, který definuje logiku implementace jeden aspekt počítače. Každý prostředek na počítači můžete zobrazit spuštěním **Get-DscResource** v prostředí PowerShell. Prostředky musí být na místním počítači a importovat před použitím v konfiguraci s **Import DscResource** tedy na druhém řádku této konfigurace. 
+Další položka [ **prostředků**](https://msdn.microsoft.com/powershell/dsc/resources). Prostředky jsou stavební bloky konfigurací. Každý prostředek, je modul, který definuje logiku implementace jeden aspekt počítače. Každý prostředek na počítači můžete zobrazit spuštěním **Get-DscResource** v prostředí PowerShell. Prostředky musí být na místním počítači a importovat před použitím v konfiguraci s **Import DscResource** tedy na druhém řádku této konfigurace.
 
 **Přijetí konfigurace**
 
@@ -63,8 +63,7 @@ Chcete-li uplatní konfigurace:
 ```powershell
 Start-DscConfiguration -Path ./myFirstConfiguration
 ```
-Tím se vytvoří úlohu prostředí PowerShell, která dosáhne pro uzly v konfiguraci a nakonfiguruje je. Pokud chcete zobrazit výstup úlohy, použijte - čekání. 
+Tím se vytvoří úlohu prostředí PowerShell, která dosáhne pro uzly v konfiguraci a nakonfiguruje je. Pokud chcete zobrazit výstup úlohy, použijte - čekání.
 ```powershell
 Start-DscConfiguration -Path ./myFirstConfiguration -Wait
 ```
-

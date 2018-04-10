@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
-keywords: "Galerie prostředí powershell, rutiny, psgallery"
+keywords: Galerie prostředí powershell, rutiny, psgallery
 title: psgallery_gettingstarted
-ms.openlocfilehash: 2117712b0081db4a21f8480b458a499ed84dc512
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: 599b148e141ba4205a7c774581e737a5d54bfae1
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-started-with-the-powershell-gallery"></a>Začínáme s Galerie prostředí PowerShell
 
@@ -33,7 +33,7 @@ PowerShellGet taky vyžaduje [NuGet zprostředkovatele](http://go.microsoft.com/
 
 Nebo můžete spustit `Install-PackageProvider -Name NuGet -Force` k automatizaci stažení a instalaci zprostředkovatele NuGet.
 
-  
+
 Pokud máte na verzi, která je starší než 2.8.5.201 NuGet, musíte se k volání následující rutiny prostředí PowerShell k instalaci a přepněte na nejnovější verzi balíčku nuget.
 
 1.  `Install-PackageProvider NuGet -MinimumVersion '2.8.5.201' -Force`
@@ -42,7 +42,7 @@ Pokud máte na verzi, která je starší než 2.8.5.201 NuGet, musíte se k vol�
 
 Další informace najdete v tématu <http://oneget.org/> .
 
-  
+
 Poznámka: Z důvodu změn v balení formáty, doporučujeme, abyste že je aktualizovat na nejnovější verzi PowerShellGet a PackageManagement instalaci položek, které byly nedávno aktualizovány. PowerShellGet je součástí systému Windows 10, který se více o [zde](http://go.microsoft.com/fwlink/?LinkID=624830&clcid=0x409).
 PowerShellGet je také součástí systému Windows Management Framework (WMF) 5.0, kterou si můžete stáhnout [zde](http://go.microsoft.com/fwlink/?LinkId=398175).
 
@@ -118,4 +118,3 @@ Chcete-li selektivně aktualizovat skripty, přidejte `-Name` parametr.
 Chcete-li zjistit, které moduly, které jste nainstalovali z Galerie prostředí PowerShell, spusťte [Get-InstalledModule](https://go.microsoft.com/fwlink/?LinkId=526863) rutiny. Tento příkaz vypíše všechny moduly, které máte ve vašem systému, které byly nainstalovány přímo z Galerie prostředí PowerShell.
 
 Podobně, chcete-li zjistit, které skripty, které jste nainstalovali z Galerie prostředí PowerShell, spusťte [Get-InstalledScript](https://go.microsoft.com/fwlink/?LinkId=619790) rutiny. Tento příkaz vypíše všechny skripty, které máte ve vašem systému, které byly nainstalovány přímo z Galerie prostředí PowerShell.
-

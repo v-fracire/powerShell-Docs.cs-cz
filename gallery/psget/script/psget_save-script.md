@@ -1,16 +1,16 @@
 ---
-ms.date: 2017-10-17
+ms.date: 10/17/2017
 contributor: keithb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "Uložení skriptu"
-ms.openlocfilehash: b54e8ba074b7cadd52df781c9021332ccc90f9fd
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Save-Script
+ms.openlocfilehash: 67697fc0e70fb31cad9ad5ae7ce01debef160b81
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="save-script"></a>Uložení skriptu
+# <a name="save-script"></a>Save-Script
 
 Umožňuje uložit skript rutiny a projděte si soubor skriptu uložením do zadaného umístění.
 
@@ -25,7 +25,7 @@ Get-Command -Name Save-Script -Module PowerShellGet -Syntax
 ```
 ## <a name="cmdlet-online-help-reference"></a>Referenční informace o rutinách online nápovědy
 
-[Uložení skriptu](http://go.microsoft.com/fwlink/?LinkId=619786)
+[Save-Script](http://go.microsoft.com/fwlink/?LinkId=619786)
 
 ## <a name="example-commands"></a>Příklady příkazů
 
@@ -57,4 +57,3 @@ Tento příkaz uloží nejnovější verzi skriptu Fabrikam-ClientScript z Galle
 ```powershell
 Save-Script -Name Fabrikam-ClientScript -Path C:\ScriptSharingDemo -AllowPrerelease
 ```
-

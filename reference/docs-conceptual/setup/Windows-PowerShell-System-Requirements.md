@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Požadavky na prostředí PowerShell systému Windows"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Systémové požadavky Windows PowerShellu
 ms.assetid: 6d1d3c75-3be4-4fc9-8805-ca9b2c454d42
-ms.openlocfilehash: 33824eac4de28de97990ffa1ea2500e61e03e847
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: a15b5b33b5296befae833e520cfdfbd41a07b122
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="windows-powershell-system-requirements"></a>Požadavky na prostředí PowerShell systému Windows
+# <a name="windows-powershell-system-requirements"></a>Systémové požadavky Windows PowerShellu
 Toto téma uvádí požadavky na systém pro Windows PowerShell 3.0, prostředí Windows PowerShell 4.0 a prostředí Windows PowerShell 5.0 a speciální funkce, jako je Windows PowerShell Integrované skriptovací prostředí (ISE), příkazů CIM a pracovních postupů.
 
 Windows® 8.1 a Windows Server® 2012 R2 zahrnují všechny požadované programy. Toto téma je určený pro uživatele starší verzí systému Windows.
@@ -83,13 +83,13 @@ Ale některé položky, například následující, vyžadují grafické uživat
 
 - Rutina
 
-    1.  [GridView na více systémů](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview)
+    1.  [Out-GridView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview)
 
     2.  [Zobrazit – příkaz](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Show-Command)
 
-    3.  [Zobrazit ControlPanelItem](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-ControlPanelItem)
+    3.  [Show-ControlPanelItem](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-ControlPanelItem)
 
-    4.  [Zobrazit-protokolu událostí](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-EventLog)
+    4.  [Show-EventLog](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-EventLog)
 
 - Parameters
 
@@ -111,9 +111,9 @@ Prostředí Windows PowerShell 2.0, prostředí Windows PowerShell 3.0 a prostř
 
 - [Background Intelligent Transfer Service (BITS) rutiny](http://go.microsoft.com/fwlink/?LinkId=257514)
 
-- [Get-protokolu událostí](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Get-EventLog)
+- [Get-EventLog](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Get-EventLog)
 
-- [Get-WinEvent.](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent)
+- [Get-WinEvent](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent)
 
 - [Save-Help](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Save-Help)
 
@@ -125,4 +125,3 @@ Navíc **WinRM** služby není k dispozici v systému Windows PE.
 - [Začínáme s prostředím Windows PowerShell](../getting-started/Getting-Started-with-Windows-PowerShell.md)
 - [Instalace prostředí Windows PowerShell](Installing-Windows-PowerShell.md)
 - [Spuštění prostředí Windows PowerShell](Starting-Windows-PowerShell.md)
-

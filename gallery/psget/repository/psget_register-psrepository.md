@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Registrace PSRepository
-ms.openlocfilehash: badac5dc1157bbfa79058630c5c2f260d2151bd8
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 7a7d1bf56a87161f6ec735399b15b19f317282b6
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="register-psrepository"></a>Registrace PSRepository
 
@@ -16,7 +16,7 @@ Získá registrované úložiště na počítači.
 
 ## <a name="description"></a>Popis
 
-Rutinu Register-PSRepository zaregistruje online úložiště pro moduly Powershellu. Po registraci úložiště můžete odkazovat z najít modulu instalace modulu a rutiny modulu publikovat. Registrovaný úložiště se změní výchozí úložiště v modulu vyhledání a instalace modulu. 
+Rutinu Register-PSRepository zaregistruje online úložiště pro moduly Powershellu. Po registraci úložiště můžete odkazovat z najít modulu instalace modulu a rutiny modulu publikovat. Registrovaný úložiště se změní výchozí úložiště v modulu vyhledání a instalace modulu.
 
 Registrovaný úložiště jsou specifické pro uživatele. Nejsou zaregistrovány v rámci celého systému.
 
@@ -28,12 +28,13 @@ Get-Command -Name Register-PSRepository -Module PowerShellGet -Syntax
 ```
 ## <a name="cmdlet-online-help-reference"></a>Referenční informace o rutinách online nápovědy
 
-[Registrace PSRepository](http://go.microsoft.com/fwlink/?LinkID=517129)
+[Register-PSRepository](http://go.microsoft.com/fwlink/?LinkID=517129)
 
 ## <a name="example-commands"></a>Příklady příkazů
 
-### <a name="register-a-powershell-repository"></a>Zaregistrovat úložiště v prostředí PowerShell
-Můžete nakonfigurovat PowerShellGet pro práci s interní úložiště. Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.
+### <a name="register-a-powershell-repository"></a>Registrace powershellového úložiště
+Můžete nakonfigurovat PowerShellGet pro práci s interní úložiště.
+Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.
 
 ```powershell
 # Register a default repository
@@ -114,4 +115,3 @@ ScriptPublishLocation : https://customgallery.cloudapp.net/api/v2/package/
 ProviderOptions : {}
 
 ```
-

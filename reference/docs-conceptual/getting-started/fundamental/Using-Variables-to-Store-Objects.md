@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Použití proměnných do úložiště objektů"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Použití proměnných k ukládání objektů
 ms.assetid: b1688d73-c173-491e-9ba6-6d0c1cc852de
-ms.openlocfilehash: 9a95d421fa2686608a565987c16fecc41c3c6d20
-ms.sourcegitcommit: f069ff0689006fece768f178c10e3e3eeaee09f0
+ms.openlocfilehash: e52f0a344d0ad13db42b34bed912d584c99b0e30
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-variables-to-store-objects"></a>Použití proměnných do úložiště objektů
+# <a name="using-variables-to-store-objects"></a>Použití proměnných k ukládání objektů
 PowerShell funguje s objekty. Prostředí PowerShell umožňuje vytvářet proměnné, které jsou v podstatě s názvem objektů, aby byla zachována výstup pro pozdější použití. Pokud se používají k práci s proměnné v jiných nutný Pamatujte, že proměnné prostředí PowerShell jsou objekty, nikoli textu.
 
 Proměnné jsou vždy zadaný počáteční znak $ a může obsahovat alfanumerické znaky nebo podtržítko jejich názvy.
@@ -97,4 +97,3 @@ C:\WINDOWS
 ```
 
 Můžete také vytvořit a upravit proměnné prostředí z prostředí PowerShell. Proměnné prostředí, které jsou k němu přistupovat z prostředí Windows PowerShell požadavkům normální pravidla pro proměnné prostředí jinde v systému Windows.
-

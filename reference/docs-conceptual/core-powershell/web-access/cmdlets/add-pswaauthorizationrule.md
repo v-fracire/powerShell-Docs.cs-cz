@@ -1,17 +1,17 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
-title: "Přidat pswaauthorizationrule"
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
+title: Přidat pswaauthorizationrule
 ms.technology: powershell
 schema: 2.0.0
-ms.openlocfilehash: 71954fc115daee4c05662d11baa2bc6a0a417896
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: 07ddd4df6a776f3ef6763242f8682747b9b97061
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="add-pswaauthorizationrule"></a>Add-PswaAuthorizationRule
 
@@ -62,7 +62,7 @@ Autorizační pravidla vyhodnotit primární přihlašovací pověření uživat
 
 Určuje název skupiny počítačů ve službě Active Directory Domain Services (AD DS) nebo místní skupiny, ke kterým toto pravidlo udělí přístup.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -75,7 +75,7 @@ Určuje název skupiny počítačů ve službě Active Directory Domain Services
 
 Určuje název počítače, na kterou toto pravidlo udělí přístup.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -88,7 +88,7 @@ Určuje název počítače, na kterou toto pravidlo udělí přístup.
 
 Určuje název konfigurace relace prostředí Windows PowerShell, také známé jako prostředí runspace, do které toto pravidlo udělí přístup.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -101,7 +101,7 @@ Určuje název konfigurace relace prostředí Windows PowerShell, také známé 
 
 Určuje **PSCredential** objekt pro uživatelský účet, který chcete použít ke změně Windows PowerShell Web Access autorizačních pravidel. Pokud tento parametr nepřidáte, rutina používá účet aktuálně přihlášeného uživatele. Chcete-li získat **PSCredential** objekt, který je potřeba přidat autorizační pravidla vzdáleně, spusťte [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) rutiny.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -115,7 +115,7 @@ Určuje **PSCredential** objekt pro uživatelský účet, který chcete použít
 Vynutí spuštění příkazu, aniž by požádal uživatele o potvrzení. \
 Kromě toho je také vyzve k potvrzení při zadání názvu počítače jednoduchý nebo krátké (například název, který není platný název domény nebo není plně kvalifikovaná). Potvrzení je požadována z bezpečnostních důvodů, takže pokud chcete přidat počítač, pouze pokud je počítač v pracovní skupině můžete použít jednoduchý název.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -128,7 +128,7 @@ Kromě toho je také vyzve k potvrzení při zadání názvu počítače jednodu
 
 Určuje popisný název pro toto pravidlo.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -141,7 +141,7 @@ Určuje popisný název pro toto pravidlo.
 
 Určuje název jednoho nebo víc skupin uživatelů ve službě AD DS nebo místních skupin, ke kterým toto pravidlo udělí přístup.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -155,7 +155,7 @@ Určuje název jednoho nebo víc skupin uživatelů ve službě AD DS nebo míst
 Určuje jeden nebo více uživatelů, na které toto pravidlo udělí přístup. Uživatelské jméno může být místní uživatelský účet v počítači brány nebo uživatele ve službě AD DS.
 Formát je `domain\user` nebo `computer\user`.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -217,9 +217,9 @@ Tento příklad ukazuje, jak vstupní hodnoty názvu uživatele prostřednictví
 Tento příklad ukazuje, jak všechny parametry trvat hodnoty z kanálu podle názvu vlastnosti.
 
 ````PowerShell
-$o = New-Object -TypeName PSObject | 
-    Add-Member -Type NoteProperty -Name "UserName" -Value "contoso\user1" -PassThru | 
-    Add-Member -Type NoteProperty -Name "ComputerName" -Value "srv2.contoso.com" -PassThru | 
+$o = New-Object -TypeName PSObject |
+    Add-Member -Type NoteProperty -Name "UserName" -Value "contoso\user1" -PassThru |
+    Add-Member -Type NoteProperty -Name "ComputerName" -Value "srv2.contoso.com" -PassThru |
     Add-Member -Type NoteProperty -Name "ConfigurationName" -Value "Microsoft.PowerShell" –PassThru
 
 $o | Add-PswaAuthorizationRule -UserName contoso\user1 -ConfigurationName Microsoft.PowerShell

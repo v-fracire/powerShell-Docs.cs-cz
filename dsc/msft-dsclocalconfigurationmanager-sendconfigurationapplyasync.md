@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda SendConfigurationApplyAsync MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: e680d510aaac097f4f0de80660274230e028ed45
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: 7ff821a277a548869862741551ee9897e417ea45
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="sendconfigurationapplyasync-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda SendConfigurationApplyAsync MSFT_DSCLocalConfigurationManager třídy
+# <a name="sendconfigurationapplyasync-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
 
 Asynchronně odešle dokumentu konfigurace na spravovaných uzel a používá Agent konfigurace můžete použít konfiguraci.
 
@@ -27,14 +27,11 @@ uint32 SendConfigurationApplyAsync(
 <a name="parameters"></a>Parameters
 ----------
 
-*ConfigurationData* \[v\]  
-Data prostředí pro konfiguraci.
+*ConfigurationData* \[v\] data prostředí pro konfiguraci.
 
-*Vynutit* \[v\]  
-**Hodnota TRUE,** vynutit konfiguraci zastavit.
+*Vynutit* \[v\] **true** vynutit konfiguraci zastavit.
 
-*jobId* \[v\]  
-ID úlohy, pro které chcete odeslat konfiguraci.
+*jobId* \[v\] ID úlohy, pro které chcete odeslat konfiguraci.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -56,11 +53,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
-
- 
-
- 
-
-
-

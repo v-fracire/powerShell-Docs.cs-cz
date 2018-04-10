@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "DSC pro Linux nxService prostředků"
-ms.openlocfilehash: 4273ad59f15eedd08b07888ebb6ee51d039b72b3
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: DSC pro Linux nxService prostředků
+ms.openlocfilehash: b02fb1153570f628682533cb57a7d429e5cc8762
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-for-linux-nxservice-resource"></a>DSC pro Linux nxService prostředků
 
@@ -28,13 +28,13 @@ nxService <string> #ResourceName
 ```
 
 ## <a name="properties"></a>Properties
-|  Vlastnost |  Popis | 
+|  Vlastnost |  Popis |
 |---|---|
-| Název| Název služby nebo démon ke konfiguraci.| 
-| Řadiče| Typ řadiče služby použít při konfiguraci služby.| 
-| Povoleno| Určuje, zda byla služba spuštěna při spuštění.| 
-| Stav| Určuje, zda je služba spuštěná. Nastavením této vlastnosti "Stopped" zajistit, že služba není spuštěná. Nastavte ji na "Spuštěný" zajistit, že služba není spuštěná.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.| 
+| Název| Název služby nebo démon ke konfiguraci.|
+| Řadiče| Typ řadiče služby použít při konfiguraci služby.|
+| Povoleno| Určuje, zda byla služba spuštěna při spuštění.|
+| Stav| Určuje, zda je služba spuštěná. Nastavením této vlastnosti "Stopped" zajistit, že služba není spuštěná. Nastavte ji na "Spuštěný" zajistit, že služba není spuštěná.|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
 
 
 ## <a name="additional-information"></a>Další informace
@@ -46,11 +46,11 @@ nxService <string> #ResourceName
 Následující příklad ukazuje konfiguraci služby "httpd" (pro serveru Apache HTTP Server), zaregistrována **SystemD** řadič služby.
 
 ```
-Import-DSCResource -Module nx 
+Import-DSCResource -Module nx
 
 Node $node {
 #Apache Service
-nxService ApacheService 
+nxService ApacheService
 {
 Name = "httpd"
 State = "running"
@@ -59,4 +59,3 @@ Controller = "systemd"
 }
 }
 ```
-

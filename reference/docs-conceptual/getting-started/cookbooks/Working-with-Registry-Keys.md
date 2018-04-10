@@ -1,18 +1,20 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Práce s klíči registru"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Práce s klíči registru
 ms.assetid: 91bfaecd-8684-48b4-ad86-065dfe6dc90a
-ms.openlocfilehash: e7c16fe5f03330da3ea8f60b141d9e35eed474b9
-ms.sourcegitcommit: cd5a1f054cbf9eb95c5242a995f9741e031ddb24
+ms.openlocfilehash: a9d08f2f6b5803980dec45a4e266ad66879c8c8d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="working-with-registry-keys"></a>Práce s klíči registru
+
 Protože jsou klíče registru položky v prostředí Windows PowerShell jednotky, je velmi podobné práce se soubory a složky práci s nimi. Jeden kritické rozdílem je, že každá položka na jednotce založenou na registru prostředí Windows PowerShell je kontejner, stejně jako složky na jednotce systému souborů. Vlastnosti těchto položek, není odlišné položky jsou však položky registru a jejich přidružené hodnoty.
 
 ### <a name="listing-all-subkeys-of-a-registry-key"></a>Výpis všech podklíčů klíče registru
+
 Můžete zobrazit všechny položky přímo v klíči registru pomocí **Get-ChildItem**. Přidejte volitelné **Force** parametr zobrazení skrytý nebo položky system. Tento příkaz například zobrazí položky přímo v rámci jednotku prostředí Windows PowerShell HKCU:, která odpovídá podregistr registru HKEY_CURRENT_USER:
 
 ```
@@ -35,7 +37,7 @@ Toto jsou nejvyšší úrovně klíče viditelné HKEY_CURRENT_USER v editoru re
 
 Cesta v registru můžete také určit tak, že zadáte název zprostředkovatele registru, za nímž následují "**::**". Celý název zprostředkovatele registru **Microsoft.PowerShell.Core\\registru**, ale to může být zkrátí tak, aby právě **registru**. Některé z následujících příkazů zobrazí seznam obsah přímo pod HKCU:
 
-```
+```powershell
 Get-ChildItem -Path Registry::HKEY_CURRENT_USER
 Get-ChildItem -Path Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER
 Get-ChildItem -Path Registry::HKCU
@@ -45,53 +47,57 @@ Get-ChildItem HKCU:
 
 Tyto příkazy seznamu jenom přímo obsažených položek, podobně jako pomocí jeho Cmd.exe **DIR** příkaz nebo **ls** v prostředí systému UNIX. Chcete-li zobrazit položky, je potřeba zadat **Recurse** parametr. K zobrazení seznamu všechny klíče registru ve HKCU, použijte následující příkaz (Tato operace může trvat velmi dlouho.):
 
-```
+```powershell
 Get-ChildItem -Path hkcu:\ -Recurse
 ```
 
-**Get-ChildItem** můžete provádět komplexní možnosti filtrování prostřednictvím jeho **cesta**, **filtru**, **zahrnout**, a **vyloučit** parametry, ale tyto parametry jsou obvykle pouze na základě názvu. Můžete provádět komplexní filtrování založené na jiné vlastnosti položky pomocí **Where-Object** rutiny. Následující příkaz vyhledá všechny klíče v rámci HKCU:\\softwaru, které mají více než jeden podklíčů a také mít přesně čtyři hodnoty:
+**Get-ChildItem** můžete provádět komplexní možnosti filtrování prostřednictvím jeho **cesta**, **filtru**, **zahrnout**, a **vyloučit**parametry, ale tyto parametry jsou obvykle pouze na základě názvu. Můžete provádět komplexní filtrování založené na jiné vlastnosti položky pomocí **Where-Object** rutiny. Následující příkaz vyhledá všechny klíče v rámci HKCU:\\softwaru, které mají více než jeden podklíčů a také mít přesně čtyři hodnoty:
 
-```
+```powershell
 Get-ChildItem -Path HKCU:\Software -Recurse | Where-Object -FilterScript {($_.SubKeyCount -le 1) -and ($_.ValueCount -eq 4) }
 ```
 
 ### <a name="copying-keys"></a>Kopírování klíče
+
 Kopírování provádí pomocí **Copy-Item**. Následující příkaz zkopíruje HKLM:\\softwaru\\Microsoft\\Windows\\CurrentVersion a všechny její vlastnosti, aby HKCU:\\, vytváří nový klíč s názvem "CurrentVersion":
 
-```
+```powershell
 Copy-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion' -Destination hkcu:
 ```
 
 Pokud byste zkontrolovat tento nový klíč, v editoru registru nebo pomocí **Get-ChildItem**, si všimnete nemají kopie podklíče obsažené v novém umístění. Aby bylo možné kopírovat veškerý obsah kontejneru, je třeba zadat **Recurse** parametr. Chcete-li předchozí příkaz rekurzivní kopírování, použijete tento příkaz:
 
-```
+```powershell
 Copy-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion' -Destination hkcu: -Recurse
 ```
 
 Můžete dál používat jiné nástroje, které už máte k dispozici ke zkopírování souborů. Všechny nástroje pro úpravu registru – včetně reg.exe, regini.exe a regedit.exe—and objektů COM, které podporují úpravy registru (například na rozhraní WMI a WScript.Shell třídy StdRegProv) můžete ji použít v rámci prostředí Windows PowerShell.
 
 ### <a name="creating-keys"></a>Vytváření klíčů
+
 Vytvoření nového klíče v registru je jednodušší než vytvoření nové položky v systému souborů. Protože všechny klíče registru jsou kontejnery, není potřeba zadat typ položky; je jednoduše zadat explicitní cestu, jako například:
 
-```
+```powershell
 New-Item -Path hkcu:\software_DeleteMe
 ```
 
 Cestu založenou na poskytovateli můžete také zadat klíč:
 
-```
+```powershell
 New-Item -Path Registry::HKCU_DeleteMe
 ```
 
 ### <a name="deleting-keys"></a>Odstraňování kláves
+
 Odstraňování položek je v podstatě stejný pro všechny poskytovatele. Následující příkazy bezobslužně odebere položky:
 
-```
+```powershell
 Remove-Item -Path hkcu:\Software_DeleteMe
 Remove-Item -Path 'hkcu:\key with spaces in the name'
 ```
 
 ### <a name="removing-all-keys-under-a-specific-key"></a>Odebrání všechny klíče v rámci konkrétního klíče
+
 Položky lze odebrat pomocí **odebrat položky**, ale zobrazí se výzva k potvrzení odebrání, pokud položka obsahuje cokoliv jiného. Například, pokud jsme pokusu o odstranění HKCU:\\CurrentVersion podklíč jsme vytvořili, vidíte, toto:
 
 ```
@@ -107,13 +113,12 @@ parameter was not specified. If you continue, all children will be removed with
 
 Chcete-li odstranit položky bez výzvy k potvrzení, zadejte **-Recurse** parametr:
 
-```
+```powershell
 Remove-Item -Path HKCU:\CurrentVersion -Recurse
 ```
 
 Pokud chcete odebrat všechny položky v rámci HKCU:\\CurrentVersion, ale není HKCU:\\CurrentVersion sám sebe, můžete místo toho použít:
 
-```
+```powershell
 Remove-Item -Path HKCU:\CurrentVersion\* -Recurse
 ```
-

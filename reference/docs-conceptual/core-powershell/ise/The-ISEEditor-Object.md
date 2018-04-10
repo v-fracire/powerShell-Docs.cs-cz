@@ -1,22 +1,24 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
 title: Objekt ISEEditor
-ms.openlocfilehash: c593eeebf0b9a94769841efd2aa78f84a3829ca5
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.openlocfilehash: 2d4c3d941035384c591ca57e809c0e3a9b852f5c
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="the-iseeditor-object"></a>Objekt ISEEditor
-  **ISEEditor** objekt je instance třídy Microsoft.PowerShell.Host.ISE.ISEEditor. V podokně konzole je **ISEEditor** objektu. Každý [ISEFile](The-ISEFile-Object.md) objektů má přidruženou **ISEEditor** objektu. V následujících částech jsou uvedené metody a vlastnosti **ISEEditor** objektu.
+
+**ISEEditor** objekt je instance třídy Microsoft.PowerShell.Host.ISE.ISEEditor. V podokně konzole je **ISEEditor** objektu. Každý [ISEFile](The-ISEFile-Object.md) objektů má přidruženou **ISEEditor** objektu. V následujících částech jsou uvedené metody a vlastnosti **ISEEditor** objektu.
 
 ## <a name="methods"></a>Metody
 
 ### <a name="clear"></a>Zrušte zaškrtnutí\(\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vymaže text v editoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vymaže text v editoru.
 
 ```powershell
 # Clears the text in the Console pane.
@@ -24,94 +26,103 @@ $psISE.CurrentPowerShellTab.ConsolePane.Clear()
 ```
 
 ### <a name="ensurevisibleint-linenumber"></a>EnsureVisible\(int lineNumber\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Posune editoru tak, aby řádek, který odpovídá zadané **lineNumber** hodnota parametru je viditelná. Ho vyvolá výjimku, pokud zadané číslo řádku je mimo rozsah 1, poslední číslo řádku, který definuje čísla platné řádků.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- **lineNumber** číslo řádku, který má být dostupná.
+Posune editoru tak, aby řádek, který odpovídá zadané **lineNumber** hodnota parametru je viditelná. Ho vyvolá výjimku, pokud zadané číslo řádku je mimo rozsah 1, poslední číslo řádku, který definuje čísla platné řádků.
+
+**lineNumber** číslo řádku, který má být dostupná.
 
 ```powershell
-# Scrolls the text in the Script pane so that the fifth line is in view. 
+# Scrolls the text in the Script pane so that the fifth line is in view.
 $psISE.CurrentFile.Editor.EnsureVisible(5)
 ```
 
 ### <a name="focus"></a>Fokus\(\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Nastaví fokus na editoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Nastaví fokus na editoru.
 
 ```powershell
-# Sets focus to the Console pane. 
+# Sets focus to the Console pane.
 $psISE.CurrentPowerShellTab.ConsolePane.Focus()
 ```
 
-### <a name="getlinelengthint-linenumber-"></a>GetLineLength\(int lineNumber\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
+### <a name="getlinelengthint-linenumber-"></a>GetLineLength\(int lineNumber \)
 
- Získá délku řádku jako celé číslo řádku, která je zadána číslo řádku.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- **lineNumber** číslo řádku, která se získat délku.
+Získá délku řádku jako celé číslo řádku, která je zadána číslo řádku.
 
- **Vrátí** délka řádku pro řádek na číslo zadané.
+**lineNumber** číslo řádku, která se získat délku.
+
+**Vrátí** délka řádku pro řádek na číslo zadané.
 
 ```powershell
-# Gets the length of the first line in the text of the Command pane. 
+# Gets the length of the first line in the text of the Command pane.
 $psISE.CurrentPowerShellTab.ConsolePane.GetLineLength(1)
 ```
 
 ### <a name="gotomatch"></a>GoToMatch\(\)
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích. 
 
- Přesune vsuvka odpovídající znaku, pokud **CanGoToMatch** vlastností objektu editor je **$true**, která nastane, když pomocí kurzoru se bezprostředně před levé závorky, závorka nebo složené závorce - \(,\[, {- nebo ihned po uzavírací kulatá závorka, závorka nebo složené závorce - \),\],}.  Pomocí kurzoru je umístěna před znakem otevírání nebo po ukončovací znak. Pokud **CanGoToMatch** vlastnost je **$false**, pak tato metoda se nic nestane.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
+
+Přesune vsuvka odpovídající znaku, pokud **CanGoToMatch** vlastností objektu editor je **$true**, která nastane, když pomocí kurzoru se bezprostředně před levé závorky, závorka nebo složené závorce - \(,\[, {- nebo ihned po uzavírací kulatá závorka, závorka nebo složené závorce - \),\],}.  Pomocí kurzoru je umístěna před znakem otevírání nebo po ukončovací znak. Pokud **CanGoToMatch** vlastnost je **$false**, pak tato metoda se nic nestane.
 
 ```powershell
-# Test to see if the caret is next to a parenthesis, bracket, or brace.
+# Goes to the matching character if CanGoToMatch() is $true
+$psISE.CurrentPowerShellTab.ConsolePane.GoToMatch()
 ```
 
-### <a name="inserttext-text-"></a>InsertText\( textu\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
+### <a name="inserttext-text-"></a>InsertText\( textu \)
 
- Nahradí text výběr nebo vložení textu na aktuální pozici pomocí kurzoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- **text** -řetězec text, který chcete vložit.
+Nahradí text výběr nebo vložení textu na aktuální pozici pomocí kurzoru.
 
- Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
+**text** -řetězec text, který chcete vložit.
 
-### <a name="select-startline-startcolumn-endline-endcolumn-"></a>Vyberte\( startLine, Hodnota startColumn, ukončovacího endColumn\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
+Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
 
- Vybere text z **startLine**, **Hodnota startColumn**, **ukončovacího**, a **endColumn** parametry.
+### <a name="select-startline-startcolumn-endline-endcolumn-"></a>Vyberte\( startLine, Hodnota startColumn, ukončovacího endColumn \)
 
- **startLine** -celé číslo řádku, kde začíná výběr.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- **Hodnota startColumn** -celé číslo sloupce v řádku počáteční kde výběr spustí.
+Vybere text z **startLine**, **Hodnota startColumn**, **ukončovacího**, a **endColumn** parametry.
 
- **ukončovacího** -celé číslo řádku, které končí výběr.
+**startLine** -celé číslo řádku, kde začíná výběr.
 
- **endColumn** -celé číslo sloupce v rámci na konci řádku, které končí výběr.
+**Hodnota startColumn** -celé číslo sloupce v řádku počáteční kde výběr spustí.
 
- Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
+**ukončovacího** -celé číslo řádku, které končí výběr.
+
+**endColumn** -celé číslo sloupce v rámci na konci řádku, které končí výběr.
+
+Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
 
 ### <a name="selectcaretline"></a>SelectCaretLine\(\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vybere celý řádek text, který aktuálně obsahuje pomocí kurzoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vybere celý řádek text, který aktuálně obsahuje pomocí kurzoru.
 
 ```powershell
 # First, set the caret position on line 5.
-$psISE.CurrentFile.Editor.SetCaretPosition(5,1) 
+$psISE.CurrentFile.Editor.SetCaretPosition(5,1)
 # Now select that entire line of text
 $psISE.CurrentFile.Editor.SelectCaretLine()
 ```
 
-### <a name="setcaretposition-linenumber-columnnumber-"></a>SetCaretPosition\( lineNumber čísla sloupce\)
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
+### <a name="setcaretposition-linenumber-columnnumber-"></a>SetCaretPosition\( lineNumber čísla sloupce \)
 
- Nastavuje pozici pomocí kurzoru na řádku číslo a číslo sloupce. Ho vyvolá výjimku, pokud pomocí kurzoru číslo řádku nebo pomocí kurzoru číslo sloupce je mimo jejich příslušné platné rozsahy.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- **lineNumber** -celé číslo, číslo řádku pomocí kurzoru.
+Nastavuje pozici pomocí kurzoru na řádku číslo a číslo sloupce. Ho vyvolá výjimku, pokud pomocí kurzoru číslo řádku nebo pomocí kurzoru číslo sloupce je mimo jejich příslušné platné rozsahy.
 
- **čísla sloupce** -celé číslo číslo sloupce pomocí kurzoru.
+**lineNumber** -celé číslo, číslo řádku pomocí kurzoru.
+
+**čísla sloupce** -celé číslo číslo sloupce pomocí kurzoru.
 
 ```powershell
 # Set the CaretPosition.
@@ -119,9 +130,10 @@ $psISE.CurrentFile.Editor.SetCaretPosition(5,1)
 ```
 
 ### <a name="toggleoutliningexpansion"></a>ToggleOutliningExpansion\(\)
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích. 
 
- Způsobí, že všechny části outline rozbalit nebo sbalit.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
+
+Způsobí, že všechny části outline rozbalit nebo sbalit.
 
 ```powershell
 # Toggle the outlining expansion
@@ -131,9 +143,10 @@ $psISE.CurrentFile.Editor.ToggleOutliningExpansion()
 ## <a name="properties"></a>Properties
 
 ### <a name="cangotomatch"></a>CanGoToMatch
-  Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích. 
 
- Jen pro čtení vlastnost typu Boolean označující, zda pomocí kurzoru vedle závorky, závorka nebo složené závorce - \( \), \[ \], {}. Pokud pomocí kurzoru se bezprostředně před znak otevírání nebo bezprostředně po ukončovací znak pár, pak je tato hodnota vlastnosti **$true**. Jinak je **$false**.
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a nejsou k dispozici v dřívějších verzích.
+
+Jen pro čtení vlastnost typu Boolean označující, zda pomocí kurzoru vedle závorky, závorka nebo složené závorce - \( \), \[ \], {}. Pokud pomocí kurzoru se bezprostředně před znak otevírání nebo bezprostředně po ukončovací znak pár, pak je tato hodnota vlastnosti **$true**. Jinak je **$false**.
 
 ```powershell
 # Test to see if the caret is next to a parenthesis, bracket, or brace
@@ -141,9 +154,10 @@ $psISE.CurrentFile.Editor.CanGoToMatch
 ```
 
 ### <a name="caretcolumn"></a>CaretColumn
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost jen pro čtení, který získá číslo sloupce, který odpovídá pozici pomocí kurzoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vlastnost jen pro čtení, který získá číslo sloupce, který odpovídá pozici pomocí kurzoru.
 
 ```powershell
 # Get the CaretColumn.
@@ -151,9 +165,10 @@ $psISE.CurrentFile.Editor.CaretColumn
 ```
 
 ### <a name="caretline"></a>CaretLine
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost jen pro čtení, který získá číslo řádku, který obsahuje pomocí kurzoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vlastnost jen pro čtení, který získá číslo řádku, který obsahuje pomocí kurzoru.
 
 ```powershell
 # Get the CaretLine.
@@ -161,9 +176,10 @@ $psISE.CurrentFile.Editor.CaretLine
 ```
 
 ### <a name="caretlinetext"></a>CaretLineText
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost jen pro čtení, který získá úplný řádek textu, který obsahuje pomocí kurzoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vlastnost jen pro čtení, který získá úplný řádek textu, který obsahuje pomocí kurzoru.
 
 ```powershell
 # Get all of the text on the line that contains the caret.
@@ -171,9 +187,10 @@ $psISE.CurrentFile.Editor.CaretLineText
 ```
 
 ### <a name="linecount"></a>LineCount
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost jen pro čtení, získá počet řádků v editoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
+
+Vlastnost jen pro čtení, získá počet řádků v editoru.
 
 ```powershell
 # Get the LineCount.
@@ -181,24 +198,26 @@ $psISE.CurrentFile.Editor.LineCount
 ```
 
 ### <a name="selectedtext"></a>SelectedText
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost jen pro čtení, získá vybraný text v editoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
+Vlastnost jen pro čtení, získá vybraný text v editoru.
+
+Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
 
 ### <a name="text"></a>Text
-  Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější. 
 
- Vlastnost pro čtení a zápis, který získá nebo nastaví text v editoru.
+Podporuje se v prostředí Windows PowerShell ISE 2.0 nebo novější.
 
- Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
+Vlastnost pro čtení a zápis, který získá nebo nastaví text v editoru.
+
+Najdete v článku [skriptování příklad](#scripting-example) dál v tomto tématu.
 
 ## <a name="scripting-example"></a>Příklad skriptování
 
 ```powershell
 # This illustrates how you can use the length of a line to
-# select the entire line and shows how you can make it lowercase. 
+# select the entire line and shows how you can make it lowercase.
 # You must run this in the Console pane. It will not run in the Script pane.
 # Begin by getting a variable that points to the editor.
 $myEditor = $psISE.CurrentFile.Editor
@@ -212,10 +231,10 @@ $myEditor.InsertText("LINE3 `n")
 $myEditor.InsertText("LINE4 `n")
 $myEditor.InsertText("LINE5 `n")
 
-# Use the GetLineLength method to get the length of the third line. 
-$endColumn= $myEditor.GetLineLength(3)
+# Use the GetLineLength method to get the length of the third line.
+$endColumn = $myEditor.GetLineLength(3)
 # Select the text in the first three lines.
-$myEditor.Select(1,1,3,$endColumn + 1)
+$myEditor.Select(1, 1, 3, $endColumn + 1)
 $selection = $myEditor.SelectedText
 # Clear all the text in the editor.
 $myEditor.Clear()
@@ -224,10 +243,8 @@ $myEditor.InsertText($selection.ToLower())
 ```
 
 ## <a name="see-also"></a>Viz také
-- [Objekt ISEFile](The-ISEFile-Object.md) 
-- [Objekt PowerShellTab](The-PowerShellTab-Object.md) 
-- [ISE Windows PowerShell skriptování objektový Model](The-Windows-PowerShell-ISE-Scripting-Object-Model.md) 
-- [Odkaz na objekt modelu Windows PowerShell ISE](Windows-PowerShell-ISE-Object-Model-Reference.md) 
-- [Hierarchie ISE objektů modelu](The-ISE-Object-Model-Hierarchy.md)
 
-  
+- [Objekt ISEFile](The-ISEFile-Object.md)
+- [Objekt PowerShellTab](The-PowerShellTab-Object.md)
+- [Účelem ISE Windows PowerShell skriptování objektový Model](Purpose-of-the-Windows-PowerShell-ISE-Scripting-Object-Model.md)
+- [Hierarchie objektového modelu prostředí ISE](The-ISE-Object-Model-Hierarchy.md)

@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Nastavení vyžadování klienta pomocí názvy konfigurace"
-ms.openlocfilehash: 11de53fc349ce0ebacf0d4855d82fa8a22d55c99
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Použití konfiguračních názvů k nastavení načítacího klienta
+ms.openlocfilehash: dd0526b118b404854b1e9b445ca50bdaafdd01c7
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="setting-up-a-pull-client-using-configuration-names"></a>Nastavení vyžadování klienta pomocí názvy konfigurace
+# <a name="setting-up-a-pull-client-using-configuration-names"></a>Použití konfiguračních názvů k nastavení načítacího klienta
 
 > Platí pro: Prostředí Windows PowerShell 5.0
 
@@ -150,4 +150,3 @@ PullClientConfigNames
 
 * [Nastavení vyžadování klienta s ID konfigurace](PullClientConfigNames.md)
 * [Nastavení webového serveru vyžádané replikace DSC](pullServer.md)
-

@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Pomocí známých příkaz názvů"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Použití známých názvů příkazů
 ms.assetid: 021e2424-c64e-4fa5-aa98-aa6405758d5d
-ms.openlocfilehash: 5e72e721bdb9d48684092344a0169907e7e25d40
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 37fc6dfad5a2f1363254744141dcab1e13aa5066
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-familiar-command-names"></a>Pomocí známých příkaz názvů
+# <a name="using-familiar-command-names"></a>Použití známých názvů příkazů
 Pomocí mechanismus názvem *aliasy*, prostředí Windows PowerShell umožňuje uživatelům k odkazování na příkazy alternativní názvy. Aliasy umožňuje uživatelům s prostředí v jiné součásti pro běžné názvy příkazů, které již znáte k provádění podobných operací v prostředí Windows PowerShell znovu použít. I když nebude prostředí Windows PowerShell aliasy podrobně probereme, můžete je je stále používat, jak začít pracovat v prostředí Windows PowerShell.
 
 Aliasy přidruží název příkazu, který zadáte jiný příkaz. Například prostředí Windows PowerShell má interní funkci s názvem **Clear-Host** který vymaže okně výstupu. Pokud zadáte buď **specifikací cls** nebo **vymazat** příkaz na příkazovém řádku prostředí Windows PowerShell interpretuje, že se jedná o alias **Clear-Host** funkce a spustí  **Clear-Host** funkce.
@@ -20,14 +20,14 @@ Toto je stručný seznam běžných Cmd.exe a UNIX příkazy, které můžete po
 
 |||||
 |-|-|-|-|
-|CAT|Dir|připojení|RM|
-|CD|zobrazení výsledků|Přesunutí|rmdir –|
+|CAT|Dir|připojení|rm|
+|cd|zobrazení výsledků|Přesunutí|rmdir –|
 |chdir –|vymazání|popd|Přejít do režimu spánku|
-|Zrušte zaškrtnutí|H|PS|Řazení|
+|Zrušte zaškrtnutí|h|ps|Řazení|
 |specifikací CLS|Historie|pushd|typu t|
-|Kopírování|příkaz kill|PWD|typ|
-|del|lineárního programování úloh|R|zápis|
-|diff|Ls|ren||
+|Kopírování|příkaz kill|pwd|typ|
+|del|lp|r|zápis|
+|diff|ls|ren||
 
 Pokud se přistihnete pomocí jedné z těchto příkazů reflexively a chcete se dozvědět skutečné jméno nativní příkazu prostředí Windows PowerShell, můžete použít **Get-Alias** příkaz:
 
@@ -67,4 +67,3 @@ Set-Alias : Alias is not writeable because alias gi is read-only or constant and
 At line:1 char:10
 + Set-Alias  <<<< -Name gi -Value Get-Item
 ```
-

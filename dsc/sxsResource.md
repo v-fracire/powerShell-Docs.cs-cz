@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Pomocí prostředků s více verzemi"
-ms.openlocfilehash: 5ca4eadfe23a4675e1b81b86d4274d7f113228fe
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Použití různých verzí prostředků
+ms.openlocfilehash: 9e5b989be3f33fb9151f76cecb6d5f700b1e36c9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-resources-with-multiple-versions"></a>Pomocí prostředků s více verzemi
+# <a name="using-resources-with-multiple-versions"></a>Použití různých verzí prostředků
 
 > Platí pro: Prostředí Windows PowerShell 5.0
 
@@ -62,7 +62,7 @@ configuration VersionTest
             DomainAdministratorCredential = Get-Credential
         }
      }
-}     
+}
 ```
 
 >Poznámka: Verze modulu parametru importu DscResource není k dispozici v prostředí PowerShell 4.0. V prostředí PowerShell 4.0 můžete zadat verze modulu pomocí předání parametru ModuleName Import DscResource objekt specifikace modulu. Objekt specifikace modulu je zatřiďovací tabulka, která obsahuje název modulu a RequiredVersion klíče. Příklad:
@@ -81,7 +81,7 @@ configuration VersionTest
             DomainAdministratorCredential = Get-Credential
         }
      }
-}     
+}
 ```
 
 To bude fungovat i v prostředí PowerShell 5.0, ale doporučuje se použít **ModuleVersion** parametr.
@@ -89,4 +89,3 @@ To bude fungovat i v prostředí PowerShell 5.0, ale doporučuje se použít **M
 ## <a name="see-also"></a>Viz taky
 * [Konfigurace DSC](configurations.md)
 * [Prostředky DSC](resources.md)
-

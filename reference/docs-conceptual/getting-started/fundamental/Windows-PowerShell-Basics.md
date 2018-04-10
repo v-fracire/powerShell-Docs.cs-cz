@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Základy Windows PowerShellu"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Základy Windows PowerShellu
 ms.assetid: 6b3cbbc8-060c-4877-b00b-7300dbbe4e28
-ms.openlocfilehash: bd17786d2d8690b89a2d107e0da98ee45f5b2ff7
-ms.sourcegitcommit: 18e3bfae83ffe282d3fd1a45f5386f3b7250f0c0
+ms.openlocfilehash: b21c6cd84ea29d5e8085ccf8df2a5a9199e1d859
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="windows-powershell-basics"></a>Základy Windows PowerShellu
 Grafické uživatelské rozhraní pomocí některé základní pojmy, které jsou dobře známé pro většinu uživatelů počítače. Uživatelé využívají znalosti těchto rozhraní k provádění úloh. Operační systémy představovat grafické reprezentace položky, které mohou procházet, obvykle pomocí rozevíracích nabídek pro přístup k určité funkce a kontext nabídky pro přístup k funkci konkrétní uživatelé.

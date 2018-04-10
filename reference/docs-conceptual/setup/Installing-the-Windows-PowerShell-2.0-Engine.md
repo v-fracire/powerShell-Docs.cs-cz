@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: Instalace modulu Windows PowerShell 2.0
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Instalace jádra Windows PowerShellu 2.0
 ms.assetid: 82928f2b-f96a-4ae6-a0d0-6e7b181da308
-ms.openlocfilehash: ff6c2b52b8948472ace3ee35cd4c6aa2dbf46c25
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 0b3282a1a67886509e749af0f499c47fe7a99411
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="installing-the-windows-powershell-20-engine"></a>Instalace modulu Windows PowerShell 2.0
+# <a name="installing-the-windows-powershell-20-engine"></a>Instalace jádra Windows PowerShellu 2.0
 Toto téma vysvětluje, jak nainstalovat modul Windows PowerShell 2.0.
 
 Prostředí Windows PowerShell 3.0 je navržený jako zpětně kompatibilní s Windows PowerShell 2.0. Rutiny, zprostředkovatelé, moduly snap in, moduly a skripty, které jsou napsané pro prostředí Windows PowerShell 2.0 spustit v prostředí Windows PowerShell 3.0 a prostředí Windows PowerShell 4.0 beze změny. Však z důvodu změn v zásadách aktivace runtime v rozhraní Microsoft .NET Framework 4, programy hostitele prostředí Windows PowerShell, které byly napsané pro prostředí Windows PowerShell 2.0 a kompilovat s Common Language Runtime (CLR) 2.0 nelze spustit bez úprav v později verze prostředí Windows PowerShell, který je kompilovat s CLR 4.0.
@@ -77,5 +77,4 @@ Balíček Windows Management Framework 3.0, který nainstaluje prostředí Windo
 - [Požadavky na prostředí PowerShell systému Windows](Windows-PowerShell-System-Requirements.md)
 - [Instalace prostředí Windows PowerShell](Installing-Windows-PowerShell.md)
 - [Spuštění prostředí Windows PowerShell](https://technet.microsoft.com/en-us/library/8ec8c2d7-8e7c-4722-a3d2-498fe5739a8e)
-- [Spouštění modulu Windows PowerShell 2.0](Starting-the-Windows-PowerShell-2.0-Engine.md)
-
+- [Spuštění jádra Windows PowerShellu 2.0](Starting-the-Windows-PowerShell-2.0-Engine.md)

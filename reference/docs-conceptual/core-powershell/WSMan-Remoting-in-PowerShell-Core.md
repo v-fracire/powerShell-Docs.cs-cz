@@ -1,4 +1,4 @@
-# <a name="ws-management-wsman-remoting-in-powershell-core"></a>Vzdálenou komunikaci služby WS-Management (WSMan) v prostředí PowerShell jádra 
+# <a name="ws-management-wsman-remoting-in-powershell-core"></a>Vzdálená komunikace WSMan (WS-Management) v PowerShellu Core
 
 ## <a name="instructions-to-create-a-remoting-endpoint"></a>Pokyny k vytvoření koncového bodu vzdálené komunikace
 
@@ -28,19 +28,19 @@ Skript je třeba spustit v relaci prostředí PowerShell na úrovni správce a b
 
 #### <a name="executed-by-the-instance-of-powershell-that-it-will-register"></a>Provedený instance prostředí PowerShell, které se budou registrovat
 
-``` powershell
+```powershell
 Install-PowerShellRemoting.ps1
 ```
 
 #### <a name="executed-by-another-instance-of-powershell-on-behalf-of-the-instance-that-it-will-register"></a>Provedený jiná instance prostředí PowerShell jménem instanci, která se budou registrovat
 
-``` powershell
+```powershell
 <path to powershell>\Install-PowerShellRemoting.ps1 -PowerShellHome "<absolute path to the instance's $PSHOME>"
 ```
 
 Například:
 
-``` powershell
+```powershell
 Set-Location -Path 'C:\Program Files\PowerShell\6.0.0\'
 .\Install-PowerShellRemoting.ps1 -PowerShellHome "C:\Program Files\PowerShell\6.0.0\"
 ```
@@ -51,7 +51,7 @@ Set-Location -Path 'C:\Program Files\PowerShell\6.0.0\'
 
 Vytvořte relaci prostředí PowerShell na nový koncový bod prostředí PowerShell zadáním `-ConfigurationName "some endpoint name"`. Připojit k instanci prostředí PowerShell z v předchozím příkladu, použijte buď:
 
-``` powershell
+```powershell
 New-PSSession ... -ConfigurationName "powershell.6.0.0"
 Enter-PSSession ... -ConfigurationName "powershell.6.0.0"
 ```

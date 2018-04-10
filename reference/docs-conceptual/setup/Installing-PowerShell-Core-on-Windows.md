@@ -1,18 +1,18 @@
-# <a name="installing-powershell-core-on-windows"></a>Instalace jádra prostředí PowerShell v systému Windows
+# <a name="installing-powershell-core-on-windows"></a>Instalace PowerShellu Core ve Windows
 
 ## <a name="msi"></a>MSI
 
 K instalaci prostředí PowerShell na Windows serveru nebo klienta Windows (funguje na Server 2008 R2, Windows 7 SP1 a novější), stáhněte si balíček Instalační služby MSI z našich Githubu [uvolní][] stránky.
 
-Soubor MSI vypadá takto-`PowerShell-6.0.0.<buildversion>.<os-arch>.msi`
+Soubor MSI vypadá takto- `PowerShell-6.0.0.<buildversion>.<os-arch>.msi`
 <!-- TODO: should be updated to point to the Download Center as well -->
 
 Po stažení poklikejte na instalační program a postupujte podle pokynů.
 
 Je umístěn v nabídce Start po instalaci zástupce.
 
-* Ve výchozím nastavení je balíček nainstalován do`$env:ProgramFiles\PowerShell\`
-* Můžete spustit prostředí PowerShell pomocí nabídky Start nebo`$env:ProgramFiles\PowerShell\pwsh.exe`
+* Ve výchozím nastavení je balíček nainstalován do `$env:ProgramFiles\PowerShell\`
+* Můžete spustit prostředí PowerShell pomocí nabídky Start nebo `$env:ProgramFiles\PowerShell\pwsh.exe`
 
 ### <a name="prerequisites"></a>Předpoklady
 

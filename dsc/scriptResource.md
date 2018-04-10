@@ -1,20 +1,20 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "DSC skriptu prostředků"
-ms.openlocfilehash: d65a89ceba0b641ccb0ac3dfcc6d5ec1a48dc92a
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: DSC skriptu prostředků
+ms.openlocfilehash: 6a39fbd914f9a0bb0f192b7b1f81f404bb6b93c1
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-script-resource"></a>DSC skriptu prostředků
 
- 
+
 > Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-**Skriptu** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus ke spuštění blocích skriptu prostředí Windows PowerShell na cílové uzly. `Script` Prostředek má `GetScript`, `SetScript`, a `TestScript` vlastnosti. Tyto vlastnosti musí být nastaven na skript bloky, které poběží na každý cílový uzel. 
+**Skriptu** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus ke spuštění blocích skriptu prostředí Windows PowerShell na cílové uzly. `Script` Prostředek má `GetScript`, `SetScript`, a `TestScript` vlastnosti. Tyto vlastnosti musí být nastaven na skript bloky, které poběží na každý cílový uzel.
 
 `GetScript` Bloku skriptu by měla vrátit zatřiďovací tabulku představující stav aktuálního uzlu. Zatřiďovací tabulky musí obsahovat jenom jeden klíč `Result` a hodnota musí být typu `String`. Není potřeba nic vrátit. DSC nic se neděje s výstup tento blok skriptu.
 
@@ -40,12 +40,12 @@ Script [string] #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   | 
-|---|---| 
-| GetScript| Poskytuje blok skriptu prostředí Windows PowerShell, který je spuštěn při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/library/dn407379.aspx) rutiny. Tento blok musí vracet zatřiďovací tabulku. Zatřiďovací tabulky musí obsahovat jenom jeden klíč **výsledek** a hodnota musí být typu **řetězec**.| 
-| SetScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) rutiny **TestScript** bloku spustí první. Pokud **TestScript** blokovat vrátí **$false**, **SetScript** bloku se spustí. Pokud **TestScript** blokovat vrátí **$true**, **SetScript** bloku se nespustí.| 
-| TestScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) spuštění rutiny, tento blok. Vrátí-li **$false**, spustí SetScript bloku. Vrátí-li **$true**, SetScript bloku se nespustí. **TestScript** bloku poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** bloku nebude spouštět, bez ohledu na to, co hodnotu TestScript blokovat vrátí. **TestScript** bloku musí vracet hodnotu True, pokud skutečné konfigurace odpovídá aktuální konfigurace požadovaného stavu a na hodnotu False, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC.)| 
-| přihlašovací údaje| Určuje pověření sloužící ke spuštění tohoto skriptu, pokud je třeba zadat pověření.| 
+|  Vlastnost  |  Popis   |
+|---|---|
+| GetScript| Poskytuje blok skriptu prostředí Windows PowerShell, který je spuštěn při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/library/dn407379.aspx) rutiny. Tento blok musí vracet zatřiďovací tabulku. Zatřiďovací tabulky musí obsahovat jenom jeden klíč **výsledek** a hodnota musí být typu **řetězec**.|
+| SetScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) rutiny **TestScript** bloku spustí první. Pokud **TestScript** blokovat vrátí **$false**, **SetScript** bloku se spustí. Pokud **TestScript** blokovat vrátí **$true**, **SetScript** bloku se nespustí.|
+| TestScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) spuštění rutiny, tento blok. Vrátí-li **$false**, spustí SetScript bloku. Vrátí-li **$true**, SetScript bloku se nespustí. **TestScript** bloku poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** bloku nebude spouštět, bez ohledu na to, co hodnotu TestScript blokovat vrátí. **TestScript** bloku musí vracet hodnotu True, pokud skutečné konfigurace odpovídá aktuální konfigurace požadovaného stavu a na hodnotu False, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC.)|
+| přihlašovací údaje| Určuje pověření sloužící ke spuštění tohoto skriptu, pokud je třeba zadat pověření.|
 | dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba **ResourceName** a její typ je **ResourceType**, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.
 
 ## <a name="example-1"></a>Příklad 1
@@ -56,14 +56,14 @@ Configuration ScriptTest
 
     Script ScriptExample
     {
-        SetScript = 
-        { 
+        SetScript =
+        {
             $sw = New-Object System.IO.StreamWriter("C:\TempFolder\TestFile.txt")
             $sw.WriteLine("Some sample string")
             $sw.Close()
         }
         TestScript = { Test-Path "C:\TempFolder\TestFile.txt" }
-        GetScript = { @{ Result = (Get-Content C:\TempFolder\TestFile.txt) } }          
+        GetScript = { @{ Result = (Get-Content C:\TempFolder\TestFile.txt) } }
     }
 }
 ```
@@ -78,11 +78,11 @@ Configuration ScriptTest
 
     Script UpdateConfigurationVersion
     {
-        GetScript = { 
+        GetScript = {
             $currentVersion = Get-Content (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
             return @{ 'Result' = "$currentVersion" }
-        }          
-        TestScript = { 
+        }
+        TestScript = {
             $state = $GetScript
             if( $state['Result'] -eq $using:version )
             {
@@ -92,7 +92,7 @@ Configuration ScriptTest
             Write-Verbose -Message ('Version up-to-date: {0}' -f $using:version)
             return $false
         }
-        SetScript = { 
+        SetScript = {
             $using:version | Set-Content -Path (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
         }
     }
@@ -100,4 +100,3 @@ Configuration ScriptTest
 ```
 
 Tento prostředek je zapisování konfigurace do textového souboru. Tato verze je dostupná v klientském počítači, ale není na všech uzlech, tak musí být předán ke každému `Script` blocích skriptu prostředku v prostředí PowerShell na `using` oboru. Při generování uzlu MOF souboru, hodnota `$version` proměnnou je pro čtení z textového souboru v klientském počítači. Nahradí DSC `$using:version` proměnné v každý skript blokovat s hodnotou `$version` proměnné.
-

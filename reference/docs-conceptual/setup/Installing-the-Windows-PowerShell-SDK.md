@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: Instalace sady SDK Windows PowerShell
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Instalace sady SDK Windows PowerShellu
 ms.assetid: c3636b45-61aa-4720-85f0-58312c4fc8f9
-ms.openlocfilehash: c6acba828e469e716c80603ec2432176652a7280
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 830b054c2cf2b49d935d3d96b79effa7131f6db2
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="installing-the-windows-powershell-sdk"></a>Instalace sady SDK Windows PowerShell
+# <a name="installing-the-windows-powershell-sdk"></a>Instalace sady SDK Windows PowerShellu
 
 Následující téma popisuje postup instalace sady SDK prostředí PowerShell v různých verzích systému Windows.
 
@@ -75,7 +75,7 @@ Ukazuje, jak se budou zpracovávat chyby nonterminating.
 
 Ukazuje, jak zobrazit seznam procesů, zadaný.
 
-**SelectObject –**
+**SelectObject**
 
 Ukazuje, jak napsat filtru vybrat pouze určité objekty.
 
@@ -266,4 +266,3 @@ Třída zprostředkovatele v této ukázce je odvozena z [NavigationCmdletProvid
 Ukazuje, jak k přepsání obsahu metody pro podporu volání Clear-obsahu, Get-obsahu a obsahu sady rutin.
 Tyto metody by měla být implementována, když uživatel potřebuje ke správě obsahu položek v úložišti.
 Třída zprostředkovatele v této ukázce je odvozena z [NavigationCmdletProvider](https://technet.microsoft.com/library/system.management.automation.provider.navigationcmdletprovider.aspx) třídy ale implementuje [IContentCmdletProvider](https://technet.microsoft.com/library/system.management.automation.provider.icontentcmdletprovider.aspx) rozhraní.
-

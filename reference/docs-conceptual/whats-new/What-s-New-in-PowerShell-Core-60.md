@@ -133,7 +133,7 @@ Nainstalováním [ `WindowsPSModulePath` ] [ windowspsmodulepath] modul, můžet
 Nejdřív nainstalujte `WindowsPSModulePath` modulu z Galerie prostředí PowerShell:
 
 ```powershell
-# Add `-Scope CurrentUser` if you're installing as non-admin 
+# Add `-Scope CurrentUser` if you're installing as non-admin
 Install-Module WindowsPSModulePath -Force
 ```
 
@@ -160,7 +160,7 @@ Stačí je zaregistrovat prostředí PowerShell jako subsystém se serverem na z
 
 Další informace o konfiguraci a použití založeného na protokolu SSH vzdálené komunikace najdete v tématu [vzdálenou komunikaci prostředí PowerShell přes protokol SSH][ssh-remoting].
 
-## <a name="default-encoding-is-utf-8-without-a-bom"></a>Výchozím kódováním je UTF-8 bez Kusovník
+## <a name="default-encoding-is-utf-8-without-a-bom-except-for-new-modulemanifest"></a>Výchozím kódováním je UTF-8 bez BOM s výjimkou New-ModuleManifest
 
 V minulosti, rutiny prostředí Windows PowerShell jako `Get-Content`, `Set-Content` použít různá kódování, například ASCII nebo UTF-16.
 Odchylky v kódování výchozí nastavení vytvoří problémy při kombinování rutiny bez zadání kódování.
@@ -176,10 +176,9 @@ Tato změna se týká následující rutiny:
 - Export-Clixml
 - Export-Csv
 - Export-PSSession
-- Format-Hex
+- Rutina Format-Hex
 - Get obsahu
 - Import-Csv
-- New-ModuleManifest
 - Out-File
 - Vyberte řetězec
 - Poštovní odesílání – zpráva
@@ -190,6 +189,8 @@ Tyto rutiny také byly aktualizovány tak, aby `-Encoding` parametr všeobecně 
 Výchozí hodnota `$OutputEncoding` také byl změněn na UTF-8.
 
 Jako osvědčený postup, byste měli explicitně nastavit kódování ve skriptech pomocí `-Encoding` parametr k vytvoření deterministické chování napříč platformami.
+
+`New-ModuleManifest` rutina nemá **kódování** parametr. Kódování souboru manifestu (.psd1) modulu vytvořené pomocí `New-ModuleManifest` rutiny závisí na prostředí: Pokud je základní prostředí PowerShell systémem Linux pak kódováním je UTF-8 (žádné BOM); jinak kódováním je UTF-16 (s BOM). (#3940)
 
 ## <a name="support-backgrounding-of-pipelines-with-ampersand--3360"></a>Podpora backgrounding z kanálů s ampersand (`&`) (#3360)
 
@@ -225,7 +226,7 @@ Další informace o úlohách prostředí PowerShell najdete v tématu [about_Jo
   - `GitCommitId`: Jedná se o ID potvrzení Git Git větev nebo značky, které bylo vytvořeno prostředí PowerShell.
     U vydaných sestavení, pravděpodobně bude stejná jako `PSVersion`.
   - `OS`: Toto je řetězec verze operačního systému vrácené `[System.Runtime.InteropServices.RuntimeInformation]::OSDescription`
-  - `Platform`: Toto je vrácen rutinou `[System.Environment]::OSVersion.Platform` je nastaven na hodnotu `Win32NT` v systému Windows, `MacOSX` v systému macOS, a `Unix` v systému Linux.
+  - `Platform`: Toto je vrácen rutinou `[System.Environment]::OSVersion.Platform` je nastaven na hodnotu `Win32NT` v systému Windows, `Unix` v systému macOS, a `Unix` v systému Linux.
 - Odebrat `BuildVersion` vlastnost z `$PSVersionTable`.
   Tato vlastnost byla důrazně vázaný na verzi Windows sestavení.
   Místo toho doporučujeme používat `GitCommitId` načíst verzi přesný sestavení jádra prostředí PowerShell. (#3877) (Poděkování @iSazonov!)

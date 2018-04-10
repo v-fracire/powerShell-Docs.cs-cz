@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Pomocí DSC na Nano Server"
-ms.openlocfilehash: c8f3669ee9c2ed6107c14ba9f4460d82276e1932
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Použití platformy DSC na Nano Serveru
+ms.openlocfilehash: 9ebc1f046893c360538009b5ecbcfb6456f92bbb
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-dsc-on-nano-server"></a>Pomocí DSC na Nano Server
+# <a name="using-dsc-on-nano-server"></a>Použití platformy DSC na Nano Serveru
 
 > Platí pro: Prostředí Windows PowerShell 5.0
 
@@ -25,22 +25,22 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
 ## <a name="dsc-features-available-on-nano-server"></a>DSC funkce dostupné na Nano Server
 
  Protože Nano Server podporuje omezenou sadu rozhraní API ve srovnání s plnou verzí systému Windows Server, DSC na Nano Server nemá úplné funkčně rovnocenné s DSC na úplné SKU prozatím spuštěna. DSC na Nano Server je v active vývoj a ještě není funkce dokončení.
- 
- Následující funkce DSC jsou aktuálně k dispozici na Nano Server: 
+
+ Následující funkce DSC jsou aktuálně k dispozici na Nano Server:
 
 
 * Režimech nabízení a vyžadování
 
-* Všechny rutiny DSC, které existují na plnou verzi Windows serveru, včetně následujících: 
+* Všechny rutiny DSC, které existují na plnou verzi Windows serveru, včetně následujících:
   * [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx)
-  * [Set-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn521621.aspx)     
+  * [Set-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn521621.aspx)
   * [Enable-DscDebug](https://technet.microsoft.com/en-us/library/mt517870.aspx)
-  * [Disable-DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx)       
+  * [Disable-DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx)
   * [Počáteční DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx)
   * [Stop-DscConfiguration](https://technet.microsoft.com/en-us/library/mt143542.aspx)
   * [Get-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407379.aspx)
-  * [Test-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx)      
-  * [Publish-DscConfiguraiton](https://technet.microsoft.com/en-us/library/mt517875.aspx) 
+  * [Test-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx)
+  * [Publish-DscConfiguraiton](https://technet.microsoft.com/en-us/library/mt517875.aspx)
   * [Update-DscConfiguration](https://technet.microsoft.com/en-us/library/mt143541.aspx)
   * [Obnovení DscConfiguration](https://technet.microsoft.com/en-us/library/dn407383.aspx)
   * [Remove-DscConfigurationDocument](https://technet.microsoft.com/en-us/library/mt143544.aspx)
@@ -48,7 +48,7 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
   * [Vyvolání DscResource](https://technet.microsoft.com/en-us/library/mt517869.aspx)
   * [Najít DscResource](https://technet.microsoft.com/en-us/library/mt517874.aspx)
   * [Get-DscResource](https://technet.microsoft.com/en-us/library/dn521625.aspx)
-  * [New-DscChecksum](https://technet.microsoft.com/en-us/library/dn521622.aspx)    
+  * [New-DscChecksum](https://technet.microsoft.com/en-us/library/dn521622.aspx)
 
 * Kompilování konfigurace (viz [konfigurace DSC](configurations.md))
 
@@ -61,10 +61,10 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
 * Prostředky na základě – třída (najdete v části [zápis vlastní prostředek DSC pomocí prostředí PowerShell třídy](authoringResourceClass.md))
 
 * Ladění prostředků DSC (viz [prostředky DSC ladění](debugresource.md))
-  
+
   **Problém:** nefunguje, pokud prostředek používá PsDscRunAsCredential (viz [DSC spuštěná s pověřeními uživatele](runAsUser.md))
 
-* [Určení závislostí mezi uzly](crossNodeDependencies.md) 
+* [Určení závislostí mezi uzly](crossNodeDependencies.md)
 
 * [Správa verzí prostředků](sxsResource.md)
 
@@ -72,7 +72,7 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
 
 * [Částečné konfigurace (pull a push)](partialConfigs.md)
 
-* [Vytváření sestav na server vyžádané replikace](reportServer.md) 
+* [Vytváření sestav na server vyžádané replikace](reportServer.md)
 
 * Šifrování MOF
 
@@ -97,32 +97,32 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
 * Prostředky, které jsou částečně funkční
   * [Skupina](groupResource.md)
   * GroupSet
-  
+
   **Problém:** výše prostředků nezdaří, pokud je konkrétní instanci volala dvakrát (spouštění dvakrát stejnou konfiguraci)
-  
+
   * [Služby](serviceResource.md)
   * ServiceSet
-  
+
   **Problém:** funguje jenom pro spuštění nebo zastavení služby (stav). Selže, pokud se jeden pokusí změnit další atributy služby jako startuptype, přihlašovací údaje, popis atd... Vyvolána chyba je podobná:
-  
+
   *Nelze najít typ [management.managementobject]: Ověřte, že je načteno sestavení obsahující tohoto typu.*
-  
+
 * Prostředky, které nejsou funkční
   * [Uživatel](userResource.md)
-  
+
 
 ## <a name="dsc-features-not-available-on-nano-server"></a>DSC funkce není k dispozici v Nano Server
 
 Následující funkce DSC nejsou momentálně k dispozici na Nano Server:
 
-* Dešifrování MOF dokument s šifrované Změna hesla 
+* Dešifrování MOF dokument s šifrované Změna hesla
 * Vyžádání obsahu Server--nemůžete nastavit aktuálně na server vyžádané replikace v Nano Server
 * Všechno, co se nenachází v seznamu funkce funguje
 
 ## <a name="using-custom-dsc-resources-on-nano-server"></a>Pomocí vlastní prostředky DSC v Nano Server
- 
-Z důvodu omezenou sadu rozhraní API systému Windows a CLR knihovny k dispozici na serveru Nano prostředků DSC, které fungují na plnou verzi Windows CLR nemusí pracovat na Nano Server. Dokončení začátku do konce testování před nasazením jakékoli vlastní prostředky DSC v produkčním prostředí.
+
+Z důvodu omezenou sadu rozhraní API systému Windows a CLR knihovny k dispozici na serveru Nano prostředků DSC, které fungují na plnou verzi Windows CLR nemusí pracovat na Nano Server.
+Dokončení začátku do konce testování před nasazením jakékoli vlastní prostředky DSC v produkčním prostředí.
 
 ## <a name="see-also"></a>Viz také
 - [Začínáme s Nano Server](https://technet.microsoft.com/library/mt126167.aspx)
-

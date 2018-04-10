@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell"
-ms.openlocfilehash: 726b4d1b7a41e9e344347543ecde26da6547bcf3
-ms.sourcegitcommit: fff6c0522508eeb408cb055ba4c9337a2759b392
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell
+ms.openlocfilehash: 893b4353c4244dc96c4b234bb4062b583a5cd36d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="making-the-second-hop-in-powershell-remoting"></a>Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell
 
@@ -55,7 +55,7 @@ Delegování protokolu Kerberos neomezeného můžete také použít k nastaven�
 
 ## <a name="kerberos-constrained-delegation"></a>Omezené delegování protokolu Kerberos
 
-Chcete-li druhé směrování můžete starší verze omezené delegování (není založené na prostředcích). 
+Chcete-li druhé směrování můžete starší verze omezené delegování (není založené na prostředcích).
 
 >**Poznámka:** účtů služby Active Directory, které mají **účet je citlivý a nelze jej delegovat** sada vlastností není možné delegovat. Další informace najdete v tématu [fokus zabezpečení: analýzy 'Účet je citlivý a nelze jej delegovat' k privilegovaným účtům](https://blogs.technet.microsoft.com/poshchap/2015/05/01/security-focus-analysing-account-is-sensitive-and-cannot-be-delegated-for-privileged-accounts/) a [nástroje ověřování protokolu Kerberos a nastavení](https://technet.microsoft.com/library/cc738673(v=ws.10).aspx)
 
@@ -89,7 +89,7 @@ Druhý scénář směrování popsané výše, nakonfigurujete _ServerC_ zadejte
 
 - Vyžaduje systém Windows Server 2012 nebo novějším.
 - Pro WinRM nepodporuje připojení přes další počítač.
-- Vyžaduje práva k aktualizaci objekty a hlavní názvy služby (SPN). 
+- Vyžaduje práva k aktualizaci objekty a hlavní názvy služby (SPN).
 
 ### <a name="example"></a>Příklad
 
@@ -108,8 +108,8 @@ Teď máte několik dostupných rutin **PrincipalsAllowedToDelegateToAccount** p
 ```powershell
 PS C:\> Get-Command -ParameterName PrincipalsAllowedToDelegateToAccount
 
-CommandType Name                 ModuleName     
------------ ----                 ----------     
+CommandType Name                 ModuleName
+----------- ----                 ----------
 Cmdlet      New-ADComputer       ActiveDirectory
 Cmdlet      New-ADServiceAccount ActiveDirectory
 Cmdlet      New-ADUser           ActiveDirectory
@@ -123,10 +123,10 @@ Cmdlet      Set-ADUser           ActiveDirectory
 Nyní nastavíme proměnné použijeme představují servery:
 
 ```powershell
-# Set up variables for reuse            
-$ServerA = $env:COMPUTERNAME            
-$ServerB = Get-ADComputer -Identity ServerB            
-$ServerC = Get-ADComputer -Identity ServerC            
+# Set up variables for reuse
+$ServerA = $env:COMPUTERNAME
+$ServerB = Get-ADComputer -Identity ServerB
+$ServerC = Get-ADComputer -Identity ServerC
 ```
 
 WinRM (a proto vzdálenou komunikaci prostředí PowerShell) ve výchozím nastavení spustí jako účet počítače. Můžete to vidět prohlížením **%{StartName/** vlastnost `winrm` služby:
@@ -140,22 +140,22 @@ StartName : NT AUTHORITY\NetworkService
 Pro _ServerC_ na povolit delegování z relace vzdálenou komunikaci prostředí PowerShell _ServerB_, jsme udělí přístup nastavením **PrincipalsAllowedToDelegateToAccount** parametr na _ServerC_ na objekt počítače z _ServerB_:
 
 ```powershell
-# Grant resource-based Kerberos constrained delegation            
-Set-ADComputer -Identity $ServerC -PrincipalsAllowedToDelegateToAccount $ServerB            
-            
-# Check the value of the attribute directly            
-$x = Get-ADComputer -Identity $ServerC -Properties msDS-AllowedToActOnBehalfOfOtherIdentity            
-$x.'msDS-AllowedToActOnBehalfOfOtherIdentity'.Access            
-            
-# Check the value of the attribute indirectly            
+# Grant resource-based Kerberos constrained delegation
+Set-ADComputer -Identity $ServerC -PrincipalsAllowedToDelegateToAccount $ServerB
+
+# Check the value of the attribute directly
+$x = Get-ADComputer -Identity $ServerC -Properties msDS-AllowedToActOnBehalfOfOtherIdentity
+$x.'msDS-AllowedToActOnBehalfOfOtherIdentity'.Access
+
+# Check the value of the attribute indirectly
 Get-ADComputer -Identity $ServerC -Properties PrincipalsAllowedToDelegateToAccount
 ```
 
 Protokolu Kerberos [Key Distribution (Center KDC)](https://msdn.microsoft.com/library/windows/desktop/aa378170(v=vs.85).aspx) mezipamětí odepřen pokusů o přístup (negativní mezipaměť) 15 minut. Pokud _ServerB_ dříve pokusil o přístup k _ServerC_, budete muset vymazat mezipaměť na _ServerB_ vyvoláním následující příkaz:
 
 ```powershell
-Invoke-Command -ComputerName $ServerB.Name -Credential $cred -ScriptBlock {            
-    klist purge -li 0x3e7            
+Invoke-Command -ComputerName $ServerB.Name -Credential $cred -ScriptBlock {
+    klist purge -li 0x3e7
 }
 ```
 
@@ -164,14 +164,14 @@ Můžete také restartovat počítač, nebo počkejte alespoň 15 minut a vymaž
 Po vymazání mezipaměti, je možné úspěšně spustit kód z _Server_a_ prostřednictvím _ServerB_ k _ServerC_:
 
 ```powershell
-# Capture a credential            
-$cred = Get-Credential Contoso\Alice            
-            
-# Test kerberos double hop            
-Invoke-Command -ComputerName $ServerB.Name -Credential $cred -ScriptBlock {            
-    Test-Path \\$($using:ServerC.Name)\C$            
-    Get-Process lsass -ComputerName $($using:ServerC.Name)            
-    Get-EventLog -LogName System -Newest 3 -ComputerName $($using:ServerC.Name)            
+# Capture a credential
+$cred = Get-Credential Contoso\Alice
+
+# Test kerberos double hop
+Invoke-Command -ComputerName $ServerB.Name -Credential $cred -ScriptBlock {
+    Test-Path \\$($using:ServerC.Name)\C$
+    Get-Process lsass -ComputerName $($using:ServerC.Name)
+    Get-EventLog -LogName System -Newest 3 -ComputerName $($using:ServerC.Name)
 }
 ```
 
@@ -180,13 +180,13 @@ V tomto příkladu `$using` proměnná se používá k zajištění `$ServerC` p
 Povolit více serverů pro přihlašovací údaje pro delegování _ServerC_, nastavte hodnotu **PrincipalsAllowedToDelegateToAccount** parametr na _ServerC_ do pole:
 
 ```powershell
-# Set up variables for each server            
-$ServerB1 = Get-ADComputer -Identity ServerB1            
-$ServerB2 = Get-ADComputer -Identity ServerB2            
-$ServerB3 = Get-ADComputer -Identity ServerB3            
-$ServerC  = Get-ADComputer -Identity ServerC            
-            
-# Grant resource-based Kerberos constrained delegation            
+# Set up variables for each server
+$ServerB1 = Get-ADComputer -Identity ServerB1
+$ServerB2 = Get-ADComputer -Identity ServerB2
+$ServerB3 = Get-ADComputer -Identity ServerB3
+$ServerC  = Get-ADComputer -Identity ServerC
+
+# Grant resource-based Kerberos constrained delegation
 Set-ADComputer -Identity $ServerC `
     -PrincipalsAllowedToDelegateToAccount @($ServerB1,$ServerB2,$ServerB3)
 ```
@@ -194,9 +194,9 @@ Set-ADComputer -Identity $ServerC `
 Pokud chcete, aby druhé směrování mezi doménami, přidejte plně kvalifikovaný název domény (FQDN) řadiče domény, domény, ke kterému _ServerB_ patří:
 
 ```powershell
-# For ServerC in Contoso domain and ServerB in other domain            
-$ServerB = Get-ADComputer -Identity ServerB -Server dc1.alpineskihouse.com            
-$ServerC = Get-ADComputer -Identity ServerC            
+# For ServerC in Contoso domain and ServerB in other domain
+$ServerB = Get-ADComputer -Identity ServerB -Server dc1.alpineskihouse.com
+$ServerC = Get-ADComputer -Identity ServerC
 Set-ADComputer -Identity $ServerC -PrincipalsAllowedToDelegateToAccount $ServerB
 ```
 
@@ -232,7 +232,7 @@ Informace o používání PSSessionConfiguration a RunAs druhý směrování pro
 - Vyžaduje konfiguraci **PSSessionConfiguration** a **RunAs** na každém serveru, zprostředkující (_ServerB_).
 - Vyžaduje heslo údržby, pokud používáte doménu **RunAs** účtu
 
-## <a name="just-enough-administration-jea"></a>Akorát správy (JEA)
+## <a name="just-enough-administration-jea"></a>Funkce Just Enough Administration (JEA)
 
 JEA umožňuje omezit jaké příkazy můžete spustit správce během relace prostředí PowerShell. Může sloužit k jejich vyřešení druhý směrování.
 
@@ -266,24 +266,15 @@ Můžete předat pověření uvnitř **ScriptBlock** parametr volání [Invoke-C
 Následující příklad ukazuje, jak předat přihlašovací údaje v **Invoke-Command** bloku skriptu:
 
 ```powershell
-# This works without delegation, passing fresh creds            
-# Note $Using:Cred in nested request            
-$cred = Get-Credential Contoso\Administrator            
-Invoke-Command -ComputerName ServerB -Credential $cred -ScriptBlock {            
-    hostname            
-    Invoke-Command -ComputerName ServerC -Credential $Using:cred -ScriptBlock {hostname}            
+# This works without delegation, passing fresh creds
+# Note $Using:Cred in nested request
+$cred = Get-Credential Contoso\Administrator
+Invoke-Command -ComputerName ServerB -Credential $cred -ScriptBlock {
+    hostname
+    Invoke-Command -ComputerName ServerC -Credential $Using:cred -ScriptBlock {hostname}
 }
 ```
 
 ## <a name="see-also"></a>Viz taky
 
 [Aspekty zabezpečení vzdálené komunikace PowerShellu](WinRMSecurity.md)
-
-
-
-
-
-
-
-
- 

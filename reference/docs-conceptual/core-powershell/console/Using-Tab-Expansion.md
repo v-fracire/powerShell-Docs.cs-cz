@@ -1,15 +1,16 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Pomocí karty rozšíření"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Použití rozšíření Tab
 ms.assetid: c8730471-bf6a-43b8-ab1d-f9ef5a74f04e
-ms.openlocfilehash: 8412bd97a95719f07b16c6671d3b8801bbfab8e3
-ms.sourcegitcommit: 4807ab554d55fdee499980835bcc279368b1df68
+ms.openlocfilehash: 3d047bf0691c8a304d7637aa50fba6ae99709a82
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-tab-expansion"></a>Pomocí karty rozšíření
+# <a name="using-tab-expansion"></a>Použití rozšíření Tab
+
 Prostředí shell příkazového řádku často poskytují způsob, jak automaticky dokončit názvy dlouhé soubory nebo příkazy urychlení zadání příkazu a poskytuje. Prostředí Windows PowerShell umožňuje zadejte názvy souborů a rutiny stisknutím **kartě** klíč.
 
 > [!NOTE]
@@ -45,4 +46,3 @@ PS> Get-Content C:\windows\actsetup.log
 
 > [!NOTE]
 > Jedním z omezení karta rozšíření procesu je, že jsou karty vždy vyhodnocena jako pokusy o dokončení slovo. Pokud je kopírujete a vkládáte příkladech do konzoly prostředí PowerShell, ujistěte se, že ukázku neobsahuje karty; Pokud ano, nepředvídatelné výsledky a nebude skoro určitě předpokladům.
-

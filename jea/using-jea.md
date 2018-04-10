@@ -1,16 +1,16 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: rpsqrd
 ms.topic: conceptual
-keywords: "jea, prostředí powershell, zabezpečení"
-title: "Pomocí JEA"
-ms.openlocfilehash: f0c22bf0f823b9fafa203e7f98049a6a6b3b7c05
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: jea, prostředí powershell, zabezpečení
+title: Použití funkce JEA
+ms.openlocfilehash: 8a6fb2682cf82de8dd20a8699178d4abde4954c2
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-jea"></a>Pomocí JEA
+# <a name="using-jea"></a>Použití funkce JEA
 
 > Platí pro: prostředí Windows PowerShell 5.0
 
@@ -103,7 +103,7 @@ $jeaDefaultCmdlets = 'Clear-Host', 'Exit-PSSession', 'Get-Command', 'Get-FormatD
 $filteredCommands = $commands.Name | Where-Object { $jeaDefaultCmdlets -notcontains $_ }
 
 # Import only commands explicitly added in role capabilities and prefix each imported cmdlet with "JEA"
-Import-PSSession -Session $jeasession -Prefix 'JEA' -CommandName $filteredCommands 
+Import-PSSession -Session $jeasession -Prefix 'JEA' -CommandName $filteredCommands
 ```
 
 Můžete také zachovat rutiny směrovány přes proxy server pomocí implicitní vzdálenou komunikaci [Export-PSSession](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/Export-PSSession).
@@ -189,4 +189,3 @@ Důrazně doporučujeme vytvořit vyhrazený místního uživatele s žádná pr
 Mějte na paměti, že i Neprivilegovaný uživatel může stále přihlásit do počítače s Windows ve výchozím nastavení, včetně použití neomezeným prostředí PowerShell.
 Které umožní uživatelům procházet (část) systému souborů a další informace o prostředí operačního systému.
 Zamknout Správce technologie Hyper-V jenom přístup k virtuálnímu počítači pomocí prostředí PowerShell přímo JEA, musíte se tak, aby odepřel práva místního přihlášení k účtu JEA Správce technologie Hyper-V.
-

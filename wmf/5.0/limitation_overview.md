@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: e8620cdeb90792e86d091d3e19a169f9dfa690f9
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 306241bc5ec854c0e2ed835009a79b21fc249f14
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="known-issues-and-limitations"></a>Známé problémy a omezení
 
@@ -63,23 +63,23 @@ Existují dvě řešení tohoto problému v závislosti na verzi Windows serveru
 **Řešení:**
 - Pro systémy s operačním systémem **Windows Server 2008 R2**
   1. Otevřete Powershell jako správce
-  2. Spusťte následující příkaz 
-  
+  2. Spusťte následující příkaz
+
   ```powershell
     Set-SilLogging –TargetUri https://BlankTarget –CertificateThumbprint 0123456789
   ```
   3. Spusťte příkaz a ignorovat chybu, že jsou správně.
-  
+
   ```powershell
     Publish-SilData
    ```
   4. Odstranit soubory v adresáři \Windows\System32\Logfiles\SIL\
-  
+
   ```powershell
     Remove-Item -Recurse $env:SystemRoot\System32\Logfiles\SIL\
   ```
   5. Nainstalujte všechny dostupné důležité aktualizace systému Windows a začít Sysyprep operace normálně.
-  
+
 - Pro systémy s operačním systémem **systému Windows Server 2012**
   1.    Nástroj Sysprep'd, přihlaste se jako správce položek po instalaci WMF 5.0 na serveru, aby se.
   2.    Zkopírujte Generize.xml z adresáře \Windows\System32\Sysprep\ActionFiles\ do umístění mimo adresář systému Windows, C:\ třeba.
@@ -96,24 +96,23 @@ Existují dvě řešení tohoto problému v závislosti na verzi Windows serveru
   7.    Spusťte následující příkaz k převzetí vlastnictví souboru Generalize.xml ve složce system32:
 
     ```
-    Takeown /f C:\Windows\System32\Sysprep\ActionFiles\Generalize.xml 
+    Takeown /f C:\Windows\System32\Sysprep\ActionFiles\Generalize.xml
     ```
 
   8.    Spusťte následující příkaz pro nastavení příslušných oprávnění u souboru:
 
     ```
-    Cacls C:\Windows\System32\ Sysprep\ActionFiles\Generalize.xml /G `<AdministratorUserName>`:F 
+    Cacls C:\Windows\System32\ Sysprep\ActionFiles\Generalize.xml /G `<AdministratorUserName>`:F
     ```
-      * Odpovíte kladně příkazového řádku pro potvrzení. 
+      * Odpovíte kladně příkazového řádku pro potvrzení.
       * Všimněte si, že `<AdministratorUserName>` by měla být nahrazená jiným uživatelským jménem, který je správce na počítači. Například "Administrator".
-      
+
   9.    Zkopírujte soubor můžete upravit a uložit přes k adresáři Sysprep pomocí následujícího příkazu:
 
     ```
-    xcopy C:\Generalize.xml C:\Windows\System32\Sysprep\ActionFiles\Generalize.xml 
+    xcopy C:\Generalize.xml C:\Windows\System32\Sysprep\ActionFiles\Generalize.xml
     ```
       * Odpovíte kladně přepsat (Všimněte si, že pokud je výzva k přepsání, Překontrolujte zadaná cesta).
       * Předpokládá, že vaše upravenou kopii Generalize.xml byla zkopírována do C:\.
 
   10.   Generalize.XML byla aktualizována s alternativní řešení. Spusťte nástroj Sysprep s povolenou možností generalizace.
-

@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: "ModuleManifest – odkaz"
-ms.openlocfilehash: a74b7d9cc9201a0c827a597d7d155aa42498c371
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: gallery,powershell,cmdlet,psget
+title: ModuleManifest-Reference
+ms.openlocfilehash: 25b57bf3cfc718e7913e3fe3810ad22627e9aa3c
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---

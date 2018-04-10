@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-08-23
-keywords: "rutiny prostředí PowerShell"
-title: "pomocí webové konzole na bázi windows powershell"
-ms.openlocfilehash: a6c9812253309ba1225141cfd48d0f1c8b8785b5
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.date: 08/23/2017
+keywords: rutiny prostředí PowerShell
+title: pomocí webové konzole na bázi windows powershell
+ms.openlocfilehash: 3ef2b39279745ffe78fa928247e8a1fb76519ba0
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="use-the-web-based-windows-powershell-console"></a>Používání webové konzoly Windows PowerShellu
 
@@ -18,15 +18,18 @@ Windows PowerShell Web Access umožňuje uživatelům přihlásit k zabezpečen�
 
 Protože konzolu prostředí Windows PowerShell se spouští ve webovém prohlížeči, můžete ho otevřít z řady různých klientských zařízení; téměř všechna zařízení s webovým prohlížečem fungovat.
 
-Webové konzoly prostředí Windows PowerShell je cílená na vzdálený počítač, který uživatelé určí v rámci procesu přihlášení. 
+Webové konzoly prostředí Windows PowerShell je cílená na vzdálený počítač, který uživatelé určí v rámci procesu přihlášení.
 
 Toto téma popisuje, jak začít používat webové konzole Windows PowerShell Web Access a přihlaste se k.
 
-Toto téma nepopisuje, jak pomocí prostředí Windows PowerShell nebo spouštět rutiny nebo skripty. Informace o tom, jak pomocí prostředí Windows PowerShell a skriptování prostředků najdete v tématu [v části Viz také](#see-also) na konci tohoto tématu.
+Toto téma nepopisuje, jak pomocí prostředí Windows PowerShell nebo spouštět rutiny nebo skripty.
+Informace o tom, jak pomocí prostředí Windows PowerShell a skriptování prostředků najdete v tématu [v části Viz také](#see-also) na konci tohoto tématu.
 
 ## <a name="supported-browsers-and-client-devices"></a>Podporované prohlížeče a klientská zařízení
 
-Windows PowerShell Web Access podporuje následující internetových prohlížečů. I když mobilní prohlížeče nejsou oficiálně podporované, mnoho může být možné spustit webovou konzolu prostředí Windows PowerShell. Jiné prohlížeče, které používají soubory cookie a umožňují spouštět JavaScript a weby HTTPS, budou pravděpodobně fungovat, ale nejsou oficiálně testované.
+Windows PowerShell Web Access podporuje následující internetových prohlížečů.
+I když mobilní prohlížeče nejsou oficiálně podporované, mnoho může být možné spustit webovou konzolu prostředí Windows PowerShell.
+Jiné prohlížeče, které používají soubory cookie a umožňují spouštět JavaScript a weby HTTPS, budou pravděpodobně fungovat, ale nejsou oficiálně testované.
 
 ### <a name="supported-desktop-computer-browsers"></a>Podporované prohlížeče pro počítače
 

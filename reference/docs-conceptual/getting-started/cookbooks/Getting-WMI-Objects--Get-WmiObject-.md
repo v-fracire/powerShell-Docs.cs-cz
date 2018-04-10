@@ -1,20 +1,22 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Získávání objekty rozhraní WMI získat WmiObject"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Získávání objekty rozhraní WMI získat WmiObject
 ms.assetid: f0ddfc7d-6b5e-4832-82de-2283597ea70d
-ms.openlocfilehash: fbaac2797dd62eb03a2be581b3b5f8be6dafc0ad
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 67922426ae3f13ef5f4c70bc70bb3ce1594d3d05
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="getting-wmi-objects-get-wmiobject"></a>Získávání objekty rozhraní WMI (Get-WmiObject)
 
 ## <a name="getting-wmi-objects-get-wmiobject"></a>Získávání objekty rozhraní WMI (Get-WmiObject)
+
 Windows Management Instrumentation (WMI) je technologie jádra pro správu systému Windows, protože poskytuje celou řadu informací jednotným způsobem. Z důvodu Kolik rozhraní WMI je možné, rutiny prostředí Windows PowerShell pro přístup k rozhraní WMI objekty **Get-WmiObject**, je jedním z velmi užitečné pro skutečné pracuje. Přidáme popisují postup Get-WmiObject používat pro přístup k rozhraní WMI objekty a provádět konkrétní akce pomocí objektů služby WMI.
 
 ### <a name="listing-wmi-classes"></a>Seznam tříd WMI
+
 První problém, ke které dojde k většina uživatelů rozhraní WMI se pokouší zjistit, co můžete udělat pomocí rozhraní WMI. Třídy služby WMI popisují prostředky, které je možné spravovat. Existují stovky tříd WMI, z nichž některé obsahují desítek vlastnosti.
 
 **Get-WmiObject** tento problém řeší tím, že zjistitelný rozhraní WMI. Zadáním můžete získat seznam tříd WMI, která je k dispozici v místním počítači:
@@ -48,7 +50,7 @@ Výpis třída vrácený vzdálené počítače nemusí být z důvodu konkrétn
 
 Hodnota vlastnosti ComputerName můžete zahrnout i při připojování k místní systém. Můžete použít název místního počítače, jeho IP adresu (nebo adresu zpětné smyčky 127.0.0.1), nebo rozhraní WMI-style '.' jako název počítače. Pokud používáte prostředí Windows PowerShell do počítače s názvem Admin01 s IP adresou 192.168.1.90, následující příkazy všechny vrátí třídu služby WMI výpis pro tento počítač:
 
-```
+```powershell
 Get-WmiObject -List
 Get-WmiObject -List -ComputerName .
 Get-WmiObject -List -ComputerName Admin01
@@ -68,6 +70,7 @@ __Provider                              __Win32Provider
 ```
 
 ### <a name="displaying-wmi-class-details"></a>Zobrazení podrobností třídy služby WMI
+
 Pokud znáte název třídy WMI, můžete získat informace o okamžitě. Je třeba jednu z tříd WMI běžně používá pro načtení informací o počítači **Win32_OperatingSystem**.
 
 ```
@@ -83,7 +86,7 @@ Version         : 5.1.2600
 
 I když jsme zobrazují všechny parametry, dají se vyjádřit příkaz více stručného způsobem. **ComputerName** parametr není třeba při připojování k místní systém. Ukážeme ho k předvedení nejobecnější případ a zobrazení upozornění na parametr. **Namespace** výchozí nastavení je kořenový/cimv2 a také lze vynechat. Většina rutiny navíc umožňují vypuštění názvu společných parametrů. S Get-WmiObject, pokud není zadán žádný název prvního parametru, prostředí Windows PowerShell považována za **třída** parametr. To znamená, že poslední příkaz může vystavené zadáním:
 
-```
+```powershell
 Get-WmiObject Win32_OperatingSystem
 ```
 
@@ -105,6 +108,7 @@ BuildNumber                               Property   System.String BuildNumb...
 ```
 
 #### <a name="displaying-non-default-properties-with-format-cmdlets"></a>Zobrazení vlastností jiné než výchozí s rutinami formátu
+
 Pokud chcete informace obsažené v **Win32_OperatingSystem** třídy, který je nezobrazí ve výchozím nastavení, můžete ji zobrazit pomocí **formát** rutiny. Například pokud chcete zobrazit data dostupná paměť, zadejte:
 
 ```
@@ -116,7 +120,7 @@ TotalVirtualMemorySize TotalVisibleMemory FreePhysicalMemory FreeVirtualMemory F
 ```
 
 > [!NOTE]
-> Zástupné znaky pracovat s názvy vlastností v **Format-Table**, takže element konečné kanálu se může snížit na  **Format-Table-celkový počet vlastnost*, bez*
+> Zástupné znaky pracovat s názvy vlastností v **Format-Table**, takže element konečné kanálu se může snížit na **Format-Table-celkový počet vlastnost*, volnou *
 
 Data paměti může být lépe čitelný, pokud je formátovat jako seznam zadáním:
 
@@ -129,4 +133,3 @@ FreePhysicalMemory     : 301876
 FreeVirtualMemory      : 2056724
 FreeSpaceInPagingFiles : 1556644
 ```
-

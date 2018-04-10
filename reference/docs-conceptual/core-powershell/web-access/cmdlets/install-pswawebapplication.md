@@ -1,16 +1,16 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
 title: Nainstalujte pswawebapplication
 ms.technology: powershell
-ms.openlocfilehash: ce4d01fbe8a83924e7023d792c68c903a32e07d4
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: c7f7768a41b6784d8c29afa1fccf0b855160b777
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="install-pswawebapplication"></a>Install-PswaWebApplication
 
@@ -35,7 +35,7 @@ Install-PswaWebApplication [[-WebApplicationName] <String> ] [-UseTestCertificat
 
 Určuje, jestli je vytvořená testovací certifikát. Pokud tento parametr je nastaven na hodnotu true, pak tato rutina vytvoří testovací certifikát a nakonfiguruje webové aplikace Windows PowerShell Web Access k použití certifikátu pro požadavky HTTPS. Pokud tento parametr je nastaven na hodnotu false, pak je vytvořen žádný certifikát nebo vazby. Tuto hodnotu nastavte na hodnotu false, pokud se používá jiný certifikát pro Windows PowerShell Web Access.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -48,7 +48,7 @@ Určuje, jestli je vytvořená testovací certifikát. Pokud tento parametr je n
 
 Určuje název webové aplikace. Zobrazuje se jako poslední část Windows PowerShell Web Access URL.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -61,7 +61,7 @@ Určuje název webové aplikace. Zobrazuje se jako poslední část Windows Powe
 
 Určuje název webového serveru (IIS) webu, na který chcete nainstalovat tuto webovou aplikaci Windows PowerShell Web Access.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -74,7 +74,7 @@ Určuje název webového serveru (IIS) webu, na který chcete nainstalovat tuto 
 
 Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |
@@ -87,7 +87,7 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 Zobrazuje, co by se stalo při spuštění rutiny.
 Rutina není spuštěna.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |

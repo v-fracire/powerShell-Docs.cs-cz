@@ -1,16 +1,16 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
 title: Odinstalace pswawebapplication
 ms.technology: powershell
-ms.openlocfilehash: cc54c94426d754ff2d3bf658e3e92083f02cd6c7
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 139c8358a24e54dec630f8c78737728330ba4aa2
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="uninstall-pswawebapplication"></a>Odinstalujte PswaWebApplication
 
@@ -36,7 +36,7 @@ Uninstall-PswaWebApplication [[-WebApplicationName] <String> ] [-DeleteTestCerti
 Označuje, že testovací certifikáty vytvořená pomocí **nainstalovat\_PswaWebApplication** rutiny (s **UseTestCertificate** parametr) se odstraní.
 Testovací certifikát se stejným názvem jako vytvořené **rutiny Install-PswaWebApplication** rutiny se odebere.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -49,7 +49,7 @@ Testovací certifikát se stejným názvem jako vytvořené **rutiny Install-Psw
 
 Určuje název webové aplikace odinstalovat.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -62,7 +62,7 @@ Určuje název webové aplikace odinstalovat.
 
 Určuje název webové stránky, kde je nainstalována webová aplikace.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -75,7 +75,7 @@ Určuje název webové stránky, kde je nainstalována webová aplikace.
 
 Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |
@@ -88,7 +88,7 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 Zobrazuje, co by se stalo při spuštění rutiny.
 Rutina není spuštěna.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |

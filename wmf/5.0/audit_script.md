@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 2c3cc6d5d226daf22c7ee83a1b7068d6a08b7f45
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: b440ea4a8208d5c576fa566a19e2de377bf5f475
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="script-tracing-and-logging"></a>Skript trasování a protokolování
+# <a name="script-tracing-and-logging"></a>Trasování a protokolování skriptu
 
 Zatímco již obsahuje prostředí Windows PowerShell **LogPipelineExecutionDetails** zásad skupiny nastavení protokolu vyvolání rutiny, skriptovací jazyk pro PowerShell má hodně funkcí, které můžete chtít protokolování a auditování. Nové podrobné skriptu funkci pro trasování umožňuje povolit podrobné sledování a analýza skriptování použití prostředí Windows PowerShell v systému. Po povolení trasování podrobné skriptu prostředí Windows PowerShell zaznamená do protokolu událostí trasování událostí pro Windows, všechny bloky skriptu **Microsoft-Windows-PowerShell/Operational**. Pokud blok skriptu vytvoří jiného bloku skriptu (například skript, který volá rutinu Invoke-Expression na řetězec), zaznamená se také že výsledné bloku skriptu.
 
@@ -17,12 +17,12 @@ Tyto události protokolování lze povolit prostřednictvím **zapnout protokolo
 
 Události jsou:
 
-| Kanál | Provozní                                 |
+| Channel | Provozní                                 |
 |---------|---------------------------------------------|
 | Úroveň   | Verbose                                     |
 | Operační kód  | Create                                      |
 | Úkol    | CommandStart                                |
-| – Klíčové slovo | Prostředí runspace                                    |
+| – Klíčové slovo | Runspace                                    |
 | ID události | Engine_ScriptBlockCompiled (0x1008 = 4104)  |
 | Zpráva | Vytváření textu Scriptblock (%1 typu %2): </br> %3 </br> Blok skriptu ID: %4 |
 
@@ -31,12 +31,12 @@ Rozsah bloku skriptu kompilovat, je text vložený do zprávy. ID je identifiká
 
 Pokud povolíte podrobné protokolování, zápisů funkce začínat a končit značky:
 
-| Kanál | Provozní                                            |
+| Channel | Provozní                                            |
 |---------|--------------------------------------------------------|
 | Úroveň   | Verbose                                                |
 | Operační kód  | Otevřete (/ zavřete)                                         |
 | Úkol    | CommandStart (nebo CommandStop)                           |
-| – Klíčové slovo | Prostředí runspace                                               |
+| – Klíčové slovo | Runspace                                               |
 | ID události | Blok skriptu\_vyvolání\_spustit\_(0x1009 = 4105) podrobností / </br> Blok skriptu\_vyvolání\_dokončení\_(0x100A = 4106) podrobností |
 | Zpráva | Začínáme (/ dokončené) vyvolání ScriptBlock ID: %1 </br> Prostředí runspace ID: %2 |
 
@@ -52,7 +52,7 @@ function SuperDecrypt
 {
     param($script)
     $bytes = [Convert]::FromBase64String($script)
-             
+
     ## XOR “encryption”
     $xorKey = 0x42
     for($counter = 0; $counter -lt $bytes.Length; $counter++)
@@ -107,4 +107,3 @@ $mergedScript = -join ($sortedScripts | % { $_.Properties[2].Value })
 ```
 
 Stejně jako u všech systémů protokolování, které mají omezenou uchování vyrovnávací paměti (tj. protokoly trasování událostí pro Windows), jsou jeden útoky na tuto infrastrukturu k vyplnění protokolu s nesprávné události ke skrytí starší důkaz. Ochranu před tento útok, ujistěte se, že máte určitou formu protokolu událostí kolekce nastavení pro zařízení (tj, předávání událostí systému Windows, [sledování nežádoucí osoba s monitorování protokolu událostí systému Windows](http://www.nsa.gov/ia/_files/app/Spotting_the_Adversary_with_Windows_Event_Log_Monitoring.pdf)) přesunout protokoly událostí z počítače, jako v nejbližší době.
-

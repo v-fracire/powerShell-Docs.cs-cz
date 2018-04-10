@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 6caff8c06174a1dcb990ed8e5062ccca5848dbb8
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 302a347b0f4c9c322f7701e8d6a721f9ffba9b59
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="convert-string"></a>Převod řetězce
+# <a name="convert-string"></a>Rutina Convert-String
 **Převod řetězce** zpřístupňuje funkci, "nahradit pomocí magic". Zadejte před a po příklady, jak chcete text, který se podíváte, a **převést řetězec** automaticky formátování textu. Tady je ukázkový - někdo na pořízení křestní jméno a příjmení a nahraďte ji své příjmení, čárku, první počáteční své příjmení a tečku. Opakujte s regex a najdete v části jak dlouho trvalo můžete.
 
 ```powershell
@@ -19,4 +19,3 @@ Holmes, L.
 Lee, S.
 Snover, J.
 ```
-

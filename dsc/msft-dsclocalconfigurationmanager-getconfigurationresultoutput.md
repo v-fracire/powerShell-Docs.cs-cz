@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda GetConfigurationResultOutput MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: f6106bb28dc20004b5bbb6df2d8e719cf0c453f0
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: f4c2ddaa37cdafeff1a442f3f1fa656788a1c6c8
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="getconfigurationresultoutput-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda GetConfigurationResultOutput MSFT_DSCLocalConfigurationManager třídy
+# <a name="getconfigurationresultoutput-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
 
 Získá výstup Agent konfigurace přidružené k určité úlohy.
 
@@ -27,14 +27,11 @@ uint32 GetConfigurationResultOutput(
 <a name="parameters"></a>Parameters
 ----------
 
-*jobId* \[v\]  
-ID úlohy, pro které chcete získat výstupní data.
+*jobId* \[v\] ID úlohy, pro které chcete získat výstupní data.
 
-*resumeOutputBookmark* \[v\]  
-Určuje, že výstup by měl být pokračování z předchozí záložku.
+*resumeOutputBookmark* \[v\] Určuje, že výstup by měl být pokračování z předchozí záložku.
 
-*výstup* \[out\]  
-Výstup pro zadanou úlohu.
+*výstup* \[out\] výstup pro zadanou úlohu.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -56,10 +53,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
- 
-
- 
-
-
-

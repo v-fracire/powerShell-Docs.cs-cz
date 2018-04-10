@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: rpsqrd
 ms.topic: conceptual
-keywords: "jea, prostředí powershell, zabezpečení"
-title: "Auditování a vytváření sestav na JEA"
-ms.openlocfilehash: 57148bc3753bdd751bfa21fc3198aca3f8654849
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: jea, prostředí powershell, zabezpečení
+title: Auditování a vytváření sestav na JEA
+ms.openlocfilehash: 7fc670c77b5fbf9bce8fb55dd99a2f9a984100d2
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="auditing-and-reporting-on-jea"></a>Auditování a vytváření sestav na JEA
 
@@ -144,11 +144,11 @@ U každého příkazu, který uživatel spustí řádek "CommandInvocation" bude
 ParameterBindings podle jednotlivých CommandInvocation získat informace o jednotlivých parametr a hodnotu, která byla zadaná pomocí příkazu.
 V předchozím příkladu uvidíte, že parametr, který byl "Název" poskytnutá hodnota "Dns" pro rutinu "Get-Service".
 
-Výstup každé příkazu se také aktivuje CommandInvocation, obvykle odesílací výchozí. InputObject Out-Default je objekt prostředí PowerShell vrátí z příkazu.
+Výstup každé příkazu se také aktivuje CommandInvocation, obvykle odesílací výchozí.
+InputObject Out-Default je objekt prostředí PowerShell vrátí z příkazu.
 Podrobnosti tohoto objektu se tisknou pár řádků níže úzce mimicking, co by mohli vidět uživatele.
 
 ## <a name="see-also"></a>Viz taky
 
 - [Akce auditování uživatele v relaci JEA](audit-and-report.md)
 - [*Prostředí PowerShell ♥ týmem Blue* příspěvku na blogu na zabezpečení](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/)
-

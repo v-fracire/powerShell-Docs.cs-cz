@@ -1,16 +1,16 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
-title: Skript aktualizace
-ms.openlocfilehash: 8067a502e4ecfa61c5a4347d4e9f74c7437f6502
-ms.sourcegitcommit: 58371abe9db4b9a0e4e1eb82d39a9f9e187355f9
+keywords: gallery,powershell,cmdlet,psget
+title: Update-Script
+ms.openlocfilehash: 23e558a063689d263f68d34ec3b154be1c77ae89
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="update-script"></a>Skript aktualizace
+# <a name="update-script"></a>Update-Script
 
 Skript aktualizace rutina umožňuje místní aktualizace souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.
 
@@ -25,7 +25,7 @@ Get-Command -Name Update-Script -Module PowerShellGet -Syntax
 ```
 ## <a name="cmdlet-online-help-reference"></a>Referenční informace o rutinách online nápovědy
 
-[Skript aktualizace](http://go.microsoft.com/fwlink/?LinkId=619787)
+[Update-Script](http://go.microsoft.com/fwlink/?LinkId=619787)
 
 ## <a name="example-commands"></a>Příklady příkazů
 ```powershell
@@ -74,4 +74,3 @@ Version Name Type Repository Description
 2.5 Required-Script2 Script GalleryINT Description for the Required-Script2 script
 2.0 Script-WithDependencies2 Script GalleryINT Description for the Script-WithDependencies2 script
 ```
-

@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-09
+ms.date: 06/09/2017
 schema: 2.0.0
-keywords: "Prostředí PowerShell"
+keywords: Prostředí PowerShell
 title: RequireLicenseAcceptance
-ms.openlocfilehash: 260ccc1ee52d09a640e88203c5644f20f9723d6f
-ms.sourcegitcommit: cd66d4f49ea762a31887af2c72d087b219ddbe10
+ms.openlocfilehash: d78f8cb7f84869880e9a88a0f0407d18dc5c64cb
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="modules-requiring-license-acceptance"></a>Moduly, které vyžadují přijetí licence
+# <a name="modules-requiring-license-acceptance"></a>Moduly vyžadující přijetí licence
 
 ## <a name="synopsis"></a>STRUČNÝ OBSAH
 Právní oddělení pro některé zdroje modulu vyžadují, zákazníci musí explicitně přijali licence před instalací jejich modul z Galerie prostředí PowerShell. Pokud uživatel nainstaluje, aktualizace nebo uloží modulu pomocí PowerShellGet, zda přímo, nebo jako závislost pro jinou položku, a tento modul vyžaduje, aby uživatel souhlasit s licenci, uživatel musí označovat přijmou licence nebo se operace nezdaří.
@@ -17,7 +17,7 @@ Právní oddělení pro některé zdroje modulu vyžadují, zákazníci musí ex
 ## <a name="publish-requirements-for-modules"></a>Publikování požadavky pro moduly
 
 Moduly, které chcete uživatelé musí přijmout licenční musí splnit následující požadavky:
-    
+
 - PSData oddíl manifestu modulu musí obsahovat RequireLicenseAcceptance = $True.
 - Modul by měly obsahovat license.txt soubor v kořenovém adresáři.
 - Modul manifestu by měl obsahovat identifikátor Uri licence.
@@ -28,16 +28,16 @@ Moduly, které chcete uživatelé musí přijmout licenční musí splnit násle
 - Instalovat nebo uložit nebo aktualizovat rutiny bude podporovat nový parametr – AcceptLicense, který se bude chovat, jako by uživatel viděli licence.
 - Pokud má hodnotu True, RequiredLicenseAcceptance a není určena – AcceptLicense, uživatel bude vidět license.txt a zobrazí výzva s: &quot;přijímáte tyto licenční podmínky (Ano/Ne/YesToAll/NoToAll)&quot;.
   - Pokud licence byla přijata.
-    - **Uložit-Module:** modul se zkopírují na uživatele & č. 39; s systému
-    - **Instalace modulu:** modul se zkopírují na uživatele & č. 39; s systému do správné složky (podle oboru)
+    - **Uložit-Module:** modul se zkopírují na uživatele&#39;s systému
+    - **Instalace modulu:** modul se zkopírují na uživatele&#39;s systému do správné složky (podle oboru)
     - **Aktualizace modulu:** modul bude aktualizován.
-  - Pokud bylo odmítnuto, licence. 
+  - Pokud bylo odmítnuto, licence.
     - Operace bude zrušena.
 - Všechny rutiny zkontroluje metadata (requireLicenseAcceptance a verze formátu), s upozorněním, že se přijetí licence vyžaduje
   - Pokud formát verze klienta je starší než 2.0, operace se nezdaří a požádat uživatele o aktualizaci klienta.
   - Pokud modul byla publikována s formátu verze starší než 2.0, requireLicenseAcceptance příznak budou ignorovány.
 
-    
+
  ## <a name="module-dependencies"></a>Modul závislosti
 - Během instalace nebo uložit nebo aktualizace se bude vyžadovat operace, pokud modul závisí (něco jiného závisí na modulu) vyžaduje přijetí licence, pak chování přijetí licence (výše).
 - Pokud verze modulu je již uveden v katalogu místní jako nainstalované v systému, by vyřazeno kontrola licence.
@@ -59,7 +59,7 @@ PrivateData = @{
         # Flag to indicate whether the module requires explicit user acceptance
         RequireLicenseAcceptance = $true
     } # End of PSData hashtable
-    
+
  } # End of PrivateData hashtable
 ```
 Tento příkaz aktualizuje souboru manifestu a nastavuje příznak RequireLicenseAcceptance na hodnotu true.
@@ -78,7 +78,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software.
 
 Do you accept the license terms for module 'ModuleRequireLicenseAcceptance'.
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): 
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
 ```
 Tento příkaz zobrazují informace o licenčních ze souboru license.txt a vyzývá uživatele k přijetí licence.
@@ -117,7 +117,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software.
 
 Do you accept the license terms for module 'ModuleRequireLicenseAcceptance'.
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): 
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 ```
 
 ### <a name="example-6-install-module-with-dependencies-requiring-license-acceptance-and--acceptlicense"></a>Příklad 6: Instalace modulu se závislostmi vyžadovat přijetí licence a - AcceptLicense
@@ -147,7 +147,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software.
 
 Do you accept the license terms for module 'ModuleRequireLicenseAcceptance'.
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): 
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 ```
 Tento příkaz zobrazují informace o licenčních ze souboru license.txt a vyzývá uživatele k přijetí licence.
 
@@ -172,7 +172,7 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software.
 
 Do you accept the license terms for module 'ModuleRequireLicenseAcceptance'.
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): 
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 ```
 Tento příkaz zobrazují informace o licenčních ze souboru license.txt a vyzývá uživatele k přijetí licence.
 
@@ -183,8 +183,8 @@ PS C:\> Update-Module -Name ModuleRequireLicenseAcceptance -AcceptLicense
 Modul se aktualizuje bez jakékoli výzvy tak, aby přijímal licence.
 
 ## <a name="more-details"></a>Další informace
-### <a name="require-license-acceptance-for-scriptsscriptscriptrequirelicenseacceptancemd"></a>[Vyžadovat přijetí licence pro skripty](../script/script_RequireLicenseAcceptance.md)
+### <a name="require-license-acceptance-for-scriptsscriptscriptrequirelicenseacceptancemd"></a>[Vyžadování přijetí licence u skriptů](../script/script_RequireLicenseAcceptance.md)
 
 ### <a name="require-license-acceptance-support-on-powershellgallerypsgallerypsgalleryrequireslicenseacceptancemd"></a>[Vyžadovat přijetí licence podporu na PowerShellGallery](../../psgallery/psgallery_requires_license_acceptance.md)
 
-### <a name="require-license-acceptance-on-deploy-to-azure-automationpsgallerypsgallerydeploytoazureautomationrequirelicenseacceptancemd"></a>[Vyžadovat přijetí licence na nasazení do služby Azure Automation](../../psgallery/psgallery_deploy_to_azure_automation_requireLicenseAcceptance.md)
+### <a name="require-license-acceptance-on-deploy-to-azure-automationpsgallerypsgallerydeploytoazureautomationrequirelicenseacceptancemd"></a>[Vyžadování přijetí licence při nasazení ve službě Azure Automation](../../psgallery/psgallery_deploy_to_azure_automation_requireLicenseAcceptance.md)

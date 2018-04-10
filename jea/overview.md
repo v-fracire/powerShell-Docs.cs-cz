@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: rpsqrd
 ms.topic: conceptual
-keywords: "jea, prostředí powershell, zabezpečení"
-title: "Přehled akorát správy"
-ms.openlocfilehash: a664a8ad44916f8112f7ef7bac145a54b83f126d
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: jea, prostředí powershell, zabezpečení
+title: Přehled akorát správy
+ms.openlocfilehash: fd5b97b7a483908f10cec6460d4e803740f064a8
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="just-enough-administration"></a>Just Enough Administration
 
@@ -53,4 +53,3 @@ Další informace o požadavcích na používat JEA a naučte se vytvářet, pou
 ## <a name="samples-and-dsc-resource"></a>Ukázky a prostředek DSC
 
 Ukázka JEA konfigurace a prostředek JEA DSC najdete v [úložiště JEA GitHub](https://github.com/PowerShell/JEA).
-

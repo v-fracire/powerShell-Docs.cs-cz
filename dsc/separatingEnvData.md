@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Oddělení dat konfigurace a prostředí"
-ms.openlocfilehash: 18b18d805ac248b29526862591df5f0ff785937b
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Oddělení konfiguračních dat od dat prostředí
+ms.openlocfilehash: c89e26105611eae59a926be1432079913c40671f
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="separating-configuration-and-environment-data"></a>Oddělení dat konfigurace a prostředí
+# <a name="separating-configuration-and-environment-data"></a>Oddělení konfiguračních dat od dat prostředí
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
@@ -26,18 +26,19 @@ Podrobný popis **ConfigurationData** zatřiďovací tabulky, najdete v části 
 
 ## <a name="a-simple-example"></a>Jednoduchý příklad
 
-Podívejme se na velmi jednoduchý příklad, pokud chcete zobrazit, jak to funguje. Vytvoříme konfigurací jedné, který zajistí, že **IIS** je k dispozici v některé uzly a zda **technologie Hyper-V** je k dispozici na jiných: 
+Podívejme se na velmi jednoduchý příklad, pokud chcete zobrazit, jak to funguje.
+Vytvoříme konfigurací jedné, který zajistí, že **IIS** je k dispozici v některé uzly a zda **technologie Hyper-V** je k dispozici na jiných:
 
 ```powershell
 Configuration MyDscConfiguration {
-    
+
     Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     {
         WindowsFeature IISInstall {
             Ensure = 'Present'
             Name   = 'Web-Server'
         }
-        
+
     }
     Node $AllNodes.Where{$_.Role -eq "VMHost"}.NodeName
     {
@@ -48,7 +49,7 @@ Configuration MyDscConfiguration {
     }
 }
 
-$MyData = 
+$MyData =
 @{
     AllNodes =
     @(
@@ -75,12 +76,12 @@ Výsledkem je, že jsou vytvořeny dva soubory MOF:
     Directory: C:\DscTests\MyDscConfiguration
 
 
-Mode                LastWriteTime         Length Name                                                                                                                    
-----                -------------         ------ ----                                                                                                                    
--a----        3/31/2017   5:09 PM           1968 VM-1.mof                                                                                                                
--a----        3/31/2017   5:09 PM           1970 VM-2.mof  
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        3/31/2017   5:09 PM           1968 VM-1.mof
+-a----        3/31/2017   5:09 PM           1970 VM-2.mof
 ```
- 
+
 `$MyData` Určuje dvou různých uzlech, každou s vlastním `NodeName` a `Role`. Konfigurace dynamicky vytvoří **uzlu** bloky provedením kolekce uzlů získá ze `$MyData` (konkrétně `$AllNodes`) a filtry pro tuto kolekci `Role` vlastnost...
 
 ## <a name="using-configuration-data-to-define-development-and-production-environments"></a>Pomocí konfigurační data, abyste definovali vývoj a produkční prostředí
@@ -128,7 +129,9 @@ Budeme definovat dat vývoj a produkční prostředí v souboru namd `DevProdEnv
 
 ### <a name="configuration-script-file"></a>Konfigurační soubor skriptu
 
-Nyní v konfiguraci, která je definována v `.ps1` souboru jsme filtrování uzlů definovaného v `DevProdEnvData.psd1` podle jejich role (`MSSQL`, `Dev`, nebo obojí) a příslušným způsobem nakonfigurujte. Vývojové prostředí má systém SQL Server a služby IIS na jednom uzlu, zatímco v provozním prostředí je má na dvou různých uzlech. Obsah webu se také liší podle specifikace `SiteContents` vlastnosti.
+Nyní v konfiguraci, která je definována v `.ps1` souboru jsme filtrování uzlů definovaného v `DevProdEnvData.psd1` podle jejich role (`MSSQL`, `Dev`, nebo obojí) a příslušným způsobem nakonfigurujte.
+Vývojové prostředí má systém SQL Server a služby IIS na jednom uzlu, zatímco v provozním prostředí je má na dvou různých uzlech.
+Obsah webu se také liší podle specifikace `SiteContents` vlastnosti.
 
 Na konci konfigurační skript, říkáme konfigurace (Kompilovat jej do dokumentu MOF), předávání `DevProdEnvData.psd1` jako `$ConfigurationData` parametr.
 
@@ -147,7 +150,7 @@ Configuration MyWebApp
    {
         # Install prerequisites
         WindowsFeature installdotNet35
-        {            
+        {
             Ensure      = "Present"
             Name        = "Net-Framework-Core"
             Source      = "c:\software\sxs"
@@ -182,7 +185,7 @@ Configuration MyWebApp
         }
 
         # Stop the default website
-        xWebsite DefaultSite 
+        xWebsite DefaultSite
         {
             Ensure       = 'Present'
             Name         = 'Default Web Site'
@@ -203,7 +206,7 @@ Configuration MyWebApp
             Type            = 'Directory'
             DependsOn       = '[WindowsFeature]AspNet45'
 
-        }       
+        }
 
 
         # Create the new Website
@@ -232,10 +235,10 @@ Při spuštění této konfiguraci jsou vytvořeny tři soubory MOF (jeden pro k
     Directory: C:\DscTests\MyWebApp
 
 
-Mode                LastWriteTime         Length Name                                                                                                                    
-----                -------------         ------ ----                                                                                                                    
--a----        3/31/2017   5:47 PM           2944 Prod-SQL.mof                                                                                                            
--a----        3/31/2017   5:47 PM           6994 Dev.mof                                                                                                                 
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        3/31/2017   5:47 PM           2944 Prod-SQL.mof
+-a----        3/31/2017   5:47 PM           6994 Dev.mof
 -a----        3/31/2017   5:47 PM           5338 Prod-IIS.mof
 ```
 
@@ -257,39 +260,39 @@ V tomto příkladu `ConfigFileContents` přistupuje řádek:
 
 
 ```powershell
-$MyData = 
+$MyData =
 @{
-    AllNodes = 
+    AllNodes =
     @(
         @{
             NodeName           = “*”
             LogPath            = “C:\Logs”
         },
- 
+
         @{
             NodeName = “VM-1”
             SiteContents = “C:\Site1”
             SiteName = “Website1”
         },
- 
-        
+
+
         @{
             NodeName = “VM-2”;
             SiteContents = “C:\Site2”
             SiteName = “Website2”
         }
     );
- 
-    NonNodeData = 
+
+    NonNodeData =
     @{
         ConfigFileContents = (Get-Content C:\Template\Config.xml)
-     }   
-} 
- 
+     }
+}
+
 configuration WebsiteConfig
 {
     Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
- 
+
     node $AllNodes.NodeName
     {
         xWebsite Site
@@ -298,14 +301,14 @@ configuration WebsiteConfig
             PhysicalPath = $Node.SiteContents
             Ensure       = “Present”
         }
- 
+
         File ConfigFile
         {
             DestinationPath = $Node.SiteContents + “\\config.xml”
             Contents = $ConfigurationData.NonNodeData.ConfigFileContents
         }
     }
-} 
+}
 ```
 
 
@@ -313,4 +316,3 @@ configuration WebsiteConfig
 - [Pomocí konfigurační data](configData.md)
 - [Možnosti přihlašovací údaje v konfiguračních dat](configDataCredentials.md)
 - [Konfigurace DSC](configurations.md)
-

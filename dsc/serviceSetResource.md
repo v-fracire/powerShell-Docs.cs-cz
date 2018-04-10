@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "ServiceSet prostředek DSC"
-ms.openlocfilehash: 2488dda5212ccb717f7fd5d59ad62ec135ad13d5
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: ServiceSet prostředek DSC
+ms.openlocfilehash: a7516120f0c4bc1c91031adc8aabf6a59b845246
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-serviceset-resource"></a>ServiceSet prostředek DSC
 
@@ -30,21 +30,21 @@ Service [string] #ResourceName
     [ Ensure = [string] { Absent | Present }  ]
     [ Credential = [PSCredential] ]
     [ DependsOn = [string[]] ]
-    
+
 }
 ```
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   | 
-|---|---| 
+|  Vlastnost  |  Popis   |
+|---|---|
 | Název| Určuje názvy služeb. Všimněte si, že v některých případech je to jiné názvy zobrazení. Můžete získat seznam služeb a jejich aktuální stav s [Get-Service](https://technet.microsoft.com/library/hh849804.aspx) rutiny.|
-| StartupType| Označuje typ spuštění služby. Jsou hodnoty, které jsou povoleny pro tuto vlastnost: **automatické**, **zakázané**, a **ruční**|  
-| BuiltInAccount| Určuje účet přihlášení, který chcete použít pro služby. Jsou hodnoty, které jsou povoleny pro tuto vlastnost: **LocalService**, **LocalSystem**, a **NetworkService**.| 
-| Stav| Označuje stav chcete zajistit pro služby: **Zastaveno** nebo **systémem**.| 
+| StartupType| Označuje typ spuštění služby. Jsou hodnoty, které jsou povoleny pro tuto vlastnost: **automatické**, **zakázané**, a **ruční**|
+| BuiltInAccount| Určuje účet přihlášení, který chcete použít pro služby. Jsou hodnoty, které jsou povoleny pro tuto vlastnost: **LocalService**, **LocalSystem**, a **NetworkService**.|
+| Stav| Označuje stav chcete zajistit pro služby: **Zastaveno** nebo **systémem**.|
 | Ujistěte se| Udává, zda existuje služeb v systému. Tuto vlastnost nastavit na **chybí** zajistit, že služby nejsou k dispozici. Jeho nastavení na hodnotu **přítomen** (výchozí hodnota) zajišťuje, že existují cíl služby.|
-| přihlašovací údaje| Určuje pověření pro účet, který prostředek služby budou spouštěny pod. Tato vlastnost a **BuiltinAccount** vlastnost nelze použít společně.| 
-| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba *ResourceName* a její typ je *ResourceType*, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.| 
+| přihlašovací údaje| Určuje pověření pro účet, který prostředek služby budou spouštěny pod. Tato vlastnost a **BuiltinAccount** vlastnost nelze použít společně.|
+| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba *ResourceName* a její typ je *ResourceType*, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
 
 
 
@@ -64,8 +64,7 @@ configuration ServiceSetTest
             Name        = @("TermService", "Audiosrv")
             StartupType = "Manual"
             State       = "Running"
-        } 
+        }
     }
 }
 ```
-

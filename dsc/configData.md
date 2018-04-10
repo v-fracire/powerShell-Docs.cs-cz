@@ -1,106 +1,112 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Pomocí konfigurační data"
-ms.openlocfilehash: b56a3f970b0b5121585dc4ed2f32da3243b980bd
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Pomocí konfigurační data
+ms.openlocfilehash: 19544494a547a06d87701b38585844cb11d03e33
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="using-configuration-data-in-dsc"></a>Pomocí konfigurační data v DSC
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-Pomocí předdefinovaných DSC **ConfigurationData** parametr, můžete definovat data, která lze použít v konfiguraci. To umožňuje vytvoření jedné konfigurace, které lze použít pro více uzly nebo v různých prostředích. Například pokud vyvíjíte aplikaci, můžete použít jednu konfiguraci pro vývoj a produkční prostředí a konfigurační data použijte k určení dat pro každé prostředí.
+Pomocí předdefinovaných DSC **ConfigurationData** parametr, můžete definovat data, která lze použít v konfiguraci.
+To umožňuje vytvoření jedné konfigurace, které lze použít pro více uzly nebo v různých prostředích.
+Například pokud vyvíjíte aplikaci, můžete použít jednu konfiguraci pro vývoj a produkční prostředí a konfigurační data použijte k určení dat pro každé prostředí.
 
-Toto téma popisuje strukturu **ConfigurationData** zatřiďovací tabulky. Příklady použití konfiguračních dat najdete v tématu [oddělení dat konfigurace a prostředí](separatingEnvData.md).
+Toto téma popisuje strukturu **ConfigurationData** zatřiďovací tabulky.
+Příklady použití konfiguračních dat najdete v tématu [oddělení dat konfigurace a prostředí](separatingEnvData.md).
 
 ## <a name="the-configurationdata-common-parameter"></a>Společný parametr ConfigurationData
 
-Konfigurace DSC trvá společný parametr **ConfigurationData**, zda jste zadali při kompilaci konfigurace. Informace o kompilování konfigurace najdete v tématu [konfigurace DSC](configurations.md).
+Konfigurace DSC trvá společný parametr **ConfigurationData**, zda jste zadali při kompilaci konfigurace.
+Informace o kompilování konfigurace najdete v tématu [konfigurace DSC](configurations.md).
 
-**ConfigurationData** parametr je hasthtable, kterou musí mít alespoň jeden klíč s názvem **AllNodes**. Může také obsahovat jeden či více klíčů.
+**ConfigurationData** parametr je hasthtable, kterou musí mít alespoň jeden klíč s názvem **AllNodes**.
+Může také obsahovat jeden či více klíčů.
 
 >**Poznámka:** v příkladech v tomto tématu použijte jeden další klíč (než pojmenované **AllNodes** klíč) s názvem `NonNodeData`, ale může obsahovat libovolný počet dalších klíčů a název je všechno.
 
 ```powershell
-$MyData = 
+$MyData =
 @{
     AllNodes = @()
-    NonNodeData = ""   
+    NonNodeData = ""
 }
 ```
 
 Hodnota **AllNodes** klíč je pole. Každý prvek toto pole je také zatřiďovací tabulka, která musí mít alespoň jeden klíč s názvem **NodeName**:
 
 ```powershell
-$MyData = 
+$MyData =
 @{
-    AllNodes = 
+    AllNodes =
     @(
         @{
             NodeName = "VM-1"
         },
 
- 
+
         @{
             NodeName = "VM-2"
         },
 
- 
+
         @{
             NodeName = "VM-3"
         }
     );
 
-    NonNodeData = ""   
+    NonNodeData = ""
 }
 ```
 
 Můžete přidat další klíče pro každou zatřiďovací tabulku:
 
 ```powershell
-$MyData = 
+$MyData =
 @{
-    AllNodes = 
+    AllNodes =
     @(
         @{
             NodeName = "VM-1"
             Role     = "WebServer"
         },
 
- 
+
         @{
             NodeName = "VM-2"
             Role     = "SQLServer"
         },
 
- 
+
         @{
             NodeName = "VM-3"
             Role     = "WebServer"
         }
     );
 
-    NonNodeData = ""   
+    NonNodeData = ""
 }
 ```
 
-Použít vlastnosti na všech uzlech, můžete vytvořit členem **AllNodes** pole, které má **NodeName** z `*`. Například pro poskytnutí každý uzel `LogPath` vlastnost, můžete to udělat toto:
+Použít vlastnosti na všech uzlech, můžete vytvořit členem **AllNodes** pole, které má **NodeName** z `*`.
+Například pro poskytnutí každý uzel `LogPath` vlastnost, můžete to udělat toto:
 
 ```powershell
-$MyData = 
+$MyData =
 @{
-    AllNodes = 
+    AllNodes =
     @(
         @{
             NodeName     = "*"
             LogPath      = "C:\Logs"
         },
 
- 
+
         @{
             NodeName     = "VM-1"
             Role         = "WebServer"
@@ -108,13 +114,13 @@ $MyData =
             SiteName     = "Website1"
         },
 
- 
+
         @{
             NodeName     = "VM-2"
             Role         = "SQLServer"
         },
 
- 
+
         @{
             NodeName     = "VM-3"
             Role         = "WebServer"
@@ -129,7 +135,8 @@ Jedná se o ekvivalent přidávání vlastnost s názvem `LogPath` s hodnotou `"
 
 ## <a name="defining-the-configurationdata-hashtable"></a>Definování ConfigurationData zatřiďovací tabulky
 
-Můžete definovat **ConfigurationData** buď jako proměnné v souboru skriptu jako konfigurace (jako v předchozí příklady) nebo v samostatném `.psd1` souboru. Chcete-li definovat **ConfigurationData** v `.psd1` souboru, vytvořte soubor, který obsahuje pouze zatřiďovací tabulky, který představuje konfigurační data.
+Můžete definovat **ConfigurationData** buď jako proměnné v souboru skriptu jako konfigurace (jako v předchozí příklady) nebo v samostatném `.psd1` souboru.
+Chcete-li definovat **ConfigurationData** v `.psd1` souboru, vytvořte soubor, který obsahuje pouze zatřiďovací tabulky, který představuje konfigurační data.
 
 Například můžete vytvořit soubor s názvem `MyData.psd1` s tímto obsahem:
 
@@ -186,11 +193,11 @@ DSC poskytuje tři speciální proměnné, které lze použít v konfigurační 
 ## <a name="using-non-node-data"></a>Pomocí data bez uzlu
 
 Jak jsme viděli v předchozích příkladech **ConfigurationData** zatřiďovací tabulka může mít jeden či více klíčů kromě požadované **AllNodes** klíč.
-V příkladech v tomto tématu jsme používá jenom jeden další uzel a s názvem ho `NonNodeData`. Však můžete definovat libovolný počet dalších klíčů a název je všechno, co chcete.
+V příkladech v tomto tématu jsme používá jenom jeden další uzel a s názvem ho `NonNodeData`.
+Však můžete definovat libovolný počet dalších klíčů a název je všechno, co chcete.
 
 Příklad použití dat na jiný uzel, naleznete v části [oddělení dat konfigurace a prostředí](separatingEnvData.md).
 
 ## <a name="see-also"></a>Viz také
 - [Možnosti přihlašovací údaje v konfiguračních dat](configDataCredentials.md)
 - [Konfigurace DSC](configurations.md)
-

@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 7817769c3fc060a51c833b7469f7b556b9b40e87
-ms.sourcegitcommit: a5c0795ca6ec9332967bff9c151a8572feb1a53a
+keywords: wmf,powershell,setup
+ms.openlocfilehash: eeafdd8d7a50e0bfc5ebd0ca8e9852c3d7405bf0
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="call-base-class-method"></a>Volání metody třídy Base
+# <a name="call-base-class-method"></a>Volání metody základní třídy
 
 Můžete přepsat existující metod v podtřídách. K tomuto účelu deklarace pomocí se stejným názvem a podpis metody:
 
@@ -57,4 +57,3 @@ $list = [MyIntList]::new()
 $list.Add(100)
 $list[0] # return 200
 ```
-

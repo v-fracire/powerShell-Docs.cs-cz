@@ -1,54 +1,55 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Zápis prostředek DSC jedné instance (doporučený postup)"
-ms.openlocfilehash: 4510bec5b4600334b845831ec6700da01e1a110c
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Psaní jednorázové instance prostředku DSC (osvědčený postup)
+ms.openlocfilehash: fc118fd8b0d91d2001030769ac7e3c6321972905
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="writing-a-single-instance-dsc-resource-best-practice"></a>Zápis prostředek DSC jedné instance (doporučený postup)
+# <a name="writing-a-single-instance-dsc-resource-best-practice"></a>Psaní jednorázové instance prostředku DSC (osvědčený postup)
 
 >**Poznámka:** Toto téma popisuje osvědčený postup pro definování prostředek DSC, který umožňuje pouze jednu instanci v konfiguraci. V současné době není k dispozici žádné předdefinované funkce DSC k tomu. Může v budoucnu změnit.
 
 Existují situace, kdy nechcete povolit prostředků, který se má použít více než jednou. v konfiguraci. Například v předchozích implementacích služby [xTimeZone](https://github.com/PowerShell/xTimeZone) prostředků, konfigurace může volat prostředek vícekrát, nastavení časového pásma na jiné nastavení v každém bloku prostředků:
 
 ```powershell
-Configuration SetTimeZone 
-{ 
-    Param 
-    ( 
-        [String[]]$NodeName = $env:COMPUTERNAME 
+Configuration SetTimeZone
+{
+    Param
+    (
+        [String[]]$NodeName = $env:COMPUTERNAME
 
-    ) 
+    )
 
-    Import-DSCResource -ModuleName xTimeZone 
- 
- 
-    Node $NodeName 
-    { 
-         xTimeZone TimeZoneExample 
-         { 
-        
-            TimeZone = 'Eastern Standard Time' 
-         } 
+    Import-DSCResource -ModuleName xTimeZone
+
+
+    Node $NodeName
+    {
+         xTimeZone TimeZoneExample
+         {
+
+            TimeZone = 'Eastern Standard Time'
+         }
 
          xTimeZone TimeZoneExample2
          {
 
             TimeZone = 'Pacific Standard Time'
 
-         }        
+         }
 
-    } 
-} 
+    }
+}
 ```
 
 To je kvůli způsob, jakým klíče prostředků DSC fungovat. Prostředek musí mít alespoň jednu klíčovou vlastnost. Instance prostředků je považován za jedinečný, pokud je kombinace hodnot všech jeho klíčové vlastnosti jedinečná. V předchozích implementacích [xTimeZone](https://github.com/PowerShell/xTimeZone) prostředků měl pouze jednu vlastnost--**časové pásmo**, které se musí být klíč. Z tohoto důvodu by konfigurace, jako je třeba výše zkompilování a spuštění bez upozornění. Každý z **xTimeZone** bloky prostředků se považuje za jedinečný. To by způsobilo konfigurace opakovaně použít k uzlu, prosté časové pásmo a zpět.
 
-K zajištění, že konfigurace může nastavit časové pásmo pro cílový uzel pouze jednou, byl aktualizován přidáním druhou vlastností prostředku **IsSingleInstance**, která se aktivovala vlastnost klíče. **IsSingleInstance** byla omezena na jednu hodnotu "Ano" pomocí **chybu**. Byl původní MOF schématu pro prostředek:
+K zajištění, že konfigurace může nastavit časové pásmo pro cílový uzel pouze jednou, byl aktualizován přidáním druhou vlastností prostředku **IsSingleInstance**, která se aktivovala vlastnost klíče.
+**IsSingleInstance** byla omezena na jednu hodnotu "Ano" pomocí **chybu**. Byl původní MOF schématu pro prostředek:
 
 ```powershell
 [ClassVersion("1.0.0.0"), FriendlyName("xTimeZone")]
@@ -117,10 +118,10 @@ function Set-TargetResource
         [String]
         $TimeZone
     )
-    
+
     #Output the result of Get-TargetResource function.
     $CurrentTimeZone = Get-TimeZone
-    
+
     if($PSCmdlet.ShouldProcess("'$TimeZone'","Replace the System Time Zone"))
     {
         try
@@ -152,7 +153,7 @@ function Test-TargetResource
         [parameter(Mandatory = $true)]
         [ValidateSet('Yes')]
         [String]
-        $IsSingleInstance, 
+        $IsSingleInstance,
 
         [parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
@@ -205,9 +206,9 @@ Export-ModuleMember -Function *-TargetResource
 Všimněte si, že **časové pásmo** vlastnost je už klíč. Nyní, pokud konfigurace pokusí se nastavit časové pásmo dvakrát (pomocí dva různé **xTimeZone** bloky jiné **časové pásmo** hodnoty), pokus o zkompilování konfigurace dojde k chybě:
 
 ```powershell
-Test-ConflictingResources : A conflict was detected between resources '[xTimeZone]TimeZoneExample (::15::10::xTimeZone)' and 
-'[xTimeZone]TimeZoneExample2 (::22::10::xTimeZone)' in node 'CONTOSO-CLIENT'. Resources have identical key properties but there are differences in the 
-following non-key properties: 'TimeZone'. Values 'Eastern Standard Time' don't match values 'Pacific Standard Time'. Please update these property 
+Test-ConflictingResources : A conflict was detected between resources '[xTimeZone]TimeZoneExample (::15::10::xTimeZone)' and
+'[xTimeZone]TimeZoneExample2 (::22::10::xTimeZone)' in node 'CONTOSO-CLIENT'. Resources have identical key properties but there are differences in the
+following non-key properties: 'TimeZone'. Values 'Eastern Standard Time' don't match values 'Pacific Standard Time'. Please update these property
 values so that they are identical in both cases.
 At line:271 char:9
 +         Test-ConflictingResources $keywordName $canonicalizedValue $k ...
@@ -221,4 +222,3 @@ At C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSDesiredStateConfiguratio
     + CategoryInfo          : InvalidOperation: (SetTimeZone:String) [], InvalidOperationException
     + FullyQualifiedErrorId : FailToProcessConfiguration
 ```
-   

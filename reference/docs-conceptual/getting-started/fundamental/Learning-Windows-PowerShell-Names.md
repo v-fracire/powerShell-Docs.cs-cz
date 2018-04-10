@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Učení názvy prostředí PowerShell systému Windows"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Učení názvů Windows PowerShellu
 ms.assetid: b4d0fd22-8298-4ee6-82ae-9b6f2907c986
-ms.openlocfilehash: 28c821c4a617b6ac775dbdda8ade3d15c3f218c3
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 381aa619a41ccacb2ff3a4cdbc2b75b7f04282d1
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="learning-windows-powershell-names"></a>Učení názvy prostředí PowerShell systému Windows
+# <a name="learning-windows-powershell-names"></a>Učení názvů Windows PowerShellu
 Learning názvy příkazů a parametry příkazu je déle investice s Většina rozhraní příkazového řádku. Problém je, že v případě vzorů velmi málo tak, aby jediný způsob, jak další používáním každý příkaz a každý parametr, který je nutné použít v pravidelných intervalech.
 
 Při práci s parametry a nový příkaz, nemůžete použít obecně co již víte; budete muset najít a další nový název. Pokud se podíváte na tom, jak rozhraní dosáhnout z malého nástrojů s přírůstkové přídavky funkce, je snadno zjistit, proč je nestandardní strukturu. S názvy příkazů konkrétně to může zvukových logické vzhledem k tomu, že každý příkaz je samostatný nástroj, ale je lepší způsob, jak zpracovat názvy příkazů.
@@ -57,7 +57,7 @@ Cmdlet          Resume-Service                  Resume-Service [-Name] <Stri...
 Cmdlet          Set-Service                     Set-Service [-Name] <String>...
 Cmdlet          Start-Service                   Start-Service [-Name] <Strin...
 Cmdlet          Stop-Service                    Stop-Service [-Name] <String...
-Cmdlet          Suspend-Service                 Suspend-Service [-Name] <Str... 
+Cmdlet          Suspend-Service                 Suspend-Service [-Name] <Str...
 ...
 ```
 
@@ -91,4 +91,3 @@ Prostředí Windows PowerShell obsahuje několik parametrů, které jsou známé
 Základní rutiny Windows Powershellu používat standardní názvy pro podobné parametry. I když není vynucené použití názvy parametrů, je explicitní pokyny pro použití na podporu standardizace.
 
 Například pokyny doporučuje pojmenování parametr, který odkazuje na počítači podle názvu jako **ComputerName**, nikoli serveru, hostitele, systému, uzel nebo jiná běžné alternativní slova. Mezi důležité navrhované parametr názvů **Force**, **vyloučit**, **zahrnout**, **PassThru**, **cesta**, a **CaseSensitive**.
-

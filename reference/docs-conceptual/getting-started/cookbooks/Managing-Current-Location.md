@@ -1,20 +1,22 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Správa aktuálního umístění"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Správa aktuálního umístění
 ms.assetid: a9f9e7a7-3ea8-47d3-bbb4-6e437f6d4a4a
-ms.openlocfilehash: cbdebb84b3191e3bd549a1cf344cbeefaa91a23c
-ms.sourcegitcommit: c5251755c4442487f99ff74fadf7e37bbf039089
+ms.openlocfilehash: 8d529bf4a85553b95a9cab2739016859662486f2
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="managing-current-location"></a>Správa aktuálního umístění
+
 Při přechodu systémy složky v Průzkumníku souborů, obvykle mají konkrétní pracovní umístění – konkrétně, aktuální otevřít složku. Položky v aktuální složce se dá snadno upravit kliknutím je. Pro rozhraní příkazového řádku, jako je například Cmd.exe když jsou ve stejné složce jako konkrétní soubor, můžete k němu přístup zadání relativně krátkého názvu, namísto nutnosti zadat celou cestu k souboru. Aktuální adresář se nazývá pracovní adresář.
 
 Prostředí Windows PowerShell používá podstatným jménem **umístění** odkazovat na pracovní adresář a implementuje řadu rutin sloužící ke zkoumání a manipulaci s vaši polohu.
 
 ### <a name="getting-your-current-location-get-location"></a>Získávání aktuální umístění (Get umístění)
+
 Chcete-li zjistit cestu vaše aktuální umístění adresáře, zadejte **Get-umístění** příkaz:
 
 ```
@@ -28,16 +30,18 @@ C:\Documents and Settings\PowerUser
 > Rutina Get-umístění je podobná **pwd** příkazu v prostředí BASH. Nastavení umístění rutina je podobná **cd** v Cmd.exe.
 
 ### <a name="setting-your-current-location-set-location"></a>Nastavení vaše aktuální umístění (Set umístění)
+
 **Get-umístění** příkaz se používá s **nastavení umístění** příkaz. **Nastavení umístění** příkaz umožňuje zadat vaše aktuální umístění adresáře.
 
-```
-PS> Set-Location -Path C:\Windows
+```powershell
+Set-Location -Path C:\Windows
 ```
 
 Po zadání příkazu si všimnete, že neobdržíte žádné přímé zpětnou vazbu o efekt příkazu. Většina příkazů prostředí Windows PowerShell, které provádějí akce vytvořit žádné nebo téměř žádné výstup, protože výstup není vždy užitečné. Chcete-li ověřit, že došlo ke změně úspěšné directory při zadávání **nastavení umístění** příkaz, zahrnují **- PassThru** parametr při zadání **Set-umístění**příkaz:
 
 ```
 PS> Set-Location -Path C:\Windows -PassThru
+
 Path
 ----
 C:\WINDOWS
@@ -49,7 +53,7 @@ Můžete určit cest relativně k vaše aktuální umístění stejným způsobe
 
 Například, pokud jste v **C:\\Windows** složku, tečku (**.**) představuje **C:\\Windows** a dvakrát tečky (**...** ) představují **C:**. Můžete změnit z aktuálního umístění do kořenového adresáře jednotky C: zadáním:
 
-```powershell
+```
 PS> Set-Location -Path .. -PassThru
 
 Path
@@ -79,19 +83,20 @@ HKLM:\
 
 Můžete zadat nastavení umístění nebo použít některou z předdefinovaných aliasy prostředí Windows PowerShell pro nastavení umístění (cd, chdir, sl). Příklad:
 
-```
+```powershell
 cd -Path C:\Windows
 ```
 
-```
+```powershell
 chdir -Path .. -PassThru
 ```
 
-```
+```powershell
 sl -Path HKLM:\SOFTWARE -PassThru
 ```
 
 ### <a name="saving-and-recalling-recent-locations-push-location-and-pop-location"></a>Ukládání a vrací poslední umístění (nabízené umístění a umístění Pop)
+
 Při změně umístění, je užitečné, chcete-li zaznamenávat, kde jste a mohli vrátit do předchozího umístění. **Nabízené umístění** rutiny v prostředí Windows PowerShell vytvoří seřazené historii ("zásobník") directory cesty, kde jste, a můžete krokovat zpět v historii cesty adresářů pomocí doplňkové  **Umístění POP** rutiny.
 
 Například prostředí Windows PowerShell se obvykle spustí v domovskému adresáři uživatele.
@@ -109,14 +114,14 @@ C:\Documents and Settings\PowerUser
 
 Chcete-li nabízená aktuální umístění do zásobníku a pak přejděte do složky místní nastavení, zadejte:
 
-```
-PS> Push-Location -Path "Local Settings"
+```powershell
+Push-Location -Path "Local Settings"
 ```
 
 Potom můžete posouvat nastavení místního umístění do zásobníku a a přesuňte do dočasné složky zadáním:
 
-```
-PS> Push-Location -Path Temp
+```powershell
+Push-Location -Path Temp
 ```
 
 Můžete ověřit, že jste změnili adresáře zadáním **Get-umístění** příkaz:
@@ -152,13 +157,13 @@ C:\Documents and Settings\PowerUser
 
 Můžete taky rutiny umístění s síťových cest. Pokud máte server s názvem FS01 se sdílenou složku s názvem veřejné, vaše umístění můžete změnit zadáním
 
-```
+```powershell
 Set-Location \\FS01\Public
 ```
 
 nebo
 
-```
+```powershell
 Push-Location \\FS01\Public
 ```
 
@@ -172,4 +177,3 @@ Set-Location : Cannot find path 'D:\' because it does not exist.
 ```
 
 Pokud používáte rozhraní příkazového řádku, není vhodné Průzkumníkovi souborů zkontrolujte dostupné fyzické disky. Průzkumníka souborů můžete by také zobrazit všechna jednotek prostředí Windows PowerShell. Prostředí Windows PowerShell poskytuje sadu příkazů pro manipulaci s jednotky prostředí Windows PowerShell a se věnuje tyto další.
-

@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
-keywords: "Galerie prostředí powershell, rutiny, psgallery"
+keywords: Galerie prostředí powershell, rutiny, psgallery
 title: psgallery_search_syntax
-ms.openlocfilehash: 409ae607557af760f9cec4e3c54f39e51b5fac18
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 337b4b1e702994fcbc456eb31a2d8632f5220d09
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="gallery-search-syntax"></a>Syntaxe vyhledávání Galerie
 
@@ -31,7 +31,7 @@ Odpovídající dokumenty by měl obvykle obsahují přesný řetězec "azure sq
 
 Můžete vyhledat konkrétní položku ID (nebo 'Id' nebo 'id'), nebo určitá pole pomocí prefixu vyhledávání podmínky název pole.
 
-Aktuálně jsou prohledávatelné pole 'Id', 'Version', 'Značky', 'Vytvořit', "Vlastník", "Funkce", 'Rutiny', 'DscResources' a 'verze prostředí PowerShell..
+Aktuálně jsou prohledávatelné pole 'Id', 'Version', 'Značky', 'Vytvořit', "Vlastník", "Funkce", 'Rutiny', 'DscResources' a 'verze prostředí PowerShell.
 
 [Jaký je rozdíl mezi ID a název? ID je název, který používáte v konzole. Název je co se zobrazí v horní části stránky položky ve výsledcích hledání.]
 
@@ -49,7 +49,7 @@ je další způsob hledání položek s "AzureRM.Profile" v jejich ID pole.
 Filtr 'Id' je dílčí řetězec shodují, tak pokud hledáte následující:
 
     Id:"azure"
-    
+
 Získáte výsledky jako 'AzureRM.Profile' a 'Azure.Storage'.
 
 Můžete také prohledat několik klíčových slov do jednoho pole. Nebo kombinovat a Párovat pole.
@@ -71,7 +71,7 @@ Chcete-li vyhledat všechny položky se zadanou funkcí.
     Functions:"Update-AzureRM"
 
 K vyhledání všech položek s zadanou rutinu.
-    
+
     Cmdlets:"Get-AzureRmEnvironment"
 
 Chcete-li vyhledat všechny položky se zadaným názvem prostředek DSC.
@@ -88,8 +88,7 @@ K vyhledání všech položek, zadaná verze prostředí PowerShell
 Nakonec pokud používáte pole, které nepodporujeme, například "příkazů, jsme budete právě ho ignorovat a hledání všechna pole. Proto tyto dotazu
 
     commands:blobs storage
-    
+
 Je interpretovat stejně jako tento dotaz:
 
     blobs storage
-

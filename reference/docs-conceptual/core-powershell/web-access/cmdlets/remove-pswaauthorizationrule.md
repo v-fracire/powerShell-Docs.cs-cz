@@ -1,16 +1,16 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
 title: odebrat pswaauthorizationrule
 ms.technology: powershell
-ms.openlocfilehash: 4d039e7e00f87bc7aebb89217251edbbb5c3f5be
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 28dbfe84827d6ccb99dce1ebb520cae66dc8c50e
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="remove-pswaauthorizationrule"></a>Remove-PswaAuthorizationRule
 
@@ -40,7 +40,7 @@ Odebere zadané autorizační pravidlo z Windows PowerShell Web Access.
 
 Spustí se bez zobrazení výzvy k potvrzení. Ve výchozím nastavení rutina požádá o potvrzení, než budete pokračovat.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -53,7 +53,7 @@ Spustí se bez zobrazení výzvy k potvrzení. Ve výchozím nastavení rutina p
 
 Určuje identifikátory (ID) jeden nebo více pravidel odebrat.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -66,7 +66,7 @@ Určuje identifikátory (ID) jeden nebo více pravidel odebrat.
 
 Určuje pravidla k odebrání.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |
@@ -79,7 +79,7 @@ Určuje pravidla k odebrání.
 
 Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |
@@ -91,7 +91,7 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
 Zobrazuje, co by se stalo při spuštění rutiny. Rutina není spuštěna.
 
-|||  
+|||
 |-|-|
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |

@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "WindowsFeatureSet prostředek DSC"
-ms.openlocfilehash: a2bb008852ccfdc04998a57d3e64e08bf05e6433
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: WindowsFeatureSet prostředek DSC
+ms.openlocfilehash: a6fecba0397b88ce39f6f1a1be6cc366c8a983a6
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-windowsfeatureset-resource"></a>WindowsFeatureSet prostředek DSC
 
@@ -23,28 +23,28 @@ Pokud chcete konfigurovat řadu funkcí systému Windows do stejného stavu, pou
 ```
 WindowsFeatureSet [string] #ResourceName
 {
-    Name = [string[]] 
+    Name = [string[]]
     [ Ensure = [string] { Absent | Present }  ]
     [ Source = [string] ]
     [ IncludeAllSubFeature = [bool] ]
     [ Credential = [PSCredential] ]
     [ LogPath = [string] ]
     [ DependsOn = [string[]] ]
-    
+
 }
 ```
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   | 
-|---|---| 
-| Název| Názvy rolí nebo funkcí, které chcete zajistit přidání nebo odebrání. Je to stejné jako **název** vlastnost [Get-WindowsFeature](https://technet.microsoft.com/en-us/library/jj205469.aspx) rutiny a ne zobrazovaným názvem rolí nebo funkcí.| 
-| přihlašovací údaje| Pověření, který se má použít k přidání nebo odebrání rolí nebo funkcí.| 
-| Ujistěte se| Určuje, zda jsou přidány rolí nebo funkcí. Zajistit, že role nebo funkce jsou přidané, nastavte tuto vlastnost "Přítomen" zajistit, že jsou odebrány rolí nebo funkcí, nastavte vlastnost na "Chybí".| 
-| IncludeAllSubFeature| Tuto vlastnost nastavit na **$true** zahrnout všechny požadované jejích s funkcí, které zadáte pomocí **název** vlastnost.| 
-| LogPath| Cesta k souboru protokolu, kam chcete poskytovatele prostředků do protokolu operaci.| 
-| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.| 
-| Zdroj| Určuje umístění zdrojového souboru pro instalaci, v případě potřeby.| 
+|  Vlastnost  |  Popis   |
+|---|---|
+| Název| Názvy rolí nebo funkcí, které chcete zajistit přidání nebo odebrání. Je to stejné jako **název** vlastnost [Get-WindowsFeature](https://technet.microsoft.com/en-us/library/jj205469.aspx) rutiny a ne zobrazovaným názvem rolí nebo funkcí.|
+| přihlašovací údaje| Pověření, který se má použít k přidání nebo odebrání rolí nebo funkcí.|
+| Ujistěte se| Určuje, zda jsou přidány rolí nebo funkcí. Zajistit, že role nebo funkce jsou přidané, nastavte tuto vlastnost "Přítomen" zajistit, že jsou odebrány rolí nebo funkcí, nastavte vlastnost na "Chybí".|
+| IncludeAllSubFeature| Tuto vlastnost nastavit na **$true** zahrnout všechny požadované jejích s funkcí, které zadáte pomocí **název** vlastnost.|
+| LogPath| Cesta k souboru protokolu, kam chcete poskytovatele prostředků do protokolu operaci.|
+| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
+| Zdroj| Určuje umístění zdrojového souboru pro instalaci, v případě potřeby.|
 
 ## <a name="example"></a>Příklad
 
@@ -62,8 +62,7 @@ configuration FeatureSetTest
             Name                    = @("SMTP-Server", "Web-Server")
             Ensure                  = 'Present'
             IncludeAllSubFeature    = $true
-        } 
+        }
     }
 }
 ```
-

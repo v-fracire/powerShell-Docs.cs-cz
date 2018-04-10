@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-08-23
-keywords: "rutiny prostředí PowerShell"
-title: "řešení problémů s přístupem ve windows powershell web Accessu"
-ms.openlocfilehash: 6e51df3f4c6ac196c855ad918a91394d02c7d75e
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.date: 08/23/2017
+keywords: rutiny prostředí PowerShell
+title: řešení problémů s přístupem ve windows powershell web Accessu
+ms.openlocfilehash: ef476d8e386e5380cb2c9dda69180dfce8748bf4
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="troubleshooting-access-problems-in-windows-powershell-web-access"></a>Řešení problémů s přístupem ve Windows PowerShell Web Accessu
 
@@ -130,7 +130,7 @@ Nejde se přihlásit k cílovému počítači, který byl v autorizačních prav
 Autorizační pravidla nepodporují adresu IPv6, která má tvar názvu domény.
 
 Pokud chcete k zadání cílového počítače použít adresu IPv6, použijte v autorizačním pravidle původní adresu IPv6 (která obsahuje dvojtečky).
-Jako název cílového počítače, na přihlašovací stránce Windows PowerShell Web Access, ale není v autorizační pravidla jsou podporované doménové i číselné (s dvojtečkami) adresy IPv6. 
+Jako název cílového počítače, na přihlašovací stránce Windows PowerShell Web Access, ale není v autorizační pravidla jsou podporované doménové i číselné (s dvojtečkami) adresy IPv6.
 
 Další informace o adresách IPv6 najdete v tématu [jak funguje IPv6](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx).
 

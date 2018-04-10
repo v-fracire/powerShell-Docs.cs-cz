@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Doporučené postupy pro vyžádání obsahu"
-ms.openlocfilehash: 3d0ab969b7a0de9d428becc4b9bdb124a7a44c2c
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Osvědčené postupy serveru vyžádané replikace
+ms.openlocfilehash: 7de523ad16aee77d87ec4d3334d296997020aa19
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="pull-server-best-practices"></a>Doporučené postupy pro vyžádání obsahu
+# <a name="pull-server-best-practices"></a>Osvědčené postupy serveru vyžádané replikace
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
@@ -17,8 +17,8 @@ Souhrn: Tento dokument je určený zahrnuje proces a rozšiřitelnost pomůže t
 
 | |Informace o dokumentu|
 |:---|:---|
-Autor | Michael Greene  
-Recenzenti | Ben Gelens, Ravikanth Chaganti Aleksandar Nikolic  
+Autor | Michael Greene
+Recenzenti | Ben Gelens, Ravikanth Chaganti Aleksandar Nikolic
 Publikovat | Duben 2015
 
 ## <a name="abstract"></a>Abstraktní
@@ -31,8 +31,8 @@ Dvě hlavní části tohoto dokumentu:
 
  - Plánování konfigurace
  - Průvodce instalací
- 
-### <a name="versions-of-the-windows-management-framework"></a>Verze Windows Management Framework 
+
+### <a name="versions-of-the-windows-management-framework"></a>Verze Windows Management Framework
 Informace v tomto dokumentu je určena pro použití na Windows Management Framework 5.0. Přestože WMF 5.0 není vyžadována pro nasazení a provozování vyžádání obsahu server, verze 5.0 je téma tohoto dokumentu.
 
 ### <a name="windows-powershell-desired-state-configuration"></a>Prostředí Windows PowerShell konfigurace požadovaného stavu
@@ -40,10 +40,11 @@ Požadované konfigurace stavu (DSC) je platformu správy, která umožňuje nas
 
 Prostředí Windows PowerShell poskytuje sadu jazyková rozšíření pro konfigurace požadovaného stavu, můžete použít k vytváření a správě deklarativní konfigurace.
 
-### <a name="pull-server-role"></a>Role serveru vyžádané replikace  
+### <a name="pull-server-role"></a>Role serveru vyžádané replikace
 Načítacího serveru poskytuje centralizované služby k uložení konfigurace, které budou přístupné pro cílové uzly.
- 
-Role serveru vyžádané replikace se dá nasadit jako instance webového serveru nebo sdílené složky SMB. Schopnost webového serveru obsahuje rozhraní OData a může volitelně obsahovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěšné nebo neúspěšné, jako jsou použita konfigurace. Tato funkce je užitečná v prostředích, kde je velké množství cílové uzly. Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na server vyžádané replikace s nejnovější konfigurací jsou data a všechny požadované skripty stažení a použití. Tato situace může nastat, jako jednorázové nasazení nebo jako znovu se vyskytující úlohy, který také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell požadovaného stavu konfigurace pro vyžádání obsahu servery](https://technet.microsoft.com/library/dn249913.aspx) a [nabízení a režimů pro vyžádání obsahu konfigurace](https://technet.microsoft.com/library/dn249913.aspx).
+
+Role serveru vyžádané replikace se dá nasadit jako instance webového serveru nebo sdílené složky SMB. Schopnost webového serveru obsahuje rozhraní OData a může volitelně obsahovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěšné nebo neúspěšné, jako jsou použita konfigurace. Tato funkce je užitečná v prostředích, kde je velké množství cílové uzly.
+Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na server vyžádané replikace s nejnovější konfigurací jsou data a všechny požadované skripty stažení a použití. Tato situace může nastat, jako jednorázové nasazení nebo jako znovu se vyskytující úlohy, který také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell požadovaného stavu konfigurace pro vyžádání obsahu servery](https://technet.microsoft.com/library/dn249913.aspx) a [nabízení a režimů pro vyžádání obsahu konfigurace](https://technet.microsoft.com/library/dn249913.aspx).
 
 ## <a name="configuration-planning"></a>Plánování konfigurace
 
@@ -59,7 +60,9 @@ Kromě instalace nejnovější obsah ze služby Windows Update, jsou považován
 
 ### <a name="wmf"></a>WMF
 
-Windows Server 2012 R2 obsahuje funkci s názvem služby DSC. Funkce služby DSC poskytuje funkce serveru vyžádané replikace, včetně binárních souborů, které podporují koncový bod OData. WMF je součástí systému Windows Server a je aktualizován na agilní cadence mezi verzemi Windows serveru. [Nové verze WMF 5.0](http://aka.ms/wmf5latest) můžete zahrnout aktualizace do funkce služby DSC. Z tohoto důvodu je osvědčeným postupem stažení nejnovější verze WMF a přečtěte si poznámky k verzi k určení, pokud tato verze obsahuje aktualizaci funkce služby DSC. Měli byste taky zkontrolovat v části poznámky k verzi, která určuje, zda je stav návrhu pro aktualizaci nebo scénář v stabilní nebo experimentální. Povolit pro agilní verze cyklus, jednotlivých funkcí lze deklarovat stabilní, což naznačuje funkci je připravený k použití v produkčním prostředí i podpora produktu WMF vydání ve verzi preview.
+Windows Server 2012 R2 obsahuje funkci s názvem služby DSC. Funkce služby DSC poskytuje funkce serveru vyžádané replikace, včetně binárních souborů, které podporují koncový bod OData.
+WMF je součástí systému Windows Server a je aktualizován na agilní cadence mezi verzemi Windows serveru. [Nové verze WMF 5.0](http://aka.ms/wmf5latest) můžete zahrnout aktualizace do funkce služby DSC. Z tohoto důvodu je osvědčeným postupem stažení nejnovější verze WMF a přečtěte si poznámky k verzi k určení, pokud tato verze obsahuje aktualizaci funkce služby DSC. Měli byste taky zkontrolovat v části poznámky k verzi, která určuje, zda je stav návrhu pro aktualizaci nebo scénář v stabilní nebo experimentální.
+Povolit pro agilní verze cyklus, jednotlivých funkcí lze deklarovat stabilní, což naznačuje funkci je připravený k použití v produkčním prostředí i podpora produktu WMF vydání ve verzi preview.
 Další funkce, které byly v minulosti aktualizovány podle verze WMF (viz poznámky k verzi WMF další podrobnosti):
 
  - Integrované skriptovací prostředí Windows PowerShell Windows PowerShell
@@ -77,7 +80,7 @@ Použití **instalace modulu** rutiny z **PowerShellGet** modulu.
 Install-Module xPSDesiredStateConfiguration
 ```
 
-**PowerShellGet** modulu stáhne modulu: 
+**PowerShellGet** modulu stáhne modulu:
 
 `C:\Program Files\Windows PowerShell\Modules`
 
@@ -93,10 +96,7 @@ Máte přístup k systému Windows Server instalační soubory, které již obsa
 
 Nasazení serveru vyžádané replikace jsou podporovány na fyzické i virtuální servery. Požadavky na nastavení velikosti pro vyžádání obsahu server zarovnané s požadavky na Windows Server 2012 R2.
 
-: 1,4 GHz 64bitový procesor  
-Paměti: 512 MB  
-Místa na disku: 32 GB  
-Síť: Adaptér Gigabit Ethernet  
+Využití procesoru: 1, 4 GHz 64bitový procesor paměti: 512 MB místa na disku: 32 GB sítě: adaptér Gigabit Ethernet
 
 Plánování úkolů|
 ---|
@@ -107,15 +107,22 @@ Jaké velikost serveru bude požadovat?|
 
 ### <a name="accounts"></a>Účty
 
-Nejsou žádné požadavky na účet služby pro nasazení do instance serveru vyžádané replikace. Existují však scénáře, kde může web spustit v kontextu místního uživatelského účtu. Například pokud je potřeba přístup sdílené složky úložiště pro obsah webu a Windows Server nebo zařízení hostování sdílenou složku úložiště nejsou připojené k doméně.
+Nejsou žádné požadavky na účet služby pro nasazení do instance serveru vyžádané replikace.
+Existují však scénáře, kde může web spustit v kontextu místního uživatelského účtu.
+Například pokud je potřeba přístup sdílené složky úložiště pro obsah webu a Windows Server nebo zařízení hostování sdílenou složku úložiště nejsou připojené k doméně.
 
 ### <a name="dns-records"></a>DNS records
 
-Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru vyžádané replikace. V testovacích prostředích obvykle se používá název hostitele serveru nebo adresu IP serveru lze použít, pokud překlad názvu DNS není k dispozici. V produkčních prostředích nebo v testovacím prostředí, který reprezentuje produkční nasazení osvědčeným postupem je vytvořit záznam DNS CNAME.
+Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru vyžádané replikace.
+V testovacích prostředích obvykle se používá název hostitele serveru nebo adresu IP serveru lze použít, pokud překlad názvu DNS není k dispozici.
+V produkčních prostředích nebo v testovacím prostředí, který reprezentuje produkční nasazení osvědčeným postupem je vytvořit záznam DNS CNAME.
 
-Záznam CNAME DNS umožňuje vytvořit alias, který bude odkazovat na váš hostitel (A) záznam. Další název záznamu je cílem zvyšování flexibility, třeba změnu vyžadovat v budoucnu. Záznam CNAME pomůžou izolovat konfigurace klienta tak, aby změny prostředí serveru, jako je výměna načítacího serveru nebo přidání dalších vyžádání serverů, nebude vyžadovat odpovídající změny do konfigurace klienta.
+Záznam CNAME DNS umožňuje vytvořit alias, který bude odkazovat na váš hostitel (A) záznam.
+Další název záznamu je cílem zvyšování flexibility, třeba změnu vyžadovat v budoucnu.
+Záznam CNAME pomůžou izolovat konfigurace klienta tak, aby změny prostředí serveru, jako je výměna načítacího serveru nebo přidání dalších vyžádání serverů, nebude vyžadovat odpovídající změny do konfigurace klienta.
 
-Když vyberete název záznamu DNS, uvědomte si architektury řešení. Pokud pomocí vyrovnávání zatížení, bude nutné sdílet stejný název jako záznam DNS certifikát použitý k zabezpečení přenosů přes protokol HTTPS. 
+Když vyberete název záznamu DNS, uvědomte si architektury řešení.
+Pokud pomocí vyrovnávání zatížení, bude nutné sdílet stejný název jako záznam DNS certifikát použitý k zabezpečení přenosů přes protokol HTTPS.
 
 Scénář |Osvědčený postup
 :---|:---
@@ -134,7 +141,8 @@ V případě potřeby, jaký typ Vyrovnávání zatížení řešení bude využ
 
 ### <a name="public-key-infrastructure"></a>Infrastruktura veřejných klíčů
 
-Většina organizací dnes vyžadují, aby síťový provoz, zejména provoz, který zahrnuje takové citlivá data, jak jsou servery konfigurované, musí být ověřen nebo během přenosu šifrována. Když je možné nasadit vyžádání obsahu server pomocí protokolu HTTP, což usnadňuje požadavky klientů v prostý text, je osvědčeným postupem zabezpečení provozu pomocí protokolu HTTPS. Službu lze nakonfigurovat k využívání HTTPS pomocí sady parametrů v prostředek DSC **xPSDesiredStateConfiguration**.
+Většina organizací dnes vyžadují, aby síťový provoz, zejména provoz, který zahrnuje takové citlivá data, jak jsou servery konfigurované, musí být ověřen nebo během přenosu šifrována.
+Když je možné nasadit vyžádání obsahu server pomocí protokolu HTTP, což usnadňuje požadavky klientů v prostý text, je osvědčeným postupem zabezpečení provozu pomocí protokolu HTTPS. Službu lze nakonfigurovat k využívání HTTPS pomocí sady parametrů v prostředek DSC **xPSDesiredStateConfiguration**.
 
 Požadavky na certifikát k zabezpečení přenosů HTTPS pro vyžádání obsahu server nejsou jiné než zabezpečení jakékoli jiný webový server HTTPS. **Webový Server** šablonu služby Windows Server certifikátů splňuje požadované možnosti.
 
@@ -149,9 +157,11 @@ Mít vyrovnané na název DNS pro prostředí serveru vyžádání obsahu, kter�
 
 ### <a name="choosing-an-architecture"></a>Výběr architekturu
 
-Vyžádání obsahu server se dá nasadit pomocí služby web hostované na IIS nebo sdílenou složku SMB. Ve většině případů bude možnosti webové služby poskytují větší flexibilitu. Není komunikaci přes protokol HTTPS napříč síťovými hranicemi, zatímco přenosy SMB je často filtrované blokované nebo mezi sítěmi. Webová služba také nabízí možnost zahrnout Server shoda nebo Reporting správce webu (i témata vzít v úvahu v budoucí verzi tohoto dokumentu), poskytují mechanismus pro klienty odesílat zprávy o stavu zpět na server pro centralizované viditelnosti. SMB nabízí možnost v prostředích, kde zásady stanoví, že webový server by neměl být využité a další požadavky prostředí, které role Webový server nežádoucí. V obou případech musíte vyhodnotit požadavky na podepisování a šifrování komunikace. Protokol HTTPS, podepisování SMB a zásady protokolu IPSEC jsou všechny možnosti vhodné zvažování.
+Vyžádání obsahu server se dá nasadit pomocí služby web hostované na IIS nebo sdílenou složku SMB. Ve většině případů bude možnosti webové služby poskytují větší flexibilitu. Není komunikaci přes protokol HTTPS napříč síťovými hranicemi, zatímco přenosy SMB je často filtrované blokované nebo mezi sítěmi. Webová služba také nabízí možnost zahrnout Server shoda nebo Reporting správce webu (i témata vzít v úvahu v budoucí verzi tohoto dokumentu), poskytují mechanismus pro klienty odesílat zprávy o stavu zpět na server pro centralizované viditelnosti.
+SMB nabízí možnost v prostředích, kde zásady stanoví, že webový server by neměl být využité a další požadavky prostředí, které role Webový server nežádoucí.
+V obou případech musíte vyhodnotit požadavky na podepisování a šifrování komunikace. Protokol HTTPS, podepisování SMB a zásady protokolu IPSEC jsou všechny možnosti vhodné zvažování.
 
-#### <a name="load-balancing"></a>Vyrovnávání zatížení  
+#### <a name="load-balancing"></a>Vyrovnávání zatížení
 Klienti interakci s webovou službou může požádat o informace, které je vrácený v odpověď o jedné. Žádné sekvenční požadavky jsou povinné, takže není nutné pro platformu, která Ujistěte se, že relace udržované na jednom serveru v libovolném bodě v čase Vyrovnávání zatížení.
 
 Plánování úkolů|
@@ -166,11 +176,11 @@ Máte k dispozici záznamy DNS, které jsou potřebné a bude to vyžadovat tým
 
 ### <a name="staging-configurations-and-modules-on-the-pull-server"></a>Konfigurace pracovní a modulů na tomto serveru
 
-Jako součást plánování konfigurace musíte se zamyslet, o které DSC se bude hostovat modulů a konfigurací serverem pro vyžádání obsahu. Pro účely plánování konfigurace je důležité mít základní znalosti o tom, jak připravit a nasadit obsah na server vyžádané replikace. 
+Jako součást plánování konfigurace musíte se zamyslet, o které DSC se bude hostovat modulů a konfigurací serverem pro vyžádání obsahu. Pro účely plánování konfigurace je důležité mít základní znalosti o tom, jak připravit a nasadit obsah na server vyžádané replikace.
 
-V budoucnu v této části se rozšířit a zahrnuty v provozní příručce pro serveru vyžádané replikace s DSC.  V Průvodci zabývat den proces pro správu modulů a konfigurací v čase s automatizace. 
+V budoucnu v této části se rozšířit a zahrnuty v provozní příručce pro serveru vyžádané replikace s DSC.  V Průvodci zabývat den proces pro správu modulů a konfigurací v čase s automatizace.
 
-#### <a name="dsc-modules"></a>Moduly DSC  
+#### <a name="dsc-modules"></a>Moduly DSC
 Klienty, kteří požadují konfiguraci bude nutné požadované moduly DSC. Funkce serveru pro vyžádání obsahu je automatizovat distribuci na vyžádání DSC moduly klientům. Pokud nasadíte načítacího serveru poprvé, třeba jako testovacího prostředí nebo testování konceptu, pravděpodobně chcete závisí na DSC moduly, které jsou dostupné z veřejných úložišť, jako je například Galerie prostředí PowerShell nebo úložišť PowerShell.org GitHub pro moduly DSC .
 
 Je důležité si pamatovat, že i pro důvěryhodné online zdrojů, jako je například Galerie prostředí PowerShell, libovolný modul, který byl stažen z veřejného úložiště by měl být zkontrolovány uživatelem někdo pomocí prostředí PowerShell a znalosti o prostředí, kde budou moduly použít před používá v produkčním prostředí. Při dokončení této úlohy je vhodná doba zkontrolujte všechny další datové části v modulu, který lze odebrat například dokumentaci a ukázkové skripty. Tím se sníží šířku pásma sítě pro každého klienta v jejich první žádost, když moduly budou staženy přes síť ze serveru do klienta.
@@ -194,7 +204,8 @@ Bude váš tým zodpovědní za správu platformou automatizace?|
 
 #### <a name="dsc-configurations"></a>Konfigurace DSC
 
-Účelem serveru pro vyžádání obsahu je zajistit centralizovanou mechanismus pro distribuci konfigurací DSC uzlů klientů. Konfigurace jsou uloženy na serveru jako MOF dokumenty. Každý dokument budou mít názvy jedinečný identifikátor GUID. Pokud jsou klienti nakonfigurovaní pro připojení k serveru vyžádané replikace, jsou také uvedeny identifikátor GUID pro konfiguraci, kterou by měl žádat o. Tento systém odkazující na konfigurace pomocí identifikátoru GUID zaručuje globální jedinečnost a je flexibilní, tak, aby konfigurace lze použít s rozlišením na uzel, nebo jako konfiguraci role, která zahrnuje mnoho serverů, které by měl mít identické konfigurace.
+Účelem serveru pro vyžádání obsahu je zajistit centralizovanou mechanismus pro distribuci konfigurací DSC uzlů klientů. Konfigurace jsou uloženy na serveru jako MOF dokumenty.
+Každý dokument budou mít názvy jedinečný identifikátor GUID. Pokud jsou klienti nakonfigurovaní pro připojení k serveru vyžádané replikace, jsou také uvedeny identifikátor GUID pro konfiguraci, kterou by měl žádat o. Tento systém odkazující na konfigurace pomocí identifikátoru GUID zaručuje globální jedinečnost a je flexibilní, tak, aby konfigurace lze použít s rozlišením na uzel, nebo jako konfiguraci role, která zahrnuje mnoho serverů, které by měl mít identické konfigurace.
 
 #### <a name="guids"></a>Identifikátory GUID
 
@@ -289,26 +300,26 @@ Start-DscConfiguration -Wait -Force -Verbose -Path 'C:\PullServerConfig\'
 #      * Automatically load certificate from Certificate Authority
 #      * Locate Modules and Configuration data on remote SMB share
 #      * Manage state of default websites in IIS
-    
+
 param (
-        [Parameter(Mandatory=$true)] 
-        [ValidateNotNullorEmpty()] 
+        [Parameter(Mandatory=$true)]
+        [ValidateNotNullorEmpty()]
         [System.String] $ServerName,
         [System.String] $DomainName,
         [System.String] $CARootName,
         [System.String] $CAServerFQDN,
         [System.String] $CertSubject,
         [System.String] $SMBShare,
-        [Parameter(Mandatory=$true)] 
-        [ValidateNotNullorEmpty()] 
+        [Parameter(Mandatory=$true)]
+        [ValidateNotNullorEmpty()]
         [PsCredential] $Credential
     )
-    
+
 Configuration PullServer {
     Import-DscResource -ModuleName xPSDesiredStateConfiguration, xWebAdministration, xCertificate, xComputerManagement
     Node localhost
     {
-            
+
         # Configure the server to automatically corret configuration drift including reboots if needed.
         LocalConfigurationManager
         {
@@ -316,14 +327,14 @@ Configuration PullServer {
             RebootNodeifNeeded = $node.RebootNodeifNeeded
             CertificateId = $node.Thumbprint
         }
-    
+
         # Remove all GUI interfaces so the server has minimum running footprint.
         WindowsFeature ServerCore
         {
             Ensure = 'Absent'
             Name = 'User-Interfaces-Infra'
         }
-    
+
         # Set the server name and if needed, join a domain. If not joining a domain, remove the DomainName parameter.
         xComputer DomainJoin
         {
@@ -331,7 +342,7 @@ Configuration PullServer {
             DomainName = $Node.DomainName
             Credential = $Node.Credential
         }
-    
+
         # The next series of settings disable SSL and enable TLS, for environments where that is required by policy.
         Registry TLS1_2ServerEnabled
         {
@@ -373,14 +384,14 @@ Configuration PullServer {
             ValueData = 0
             ValueType = 'Dword'
         }
-    
+
         # Install the Windows Server DSC Service feature
         WindowsFeature DSCServiceFeature
         {
             Ensure = 'Present'
             Name = 'DSC-Service'
         }
-    
+
         # If using a certificate from a local Active Directory Enterprise Root Certificate Authority, complete a request and install the certificate
         xCertReq SSLCert
         {
@@ -390,7 +401,7 @@ Configuration PullServer {
             AutoRenew = $Node.AutoRenew
             Credential = $Node.Credential
         }
-    
+
         # Use the DSC resource to simplify deployment of the web service.  You might also consider modifying the default port, possibly leveraging port 443 in environments where that is enforced as a standard.
         xDSCWebService PSDSCPullServer
         {
@@ -405,10 +416,10 @@ Configuration PullServer {
             State = 'Started'
             DependsOn = '[WindowsFeature]DSCServiceFeature'
         }
-    
+
         # Validate web config file contains current DB settings
         xWebConfigKeyValue CorrectDBProvider
-        { 
+        {
             ConfigSection = 'AppSettings'
             Key = 'dbprovider'
             Value = 'System.Data.OleDb'
@@ -416,17 +427,17 @@ Configuration PullServer {
             DependsOn = '[xDSCWebService]PSDSCPullServer'
         }
         xWebConfigKeyValue CorrectDBConnectionStr
-        { 
+        {
             ConfigSection = 'AppSettings'
             Key = 'dbconnectionstr'
             Value = 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Program Files\WindowsPowerShell\DscService\Devices.mdb;'
             WebsitePath = 'IIS:\sites\PSDSCPullServer'
             DependsOn = '[xDSCWebService]PSDSCPullServer'
         }
-    
+
         # Stop the default website
-        xWebsite StopDefaultSite  
-        { 
+        xWebsite StopDefaultSite
+        {
             Ensure = 'Present'
             Name = 'Default Web Site'
             State = 'Stopped'
@@ -456,8 +467,8 @@ $configData = @{
 PullServer -ConfigurationData $configData -OutputPath 'C:\PullServerConfig\'
 Set-DscLocalConfigurationManager -ComputerName localhost -Path 'C:\PullServerConfig\'
 Start-DscConfiguration -Wait -Force -Verbose -Path 'C:\PullServerConfig\'
-    
-# .\Script.ps1 -ServerName web1 -domainname 'test.pha' -carootname 'test-dc01-ca' -caserverfqdn 'dc01.test.pha' -certsubject 'CN=service.test.pha' -smbshare '\\sofs1.test.pha\share' 
+
+# .\Script.ps1 -ServerName web1 -domainname 'test.pha' -carootname 'test-dc01-ca' -caserverfqdn 'dc01.test.pha' -certsubject 'CN=service.test.pha' -smbshare '\\sofs1.test.pha\share'
 ```
 
 
@@ -468,7 +479,7 @@ Start-DscConfiguration -Wait -Force -Verbose -Path 'C:\PullServerConfig\'
 function Verify-DSCPullServer ($fqdn) {
     ([xml](invoke-webrequest "https://$($fqdn):8080/psdscpullserver.svc" | % Content)).service.workspace.collection.href
 }
-Verify-DSCPullServer 'INSERT SERVER FQDN' 
+Verify-DSCPullServer 'INSERT SERVER FQDN'
 
 Expected Result:
 Action
@@ -485,14 +496,14 @@ Configuration PullClient {
     $ID,
     $Server
     )
-        LocalConfigurationManager 
-                { 
+        LocalConfigurationManager
+                {
                     ConfigurationID = $ID;
                     RefreshMode = 'PULL';
                     DownloadManagerName = 'WebDownloadManager';
                     RebootNodeIfNeeded = $true;
                     RefreshFrequencyMins = 30;
-                    ConfigurationModeFrequencyMins = 15; 
+                    ConfigurationModeFrequencyMins = 15;
                     ConfigurationMode = 'ApplyAndAutoCorrect';
                     DownloadManagerCustomData = @{ServerUrl = "http://"+$Server+":8080/PSDSCPullServer.svc"; AllowUnsecureConnection = $true}
                 }
@@ -504,13 +515,13 @@ Set-DscLocalConfigurationManager -ComputerName 'Localhost' -Path 'C:\DSCConfig\'
 
 ## <a name="additional-references-snippets-and-examples"></a>Další informace, fragmenty kódu a příklady
 
-Tento příklad ukazuje, jak chcete ručně zahájit připojení klienta (vyžaduje WMF5) pro testování. 
+Tento příklad ukazuje, jak chcete ručně zahájit připojení klienta (vyžaduje WMF5) pro testování.
 
 ```powershell
 Update-DSCConfiguration –Wait -Verbose
 ```
 
-[Přidat DnsServerResourceRecordName](http://bit.ly/1G1H31L) rutina se používá k přidání typu záznamu CNAME do zóny DNS. 
+[Přidat DnsServerResourceRecordName](http://bit.ly/1G1H31L) rutina se používá k přidání typu záznamu CNAME do zóny DNS.
 
 Funkce prostředí PowerShell k [vytvoření kontrolního součtu a publikovat MOF DSC pro vyžádání obsahu serveru SMB](http://bit.ly/1E46BhI) automaticky vytvoří požadované kontrolního součtu a pak zkopíruje MOF konfigurace i kontrolního součtu souborů k vyžádání serveru SMB.
 
@@ -518,10 +529,7 @@ Funkce prostředí PowerShell k [vytvoření kontrolního součtu a publikovat M
 
 Datový soubor je uložen vytvořit informace při nasazení serveru vyžádané replikace, která zahrnuje webovou službu OData. Typ souboru závisí na operačním systému, jak je popsáno níže.
 
- - **Windows Server 2012**  
-Typ souboru bude vždy .mdb
- - **Windows Server 2012 R2**  
-Typ souboru bude použita výchozí .edb .mdb uvedeno v konfiguraci
+ - **Windows Server 2012** typ souboru bude vždy .mdb
+ - **Windows Server 2012 R2** typ souboru bude použita výchozí .edb .mdb uvedeno v konfiguraci
 
 V [Advanced ukázkový skript](https://github.com/mgreenegit/Whitepapers/blob/Dev/PullServerCPIG.md#installation-and-configuration-scripts) při instalaci serveru pro vyžádání obsahu, také najdete příklad toho, jak automaticky řídit nastavení souboru web.config, aby se zabránilo pravděpodobné, že chyba způsobila podle typu souboru.
-

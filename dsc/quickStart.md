@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Desired State Configuration rychlý Start"
-ms.openlocfilehash: e21017f24db8c90229063895c1a7e4c6f0546d0c
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Desired State Configuration rychlý Start
+ms.openlocfilehash: 25bcd46bbf62a6ebb727519a65732377363e68c0
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 > Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
@@ -37,7 +37,7 @@ V textovém editoru zadejte následující text:
 </body>
 ```
 
-Uložit jako `index.htm` v `test` složky, které jste vytvořili dříve. 
+Uložit jako `index.htm` v `test` složky, které jste vytvořili dříve.
 
 ## <a name="write-the-configuration"></a>Zápis konfigurace
 
@@ -122,7 +122,7 @@ Start-DscConfiguration .\WebsiteTest
 
 ## <a name="test-the-configuration"></a>Otestujte konfiguraci
 
-Můžete volat [Get-DscConfigurationStatus](/reference/5.1/PSDesiredStateConfiguration/Get-DscConfigurationStatus) rutiny zobrazíte, jestli konfigurace byla úspěšná. 
+Můžete volat [Get-DscConfigurationStatus](/reference/5.1/PSDesiredStateConfiguration/Get-DscConfigurationStatus) rutiny zobrazíte, jestli konfigurace byla úspěšná.
 
 Můžete také otestovat výsledky přímo, v takovém případě procházením `http://localhost/` ve webovém prohlížeči.
 Měli byste vidět "Hello, World" HTML stránka, kterou jste vytvořili jako první krok v tomto příkladu.
@@ -132,6 +132,3 @@ Měli byste vidět "Hello, World" HTML stránka, kterou jste vytvořili jako prv
 - Další informace o konfiguracích DSC v [konfigurace DSC](configurations.md).
 - Jaké prostředky DSC jsou k dispozici a jak vytvořit vlastní prostředky DSC v [prostředky DSC](resources.md).
 - Najít konfigurace DSC a prostředky v [Galerie prostředí PowerShell](https://www.powershellgallery.com/).
-
-
-

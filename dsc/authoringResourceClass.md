@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Psaní vlastních prostředků DSC s třídami, prostředí PowerShell"
-ms.openlocfilehash: 53757f965c51fee699409b5a8ecda802dda9801f
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
+ms.openlocfilehash: 23669a6db17855e8d69aa0144c541bb4c799a9eb
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="writing-a-custom-dsc-resource-with-powershell-classes"></a>Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
 
@@ -30,8 +30,8 @@ Chcete-li implementovat vlastní prostředek DSC s třídou prostředí PowerShe
 ```
 $env:ProgramFiles\WindowsPowerShell\Modules (folder)
     |- MyDscResource (folder)
-        |- MyDscResource.psm1 
-           MyDscResource.psd1 
+        |- MyDscResource.psm1
+           MyDscResource.psd1
 ```
 
 ## <a name="create-the-class"></a>Vytvoření třídy
@@ -72,10 +72,10 @@ Všimněte si, že jsou upraveny vlastnosti podle atributů. Význam atributy vy
 **$Path** a **$SourcePath** vlastnosti jsou oba řetězce. **$CreationTime** je [data a času](https://technet.microsoft.com/library/system.datetime.aspx) vlastnost. **$Ensure** vlastnost je typ výčtu definované následujícím způsobem.
 
 ```powershell
-enum Ensure 
-{ 
-    Absent 
-    Present 
+enum Ensure
+{
+    Absent
+    Present
 }
 ```
 
@@ -83,7 +83,7 @@ enum Ensure
 
 **Get()**, **Set()**, a **Test()** metody jsou obdobou **Get-TargetResource**, **Set-TargetResource** , a **Test TargetResource** funkcí v zdroje skriptu.
 
-Tento kód také obsahuje funkci CopyFile() pomocné funkce, která zkopíruje soubor z **$SourcePath** k **$Path**. 
+Tento kód také obsahuje funkci CopyFile() pomocné funkce, která zkopíruje soubor z **$SourcePath** k **$Path**.
 
 ```powershell
 
@@ -450,7 +450,7 @@ PowerShellVersion = '5.0'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
-} 
+}
 ```
 
 ## <a name="test-the-resource"></a>Testování prostředku
@@ -466,7 +466,7 @@ Configuration Test
         Path = "C:\test\test.txt"
         SourcePath = "c:\test.txt"
         Ensure = "Present"
-    } 
+    }
 }
 Test
 Start-DscConfiguration -Wait -Force Test
@@ -512,4 +512,3 @@ if (PsDscContext.RunAsUser) {
 ## <a name="see-also"></a>Viz také
 ### <a name="concepts"></a>Koncepty
 [Sestavení vlastní Windows PowerShell Desired State Configuration prostředky](authoringResource.md)
-

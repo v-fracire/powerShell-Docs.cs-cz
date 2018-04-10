@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Psaní vlastních prostředků DSC s MOF"
-ms.openlocfilehash: c416fd7cac80d37f1ca1393fa644b4bc15743724
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Psaní vlastních prostředků DSC s MOF
+ms.openlocfilehash: 4e336e837d2153fecab8325cb8714ffed85a6175
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="writing-a-custom-dsc-resource-with-mof"></a>Psaní vlastních prostředků DSC s MOF
 
@@ -56,12 +56,12 @@ class Demo_IISWebsite : OMI_BaseResource
 
 Vezměte na vědomí následující skutečnosti související předchozí kód:
 
-* `FriendlyName`Definuje název, který slouží k odkazování na tento vlastní prostředek DSC konfigurační skripty. V tomto příkladu `Website` je ekvivalentní popisný název `Archive` pro předdefinované prostředek archivu.
+* `FriendlyName` Definuje název, který slouží k odkazování na tento vlastní prostředek DSC konfigurační skripty. V tomto příkladu `Website` je ekvivalentní popisný název `Archive` pro předdefinované prostředek archivu.
 * Třída definujete pro vlastní prostředek musí být odvozeny od `OMI_BaseResource`.
 * Kvalifikátor typu `[Key]`na vlastnost značí, že tato vlastnost jednoznačné identifikaci instance prostředku. Alespoň jeden `[Key]` vlastnost je povinná.
 * `[Required]` Kvalifikátor označuje, že tato vlastnost je vyžadovaná (musí být zadaná hodnota v konfigurační skript, který používá tento prostředek).
 * `[write]` Kvalifikátor označuje, že tato vlastnost je volitelná, při použití vlastního prostředku v konfigurační skript. `[read]` Kvalifikátor označuje, že vlastnost nelze nastavit konfigurace a je pouze pro účely vytváření sestav.
-* `Values`omezuje hodnoty, které lze přiřadit k vlastnosti do seznamu hodnot definovaných v `ValueMap`. Další informace najdete v tématu [chybu a hodnota kvalifikátory](https://msdn.microsoft.com/library/windows/desktop/aa393965.aspx).
+* `Values` omezuje hodnoty, které lze přiřadit k vlastnosti do seznamu hodnot definovaných v `ValueMap`. Další informace najdete v tématu [chybu a hodnota kvalifikátory](https://msdn.microsoft.com/library/windows/desktop/aa393965.aspx).
 * Včetně vlastnost volá `Ensure` s hodnotami `Present` a `Absent` v prostředku se doporučuje jako způsob, jak udržovat konzistentní styl s integrovanou prostředky DSC.
 * Název souboru schématu pro vlastní prostředek následujícím způsobem: `classname.schema.mof`, kde `classname` je identifikátor, který následuje `class` – klíčové slovo v vaší definice schématu.
 
@@ -117,7 +117,7 @@ function Get-TargetResource
                                         Protocol = $Website.bindings.Collection.protocol;
                                         Binding = $Website.bindings.Collection.bindingInformation;
                                     }
-  
+
         $getTargetResourceResult;
 }
 ```
@@ -131,7 +131,7 @@ V závislosti na hodnoty, které jsou určené pro vlastnosti prostředku v konf
 Následující příklad znázorňuje to.
 
 ```powershell
-# The Set-TargetResource function is used to create, delete or configure a website on the target machine. 
+# The Set-TargetResource function is used to create, delete or configure a website on the target machine.
 function Set-TargetResource
 {
     [CmdletBinding(SupportsShouldProcess=$true)]
@@ -157,7 +157,7 @@ function Set-TargetResource
 
         [string[]]$Protocol
     )
- 
+
     <# If Ensure is set to "Present" and the website specified in the mandatory input parameters does not exist, then create it using the specified parameter values #>
     <# Else, if Ensure is set to "Present" and the website does exist, then update its properties to match the values provided in the non-mandatory parameter values #>
     <# Else, if Ensure is set to "Absent" and the website does not exist, then do nothing #>
@@ -207,15 +207,15 @@ $ApplicationPool
 #Write-Debug "Use this cmdlet to write debug information while troubleshooting."
 
 
-#Include logic to 
+#Include logic to
 $result = [System.Boolean]
 #Add logic to test whether the website is present and its status mathes the supplied parameter values. If it does, return true. If it does not, return false.
 $result
 }
 ```
 
-**Poznámka:**: pro snazší ladění, použijte **Write-Verbose** rutiny v implementaci předchozí tři funkce. 
->Tato rutina zapíše text do proudu podrobnou zprávu. 
+**Poznámka:**: pro snazší ladění, použijte **Write-Verbose** rutiny v implementaci předchozí tři funkce.
+>Tato rutina zapíše text do proudu podrobnou zprávu.
 >Ve výchozím nastavení, se nezobrazí datový proud podrobné zprávy, ale můžete ji zobrazit tak, že změníte hodnotu **$VerbosePreference** proměnné nebo pomocí **podrobné** parametr rutiny DSC = nový.
 
 ### <a name="creating-the-module-manifest"></a>Vytvoření manifestu modulu
@@ -290,7 +290,3 @@ if (PsDscContext.RunAsUser) {
     Write-Verbose "User: $PsDscContext.RunAsUser";
 }
 ```
-
-
-
-

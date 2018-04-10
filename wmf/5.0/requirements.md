@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 510e1baa2933932cfd4c3bcb4e0973f3eb8095f3
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: 7e24bb4ee4d0658b0619f7f008e3740f647f124f
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="system-requirements"></a>Systémové požadavky
 
@@ -55,7 +55,7 @@ Zajistěte, aby byly splněny následující požadavky:
 Systémy Windows Server 2008 R2 SP1 a Windows 7 SP1 mají integrované prostředí PowerShell 2.0, WinRM a WMI. Podpora produktu WMF 3.0 a WMF 4.0 balíčků, které aktualizace těchto integrované komponenty, byly vydané po vydání verze Windows Server 2008 R2 SP1 a Windows 7 SP1. Instalace nebo odinstalace produktu WMF 3.0 a WMF 4.0 balíčky zjištěných některé problémy v následující cestě upgradu:
 
 - Předdefinované--> WMF 4.0
-- Built-in --> WMF 3.0 --> WMF4.0. 
+- Built-in --> WMF 3.0 --> WMF4.0.
 
 Vyřešili všechny tyto problémy v balíčcích WMF 4.0. Pro instalaci WMF 5.0 na Windows Server 2008 R2 SP1 a Windows 7 SP1 je proto předpokladem WMF 4.0. V následující tabulce jsou konkrétní problémy, které mohou nastat pokud před upgradem na verzi WMF 5.0 nenainstalujete WMF 4.0:
 
@@ -96,4 +96,3 @@ wusa /uninstall /kb:3134760
 3.  Klikněte na tlačítko **zobrazit nainstalované aktualizace.**
 
 4.  Vyberte **Windows Management Framework 5.0** ze seznamu nainstalovaných aktualizací. To odpovídá *KB3134758*, *KB3134759*, nebo *KB3134760*. Klikněte na tlačítko **odinstalovat.**
-

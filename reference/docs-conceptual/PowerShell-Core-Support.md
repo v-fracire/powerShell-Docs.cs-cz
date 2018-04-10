@@ -1,4 +1,4 @@
-# <a name="powershell-core-support-lifecycle"></a>Životní cyklus podpory prostředí PowerShell jádra
+# <a name="powershell-core-support-lifecycle"></a>Životní cyklus podpory PowerShellu Core
 
 Základní prostředí PowerShell je odlišnou sadu nástrojů a součásti, které je součástí, nainstalovat a nakonfigurovat samostatně z prostředí Windows PowerShell.
 Proto základní prostředí PowerShell není součástí systému Windows 7/8.1/10 nebo Windows Server licenčních smluv.
@@ -42,7 +42,7 @@ Základní prostředí PowerShell je oficiálně podporován na následujících
 * Red Hat Enterprise Linux 7
 * OpenSUSE 42.2
 * Fedora 25, 26
-* systému macOS 10.12 +
+* macOS 10.12+
 
 Naše komunita také přispívá balíčky pro tyto platformy, ale nejsou oficiálně suppported:
 
@@ -56,18 +56,18 @@ Základní prostředí PowerShell je vydávaný v rámci [licencí MIT][].
 V části tuto licenci a bez placené podporu smlouvy, uživatelé jsou omezeny na [podpora komunity][].
 S podporou komunity společnost Microsoft neposkytuje žádné záruky odezvy nebo opravy.
 
-## <a name="windows-powershell-module"></a>Modul prostředí Windows PowerShell
+## <a name="windows-powershell-module"></a>Windows PowerShell Module
 
 Podpora pro PowerShell základní neprodlužuje z ostatních modulů produktu, pokud tyto moduly explicitně nepodporují základní prostředí PowerShell.
 Například pomocí `ActiveDirectory` modul, který se dodává jako součást systému Windows Server se o nepodporovaný scénář.
 
 Moduly, které nepodporují explicitně základní prostředí PowerShell však může být v některých případech kompatibilní.
-Nainstalováním [`WindowsPSModulePath`][] modulu prostředí Windows PowerShell můžete připojit `PSModulePath` pro vaše prostředí PowerShell základní `PSModulePath`.
+Nainstalováním [ `WindowsPSModulePath` ][] modulu prostředí Windows PowerShell můžete připojit `PSModulePath` pro vaše prostředí PowerShell základní `PSModulePath`.
 
 Nejdřív nainstalujte `WindowsPSModulePath` modulu z Galerie prostředí PowerShell:
 
 ```powershell
-# Add `-Scope CurrentUser` if you're installing as non-admin 
+# Add `-Scope CurrentUser` if you're installing as non-admin
 Install-Module WindowsPSModulePath -Force
 ```
 
@@ -89,4 +89,4 @@ Add-WindowsPSModulePath
 [lifecycle-chart]: ./images/modern-lifecycle.png
 [semi-annual]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [licencí MIT]: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
-['WindowsPSModulePath.]: https://www.powershellgallery.com/packages/WindowsPSModulePath/
+[`WindowsPSModulePath`]: https://www.powershellgallery.com/packages/WindowsPSModulePath/

@@ -1,15 +1,16 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Výběr části objektů, vyberte objekt"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Výběr části objektů, vyberte objekt
 ms.assetid: 72e64b1a-d351-4500-9da3-24d8a71d7a92
-ms.openlocfilehash: 8c9633e80f63e1d474c46fa772108aee4f79751d
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 323c57ba4462e20d9713fb74732989584f5a993f
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="selecting-parts-of-objects-select-object"></a>Výběr částí objektů (Select-Object)
+
 Můžete použít **Select-Object** rutiny k vytvoření nových, vlastních objektů prostředí Windows PowerShell, které obsahují vlastnosti vybrané objekty, které budete používat při jejich vytváření. Zadejte následující příkaz pro vytvoření nového objektu, který obsahuje pouze název a FreeSpace vlastnosti třídy Win32_LogicalDisk WMI:
 
 ```
@@ -45,4 +46,3 @@ Name                                                                  FreeSpace
 ----                                                                  ---------
 C:                                                                48317.7265625
 ```
-

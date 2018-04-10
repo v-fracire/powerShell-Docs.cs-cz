@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda SendConfigurationApply MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: 20f732d35860cccde4e507dc6916e27d0cf8c5f6
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda SendConfigurationApply třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: 8edf8c55089e767394ba21b42fe74072777a45c9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="sendconfigurationapply-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda SendConfigurationApply MSFT_DSCLocalConfigurationManager třídy
+# <a name="sendconfigurationapply-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda SendConfigurationApply třídy MSFT_DSCLocalConfigurationManager
 
 Odešle spravovaný uzel dokumentu konfigurace a používá Agent konfigurace můžete použít konfiguraci.
 
@@ -26,11 +26,9 @@ uint32 SendConfigurationApply(
 <a name="parameters"></a>Parameters
 ----------
 
-*ConfigurationData* \[v\]  
-Data prostředí pro konfiguraci.
+*ConfigurationData* \[v\] data prostředí pro konfiguraci.
 
-*Vynutit* \[v\]  
-**Hodnota TRUE,** vynutit konfiguraci zastavit.
+*Vynutit* \[v\] **true** vynutit konfiguraci zastavit.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -52,11 +50,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
-
- 
-
- 
-
-
-

@@ -1,16 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
-keywords: "Galerie prostředí powershell, rutiny, psgallery"
+keywords: Galerie prostředí powershell, rutiny, psgallery
 title: psgallery_report_abuse
-ms.openlocfilehash: 989860a9be3a182f54a055724b8a26be3a286a7c
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: b48faa7533b474e09bcdf813bb2b83e392aa5fc8
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="report-abuse"></a>Oznámení zneužití
+# <a name="report-abuse"></a>Ohlášení zneužití
 
 Pokud se vám najít položku, která je v rozporu s některou z těchto položek, klikněte na tlačítko **oznámení zneužití** odkaz na stránku podrobností položky a odeslání zprávy.
-

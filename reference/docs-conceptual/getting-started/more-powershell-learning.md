@@ -1,16 +1,16 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Další learning prostředí powershell"
-ms.openlocfilehash: 32d7006010a4808a77d9800ec77c4352213d12b9
-ms.sourcegitcommit: 3720ce4efb6735694cfb53a1b793d949af5d1bc5
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Další learning prostředí powershell
+ms.openlocfilehash: bed263df0ff52ec687bc7a644470f0397d0106ff
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="more-powershell-learning"></a>Další Learning prostředí PowerShell
 
-Další zdroje další prostředí PowerShell  
+Další zdroje další prostředí PowerShell
 
 ## <a name="resources-for-windows-powershell-users"></a>Prostředky pro uživatele, prostředí Windows PowerShell
 
@@ -32,11 +32,11 @@ Kromě v nápovědě k dispozici na příkazovém řádku následující zdroje 
 
 ### <a name="script-center-learn"></a>Další informace v Centru skriptů
 #### <a name="windows-powershell-essentials-for-the-busy-admin-series"></a>Windows PowerShell Essentials zaneprázdněn řady, správce
-- [Prostředí PowerShell 'SmowerShell' – proto měli získat informace prostředí Windows PowerShell &#40; Část 1 &#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
-- [Slyšeli prostřednictvím kanálu – postup složené příkazy prostředí Windows PowerShell pro Fun a Zisk &#40; Část 2 &#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
-- [Jedinou zprostředkovatele? Není špatně – podívejte se na Windows PowerShell zprostředkovatelé &#40; Část 3 &#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
-- [Hlavní událost – prostředí Windows PowerShell nemá protokoly událostí &#40; Část 4 &#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
-- [Více než vzdáleně možné – pomocí prostředí Windows PowerShell ke správě vzdálené plochy &#40; Část 5 &#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
+- [Prostředí PowerShell 'SmowerShell' – proto měli získat informace prostředí Windows PowerShell &#40;část 1&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
+- [Slyšeli prostřednictvím kanálu – postup složené příkazy prostředí Windows PowerShell pro Fun a zisku &#40;část 2&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
+- [Jedinou zprostředkovatele? Není špatně – podívejte se na Windows PowerShell zprostředkovatelé &#40;část 3&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
+- [Hlavní událost – prostředí Windows PowerShell nemá protokoly událostí &#40;součástí 4&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
+- [Více než vzdáleně možné – pomocí prostředí Windows PowerShell ke správě vzdálené plochy &#40;část 5&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
 
 #### <a name="learn-it-now-before-its-an-emergency"></a>Teď další předtím, než je naléhavém
 - [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém – část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
@@ -51,4 +51,3 @@ Následující zdroje obsahují prostředky, což vývojářům vytvářet své 
 
 - [Windows PowerShell SDK](http://go.microsoft.com/fwlink/p/?LinkID=89595). Poskytuje referenční obsah.
 - [Příručka programátora prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkID=89596). Poskytuje podrobné pokyny. Také obsahuje informace o základní koncepty prostředí Windows PowerShell.
-

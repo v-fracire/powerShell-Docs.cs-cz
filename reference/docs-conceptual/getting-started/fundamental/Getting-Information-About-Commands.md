@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Získání informací o příkazech"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Získání informací o příkazech
 ms.assetid: 56f8e5b4-d97c-4e59-abbe-bf13e464eb0d
-ms.openlocfilehash: 98e449110860ea81939d6ec0b7b1a8534a2da2aa
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 1426c171d74afc87751f7d31d46571b9c98fa47e
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="getting-information-about-commands"></a>Získání informací o příkazech
 Prostředí Windows PowerShell **Get-Command** rutiny získá všechny příkazy, které jsou k dispozici v aktuální relaci. Pokud zadáte **Get-Command** na řádku prostředí Windows PowerShell, zobrazí se výstup podobný následujícímu:
@@ -77,4 +77,3 @@ Chcete-li zobrazit skriptů v prostředí Windows PowerShell cesty pro hledání
 ```
 Get-Command -CommandType Script
 ```
-

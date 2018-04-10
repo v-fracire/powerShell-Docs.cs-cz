@@ -1,23 +1,25 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
-keywords: "Galerie prostředí powershell, rutiny, psgallery"
-title: "Správa vlastníků položek"
-ms.openlocfilehash: fcd538148f9ff1ac96324b567d54d643f1756c93
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: Galerie prostředí powershell, rutiny, psgallery
+title: Správa vlastníků položek
+ms.openlocfilehash: e550b74ebde00cfbb154dbf4fb1fa4ae0582e029
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="managing-item-owners"></a>Správa vlastníků položek
 
 Vlastnictví položky v galerii prostředí PowerShell je definována položka kdo publikoval do galerie.
 V některých případech je potřeba spravovat nad rámec publikování počáteční položky, což znamená, že metadata vlastník musí být měnitelný při samotnou položku není tato metadata.
 
-Všechny položky vlastníky jsou partnerské uzly. To znamená, že všechny položky vlastníka můžete publikovat novou verzi položky. Taky to znamená, že vlastník všechny položky můžete odebrat všechny ostatní položky vlastníka. Vlastník má další autority než ostatní vlastníky.  
+Všechny položky vlastníky jsou partnerské uzly.
+To znamená, že všechny položky vlastníka můžete publikovat novou verzi položky. Taky to znamená, že vlastník všechny položky můžete odebrat všechny ostatní položky vlastníka.
+Vlastník má další autority než ostatní vlastníky.
 
-## <a name="setting-an-items-initial-owner"></a>Nastavení počáteční vlastník položky 
+## <a name="setting-an-items-initial-owner"></a>Nastavení počáteční vlastník položky
 
 Při publikování nové položky galerie prostředí PowerShell, vlastník počáteční definované uživatelem, který publikované položky. To je určen, jejichž rozhraní API klíče v rutině modulu publikovat.
 
@@ -78,4 +80,3 @@ Nemůžeme se potom postupujte podle procesu ověřit vlastnictví položky.
 Pokud jsme určit, že by měla být vlastníkem položky, jsme použije Spravovat vlastníky odkaz pro položku označována a poslat pozvání k vlastníka.
 Pouze Uděláme to po ověření, že by měl být vlastníka a pro tento proces se liší podle okolností.
 Častým použijeme adresy URL projektu položky najít způsob, jak obraťte se na vlastníka projektu, ale můžeme také používat Twitter, e-mailu nebo jiným způsobem pro kontaktování vlastníka projektu.
-

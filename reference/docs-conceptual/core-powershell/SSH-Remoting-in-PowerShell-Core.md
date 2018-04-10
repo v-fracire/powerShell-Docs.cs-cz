@@ -1,4 +1,4 @@
-# <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace prostředí PowerShell přes SSH
+# <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace PowerShellu přes SSH
 
 ## <a name="overview"></a>Přehled
 
@@ -59,7 +59,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
     Restart-Service sshd
     ```
 1. Přidat cestu, kde je nainstalován OpenSSH pro vaši cestu Env proměnné
-    - Měl by být spolu čar`C:\Program Files\OpenSSH\`
+    - Měl by být spolu čar `C:\Program Files\OpenSSH\`
     - To umožňuje, aby ssh.exe chcete vyhledat
 
 ## <a name="setup-on-linux-ubuntu-1404-machine"></a>Instalační program na počítači Linux (Ubuntu 14.04)
@@ -92,11 +92,11 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 1. Nainstalujte si nejnovější verzi [prostředí PowerShell pro systému MacOS] sestavení
     - Zkontrolujte, zda že je povolena vzdálená SSH komunikace pomocí následujících kroků:
-      - Otevřete`System Preferences`
-      - Klikněte na`Sharing`
-      - Zkontrolujte `Remote Login` – by mělo být uvedeno`Remote Login: On`
+      - Otevřete `System Preferences`
+      - Klikněte na `Sharing`
+      - Zkontrolujte `Remote Login` – by mělo být uvedeno `Remote Login: On`
       - Povolit přístup k příslušné uživatele
-1. Upravit `sshd_config` soubor v umístění`/private/etc/ssh/sshd_config`
+1. Upravit `sshd_config` soubor v umístění `/private/etc/ssh/sshd_config`
     - Pomocí oblíbeného editoru nebo
     ```bash
     sudo nano /private/etc/ssh/sshd_config

@@ -1,16 +1,16 @@
 ---
-description: 
+description: ''
 ms.topic: article
 ms.prod: powershell
-keywords: "rutiny prostředí PowerShell"
-ms.date: 2016-12-12
-title: "získat pswaauthorizationrule"
+keywords: rutiny prostředí PowerShell
+ms.date: 12/12/2016
+title: získat pswaauthorizationrule
 ms.technology: powershell
-ms.openlocfilehash: 003195457660a18b9bbed065181b6d8c23835348
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+ms.openlocfilehash: 74c044c329d8b6a305b86c9056a7041fb5fd046b
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-pswaauthorizationrule"></a>Get-PswaAuthorizationRule
 
@@ -41,7 +41,7 @@ Pokud **Id** parametr ani **RuleName** parametr zadaný, bude tato rutina obsahu
 
 Určuje identifikátory (ID) pravidla, která by měl získat tuto rutinu. Pokud nejsou zadány žádné ID, tato rutina vrátí všechna autorizační pravidla.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
@@ -54,7 +54,7 @@ Určuje identifikátory (ID) pravidla, která by měl získat tuto rutinu. Pokud
 
 Určuje názvy autorizačních pravidel pro načtení. Tento parametr vrátí všechna pravidla, která přesně shodovat s názvy pravidel řetězců v toto pole.
 
-|||  
+|||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | Hodnota TRUE                                 |

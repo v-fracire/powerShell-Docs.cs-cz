@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-06-27
-keywords: "rutiny prostředí PowerShell"
-title: "Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu"
-ms.openlocfilehash: 19e4aa1bb55178ec2634af0771afe2db5db3423c
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.date: 06/27/2017
+keywords: rutiny prostředí PowerShell
+title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
+ms.openlocfilehash: 0e765ae90661a054ca9bae71d0f6d449cccb185d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -186,7 +186,7 @@ Toto jsou některé z příkladů tohoto scénáře.
 - Někteří správci poskytují určitým uživatelům širší přístup než jiným. Správce například vytvoří dvě skupiny uživatelů, **Admins** a **Zakladnipodpora**. Správce taky vytvoří koncový bod s prostředím runspace s omezeným přístupem volána s **Pswakoncovybod**a definuje následující dvě pravidla: **Admins,\*,\***  a  **Zakladnipodpora,\*, Pswakoncovybod**. První pravidlo poskytuje všem uživatelům ve **správce** přístup ke všem počítačům a druhé pravidlo poskytuje všem uživatelům ve **Zakladnipodpora** přístup jenom k těm počítačům s  **Pswakoncovybod**.
 
 - Správce nastavil privátní testovací prostředí a chce umožnit všem oprávněným uživatelům v síti přístup ke všem počítačům v síti, ke kterým mají obvykle přístup, včetně přístupu ke všem konfiguracím relace, ke kterým obvykle přistupují. Protože se jedná o privátní testovací prostředí, správce vytvoří autorizační pravidlo, které není zabezpečené.
-  - Správce spustí rutinu `Add-PswaAuthorizationRule * * *`, která používá zástupný znak  **\***  k reprezentaci všech uživatelů, všechny počítače a všechny konfigurace.
+  - Správce spustí rutinu `Add-PswaAuthorizationRule * * *`, která používá zástupný znak **\*** k reprezentaci všech uživatelů, všechny počítače a všechny konfigurace.
   - Toto pravidlo je ekvivalentem tohoto: `Add-PswaAuthorizationRule -UserName * -ComputerName * -ConfigurationName *`.
 
   >**Poznámka:**:

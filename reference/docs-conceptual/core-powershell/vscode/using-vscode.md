@@ -58,7 +58,7 @@ Pokud chcete použít konkrétní instalaci prostředí PowerShell s kódem jazy
 
 1. Klikněte na tlačítko **souboru -> Předvolby -> Nastavení**
 1. Zobrazí se dvě podokna editor.
-   V podokně nejvíce vpravo (`settings.json`), vložte následující nastavení vhodné pro váš operační systém někde mezi dvěma složené závorky (`{` a `}`) a nahraďte  *<version>*  s nainstalovaným klientem Verze prostředí PowerShell:
+   V podokně nejvíce vpravo (`settings.json`), vložte následující nastavení vhodné pro váš operační systém někde mezi dvěma složené závorky (`{` a `}`) a nahraďte *<version>* s nainstalovaným klientem Verze prostředí PowerShell:
 
   ```json
     // On Windows:

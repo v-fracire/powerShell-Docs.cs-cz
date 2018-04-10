@@ -1,28 +1,29 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Zobrazení objektu struktura Get člena"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Zobrazení objektu struktura Get člena
 ms.assetid: a1819ed2-2ef3-453a-b2b0-f3589c550481
-ms.openlocfilehash: 618f34bca7bfb76ce5d48ada642a687e279c8aad
-ms.sourcegitcommit: 4102ecc35d473211f50a453f6ae3fbea31cb3428
+ms.openlocfilehash: cc93e45e4306b3d623c1d3d1096dd20c1afc59c8
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="viewing-object-structure-get-member"></a>Zobrazení struktury objektu (Get člen)
+
 Protože objekty centrální roli hrají v prostředí Windows PowerShell, existuje několik nativní příkazy, které jsou navrženy pro práci s typy libovolného objektu. Je nejdůležitějším **Get-člen** příkaz.
 
 Nejjednodušším způsobem pro analýzu objekty, které vrátí příkaz je výstup tohoto příkazu **Get-člen** rutiny. **Get-člen** rutiny uvádí formální název tohoto typu objektu a úplný seznam všech jejích členů. Počet elementů, které jsou vráceny, v některých případech může být čtenáře. Například objekt procesu můžete mít více než 100 členy.
 
 Aby se zobrazily všechny členy objekt procesu a stránky výstup, můžete zobrazit všechny, zadejte:
 
-```
-PS> Get-Process | Get-Member | Out-Host -Paging
+```powershell
+Get-Process | Get-Member | Out-Host -Paging
 ```
 
 Výstup tohoto příkazu bude vypadat přibližně takto:
 
-```
+```output
 TypeName: System.Diagnostics.Process
 
 Name                           MemberType     Definition
@@ -68,4 +69,3 @@ Nejsou k dispozici více než 60 vlastnosti procesu. Z důvodu, prostředí Wind
 > Postupy: zobrazení pomocí informace uložené v souborech XML, které mají názvy končící na typ objektu, který určuje, prostředí Windows PowerShell. format.ps1xml. Formátování dat pro proces objekty, které jsou objekty .NET System.Diagnostics.Process, je uložen v DotNetTypes.format.ps1xml.
 
 Pokud potřebujete podívejte se na vlastnosti kromě těch, které ve výchozím nastavení zobrazí prostředí Windows PowerShell, musíte se k formátování výstupní data sami. Tento krok můžete provést pomocí rutiny formátu.
-

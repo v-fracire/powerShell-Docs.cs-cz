@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
-keywords: "Galerie prostředí powershell, rutiny, psgallery"
+keywords: Galerie prostředí powershell, rutiny, psgallery
 title: psgallery_faqs
-ms.openlocfilehash: b856c44f3733d4a7c236d901edb391091d9d546e
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: f00372d75b3e73bdc1499c3a2c8895bffb0902f9
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -169,4 +169,3 @@ Podívejte se na [Správa vlastníků položky na PowerShellGallery.com](Managin
 ## <a name="how-do-i-deal-with-an-item-owner-who-is-violating-my-item-license"></a>Řešení s položky vlastníka, který je porušení Moje položky licenční smlouvy
 
 Doporučujeme komunity Powershellu spolupracovat na řešení sporů, které může způsobit mezi vlastníky položek a vlastníků jiných položek.  Budeme mít vytvořené [proces řešení sporu](psgallery_dispute_resolution.md) , vás požádáme o provedete před intercede PowerShellGallery.com správci.
-

@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Glosář služby Windows PowerShell"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Glosář služby Windows PowerShell
 ms.assetid: b0f88cbe-cb83-4912-a301-184534cb35c7
-ms.openlocfilehash: 872ceb342cc72477c5142ce28a9b3b66e32bb84f
-ms.sourcegitcommit: 05d576cf107780fa52b2db4a042816be40b00fbc
+ms.openlocfilehash: fd15667939fd9b3ea705806686b626645519588a
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="windows-powershell-glossary"></a>Glosář služby Windows PowerShell
 
@@ -55,4 +55,3 @@ ms.lasthandoff: 02/19/2018
 |Soubor skriptu prostředí Windows PowerShell|Soubor s příponou .ps1 a který obsahuje skript, který je napsán v jazyce prostředí Windows PowerShell.|
 |Modul snap-in prostředí Windows PowerShell|Prostředek, který definuje sadu rutin, zprostředkovatelů a typy rozhraní Microsoft .NET Framework, které mohou být přidány do prostředí Windows PowerShell.|
 |Pracovní postup prostředí Windows PowerShell|Pracovní postup je pořadí naprogramovaných, propojených kroků, které provádějí dlouhodobé úlohy nebo vyžadují koordinaci více kroků v rámci více zařízení nebo spravovaných uzlů. Pracovní postup prostředí Windows PowerShell umožňuje odborníkům IT a vývojářům vytvářet sekvence aktivit správy více zařízení nebo jeden úloh v rámci pracovního postupu jako pracovních postupů. Pracovní postup prostředí Windows PowerShell umožňuje přizpůsobit a spouštění skriptů prostředí Windows PowerShell a soubory XAML jako pracovních postupů.|
-

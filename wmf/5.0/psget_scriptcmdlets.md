@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-ms.openlocfilehash: 2d56df459a4e09a16ab16c02f7ca2744c779206f
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+keywords: wmf,powershell,setup
+ms.openlocfilehash: 505ff4ebef2d0b063edacbdfa465616890be1001
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="powershellget-cmdlets-for-script-management"></a>PowerShellGet rutiny pro správu skriptu
+# <a name="powershellget-cmdlets-for-script-management"></a>Rutiny správce balíčků PowerShellGet pro správu skriptů
 
 ## <a name="find-script-cmdlet"></a>Rutiny najít skriptu
 Najít skriptu rutina umožňuje zjišťovat soubory skriptu s kritérii vyhledat jiný název, značku, filtr, název příkazu, rozsahu verze, přesnou verzi, všechny verze, včetně jeho závislosti a z určité nebo všech registrovaných úložiště.
@@ -575,7 +575,7 @@ DefinedFunctions : Demo-ScriptFunction
 DefinedWorkflows : Demo-ScriptWorkflow
 ```
 
-## <a name="update-scriptfileinfo-cmdlet"></a>Rutina aktualizace ScriptFileInfo
+## <a name="update-scriptfileinfo-cmdlet"></a>Update-ScriptFileInfo cmdlet
 Rutina aktualizace ScriptFileInfo umožňuje aktualizovat existující metadata souboru skriptu.
 ```powershell
 \# Use Update-ScriptFileInfo cmdlet to update the script metadata
@@ -686,4 +686,3 @@ Repository : GalleryINT
 PackageManagementProvider : NuGet
 AdditionalMetadata : {description, developmentDependency, tags, PackageManagementProvider...}
 ```
-

@@ -1,15 +1,16 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Jak používat podokně konzoly v systému Windows PowerShell ISE"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Použití pokokna konzoly v prostředí PowerShell ISE
 ms.assetid: 44d67705-87c7-4a69-a53e-6471fdebb757
-ms.openlocfilehash: 59e97bbc12269d855c4f3715171636647d4cc634
-ms.sourcegitcommit: d6ab9ab5909ed59cce4ce30e29457e0e75c7ac12
+ms.openlocfilehash: 5bbbdd3b1f0324ff1a4f2298459f58640c4dc9a6
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="how-to-use-the-console-pane-in-the-windows-powershell-ise"></a>Jak používat podokně konzoly v systému Windows PowerShell ISE
+# <a name="how-to-use-the-console-pane-in-the-windows-powershell-ise"></a>Použití pokokna konzoly v prostředí PowerShell ISE
+
 V podokně konzoly v Windows PowerShell Integrované skriptovací prostředí (ISE) pracuje úplně stejně jako samostatné okna konzoly Windows PowerShell ISE.
 
 Pokud chcete spustit příkaz v podokně konzoly, zadejte příkaz a stiskněte klávesu ENTER. Chcete-li zadat více příkazů, které chcete spustit v pořadí, zadejte SHIFT + ENTER mezi příkazy. V tématu [postup dokončování pomocí tabulátorů použijte v skriptu podokně a podokně konzoly](How-to-Use-Tab-Completion-in-the-Script-Pane-and-Console-Pane.md) pomoc při zadávání příkazů.
@@ -25,5 +26,5 @@ Od verze prostředí Windows PowerShell v3, se podokno výstup kombinovat s podo
 - Vymažte všechny text v podokně konzoly. Zrušte podokně konzoly, můžete kliknout na **vymazat podokna konzoly** ikonu na panelu nástrojů nebo spusťte příkaz **Clear-Host** nebo jeho alias **specifikací cls**.
 
 ## <a name="see-also"></a>Viz také
-- [Pomocí Windows PowerShell ISE](Using-the-Windows-PowerShell-ISE.md)
 
+- [Představení Windows PowerShell ISE](Introducing-the-Windows-PowerShell-ISE.md)

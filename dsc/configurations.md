@@ -1,19 +1,20 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
+keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Konfigurace DSC
-ms.openlocfilehash: 14db60126fd6c3d11d425a28c749a8e8b81122ca
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: 8b44fd9a715c217ee198ea343cdffbfab1193625
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-configurations"></a>Konfigurace DSC
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-Konfigurace DSC jsou skripty prostředí PowerShell, které definují speciální typ funkce. K definování konfigurace, použijte klíčové slovo prostředí PowerShell **konfigurace**.
+Konfigurace DSC jsou skripty prostředí PowerShell, které definují speciální typ funkce.
+K definování konfigurace, použijte klíčové slovo prostředí PowerShell **konfigurace**.
 
 ```powershell
 Configuration MyDscConfiguration {
@@ -70,21 +71,22 @@ V tomto příkladu zadejte název uzlu předáním jej jako **ComputerName** par
 
 ## <a name="compiling-the-configuration"></a>Kompilování konfigurace
 
-Před konfigurací můžete uplatní, budete muset kompilována MOF dokumentu. To provedete pomocí volání konfigurace jako funkce prostředí PowerShell.  
+Před konfigurací můžete uplatní, budete muset kompilována MOF dokumentu.
+To provedete pomocí volání konfigurace jako funkce prostředí PowerShell.
 Poslední řádek v příkladu obsahující pouze název konfigurace, zavolá konfigurace.
 
->**Poznámka:** volat konfigurace, musí být funkce v globálním oboru (stejně jako u jakékoli jiné funkce prostředí PowerShell). 
->Můžete použít tento dojít buď pomocí "dot-sourcing" skriptu, nebo spuštěním skriptu konfigurace pomocí F5 nebo kliknutím na **spustit skript** tlačítko (ISE) v. 
+>**Poznámka:** volat konfigurace, musí být funkce v globálním oboru (stejně jako u jakékoli jiné funkce prostředí PowerShell).
+>Můžete použít tento dojít buď pomocí "dot-sourcing" skriptu, nebo spuštěním skriptu konfigurace pomocí F5 nebo kliknutím na **spustit skript** tlačítko (ISE) v.
 >Zdroj tečkou skriptu, spusťte příkaz `. .\myConfig.ps1` kde `myConfig.ps1` je název souboru skriptu, který obsahuje konfiguraci.
 
 Při volání v konfiguraci ji:
 
-- Přeloží všechny proměnné 
+- Přeloží všechny proměnné
 - Vytvoří složku v aktuálním adresáři se stejným názvem jako konfiguraci.
-- Vytvoří soubor s názvem _NodeName_MOF do nového adresáře, kde _NodeName_ je název cílový uzel konfigurace. 
+- Vytvoří soubor s názvem _NodeName_MOF do nového adresáře, kde _NodeName_ je název cílový uzel konfigurace.
     Pokud je více než jeden uzlů, vytvoří se soubor MOF pro každý uzel.
 
->**Poznámka:**: soubor MOF obsahuje všechny informace o konfiguraci pro cílový uzel. Z toho důvodu je důležité k lepšímu zabezpečení. 
+>**Poznámka:**: soubor MOF obsahuje všechny informace o konfiguraci pro cílový uzel. Z toho důvodu je důležité k lepšímu zabezpečení.
 >Další informace najdete v tématu [zabezpečení souboru MOF](secureMOF.md).
 
 Kompilování první konfiguraci výše má za následek následující strukturu složek:
@@ -96,10 +98,10 @@ MyDscConfiguration
 
 ```
     Directory: C:\users\default\Documents\DSC Configurations\MyDscConfiguration
-Mode                LastWriteTime         Length Name                                                                                              
-----                -------------         ------ ----                                                                                         
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
 -a----       10/23/2015   4:32 PM           2842 localhost.mof
-```  
+```
 
 Pokud konfigurace přebírá parametr, jako v druhém příkladu, který je třeba zadat v době kompilace. Zde je, který vzhledu:
 
@@ -110,14 +112,16 @@ MyDscConfiguration -ComputerName 'MyTestNode'
 
 ```
     Directory: C:\users\default\Documents\DSC Configurations\MyDscConfiguration
-Mode                LastWriteTime         Length Name                                                                                              
-----                -------------         ------ ----                                                                                         
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
 -a----       10/23/2015   4:32 PM           2842 MyTestNode.mof
-```      
+```
 
 ## <a name="using-dependson"></a>Pomocí DependsOn
 
-Je užitečné DSC – klíčové slovo **DependsOn**. Obvykle (i když není vždy), platí prostředky v pořadí, ve kterém se zobrazují v rámci konfigurace DSC. Ale **DependsOn** Určuje, které prostředky závisí na jiné prostředky, a LCM zajistí, že jejich použití ve správném pořadí, bez ohledu na pořadí, ve které prostředků jsou definovány instancí. Například, konfigurace může určit, že instance **uživatele** prostředků závisí na existenci **skupiny** instance:
+Je užitečné DSC – klíčové slovo **DependsOn**. Obvykle (i když není vždy), platí prostředky v pořadí, ve kterém se zobrazují v rámci konfigurace DSC.
+Ale **DependsOn** Určuje, které prostředky závisí na jiné prostředky, a LCM zajistí, že jejich použití ve správném pořadí, bez ohledu na pořadí, ve které prostředků jsou definovány instancí.
+Například, konfigurace může určit, že instance **uživatele** prostředků závisí na existenci **skupiny** instance:
 
 ```powershell
 Configuration DependsOnExample {
@@ -141,14 +145,16 @@ Configuration DependsOnExample {
 ## <a name="using-new-resources-in-your-configuration"></a>Pomocí nové prostředky ve vaší konfiguraci
 
 Pokud jste spustili v předchozích příkladech, budete možná jste si všimli, že byly varování, že jste používali prostředku bez explicitně jeho import.
-V současné době DSC se dodává s 12 prostředky jako součást modulu PSDesiredStateConfiguration. Další prostředky v externích moduly musí být umístěny v `$env:PSModulePath` aby rozpoznala LCM. Nové rutiny [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), můžete použít k určení, jaké prostředky jsou nainstalovaná v systému a k dispozici pro použití LCM. Jakmile tyto moduly byly umístěny do `$env:PSModulePath` a jsou správně rozpoznáno [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ještě musí být načíst v konfiguraci. 
-**Import DscResource** je dynamické klíčové slovo, které může být rozeznána pouze v rámci **konfigurace** bloku (tj. není rutina). 
+V současné době DSC se dodává s 12 prostředky jako součást modulu PSDesiredStateConfiguration.
+Další prostředky v externích moduly musí být umístěny v `$env:PSModulePath` aby rozpoznala LCM.
+Nové rutiny [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), můžete použít k určení, jaké prostředky jsou nainstalovaná v systému a k dispozici pro použití LCM.
+Jakmile tyto moduly byly umístěny do `$env:PSModulePath` a jsou správně rozpoznáno [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ještě musí být načíst v konfiguraci.
+**Import DscResource** je dynamické klíčové slovo, které může být rozeznána pouze v rámci **konfigurace** bloku (tj. není rutina).
 **Import DscResource** podporuje dva parametry:
-- **Název modulu** je doporučený způsob použití **Import DscResource**. Přijímá název modul, který obsahuje prostředky, které mají být importované (i pole řetězců názvů modulu). 
-- **Název** je název prostředku pro import. Nejedná se o popisný název vrácené jako "Název" [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ale název třídy, které se používá při definování schématu zdroje (vrátí jako **ResourceType** podle [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx)). 
+- **Název modulu** je doporučený způsob použití **Import DscResource**. Přijímá název modul, který obsahuje prostředky, které mají být importované (i pole řetězců názvů modulu).
+- **Název** je název prostředku pro import. Nejedná se o popisný název vrácené jako "Název" [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx), ale název třídy, které se používá při definování schématu zdroje (vrátí jako **ResourceType** podle [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx)).
 
 ## <a name="see-also"></a>Viz také
 * [Přehled stavu konfigurace požadovaného prostředí Windows PowerShell](overview.md)
 * [Prostředky DSC](resources.md)
 * [Konfigurace správce místní konfigurace](metaConfig.md)
-

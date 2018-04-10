@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda StopConfiguration MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: 66d00cb40750e91e4b369a2e8cebb449697406d9
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda StopConfiguration třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: dadb6912af2e4450381958ed465799056da49946
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="stopconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda StopConfiguration MSFT_DSCLocalConfigurationManager třídy
+# <a name="stopconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda StopConfiguration třídy MSFT_DSCLocalConfigurationManager
 
 Zastaví změny konfigurace, která je v průběhu.
 
@@ -25,8 +25,7 @@ uint32 StopConfiguration(
 <a name="parameters"></a>Parameters
 ----------
 
-*Vynutit* \[v\]  
-**Hodnota TRUE,** vynutit konfiguraci zastavit.
+*Vynutit* \[v\] **true** vynutit konfiguraci zastavit.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -48,11 +47,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
-
- 
-
- 
-
-
-

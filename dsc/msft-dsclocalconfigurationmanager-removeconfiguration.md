@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Metoda RemoveConfiguration MSFT_DSCLocalConfigurationManager třídy"
-ms.openlocfilehash: fed45836293adedbce18f01cfe53cdfa1a474975
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Metoda RemoveConfiguration třídy MSFT_DSCLocalConfigurationManager
+ms.openlocfilehash: e0ae8a50212b70841d210d7b2d666a2855218d1a
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="removeconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda RemoveConfiguration MSFT_DSCLocalConfigurationManager třídy
+# <a name="removeconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda RemoveConfiguration třídy MSFT_DSCLocalConfigurationManager
 
 Odebere konfigurační soubory.
 
@@ -26,8 +26,7 @@ uint32 RemoveConfiguration(
 <a name="parameters"></a>Parameters
 ----------
 
-*Fáze* \[v\]  
-Určuje, který dokument konfigurace odebrat. Platné jsou následující hodnoty:
+*Fáze* \[v\] Určuje, který dokument konfigurace odebrat. Platné jsou následující hodnoty:
 
 |Hodnota |Popis |
 |:--- |:---|
@@ -35,8 +34,7 @@ Určuje, který dokument konfigurace odebrat. Platné jsou následující hodnot
 |**2** | **Čekající** dokumentu konfigurace (pending.mof).  |
 |**4** | **Předchozí** dokumentu konfigurace (previous.mof). |
 
-*Platnost* \[v\]  
-**Hodnota TRUE,** vynutit odebrání konfigurace.
+*Vynutit* \[v\] **true** vynutit odebrání konfigurace.
 
 ## <a name="return-value"></a>Návratová hodnota
 ------------
@@ -58,11 +56,3 @@ Jde o statickou metodu.
 
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
-
-
- 
-
- 
-
-
-

@@ -1,12 +1,12 @@
 ---
-ms.date: 2017-08-09
-keywords: "prostředí PowerShell, rutiny, stažení, instalace, instalační program, windows 10, windows 8.1, windows 8.0, windows 7"
+ms.date: 08/09/2017
+keywords: prostředí PowerShell, rutiny, stažení, instalace, instalační program, windows 10, windows 8.1, windows 8.0, windows 7
 title: Instalace Windows PowerShellu
-ms.openlocfilehash: dffb6ec11ce265ebc4e6bc91f631650e1af5868d
-ms.sourcegitcommit: 05d576cf107780fa52b2db4a042816be40b00fbc
+ms.openlocfilehash: 320b271ce49768f8865c79c5c72749befe306fa4
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="installing-windows-powershell"></a>Instalace Windows PowerShellu
 Ve výchozím nastavení v každé Windows od verze Windows 7 SP1 a Windows Server 2008 R2 SP1 nainstalovaný Windows PowerShell.
@@ -45,7 +45,8 @@ Edice systému Windows Server bez grafického uživatelského rozhraní jsou poj
 
 Ve všech edicích základní při přihlášení k serveru zobrazí okno příkazového řádku systému Windows.
 
-Typ `powershell` a stiskněte klávesu **ENTER** spuštění prostředí PowerShell v relaci příkazového řádku. Typ `exit` ukončit relaci prostředí PowerShell a vrátíte se do příkazového řádku.
+Typ `powershell` a stiskněte klávesu **ENTER** spuštění prostředí PowerShell v relaci příkazového řádku.
+Typ `exit` ukončit relaci prostředí PowerShell a vrátíte se do příkazového řádku.
 
 ### <a name="windows-server-desktop-editions"></a>Edice Windows serveru Desktop
 

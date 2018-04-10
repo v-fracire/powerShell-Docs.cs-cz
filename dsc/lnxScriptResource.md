@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "DSC pro Linux nxScript prostředků"
-ms.openlocfilehash: c12fb3b405d84eedd13e4cbebf2b2bf0d7cfb4d3
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: DSC pro Linux nxScript prostředků
+ms.openlocfilehash: 7c8c3aa16af5b31c0a549972288c9466bb56609d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-for-linux-nxscript-resource"></a>DSC pro Linux nxScript prostředků
 
@@ -30,21 +30,21 @@ nxScript <string> #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost |  Popis | 
+|  Vlastnost |  Popis |
 |---|---|
-| GetScript| Poskytuje skript, který spouští při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521625.aspx) rutiny. Skript musí začínat shebang, například #! / bin/bash.| 
-| SetScript| Poskytuje skript. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny **TestScript** spustí první. Pokud **TestScript** bloku vrátí ukončovací kód než 0, **SetScript** bloku se spustí. Pokud **TestScript** vrátí ukončovací kód 0, **SetScript** se nespustí. Skript musí začínat shebang, jako například `#!/bin/bash`.| 
-| TestScript| Poskytuje skript. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) tento skript spouští rutiny. Pokud vrátí ukončovací kód než 0, se spustí SetScript. Vrátí ukončovací kód 0,-li **SetScript** se nespustí. **TestScript** poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** se nespustí, bez ohledu na to, jaké ukončovací kód je vrácen z **TestScript**. **TestScript** musí vracet ukončovací kód 0, pokud skutečné konfigurace odpovídá aktuální konfiguraci požadovaného stavu a ukončení kódu jiné než 0, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC). Skript musí začínat shebang, jako je například 1#!/bin/bash.1| 
-| Uživatel| Uživatele k spuštění skriptu jako.| 
-| Skupina| Skupina pro spuštění skriptu jako.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.| 
+| GetScript| Poskytuje skript, který spouští při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521625.aspx) rutiny. Skript musí začínat shebang, například #! / bin/bash.|
+| SetScript| Poskytuje skript. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny **TestScript** spustí první. Pokud **TestScript** bloku vrátí ukončovací kód než 0, **SetScript** bloku se spustí. Pokud **TestScript** vrátí ukončovací kód 0, **SetScript** se nespustí. Skript musí začínat shebang, jako například `#!/bin/bash`.|
+| TestScript| Poskytuje skript. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) tento skript spouští rutiny. Pokud vrátí ukončovací kód než 0, se spustí SetScript. Vrátí ukončovací kód 0,-li **SetScript** se nespustí. **TestScript** poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** se nespustí, bez ohledu na to, jaké ukončovací kód je vrácen z **TestScript**. **TestScript** musí vracet ukončovací kód 0, pokud skutečné konfigurace odpovídá aktuální konfiguraci požadovaného stavu a ukončení kódu jiné než 0, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC). Skript musí začínat shebang, jako je například 1#!/bin/bash.1|
+| Uživatel| Uživatele k spuštění skriptu jako.|
+| Skupina| Skupina pro spuštění skriptu jako.|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="example"></a>Příklad
 
 Následující příklad ukazuje použití **nxScript** prostředek se má provést další konfiguraci správy.
 
 ```
-Import-DSCResource -Module nx 
+Import-DSCResource -Module nx
 
 Node $node {
 nxScript KeepDirEmpty{
@@ -69,7 +69,6 @@ else
     exit 0
 fi
 '@
-} 
+}
 }
 ```
-

@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 contributor: manikb
 ms.topic: reference
-keywords: "Galerie prostředí powershell, rutiny, psget"
+keywords: gallery,powershell,cmdlet,psget
 title: Get-InstalledScript
-ms.openlocfilehash: f35e57cdadd1448bd9032ab007d692003c4cf4a2
-ms.sourcegitcommit: 75f70c7df01eea5e7a2c16f9a3ab1dd437a1f8fd
+ms.openlocfilehash: 668327905b0dab40119940a3134b674c452f538d
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-installedscript"></a>Get-InstalledScript
 
@@ -24,7 +24,7 @@ Pro každý nainstalovaný skript vrátí Get-InstalledScript PSRepositoryItemIn
 - Get-InstalledScript můžete filtrovat s parametry verze: MinimumVersion, MaximumVersion, RequiredVersion, AllVersions.
   - Tyto parametry se vzájemně vylučují, s výjimkou MinmimumVersion a MaximumVersion.
   - Tyto parametry verze jsou povoleny pouze s názvem jednoho skriptu bez žádné zástupné znaky.
-  - Pokud není zadán parametr RequiredVersion, vrátí Get-InstalledScript nejnovější verzi nainstalovaného skript, který je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze. 
+  - Pokud není zadán parametr RequiredVersion, vrátí Get-InstalledScript nejnovější verzi nainstalovaného skript, který je rovna nebo větší než minimální verze zadaná nebo nejnovější verzi skriptu, pokud je zadána žádná minimální verze.
   - Pokud je zadán parametr RequiredVersion, vrátí Get-InstalledScript pouze verzi nainstalovaného skript, který přesně odpovídá zadaná verze.
 
 ## <a name="cmdlet-syntax"></a>Syntaxe rutin
@@ -98,4 +98,3 @@ InstalledLocation          : C:\Program Files\WindowsPowerShell\Scripts
 
 
 ```
-

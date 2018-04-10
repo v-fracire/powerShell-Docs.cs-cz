@@ -1,20 +1,20 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Co je nového v prostředí Windows PowerShell 5.0"
-ms.openlocfilehash: 3a412b35c593c99fb8ea8307b12ccc05871863f4
-ms.sourcegitcommit: e2360ac94fe4deb0ed0f5c8c8d9b293551ec8030
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Co je nového v prostředí Windows PowerShell 5.0
+ms.openlocfilehash: f1134a37e7027b00c948ce1db186a21dc5a311c6
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/05/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="whats-new-in-windows-powershell-50"></a>Co je nového v prostředí Windows PowerShell 5.0
 Prostředí Windows PowerShell 5.0 obsahuje důležité nové funkce, které rozšiřují jeho použití, zlepšují použitelnost a umožňují řídit a spravovat prostředí ve Windows snadněji a komplexněji.
 
 Prostředí Windows PowerShell 5.0 je zpětně kompatibilní. Rutiny, zprostředkovatelé, moduly, moduly snap in, skripty, funkce a profily, které byly navrženy pro prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 3.0 a prostředí Windows PowerShell 2.0 obecně fungovat bez změny v prostředí Windows PowerShell 5.0.
 
-# <a name="installing-windows-powershell"></a>Instalace prostředí Windows PowerShell
-Prostředí Windows PowerShell 5.0 je nainstalována ve výchozím nastavení v systému Windows Server 2016 Technical Preview a Windows 10. 
+# <a name="installing-windows-powershell"></a>Instalace Windows PowerShellu
+Prostředí Windows PowerShell 5.0 je nainstalována ve výchozím nastavení v systému Windows Server 2016 Technical Preview a Windows 10.
 
 Chcete-li nainstalovat prostředí Windows PowerShell 5.0 na Windows Server 2012 R2, Windows 8.1 Enterprise nebo Windows 8.1 Pro, stáhněte a nainstalujte [Windows Management Framework 5.0](http://aka.ms/wmf5download). Nezapomeňte přečíst podrobnosti o stažení a před instalací Windows Management Framework 5.0 splňují všechny požadavky na systém.
 
@@ -184,7 +184,7 @@ Mnoho aktualizací a vylepšení pro Windows PowerShell požadovaného stavu kon
 
 - Rutinu New-Guid využívá třídy pro rozhraní .NET Framework Guid generovat identifikátor GUID je užitečné, pokud píšete skripty nebo prostředky DSC.
 
-- Protože informací o verzi souboru může být zavádějící, zejména po souboru je opravit, jsou k dispozici pro objekty FileInfo vlastnosti nového FileVersionRaw a ProductVersionRaw skriptu. Například můžete spustit následující příkaz k zobrazení hodnot z těchto vlastností pro powershell.exe, kde $pid obsahuje ID procesu pro spuštěné relaci prostředí Windows PowerShell:```Get-Process -Id $pid -FileVersionInfo | Format-List *version* -Force```
+- Protože informací o verzi souboru může být zavádějící, zejména po souboru je opravit, jsou k dispozici pro objekty FileInfo vlastnosti nového FileVersionRaw a ProductVersionRaw skriptu. Například můžete spustit následující příkaz k zobrazení hodnot z těchto vlastností pro powershell.exe, kde $pid obsahuje ID procesu pro spuštěné relaci prostředí Windows PowerShell:  ```Get-Process -Id $pid -FileVersionInfo | Format-List *version* -Force```
 
 - Nové rutiny Enter PSHostProcess a ukončení PSHostProcess umožňuje ladění skriptů prostředí Windows PowerShell v procesy, které jsou oddělené od aktuální proces, který běží v konzole Windows PowerShell. Spusťte Enter PSHostProcess zadejte, nebo připojení k konkrétní proces s ID a pak spusťte Get-prostředí Runspace vrátit active prostředí runspace v rámci procesu. Spusťte ukončení PSHostProcess odpojit z procesu po dokončení ladění skriptu v rámci procesu.
 
@@ -240,7 +240,7 @@ Mnoho aktualizací a vylepšení pro Windows PowerShell požadovaného stavu kon
 
     -   Počáteční DscConfiguration
 
-    -   Aktualizace DscConfiguration
+    -   Update-DscConfiguration
 
 - S centralizovanou DSC zpráv o chybách, bohaté zaznamenána informace o chybě není pouze v případě, že protokolu, ale lze odeslat buď do centrálního umístění pro pozdější analýzu. Tento centrální umístění můžete použít k ukládání chyby konfigurace DSC, které se vyskytly pro všechny servery ve svém prostředí. Po server sestav je definována v konfiguraci meta, všechny chyby odeslána na server sestav a pak uloženy v databázi. Tato funkce bez ohledu na to, jestli je nakonfigurovaná cílový uzel můžete nastavit načítat konfigurace z načítacího serveru.
 
@@ -352,7 +352,7 @@ Prostředí Windows PowerShell 4.0 obsahuje následující nové funkce.
 
 - Hodnota **$PSVersionTable.PSVersion** byl aktualizovaný, aby 4.0.
 
-- **WHERE()** operátor chování změnilo. `Collection.Where('property -match name')`přijetí řetězcového výrazu ve formátu `"Property -CompareOperator Value"` již není podporována. Ale **Where()** operátor přijímá výrazy řetězec ve formátu scriptblock; to je podporováno.
+- **WHERE()** operátor chování změnilo. `Collection.Where('property -match name')` přijetí řetězcového výrazu ve formátu `"Property -CompareOperator Value"` již není podporována. Ale **Where()** operátor přijímá výrazy řetězec ve formátu scriptblock; to je podporováno.
 
 ### <a name="new-features-in-windows-powershell-integrated-scripting-environment-ise"></a>Nové funkce v systému Windows PowerShell Integrované skriptovací prostředí (ISE)
 
@@ -443,7 +443,7 @@ Prostředí Windows PowerShell 4.0 obsahuje následující nové funkce.
 ## <a name="new-features-in-windows-powershell-30"></a>Nové funkce v prostředí Windows PowerShell 3.0
 Prostředí Windows PowerShell 3.0 obsahuje následující nové funkce.
 
-- [Pracovní postup prostředí Windows PowerShell](#windows-powershell-workflow)
+- [Windows PowerShell Workflow](#windows-powershell-workflow)
 - [Windows PowerShell Web Accessu](#windows-powershell-web-access)
 - [Nové funkce systému Windows PowerShell ISE](#new-windows-powershell-ise-features)
 - [Podpora pro rozhraní Microsoft .NET Framework 4.0](#support-for-microsoft-net-framework-4)
@@ -490,7 +490,7 @@ Následující seznam uvádí výhody pracovního postupu prostředí Windows Po
 
 - **Trvalost.** : pracovní postup je uložit (nebo zkontrolujte odkazoval) v určitých bodech definovaný autorem, můžete obnovit od posledního trvalého úlohu (nebo kontrolního bodu), nemuseli ho od začátku.
 
-- **Robustnost.** Automatizované zotavení po chybě. Pracovní postupy fungují po plánovaných a neplánovaných restartování. Můžete pozastavit provádění pracovního postupu a poté obnovit od vytvoření posledního bodu trvalost. Autoři pracovního postupu můžete určit konkrétní aktivity potřeba znovu spustit v případě selhání na jeden nebo více spravovaných uzlů.
+- **Robustness.** Automatizované zotavení po chybě. Pracovní postupy fungují po plánovaných a neplánovaných restartování. Můžete pozastavit provádění pracovního postupu a poté obnovit od vytvoření posledního bodu trvalost. Autoři pracovního postupu můžete určit konkrétní aktivity potřeba znovu spustit v případě selhání na jeden nebo více spravovaných uzlů.
 
 - **Možnost odpojit, znovu připojit a spusťte v odpojených relací.** Uživatelé můžou připojit a odpojit od server pracovního postupu, ale pracovní postup běží nepřetržitě. Můžete odhlásit, klientský počítač nebo restartujte klientský počítač a monitorovat spuštění pracovního postupu z jiného počítače bez přerušení pracovního postupu.
 
@@ -604,20 +604,20 @@ Byly přidané nové rutiny na instalaci jádro systému Windows PowerShell, vč
 
 |||
 |-|-|
-|Přidat JobTrigger|Nový JobTrigger|
+|Přidat JobTrigger|New-JobTrigger|
 |Connect-PSSession|Nové PSSessionConfigurationFile|
 |ConvertFrom Json|New-PSTransportOption|
-|ConvertTo-Json|Nové PSWorkflowExecutionOption|
+|ConvertTo-Json|New-PSWorkflowExecutionOption|
 |Disable-JobTrigger|Nové PSWorkflowSession|
-|Disable-ScheduledJob|Nové ScheduledJobOption|
-|Odpojení PSSession|Nový WinEvent.|
-|Povolit JobTrigger|Zobrazí PSSession|
-|Povolit ScheduledJob|Registrace CimIndicationEvent|
+|Disable-ScheduledJob|New-ScheduledJobOption|
+|Odpojení PSSession|New-WinEvent|
+|Enable-JobTrigger|Zobrazí PSSession|
+|Povolit ScheduledJob|Register-CimIndicationEvent|
 |Get-CimAssociatedInstance|Register-ScheduledJob|
-|Get-CimClass|Odebrat CimInstance|
+|Get-CimClass|Remove-CimInstance|
 |Get-CimInstance|Remove-CimSession|
-|Get-CimSession|Odebrat TypeData|
-|Get-ControlPanelItem|Přejmenování počítače|
+|Get-CimSession|Remove-TypeData|
+|Get-ControlPanelItem|Rename-Computer|
 |Get-IseSnippet|Resume-Job|
 |Get-JobTrigger|Save-Help|
 |Get-ScheduledJob|Set-CimInstance|
@@ -626,11 +626,11 @@ Byly přidané nové rutiny na instalaci jádro systému Windows PowerShell, vč
 |Import IseSnippet|Set-ScheduledJobOption|
 |Vyvolání AsWorkflow|Zobrazit – příkaz|
 |Vyvolání CimMethod|Zobrazit ControlPanelItem|
-|Vyvolání RestMethod|Pozastavení úlohy|
-|Vyvolání WebRequest|Test PSSessionConfigurationFile|
-|Nové CimInstance|Zrušení blokování souborů|
-|Nový CimSession|Unregister-ScheduledJob|
-|Nové CimSessionOption|Update-Help|
+|Invoke-RestMethod|Pozastavení úlohy|
+|Invoke-WebRequest|Test PSSessionConfigurationFile|
+|New-CimInstance|Zrušení blokování souborů|
+|New-CimSession|Unregister-ScheduledJob|
+|New-CimSessionOption|Update-Help|
 |Nové IseSnippet||
 
 ### <a name="improvements-to-existing-core-cmdlets-and-providers"></a>Vylepšení existující základní rutiny a zprostředkovatelé
@@ -712,5 +712,4 @@ Pro zlepšení schopnost prostředí Windows PowerShell 3.0 jak interpretovat a 
 
 ## <a name="see-also"></a>Viz také
 - [about_Windows_PowerShell_5.0](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_windows_powershell_5.0?view=powershell-5.0)
-- [Prostředí Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=107116)
-
+- [Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=107116)

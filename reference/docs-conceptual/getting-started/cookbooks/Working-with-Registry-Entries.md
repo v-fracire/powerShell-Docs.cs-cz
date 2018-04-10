@@ -1,18 +1,20 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Práce s položky registru"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Práce s položkami registru
 ms.assetid: fd254570-27ac-4cc9-81d4-011afd29b7dc
-ms.openlocfilehash: 039203a1a6549d4ba33424a278e4803a5e143d4d
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: bffdf80931fc4dc570b584623487077dc5d449dc
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="working-with-registry-entries"></a>Práce s položky registru
+# <a name="working-with-registry-entries"></a>Práce s položkami registru
+
 Protože položky registru jsou vlastnosti klíčů a jako takový nelze procházet přímo, je potřeba provést mírně odlišný postup při práci s nimi.
 
 ### <a name="listing-registry-entries"></a>Výpis položky registru
+
 Zkontrolujte položky registru mnoha různými způsoby. Nejjednodušší způsob, jak se má získat názvy vlastností, které jsou přidružené k klíči. Chcete-li například zobrazit názvy položek v klíči registru **HKEY_LOCAL_MACHINE\\softwaru\\Microsoft\\Windows\\CurrentVersion**, použijte **Get-položky** . Klíče registru mít vlastnost s obecný název "Vlastnosti", který je přehled položek registru v klíči. Následující příkaz vybere vlastnost a rozbalí položky tak, aby se zobrazí v seznamu:
 
 ```
@@ -52,13 +54,13 @@ Vlastnosti týkající se prostředí Windows PowerShell pro klíč jsou všechn
 
 Můžete použít "**.**" zápis pro odkaz na aktuální umístění. Můžete použít **nastavení umístění** změnit na **CurrentVersion** registru kontejneru první:
 
-```
+```powershell
 Set-Location -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
 ```
 
 Alternativně můžete použít předdefinované PSDrive HKLM s **nastavení umístění**:
 
-```
+```powershell
 Set-Location -Path hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion
 ```
 
@@ -76,6 +78,7 @@ ProgramFilesDir     : C:\Program Files
 Cesta rozšíření funguje stejně jako v systému souborů, takže z tohoto umístění můžete získat **ItemProperty** výpis pro **HKLM:\\softwaru\\Microsoft\\Windows \\Pomoci** pomocí **Get-ItemProperty-cesta... \\Pomoci**.
 
 ### <a name="getting-a-single-registry-entry"></a>Získání položky jeden registru
+
 Pokud chcete načíst konkrétní položky klíče registru, můžete použít jeden z několika možných přístupů. Tento příklad vyhledá hodnotu **DevicePath** v **HKEY_LOCAL_MACHINE\\softwaru\\Microsoft\\Windows\\CurrentVersion**.
 
 Pomocí **Get-ItemProperty**, použijte **cesta** parametr k zadání názvu klíče a **název** parametr k určení názvu **DevicePath** položku.
@@ -117,6 +120,7 @@ PS> (New-Object -ComObject WScript.Shell).RegRead("HKLM\SOFTWARE\Microsoft\Windo
 ```
 
 ### <a name="creating-new-registry-entries"></a>Vytvoření nové položky registru
+
 Chcete-li přidat novou položku s názvem "PowerShellPath" do **CurrentVersion** použití klíče, **New-ItemProperty** s cestou k klíč, název vstupního a hodnotu položky. V tomto příkladu jsme bude trvat hodnotu proměnné prostředí Windows PowerShell **$PSHome**, která ukládá cestu k adresáři instalace pro prostředí Windows PowerShell.
 
 Pomocí následujícího příkazu můžete přidat novou položku na klíč, a příkaz také vrátí informace o nový záznam:
@@ -143,35 +147,36 @@ PowerShellPath : C:\Program Files\Windows PowerShell\v1.0
 |ExpandString|Řetězec, který může obsahovat proměnné prostředí, které jsou dynamicky rozšířit|
 |MultiString|Víceřádkový řetězec|
 |Řetězec|Libovolnou hodnotu řetězce|
-|QWORD –|8 bajtů binárních dat|
+|QWord|8 bajtů binárních dat|
 
 > [!NOTE]
 > Položky registru můžete přidat do víc umístění zadáním hodnot pro pole **cesta** parametr:
 
-```
+```powershell
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion, HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion -Name PowerShellPath -PropertyType String -Value $PSHome
 ```
 
 Můžete také přepsat existující hodnotu položky registru přidáním **Force** parametr žádnému **New-ItemProperty** příkaz.
 
 ### <a name="renaming-registry-entries"></a>Přejmenování položky registru
+
 Přejmenování **PowerShellPath** položku na "PSHome," použití **přejmenování ItemProperty**:
 
-```
+```powershell
 Rename-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion -Name PowerShellPath -NewName PSHome
 ```
 
 Chcete-li zobrazit přejmenovat hodnotu, přidejte **PassThru** do příkazu parametr.
 
-```
+```powershell
 Rename-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion -Name PowerShellPath -NewName PSHome -passthru
 ```
 
 ### <a name="deleting-registry-entries"></a>Odstranění položky registru
+
 Pokud chcete odstranit položky registru PSHome i PowerShellPath, použijte **Remove-ItemProperty**:
 
-```
+```powershell
 Remove-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion -Name PSHome
 Remove-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion -Name PowerShellPath
 ```
-

@@ -1,25 +1,28 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Práce s instalací softwaru"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Práce s nainstalovaným softwarem
 ms.assetid: 51a12fe9-95f6-4ffc-81a5-4fa72a5bada9
-ms.openlocfilehash: 2078376a8be19c9ff8ecc44183eb89f14bc388ed
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: bb97ad37c4295351c0fc2e3c6e1209c8dd673f06
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="working-with-software-installations"></a>Práce s instalací softwaru
+# <a name="working-with-software-installations"></a>Práce s nainstalovaným softwarem
+
 Aplikace, které jsou určeny k použití Instalační služby systému Windows je možné přistupovat prostřednictvím rozhraní WMI na **objektu Win32_Product** třídy, ale ne všechny aplikace používá v dnešní době používá Instalační služba systému Windows. Protože instalační služba systému Windows obsahuje širokou škálu standardní techniky pro práci s instalovat aplikace, jsme se soustředí hlavně na tyto aplikace. Aplikace, které používají rutiny alternativní nastavení nebude spravovaný obecně Instalační služby systému Windows. Konkrétní postupy pro práci s těmito aplikacemi bude záviset na instalační program softwaru a rozhodnutí o vývojář aplikace.
 
 > [!NOTE]
 > Aplikace, které jsou nainstalované pomocí kopírování souborů aplikace do počítače obvykle nelze spravovat pomocí technik popsaných v tomto poli. Tyto aplikace jako soubory a složky, můžete spravovat pomocí technik popsaných v oddílu "Práce se soubory a složky".
 
 ### <a name="listing-windows-installer-applications"></a>Výpis aplikace Instalační služby systému Windows
+
 K zobrazení seznamu aplikace instalované pomocí Instalační služby systému Windows v místním nebo vzdáleném systému, použijte následující jednoduchý dotaz rozhraní WMI:
 
 ```
 PS> Get-WmiObject -Class Win32_Product -ComputerName .
+
 IdentifyingNumber : {7131646D-CD3C-40F4-97B9-CD9E4E6262EF}
 Name              : Microsoft .NET Framework 2.0
 Vendor            : Microsoft Corporation
@@ -31,6 +34,7 @@ Chcete-li zobrazit všechny vlastnosti objektu Win32_Product objekt zobrazení, 
 
 ```
 PS> Get-WmiObject -Class Win32_Product -ComputerName . | Where-Object -FilterScript {$_.Name -eq "Microsoft .NET Framework 2.0"} | Format-List -Property *
+
 Name              : Microsoft .NET Framework 2.0
 Version           : 2.0.50727
 InstallState      : 5
@@ -47,13 +51,13 @@ Vendor            : Microsoft Corporation
 
 Nebo můžete použít **Get-WmiObject filtru** parametr vybrat jenom rozhraní Microsoft .NET Framework 2.0. Protože filtr použité v tomto příkazu je filtr rozhraní WMI, používá syntaxi dotazu jazyka WQL (WMI), není syntaxe prostředí Windows PowerShell. Místo toho:
 
-```
+```powershell
 Get-WmiObject -Class Win32_Product -ComputerName . -Filter "Name='Microsoft .NET Framework 2.0'"| Format-List -Property *
 ```
 
 Všimněte si, že dotazy WQL často znaky, jako jsou mezery nebo znaky rovná, které mají zvláštní význam v prostředí Windows PowerShell. Z tohoto důvodu je vhodné vždy hodnota parametru filtru uzavřít do uvozovek. Můžete také použít prostředí Windows PowerShell řídicí znak, backtick (\`), i když proto nemusí zlepšení čitelnosti. Příkaz je ekvivalentní předchozí příkaz a vrátí stejné výsledky, ale používá backtick, abyste se vyhnuli speciální znaky, místo citací řetězec celý filtru.
 
-```
+```powershell
 Get-WmiObject -Class Win32_Product -ComputerName . -Filter Name`=`'Microsoft` .NET` Framework` 2.0`' | Format-List -Property *
 ```
 
@@ -74,13 +78,14 @@ IdentifyingNumber : {FCE65C4E-B0E8-4FBD-AD16-EDCBE6CD591F}
 
 Nakonec najít pouze názvy nainstalované aplikace, jednoduchou **formátu celou** příkaz zjednodušuje výstup:
 
-```
+```powershell
 Get-WmiObject -Class Win32_Product -ComputerName .  | Format-Wide -Column 1
 ```
 
 I když nyní je k dispozici několik způsobů, jak podívejte se na aplikace, které používá Instalační služba systému Windows pro instalaci, jsme nepřemýšlí jiné aplikace. Protože většina standardních aplikací zaregistrovat jejich odinstalační program, který se systémem Windows, jsme můžete pracovat s těmi, která místně tak, že najdete je v registru systému Windows.
 
 ### <a name="listing-all-uninstallable-applications"></a>Výpis všech bez možnosti odinstalace aplikace
+
 I když neexistuje žádné zaručenou způsob, jak najít každá aplikace v systému, je možné najít všechny programy s výpisech zobrazí v dialogovém okně Přidat nebo odebrat programy. Přidat nebo odebrat programy najde tyto aplikace v následující klíč registru:
 
 **HKEY_LOCAL_MACHINE\\softwaru\\Microsoft\\Windows\\CurrentVersion\\odinstalovat**.
@@ -88,7 +93,7 @@ I když neexistuje žádné zaručenou způsob, jak najít každá aplikace v sy
 Můžeme také zkontrolovat, jestli tento klíč k vyhledání aplikace. Aby bylo snazší, chcete-li zobrazit klíč odinstalace, jsme můžete namapovat jednotku prostředí Windows PowerShell do tohoto umístění registru:
 
 ```
-PS> New-PSDrive -Name Uninstall -PSProvider Registry -Root HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall    
+PS> New-PSDrive -Name Uninstall -PSProvider Registry -Root HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 
 Name       Provider      Root                                   CurrentLocation
 ----       --------      ----                                   ---------------
@@ -107,7 +112,7 @@ PS> (Get-ChildItem -Path Uninstall:).Count
 
 Jsme můžete hledat v seznamu aplikací další pomocí řady různých způsobů, počínaje **Get-ChildItem**. Chcete získat seznam aplikací a uložit je do **$UninstallableApplications** proměnnou, použijte následující příkaz:
 
-```
+```powershell
 $UninstallableApplications = Get-ChildItem -Path Uninstall:
 ```
 
@@ -118,8 +123,8 @@ K zobrazení hodnot položky v registru v klíči registru v odinstalovat, použ
 
 Například pro vyhledání názvů zobrazení aplikací v klíči odinstalovat, použijte následující příkaz:
 
-```
-PS> Get-ChildItem -Path Uninstall: | ForEach-Object -Process { $_.GetValue("DisplayName") }
+```powershell
+Get-ChildItem -Path Uninstall: | ForEach-Object -Process { $_.GetValue('DisplayName') }
 ```
 
 Není zaručeno, že tyto hodnoty jsou jedinečné. Dva nainstalované položky se zobrazí jako "Windows Media Encoder 9 Series" v následujícím příkladu:
@@ -137,6 +142,7 @@ SKC  VC Name                           Property
 ```
 
 ### <a name="installing-applications"></a>Instalace aplikace
+
 Můžete použít **objektu Win32_Product** třída k instalaci balíčků Instalační služby systému Windows, vzdáleně nebo místně.
 
 > [!NOTE]
@@ -144,37 +150,38 @@ Můžete použít **objektu Win32_Product** třída k instalaci balíčků Insta
 
 Při instalaci vzdáleně, použijte síťovou cestu Universal Naming Convention (UNC) pro zadání cesty k balíčku MSI, protože subsystém WMI nerozumí cesty prostředí Windows PowerShell. Například k instalaci balíčku NewPackage.msi umístěný ve sdílené síťové složce \\ \\AppServ\\dsp na vzdáleném počítači PC01, zadejte následující příkaz v příkazovém řádku prostředí Windows PowerShell:
 
-```
-(Get-WMIObject -ComputerName PC01 -List | Where-Object -FilterScript {$_.Name -eq "Win32_Product"}).Install(\\AppSrv\dsp\NewPackage.msi)
+```powershell
+(Get-WMIObject -ComputerName PC01 -List | Where-Object -FilterScript {$_.Name -eq 'Win32_Product'}).Install(\\AppSrv\dsp\NewPackage.msi)
 ```
 
 Aplikace, které nepoužívají technologii Instalační služby systému Windows může mít specifické pro aplikaci metody dostupné pro automatické nasazení. Pokud chcete zjistit, zda je metoda pro automatizaci nasazení, naleznete v dokumentaci k aplikaci nebo se obraťte na systém pro podporu dodavatele aplikace. V některých případech i v případě, že dodavatele aplikace není návrh konkrétně aplikace pro automatizaci instalace instalační program softwaru výrobce pravděpodobně některé postupy pro automatizaci.
 
 ### <a name="removing-applications"></a>Odebírání aplikací
+
 Odebrání balíčku Instalační služby systému Windows pomocí prostředí Windows PowerShell funguje v přibližně stejným způsobem jako instalaci balíčku. Tady je příklad, který vybere balíček, který chcete odinstalovat, na základě jeho názvu; v některých případech může být snazší filtrovat, u kterých **hodnotu IdentifyingNumber**:
 
-```
+```powershell
 (Get-WmiObject -Class Win32_Product -Filter "Name='ILMerge'" -ComputerName . ).Uninstall()
 ```
 
 Odebrání dalších aplikací není proto je poměrně jednoduché i v případě, že se neprovádí místně. Nemůžeme najít řetězce odinstalace příkazového řádku pro tyto aplikace extrahováním **UninstallString** vlastnost. Tato metoda funguje pro aplikace Instalační služby systému Windows a zobrazování pod klíčem odinstalovat starší programů:
 
-```
-Get-ChildItem -Path Uninstall: | ForEach-Object -Process { $_.GetValue("UninstallString") }
+```powershell
+Get-ChildItem -Path Uninstall: | ForEach-Object -Process { $_.GetValue('UninstallString') }
 ```
 
 Výstup můžete filtrovat podle zobrazovaného jména, pokud chcete:
 
-```
-Get-ChildItem -Path Uninstall: | Where-Object -FilterScript { $_.GetValue("DisplayName") -like "Win*"} | ForEach-Object -Process { $_.GetValue("UninstallString") }
+```powershell
+Get-ChildItem -Path Uninstall: | Where-Object -FilterScript { $_.GetValue('DisplayName') -like 'Win*'} | ForEach-Object -Process { $_.GetValue('UninstallString') }
 ```
 
 Tyto řetězce však nemusí být použitelná přímo z příkazového řádku prostředí Windows PowerShell bez některé úprav.
 
 ### <a name="upgrading-windows-installer-applications"></a>Upgrade aplikace Instalační služby systému Windows
+
 Pokud chcete upgradovat aplikaci, musíte znát název aplikace a cestu pro balíček s upgradem aplikace. S touto informací se můžete upgradovat aplikace pomocí jednoho příkazu prostředí Windows PowerShell:
 
-```
+```powershell
 (Get-WmiObject -Class Win32_Product -ComputerName . -Filter "Name='OldAppName'").Upgrade(\\AppSrv\dsp\OldAppUpgrade.msi)
 ```
-

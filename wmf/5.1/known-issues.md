@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 author: JKeithB
 ms.topic: reference
-keywords: "WMF, prostředí powershell, instalační program"
-title: "Známé problémy v WMF 5.1"
-ms.openlocfilehash: bb8967a55ec32f0ce21812e065725985010bfc8e
-ms.sourcegitcommit: a5c0795ca6ec9332967bff9c151a8572feb1a53a
+keywords: wmf,powershell,setup
+title: Známé problémy v WMF 5.1
+ms.openlocfilehash: 467a191f40d85bfca7c794915d6274a9a1b201e7
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="known-issues-in-wmf-51"></a>Známé problémy v WMF 5.1 #
 
@@ -21,14 +21,14 @@ Otevřete zástupce jako bez oprávnění správce a zástupce teď funguje i ja
 ## <a name="pester"></a>Pester
 V této verzi existují dva problémy, které byste měli vědět, když používáte Pester na Nano Server:
 
-* Spouštění testů proti Pester samotné může způsobit některé selhání kvůli rozdíly mezi úplné CLR a základní CLR. Na konkrétní metodu Validate není k dispozici na typ dokumentu XML. Šest testy, které se pokoušejí o ověření schématu NUnit výstupní protokoly jsou známé selhání. 
+* Spouštění testů proti Pester samotné může způsobit některé selhání kvůli rozdíly mezi úplné CLR a základní CLR. Na konkrétní metodu Validate není k dispozici na typ dokumentu XML. Šest testy, které se pokoušejí o ověření schématu NUnit výstupní protokoly jsou známé selhání.
 * Jeden pokrytí kódu test nezdaří aktuálně, protože *WindowsFeature* prostředek DSC v Nano Server neexistuje. Ale tyto chyby jsou obvykle neškodný a můžete bezpečně ignorovat.
 
-## <a name="operation-validation"></a>Ověření operace 
+## <a name="operation-validation"></a>Ověření operace
 
 * Update-Help selže pro modul Microsoft.PowerShell.Operation.Validation z důvodu mimo pracovní Nápověda identifikátor URI
 
-## <a name="dsc-after-uninstall-wmf"></a>DSC po odinstalaci WMF 
+## <a name="dsc-after-uninstall-wmf"></a>DSC po odinstalaci WMF
 * Odinstalace WMF neodstraní DSC MOF dokumenty ve složce Konfigurace. DSC nebude pracovat správně, pokud MOF dokumenty obsahují novější vlastností, které nejsou k dispozici na starších systémů. V takovém případě spusťte následující skript zvýšenými konzole PowerShell vyčistěte stavy DSC.
  ```powershell
     $PreviousDSCStates = @("$env:windir\system32\configuration\*.mof",
@@ -38,7 +38,7 @@ V této verzi existují dva problémy, které byste měli vědět, když použí
            )
 
     $PreviousDSCStates | Remove-Item -ErrorAction SilentlyContinue -Verbose
- ```  
+ ```
 
 ## <a name="jea-virtual-accounts"></a>JEA virtuální účty
 JEA koncových bodů a konfigurace relace, které jsou nakonfigurované na používání virtuální účty v WMF 5.0 nebude nakonfigurovaný na používání virtuálních účtu po upgradu na WMF 5.1.
@@ -61,4 +61,3 @@ Register-PSSessionConfiguration -Name $jea.Name -Path $pssc.FullName -Force
 # Ensure the access policies remain the same
 Set-PSSessionConfiguration -Name $newjea.Name -SecurityDescriptorSddl $jea.SecurityDescriptorSddl
 ```
-

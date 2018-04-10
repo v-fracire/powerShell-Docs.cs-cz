@@ -1,6 +1,8 @@
 # <a name="item-manifest-values-that-impact-the-powershell-gallery-ui"></a>Položka manifest hodnoty, které mají vliv rozhraní Galerie prostředí PowerShell
 
-Toto téma obsahuje vydavatelů s souhrnné informace o tom, jak upravit manifest pro jejich publikace Galerie prostředí PowerShell tak, aby funkce PowerShellGet rutin a rozhraní Galerie prostředí PowerShell bude mít vliv. Tento obsah je seřazená podle změn umístění, od verze v části center a pak navigační oblast na levé straně. Je část Podrobnosti zahrnut značky, který identifikuje důležité značky, jakož i některé Čím více běžně používané značky. Existují dvě témata, která manifestu příklady: 
+Toto téma obsahuje vydavatelů s souhrnné informace o tom, jak upravit manifest pro jejich publikace Galerie prostředí PowerShell tak, aby funkce PowerShellGet rutin a rozhraní Galerie prostředí PowerShell bude mít vliv.
+Tento obsah je seřazená podle změn umístění, od verze v části center a pak navigační oblast na levé straně. Je část Podrobnosti zahrnut značky, který identifikuje důležité značky, jakož i některé Čím více běžně používané značky.
+Existují dvě témata, která manifestu příklady:
 
 * Moduly, naleznete v části [aktualizace modulu Manifest](https://docs.microsoft.com/powershell/gallery/psget/module/psget_update-modulemanifest)
 * Skripty, najdete v části [vytvoření souboru skriptu s metadaty](https://docs.microsoft.com/powershell/gallery/psget/script/psget_new-scriptfileinfo)
@@ -10,7 +12,7 @@ Toto téma obsahuje vydavatelů s souhrnné informace o tom, jak upravit manifes
 Následující tabulka uvádí prvky stránky položky galerie prostředí PowerShell uživatelského rozhraní, které jsou řízené vydavatele.
 Každá položka označuje, jestli může být ovládaná v manifestu modulu nebo skriptu.
 
-| Element uživatelského rozhraní | Popis | Modul | Skript | 
+| Element uživatelského rozhraní | Popis | Modul | Skript |
 | --- | --- | --- | --- |
 | **Název** | Toto je název položky, která je publikovaná do Galerie  | Ne | Ne |
 | **Verze** | Zobrazí verze je řetězec verze ve metadata a předběžné verze pokud je zadán. Primární část verze v manifestu modulu je verze modulu. Pro skript je identifikovaný jako. VERZE. Pokud je zadaný řetězec předprodejní verze, bude připojeno k verze modulu pro moduly, nebo zadaný jako součást. VERZE pro skripty. Není k dispozici dokumentace pro zadání předprodejní řetězců v [moduly](https://docs.microsoft.com/en-us/powershell/gallery/psget/module/prereleasemodule)a v [skriptů](https://docs.microsoft.com/en-us/powershell/gallery/psget/script/prereleasescript) | Ano | Ano |
@@ -49,18 +51,26 @@ Položka stránce Upravit Galerie prostředí PowerShell umožňuje vydavatelů,
 * Poznámky k verzi
 * Vyžadována licence
 
-Tento přístup se nedoporučuje obecně, s výjimkou při potřeba opravit, co se zobrazuje pro starší verze modulu. Uživatelé, kteří získají modulu se zobrazí, že metadata neodpovídá, co se zobrazí v galerii prostředí PowerShell, který vyvolá pochybnostmi k položce. Výsledkem bude nejčastější dotazy ohledně chystáte vlastníci položky pro potvrzení změny. Důrazně doporučujeme, aby vždy, když tento postup se používá, novou verzi položky je nutné ji publikovat pomocí stejné změny. 
+Tento přístup se nedoporučuje obecně, s výjimkou při potřeba opravit, co se zobrazuje pro starší verze modulu.
+Uživatelé, kteří získají modulu se zobrazí, že metadata neodpovídá, co se zobrazí v galerii prostředí PowerShell, který vyvolá pochybnostmi k položce.
+Výsledkem bude nejčastější dotazy ohledně chystáte vlastníci položky pro potvrzení změny.
+Důrazně doporučujeme, aby vždy, když tento postup se používá, novou verzi položky je nutné ji publikovat pomocí stejné změny.
 
 ## <a name="tag-details"></a>Podrobnosti značky
 
-Značky jsou jednoduché řetězce příjemci používá k nalezení položek. Značky jsou nejužitečnější, pokud se používají konzistentně napříč mnoha položky související s stejné téma. Pomocí více typů stejného word (například databáze a databáze, nebo testovací a testování) obvykle poskytuje málo výhodné. Značky jsou řetězce, jednoslovného výrazu velká a malá písmena a nesmí obsahovat prázdné znaky. Pokud je heslo, které předpokládáte, že bude hledat uživatele, který přidejte do popis položky a bude nalezen ve výsledcích hledání. Pokud se pokoušíte ke zlepšení čitelnosti pomocí Pascal velká a malá písmena, pomlčku, podtržítkem nebo pomlčkou. Buďte opatrní vytváření dlouhé, komplexní a neobvyklé značky, jako jsou často chybně. 
+Značky jsou jednoduché řetězce příjemci používá k nalezení položek.
+Značky jsou nejužitečnější, pokud se používají konzistentně napříč mnoha položky související s stejné téma. Pomocí více typů stejného word (například databáze a databáze, nebo testovací a testování) obvykle poskytuje málo výhodné.
+Značky jsou řetězce, jednoslovného výrazu velká a malá písmena a nesmí obsahovat prázdné znaky. Pokud je heslo, které předpokládáte, že bude hledat uživatele, který přidejte do popis položky a bude nalezen ve výsledcích hledání. Pokud se pokoušíte ke zlepšení čitelnosti pomocí Pascal velká a malá písmena, pomlčku, podtržítkem nebo pomlčkou. Buďte opatrní vytváření dlouhé, komplexní a neobvyklé značky, jako jsou často chybně.
 
-Jsou značky, které jsou důležité si uvědomit, jako galerie prostředí PowerShell a PowerShellGet rutiny pracovat s nimi jedinečné. PSEdition_Desktop PSEdition_Core jsou konkrétní příklady a jsou popsané výše. 
+Jsou značky, které jsou důležité si uvědomit, jako galerie prostředí PowerShell a PowerShellGet rutiny pracovat s nimi jedinečné. PSEdition_Desktop PSEdition_Core jsou konkrétní příklady a jsou popsané výše.
 
-Jak jsme uvedli výše, značky poskytují maximální hodnotu, když jsou konkrétní a použít konzistentně napříč mnoho položek. Jako vydavatel pokusu o nalezení Nejlepší značky používat je snadnější přístup k vyhledání Galerie prostředí PowerShell pro značky, které je třeba zajistit. V ideálním případě bude mnoho položek vrátil a popisy položky zarovnané s vaším používáním této klíčové slovo. 
+Jak jsme uvedli výše, značky poskytují maximální hodnotu, když jsou konkrétní a použít konzistentně napříč mnoho položek.
+Jako vydavatel pokusu o nalezení Nejlepší značky používat je snadnější přístup k vyhledání Galerie prostředí PowerShell pro značky, které je třeba zajistit.
+V ideálním případě bude mnoho položek vrátil a popisy položky zarovnané s vaším používáním této klíčové slovo.
 
-Pro referenci tady jsou některé z nejčastěji používaných značky od 12/14/2017. V některých případech jsou podobné, ale možná méně ideální možnosti uvedené vedle značky.
-Je osvědčeným postupem použít jako upřednostňovaný značky, který bude mít za následek menší šumu a lepší výsledky hledání pro spotřebitele. 
+Pro referenci tady jsou některé z nejčastěji používaných značky od 12/14/2017.
+V některých případech jsou podobné, ale možná méně ideální možnosti uvedené vedle značky.
+Je osvědčeným postupem použít jako upřednostňovaný značky, který bude mít za následek menší šumu a lepší výsledky hledání pro spotřebitele.
 
 
 | **Upřednostňované značky** | **Náhradní řešení a poznámky** |
@@ -125,5 +135,3 @@ Je osvědčeným postupem použít jako upřednostňovaný značky, který bude 
 | **MSI** |  |
 | **Mac** |  |
 | **PoshBot** |  |
-
-
