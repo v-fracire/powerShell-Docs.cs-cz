@@ -1,152 +1,162 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Spuštění vzdálených příkazů"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Spuštění vzdálených příkazů
 ms.assetid: d6938b56-7dc8-44ba-b4d4-cd7b169fd74d
-ms.openlocfilehash: 24648e8f35fbc28c9ba9f9b7176ac23e72ffbe78
-ms.sourcegitcommit: 99227f62dcf827354770eb2c3e95c5cf6a3118b4
+ms.openlocfilehash: eb9f0ce0102de13d4fcd1d51f0e9174e9d5c340c
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="running-remote-commands"></a><span data-ttu-id="7891e-103">Spuštění vzdálených příkazů</span><span class="sxs-lookup"><span data-stu-id="7891e-103">Running Remote Commands</span></span>
+# <a name="running-remote-commands"></a><span data-ttu-id="95234-103">Spuštění vzdálených příkazů</span><span class="sxs-lookup"><span data-stu-id="95234-103">Running Remote Commands</span></span>
 
-<span data-ttu-id="7891e-104">Příkazy můžete spustit na jednom nebo stovky počítačů pomocí jednoho příkazu prostředí Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="7891e-104">You can run commands on one or hundreds of computers with a single Windows PowerShell command.</span></span> <span data-ttu-id="7891e-105">Prostředí Windows PowerShell podporuje vzdálený přístup pomocí různých technologií, včetně WS-Management, rozhraní WMI a RPC.</span><span class="sxs-lookup"><span data-stu-id="7891e-105">Windows PowerShell supports remote computing by using various technologies, including WMI, RPC, and WS-Management.</span></span>
+<span data-ttu-id="95234-104">Příkazy můžete spustit na jednom nebo stovky počítačů pomocí jednoho příkazu prostředí Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="95234-104">You can run commands on one or hundreds of computers with a single Windows PowerShell command.</span></span> <span data-ttu-id="95234-105">Prostředí Windows PowerShell podporuje vzdálený přístup pomocí různých technologií, včetně WS-Management, rozhraní WMI a RPC.</span><span class="sxs-lookup"><span data-stu-id="95234-105">Windows PowerShell supports remote computing by using various technologies, including WMI, RPC, and WS-Management.</span></span>
 
-## <a name="remoting-in-powershell-core"></a><span data-ttu-id="7891e-106">Vzdálená komunikace prostředí PowerShell jádra</span><span class="sxs-lookup"><span data-stu-id="7891e-106">Remoting in PowerShell Core</span></span>
+## <a name="remoting-in-powershell-core"></a><span data-ttu-id="95234-106">Vzdálená komunikace prostředí PowerShell jádra</span><span class="sxs-lookup"><span data-stu-id="95234-106">Remoting in PowerShell Core</span></span>
 
-<span data-ttu-id="7891e-107">Jádro prostředí PowerShell, na novější edici prostředí PowerShell v systému Windows, systému macOS a Linux, podporuje rozhraní WMI, WS-Management a vzdálené komunikace s SSH.</span><span class="sxs-lookup"><span data-stu-id="7891e-107">PowerShell Core, the newer edition of PowerShell on Windows, macOS, and Linux, supports WMI, WS-Management, and SSH remoting.</span></span>
-<span data-ttu-id="7891e-108">(RPC již není podporována.)</span><span class="sxs-lookup"><span data-stu-id="7891e-108">(RPC is no longer supported.)</span></span>
+<span data-ttu-id="95234-107">Jádro prostředí PowerShell, na novější edici prostředí PowerShell v systému Windows, systému macOS a Linux, podporuje rozhraní WMI, WS-Management a vzdálené komunikace s SSH.</span><span class="sxs-lookup"><span data-stu-id="95234-107">PowerShell Core, the newer edition of PowerShell on Windows, macOS, and Linux, supports WMI, WS-Management, and SSH remoting.</span></span>
+<span data-ttu-id="95234-108">(RPC již není podporována.)</span><span class="sxs-lookup"><span data-stu-id="95234-108">(RPC is no longer supported.)</span></span>
 
-<span data-ttu-id="7891e-109">Další informace o toto nastavení najdete v tématu:</span><span class="sxs-lookup"><span data-stu-id="7891e-109">For more information on setting this up, see:</span></span>
+<span data-ttu-id="95234-109">Další informace o toto nastavení najdete v tématu:</span><span class="sxs-lookup"><span data-stu-id="95234-109">For more information on setting this up, see:</span></span>
 
-* <span data-ttu-id="7891e-110">[SSH vzdálené komunikace v prostředí PowerShell základní] [ssh-vzdálené komunikace]</span><span class="sxs-lookup"><span data-stu-id="7891e-110">[SSH Remoting in PowerShell Core][ssh-remoting]</span></span>
-* <span data-ttu-id="7891e-111">[WinRM vzdálené komunikace v prostředí PowerShell základní] [winrm vzdálené komunikace]</span><span class="sxs-lookup"><span data-stu-id="7891e-111">[WinRM Remoting in PowerShell Core][winrm-remoting]</span></span>
+* <span data-ttu-id="95234-110">[SSH vzdálenou komunikaci prostředí PowerShell jádra][ssh-remoting]</span><span class="sxs-lookup"><span data-stu-id="95234-110">[SSH Remoting in PowerShell Core][ssh-remoting]</span></span>
+* <span data-ttu-id="95234-111">[Vzdálená komunikace WSMan v prostředí PowerShell jádra][wsman-remoting]</span><span class="sxs-lookup"><span data-stu-id="95234-111">[WSMan Remoting in PowerShell Core][wsman-remoting]</span></span>
 
-## <a name="remoting-without-configuration"></a><span data-ttu-id="7891e-112">Vzdálená komunikace bez konfigurace</span><span class="sxs-lookup"><span data-stu-id="7891e-112">Remoting Without Configuration</span></span>
-<span data-ttu-id="7891e-113">Mnoho rutin prostředí Windows PowerShell mít parametr ComputerName, která umožňuje shromažďování dat a změňte nastavení na jeden nebo více vzdálených počítačích.</span><span class="sxs-lookup"><span data-stu-id="7891e-113">Many Windows PowerShell cmdlets have the ComputerName parameter that enables you to collect data and change settings on one or more remote computers.</span></span> <span data-ttu-id="7891e-114">Používají různé technologie komunikace a mnoho pracovních na všechny operační systémy Windows, které podporuje prostředí Windows PowerShell bez žádnou zvláštní konfiguraci.</span><span class="sxs-lookup"><span data-stu-id="7891e-114">They use a variety of communication technologies and many work on all Windows operating systems that Windows PowerShell supports without any special configuration.</span></span>
+## <a name="remoting-without-configuration"></a><span data-ttu-id="95234-112">Vzdálená komunikace bez konfigurace</span><span class="sxs-lookup"><span data-stu-id="95234-112">Remoting Without Configuration</span></span>
 
-<span data-ttu-id="7891e-115">Zahrnout tyto rutiny:</span><span class="sxs-lookup"><span data-stu-id="7891e-115">These cmdlets include:</span></span>
+<span data-ttu-id="95234-113">Mnoho rutin prostředí Windows PowerShell mít parametr ComputerName, která umožňuje shromažďování dat a změňte nastavení na jeden nebo více vzdálených počítačích.</span><span class="sxs-lookup"><span data-stu-id="95234-113">Many Windows PowerShell cmdlets have the ComputerName parameter that enables you to collect data and change settings on one or more remote computers.</span></span> <span data-ttu-id="95234-114">Používají různé technologie komunikace a mnoho pracovních na všechny operační systémy Windows, které podporuje prostředí Windows PowerShell bez žádnou zvláštní konfiguraci.</span><span class="sxs-lookup"><span data-stu-id="95234-114">They use a variety of communication technologies and many work on all Windows operating systems that Windows PowerShell supports without any special configuration.</span></span>
 
-* [<span data-ttu-id="7891e-116">Restart-Computer</span><span class="sxs-lookup"><span data-stu-id="7891e-116">Restart-Computer</span></span>](https://go.microsoft.com/fwlink/?LinkId=821625)
-* [<span data-ttu-id="7891e-117">Test připojení</span><span class="sxs-lookup"><span data-stu-id="7891e-117">Test-Connection</span></span>](https://go.microsoft.com/fwlink/?LinkId=821646)
-* [<span data-ttu-id="7891e-118">Clear-EventLog</span><span class="sxs-lookup"><span data-stu-id="7891e-118">Clear-EventLog</span></span>](https://go.microsoft.com/fwlink/?LinkId=821568)
-* [<span data-ttu-id="7891e-119">Get-EventLog</span><span class="sxs-lookup"><span data-stu-id="7891e-119">Get-EventLog</span></span>](https://go.microsoft.com/fwlink/?LinkId=821585)
-* [<span data-ttu-id="7891e-120">Get-HotFix</span><span class="sxs-lookup"><span data-stu-id="7891e-120">Get-HotFix</span></span>](https://go.microsoft.com/fwlink/?LinkId=821586)
-* [<span data-ttu-id="7891e-121">Get-Process</span><span class="sxs-lookup"><span data-stu-id="7891e-121">Get-Process</span></span>](https://go.microsoft.com/fwlink/?linkid=821590)
-* [<span data-ttu-id="7891e-122">Get-Service</span><span class="sxs-lookup"><span data-stu-id="7891e-122">Get-Service</span></span>](https://go.microsoft.com/fwlink/?LinkId=821593)
-* [<span data-ttu-id="7891e-123">Set-Service</span><span class="sxs-lookup"><span data-stu-id="7891e-123">Set-Service</span></span>](https://go.microsoft.com/fwlink/?LinkId=821633)
-* [<span data-ttu-id="7891e-124">Get-WinEvent</span><span class="sxs-lookup"><span data-stu-id="7891e-124">Get-WinEvent</span></span>](https://go.microsoft.com/fwlink/?linkid=821529)
-* [<span data-ttu-id="7891e-125">Get-WmiObject</span><span class="sxs-lookup"><span data-stu-id="7891e-125">Get-WmiObject</span></span>](https://go.microsoft.com/fwlink/?LinkId=821595)
+<span data-ttu-id="95234-115">Zahrnout tyto rutiny:</span><span class="sxs-lookup"><span data-stu-id="95234-115">These cmdlets include:</span></span>
 
-<span data-ttu-id="7891e-126">Rutiny, které podporují vzdálené komunikace bez zvláštní konfiguraci obvykle mají parametr ComputerName a nemají parametr relace.</span><span class="sxs-lookup"><span data-stu-id="7891e-126">Typically, cmdlets that support remoting without special configuration have the ComputerName parameter and do not have the Session parameter.</span></span> <span data-ttu-id="7891e-127">Chcete-li v relaci najít tyto rutiny, zadejte:</span><span class="sxs-lookup"><span data-stu-id="7891e-127">To find these cmdlets in your session, type:</span></span>
+* [<span data-ttu-id="95234-116">Restart-Computer</span><span class="sxs-lookup"><span data-stu-id="95234-116">Restart-Computer</span></span>](https://go.microsoft.com/fwlink/?LinkId=821625)
+* [<span data-ttu-id="95234-117">Test připojení</span><span class="sxs-lookup"><span data-stu-id="95234-117">Test-Connection</span></span>](https://go.microsoft.com/fwlink/?LinkId=821646)
+* [<span data-ttu-id="95234-118">Clear-EventLog</span><span class="sxs-lookup"><span data-stu-id="95234-118">Clear-EventLog</span></span>](https://go.microsoft.com/fwlink/?LinkId=821568)
+* [<span data-ttu-id="95234-119">Get-EventLog</span><span class="sxs-lookup"><span data-stu-id="95234-119">Get-EventLog</span></span>](https://go.microsoft.com/fwlink/?LinkId=821585)
+* [<span data-ttu-id="95234-120">Get-HotFix</span><span class="sxs-lookup"><span data-stu-id="95234-120">Get-HotFix</span></span>](https://go.microsoft.com/fwlink/?LinkId=821586)
+* [<span data-ttu-id="95234-121">Get-Process</span><span class="sxs-lookup"><span data-stu-id="95234-121">Get-Process</span></span>](https://go.microsoft.com/fwlink/?linkid=821590)
+* [<span data-ttu-id="95234-122">Get-Service</span><span class="sxs-lookup"><span data-stu-id="95234-122">Get-Service</span></span>](https://go.microsoft.com/fwlink/?LinkId=821593)
+* [<span data-ttu-id="95234-123">Set-Service</span><span class="sxs-lookup"><span data-stu-id="95234-123">Set-Service</span></span>](https://go.microsoft.com/fwlink/?LinkId=821633)
+* [<span data-ttu-id="95234-124">Get-WinEvent</span><span class="sxs-lookup"><span data-stu-id="95234-124">Get-WinEvent</span></span>](https://go.microsoft.com/fwlink/?linkid=821529)
+* [<span data-ttu-id="95234-125">Get-WmiObject</span><span class="sxs-lookup"><span data-stu-id="95234-125">Get-WmiObject</span></span>](https://go.microsoft.com/fwlink/?LinkId=821595)
 
-```
+<span data-ttu-id="95234-126">Rutiny, které podporují vzdálené komunikace bez zvláštní konfiguraci obvykle mají parametr ComputerName a nemají parametr relace.</span><span class="sxs-lookup"><span data-stu-id="95234-126">Typically, cmdlets that support remoting without special configuration have the ComputerName parameter and do not have the Session parameter.</span></span> <span data-ttu-id="95234-127">Chcete-li v relaci najít tyto rutiny, zadejte:</span><span class="sxs-lookup"><span data-stu-id="95234-127">To find these cmdlets in your session, type:</span></span>
+
+```powershell
 Get-Command | where { $_.parameters.keys -contains "ComputerName" -and $_.parameters.keys -notcontains "Session"}
 ```
 
-## <a name="windows-powershell-remoting"></a><span data-ttu-id="7891e-128">Vzdálenou komunikaci Windows PowerShell</span><span class="sxs-lookup"><span data-stu-id="7891e-128">Windows PowerShell Remoting</span></span>
-<span data-ttu-id="7891e-129">Vzdálená komunikace prostředí Windows PowerShell, který používá protokol WS-Management, vám umožní spustit libovolný příkaz prostředí Windows PowerShell na jeden nebo více vzdálených počítačích.</span><span class="sxs-lookup"><span data-stu-id="7891e-129">Windows PowerShell remoting, which uses the WS-Management protocol, lets you run any Windows PowerShell command on one or many remote computers.</span></span> <span data-ttu-id="7891e-130">Umožňuje vytvořit trvalé připojení, spusťte interaktivní relace 1:1 a spouštět skripty ve více počítačích.</span><span class="sxs-lookup"><span data-stu-id="7891e-130">It lets you establish persistent connections, start 1:1 interactive sessions, and run scripts on multiple computers.</span></span>
+## <a name="windows-powershell-remoting"></a><span data-ttu-id="95234-128">Vzdálenou komunikaci Windows PowerShell</span><span class="sxs-lookup"><span data-stu-id="95234-128">Windows PowerShell Remoting</span></span>
 
-<span data-ttu-id="7891e-131">Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač konfigurován pro vzdálenou správu.</span><span class="sxs-lookup"><span data-stu-id="7891e-131">To use Windows PowerShell remoting, the remote computer must be configured for remote management.</span></span> <span data-ttu-id="7891e-132">Další informace, včetně pokynů, najdete v části [vzdálené požadavky](https://technet.microsoft.com/library/dd315349.aspx).</span><span class="sxs-lookup"><span data-stu-id="7891e-132">For more information, including instructions, see [About Remote Requirements](https://technet.microsoft.com/library/dd315349.aspx).</span></span>
+<span data-ttu-id="95234-129">Vzdálená komunikace prostředí Windows PowerShell, který používá protokol WS-Management, vám umožní spustit libovolný příkaz prostředí Windows PowerShell na jeden nebo více vzdálených počítačích.</span><span class="sxs-lookup"><span data-stu-id="95234-129">Windows PowerShell remoting, which uses the WS-Management protocol, lets you run any Windows PowerShell command on one or many remote computers.</span></span> <span data-ttu-id="95234-130">Umožňuje vytvořit trvalé připojení, spusťte interaktivní relace 1:1 a spouštět skripty ve více počítačích.</span><span class="sxs-lookup"><span data-stu-id="95234-130">It lets you establish persistent connections, start 1:1 interactive sessions, and run scripts on multiple computers.</span></span>
 
-<span data-ttu-id="7891e-133">Po dokončení konfigurace vzdálené komunikace Windows Powershellu jsou dostupné mnoho strategií vzdálené komunikace.</span><span class="sxs-lookup"><span data-stu-id="7891e-133">After you have configured Windows PowerShell remoting, many remoting strategies are available to you.</span></span> <span data-ttu-id="7891e-134">Zbývající část tohoto dokumentu jsou uvedeny jen některé z nich.</span><span class="sxs-lookup"><span data-stu-id="7891e-134">The remainder of this document lists just a few of them.</span></span> <span data-ttu-id="7891e-135">Další informace najdete v tématu [o vzdálené](https://technet.microsoft.com/library/dd347744.aspx) a [o vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd347744.aspx).</span><span class="sxs-lookup"><span data-stu-id="7891e-135">For more information, see [About Remote](https://technet.microsoft.com/library/dd347744.aspx) and [About Remote FAQ](https://technet.microsoft.com/library/dd347744.aspx).</span></span>
+<span data-ttu-id="95234-131">Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač konfigurován pro vzdálenou správu.</span><span class="sxs-lookup"><span data-stu-id="95234-131">To use Windows PowerShell remoting, the remote computer must be configured for remote management.</span></span> <span data-ttu-id="95234-132">Další informace, včetně pokynů, najdete v části [vzdálené požadavky](https://technet.microsoft.com/library/dd315349.aspx).</span><span class="sxs-lookup"><span data-stu-id="95234-132">For more information, including instructions, see [About Remote Requirements](https://technet.microsoft.com/library/dd315349.aspx).</span></span>
 
-### <a name="start-an-interactive-session"></a><span data-ttu-id="7891e-136">Spusťte interaktivní relace.</span><span class="sxs-lookup"><span data-stu-id="7891e-136">Start an Interactive Session</span></span>
-<span data-ttu-id="7891e-137">Spusťte interaktivní relace s jeden vzdálený počítač pomocí [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) rutiny.</span><span class="sxs-lookup"><span data-stu-id="7891e-137">To start an interactive session with a single remote computer, use the [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) cmdlet.</span></span>
-<span data-ttu-id="7891e-138">Například spuštění interaktivní relace na vzdáleném počítači Server01, zadejte:</span><span class="sxs-lookup"><span data-stu-id="7891e-138">For example, to start an interactive session with the Server01 remote computer, type:</span></span>
+<span data-ttu-id="95234-133">Po dokončení konfigurace vzdálené komunikace Windows Powershellu jsou dostupné mnoho strategií vzdálené komunikace.</span><span class="sxs-lookup"><span data-stu-id="95234-133">After you have configured Windows PowerShell remoting, many remoting strategies are available to you.</span></span> <span data-ttu-id="95234-134">Zbývající část tohoto dokumentu jsou uvedeny jen některé z nich.</span><span class="sxs-lookup"><span data-stu-id="95234-134">The remainder of this document lists just a few of them.</span></span> <span data-ttu-id="95234-135">Další informace najdete v tématu [o vzdálené](https://technet.microsoft.com/library/dd347744.aspx) a [o vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd347744.aspx).</span><span class="sxs-lookup"><span data-stu-id="95234-135">For more information, see [About Remote](https://technet.microsoft.com/library/dd347744.aspx) and [About Remote FAQ](https://technet.microsoft.com/library/dd347744.aspx).</span></span>
 
-```
+### <a name="start-an-interactive-session"></a><span data-ttu-id="95234-136">Spusťte interaktivní relace.</span><span class="sxs-lookup"><span data-stu-id="95234-136">Start an Interactive Session</span></span>
+
+<span data-ttu-id="95234-137">Spusťte interaktivní relace s jeden vzdálený počítač pomocí [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) rutiny.</span><span class="sxs-lookup"><span data-stu-id="95234-137">To start an interactive session with a single remote computer, use the [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) cmdlet.</span></span>
+<span data-ttu-id="95234-138">Například spuštění interaktivní relace na vzdáleném počítači Server01, zadejte:</span><span class="sxs-lookup"><span data-stu-id="95234-138">For example, to start an interactive session with the Server01 remote computer, type:</span></span>
+
+```powershell
 Enter-PSSession Server01
 ```
 
-<span data-ttu-id="7891e-139">Změny příkazového řádku a zobrazí se název počítače, do které jste připojeni.</span><span class="sxs-lookup"><span data-stu-id="7891e-139">The command prompt changes to display the name of the computer to which you are connected.</span></span> <span data-ttu-id="7891e-140">Od toho všechny příkazy, které zadejte v příkazovém řádku spusťte na vzdáleném počítači a výsledky jsou zobrazeny v místním počítači.</span><span class="sxs-lookup"><span data-stu-id="7891e-140">From then on, any commands that you type at the prompt run on the remote computer and the results are displayed on the local computer.</span></span>
+<span data-ttu-id="95234-139">Změny příkazového řádku a zobrazí se název počítače, do které jste připojeni.</span><span class="sxs-lookup"><span data-stu-id="95234-139">The command prompt changes to display the name of the computer to which you are connected.</span></span> <span data-ttu-id="95234-140">Od toho všechny příkazy, které zadejte v příkazovém řádku spusťte na vzdáleném počítači a výsledky jsou zobrazeny v místním počítači.</span><span class="sxs-lookup"><span data-stu-id="95234-140">From then on, any commands that you type at the prompt run on the remote computer and the results are displayed on the local computer.</span></span>
 
-<span data-ttu-id="7891e-141">Chcete-li ukončit interaktivní relace, zadejte:</span><span class="sxs-lookup"><span data-stu-id="7891e-141">To end the interactive session, type:</span></span>
+<span data-ttu-id="95234-141">Chcete-li ukončit interaktivní relace, zadejte:</span><span class="sxs-lookup"><span data-stu-id="95234-141">To end the interactive session, type:</span></span>
 
-```
+```powershell
 Exit-PSSession
 ```
 
-<span data-ttu-id="7891e-142">Další informace o rutinách Enter-PSSession a ukončení-PSSession najdete v tématu [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) a [ukončení-PSSession](https://go.microsoft.com/fwlink/?LinkID=821478).</span><span class="sxs-lookup"><span data-stu-id="7891e-142">For more information about the Enter-PSSession and Exit-PSSession cmdlets, see [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) and [Exit-PSSession](https://go.microsoft.com/fwlink/?LinkID=821478).</span></span>
+<span data-ttu-id="95234-142">Další informace o rutinách Enter-PSSession a ukončení-PSSession najdete v tématu [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) a [ukončení-PSSession](https://go.microsoft.com/fwlink/?LinkID=821478).</span><span class="sxs-lookup"><span data-stu-id="95234-142">For more information about the Enter-PSSession and Exit-PSSession cmdlets, see [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) and [Exit-PSSession](https://go.microsoft.com/fwlink/?LinkID=821478).</span></span>
 
-### <a name="run-a-remote-command"></a><span data-ttu-id="7891e-143">Spuštění vzdáleného příkazu</span><span class="sxs-lookup"><span data-stu-id="7891e-143">Run a Remote Command</span></span>
-<span data-ttu-id="7891e-144">Chcete-li spustit libovolný příkaz na jeden nebo více vzdálených počítačích, použijte [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493) rutiny.</span><span class="sxs-lookup"><span data-stu-id="7891e-144">To run any command on one or many remote computers, use the [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493) cmdlet.</span></span>
-<span data-ttu-id="7891e-145">Chcete-li například spustit [Get-UICulture](https://go.microsoft.com/fwlink/?LinkId=821806) na Server01 a Server02 vzdálených počítačích, zadejte příkaz:</span><span class="sxs-lookup"><span data-stu-id="7891e-145">For example, to run a [Get-UICulture](https://go.microsoft.com/fwlink/?LinkId=821806) command on the Server01 and Server02 remote computers, type:</span></span>
+### <a name="run-a-remote-command"></a><span data-ttu-id="95234-143">Spuštění vzdáleného příkazu</span><span class="sxs-lookup"><span data-stu-id="95234-143">Run a Remote Command</span></span>
 
-```
+<span data-ttu-id="95234-144">Chcete-li spustit libovolný příkaz na jeden nebo více vzdálených počítačích, použijte [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493) rutiny.</span><span class="sxs-lookup"><span data-stu-id="95234-144">To run any command on one or many remote computers, use the [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493) cmdlet.</span></span>
+<span data-ttu-id="95234-145">Chcete-li například spustit [Get-UICulture](https://go.microsoft.com/fwlink/?LinkId=821806) na Server01 a Server02 vzdálených počítačích, zadejte příkaz:</span><span class="sxs-lookup"><span data-stu-id="95234-145">For example, to run a [Get-UICulture](https://go.microsoft.com/fwlink/?LinkId=821806) command on the Server01 and Server02 remote computers, type:</span></span>
+
+```powershell
 Invoke-Command -ComputerName Server01, Server02 -ScriptBlock {Get-UICulture}
 ```
 
-<span data-ttu-id="7891e-146">Výstup se vrací do vašeho počítače.</span><span class="sxs-lookup"><span data-stu-id="7891e-146">The output is returned to your computer.</span></span>
+<span data-ttu-id="95234-146">Výstup se vrací do vašeho počítače.</span><span class="sxs-lookup"><span data-stu-id="95234-146">The output is returned to your computer.</span></span>
 
-```
+```output
 LCID    Name     DisplayName               PSComputerName
 ----    ----     -----------               --------------
 1033    en-US    English (United States)   server01.corp.fabrikam.com
 1033    en-US    English (United States)   server02.corp.fabrikam.com
 ```
-<span data-ttu-id="7891e-147">Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span><span class="sxs-lookup"><span data-stu-id="7891e-147">For more information about the Invoke-Command cmdlet, see [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span></span>
 
-### <a name="run-a-script"></a><span data-ttu-id="7891e-148">Spustit skript</span><span class="sxs-lookup"><span data-stu-id="7891e-148">Run a Script</span></span>
-<span data-ttu-id="7891e-149">Chcete-li spustit skript na jeden nebo více vzdálených počítačích, použijte parametr FilePath rutiny Invoke-Command.</span><span class="sxs-lookup"><span data-stu-id="7891e-149">To run a script on one or many remote computers, use the FilePath parameter of the Invoke-Command cmdlet.</span></span> <span data-ttu-id="7891e-150">Skript musí být na nebo přístupné pro místního počítače.</span><span class="sxs-lookup"><span data-stu-id="7891e-150">The script must be on or accessible to your local computer.</span></span> <span data-ttu-id="7891e-151">Výsledky jsou vráceny do místního počítače.</span><span class="sxs-lookup"><span data-stu-id="7891e-151">The results are returned to your local computer.</span></span>
+<span data-ttu-id="95234-147">Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span><span class="sxs-lookup"><span data-stu-id="95234-147">For more information about the Invoke-Command cmdlet, see [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span></span>
 
-<span data-ttu-id="7891e-152">Například následující příkaz spustí skript DiskCollect.ps1 na vzdálených počítačích Server01 a Server02.</span><span class="sxs-lookup"><span data-stu-id="7891e-152">For example, the following command runs the DiskCollect.ps1 script on the Server01 and Server02 remote computers.</span></span>
+### <a name="run-a-script"></a><span data-ttu-id="95234-148">Spustit skript</span><span class="sxs-lookup"><span data-stu-id="95234-148">Run a Script</span></span>
 
-```
+<span data-ttu-id="95234-149">Chcete-li spustit skript na jeden nebo více vzdálených počítačích, použijte parametr FilePath rutiny Invoke-Command.</span><span class="sxs-lookup"><span data-stu-id="95234-149">To run a script on one or many remote computers, use the FilePath parameter of the Invoke-Command cmdlet.</span></span> <span data-ttu-id="95234-150">Skript musí být na nebo přístupné pro místního počítače.</span><span class="sxs-lookup"><span data-stu-id="95234-150">The script must be on or accessible to your local computer.</span></span> <span data-ttu-id="95234-151">Výsledky jsou vráceny do místního počítače.</span><span class="sxs-lookup"><span data-stu-id="95234-151">The results are returned to your local computer.</span></span>
+
+<span data-ttu-id="95234-152">Například následující příkaz spustí skript DiskCollect.ps1 na vzdálených počítačích Server01 a Server02.</span><span class="sxs-lookup"><span data-stu-id="95234-152">For example, the following command runs the DiskCollect.ps1 script on the Server01 and Server02 remote computers.</span></span>
+
+```powershell
 Invoke-Command -ComputerName Server01, Server02 -FilePath c:\Scripts\DiskCollect.ps1
 ```
 
-<span data-ttu-id="7891e-153">Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span><span class="sxs-lookup"><span data-stu-id="7891e-153">For more information about the Invoke-Command cmdlet, see [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span></span>
+<span data-ttu-id="95234-153">Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span><span class="sxs-lookup"><span data-stu-id="95234-153">For more information about the Invoke-Command cmdlet, see [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).</span></span>
 
-### <a name="establish-a-persistent-connection"></a><span data-ttu-id="7891e-154">Trvalé připojení</span><span class="sxs-lookup"><span data-stu-id="7891e-154">Establish a Persistent Connection</span></span>
-<span data-ttu-id="7891e-155">Pokud chcete spustit řadu související příkazy, které sdílet data, vytvoření relace na vzdáleném počítači a pak spusťte příkazy v relaci, kterou vytvoříte pomocí rutiny Invoke-Command.</span><span class="sxs-lookup"><span data-stu-id="7891e-155">To run a series of related commands that share data, create a session on the remote computer and then use the Invoke-Command cmdlet to run commands in the session that you create.</span></span> <span data-ttu-id="7891e-156">Pokud chcete vytvořit vzdálené relace, použijte rutinu New-PSSession.</span><span class="sxs-lookup"><span data-stu-id="7891e-156">To create a remote session, use the New-PSSession cmdlet.</span></span>
+### <a name="establish-a-persistent-connection"></a><span data-ttu-id="95234-154">Trvalé připojení</span><span class="sxs-lookup"><span data-stu-id="95234-154">Establish a Persistent Connection</span></span>
 
-<span data-ttu-id="7891e-157">Například následující příkaz vytvoří relaci vzdálené počítače Server01 a jiná relace vzdáleného počítače Server02.</span><span class="sxs-lookup"><span data-stu-id="7891e-157">For example, the following command creates a remote session on the Server01 computer and another remote session on the Server02 computer.</span></span> <span data-ttu-id="7891e-158">Objekty relace ukládá v proměnné $s.</span><span class="sxs-lookup"><span data-stu-id="7891e-158">It saves the session objects in the $s variable.</span></span>
+<span data-ttu-id="95234-155">Pokud chcete spustit řadu související příkazy, které sdílet data, vytvoření relace na vzdáleném počítači a pak spusťte příkazy v relaci, kterou vytvoříte pomocí rutiny Invoke-Command.</span><span class="sxs-lookup"><span data-stu-id="95234-155">To run a series of related commands that share data, create a session on the remote computer and then use the Invoke-Command cmdlet to run commands in the session that you create.</span></span> <span data-ttu-id="95234-156">Pokud chcete vytvořit vzdálené relace, použijte rutinu New-PSSession.</span><span class="sxs-lookup"><span data-stu-id="95234-156">To create a remote session, use the New-PSSession cmdlet.</span></span>
 
-```
+<span data-ttu-id="95234-157">Například následující příkaz vytvoří relaci vzdálené počítače Server01 a jiná relace vzdáleného počítače Server02.</span><span class="sxs-lookup"><span data-stu-id="95234-157">For example, the following command creates a remote session on the Server01 computer and another remote session on the Server02 computer.</span></span> <span data-ttu-id="95234-158">Objekty relace ukládá v proměnné $s.</span><span class="sxs-lookup"><span data-stu-id="95234-158">It saves the session objects in the $s variable.</span></span>
+
+```powershell
 $s = New-PSSession -ComputerName Server01, Server02
 ```
 
-<span data-ttu-id="7891e-159">Teď, když jsou určeny k relacím, můžete v nich spustit libovolný příkaz.</span><span class="sxs-lookup"><span data-stu-id="7891e-159">Now that the sessions are established, you can run any command in them.</span></span> <span data-ttu-id="7891e-160">A protože relací jsou trvalé, můžete shromažďování dat do jednoho příkazu a použít ho v následující příkaz.</span><span class="sxs-lookup"><span data-stu-id="7891e-160">And because the sessions are persistent, you can collect data in one command and use it in a subsequent command.</span></span>
+<span data-ttu-id="95234-159">Teď, když jsou určeny k relacím, můžete v nich spustit libovolný příkaz.</span><span class="sxs-lookup"><span data-stu-id="95234-159">Now that the sessions are established, you can run any command in them.</span></span> <span data-ttu-id="95234-160">A protože relací jsou trvalé, můžete shromažďování dat do jednoho příkazu a použít ho v následující příkaz.</span><span class="sxs-lookup"><span data-stu-id="95234-160">And because the sessions are persistent, you can collect data in one command and use it in a subsequent command.</span></span>
 
-<span data-ttu-id="7891e-161">Například následující příkaz spustí příkaz Get-opravu HotFix v relacích v $s proměnné a uloží výsledky v $h proměnné.</span><span class="sxs-lookup"><span data-stu-id="7891e-161">For example, the following command runs a Get-HotFix command in the sessions in the $s variable and it saves the results in the $h variable.</span></span> <span data-ttu-id="7891e-162">Proměnná $h je vytvořen v každé z relací v $s, ale neexistuje v místní relaci.</span><span class="sxs-lookup"><span data-stu-id="7891e-162">The $h variable is created in each of the sessions in $s, but it does not exist in the local session.</span></span>
+<span data-ttu-id="95234-161">Například následující příkaz spustí příkaz Get-opravu HotFix v relacích v $s proměnné a uloží výsledky v $h proměnné.</span><span class="sxs-lookup"><span data-stu-id="95234-161">For example, the following command runs a Get-HotFix command in the sessions in the $s variable and it saves the results in the $h variable.</span></span> <span data-ttu-id="95234-162">Proměnná $h je vytvořen v každé z relací v $s, ale neexistuje v místní relaci.</span><span class="sxs-lookup"><span data-stu-id="95234-162">The $h variable is created in each of the sessions in $s, but it does not exist in the local session.</span></span>
 
-```
+```powershell
 Invoke-Command -Session $s {$h = Get-HotFix}
 ```
 
-<span data-ttu-id="7891e-163">Nyní můžete v proměnné $h v dalších příkazech, jako je třeba následující data.</span><span class="sxs-lookup"><span data-stu-id="7891e-163">Now you can use the data in the $h variable in subsequent commands, such as the following one.</span></span> <span data-ttu-id="7891e-164">Výsledky jsou zobrazeny v místním počítači.</span><span class="sxs-lookup"><span data-stu-id="7891e-164">The results are displayed on the local computer.</span></span>
+<span data-ttu-id="95234-163">Nyní můžete v proměnné $h v dalších příkazech, jako je třeba následující data.</span><span class="sxs-lookup"><span data-stu-id="95234-163">Now you can use the data in the $h variable in subsequent commands, such as the following one.</span></span> <span data-ttu-id="95234-164">Výsledky jsou zobrazeny v místním počítači.</span><span class="sxs-lookup"><span data-stu-id="95234-164">The results are displayed on the local computer.</span></span>
 
-```
+```powershell
 Invoke-Command -Session $s {$h | where {$_.InstalledBy -ne "NTAUTHORITY\SYSTEM"}}
 ```
 
-### <a name="advanced-remoting"></a><span data-ttu-id="7891e-165">Pokročilé vzdálené komunikace</span><span class="sxs-lookup"><span data-stu-id="7891e-165">Advanced Remoting</span></span>
-<span data-ttu-id="7891e-166">Vzdálená správa prostředí Windows PowerShell začíná právě tady.</span><span class="sxs-lookup"><span data-stu-id="7891e-166">Windows PowerShell remote management just begins here.</span></span> <span data-ttu-id="7891e-167">Pomocí rutin nainstalován pomocí prostředí Windows PowerShell můžete vytvořit a nakonfigurovat vzdálené relace z místních i vzdálených zakončení, vytvoření relace přizpůsobené a s omezeným přístupem, povolte uživatelům importovat příkazy ze vzdálené relace, které ve skutečnosti spuštěna implicitně na ke vzdálené relaci, nakonfigurujte zabezpečení vzdálené relace a mnoho dalšího.</span><span class="sxs-lookup"><span data-stu-id="7891e-167">By using the cmdlets installed with Windows PowerShell, you can establish and configure remote sessions both from the local and remote ends, create customized and restricted sessions, allow users to import commands from a remote session that actually run implicitly on the remote session, configure the security of a remote session, and much more.</span></span>
+### <a name="advanced-remoting"></a><span data-ttu-id="95234-165">Pokročilé vzdálené komunikace</span><span class="sxs-lookup"><span data-stu-id="95234-165">Advanced Remoting</span></span>
 
-<span data-ttu-id="7891e-168">Pro usnadnění konfigurace vzdáleného, prostředí Windows PowerShell obsahuje poskytovatele WSMan.</span><span class="sxs-lookup"><span data-stu-id="7891e-168">To facilitate remote configuration, Windows PowerShell includes a WSMan provider.</span></span> <span data-ttu-id="7891e-169">WSMAN: jednotku, která se vytvoří zprostředkovatel umožňuje procházet hierarchie konfigurační nastavení v místním počítači a vzdálených počítačů.</span><span class="sxs-lookup"><span data-stu-id="7891e-169">The WSMAN: drive that the provider creates lets you navigate through a hierarchy of configuration settings on the local computer and remote computers.</span></span>
-<span data-ttu-id="7891e-170">Další informace o poskytovateli WSMan najdete v tématu [WSMan zprostředkovatele](https://technet.microsoft.com/en-us/library/dd819476.aspx) a [o rutiny WS-Management](https://technet.microsoft.com/en-us/library/dd819481.aspx), nebo v konzole Windows PowerShell, zadejte "Get-Help wsman".</span><span class="sxs-lookup"><span data-stu-id="7891e-170">For more information about the WSMan provider, see  [WSMan Provider](https://technet.microsoft.com/en-us/library/dd819476.aspx) and [About WS-Management Cmdlets](https://technet.microsoft.com/en-us/library/dd819481.aspx), or in the Windows PowerShell console, type "Get-Help wsman".</span></span>
+<span data-ttu-id="95234-166">Vzdálená správa prostředí Windows PowerShell začíná právě tady.</span><span class="sxs-lookup"><span data-stu-id="95234-166">Windows PowerShell remote management just begins here.</span></span> <span data-ttu-id="95234-167">Pomocí rutin nainstalován pomocí prostředí Windows PowerShell můžete vytvořit a nakonfigurovat vzdálené relace z místních i vzdálených zakončení, vytvoření relace přizpůsobené a s omezeným přístupem, povolte uživatelům importovat příkazy ze vzdálené relace, které ve skutečnosti spuštěna implicitně na ke vzdálené relaci, nakonfigurujte zabezpečení vzdálené relace a mnoho dalšího.</span><span class="sxs-lookup"><span data-stu-id="95234-167">By using the cmdlets installed with Windows PowerShell, you can establish and configure remote sessions both from the local and remote ends, create customized and restricted sessions, allow users to import commands from a remote session that actually run implicitly on the remote session, configure the security of a remote session, and much more.</span></span>
 
-<span data-ttu-id="7891e-171">Další informace viz:</span><span class="sxs-lookup"><span data-stu-id="7891e-171">For more information, see:</span></span>
-- [<span data-ttu-id="7891e-172">O vzdálené – nejčastější dotazy</span><span class="sxs-lookup"><span data-stu-id="7891e-172">About Remote FAQ</span></span>](https://technet.microsoft.com/en-us/library/dd315359.aspx)
-- [<span data-ttu-id="7891e-173">Register-PSSessionConfiguration</span><span class="sxs-lookup"><span data-stu-id="7891e-173">Register-PSSessionConfiguration</span></span>](https://go.microsoft.com/fwlink/?LinkId=821508)
-- [<span data-ttu-id="7891e-174">Import-PSSession</span><span class="sxs-lookup"><span data-stu-id="7891e-174">Import-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821821)
+<span data-ttu-id="95234-168">Pro usnadnění konfigurace vzdáleného, prostředí Windows PowerShell obsahuje poskytovatele WSMan.</span><span class="sxs-lookup"><span data-stu-id="95234-168">To facilitate remote configuration, Windows PowerShell includes a WSMan provider.</span></span> <span data-ttu-id="95234-169">WSMAN: jednotku, která se vytvoří zprostředkovatel umožňuje procházet hierarchie konfigurační nastavení v místním počítači a vzdálených počítačů.</span><span class="sxs-lookup"><span data-stu-id="95234-169">The WSMAN: drive that the provider creates lets you navigate through a hierarchy of configuration settings on the local computer and remote computers.</span></span>
+<span data-ttu-id="95234-170">Další informace o poskytovateli WSMan najdete v tématu [WSMan zprostředkovatele](https://technet.microsoft.com/en-us/library/dd819476.aspx) a [o rutiny WS-Management](https://technet.microsoft.com/en-us/library/dd819481.aspx), nebo v konzole Windows PowerShell, zadejte "Get-Help wsman".</span><span class="sxs-lookup"><span data-stu-id="95234-170">For more information about the WSMan provider, see  [WSMan Provider](https://technet.microsoft.com/en-us/library/dd819476.aspx) and [About WS-Management Cmdlets](https://technet.microsoft.com/en-us/library/dd819481.aspx), or in the Windows PowerShell console, type "Get-Help wsman".</span></span>
 
-<span data-ttu-id="7891e-175">Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troubleshooting](https://technet.microsoft.com/en-us/library/dd347642.aspx).</span><span class="sxs-lookup"><span data-stu-id="7891e-175">For help with remoting errors, see [about_Remote_Troubleshooting](https://technet.microsoft.com/en-us/library/dd347642.aspx).</span></span>
+<span data-ttu-id="95234-171">Další informace viz:</span><span class="sxs-lookup"><span data-stu-id="95234-171">For more information, see:</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="7891e-176">Viz také</span><span class="sxs-lookup"><span data-stu-id="7891e-176">See Also</span></span>
-- [<span data-ttu-id="7891e-177">about_Remote</span><span class="sxs-lookup"><span data-stu-id="7891e-177">about_Remote</span></span>](https://technet.microsoft.com/en-us/library/9b4a5c87-9162-4adf-bdfe-fbc80b9b8970)
-- [<span data-ttu-id="7891e-178">about_Remote_FAQ</span><span class="sxs-lookup"><span data-stu-id="7891e-178">about_Remote_FAQ</span></span>](https://technet.microsoft.com/en-us/library/e23702fd-9415-4a98-9975-390a4d3adc42)
-- [<span data-ttu-id="7891e-179">about_Remote_Requirements</span><span class="sxs-lookup"><span data-stu-id="7891e-179">about_Remote_Requirements</span></span>](https://technet.microsoft.com/en-us/library/da213949-134c-4741-b307-81f4492ba1bd)
-- [<span data-ttu-id="7891e-180">about_Remote_Troubleshooting</span><span class="sxs-lookup"><span data-stu-id="7891e-180">about_Remote_Troubleshooting</span></span>](https://technet.microsoft.com/en-us/library/2f890148-8578-49ed-85ea-79a489dd6317)
-- [<span data-ttu-id="7891e-181">about_PSSessions</span><span class="sxs-lookup"><span data-stu-id="7891e-181">about_PSSessions</span></span>](https://technet.microsoft.com/en-us/library/7a9b4e0e-fa1b-47b0-92f6-6e2995d70acb)
-- [<span data-ttu-id="7891e-182">about_WS-Management_Cmdlets</span><span class="sxs-lookup"><span data-stu-id="7891e-182">about_WS-Management_Cmdlets</span></span>](https://technet.microsoft.com/en-us/library/6ed3370a-ea10-45a5-9493-696aeace27ed)
-- [<span data-ttu-id="7891e-183">Invoke-Command</span><span class="sxs-lookup"><span data-stu-id="7891e-183">Invoke-Command</span></span>](https://go.microsoft.com/fwlink/?LinkId=821493)
-- [<span data-ttu-id="7891e-184">Import-PSSession</span><span class="sxs-lookup"><span data-stu-id="7891e-184">Import-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821821)
-- [<span data-ttu-id="7891e-185">New-PSSession</span><span class="sxs-lookup"><span data-stu-id="7891e-185">New-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821498)
-- [<span data-ttu-id="7891e-186">Register-PSSessionConfiguration</span><span class="sxs-lookup"><span data-stu-id="7891e-186">Register-PSSessionConfiguration</span></span>](https://go.microsoft.com/fwlink/?LinkId=821508)
-- [<span data-ttu-id="7891e-187">WSMan Provider</span><span class="sxs-lookup"><span data-stu-id="7891e-187">WSMan Provider</span></span>](https://technet.microsoft.com/en-us/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
+- [<span data-ttu-id="95234-172">O vzdálené – nejčastější dotazy</span><span class="sxs-lookup"><span data-stu-id="95234-172">About Remote FAQ</span></span>](https://technet.microsoft.com/en-us/library/dd315359.aspx)
+- [<span data-ttu-id="95234-173">Register-PSSessionConfiguration</span><span class="sxs-lookup"><span data-stu-id="95234-173">Register-PSSessionConfiguration</span></span>](https://go.microsoft.com/fwlink/?LinkId=821508)
+- [<span data-ttu-id="95234-174">Import-PSSession</span><span class="sxs-lookup"><span data-stu-id="95234-174">Import-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821821)
+
+<span data-ttu-id="95234-175">Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troubleshooting](https://technet.microsoft.com/en-us/library/dd347642.aspx).</span><span class="sxs-lookup"><span data-stu-id="95234-175">For help with remoting errors, see [about_Remote_Troubleshooting](https://technet.microsoft.com/en-us/library/dd347642.aspx).</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="95234-176">Viz také</span><span class="sxs-lookup"><span data-stu-id="95234-176">See Also</span></span>
+
+- [<span data-ttu-id="95234-177">about_Remote</span><span class="sxs-lookup"><span data-stu-id="95234-177">about_Remote</span></span>](https://technet.microsoft.com/en-us/library/9b4a5c87-9162-4adf-bdfe-fbc80b9b8970)
+- [<span data-ttu-id="95234-178">about_Remote_FAQ</span><span class="sxs-lookup"><span data-stu-id="95234-178">about_Remote_FAQ</span></span>](https://technet.microsoft.com/en-us/library/e23702fd-9415-4a98-9975-390a4d3adc42)
+- [<span data-ttu-id="95234-179">about_Remote_Requirements</span><span class="sxs-lookup"><span data-stu-id="95234-179">about_Remote_Requirements</span></span>](https://technet.microsoft.com/en-us/library/da213949-134c-4741-b307-81f4492ba1bd)
+- [<span data-ttu-id="95234-180">about_Remote_Troubleshooting</span><span class="sxs-lookup"><span data-stu-id="95234-180">about_Remote_Troubleshooting</span></span>](https://technet.microsoft.com/en-us/library/2f890148-8578-49ed-85ea-79a489dd6317)
+- [<span data-ttu-id="95234-181">about_PSSessions</span><span class="sxs-lookup"><span data-stu-id="95234-181">about_PSSessions</span></span>](https://technet.microsoft.com/en-us/library/7a9b4e0e-fa1b-47b0-92f6-6e2995d70acb)
+- [<span data-ttu-id="95234-182">about_WS-Management_Cmdlets</span><span class="sxs-lookup"><span data-stu-id="95234-182">about_WS-Management_Cmdlets</span></span>](https://technet.microsoft.com/en-us/library/6ed3370a-ea10-45a5-9493-696aeace27ed)
+- [<span data-ttu-id="95234-183">Invoke-Command</span><span class="sxs-lookup"><span data-stu-id="95234-183">Invoke-Command</span></span>](https://go.microsoft.com/fwlink/?LinkId=821493)
+- [<span data-ttu-id="95234-184">Import-PSSession</span><span class="sxs-lookup"><span data-stu-id="95234-184">Import-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821821)
+- [<span data-ttu-id="95234-185">New-PSSession</span><span class="sxs-lookup"><span data-stu-id="95234-185">New-PSSession</span></span>](https://go.microsoft.com/fwlink/?LinkId=821498)
+- [<span data-ttu-id="95234-186">Register-PSSessionConfiguration</span><span class="sxs-lookup"><span data-stu-id="95234-186">Register-PSSessionConfiguration</span></span>](https://go.microsoft.com/fwlink/?LinkId=821508)
+- [<span data-ttu-id="95234-187">WSMan Provider</span><span class="sxs-lookup"><span data-stu-id="95234-187">WSMan Provider</span></span>](https://technet.microsoft.com/en-us/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
 
 [wsman-remoting]: WSMan-Remoting-in-PowerShell-Core.md
-[ssh-resmoting]: SSH-Remoting-in-PowerShell-Core.md
+[ssh-remoting]: SSH-Remoting-in-PowerShell-Core.md
