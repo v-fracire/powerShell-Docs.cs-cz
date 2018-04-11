@@ -1,14 +1,14 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-description: "Poskytuje mechanismus ke správě místních skupin na cílový uzel."
-title: "GroupSet prostředek DSC"
-ms.openlocfilehash: 158cb28747c5fe1987eb62b2cc0f6d6f6fb14332
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+description: Poskytuje mechanismus ke správě místních skupin na cílový uzel.
+title: GroupSet prostředek DSC
+ms.openlocfilehash: 4f8fc21806fdb4eb06e0d915d5b6ca229357a210
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-groupset-resource"></a>GroupSet prostředek DSC
 
@@ -33,19 +33,19 @@ Group [string] #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   | 
-|---|---| 
-| Název skupiny| Názvy skupin, pro které chcete zajistit určitý stav.| 
-| MembersToExclude| Pomocí této vlastnosti se odebrat členy ze stávajícího členství skupin. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.| 
+|  Vlastnost  |  Popis   |
+|---|---|
+| Název skupiny| Názvy skupin, pro které chcete zajistit určitý stav.|
+| MembersToExclude| Pomocí této vlastnosti se odebrat členy ze stávajícího členství skupin. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
 | přihlašovací údaje| Přihlašovací údaje potřebné pro přístup k vzdálené prostředky. **Poznámka:**: Tento účet musí mít příslušná oprávnění služby Active Directory přidat všechny jiné než místní účty do skupiny; jinak dojde k chybě.
-| Ujistěte se| Určuje, zda existují skupiny. Nastavením této vlastnosti "Chybí" zajistit, že skupiny nejsou k dispozici. Nastavení jej do "K dispozici" (výchozí hodnota) zajišťuje, že existují skupiny.| 
-| Členové| Pomocí této vlastnosti můžete nahradit členství v aktuální skupině zadaný členy. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.| 
-| MembersToInclude| Postup přidání členů do stávajícího členství skupiny pomocí této vlastnosti. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".| 
+| Ujistěte se| Určuje, zda existují skupiny. Nastavením této vlastnosti "Chybí" zajistit, že skupiny nejsou k dispozici. Nastavení jej do "K dispozici" (výchozí hodnota) zajišťuje, že existují skupiny.|
+| Členové| Pomocí této vlastnosti můžete nahradit členství v aktuální skupině zadaný členy. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.|
+| MembersToInclude| Postup přidání členů do stávajícího členství skupiny pomocí této vlastnosti. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".|
 
 ## <a name="example-1"></a>Příklad 1
 
-Následující příklad ukazuje, jak zajistit, že jsou k dispozici dvě skupiny s názvem "myGroup" a "myOtherGroup". 
+Následující příklad ukazuje, jak zajistit, že jsou k dispozici dvě skupiny s názvem "myGroup" a "myOtherGroup".
 
 ```powershell
 configuration GroupSetTest
@@ -78,5 +78,3 @@ GroupSetTest -ConfigurationData $cd
 ```
 
 >**Poznámka:** tento příklad používá pro jednoduchost přihlašovací údaje ve formátu prostého textu. Informace o tom, jak šifrování přihlašovacích údajů v konfiguračním souboru MOF najdete v tématu [zabezpečení souboru MOF](secureMOF.md).
-
-

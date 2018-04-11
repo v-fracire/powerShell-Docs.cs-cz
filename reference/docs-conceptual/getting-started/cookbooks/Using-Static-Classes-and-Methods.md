@@ -1,15 +1,15 @@
 ---
-ms.date: 2017-06-05
-keywords: "rutiny prostředí PowerShell"
-title: "Pomocí statické třídy a metody"
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Použití statických tříd a metod
 ms.assetid: 418ad766-afa6-4b8c-9a44-471889af7fd9
-ms.openlocfilehash: fe41c7d6b45564e7b5bc2b922a18587c9745e26d
-ms.sourcegitcommit: 74255f0b5f386a072458af058a15240140acb294
+ms.openlocfilehash: 0f2b02c3a40365ad0335118b057a4e548c9f6535
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 04/09/2018
 ---
-# <a name="using-static-classes-and-methods"></a>Pomocí statické třídy a metody
+# <a name="using-static-classes-and-methods"></a>Použití statických tříd a metod
 Ne všechny třídy rozhraní .NET Framework lze vytvořit pomocí **New-Object**. Například pokud se pokusíte vytvořit **System.Environment** nebo **System.Math** objektu s **New-Object**, zobrazí se následující chybové zprávy:
 
 ```
@@ -18,6 +18,7 @@ New-Object : Constructor not found. Cannot find an appropriate constructor for
 type System.Environment.
 At line:1 char:11
 + New-Object  <<<< System.Environment
+
 PS> New-Object System.Math
 New-Object : Constructor not found. Cannot find an appropriate constructor for
 type System.Math.
@@ -42,7 +43,7 @@ True     False    Environment                              System.Object
 ```
 
 > [!NOTE]
-> Jak jsme už bylo zmíněno dříve, prostředí Windows PowerShell automaticky přidá '**systému.**. Zadejte názvy při použití **New-Object**. Samé se stane, když pomocí názvu typu v závorkách, takže můžete určit  **\[System.Environment]** jako  **\[prostředí]**.
+> Jak jsme už bylo zmíněno dříve, prostředí Windows PowerShell automaticky přidá '**systému.**' Zadejte názvy při použití **New-Object**. Samé se stane, když pomocí názvu typu v závorkách, takže můžete určit  **\[System.Environment]** jako  **\[prostředí]**.
 
 **System.Environment** třída obsahuje obecné informace o pracovní prostředí aktuální proces, který je powershell.exe při práci v rámci prostředí Windows PowerShell.
 
@@ -88,6 +89,7 @@ TickCount                               ExitCode
 Vlastnosti, které chcete zobrazit z System.Environment jsme teď můžete vybrat.
 
 #### <a name="displaying-static-properties-of-systemenvironment"></a>Statické vlastnosti System.Environment zobrazení
+
 Vlastnosti System.Environment jsou statické a je třeba zadat jiným způsobem než běžné vlastnosti. Používáme **::** označíte, prostředí Windows PowerShell, která by měla spolupracovat s statickou metodu nebo vlastnost. Chcete-li zobrazit příkaz, který byl použitý ke spuštění prostředí Windows PowerShell, jsme zkontrolujte **CommandLine** vlastnost zadáním:
 
 ```
@@ -113,6 +115,7 @@ False
 ```
 
 ### <a name="doing-math-with-systemmath"></a>Provádění matematické s System.Math
+
 Statická třída System.Math je užitečné pro provádění některých matematické operace. Důležité členů **System.Math** jsou většinou metody, které jsme můžete zobrazit pomocí **Get-člen**.
 
 > [!NOTE]
@@ -181,4 +184,3 @@ PS> [System.Math]::Truncate(9.3)
 PS> [System.Math]::Truncate(-9.3)
 -9
 ```
-

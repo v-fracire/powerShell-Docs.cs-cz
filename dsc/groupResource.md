@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Prostředek DSC skupiny"
-ms.openlocfilehash: 8a2087455a72ec1f368f890b62228b31cf4ec95a
-ms.sourcegitcommit: c72c76f6ed77b3e6f26fef3e8784b157bfc19355
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Prostředek DSC skupiny
+ms.openlocfilehash: 6a4732439bb45e36fa9201975f12194442611002
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-group-resource"></a>Prostředek DSC skupiny
 
@@ -42,7 +42,7 @@ Group [string] #ResourceName
 | Členové| Pomocí této vlastnosti můžete nahradit členství v aktuální skupině zadaný členy. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.|
 | MembersToExclude| Pomocí této vlastnosti se odebrat členy ze stávajícího členství skupiny. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
 | MembersToInclude| Postup přidání členů do stávajícího členství skupiny pomocí této vlastnosti. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[ Typ prostředku] ResourceName"".|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".|
 
 ## <a name="example-1"></a>Příklad 1
 

@@ -1,13 +1,13 @@
 ---
-ms.date: 2017-06-12
+ms.date: 06/12/2017
 ms.topic: conceptual
-keywords: "DSC prostředí powershell, konfiguraci, instalační program"
-title: "Prostředek DSC balíček"
-ms.openlocfilehash: 68b996e0f51e60bc178c27e3a71f07fb7220f847
-ms.sourcegitcommit: a444406120e5af4e746cbbc0558fe89a7e78aef6
+keywords: DSC prostředí powershell, konfiguraci, instalační program
+title: Prostředek DSC balíček
+ms.openlocfilehash: cfa9d53d5ea588b0ec97e5503302a451caa09e03
+ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="dsc-package-resource"></a>Prostředek DSC balíček
 
@@ -33,17 +33,17 @@ Package [string] #ResourceName
 ```
 
 ## <a name="properties"></a>Properties
-|  Vlastnost  |  Popis   | 
-|---|---| 
-| Název| Určuje název balíčku, pro které chcete zajistit určitý stav.| 
-| Cesta| Určuje cestu, na kterém se nachází balíček.| 
-| productId| Určuje ID produktu, který jedinečně identifikuje balíčku.| 
-| Argumenty| Zobrazí řetězec argumenty, které se předá do balíčku přesně tak, jak zadat.| 
-| přihlašovací údaje| Poskytuje přístup k balíčku na vzdáleného zdroje. Tato vlastnost se používá k instalaci balíčku. Balíček je vždy nainstalován v místním systému.| 
-| Ujistěte se| Určuje, zda je nainstalován balíček. Nastavením této vlastnosti "Chybí" zajistěte, aby byl že balíček není nainstalovaný (nebo má být balíček odinstalován, je-li nainstalován). Nastavte tak, aby "Prezentovat" (výchozí hodnota) ujistěte se, že je balíček nainstalován.| 
-| LogPath| Určuje úplnou cestu, kam chcete zprostředkovatele, který má uložit soubor protokolu instalace a odinstalace balíčku.| 
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba **ResourceName** a její typ je **ResourceType**, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".| 
-| ReturnCode| Označuje očekávaný návratový kód. Pokud skutečnou návratový kód neodpovídá očekávané hodnotě zadané tady že konfigurace vrátí chybu.| 
+|  Vlastnost  |  Popis   |
+|---|---|
+| Název| Určuje název balíčku, pro které chcete zajistit určitý stav.|
+| Cesta| Určuje cestu, na kterém se nachází balíček.|
+| productId| Určuje ID produktu, který jedinečně identifikuje balíčku.|
+| Argumenty| Zobrazí řetězec argumenty, které se předá do balíčku přesně tak, jak zadat.|
+| přihlašovací údaje| Poskytuje přístup k balíčku na vzdáleného zdroje. Tato vlastnost se používá k instalaci balíčku. Balíček je vždy nainstalován v místním systému.|
+| Ujistěte se| Určuje, zda je nainstalován balíček. Nastavením této vlastnosti "Chybí" zajistěte, aby byl že balíček není nainstalovaný (nebo má být balíček odinstalován, je-li nainstalován). Nastavte tak, aby "Prezentovat" (výchozí hodnota) ujistěte se, že je balíček nainstalován.|
+| LogPath| Určuje úplnou cestu, kam chcete zprostředkovatele, který má uložit soubor protokolu instalace a odinstalace balíčku.|
+| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba **ResourceName** a její typ je **ResourceType**, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".|
+| ReturnCode| Označuje očekávaný návratový kód. Pokud skutečnou návratový kód neodpovídá očekávané hodnotě zadané tady že konfigurace vrátí chybu.|
 
 ## <a name="example"></a>Příklad
 
@@ -58,7 +58,6 @@ Configuration PackageTest
         Path        = "$Env:SystemDrive\TestFolder\TestProject.msi"
         Name        = "TestPackage"
         ProductId   = "ACDDCDAF-80C6-41E6-A1B9-8ABD8A05027E"
-    } 
+    }
 }
 ```
-
