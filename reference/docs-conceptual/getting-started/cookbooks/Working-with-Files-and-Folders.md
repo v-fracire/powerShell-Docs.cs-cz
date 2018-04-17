@@ -3,28 +3,28 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Práce se soubory a složkami
 ms.assetid: c0ceb96b-e708-45f3-803b-d1f61a48f4c1
-ms.openlocfilehash: e47ea00c9d90d7e04a7af0cb1348849410a6e357
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 6b1fcd438570c8708aa87e4b213f33474921d5f8
+ms.sourcegitcommit: ece1794c94be4880a2af5a2605ed4721593643b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-files-and-folders"></a>Práce se soubory a složkami
 
-Procházení jednotky prostředí Windows PowerShell a manipulace s nimi prostřednictvím položky z nich je podobná práce se soubory a složky na fyzické disky systému Windows. Řešení problémů s konkrétní souborů a složek manipulací s adresami v této části se budeme zabývat.
+Procházení jednotky prostředí Windows PowerShell a manipulace s nimi prostřednictvím položky z nich je podobná práce se soubory a složky na fyzické disky systému Windows. Tato část popisuje postupy řešení konkrétních souborů a složek manipulací s adresami pomocí prostředí PowerShell.
 
 ### <a name="listing-all-the-files-and-folders-within-a-folder"></a>Výpis všech souborů a složek ve složce
 
 Všechny položky přímo ve složce můžete získat pomocí **Get-ChildItem**. Přidejte volitelné **Force** parametr zobrazení skrytý nebo položky system. Tento příkaz například zobrazí přímé obsah Windows PowerShell jednotka C (což je stejný jako fyzický disk systému Windows C):
 
 ```powershell
-Get-ChildItem -Force C:\
+Get-ChildItem -Path C:\ -Force
 ```
 
 Příkaz uvádí jenom přímo obsažených položek, podobně jako pomocí jeho Cmd.exe **DIR** příkaz nebo **ls** v prostředí systému UNIX. Chcete-li zobrazit položky, budete muset zadat **-Recurse** také parametr. (To může trvat dokončení velmi dlouho.) Seznam vše na jednotce C:
 
 ```powershell
-Get-ChildItem -Force C:\ -Recurse
+Get-ChildItem -Path C:\ -Force -Recurse
 ```
 
 **Get-ChildItem** můžete filtrovat položky s jeho **cesta**, **filtru**, **zahrnout**, a **vyloučit** parametry, ale ty jsou obvykle pouze na základě názvu. Můžete provádět komplexní filtrování založené na jiné vlastnosti položek pomocí **Where-Object**.
@@ -40,33 +40,33 @@ Get-ChildItem -Path $env:ProgramFiles -Recurse -Include *.exe | Where-Object -Fi
 Kopírování provádí pomocí **Copy-Item**. Následující příkaz zálohuje C:\\boot.ini do C:\\boot.bak:
 
 ```powershell
-Copy-Item -Path c:\boot.ini -Destination c:\boot.bak
+Copy-Item -Path C:\boot.ini -Destination C:\boot.bak
 ```
 
-Pokud cílový soubor již existuje, kopie pokus selže. Pokud chcete přepsat existující cíl, použijte parametr Force:
+Pokud cílový soubor již existuje, kopie pokus selže. Pokud chcete přepsat existující cíl, použijte **Force** parametr:
 
 ```powershell
-Copy-Item -Path c:\boot.ini -Destination c:\boot.bak -Force
+Copy-Item -Path C:\boot.ini -Destination C:\boot.bak -Force
 ```
 
 Tento příkaz lze použít i v případě, že cíl je jen pro čtení.
 
-Kopírování složek funguje stejným způsobem. Tento příkaz zkopíruje složce C:\\temp\\test1 do nové složky c:\\temp\\nástroji DeleteMe rekurzivně:
+Kopírování složek funguje stejným způsobem. Tento příkaz zkopíruje složce C:\\temp\\test1 do nové složky C:\\temp\\nástroji DeleteMe rekurzivně:
 
 ```powershell
-Copy-Item C:\temp\test1 -Recurse c:\temp\DeleteMe
+Copy-Item C:\temp\test1 -Recurse C:\temp\DeleteMe
 ```
 
 Můžete také zkopírovat výběr položek. Následující příkaz zkopíruje všechny soubory s příponou .txt kdekoli součástí c:\\data do c:\\temp\\text:
 
 ```powershell
-Copy-Item -Filter *.txt -Path c:\data -Recurse -Destination c:\temp\text
+Copy-Item -Filter *.txt -Path c:\data -Recurse -Destination C:\temp\text
 ```
 
 Můžete stále dalších nástrojů ke zkopírování systému souborů. XCOPY ROBOCOPY a COM objekty, jako **Scripting.FileSystemObject,** všechny fungují v prostředí Windows PowerShell. Například můžete použít modul Windows Script Host **Scripting.FileSystem COM** třída zálohování C:\\boot.ini do C:\\boot.bak:
 
 ```powershell
-(New-Object -ComObject Scripting.FileSystemObject).CopyFile('c:\boot.ini', 'c:\boot.bak')
+(New-Object -ComObject Scripting.FileSystemObject).CopyFile('C:\boot.ini', 'C:\boot.bak')
 ```
 
 ### <a name="creating-files-and-folders"></a>Vytváření souborů a složek
@@ -90,7 +90,7 @@ New-Item -Path 'C:\temp\New Folder\file.txt' -ItemType File
 Můžete odebrat pomocí položky **odebrat položky**, ale zobrazí se výzva k potvrzení odebrání, pokud položka obsahuje cokoliv jiného. Například, pokud se pokusíte odstranit složku C:\\temp\\nástroji DeleteMe, který obsahuje další položky, prostředí Windows PowerShell vás vyzve k potvrzení před odstranit tuto složku:
 
 ```
-Remove-Item C:\temp\DeleteMe
+Remove-Item -Path C:\temp\DeleteMe
 
 Confirm
 The item at C:\temp\DeleteMe has children and the -recurse parameter was not
@@ -103,7 +103,7 @@ sure you want to continue?
 Pokud nechcete pro každou položku obsažené vyzváni, zadejte **Recurse** parametr:
 
 ```powershell
-Remove-Item C:\temp\DeleteMe -Recurse
+Remove-Item -Path C:\temp\DeleteMe -Recurse
 ```
 
 ### <a name="mapping-a-local-folder-as-a-windows-accessible-drive"></a>Mapování do místní složky jako přístupné jednotka Windows

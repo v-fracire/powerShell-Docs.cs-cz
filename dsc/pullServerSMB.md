@@ -1,17 +1,20 @@
 ---
-ms.date: 06/12/2017
+ms.date: 04/11/2018
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Nastavení serveru vyžádané replikace SMB pro DSC
-ms.openlocfilehash: e9228c050d6f496e30e94404a564ed2e425a5412
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: e4e313746e95af86c5d17a8de0549451b1399b6c
+ms.sourcegitcommit: ece1794c94be4880a2af5a2605ed4721593643b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="setting-up-a-dsc-smb-pull-server"></a>Nastavení serveru vyžádané replikace SMB pro DSC
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+
+> [!IMPORTANT]
+> Server pro vyžádání obsahu (funkce systému Windows *DSC služby*) je podporované součásti systému Windows Server jsou však nejsou žádné plány, které nabízí nové funkce nebo funkce. Doporučujeme začít Přechod spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace s v systému Windows Server) nebo jedno z řešení komunity uvedené [zde](pullserver.md#community-solutions-for-pull-service).
 
 DSC [SMB](https://technet.microsoft.com/library/hh831795.aspx) vyžádání obsahu server je počítač hostování sdílených složek SMB, které zpřístupnit DSC konfiguračních souborů a prostředků DSC pro cílové uzly při uzly, zeptejte se pro ně.
 

@@ -3,11 +3,11 @@ ms.date: 06/12/2017
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Prostředek DSC registru
-ms.openlocfilehash: fcd24b1dd729dbb0abd697a4a628dce01fdd5422
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 98e9a6251cb4e55443498bd770b4c563c25c7509
+ms.sourcegitcommit: ece1794c94be4880a2af5a2605ed4721593643b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dsc-registry-resource"></a>Prostředek DSC registru
 
@@ -22,7 +22,7 @@ Registry [string] #ResourceName
 {
     Key = [string]
     ValueName = [string]
-    [ Ensure = [string] { Enable | Disable }  ]
+    [ Ensure = [string] { Present | Absent }  ]
     [ Force =  [bool]   ]
     [ Hex = [bool] ]
     [ DependsOn = [string[]] ]
@@ -35,12 +35,12 @@ Registry [string] #ResourceName
 |  Vlastnost  |  Popis   |
 |---|---|
 | Klávesa| Určuje cestu klíč registru, pro které chcete zajistit určitý stav. Tato cesta musí obsahovat podregistr.|
-| ValueName| Určuje název hodnoty registru. Chcete-li přidat nebo odebrat klíč registru, zadejte tuto vlastnost jako prázdný řetězec bez zadání ValueType nebo data. Změnit nebo odebrat výchozí hodnota klíče registru, zadejte tuto vlastnost při zadávání také ValueType nebo data jako prázdný řetězec.|
+| Název hodnoty| Určuje název hodnoty registru. Chcete-li přidat nebo odebrat klíč registru, zadejte tuto vlastnost jako prázdný řetězec bez zadání ValueType nebo data. Změnit nebo odebrat výchozí hodnota klíče registru, zadejte tuto vlastnost při zadávání také ValueType nebo data jako prázdný řetězec.|
 | Ujistěte se| Určuje, zda existují klíč a hodnotu. Aby se zajistilo, že udělají, nastavte tuto vlastnost na "Dispozici". Aby se zajistilo, že neexistují, nastavte vlastnost na "Chybí". Výchozí hodnota je "Dispozici".|
 | Force| Pokud zadaný klíč registru existuje, __Force__ přepíše s novou hodnotou. Pokud odstraníte klíč registru s podklíče, musí se jednat __$true__|
 | Hex| Označuje, pokud budou data vyjádřeny v šestnáctkovém formátu. -Li zadána, data hodnotu DWORD nebo QWORD jsou zobrazena v šestnáctkovém formátu. Pro jiné typy není platná. Výchozí hodnota je __$false__.|
 | dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
-| ValueData| Data pro hodnotu registru.|
+| Data| Data pro hodnotu registru.|
 | ValueType| Označuje typ hodnoty. Podporované typy jsou:
 <ul><li>Řetězec (REG_SZ)</li>
 

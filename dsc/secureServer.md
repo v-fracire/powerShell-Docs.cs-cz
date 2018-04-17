@@ -3,15 +3,18 @@ ms.date: 06/12/2017
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Osvědčené postupy serveru vyžádané replikace
-ms.openlocfilehash: 7de523ad16aee77d87ec4d3334d296997020aa19
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: d8d8667e2fc608e0c5948a0b5046bf92801b49db
+ms.sourcegitcommit: ece1794c94be4880a2af5a2605ed4721593643b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pull-server-best-practices"></a>Osvědčené postupy serveru vyžádané replikace
 
 >Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+
+> [!IMPORTANT]
+> Server pro vyžádání obsahu (funkce systému Windows *DSC služby*) je podporované součásti systému Windows Server jsou však nejsou žádné plány, které nabízí nové funkce nebo funkce. Doporučujeme začít Přechod spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace s v systému Windows Server) nebo jedno z řešení komunity uvedené [zde](pullserver.md#community-solutions-for-pull-service).
 
 Souhrn: Tento dokument je určený zahrnuje proces a rozšiřitelnost pomůže technici, kteří jsou Příprava řešení. Podrobnosti by měl poskytovat osvědčené postupy, jak identifikovaný zákazníků a potom ověřit produktový tým zajistit doporučení jsou budoucí přístupem a považovat za stabilní.
 
@@ -111,7 +114,7 @@ Nejsou žádné požadavky na účet služby pro nasazení do instance serveru v
 Existují však scénáře, kde může web spustit v kontextu místního uživatelského účtu.
 Například pokud je potřeba přístup sdílené složky úložiště pro obsah webu a Windows Server nebo zařízení hostování sdílenou složku úložiště nejsou připojené k doméně.
 
-### <a name="dns-records"></a>DNS records
+### <a name="dns-records"></a>Záznamy DNS
 
 Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru vyžádané replikace.
 V testovacích prostředích obvykle se používá název hostitele serveru nebo adresu IP serveru lze použít, pokud překlad názvu DNS není k dispozici.

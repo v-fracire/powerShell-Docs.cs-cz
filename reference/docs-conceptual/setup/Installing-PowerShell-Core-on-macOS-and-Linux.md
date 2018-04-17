@@ -566,7 +566,7 @@ chmod a+x powershell-6.0.0-x86_64.AppImage
 
 [appimage]: http://appimage.org/
 
-## <a name="macos-1012"></a>macOS 10.12
+## <a name="macos-1012"></a>systému macOS 10.12
 
 ### <a name="installation-via-homebrew-preferred---macos-1012"></a>Instalaci přes Homebrew (doporučeno) - systému macOS 10.12
 
@@ -588,10 +588,10 @@ Když jsou vydávány nové verze prostředí PowerShell, jednoduše aktualizova
 
 ```sh
 brew update
-brew cask reinstall powershell
+brew cask upgrade powershell
 ```
 
-> Poznámka: z důvodu [tento problém v obalového souboru](https://github.com/caskroom/homebrew-cask/issues/29301), aktuálně musíte udělat přeinstalovat k upgradu.
+> Poznámka: Výše uvedené příkazy lze volat z v rámci hostitele prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a dokončete upgrade a aktualizujte hodnoty zobrazené v $PSVersionTable opětovný vstup.
 
 [brew]: http://brew.sh/
 [cask]: https://caskroom.github.io/
@@ -703,13 +703,13 @@ Následující graf zobrazuje rozhraní .NET 2.0 základní závislosti na různ
 
 | Operační systém                 | Závislosti |
 | ------------------ | ------------ |
-| Ubuntu 14.04       | libc6, libgcc1, libgssapi-krb5-2, liblttng-ust0, libstdc++6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
-| Ubuntu 16.04       | libc6, libgcc1, libgssapi-krb5-2, liblttng-ust0, libstdc++6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu55 |
-| Ubuntu č. 17.04       | libc6, libgcc1, libgssapi-krb5-2, liblttng-ust0, libstdc++6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu57 |
-| Debian 8 (Klára)  | libc6, libgcc1, libgssapi-krb5-2, liblttng-ust0, libstdc++6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
-| Debian 9 (Stretch) | libc6, libgcc1, libgssapi-krb5-2, liblttng-ust0, libstdc++6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.2, libicu57 |
-| CentOS 7 <br> Oracle Linux 7 <br> RHEL 7 <br> OpenSUSE 42.2 <br> Fedora 25 | libunwind, libcurl, openssl-libs, libicu |
-| Fedora 26          | libunwind, libcurl, openssl-libs, libicu, compat-openssl10 |
+| Ubuntu 14.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
+| Ubuntu 16.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu55 |
+| Ubuntu č. 17.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu57 |
+| Debian 8 (Klára)  | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
+| Debian 9 (Stretch) | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.2, libicu57 |
+| CentOS 7 <br> Oracle Linux 7 <br> RHEL 7 <br> OpenSUSE 42.2 <br> Fedora 25 | libunwind, libcurl, knihovny openssl, libicu |
+| Fedora 26          | libunwind, libcurl, knihovny openssl, libicu, compat openssl10 |
 
 Abyste mohli nasadit binární soubory prostředí PowerShell na Linuxových distribucích, které nejsou oficiálně podporované, museli byste nainstalujte potřebné závislosti pro cílový operační systém v samostatné kroky. Například naše [soubor docker Amazon Linux] [ amazon-dockerfile] nejdřív nainstaluje závislosti a pak extrahuje sady Linux `tar.gz` archivu.
 
