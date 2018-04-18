@@ -47,6 +47,8 @@
           href: psgallery/psgallery_requires_license_acceptance.md
         - name: Vyžadování přijetí licence při nasazení ve službě Azure Automation
           href: psgallery/psgallery_deploy_to_azure_automation_requireLicenseAcceptance.md
+        - name: Dodržování nařízení GDPR při používání Galerie prostředí PowerShell
+          href: psgallery/psgallery_gdpr_dsr.md
 - name: PowerShellGet
   href: psget/overview.md
   items:
