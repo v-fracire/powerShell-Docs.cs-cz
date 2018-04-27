@@ -8,7 +8,8 @@ Visual Studio Code můžete použít v systému Windows v prostředí PowerShell
 Před zahájením ho, Zkontrolujte prosím, že prostředí PowerShell v systému existuje.
 Pro moderní úlohy u systému Windows, systému macOS a Linux, přečtěte si část:
 
-- [Instalace jádra prostředí PowerShell v systému macOS a Linux][install-pscore-linux]
+- [Instalace jádra prostředí PowerShell v systému Linux][install-pscore-linux]
+- [Instalace jádra prostředí PowerShell v systému macOS][install-pscore-macos]
 - [Instalace jádra prostředí PowerShell v systému Windows][install-pscore-windows]
 
 Pro tradiční úlohy prostředí Windows PowerShell, najdete v části [instalace prostředí Windows PowerShell][install-winps].
@@ -171,7 +172,8 @@ Existuje několik blogy, které mohou být užitečné, které vám pomůžou za
 - [Ladění skriptu prostředí PowerShell v kódu Visual Studio – část 2][debugging-part2]
 
 [ise]: ../ise-guide.md
-[install-pscore-linux]:  ../../setup/Installing-PowerShell-Core-on-macOS-and-Linux.md
+[install-pscore-linux]:  ../../setup/Installing-PowerShell-Core-on-Linux.md
+[install-pscore-macos]:  ../../setup/Installing-PowerShell-Core-on-macOS.md
 [install-pscore-windows]: ../../setup/Installing-PowerShell-Core-on-Windows.md
 [install-winps]: ../../setup/Installing-Windows-PowerShell.md
 [ps-extension]:https://blogs.msdn.microsoft.com/cdndevs/2015/12/11/visual-studio-code-powershell-extension/

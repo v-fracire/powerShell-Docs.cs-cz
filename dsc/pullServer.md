@@ -3,11 +3,11 @@ ms.date: 04/11/2018
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Načítací služba DSC
-ms.openlocfilehash: 61b4c0e9cfe1d1d7539cd32da35d2fe50da4b0e3
-ms.sourcegitcommit: ece1794c94be4880a2af5a2605ed4721593643b6
+ms.openlocfilehash: 075487be68de82074750e5344a24d6d4c2f2bec5
+ms.sourcegitcommit: a9aa5e8d0fab0cbb3e4e6cff0e3ca8c0339ab4e6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="desired-state-configuration-pull-service"></a>Vyžádání služba Konfigurace požadovaného stavu
 
@@ -276,3 +276,5 @@ Následující témata popisují nastavení klientů pro vyžádání obsahu pod
 - [Přehled stavu konfigurace požadovaného prostředí Windows PowerShell](overview.md)
 - [Přijetí konfigurace](enactingConfigurations.md)
 - [Použití serveru sestav DSC](reportServer.md)
+- [[MS-DSCPM]: Desired State Configuration přijetí změn modelu protokolu](https://msdn.microsoft.com/library/dn393548.aspx)
+- [[MS-DSCPM]: Desired State Configuration přijetí změn modelu protokol chyby](https://msdn.microsoft.com/library/mt612824.aspx)

@@ -3,11 +3,11 @@ ms.date: 06/12/2017
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Konfigurace DSC
-ms.openlocfilehash: 8b44fd9a715c217ee198ea343cdffbfab1193625
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: ffeb953048c0a65352618d2ab141ee10ead4c663
+ms.sourcegitcommit: a9aa5e8d0fab0cbb3e4e6cff0e3ca8c0339ab4e6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="dsc-configurations"></a>Konfigurace DSC
 
@@ -72,7 +72,7 @@ V tomto příkladu zadejte název uzlu předáním jej jako **ComputerName** par
 ## <a name="compiling-the-configuration"></a>Kompilování konfigurace
 
 Před konfigurací můžete uplatní, budete muset kompilována MOF dokumentu.
-To provedete pomocí volání konfigurace jako funkce prostředí PowerShell.
+To provedete pomocí volání konfigurace, jako by volání funkce prostředí PowerShell.
 Poslední řádek v příkladu obsahující pouze název konfigurace, zavolá konfigurace.
 
 >**Poznámka:** volat konfigurace, musí být funkce v globálním oboru (stejně jako u jakékoli jiné funkce prostředí PowerShell).
