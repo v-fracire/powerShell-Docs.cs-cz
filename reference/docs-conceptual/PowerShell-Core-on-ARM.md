@@ -1,4 +1,4 @@
-# <a name="powershell-core-on-arm"></a>Základní prostředí PowerShell v ARM
+# <a name="powershell-core-on-arm"></a>PowerShell Core na zařízeních ARM
 
 V současné době základní prostředí PowerShell funguje na některých zařízeních ARM, včetně Windows 10 ARM32/ARM64 a Raspbian, ve stavu experimentální, nepodporovaný.
 
