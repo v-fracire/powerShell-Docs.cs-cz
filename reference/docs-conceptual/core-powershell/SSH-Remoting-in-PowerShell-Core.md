@@ -34,30 +34,40 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 ## <a name="setup-on-windows-machine"></a>Instalace na počítač s Windows
 
-1. [Nainstalujte nejnovější verzi prostředí PowerShell jádra pro Windows] []
+1. Nainstalujte nejnovější verzi [jádra prostředí PowerShell pro systém Windows]
     - Můžete zadat, že pokud má dokonalejší podpora SSH prohlížením Nastaví parametr pro New-PSSession
+
     ```powershell
     PS> Get-Command New-PSSession -syntax
     New-PSSession [-HostName] <string[]> [-Name <string[]>] [-UserName <string>] [-KeyFilePath <string>] [-SSHTransport] [<CommonParameters>]
     ```
+
 1. Nainstalujte si nejnovější verzi [Win32 OpenSSH] sestavení z Githubu pomocí [instalace] pokyny
 1. Upravte soubor sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH
     - Ujistěte se, že je povolené ověřování hesla
-    ```none
+
+    ```
     PasswordAuthentication yes
     ```
+
     - Přidat položku subsystém prostředí PowerShell, nahraďte `c:/program files/powershell/6.0.0/pwsh.exe` správná cesta na verzi, kterou chcete použít
-    ```none
+
+    ```
     Subsystem    powershell c:/program files/powershell/6.0.0/pwsh.exe -sshs -NoLogo -NoProfile
     ```
+
     - Volitelně můžete povolit ověření pomocí klíče
-    ```none
+
+    ```
     PubkeyAuthentication yes
     ```
+
 1. Restartujte službu sshd
+
     ```powershell
     Restart-Service sshd
     ```
+
 1. Přidat cestu, kde je nainstalován OpenSSH pro vaši cestu Env proměnné
     - Měl by být spolu čar `C:\Program Files\OpenSSH\`
     - To umožňuje, aby ssh.exe chcete vyhledat
@@ -66,24 +76,33 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 1. Nainstalujte si nejnovější verzi [prostředí PowerShell pro Linux] sestavení z Githubu
 1. Nainstalujte [Ubuntu SSH] podle potřeby
+
     ```bash
     sudo apt install openssh-client
     sudo apt install openssh-server
     ```
+
 1. Upravte soubor sshd_config v umístění /etc/ssh
     - Ujistěte se, že je povolené ověřování hesla
-    ```none
+
+    ```
     PasswordAuthentication yes
     ```
+
     - Přidat položku subsystém prostředí PowerShell
-    ```none
+
+    ```
     Subsystem powershell /usr/bin/pwsh -sshs -NoLogo -NoProfile
     ```
+
     - Volitelně můžete povolit ověření pomocí klíče
-    ```none
+
+    ```
     PubkeyAuthentication yes
     ```
+
 1. Restartujte službu sshd
+
     ```bash
     sudo service sshd restart
     ```
@@ -98,22 +117,31 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
       - Povolit přístup k příslušné uživatele
 1. Upravit `sshd_config` soubor v umístění `/private/etc/ssh/sshd_config`
     - Pomocí oblíbeného editoru nebo
+
     ```bash
     sudo nano /private/etc/ssh/sshd_config
     ```
+
     - Ujistěte se, že je povolené ověřování hesla
-    ```none
+
+    ```
     PasswordAuthentication yes
     ```
+
     - Přidat položku subsystém prostředí PowerShell
-    ```none
+
+    ```
     Subsystem powershell /usr/local/bin/powershell -sshs -NoLogo -NoProfile
     ```
+
     - Volitelně můžete povolit ověření pomocí klíče
-    ```none
+
+    ```
     PubkeyAuthentication yes
     ```
+
 1. Restartujte službu sshd
+
     ```bash
     sudo launchctl stop com.openssh.sshd
     sudo launchctl start com.openssh.sshd
@@ -213,9 +241,9 @@ GitCommitId                    v6.0.0-alpha.17
 
 1. příkaz sudo v vzdálené relace k počítači Linux nefunguje.
 
-[PowerShell for Windows]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi
-[Win32 OpenSSH]: https://github.com/PowerShell/Win32-OpenSSH
+[jádra prostředí PowerShell pro systém Windows]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi
+[Win32 OpenSSH]: https://github.com/PowerShell/Win32-OpenSSH/releases
 [instalace]: https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
 [prostředí PowerShell pro Linux]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#ubuntu-1404
 [Ubuntu SSH]: https://help.ubuntu.com/lts/serverguide/openssh-server.html
-[prostředí PowerShell pro systému MacOS]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#macos-1012
+[prostředí PowerShell pro systému MacOS]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md#macos-1012
