@@ -9,10 +9,12 @@
           items:
             - name: Instalace PowerShellu Core ve Windows
               href: setup/Installing-PowerShell-Core-on-Windows.md
-            - name: Instalace PowerShellu Core v macOS a Linuxu
-              href: setup/Installing-PowerShell-Core-on-macOS-and-Linux.md
+            - name: Instalace PowerShellu Core v Linuxu
+              href: setup/Installing-PowerShell-Core-on-Linux.md
+            - name: Instalace PowerShellu Core v macOS
+              href: setup/Installing-PowerShell-Core-on-macOS.md
             - name: PowerShell Core na zařízeních ARM
-              href: PowerShell-Core-on-ARM.md
+              href: setup/PowerShell-Core-on-ARM.md
         - name: Windows PowerShell
           href: ''
           items:
@@ -87,7 +89,7 @@
                   href: core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise.md
                 - name: Použití profilů v prostředí Windows PowerShell ISE
                   href: core-powershell/ise/how-to-use-profiles-in-windows-powershell-ise.md
-                - name: Použití klávesy Tab k dokončování příkazů ve skriptovacím podokně a v podokně konzoly
+                - name: Použití klávesy Tab k dokončování příkazů v podoknech skriptování a konzoly
                   href: core-powershell/ise/how-to-use-tab-completion-in-the-script-pane-and-console-pane.md
                 - name: Použití pokokna konzoly v prostředí PowerShell ISE
                   href: core-powershell/ise/how-to-use-the-console-pane-in-the-windows-powershell-ise.md
@@ -137,15 +139,15 @@
         - name: Webový přístup
           href: ''
           items:
-            - name: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
+            - name: Autorizační pravidla a funkce zabezpečení
               href: core-powershell/web-access/authorization-rules-and-security-features-of-windows-powershell-web-access.md
-            - name: Instalace a používání Windows PowerShell Web Accessu
+            - name: Instalace
               href: core-powershell/web-access/install-and-use-windows-powershell-web-access.md
-            - name: Řešení problémů s přístupem ve Windows PowerShell Web Accessu
+            - name: Řešení problémů s přístupem
               href: core-powershell/web-access/troubleshooting-access-problems-in-windows-powershell-web-access.md
             - name: Odinstalace Windows PowerShell Web Accessu
               href: core-powershell/web-access/uninstall-windows-powershell-web-access.md
-            - name: Používání webové konzoly Windows PowerShellu
+            - name: Používání webové konzoly PowerShellu
               href: core-powershell/web-access/use-the-web-based-windows-powershell-console.md
         - name: Příručka pracovních postupů
           href: core-powershell/workflows-guide.md
