@@ -3,11 +3,11 @@ ms.date: 10/31/2017
 ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Zabezpečení souboru MOF
-ms.openlocfilehash: 80ef37ef1bdcb0a8b0ad343b4eab99f1bc66e116
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 00a33a5d628921bcd04aa904a1aa8ee4345af48f
+ms.sourcegitcommit: 4a841ebda3339ae2477e0f5f5be8c01740221232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="securing-the-mof-file"></a>Zabezpečení souboru MOF
 
@@ -137,7 +137,7 @@ V následujícím příkladu:
  1. vytvoří certifikát na **vytváření uzlu**.
  2. Exportuje certifikát, včetně privátního klíče **vytváření uzlu**.
  3. Odebere privátní klíč z **vytváření uzlu**, ale zachová certifikátu veřejného klíče **Moje** uložit.
- 4. Importuje certifikátu privátního klíče do kořenového úložiště certifikátů na **cílový uzel**.
+ 4. Importuje privátní klíč certifikátu do úložiště certifikátů My(Personal) na **cílový uzel**.
    - musí být přidané do kořenového úložiště tak, aby se důvěřují **cílový uzel**.
 
 #### <a name="on-the-authoring-node-create-and-export-the-certificate"></a>Na uzlu vytváření: vytvoření a export certifikátu

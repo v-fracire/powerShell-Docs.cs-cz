@@ -25,7 +25,7 @@ Pro tradiční úlohy prostředí Windows PowerShell, najdete v části [instala
 > [!IMPORTANT]
 > V systému macOS je třeba nainstalovat OpenSSL pro rozšíření prostředí PowerShell fungovala správně.
 > Nejjednodušší způsob, jak se má nainstalovat [Homebrew](http://brew.sh/) a spusťte `brew install openssl`.
-> Nyní bude moct úspěšně načíst rozšíření prostředí PowerShell.
+> Nyní můžete načíst VS Code prostředí PowerShell rozšíření úspěšně.
 
 - **Windows**: postupujte podle pokynů k instalaci na [systémem VS Code v systému Windows](https://code.visualstudio.com/docs/setup/windows) stránky
 
@@ -38,13 +38,13 @@ Pro tradiční úlohy prostředí Windows PowerShell, najdete v části [instala
 
 - Spusťte **rychlé otevřete** stisknutím **Ctrl + P** (**Cmd + P** na Mac).
 - V rychlé otevřený, zadejte `ext install powershell` a počtu **Enter**.
-- **Rozšíření** na straně panelu se otevře zobrazení. Vyberte požadované rozšíření prostředí PowerShell od společnosti Microsoft.
-  Zobrazí se něco jako níže:
+- **Rozšíření** otevře zobrazení na straně panelu. Vyberte požadované rozšíření prostředí PowerShell od společnosti Microsoft.
+  Měli byste vidět něco jako níže:
 
   ![VSCode](../../images/vscode.png)
 
 - Klikněte **nainstalovat** tlačítko pro rozšíření prostředí PowerShell od společnosti Microsoft.
-- Po instalaci, zobrazí se **nainstalovat** tlačítko se změní **opětovného načtení**.
+- Po instalaci zobrazí **nainstalovat** tlačítko se změní **opětovného načtení**.
   Klikněte na **opětovného načtení**.
 - Po Visual Studio Code má načíst znovu, jste připraveni pro úpravy.
 
@@ -55,7 +55,7 @@ Chcete-li ukončit Visual Studio Code **souboru -> ukončení**.
 
 #### <a name="using-a-specific-installed-version-of-powershell"></a>Pomocí konkrétní nainstalovaná verze prostředí PowerShell
 
-Pokud chcete použít konkrétní instalaci prostředí PowerShell s kódem jazyka Visual Studio, musíte přidat nové proměnné do souboru nastavení uživatele.
+Pokud chcete použít konkrétní instalaci prostředí PowerShell s kódem jazyka Visual Studio, budete muset přidat nové proměnné do souboru nastavení uživatele.
 
 1. Klikněte na tlačítko **souboru -> Předvolby -> Nastavení**
 1. Zobrazí se dvě podokna editor.
@@ -96,7 +96,7 @@ Doporučujeme následující nastavení konfigurace pro Visual Studio Code:
 
 Od verze Visual Studio Code 1.9 můžete ladit skripty prostředí PowerShell, bez nutnosti otevřít složku, která obsahuje skript prostředí PowerShell.
 Stačí otevřít soubor skriptu prostředí PowerShell s **souboru -> Otevřít soubor...** , zarážku na řádek (stiskněte F9) a poté stisknutím klávesy F5 spusťte ladění.
-Zobrazí se v podokně Akce ladění zobrazují, které umožňuje rozdělit ladicí program, krok, opětovné spuštění a zastavení ladění.
+Měli byste vidět v podokně Akce ladění zobrazují, které umožňuje rozdělit ladicí program, krok, opětovné spuštění a zastavení ladění.
 
 ### <a name="workspace-debugging"></a>Pracovní prostor ladění
 
@@ -116,11 +116,11 @@ Postupujte podle těchto kroků můžete vytvořit ladění konfiguračním soub
 
 1. Otevřete **ladění** zobrazení stisknutím **Ctrl + Shift + D** (**Cmd + Shift + D** v systému Mac).
 1. Stiskněte **konfigurace** ozubené kolečko ikonu na panelu nástrojů.
-1. Visual Studio Code vás vyzve k **vyberte prostředí**.
+1. Visual Studio Code vás vyzve, abyste **vyberte prostředí**.
    Zvolte **prostředí PowerShell**.
 
    Když to uděláte, Visual Studio Code vytvoří adresář a soubor ".vscode\launch.json" v kořenové složce pracovního prostoru.
-   Toto je, kde je uložen konfiguraci ladění. Pokud jsou vaše soubory v úložišti Git, obvykle můžete potvrdit soubor launch.json.
+   Toto je, kde je uložen konfiguraci ladění. Pokud jsou vaše soubory v úložišti Git, obvykle chcete potvrdit soubor launch.json.
    Obsah souboru launch.json jsou:
 
 ```json
@@ -153,7 +153,7 @@ Postupujte podle těchto kroků můžete vytvořit ladění konfiguračním soub
 ```
 
 To představuje běžné scénáře ladění.
-Ale při otevření tohoto souboru v editoru, zobrazí se **Přidat konfiguraci...**  tlačítko.
+Ale při otevření tohoto souboru v editoru, uvidíte **Přidat konfiguraci...**  tlačítko.
 Toto tlačítko k přidání více konfigurací ladění prostředí PowerShell. Je užitečný konfigurací přidat **prostředí PowerShell: Spustí skript**.
 Pomocí této konfigurace můžete zadat konkrétní soubor s volitelné argumenty, které musí být spuštěna vždy, když stisknete klávesu F5, bez ohledu na soubor, který je aktuálně aktivní v editoru.
 
