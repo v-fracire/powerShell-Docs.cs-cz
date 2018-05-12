@@ -1,14 +1,14 @@
 ---
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
-title: Další learning prostředí powershell
-ms.openlocfilehash: bed263df0ff52ec687bc7a644470f0397d0106ff
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+title: Další zdroje informací o PowerShellu
+ms.openlocfilehash: b0e17a6894468696365e5a553e6ffccfaa8eb499
+ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="more-powershell-learning"></a>Další Learning prostředí PowerShell
+# <a name="more-powershell-learning"></a>Další zdroje informací o PowerShellu
 
 Další zdroje další prostředí PowerShell
 

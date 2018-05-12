@@ -1,16 +1,16 @@
 ---
 description: Další informace o historii verzí pro rozšíření konfigurace požadovaného stavu (DSC) v Azure.
-ms.date: 03/14/2018
+ms.date: 05/09/2018
 ms.topic: conceptual
 keywords: DSC prostředí powershell, azure, rozšíření
 title: Historie verzí Azure rozšíření DSC
 author: DCtheGeek
 ms.author: dacoulte
-ms.openlocfilehash: a183137dde302811874bd5466c35bccebca5d128
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 59c014b4b169a589561f57c1ee2a5e861137aee5
+ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-desired-state-configuration-extension-version-history"></a>Historie verzí rozšíření konfigurace požadovaná stavu Azure
 
@@ -20,10 +20,10 @@ Tento článek poskytuje informace o každou verzi rozšíření virtuálního p
 
 ## <a name="latest-versions"></a>Nejnovější verze
 
-### <a name="version-275"></a>Verze 2,75
+### <a name="version-276"></a>Verze 2.76
 
 - **Datum vydání:**
-  - 5. března 2018
+  - 9 může 2018
 - **Podpora operačního systému:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -35,9 +35,45 @@ Tento článek poskytuje informace o každou verzi rozšíření virtuálního p
   - WMF 5.1
   - WMF 5.0 RTM
   - Aktualizace WMF 4.0
-  - WMF 4.0
+  - FORMÁT WMF 4.0
 - **Prostředí:**
   - Azure
+- **Poznámky:** tato verze používá DSC, jak je zahrnutá v systému Windows Server 2016; pro další operační systémy Windows se instaluje [Windows Management Framework 5.1](https://blogs.msdn.microsoft.com/powershell/2016/12/06/wmf-5-1-releasing-january-2017/) (instalaci WMF vyžaduje restart). Pro Nano Server je nainstalována DSC role do virtuálního počítače.
+- **Nové funkce:**
+  - Zlepšování rozšíření metadat pro substatus a dalších menšími opravami chyb.
+
+### <a name="version-219"></a>Verze 2.19
+
+- **Datum vydání:**
+  - 3. června 2016
+- **Podpora operačního systému:**
+  - Windows Server 2016 Technical Preview
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+- **Podpora produktu WMF:**
+  - WMF 5.0 RTM
+  - Aktualizace WMF 4.0
+  - FORMÁT WMF 4.0
+- **Prostředí:**
+  - Azure
+  - Azure Čína
+  - Azure Government
+- **Poznámky:** tato verze používá DSC, jak je zahrnutá ve Windows serveru 2016 Technical Preview; pro další operační systémy, nainstaluje [Windows Management Framework 5.0 RTM](https://blogs.msdn.microsoft.com/powershell/2015/12/16/windows-management-framework-wmf-5-0-rtm-is-now-available/) (instalaci WMF vyžaduje restart).
+- **Nové funkce:**
+  - Rozšíření DSC je teď na zahrnuté do Číny Azure. Tato verze obsahuje především opravy pro spuštění rozšíření na Azure China.
+
+## <a name="supported-versions"></a>Podporované verze
+
+> [!WARNING]
+> Verze 2.4 prostřednictvím 2.13 použijte WMF 5.0 Public Preview, jejichž podpisové certifikáty vyprší za srpna 2016.  Další informace o tomto problému najdete v tématu [příspěvku na blogu](https://blogs.msdn.microsoft.com/powershell/2016/05/24/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
+
+### <a name="version-275"></a>Verze 2,75
+
+- **Datum vydání:** 5 března 2018
+- **Podpora operačního systému:** systému Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows klienta 7/8.1/10, Nano Server
+- **Podpora produktu WMF:** WMF 5.1, WMF 5.0 RTM, aktualizace WMF 4.0, WMF 4.0
+- **Prostředí:** Azure
 - **Poznámky:** tato verze používá DSC, jak je zahrnutá v systému Windows Server 2016; pro další operační systémy Windows se instaluje [Windows Management Framework 5.1](https://blogs.msdn.microsoft.com/powershell/2016/12/06/wmf-5-1-releasing-january-2017/) (instalaci WMF vyžaduje restart). Pro Nano Server je nainstalována DSC role do virtuálního počítače.
 - **Nové funkce:**
   - Po Githubu poslední přesun do protokolu TLS 1.2 nelze připojit virtuální počítač pro Azure Automation DSC pomocí šablon DIY Resource Manageru, které jsou k dispozici na webu Azure Marketplace nebo pomocí rozšíření DSC získat žádné konfiguraci hostované na Githubu. Zobrazí se zpráva podobná následující při nasazování rozšíření:
@@ -68,32 +104,6 @@ Tento článek poskytuje informace o každou verzi rozšíření virtuálního p
     ```
 
   - Teď se vynucuje TLS 1.2, v nové verzi rozšíření. Při nasazování rozšíření, pokud již máte AutoUpgradeMinorVersion = true v šabloně Resource Manager, pak rozšíření získají autoupgraded k 2,75. Pro ruční aktualizace, zadejte `TypeHandlerVersion = 2.75` v šabloně Resource Manager.
-
-### <a name="version-219"></a>Verze 2.19
-
-- **Datum vydání:**
-  - 3. června 2016
-- **Podpora operačního systému:**
-  - Windows Server 2016 Technical Preview
-  - Windows Server 2012 R2
-  - Windows Server 2012
-  - Windows Server 2008 R2 SP1
-- **Podpora produktu WMF:**
-  - WMF 5.0 RTM
-  - Aktualizace WMF 4.0
-  - WMF 4.0
-- **Prostředí:**
-  - Azure
-  - Azure China
-  - Azure Government
-- **Poznámky:** tato verze používá DSC, jak je zahrnutá ve Windows serveru 2016 Technical Preview; pro další operační systémy, nainstaluje [Windows Management Framework 5.0 RTM](https://blogs.msdn.microsoft.com/powershell/2015/12/16/windows-management-framework-wmf-5-0-rtm-is-now-available/) (instalaci WMF vyžaduje restart).
-- **Nové funkce:**
-  - Rozšíření DSC je teď na zahrnuté do Číny Azure. Tato verze obsahuje především opravy pro spuštění rozšíření na Azure China.
-
-## <a name="supported-versions"></a>Podporované verze
-
-> [!WARNING]
-> Verze 2.4 prostřednictvím 2.13 použijte WMF 5.0 Public Preview, jejichž podpisové certifikáty vyprší za srpna 2016.  Další informace o tomto problému najdete v tématu [příspěvku na blogu](https://blogs.msdn.microsoft.com/powershell/2016/05/24/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
 
 ### <a name="version-270---272"></a>Verze 2.70 2.72
 
