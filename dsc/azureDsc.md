@@ -1,13 +1,12 @@
 ---
 ms.date: 03/15/2018
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Použití platformy DSC v Microsoft Azure
-ms.openlocfilehash: 5b0d577e1fecdeac38c2c5f8e955a2d23b1eb707
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: d35488c3f66895e930eaa84360f3d3ec9d74e9c7
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-dsc-on-microsoft-azure"></a>Použití platformy DSC v Microsoft Azure
 
@@ -27,6 +26,6 @@ Další informace najdete v těchto tématech:
 
 [Služba Azure Automation](https://azure.microsoft.com/services/automation/) vám umožní spravovat konfigurace DSC, prostředky a spravované uzly z v rámci Azure. Další informace najdete v těchto tématech:
 
-- [Azure Automation DSC](/azure/automation/automation-dsc-overview)
+- [Azure Automation DSC.](/azure/automation/automation-dsc-overview)
 - [Začínáme s Azure Automation DSC.](/azure/automation/automation-dsc-getting-started)
 - [Registrace počítačů pro správu Azure Automation DSC.](/azure/automation/automation-dsc-onboarding)

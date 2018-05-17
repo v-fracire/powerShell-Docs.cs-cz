@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 1f165afbcd8fe8dc5f72cc7ea557d21ce2884e91
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 2d6a25908de746e296bef91e05c3d4e250aa77c9
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="nonewline-parameter"></a>Parametr NoNewLine
 **Out-File**, **obsahu přidat**, a **obsah sady** Teď máte nový **– NoNewline** přepínač, který jednoduše za výstupem vynechá nový řádek.

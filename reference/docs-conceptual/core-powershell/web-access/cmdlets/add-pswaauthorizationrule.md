@@ -1,17 +1,14 @@
 ---
-description: ''
-ms.topic: article
-ms.prod: powershell
+ms.topic: reference
 keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
-title: Přidat pswaauthorizationrule
-ms.technology: powershell
+title: Add-PswaAuthorizationRule
 schema: 2.0.0
-ms.openlocfilehash: 07ddd4df6a776f3ef6763242f8682747b9b97061
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: b8020f8b034ab24d79a96da3908e9b63bf017cd9
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-pswaauthorizationrule"></a>Add-PswaAuthorizationRule
 
@@ -68,10 +65,10 @@ Určuje název skupiny počítačů ve službě Active Directory Domain Services
 | Povinné?                            | Hodnota TRUE                                 |
 | Pozice?                            | S názvem                                |
 | Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
+| Přijmout kanálový vstup?               | Hodnotu true (ByPropertyName)                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-computernameltstringgt"></a>-ComputerName&lt;String&gt;
+### <a name="-computernameltstringgt"></a>-ComputerName&lt;řetězec&gt;
 
 Určuje název počítače, na kterou toto pravidlo udělí přístup.
 
@@ -81,7 +78,7 @@ Určuje název počítače, na kterou toto pravidlo udělí přístup.
 | Povinné?                            | Hodnota TRUE                                 |
 | Pozice?                            | S názvem                                |
 | Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
+| Přijmout kanálový vstup?               | Hodnotu true (ByPropertyName)                |
 | Přijímat zástupné znaky?          | false                                |
 
 ### <a name="-configurationnameltstringgt"></a>-ConfigurationName&lt;řetězec&gt;
@@ -94,7 +91,7 @@ Určuje název konfigurace relace prostředí Windows PowerShell, také známé 
 | Povinné?                            | Hodnota TRUE                                 |
 | Pozice?                            | S názvem                                |
 | Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
+| Přijmout kanálový vstup?               | Hodnotu true (ByPropertyName)                |
 | Přijímat zástupné znaky?          | false                                |
 
 ### <a name="-credentialltpscredentialgt"></a>-Credential&lt;PSCredential&gt;
@@ -134,7 +131,7 @@ Určuje popisný název pro toto pravidlo.
 | Povinné?                            | false                                |
 | Pozice?                            | S názvem                                |
 | Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
+| Přijmout kanálový vstup?               | Hodnotu true (ByPropertyName)                |
 | Přijímat zástupné znaky?          | false                                |
 
 ### <a name="-usergroupnameltstringgt"></a>-UserGroupName&lt;String\[\]&gt;
@@ -147,10 +144,10 @@ Určuje název jednoho nebo víc skupin uživatelů ve službě AD DS nebo míst
 | Povinné?                            | Hodnota TRUE                                 |
 | Pozice?                            | S názvem                                |
 | Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
+| Přijmout kanálový vstup?               | Hodnotu true (ByPropertyName)                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-usernameltstringgt"></a>-UserName&lt;String\[\]&gt;
+### <a name="-usernameltstringgt"></a>-UserName&lt;řetězec\[\]&gt;
 
 Určuje jeden nebo více uživatelů, na které toto pravidlo udělí přístup. Uživatelské jméno může být místní uživatelský účet v počítači brány nebo uživatele ve službě AD DS.
 Formát je `domain\user` nebo `computer\user`.
@@ -252,5 +249,5 @@ Add-PswaAuthorizationRule –UserName * -ComputerName * -ConfigurationName *
 - [Test-PswaAuthorizationRule](https://technet.microsoft.com/en-us/library/jj592892(v=wps.630).aspx)
 - [Rutiny Install-PswaWebApplication](https://technet.microsoft.com/en-us/library/jj592894(v=wps.630).aspx)
 - [Přidat člena](http://go.microsoft.com/fwlink/p/?LinkId=113280)
-- [New-Object](http://go.microsoft.com/fwlink/p/?LinkId=113355)
+- [Nový objekt](http://go.microsoft.com/fwlink/p/?LinkId=113355)
 - [Get-Credential](http://go.microsoft.com/fwlink/?LinkID=293936)

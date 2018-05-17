@@ -1,16 +1,13 @@
 ---
-description: ''
-ms.topic: article
-ms.prod: powershell
+ms.topic: reference
 keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
-title: Test pswaauthorizationrule
-ms.technology: powershell
-ms.openlocfilehash: ed6d56b2f3c4ee4ac410cdaadda312bffe506ee9
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+title: Test-PswaAuthorizationRule
+ms.openlocfilehash: 08248e65be229f9d0f4d606d6c0d039d86ced054
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="test-pswaauthorizationrule"></a>Test-PswaAuthorizationRule
 
@@ -18,7 +15,7 @@ ms.lasthandoff: 04/09/2018
 
 Ověřuje, zda pravidla pro zadaného uživatele, počítače nebo koncový bod neexistuje.
 
-## <a name="syntax"></a>SYNTAX
+## <a name="syntax"></a>SYNTAXE
 
 ### <a name="computername"></a>ComputerName
 ```

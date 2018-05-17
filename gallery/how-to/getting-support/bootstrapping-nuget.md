@@ -1,6 +1,13 @@
-
 ---
-MS.Date: Přispěvatel 12/06/2017: manikb ms.topic: referenční klíčová slova: Galerie prostředí powershell, rutiny, psget title: zavádění NuGet
+ms.date: 06/12/2017
+contributor: manikb
+keywords: Galerie prostředí powershell, rutiny, psget
+title: Zavedení spouštěcího programu NuGet
+ms.openlocfilehash: f707e23737361ee7f82a16150402c9e719ee0ae1
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="bootstrap-the-nuget-provider-and-nugetexe"></a>Bootstrap zprostředkovatele NuGet a NuGet.exe
 

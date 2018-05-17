@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
-ms.openlocfilehash: a3803a8e6fe6ff1b93758a73ccd54754d7bb2a84
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: ce0f2ed79f5f96a1c38e0beaf32529aba7538963
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="building-a-continuous-integration-and-continuous-deployment-pipeline-with-dsc"></a>Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
 
@@ -373,7 +372,7 @@ Nyní nastavíme aktivační událost, která způsobí, že projekt sestavení 
 1. V sadě TFS, klikněte **sestavení a verze** karta
 1. Vyberte `DNS Infra` definice sestavení a klikněte na tlačítko **upravit**
 1. Klikněte **aktivační události** karta
-1. Vyberte **průběžnou integraci (CI)**a vyberte `refs/heads/ci-cd-example` v rozevíracím seznamu firemní pobočky
+1. Vyberte **průběžnou integraci (CI)** a vyberte `refs/heads/ci-cd-example` v rozevíracím seznamu firemní pobočky
 1. Klikněte na tlačítko **Uložit** a potom **OK**
 
 Nyní každé změně aktivačních událostí úložišti git sady TFS automatizované sestavení.

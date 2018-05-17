@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: DSC pro Linux nxFileLine prostředků
-ms.openlocfilehash: 798bfa4150996622c33c77d6a5aa3be4af342f1b
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 6b927839c23478aa9916a5d23836b31fccc58484
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dsc-for-linux-nxfileline-resource"></a>DSC pro Linux nxFileLine prostředků
 
@@ -30,7 +29,7 @@ nxFileLine <string> #ResourceName
 
 |  Vlastnost |  Popis |
 |---|---|
-| FilePath| Úplná cesta k souboru ke správě řádků v na cílový uzel.|
+| Cesta k souboru| Úplná cesta k souboru ke správě řádků v na cílový uzel.|
 | ContainsLine| Řádek zajistit existuje v souboru. Tento řádek bude připojen k souboru, pokud neexistuje v souboru. **ContainsLine** je povinná, ale můžete nastavit na prázdný řetězec ("ContainsLine =".) Pokud není nutné.|
 | DoesNotContainPattern| Vzor regulárního výrazu řádky, které by neměly existovat v souboru. Pro všechny řádky, které existují v souboru odpovídající regulárnímu výrazu se odeberou ze souboru na řádku.|
 | dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|

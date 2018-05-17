@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: DSC pro Linux nxPackage prostředků
-ms.openlocfilehash: 0a62bb01c2daa57bd5d6f1ef131ec8ae6d6f81ee
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 64bb89a95bd6cbaea4e74b8a9979de52428fef3f
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dsc-for-linux-nxpackage-resource"></a>DSC pro Linux nxPackage prostředků
 
@@ -37,7 +36,7 @@ nxPackage <string> #ResourceName
 | Název| Název balíčku, pro které chcete zajistit určitý stav.|
 | Ujistěte se| Určuje, jestli se má zkontrolovat, zda balíček existuje. Nastavením této vlastnosti "Přítomen" zajistěte, aby byl že balíček existuje. Nastavte ji na "Chybí" zajistěte, aby byl že balíček neexistuje. Výchozí hodnota je "Dispozici".|
 | PackageManager| Podporované hodnoty jsou "yum", "výstižný" a "zypper". Určuje Správce balíčků, které chcete použít při instalaci balíčků. Pokud **FilePath** je zadán, že zadaná cesta se použije k instalaci balíčku. Správce balíčků, jinak hodnota použije k instalaci balíčku z předem nakonfigurovaná úložiště. Pokud ani **PackageManager** ani **FilePath** součástí jsou výchozí Správce balíčků pro systém, který se použije.|
-| FilePath| Cesta k souboru, ve kterém se nachází balíček|
+| Cesta k souboru| Cesta k souboru, ve kterém se nachází balíček|
 | PackageGroup| Pokud **$true**, **název** musí být název skupiny balíček pro použití s **PackageManager**. **PacakgeGroup** není platný při poskytování **FilePath**.|
 | Argumenty| Řetězec argumenty, které se předá do balíčku přesně tak, jak zadat.|
 | ReturnCode| Očekávaný návratový kód. Pokud skutečnou návratový kód neodpovídá očekávané hodnotě zadané tady že konfigurace vrátí chybu.|

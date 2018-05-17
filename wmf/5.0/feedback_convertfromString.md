@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: cedda61241df4965fe5db723f03e3497f046fa44
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: e4588e8c69efb965cd33c273ad09a8bef8e9bf16
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="extract-and-parse-structured-objects-out-of-string"></a>Extrakce a analýza strukturovaných objektů mimo řetězec
 Vzniká některé další funkce pro rutinu ConvertFrom řetězec:
@@ -87,6 +85,6 @@ Z této sady příklady **ConvertFrom řetězec** může nyní automaticky extra
 >
 > ExtentText název města stavu
 > ----------                     ----               ----     -----
-> Ana Trujillo...                ANA Trujillo Redmond WA Antonio Moreno...              Antonio Moreno Renton WA Thomas Hardy...                Thomas Hardy Seattle WA Jana Berglund...          Jana Berglund Redmond WA Hanna Moos...                  Hanna Moos Puyallup WA
+> ANA Trujillo...                ANA Trujillo Redmond WA Antonio Moreno...              Antonio Moreno Renton WA Thomas Hardy...                Thomas Hardy Seattle WA Jana Berglund...          Jana Berglund Redmond WA Hanna Moos...                  Hanna Moos Puyallup WA
 
 Udělat manipulaci s daty další na extrahované textu **ExtentText** vlastnost zaznamená nezpracovaný text, ze kterého jste extrahovali záznamu. K poskytnutí zpětné vazby o této funkci nebo pro sdílení obsahu, pro které máte potíže s zápis příklady, pošlete e-mail <psdmfb@microsoft.com>.

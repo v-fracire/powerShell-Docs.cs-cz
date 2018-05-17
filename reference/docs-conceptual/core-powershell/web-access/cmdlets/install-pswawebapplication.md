@@ -1,16 +1,13 @@
 ---
-description: ''
-ms.topic: article
-ms.prod: powershell
+ms.topic: reference
 keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
-title: Nainstalujte pswawebapplication
-ms.technology: powershell
-ms.openlocfilehash: c7f7768a41b6784d8c29afa1fccf0b855160b777
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+title: Install-PswaWebApplication
+ms.openlocfilehash: 68455d9490f7d5c33c1a928ac262a76a78ad7128
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-pswawebapplication"></a>Install-PswaWebApplication
 
@@ -18,7 +15,7 @@ ms.lasthandoff: 04/09/2018
 
 Nakonfiguruje Windows PowerShell® Web Access webové aplikace ve službě IIS.
 
-## <a name="syntax"></a>SYNTAX
+## <a name="syntax"></a>SYNTAXE
 
 ### <a name="default"></a>Výchozí
 ```
@@ -44,7 +41,7 @@ Určuje, jestli je vytvořená testovací certifikát. Pokud tento parametr je n
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-webapplicationnameltstringgt"></a>-WebApplicationName&lt;String&gt;
+### <a name="-webapplicationnameltstringgt"></a>-WebApplicationName&lt;řetězec&gt;
 
 Určuje název webové aplikace. Zobrazuje se jako poslední část Windows PowerShell Web Access URL.
 
@@ -57,7 +54,7 @@ Určuje název webové aplikace. Zobrazuje se jako poslední část Windows Powe
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-websitenameltstringgt"></a>-WebSiteName&lt;String&gt;
+### <a name="-websitenameltstringgt"></a>-Zadaným hodnotám WebSiteName&lt;řetězec&gt;
 
 Určuje název webového serveru (IIS) webu, na který chcete nainstalovat tuto webovou aplikaci Windows PowerShell Web Access.
 

@@ -1,16 +1,15 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-ms.topic: reference
 keywords: Galerie prostředí powershell, rutiny, psget
-title: Instalace PowerShellGet
-ms.openlocfilehash: 6190c7caee61b43e70073ff7b30f867a901d3042
-ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
+title: Instalace modulu PowerShellGet
+ms.openlocfilehash: 35be7d02ea856ea39218f05d32b43c60fa1bd53e
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="get-powershellget-module"></a>Získat modul PowerShellGet
+# <a name="installing-powershellget"></a>Instalace modulu PowerShellGet
 
 ## <a name="powershellget-is-an-in-box-module-in-the-following-releases"></a>PowerShellGet je modul integrované v následujících verzích
 

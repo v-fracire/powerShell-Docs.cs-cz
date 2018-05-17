@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Začínáme s potřeby konfigurace stavu (DSC) pro Linux
-ms.openlocfilehash: b2f35ebe84dfd9f68ca07e7630534be59f8a1aa3
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 0534cede979eb2917adb608dba622539fe4bdc45
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-desired-state-configuration-dsc-for-linux"></a>Začínáme s potřeby konfigurace stavu (DSC) pro Linux
 
@@ -27,7 +26,7 @@ Následující tabulka popisuje závislosti požadovaný balíček pro DSC pro L
 
 |  Požadovaný balíček |  Popis |  Minimální verze |
 |---|---|---|
-| glibc| Knihovna GNU| 2…4 – 31.30|
+| Glibc| Knihovna GNU| 2... 4 – 31.30|
 | Python| Python| 2.4 – 3.4|
 | omiserver| Infrastruktura OMI (Open Management Infrastructure)| 1.0.8.1|
 | OpenSSL| Knihovny OpenSSL| 0.9.8 nebo 1.0|
@@ -181,4 +180,4 @@ Následující soubory protokolu jsou generovány pro DSC pro Linux zprávy.
 |Soubor protokolu|Adresář|Popis|
 |---|---|---|
 |omiserver.log|/var/OPT/OMI/log|Zprávy týkající se operace server OMI CIM.|
-|dsc.log|/var/OPT/OMI/log|Zprávy týkající se operace operace prostředků místní Configuration Manager (LCM) a DSC.|
+|DSC.log|/var/OPT/OMI/log|Zprávy týkající se operace operace prostředků místní Configuration Manager (LCM) a DSC.|

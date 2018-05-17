@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 7e24bb4ee4d0658b0619f7f008e3740f647f124f
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: ce68bc57a5da049cf895165420ba7c4e21b3e63b
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="system-requirements"></a>Systémové požadavky
 
@@ -55,7 +53,7 @@ Zajistěte, aby byly splněny následující požadavky:
 Systémy Windows Server 2008 R2 SP1 a Windows 7 SP1 mají integrované prostředí PowerShell 2.0, WinRM a WMI. Podpora produktu WMF 3.0 a WMF 4.0 balíčků, které aktualizace těchto integrované komponenty, byly vydané po vydání verze Windows Server 2008 R2 SP1 a Windows 7 SP1. Instalace nebo odinstalace produktu WMF 3.0 a WMF 4.0 balíčky zjištěných některé problémy v následující cestě upgradu:
 
 - Předdefinované--> WMF 4.0
-- Built-in --> WMF 3.0 --> WMF4.0.
+- Předdefinované--> WMF 3.0--> WMF4.0.
 
 Vyřešili všechny tyto problémy v balíčcích WMF 4.0. Pro instalaci WMF 5.0 na Windows Server 2008 R2 SP1 a Windows 7 SP1 je proto předpokladem WMF 4.0. V následující tabulce jsou konkrétní problémy, které mohou nastat pokud před upgradem na verzi WMF 5.0 nenainstalujete WMF 4.0:
 

@@ -1,15 +1,14 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
+ms.topic: conceptual
 contributor: vaibch
 title: Chyba rutiny správce přepínače sítě
-ms.openlocfilehash: 626809513e7a8f1aa2c47a48c74e69ca4077f598
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 197a25411a82e5d256a9420706535d5411991f1b
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 Rutiny správce přepínače sítě můžete použít ke správě přepínače sítě prostřednictvím služby WSMAN.
 Jsou schopný přijímat hodnoty z kanálů několik rutiny tohoto modulu.
@@ -20,33 +19,33 @@ Pokud není použit parametr "InputObject", by měly být nadále rutina spustí
 Tady je seznam ovlivněných rutin, tj. Tyto rutiny může přijmout hodnotu pro parametr "InputObject" z kanálu.
 Provádění rutiny se nezdaří, pokud není tato hodnota předaná z kanálu.
 
-- Disable-NetworkSwitchEthernetPort
-- Enable-NetworkSwitchEthernetPort
-- Remove-NetworkSwitchEthernetPortIPAddress
+- Zakázat NetworkSwitchEthernetPort
+- Povolit NetworkSwitchEthernetPort
+- Odebrat NetworkSwitchEthernetPortIPAddress
 - Set-NetworkSwitchEthernetPortIPAddress
 - Set-NetworkSwitchPortMode
 - Set-NetworkSwitchPortProperty
-- Disable-NetworkSwitchFeature
-- Enable-NetworkSwitchFeature
-- Remove-NetworkSwitchVlan
+- Zakázat NetworkSwitchFeature
+- Povolit NetworkSwitchFeature
+- Odebrat NetworkSwitchVlan
 - Set-NetworkSwitchVlanProperty
 
 ### <a name="resolution"></a>Řešení
 Rutiny pracovní dobře, když je hodnota parametru InputObject se předávají do ní prostřednictvím kanálu. Několik příkladů, které fungují pro výše uvedené rutiny jsou:
 
-- Disable-NetworkSwitchEthernetPort
+- Zakázat NetworkSwitchEthernetPort
 ```powershell
 $port = Get-CimInstance -Namespace root/interop -ClassName CIM_EthernetPort -CimSession $cimSession | Select-Object -First 1
 $port | Disable-NetworkSwitchEthernetPort -CimSession $cimSession
 ```
 
-- Enable-NetworkSwitchEthernetPort
+- Povolit NetworkSwitchEthernetPort
 ```powershell
 $port = Get-CimInstance -Namespace root/interop -ClassName CIM_EthernetPort -CimSession $cimSession | Select-Object -First 1
 $port | Enable-NetworkSwitchEthernetPort -CimSession $cimSession
 ```
 
-- Remove-NetworkSwitchEthernetPortIPAddress
+- Odebrat NetworkSwitchEthernetPortIPAddress
 ```powershell
 $port = Get-CimInstance -Namespace root/interop -ClassName CIM_EthernetPort -CimSession $cimSession | Select-Object -First 1
 $port | Remove-NetworkSwitchEthernetPortIPAddress -CimSession $cimSession
@@ -67,13 +66,13 @@ $port = Get-CimInstance -Namespace root/interop -ClassName CIM_EthernetPort -Cim
 $port | Set-NetworkSwitchPortProperty -Property $portProperties -CimSession $cimSession
 ```
 
-- Disable-NetworkSwitchFeature
+- Zakázat NetworkSwitchFeature
 ```powershell
 $feature = Get-CimInstance -Namespace root/interop -ClassName MSFT_Feature -CimSession $cimSession | Select-Object -First 1
 $feature | Disable-NetworkSwitchFeature -CimSession $cimSession
 ```
 
-- Enable-NetworkSwitchFeature
+- Povolit NetworkSwitchFeature
 ```powershell
 $feature = Get-CimInstance -Namespace root/interop -ClassName MSFT_Feature -CimSession $cimSession | Select-Object -First 1
 $feature | Enable-NetworkSwitchFeature -CimSession $cimSession

@@ -1,14 +1,13 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
+ms.topic: conceptual
 keywords: wmf,powershell,setup
 title: Katalogové rutiny
-ms.openlocfilehash: f46fb99b61ff8008c247f6db4ed57ae6e6e81b9b
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 7eaca09667af0eb5d719f23e987bb112e8514978
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="catalog-cmdlets"></a>Rutiny katalogu
 
@@ -37,7 +36,7 @@ Tím se vytvoří soubor katalogu.
 Chcete-li ověřit integritu soubor katalogu (Pester.cat v výše exmaple) by měla být podepsána, pomocí [Set-AuthenticodeSignature](https://technet.microsoft.com/library/hh849819.aspx) rutiny.
 
 
-## <a name="test-filecatalog"></a>Test-FileCatalog
+## <a name="test-filecatalog"></a>Test FileCatalog
 --------------------------------
 
 `Test-FileCatalog` ověří katalogu představující sadu složek.

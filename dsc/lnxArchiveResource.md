@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: DSC pro Linux nxArchive prostředků
-ms.openlocfilehash: 142f0317914f1bd3a0523d706b19662f3f64c8b6
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 800954478f149e29c22d1a88304c3be9950f109a
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dsc-for-linux-nxarchive-resource"></a>DSC pro Linux nxArchive prostředků
 
@@ -32,7 +31,7 @@ nxArchive <string> #ResourceName
 |  Vlastnost |  Popis |
 |---|---|
 | SourcePath| Určuje zdroj cestu k souboru archivu. Měl by být .tar, .zip, nebo. tar.gz souboru. |
-| DestinationPath| Určuje umístění, kam chcete zajistit, aby že se extrahují obsah archivu.|
+| Cílová_cesta| Určuje umístění, kam chcete zajistit, aby že se extrahují obsah archivu.|
 | Kontrolní součet| Definuje typ, který má použít při určování, zda byly aktualizovány archivu zdroje. Hodnoty: "ctime", "mtime" nebo "md5". Výchozí hodnota je "md5".|
 | Force| Některé operace souboru (například přepsání souboru nebo odstranění adresáře, který není prázdný) bude výsledkem chyba. Pomocí **Force** vlastnost má přednost před takové chyby. Výchozí hodnota je **$false**.|
 | dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|

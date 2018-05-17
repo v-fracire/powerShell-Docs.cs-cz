@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 269f4112704067f291728e4c1d745d68ec6ccd6f
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 9a9bdac652512640209c20e3deb20d7abc0142c6
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="register-a-powershell-repository"></a>Registrace powershellového úložiště
 Můžete nakonfigurovat PowerShellGet pracovat s interní úložiště. To se provádí pomocí těmito přídavky:

@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Konfigurace virtuálních počítačů na počáteční spouštěcí up pomocí DSC
-ms.openlocfilehash: e6ff83b9a09f93277904c80e8e52f3db5e818739
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: d6dd997e607152d09d24b55370bb2f85810b333e
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 >Platí pro: Prostředí Windows PowerShell 5.0
 

@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Prostředek DSC souboru
-ms.openlocfilehash: 7964eabe5f4585600ae80f3e5ff7439c0d954769
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 86a5dcd97b4163b3780038c815d3de5a523ce4bf
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dsc-file-resource"></a>Prostředek DSC souboru
 
@@ -41,7 +40,7 @@ File [string] #ResourceName
 
 |  Vlastnost  |  Popis   |
 |---|---|
-| DestinationPath| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
+| Cílová_cesta| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
 | Atributy| Určuje požadovaný stav atributy pro cílový soubor nebo adresář.|
 | Kontrolní součet| Označuje typ kontrolního součtu použít při určování, zda dva soubory jsou stejné. Pokud __kontrolního součtu__ není zadán, pro porovnání se používá pouze název souboru nebo adresáře. Platné hodnoty patří: SHA-1, SHA-256, SHA-512, datum vytvoření, modifiedDate.|
 | Obsah| Určuje obsah souboru, například konkrétní řetězec.|

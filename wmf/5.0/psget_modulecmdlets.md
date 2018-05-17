@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 89e996942cdc2609c670e8e5ba2c576ff6342a9c
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 02aebbd2557298b1b88229fdf5f67bdd08cea452
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="powershellget-cmdlets-for-module-management"></a>Rutiny správce balíčků PowerShellGet pro správu modulů
 
@@ -18,22 +16,22 @@ ms.lasthandoff: 04/09/2018
 - [Get-InstalledScript](https://technet.microsoft.com/en-us/library/mt653994.aspx)
 - [Get-PSRepository](https://technet.microsoft.com/en-us/library/dn807170.aspx)
 - [Instalace modulu](https://technet.microsoft.com/en-us/library/dn807162.aspx)
-- [Install-Script](https://technet.microsoft.com/en-us/library/mt653998.aspx)
+- [Instalační skript](https://technet.microsoft.com/en-us/library/mt653998.aspx)
 - [New-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt653995.aspx)
-- [Publish-Module](https://technet.microsoft.com/en-us/library/dn807163.aspx)
+- [Publikování modulu](https://technet.microsoft.com/en-us/library/dn807163.aspx)
 - [Publish-Script](https://technet.microsoft.com/en-us/library/mt654003.aspx)
-- [Register-PSRepository](https://technet.microsoft.com/en-us/library/dn807168.aspx)
-- [Save-Module](https://technet.microsoft.com/en-us/library/mt653992.aspx)
+- [Registrace PSRepository](https://technet.microsoft.com/en-us/library/dn807168.aspx)
+- [Uložit – modul](https://technet.microsoft.com/en-us/library/mt653992.aspx)
 - [Save-Script](https://technet.microsoft.com/en-us/library/mt654004.aspx)
 - [Set-PSRepository](https://technet.microsoft.com/en-us/library/dn807165.aspx)
 - [Test-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt654005.aspx)
-- [Uninstall-Module](https://technet.microsoft.com/en-us/library/mt653996.aspx)
-- [Uninstall-Script](https://technet.microsoft.com/en-us/library/mt653989.aspx)
-- [Update-Module](https://technet.microsoft.com/en-us/library/dn807166.aspx)
+- [Odinstalujte modul](https://technet.microsoft.com/en-us/library/mt653996.aspx)
+- [Odinstalujte skriptu](https://technet.microsoft.com/en-us/library/mt653989.aspx)
+- [Aktualizace modulu](https://technet.microsoft.com/en-us/library/dn807166.aspx)
 - [Update-ModuleManifest](https://technet.microsoft.com/en-us/library/mt654002.aspx)
 - [Update-Script](https://technet.microsoft.com/en-us/library/mt653997.aspx)
 - [Update-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt653991.aspx)
-- [Unregister-PSRepository](https://technet.microsoft.com/en-us/library/dn807161.aspx)
+- [Zrušit registraci PSRepository](https://technet.microsoft.com/en-us/library/dn807161.aspx)
 
 ## <a name="module-dependency-installation-support-get-installedmodule-and-uninstall-module-cmdlets"></a>Podpora instalace modulu závislostí, Get-InstalledModule a odinstalace modulu rutiny
 - Přidat modul závislosti naplnění v rutině modulu publikovat. Seznamy RequiredModules a NestedModules PSModuleInfo se používají při přípravě seznamu závislostí modulu k publikování.

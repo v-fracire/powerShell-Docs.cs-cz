@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Psaní vlastních prostředků DSC s MOF
-ms.openlocfilehash: 4e336e837d2153fecab8325cb8714ffed85a6175
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 50b5f2eddbac4571f5351b32648d45c54ded167e
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="writing-a-custom-dsc-resource-with-mof"></a>Psaní vlastních prostředků DSC s MOF
 

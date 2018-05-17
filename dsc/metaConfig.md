@@ -1,13 +1,12 @@
 ---
 ms.date: 10/11/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Konfigurace správce místní konfigurace
-ms.openlocfilehash: d5a2584b23abd8eb0f1359bc452d16c7380dbaac
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 924abe12aa865989e83c975b599b3b65ddd45655
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-the-local-configuration-manager"></a>Konfigurace správce místní konfigurace
 
@@ -75,7 +74,7 @@ Následující vlastnosti jsou k dispozici v **nastavení** bloku.
 | ActionAfterReboot| řetězec| Určuje, co se stane po restartu během použití konfigurace. Možné hodnoty jsou __"ContinueConfiguration"__ a __"StopConfiguration"__. <ul><li> __ContinueConfiguration__: pokračovat v použití aktuální konfiguraci po restartování počítače. Toto je výchozí hodnota</li><li>__StopConfiguration__: Zastavit aktuální konfiguraci po restartování počítače.</li></ul>|
 | AllowModuleOverwrite| BOOL| __$TRUE__ Pokud nové konfigurace stažené z službu vyžádání obsahu se smí přepsat staré na cílovém uzlu. Jinak hodnota $FALSE.|
 | CertificateID| řetězec| Kryptografický otisk certifikátu k zabezpečení přihlašovacích údajů předaných v konfiguraci. Další informace najdete v části [chcete zabezpečit přihlašovací údaje v části Konfigurace požadovaného stavu aplikace Windows PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/31/want-to-secure-credentials-in-windows-powershell-desired-state-configuration.aspx)?. <br> __Poznámka:__ to probíhá automaticky při použití služby Azure Automation DSC vyžádání obsahu.|
-| ConfigurationDownloadManagers| CimInstance[]| Zastaralé. Použití __ConfigurationRepositoryWeb__ a __ConfigurationRepositoryShare__ bloky k definování konfigurace vyžadování koncové body služby.|
+| ConfigurationDownloadManagers| [CimInstance]| Zastaralé. Použití __ConfigurationRepositoryWeb__ a __ConfigurationRepositoryShare__ bloky k definování konfigurace vyžadování koncové body služby.|
 | ConfigurationID| řetězec| Pro zpětnou kompatibilitu s starší vyžádání služby verze. Identifikátor GUID, který identifikuje konfiguračního souboru získat ze služby vyžádání obsahu. Uzel načte konfigurace ve službě vyžádání obsahu, pokud se název konfigurace MOF jmenuje ConfigurationID.mof.<br> __Poznámka:__ Pokud nastavíte tuto vlastnost, registraci uzlu službou vyžádání obsahu pomocí __RegistrationKey__ nefunguje. Další informace najdete v tématu [nastavení klienta vyžádání obsahu s názvy konfigurace](pullClientConfigNames.md).|
 | ConfigurationMode| řetězec | Určuje, jak LCM ve skutečnosti použije konfiguraci pro cílové uzly. Možné hodnoty jsou __"ApplyOnly"__,__"ApplyAndMonitor"__, a __"ApplyAndAutoCorrect"__. <ul><li>__ApplyOnly__: DSC aplikuje konfiguraci a další nic neprovádí, pokud je novou konfiguraci instaluje na cílovém uzlu, nebo když je vyžádat novou konfiguraci ze služby. Po počáteční aplikaci novou konfiguraci DSC nekontroluje odlišily z dříve nakonfigurované stavu. Všimněte si, že DSC se pokusí použít konfiguraci, dokud nebude úspěšná, až poté __ApplyOnly__ projeví. </li><li> __ApplyAndMonitor__: Toto je výchozí hodnota. Všechny nové konfigurace se vztahuje LCM. Po počáteční aplikaci novou konfiguraci Pokud cílový uzel drifts z požadovaný stav sestavy DSC nesoulad mezi databází v protokolech. Všimněte si, že DSC se pokusí použít konfiguraci, dokud nebude úspěšná, až poté __ApplyAndMonitor__ projeví.</li><li>__ApplyAndAutoCorrect__: platí všechny nové konfigurace DSC. Po počáteční aplikaci novou konfiguraci Pokud cílový uzel drifts z požadovaný stav DSC sestavy nesoulad mezi databází v protokolech a poté znovu použije aktuální konfiguraci.</li></ul>|
 | ConfigurationModeFrequencyMins| UInt32| Jak často v minutách, aktuální konfiguraci je zkontrolovat a použít. Tato vlastnost se ignoruje, pokud je vlastnost ConfigurationMode nastavena na ApplyOnly. Výchozí hodnota je 15.|
@@ -83,8 +82,8 @@ Následující vlastnosti jsou k dispozici v **nastavení** bloku.
 | RebootNodeIfNeeded| BOOL| Tuto možnost nastavíte na __$true__ k automatickému restartování uzlu po konfiguraci, která vyžaduje restartování počítače se použije. Jinak je nutné ručně restartovat uzel pro všechny konfigurace, kterého se vyžaduje. Výchozí hodnota je __$false__. Pokud chcete používat toto nastavení při restartování podmínku je vydaných něco jiného než DSC (jako je například Instalační služba systému Windows), kombinací toto nastavení se [xPendingReboot](https://github.com/powershell/xpendingreboot) modulu.|
 | RefreshMode| řetězec| Určuje, jak LCM získá konfigurace. Možné hodnoty jsou __"Zakázat"__, __"Push"__, a __"Pro vyžádání obsahu"__. <ul><li>__Zakázané__: Konfigurace DSC nebudou k dispozici pro tento uzel.</li><li> __Push__: Konfigurace zahájili volání [Start-DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx) rutiny. Konfigurace se použije okamžitě na uzlu. Tato hodnota je výchozí.</li><li>__Vyžádání obsahu:__ uzlu nastaven tak, aby pravidelně kontrolovat konfigurace ze služby pull nebo cestu protokolu SMB. Pokud je tato vlastnost nastavena na __pro vyžádání obsahu__, je nutné zadat protokolu HTTP (služba) nebo cestu k protokolu SMB (sdílení) __ConfigurationRepositoryWeb__ nebo __ConfigurationRepositoryShare__ bloku.</li></ul>|
 | RefreshFrequencyMins| UInt32| Časový interval v minutách, na kterých LCM kontroluje službu vyžádání obsahu a získat aktualizované konfigurace. Tato hodnota je ignorována, pokud LCM není nakonfigurován v režimu vyžádání obsahu. Výchozí hodnota je 30.|
-| ReportManagers| CimInstance[]| Zastaralé. Použití __ReportServerWeb__ bloky k definování koncového bodu odeslat data pro vytváření sestav služby vyžádání obsahu.|
-| ResourceModuleManagers| CimInstance[]| Zastaralé. Použití __ResourceRepositoryWeb__ a __ResourceRepositoryShare__ bloky zadat vyžadování služby koncových bodů protokolu HTTP nebo protokol SMB cesty, v uvedeném pořadí.|
+| ReportManagers| [CimInstance]| Zastaralé. Použití __ReportServerWeb__ bloky k definování koncového bodu odeslat data pro vytváření sestav služby vyžádání obsahu.|
+| ResourceModuleManagers| [CimInstance]| Zastaralé. Použití __ResourceRepositoryWeb__ a __ResourceRepositoryShare__ bloky zadat vyžadování služby koncových bodů protokolu HTTP nebo protokol SMB cesty, v uvedeném pořadí.|
 | PartialConfigurations| CimInstance| Není implementováno. Nepoužívat.|
 | StatusRetentionTimeInDays | UInt32| Počet dnů, po který LCM udržuje stav aktuální konfiguraci.|
 
@@ -167,7 +166,7 @@ Další informace o částečné konfiguracích najdete v tématu [konfigurace D
 |Vlastnost|Typ|Popis|
 |---|---|---|
 |ConfigurationSource|řetězec]|Pole názvy konfigurace serverů, dříve definované v **ConfigurationRepositoryWeb** a **ConfigurationRepositoryShare** bloky, kde částečné konfigurace načítána z.|
-|dependsOn|řetězec {}|Seznam názvů ostatní konfigurace, které je třeba dokončit před použitím této částečné konfigurace.|
+|dependsOn|Řetězec{}|Seznam názvů ostatní konfigurace, které je třeba dokončit před použitím této částečné konfigurace.|
 |Popis|řetězec|Text sloužící k popisu částečné konfigurace.|
 |ExclusiveResources|řetězec]|Pole vylučují toto částečné konfiguraci prostředků.|
 |RefreshMode|řetězec|Určuje, jak LCM získá toto částečné konfigurace. Možné hodnoty jsou __"Zakázat"__, __"Push"__, a __"Pro vyžádání obsahu"__. <ul><li>__Zakázané__: Toto částečné nastavení je zakázáno.</li><li> __Push__: částečné konfigurace vložena do uzlu voláním [publikovat DscConfiguration](https://technet.microsoft.com/en-us/library/mt517875.aspx) rutiny. Po všech částečné konfigurací pro uzel se instaluje nebo ze služby, konfigurace lze spustit voláním `Start-DscConfiguration –UseExisting`. Tato hodnota je výchozí.</li><li>__Vyžádání obsahu:__ uzlu nastaven tak, aby pravidelně kontrolovat částečné konfiguraci ze služby vyžádání obsahu. Pokud je tato vlastnost nastavena na __vyžádání__, je nutné zadat vyžadování služby ve službě __ConfigurationSource__ vlastnost. Další informace o přijetí změn služba Azure Automation najdete v tématu [přehled Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview).</li></ul>|

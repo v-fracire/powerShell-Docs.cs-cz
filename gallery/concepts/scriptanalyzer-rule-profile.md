@@ -3,14 +3,14 @@ ms.date: 06/12/2017
 contributor: JKeithB
 ms.topic: conceptual
 keywords: Galerie prostředí powershell, rutiny, psgallery
-title: Profil ScriptAnazlyer pravidlo pro galerie
-ms.openlocfilehash: 74eab49e4c4a546655451ef21b30cfcafaeb9584
-ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
-ms.translationtype: MT
+title: Profil ScriptAnalyzer pravidlo pro galerie
+ms.openlocfilehash: 22b95f0901fe95d5ad79df0e23e675ab52313fee
+ms.sourcegitcommit: f8a37df92db22b9368469fb07378399b2ab90cea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="scriptanazlyer-rule-profile-for-gallery"></a>Profil ScriptAnazlyer pravidlo pro galerie
+# <a name="scriptanalyzer-rule-profile-for-gallery"></a>Profil ScriptAnalyzer pravidlo pro galerie
 
 K zajištění kvality položek, které jsou publikovány do Galerie prostředí PowerShell, spustíme [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) pravidla, která určí, jestli jsou veškerá porušení zásad ve skriptech odeslána.
 

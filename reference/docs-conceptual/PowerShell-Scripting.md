@@ -2,11 +2,11 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Skriptů prostředí PowerShell
-ms.openlocfilehash: 3304ecc3129b710a003725715803a03b68f79b45
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 7de5a3f3149d8d464b34101d94a5f9430d9b0f23
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -25,18 +25,18 @@ Prostředí Windows PowerShell je navržen pro zlepšení je prostředí příka
 ### <a name="discoverability"></a>Možnosti rozpoznání
 Prostředí Windows PowerShell snadno zjistit její funkce. Například pokud chcete najít seznam rutin, které zobrazení a změna služby systému Windows, zadejte:
 
-```
+```powershell
 Get-Command *-Service
 ```
 
 Po zjištění, které rutina provede úlohu, se více o rutině pomocí rutiny Get-Help. Například pokud chcete zobrazit nápovědu k nástroji rutinu Get-Service, zadejte:
 
-```
+```powershell
 Get-Help Get-Service
 ```
 Většina rutiny emitování objekty, které můžete s nimi manipulovat a pak se vykresluje do textu pro zobrazení. Abyste plně porozuměli tomu výstup této rutiny, prostřednictvím kanálu její výstup do rutiny Get-člen. Následující příkaz například zobrazí informace o členů výstupní objekt rutiny Get-Service.
 
-```
+```powershell
 Get-Service | Get-Member
 ```
 

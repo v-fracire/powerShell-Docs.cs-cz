@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: DSC pro Linux nxUser prostředků
-ms.openlocfilehash: 222bd2191cf5c5f0a90ba947275ffde47d22ec86
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: ca77bcd1f23a78ddb9e2ac988e4aadfec504bbbe
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dsc-for-linux-nxuser-resource"></a>DSC pro Linux nxUser prostředků
 
@@ -38,7 +37,7 @@ nxUser <string> #ResourceName
 |---|---|
 | UserName| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
 | Ujistěte se| Určuje, jestli účet existuje. Nastavením této vlastnosti "Přítomen" zajistit, že existuje účet a nastavte ji na "Chybí" zajistit, že účet neexistuje.|
-| FullName| Řetězec, který obsahuje úplný název pro uživatelský účet.|
+| Úplný název| Řetězec, který obsahuje úplný název pro uživatelský účet.|
 | Popis| Popis pro uživatelský účet.|
 | Heslo| Hodnota hash hesla uživatele v příslušný formulář pro počítače se systémem Linux. Obvykle je to solené SHA-256, nebo hodnotu hash SHA-512. Na Debian a Ubuntu Linux tato hodnota může být generována pomocí příkazu mkpasswd. Pro ostatní distribucích systému Linux metodu crypt knihovny jazyka Python Crypt slouží ke generování hodnoty hash.|
 | Zakázáno| Určuje, zda je povolen. Tuto vlastnost nastavit na **$true** zajistit, že tento účet je zakázané a nastavte ji na **$false** zajistit, že je povolena.|

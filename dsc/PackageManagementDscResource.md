@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: PackageManagement prostředek DSC
-ms.openlocfilehash: e6eea9f0bae42e131976dacb9813da759ff31239
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: f850c389214fe5adf139c3bd01fb60addc5ec238
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dsc-packagemanagement-resource"></a>PackageManagement prostředek DSC
 
@@ -49,7 +48,7 @@ PackageManagement [string] #ResourceName
 V následující tabulce je uveden seznam možností pro vlastnost Další_parametry.
 |  Parametr  | Popis   |
 |---|---|
-| DestinationPath| Používá zprostředkovatele například předdefinované zprostředkovatele Nuget. Určuje umístění souboru, kam chcete balíček, který má být nainstalován.|
+| Cílová_cesta| Používá zprostředkovatele například předdefinované zprostředkovatele Nuget. Určuje umístění souboru, kam chcete balíček, který má být nainstalován.|
 | InstallationPolicy| Používá zprostředkovatele například předdefinované zprostředkovatele Nuget. Určuje, zda je důvěryhodné zdroje balíčku. Jeden z: "Nedůvěryhodná", "Důvěryhodné".|
 
 ## <a name="example"></a>Příklad

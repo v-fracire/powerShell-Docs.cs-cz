@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Možnosti přihlašovací údaje v konfiguračních dat
-ms.openlocfilehash: 3f1c75c65b357220856dd8e50694eb77808dee41
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 2c6685f3b6992537d1652f172cf926b85dd634c6
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovací údaje v konfiguračních dat
 >Platí pro: Prostředí Windows PowerShell 5.0
@@ -276,7 +275,7 @@ DomainCredentialExample -DomainCredential $cred -ConfigurationData $cd
 
 Výjimku by při použití služby Azure Automation DSC, protože data se vždy ukládají zašifrovaně (na cestě, umístěná ve službě a v klidovém stavu uložených v uzlu).
 
-## <a name="domain-credentials"></a>Domain Credentials
+## <a name="domain-credentials"></a>Přihlašovací údaje do domény
 
 Spuštění skriptu konfigurace příklad opakujte (s nebo bez šifrování), stále generuje upozornění, že používáte doménu účtu pro přihlašovací údaje se nedoporučuje.
 Pomocí místního účtu eliminuje potenciální ohrožení pověření domény, které by mohly být použity na jiných serverech.

@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: DSC pro Linux nxFile prostředků
-ms.openlocfilehash: 41b5ebde299c47b38d7a6e7f71607332b24ca0e4
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: f1eb98092049ae837d144ccf99a84fe5614144e0
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dsc-for-linux-nxfile-resource"></a>DSC pro Linux nxFile prostředků
 
@@ -39,7 +38,7 @@ nxFile <string> #ResourceName
 
 |  Vlastnost |  Popis |
 |---|---|
-| DestinationPath| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
+| Cílová_cesta| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
 | SourcePath| Určuje cestu, ze kterého chcete kopírovat prostředek souboru nebo složky. Tato cesta může být místní cesta nebo `http/https/ftp` adresy URL. Vzdálené `http/https/ftp` adresy URL jsou pouze podporovaná, až hodnotu **typ** vlastnost je soubor.|
 | Ujistěte se| Určuje, jestli se má zkontrolovat, zda soubor existuje. Nastavte tuto vlastnost k dispozici"" zajistit, že soubor existuje. Nastavte ji na "Chybí" zajistěte, aby byl že soubor neexistuje. Výchozí hodnota je "Dispozici".|
 | Typ| Určuje, zda je nakonfigurován prostředek adresář nebo soubor. Nastavením této vlastnosti "adresář" označuje, že prostředek adresáře. Nastavte tak, aby "soubor" k označení, že je prostředek soubor. Výchozí hodnota je "soubor"|

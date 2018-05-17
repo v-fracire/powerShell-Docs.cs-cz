@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Použití platformy DSC na Nano Serveru
-ms.openlocfilehash: 9ebc1f046893c360538009b5ecbcfb6456f92bbb
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 9e26c525b48e8656a3479db9c0a760eaeb8cf58a
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="using-dsc-on-nano-server"></a>Použití platformy DSC na Nano Serveru
 
@@ -35,15 +34,15 @@ Informace o instalaci a použití Nano Server a také jak spravovat Nano Server 
   * [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx)
   * [Set-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn521621.aspx)
   * [Enable-DscDebug](https://technet.microsoft.com/en-us/library/mt517870.aspx)
-  * [Disable-DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx)
+  * [Zakázat DscDebug](https://technet.microsoft.com/en-us/library/mt517872.aspx)
   * [Počáteční DscConfiguration](https://technet.microsoft.com/en-us/library/dn521623.aspx)
   * [Stop-DscConfiguration](https://technet.microsoft.com/en-us/library/mt143542.aspx)
   * [Get-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407379.aspx)
-  * [Test-DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx)
-  * [Publish-DscConfiguraiton](https://technet.microsoft.com/en-us/library/mt517875.aspx)
-  * [Update-DscConfiguration](https://technet.microsoft.com/en-us/library/mt143541.aspx)
+  * [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx)
+  * [Publikování DscConfiguraiton](https://technet.microsoft.com/en-us/library/mt517875.aspx)
+  * [Aktualizace DscConfiguration](https://technet.microsoft.com/en-us/library/mt143541.aspx)
   * [Obnovení DscConfiguration](https://technet.microsoft.com/en-us/library/dn407383.aspx)
-  * [Remove-DscConfigurationDocument](https://technet.microsoft.com/en-us/library/mt143544.aspx)
+  * [Odebrat DscConfigurationDocument](https://technet.microsoft.com/en-us/library/mt143544.aspx)
   * [Get-DscConfigurationStatus](https://technet.microsoft.com/en-us/library/mt517868.aspx)
   * [Vyvolání DscResource](https://technet.microsoft.com/en-us/library/mt517869.aspx)
   * [Najít DscResource](https://technet.microsoft.com/en-us/library/mt517874.aspx)

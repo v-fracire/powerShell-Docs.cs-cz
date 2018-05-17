@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: WaitForAll prostředek DSC
-ms.openlocfilehash: 7cb2fc134f4391de0e5df2cd719902097bf2ebf5
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 4413220bb0b5eeef5fd1599f794cd551f15a2925
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dsc-waitforall-resource"></a>WaitForAll prostředek DSC
 
@@ -37,7 +36,7 @@ WaitForAll [string] #ResourceName
 |  Vlastnost  |  Popis   |
 |---|---|
 | resourceName| Název prostředku závislý na. Pokud tento prostředek patří do jiné konfigurace, formátu názvu jako "[__ResourceType__]__ResourceName__:: [__ConfigurationName__]:: [ __ConfigurationName__] "|
-| NodeName| Cílové uzly závislý na prostředku.|
+| nodeName| Cílové uzly závislý na prostředku.|
 | RetryIntervalSec| Počet sekund, než se budete pokoušet. Minimální hodnota je 1.|
 | retryCount| Maximální počet pokusů o opakování.|
 | ThrottleLimit| Počet počítačů pro připojení současně. Výchozí hodnota je výchozí pro nové cimsession.|

@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: b440ea4a8208d5c576fa566a19e2de377bf5f475
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 2627b9d02788bd31a5384587406df533faf2cfaf
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="script-tracing-and-logging"></a>Trasování a protokolování skriptu
 
@@ -17,12 +15,12 @@ Tyto události protokolování lze povolit prostřednictvím **zapnout protokolo
 
 Události jsou:
 
-| Channel | Provozní                                 |
+| Kanál | Provozní                                 |
 |---------|---------------------------------------------|
 | Úroveň   | Verbose                                     |
 | Operační kód  | Create                                      |
 | Úkol    | CommandStart                                |
-| – Klíčové slovo | Runspace                                    |
+| – Klíčové slovo | Prostředí runspace                                    |
 | ID události | Engine_ScriptBlockCompiled (0x1008 = 4104)  |
 | Zpráva | Vytváření textu Scriptblock (%1 typu %2): </br> %3 </br> Blok skriptu ID: %4 |
 
@@ -31,12 +29,12 @@ Rozsah bloku skriptu kompilovat, je text vložený do zprávy. ID je identifiká
 
 Pokud povolíte podrobné protokolování, zápisů funkce začínat a končit značky:
 
-| Channel | Provozní                                            |
+| Kanál | Provozní                                            |
 |---------|--------------------------------------------------------|
 | Úroveň   | Verbose                                                |
 | Operační kód  | Otevřete (/ zavřete)                                         |
 | Úkol    | CommandStart (nebo CommandStop)                           |
-| – Klíčové slovo | Runspace                                               |
+| – Klíčové slovo | Prostředí runspace                                               |
 | ID události | Blok skriptu\_vyvolání\_spustit\_(0x1009 = 4105) podrobností / </br> Blok skriptu\_vyvolání\_dokončení\_(0x100A = 4106) podrobností |
 | Zpráva | Začínáme (/ dokončené) vyvolání ScriptBlock ID: %1 </br> Prostředí runspace ID: %2 |
 

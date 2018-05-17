@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
-ms.openlocfilehash: 23669a6db17855e8d69aa0144c541bb4c799a9eb
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: f2500bfb41302cbeaf3cb9d23b843f26f01c1d5b
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="writing-a-custom-dsc-resource-with-powershell-classes"></a>Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
 

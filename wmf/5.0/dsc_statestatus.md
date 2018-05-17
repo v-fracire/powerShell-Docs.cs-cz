@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 9a8c261c01a7970f2e7f89172007768b63295673
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 272843efb68c42105af6eb88ad6a95b581da47ae
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 
@@ -31,10 +29,10 @@ Následující tabulka znázorňuje výsledné stav a stav souvisejících vlast
 | F,S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
 | S<sub>1</sub>, F, S<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S<sub>1</sub>, S<sub>2</sub> | F                              |
 | F<sub>1</sub>, S, F<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S                            | F<sub>1</sub>, F<sub>2</sub>   |
-| S, r                            | PendingReboot        | Úspěch    | $true         | S                            | r                              |
+| S, r                            | PendingReboot        | Úspěch    | $true         | S                            | R                              |
 | F, r                            | PendingReboot        | Chyba    | $true         | $null                        | F, r                           |
-| r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
-| r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
+| r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
+| r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
 
 ^ S<sub>i</sub>: řadu prostředky, které bylo úspěšně použito F<sub>i</sub>: řadu prostředky, které použije neúspěšně r: A prostředků, které vyžadují restartování: \*
 

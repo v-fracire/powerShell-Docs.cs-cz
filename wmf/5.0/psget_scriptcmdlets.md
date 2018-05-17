@@ -1,13 +1,11 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 505ff4ebef2d0b063edacbdfa465616890be1001
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: be53ebbfceefdbaabb76ccefa84aaa7746fee1f4
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="powershellget-cmdlets-for-script-management"></a>Rutiny správce balíčků PowerShellGet pro správu skriptů
 
@@ -575,7 +573,7 @@ DefinedFunctions : Demo-ScriptFunction
 DefinedWorkflows : Demo-ScriptWorkflow
 ```
 
-## <a name="update-scriptfileinfo-cmdlet"></a>Update-ScriptFileInfo cmdlet
+## <a name="update-scriptfileinfo-cmdlet"></a>Rutina aktualizace ScriptFileInfo
 Rutina aktualizace ScriptFileInfo umožňuje aktualizovat existující metadata souboru skriptu.
 ```powershell
 \# Use Update-ScriptFileInfo cmdlet to update the script metadata

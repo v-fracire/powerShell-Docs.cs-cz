@@ -1,13 +1,12 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Třída MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: 598bd7490043975d9d965c12a7337fb3475b3ded
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 615f2998b11a0a927d3868d852e0d408f500c86d
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="msftdsclocalconfigurationmanager-class"></a>Třída MSFT_DSCLocalConfigurationManager
 
@@ -48,9 +47,9 @@ class MSFT_DSCLocalConfigurationManager
 | [PerformRequiredConfigurationChecks](msft-dsclocalconfigurationmanager-performrequiredconfigurationchecks.md)| Spustí kontrolu konzistence.|
 | [RemoveConfiguration](msft-dsclocalconfigurationmanager-removeconfiguration.md)| Odebere konfigurační soubory.|
 | [ResourceGet](msft-dsclocalconfigurationmanager-resourceget.md)| Volá přímo **získat** metoda prostředek DSC.|
-| [ResourceSet](msft-dsclocalconfigurationmanager-resourceset.md)| Volá přímo **nastavit** metoda prostředek DSC.|
+| [resourceSet](msft-dsclocalconfigurationmanager-resourceset.md)| Volá přímo **nastavit** metoda prostředek DSC.|
 | [ResourceTest](msft-dsclocalconfigurationmanager-resourcetest.md)| Volá přímo **Test** metoda prostředek DSC.|
-| [RollBack](msft-dsclocalconfigurationmanager-rollback.md)| Zobrazí souhrn zpět na předchozí konfiguraci.|
+| [Vrácení zpět](msft-dsclocalconfigurationmanager-rollback.md)| Zobrazí souhrn zpět na předchozí konfiguraci.|
 | [SendConfiguration](msft-dsclocalconfigurationmanager-sendconfiguration.md)| Odešle spravovaný uzel dokumentu konfigurace a uloží ji jako nevyřízenou změnu.|
 | [SendConfigurationApply](msft-dsclocalconfigurationmanager-sendconfigurationapply.md)| Odešle spravovaný uzel dokumentu konfigurace a používá Agent konfigurace můžete použít konfiguraci.|
 | [SendConfigurationApplyAsync](msft-dsclocalconfigurationmanager-sendconfigurationapplyasync.md)| Poslat spravovaný uzel dokumentu konfigurace a spustí pomocí konfigurace agenta pro použití v konfiguraci. Pomocí GetConfigurationResultOutput načíst výstup výsledků.|

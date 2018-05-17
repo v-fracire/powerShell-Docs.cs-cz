@@ -1,15 +1,14 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
+ms.topic: conceptual
 keywords: wmf,powershell,setup
 contributor: keithb
 title: Instalace a konfigurace WMF 5.1
-ms.openlocfilehash: e747487873c7c15c2bea3fca7136630ab2b572f7
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: e5c7968744a442b4be9f1e43a45e91429a6d6165
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-and-configure-wmf-51"></a>Instalace a konfigurace WMF 5.1 #
 
@@ -22,14 +21,14 @@ Stáhněte si balíček WMF 5.1 pro operační systém a architektura, které ch
 |------------------------|-------------------------|----------------------------------------|
 | Windows Server 2012 R2 |                         | [Win8.1AndW2K12R2-KB3191564-x64.msu][] |
 | Windows Server 2012    |                         | [W2K12-KB3191565-x64.msu][]            |
-| Windows Server 2008 R2 | [.NET Framework 4.5.2][]| [Win7AndW2K8R2-KB3191566-x64.ZIP][]    |
+| Windows Server 2008 R2 | [Rozhraní .NET framework 4.5.2][]| [Win7AndW2K8R2. KB3191566 x64.ZIP][]    |
 | Windows 8.1            |                         | **x64:** [Win8.1AndW2K12R2-KB3191564-x64.msu][]</br>**x86:** [Win8.1-KB3191564-x86.msu][] |
-| Windows 7 SP1          | [.NET Framework 4.5.2][]| **x64:** [Win7AndW2K8R2-KB3191566-x64.ZIP][]</br>**x86:** [Win7-KB3191566-x86.ZIP][] |
+| Windows 7 SP1          | [Rozhraní .NET framework 4.5.2][]| **x64:** [Win7AndW2K8R2. KB3191566 x64.ZIP][]</br>**x86:** [Win7. KB3191566 x86.ZIP][] |
 
-[.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42642
+[Rozhraní .NET framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42642
 [W2K12-KB3191565-x64.msu]: https://go.microsoft.com/fwlink/?linkid=839513
-[Win7-KB3191566-x86.ZIP]: https://go.microsoft.com/fwlink/?linkid=839522
-[Win7AndW2K8R2-KB3191566-x64.ZIP]: https://go.microsoft.com/fwlink/?linkid=839523
+[Win7. KB3191566 x86.ZIP]: https://go.microsoft.com/fwlink/?linkid=839522
+[Win7AndW2K8R2. KB3191566 x64.ZIP]: https://go.microsoft.com/fwlink/?linkid=839523
 [Win8.1-KB3191564-x86.msu]: https://go.microsoft.com/fwlink/?linkid=839521
 [Win8.1AndW2K12R2-KB3191564-x64.msu]: https://go.microsoft.com/fwlink/?linkid=839516
 
