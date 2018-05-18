@@ -1,16 +1,14 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 5e9da65393c011ed90497c6c8b3f1324071ecf8d
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: c51b583658ec82f39e4117e4266fa2e645b5012a
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="specifying-cross-node-dependencies"></a><span data-ttu-id="f5ea5-102">Určení závislostí mezi uzly</span><span class="sxs-lookup"><span data-stu-id="f5ea5-102">Specifying Cross Node Dependencies</span></span>
+# <a name="specifying-cross-node-dependencies"></a><span data-ttu-id="364f6-102">Určení závislostí mezi uzly</span><span class="sxs-lookup"><span data-stu-id="364f6-102">Specifying Cross Node Dependencies</span></span>
 
-<span data-ttu-id="f5ea5-103">Pomocí předdefinovaných WaitFor\* prostředky (`WaitForAll`, `WaitForAny`, a `WaitForSome`), teď můžete zadat závislosti mezi počítači během konfigurace běží bez externí orchestration.</span><span class="sxs-lookup"><span data-stu-id="f5ea5-103">By using the built-in WaitFor\* resources (`WaitForAll`, `WaitForAny`, and `WaitForSome`), you can now specify dependencies across computers during configuration runs without external orchestration.</span></span>
+<span data-ttu-id="364f6-103">Pomocí předdefinovaných WaitFor\* prostředky (`WaitForAll`, `WaitForAny`, a `WaitForSome`), teď můžete zadat závislosti mezi počítači během konfigurace běží bez externí orchestration.</span><span class="sxs-lookup"><span data-stu-id="364f6-103">By using the built-in WaitFor\* resources (`WaitForAll`, `WaitForAny`, and `WaitForSome`), you can now specify dependencies across computers during configuration runs without external orchestration.</span></span>
 
-<span data-ttu-id="f5ea5-104">Další informace najdete v tématu [určení závislostí mezi uzly](https://msdn.microsoft.com/powershell/dsc/crossnodedependencies)</span><span class="sxs-lookup"><span data-stu-id="f5ea5-104">For more information, see [Specifying cross-node dependencies](https://msdn.microsoft.com/powershell/dsc/crossnodedependencies)</span></span>
+<span data-ttu-id="364f6-104">Další informace najdete v tématu [určení závislostí mezi uzly](https://msdn.microsoft.com/powershell/dsc/crossnodedependencies)</span><span class="sxs-lookup"><span data-stu-id="364f6-104">For more information, see [Specifying cross-node dependencies](https://msdn.microsoft.com/powershell/dsc/crossnodedependencies)</span></span>

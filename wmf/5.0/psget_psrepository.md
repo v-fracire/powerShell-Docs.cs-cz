@@ -1,22 +1,20 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 269f4112704067f291728e4c1d745d68ec6ccd6f
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 9a9bdac652512640209c20e3deb20d7abc0142c6
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="register-a-powershell-repository"></a><span data-ttu-id="24ede-102">Registrace powershellového úložiště</span><span class="sxs-lookup"><span data-stu-id="24ede-102">Register a PowerShell Repository</span></span>
-<span data-ttu-id="24ede-103">Můžete nakonfigurovat PowerShellGet pracovat s interní úložiště.</span><span class="sxs-lookup"><span data-stu-id="24ede-103">You can configure PowerShellGet to operate against internal repositories.</span></span> <span data-ttu-id="24ede-104">To se provádí pomocí těmito přídavky:</span><span class="sxs-lookup"><span data-stu-id="24ede-104">This is done by using the following additions:</span></span>
-- <span data-ttu-id="24ede-105">Register-PSRepository: Zaregistruje úložiště pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="24ede-105">Register-PSRepository: Registers a repository for the current user.</span></span>
-- <span data-ttu-id="24ede-106">Zrušit registraci PSRepository: Odebere registrované úložiště pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="24ede-106">Unregister-PSRepository: Removes a registered repository for the current user.</span></span>
-- <span data-ttu-id="24ede-107">Set-PSRepository: Nastavte hodnoty pro registrované úložiště.</span><span class="sxs-lookup"><span data-stu-id="24ede-107">Set-PSRepository: Set values for a registered repository.</span></span>
-- <span data-ttu-id="24ede-108">Get-PSRepository: Získání všech registrovaných úložišť pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="24ede-108">Get-PSRepository: Get all registered repositories for the current user.</span></span>
+# <a name="register-a-powershell-repository"></a><span data-ttu-id="ffb18-102">Registrace powershellového úložiště</span><span class="sxs-lookup"><span data-stu-id="ffb18-102">Register a PowerShell Repository</span></span>
+<span data-ttu-id="ffb18-103">Můžete nakonfigurovat PowerShellGet pracovat s interní úložiště.</span><span class="sxs-lookup"><span data-stu-id="ffb18-103">You can configure PowerShellGet to operate against internal repositories.</span></span> <span data-ttu-id="ffb18-104">To se provádí pomocí těmito přídavky:</span><span class="sxs-lookup"><span data-stu-id="ffb18-104">This is done by using the following additions:</span></span>
+- <span data-ttu-id="ffb18-105">Register-PSRepository: Zaregistruje úložiště pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="ffb18-105">Register-PSRepository: Registers a repository for the current user.</span></span>
+- <span data-ttu-id="ffb18-106">Zrušit registraci PSRepository: Odebere registrované úložiště pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="ffb18-106">Unregister-PSRepository: Removes a registered repository for the current user.</span></span>
+- <span data-ttu-id="ffb18-107">Set-PSRepository: Nastavte hodnoty pro registrované úložiště.</span><span class="sxs-lookup"><span data-stu-id="ffb18-107">Set-PSRepository: Set values for a registered repository.</span></span>
+- <span data-ttu-id="ffb18-108">Get-PSRepository: Získání všech registrovaných úložišť pro aktuálního uživatele.</span><span class="sxs-lookup"><span data-stu-id="ffb18-108">Get-PSRepository: Get all registered repositories for the current user.</span></span>
 
-<span data-ttu-id="24ede-109">Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.</span><span class="sxs-lookup"><span data-stu-id="24ede-109">After a repository is registered, you can use Find-Module and Install-Module to work with it.</span></span>
+<span data-ttu-id="ffb18-109">Po registraci úložiště můžete najít modul a nainstalujte modul s ním pracovat.</span><span class="sxs-lookup"><span data-stu-id="ffb18-109">After a repository is registered, you can use Find-Module and Install-Module to work with it.</span></span>
 
 ```powershell
 \#Register a default repository

@@ -1,22 +1,20 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 9065315ef39129e6a28234d972fe350fd5e7e11d
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 66db78cfb136f22cad9078d7113dad085ee667a5
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="creating-and-connecting-to-a-jea-endpoint"></a><span data-ttu-id="1a2e8-102">Vytvoření koncového bodu JEA a připojení k tomuto bodu</span><span class="sxs-lookup"><span data-stu-id="1a2e8-102">Creating and Connecting to a JEA Endpoint</span></span>
-<span data-ttu-id="1a2e8-103">Chcete-li vytvořit koncový bod JEA, je potřeba vytvořit a registrovat souboru speciálně nakonfigurované konfiguraci relace prostředí PowerShell, který se dá vygenerovat pomocí **New-PSSessionConfigurationFile** rutiny.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-103">To create a JEA endpoint, you need to create and register a specially-configured PowerShell Session Configuration file, which can be generated with the **New-PSSessionConfigurationFile** cmdlet.</span></span>
+# <a name="creating-and-connecting-to-a-jea-endpoint"></a><span data-ttu-id="95611-102">Vytvoření koncového bodu JEA a připojení k tomuto bodu</span><span class="sxs-lookup"><span data-stu-id="95611-102">Creating and Connecting to a JEA Endpoint</span></span>
+<span data-ttu-id="95611-103">Chcete-li vytvořit koncový bod JEA, je potřeba vytvořit a registrovat souboru speciálně nakonfigurované konfiguraci relace prostředí PowerShell, který se dá vygenerovat pomocí **New-PSSessionConfigurationFile** rutiny.</span><span class="sxs-lookup"><span data-stu-id="95611-103">To create a JEA endpoint, you need to create and register a specially-configured PowerShell Session Configuration file, which can be generated with the **New-PSSessionConfigurationFile** cmdlet.</span></span>
 
 ```powershell
 New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -TranscriptDirectory "C:\ProgramData\JEATranscripts" -RunAsVirtualAccount -RoleDefinitions @{ 'CONTOSO\NonAdmin_Operators' = @{ RoleCapabilities = 'Maintenance' }} -Path "$env:ProgramData\JEAConfiguration\Demo.pssc"
 ```
 
-<span data-ttu-id="1a2e8-104">Tím se vytvoří soubor konfigurace relace, který vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="1a2e8-104">This will create a session configuration file that looks like this:</span></span>
+<span data-ttu-id="95611-104">Tím se vytvoří soubor konfigurace relace, který vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="95611-104">This will create a session configuration file that looks like this:</span></span>
 ```powershell
 @{
 
@@ -54,20 +52,20 @@ RoleDefinitions = @{
 
 }
 ```
-<span data-ttu-id="1a2e8-105">Při vytváření koncový bod JEA, musíte nastavit následující parametry příkazu (a odpovídající klíče v souboru):</span><span class="sxs-lookup"><span data-stu-id="1a2e8-105">When creating a JEA endpoint, the following parameters of the command (and corresponding keys in the file) must be set:</span></span>
-1.  <span data-ttu-id="1a2e8-106">SessionType k RestrictedRemoteServer</span><span class="sxs-lookup"><span data-stu-id="1a2e8-106">SessionType to RestrictedRemoteServer</span></span>
-2.  <span data-ttu-id="1a2e8-107">RunAsVirtualAccount k **$true**</span><span class="sxs-lookup"><span data-stu-id="1a2e8-107">RunAsVirtualAccount to **$true**</span></span>
-3.  <span data-ttu-id="1a2e8-108">TranscriptPath k adresáři, kde "přes rameno" přepisy se uloží po každé relaci</span><span class="sxs-lookup"><span data-stu-id="1a2e8-108">TranscriptPath to the directory where “over the shoulder” transcripts will be saved after each session</span></span>
-4.  <span data-ttu-id="1a2e8-109">RoleDefinitions do zatřiďovací tabulky, která definuje, které skupiny mají přístup k jaké "funkce Role."</span><span class="sxs-lookup"><span data-stu-id="1a2e8-109">RoleDefinitions to a hashtable that defines which groups have access to which “Role Capabilities.”</span></span>  <span data-ttu-id="1a2e8-110">Toto pole definuje **kdo** můžete provést **co** na tento koncový bod.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-110">This field defines **who** can do **what** on this endpoint.</span></span>   <span data-ttu-id="1a2e8-111">Funkce role jsou speciální soubory, které bude za chvíli vysvětlit.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-111">Role Capabilities are special files that will be explained shortly.</span></span>
+<span data-ttu-id="95611-105">Při vytváření koncový bod JEA, musíte nastavit následující parametry příkazu (a odpovídající klíče v souboru):</span><span class="sxs-lookup"><span data-stu-id="95611-105">When creating a JEA endpoint, the following parameters of the command (and corresponding keys in the file) must be set:</span></span>
+1.  <span data-ttu-id="95611-106">SessionType k RestrictedRemoteServer</span><span class="sxs-lookup"><span data-stu-id="95611-106">SessionType to RestrictedRemoteServer</span></span>
+2.  <span data-ttu-id="95611-107">RunAsVirtualAccount k **$true**</span><span class="sxs-lookup"><span data-stu-id="95611-107">RunAsVirtualAccount to **$true**</span></span>
+3.  <span data-ttu-id="95611-108">TranscriptPath k adresáři, kde "přes rameno" přepisy se uloží po každé relaci</span><span class="sxs-lookup"><span data-stu-id="95611-108">TranscriptPath to the directory where “over the shoulder” transcripts will be saved after each session</span></span>
+4.  <span data-ttu-id="95611-109">RoleDefinitions do zatřiďovací tabulky, která definuje, které skupiny mají přístup k jaké "funkce Role."</span><span class="sxs-lookup"><span data-stu-id="95611-109">RoleDefinitions to a hashtable that defines which groups have access to which “Role Capabilities.”</span></span>  <span data-ttu-id="95611-110">Toto pole definuje **kdo** můžete provést **co** na tento koncový bod.</span><span class="sxs-lookup"><span data-stu-id="95611-110">This field defines **who** can do **what** on this endpoint.</span></span>   <span data-ttu-id="95611-111">Funkce role jsou speciální soubory, které bude za chvíli vysvětlit.</span><span class="sxs-lookup"><span data-stu-id="95611-111">Role Capabilities are special files that will be explained shortly.</span></span>
 
 
-<span data-ttu-id="1a2e8-112">Pole RoleDefinitions definuje, které skupiny mají přístup k jaké funkce Role.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-112">The RoleDefinitions field defines which groups had access to which Role Capabilities.</span></span>  <span data-ttu-id="1a2e8-113">Funkce Role je soubor, který definuje sadu funkcí, které se zveřejní pro připojení uživatelů.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-113">A Role Capability is a file that defines a set of capabilities that will be exposed to connecting users.</span></span>  <span data-ttu-id="1a2e8-114">Můžete vytvořit Role funkce **New-PSRoleCapabilityFile** příkaz.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-114">You can create Role Capabilities with the **New-PSRoleCapabilityFile** command.</span></span>
+<span data-ttu-id="95611-112">Pole RoleDefinitions definuje, které skupiny mají přístup k jaké funkce Role.</span><span class="sxs-lookup"><span data-stu-id="95611-112">The RoleDefinitions field defines which groups had access to which Role Capabilities.</span></span>  <span data-ttu-id="95611-113">Funkce Role je soubor, který definuje sadu funkcí, které se zveřejní pro připojení uživatelů.</span><span class="sxs-lookup"><span data-stu-id="95611-113">A Role Capability is a file that defines a set of capabilities that will be exposed to connecting users.</span></span>  <span data-ttu-id="95611-114">Můžete vytvořit Role funkce **New-PSRoleCapabilityFile** příkaz.</span><span class="sxs-lookup"><span data-stu-id="95611-114">You can create Role Capabilities with the **New-PSRoleCapabilityFile** command.</span></span>
 
 ```powershell
 New-PSRoleCapabilityFile -Path "$env:ProgramFiles\WindowsPowerShell\Modules\DemoModule\RoleCapabilities\Maintenance.psrc"
 ```
 
-<span data-ttu-id="1a2e8-115">Tím se vygeneruje funkci role šablony, která vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="1a2e8-115">This will generate a template role capability that looks like this:</span></span>
+<span data-ttu-id="95611-115">Tím se vygeneruje funkci role šablony, která vypadá takto:</span><span class="sxs-lookup"><span data-stu-id="95611-115">This will generate a template role capability that looks like this:</span></span>
 ```
 @{
 
@@ -131,20 +129,20 @@ Copyright = '(c) 2015 Administrator. All rights reserved.'
 }
 
 ```
-<span data-ttu-id="1a2e8-116">Konfigurace relace JEA se má používat, musíte ho uložit možnosti Role jako platný modul prostředí PowerShell v adresáři s názvem "RoleCapabilities".</span><span class="sxs-lookup"><span data-stu-id="1a2e8-116">To be used by a JEA session configuration, Role Capabilities must be saved as a valid PowerShell module in a directory named “RoleCapabilities”.</span></span> <span data-ttu-id="1a2e8-117">Modul může obsahovat několik souborů funkce role, v případě potřeby.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-117">A module may have multiple role capability files, if desired.</span></span>
+<span data-ttu-id="95611-116">Konfigurace relace JEA se má používat, musíte ho uložit možnosti Role jako platný modul prostředí PowerShell v adresáři s názvem "RoleCapabilities".</span><span class="sxs-lookup"><span data-stu-id="95611-116">To be used by a JEA session configuration, Role Capabilities must be saved as a valid PowerShell module in a directory named “RoleCapabilities”.</span></span> <span data-ttu-id="95611-117">Modul může obsahovat několik souborů funkce role, v případě potřeby.</span><span class="sxs-lookup"><span data-stu-id="95611-117">A module may have multiple role capability files, if desired.</span></span>
 
-<span data-ttu-id="1a2e8-118">Pro spuštění konfigurace rutin, funkcí, aliasy a skripty, které uživatel může přistupovat k při připojování k relaci JEA, přidejte do souboru schopnosti Role následující komentáři se šablony svých vlastních pravidel.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-118">To start configuring which cmdlets, functions, aliases, and scripts a user may access when connecting to a JEA session, add your own rules to the Role Capability file following the commented out templates.</span></span> <span data-ttu-id="1a2e8-119">Pro hlubší podívejte se na tom, jak můžete konfigurovat Role schopnosti, podívejte se na celý [prostředí průvodce](http://aka.ms/JEA).</span><span class="sxs-lookup"><span data-stu-id="1a2e8-119">For a deeper look into how you can configure Role Capabilities, check out the full [experience guide](http://aka.ms/JEA).</span></span>
+<span data-ttu-id="95611-118">Pro spuštění konfigurace rutin, funkcí, aliasy a skripty, které uživatel může přistupovat k při připojování k relaci JEA, přidejte do souboru schopnosti Role následující komentáři se šablony svých vlastních pravidel.</span><span class="sxs-lookup"><span data-stu-id="95611-118">To start configuring which cmdlets, functions, aliases, and scripts a user may access when connecting to a JEA session, add your own rules to the Role Capability file following the commented out templates.</span></span> <span data-ttu-id="95611-119">Pro hlubší podívejte se na tom, jak můžete konfigurovat Role schopnosti, podívejte se na celý [prostředí průvodce](http://aka.ms/JEA).</span><span class="sxs-lookup"><span data-stu-id="95611-119">For a deeper look into how you can configure Role Capabilities, check out the full [experience guide](http://aka.ms/JEA).</span></span>
 
-<span data-ttu-id="1a2e8-120">Nakonec po dokončení přizpůsobení konfigurace relace a související možnosti Role zaregistrovat tuto konfiguraci relace a vytvořit koncový bod spuštěním **Register-PSSessionConfiguration**.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-120">Finally, once you have finished customizing your session configuration and related Role Capabilities, register this session configuration and create the endpoint by running **Register-PSSessionConfiguration**.</span></span>
+<span data-ttu-id="95611-120">Nakonec po dokončení přizpůsobení konfigurace relace a související možnosti Role zaregistrovat tuto konfiguraci relace a vytvořit koncový bod spuštěním **Register-PSSessionConfiguration**.</span><span class="sxs-lookup"><span data-stu-id="95611-120">Finally, once you have finished customizing your session configuration and related Role Capabilities, register this session configuration and create the endpoint by running **Register-PSSessionConfiguration**.</span></span>
 
 ```powershell
 Register-PSSessionConfiguration -Name Maintenance -Path "C:\ProgramData\JEAConfiguration\Demo.pssc"
 ```
 
-## <a name="connect-to-a-jea-endpoint"></a><span data-ttu-id="1a2e8-121">Připojení ke koncovému bodu JEA</span><span class="sxs-lookup"><span data-stu-id="1a2e8-121">Connect to a JEA Endpoint</span></span>
-<span data-ttu-id="1a2e8-122">Připojení ke koncovému bodu JEA funguje stejným způsobem připojení k jakékoli jiné výtvory koncový bod prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-122">Connecting to a JEA Endpoint works the same way connecting to any other PowerShell endpoint works.</span></span>  <span data-ttu-id="1a2e8-123">Jednoduše muset poskytnout název koncového bodu JEA jako parametr "ConfigurationName" pro **New-PSSession**, **Invoke-Command**, nebo **Enter-PSSession**.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-123">You simply have to give your JEA endpoint name as the “ConfigurationName” parameter for **New-PSSession**, **Invoke-Command**, or **Enter-PSSession**.</span></span>
+## <a name="connect-to-a-jea-endpoint"></a><span data-ttu-id="95611-121">Připojení ke koncovému bodu JEA</span><span class="sxs-lookup"><span data-stu-id="95611-121">Connect to a JEA Endpoint</span></span>
+<span data-ttu-id="95611-122">Připojení ke koncovému bodu JEA funguje stejným způsobem připojení k jakékoli jiné výtvory koncový bod prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="95611-122">Connecting to a JEA Endpoint works the same way connecting to any other PowerShell endpoint works.</span></span>  <span data-ttu-id="95611-123">Jednoduše muset poskytnout název koncového bodu JEA jako parametr "ConfigurationName" pro **New-PSSession**, **Invoke-Command**, nebo **Enter-PSSession**.</span><span class="sxs-lookup"><span data-stu-id="95611-123">You simply have to give your JEA endpoint name as the “ConfigurationName” parameter for **New-PSSession**, **Invoke-Command**, or **Enter-PSSession**.</span></span>
 
 ```powershell
 Enter-PSSession -ConfigurationName Maintenance -ComputerName localhost
 ```
-<span data-ttu-id="1a2e8-124">Jakmile se připojíte k relaci JEA, bude omezena na seznam povolených adres příkazy spuštěné v roli možnosti, které máte přístup k.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-124">Once you have connected to the JEA session, you will be limited to running the commands whitelisted in the Role Capabilities that you have access to.</span></span> <span data-ttu-id="1a2e8-125">Pokud se pokusíte spustit libovolný příkaz není povolen pro vaši roli, bude dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="1a2e8-125">If you try to run any command not allowed for your role, you will encounter an error.</span></span>
+<span data-ttu-id="95611-124">Jakmile se připojíte k relaci JEA, bude omezena na seznam povolených adres příkazy spuštěné v roli možnosti, které máte přístup k.</span><span class="sxs-lookup"><span data-stu-id="95611-124">Once you have connected to the JEA session, you will be limited to running the commands whitelisted in the Role Capabilities that you have access to.</span></span> <span data-ttu-id="95611-125">Pokud se pokusíte spustit libovolný příkaz není povolen pro vaši roli, bude dojde k chybě.</span><span class="sxs-lookup"><span data-stu-id="95611-125">If you try to run any command not allowed for your role, you will encounter an error.</span></span>

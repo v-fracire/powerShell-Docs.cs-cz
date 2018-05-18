@@ -1,20 +1,18 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 5b9253d4fd6bf2898a93615d5d3462b9c659eb91
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 77e09a853324e703a4a96c5887a66df538fc711c
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="installation-of-module-dependencies"></a><span data-ttu-id="f421f-102">Instalace závislostí modulů</span><span class="sxs-lookup"><span data-stu-id="f421f-102">Installation of Module Dependencies</span></span>
+# <a name="installation-of-module-dependencies"></a><span data-ttu-id="bd1d2-102">Instalace závislostí modulů</span><span class="sxs-lookup"><span data-stu-id="bd1d2-102">Installation of Module Dependencies</span></span>
 
-<span data-ttu-id="f421f-103">Nyní je podpora verze modulu (SxS) vedle sebe v instalaci modulu, aktualizace modulu a publikovat modul rutin, které spustit v prostředí Windows PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="f421f-103">There is now side-by-side (SxS) module version support in Install-Module, Update-Module, and Publish-Module cmdlets that run in Windows PowerShell 5.0 or newer.</span></span>
-<span data-ttu-id="f421f-104">Také jsme přidali parametr - RequiredVersion pro rutinu Publish-Module určit verzi k publikování.</span><span class="sxs-lookup"><span data-stu-id="f421f-104">Also, we have added a -RequiredVersion parameter to the Publish-Module cmdlet to specify the version to be published.</span></span> <span data-ttu-id="f421f-105">Parametr Path teď podporuje základní cesta modulu se složkou verze.</span><span class="sxs-lookup"><span data-stu-id="f421f-105">The Path parameter now supports the module base path with the version folder.</span></span>
+<span data-ttu-id="bd1d2-103">Nyní je podpora verze modulu (SxS) vedle sebe v instalaci modulu, aktualizace modulu a publikovat modul rutin, které spustit v prostředí Windows PowerShell 5.0 nebo novější.</span><span class="sxs-lookup"><span data-stu-id="bd1d2-103">There is now side-by-side (SxS) module version support in Install-Module, Update-Module, and Publish-Module cmdlets that run in Windows PowerShell 5.0 or newer.</span></span>
+<span data-ttu-id="bd1d2-104">Také jsme přidali parametr - RequiredVersion pro rutinu Publish-Module určit verzi k publikování.</span><span class="sxs-lookup"><span data-stu-id="bd1d2-104">Also, we have added a -RequiredVersion parameter to the Publish-Module cmdlet to specify the version to be published.</span></span> <span data-ttu-id="bd1d2-105">Parametr Path teď podporuje základní cesta modulu se složkou verze.</span><span class="sxs-lookup"><span data-stu-id="bd1d2-105">The Path parameter now supports the module base path with the version folder.</span></span>
 
-<span data-ttu-id="f421f-106">**Instalace modulu příklady:**</span><span class="sxs-lookup"><span data-stu-id="f421f-106">**Install-Module examples:**</span></span>
+<span data-ttu-id="bd1d2-106">**Instalace modulu příklady:**</span><span class="sxs-lookup"><span data-stu-id="bd1d2-106">**Install-Module examples:**</span></span>
 ```powershell
 PS C:\\windows\\system32&gt; Install-Module -Name ContosoServer -RequiredVersion 1.0 -Repository MSPSGallery
 PS C:\\windows\\system32&gt; Get-Module -ListAvailable -Name ContosoServer | Format-List Name,Version,ModuleBase
@@ -36,7 +34,7 @@ Version Name Repository Description
 2.0 ContosoServer MSPSGallery ContosoServer module
 ```
 
-<span data-ttu-id="f421f-107">**Nainstalujte modul závislosti:**</span><span class="sxs-lookup"><span data-stu-id="f421f-107">**Install a module with dependencies:**</span></span>
+<span data-ttu-id="bd1d2-107">**Nainstalujte modul závislosti:**</span><span class="sxs-lookup"><span data-stu-id="bd1d2-107">**Install a module with dependencies:**</span></span>
 ```powershell
 PS C:\\windows\\system32&gt; Get-InstalledModule
 PS C:\\windows\\system32&gt; Find-Module -Repository GalleryINT -Name ModuleWithDependencies2 -IncludeDependencies
@@ -78,7 +76,7 @@ ModuleType Version Name ExportedCommands
 Manifest 2.0 ModuleWithDependencies2 {Get-NestedRequiredModule1, Get-NestedRequiredModule2, Get-NestedRequiredModule3, Get-NestedRequiredModule4...}
 ```
 
-<span data-ttu-id="f421f-108">**Obsah modulu ModuleWithDependencies2 souboru manifestu:**</span><span class="sxs-lookup"><span data-stu-id="f421f-108">**Contents of ModuleWithDependencies2 module manifest file:**</span></span>
+<span data-ttu-id="bd1d2-108">**Obsah modulu ModuleWithDependencies2 souboru manifestu:**</span><span class="sxs-lookup"><span data-stu-id="bd1d2-108">**Contents of ModuleWithDependencies2 module manifest file:**</span></span>
 ```powershell
 @{
 \# Version number of this module.
@@ -131,7 +129,7 @@ ReleaseNotes = 'ModuleWithDependencies2 release notes'
 }
 ```
 
-<span data-ttu-id="f421f-109">**Aktualizace modulu příklady:**</span><span class="sxs-lookup"><span data-stu-id="f421f-109">**Update-Module examples:**</span></span>
+<span data-ttu-id="bd1d2-109">**Aktualizace modulu příklady:**</span><span class="sxs-lookup"><span data-stu-id="bd1d2-109">**Update-Module examples:**</span></span>
 ```powershell
 PS C:\\windows\\system32&gt; Update-Module -Name ContosoServer -RequiredVersion 1.5
 PS C:\\windows\\system32&gt; Get-Module -ListAvailable -Name ContosoServer | Format-List Name,Version,ModuleBase
@@ -173,7 +171,7 @@ Version Name Repository Description
 2.8.1 ContosoServer MSPSGallery ContosoServer module
 ```
 
-<span data-ttu-id="f421f-110">**Příklady publikování modul:**</span><span class="sxs-lookup"><span data-stu-id="f421f-110">**Publish-Module examples:**</span></span>
+<span data-ttu-id="bd1d2-110">**Příklady publikování modul:**</span><span class="sxs-lookup"><span data-stu-id="bd1d2-110">**Publish-Module examples:**</span></span>
 ```powershell
 ContosoServer module with different versions to be published.
 PS C:\\windows\\system32&gt; Get-Module -Name ContosoServer -ListAvailable

@@ -1,18 +1,16 @@
 ---
 ms.date: 06/12/2017
-author: JKeithB
-ms.topic: reference
 keywords: wmf,powershell,setup
-ms.openlocfilehash: a83c6a75080d7671bbddf265b68c8b3a8d089335
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 7667aebb6545ae8dde5d94baee4a663f1d26c167
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="powershell-script-discovery-install-and-management-with-powershellget"></a><span data-ttu-id="b022b-102">Zjišťování skriptů prostředí PowerShell, instalace a správy s PowerShellGet</span><span class="sxs-lookup"><span data-stu-id="b022b-102">PowerShell Script Discovery, Install and Management with PowerShellGet</span></span>
+# <a name="powershell-script-discovery-install-and-management-with-powershellget"></a><span data-ttu-id="d5995-102">Zjišťování skriptů prostředí PowerShell, instalace a správy s PowerShellGet</span><span class="sxs-lookup"><span data-stu-id="d5995-102">PowerShell Script Discovery, Install and Management with PowerShellGet</span></span>
 
-<span data-ttu-id="b022b-103">Skript prostředí PowerShell sdílení funkce tu přidat do PowerShellGet ve verzi WMF 5.0 RTM.</span><span class="sxs-lookup"><span data-stu-id="b022b-103">PowerShell Script sharing feature got added to the PowerShellGet in the WMF 5.0 RTM release.</span></span>
-<span data-ttu-id="b022b-104">Následující nové rutiny jsou přidány do modulu PowerShellGet pro podporu skriptů prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b022b-104">The following new cmdlets are added to the PowerShellGet module for supporting the PowerShell Scripts.</span></span>
+<span data-ttu-id="d5995-103">Skript prostředí PowerShell sdílení funkce tu přidat do PowerShellGet ve verzi WMF 5.0 RTM.</span><span class="sxs-lookup"><span data-stu-id="d5995-103">PowerShell Script sharing feature got added to the PowerShellGet in the WMF 5.0 RTM release.</span></span>
+<span data-ttu-id="d5995-104">Následující nové rutiny jsou přidány do modulu PowerShellGet pro podporu skriptů prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="d5995-104">The following new cmdlets are added to the PowerShellGet module for supporting the PowerShell Scripts.</span></span>
 ```powershell
 PS C:\\windows\\system32&gt; Get-Command \*script\* -Module PowerShellGet | Sort-Object -Property Noun, Verb
 CommandType Name Version Source
@@ -39,7 +37,7 @@ Function Update-ScriptFileInfo 1.0.0.1 PowerShellGet
 -   **Test-ScriptFileInfo** cmdlet lets you to validate and get the script file metadata.
 ```
 
-<span data-ttu-id="b022b-105">Syntaxe skriptu sdílení rutiny:</span><span class="sxs-lookup"><span data-stu-id="b022b-105">Syntax of script sharing Cmdlets:</span></span>
+<span data-ttu-id="d5995-105">Syntaxe skriptu sdílení rutiny:</span><span class="sxs-lookup"><span data-stu-id="d5995-105">Syntax of script sharing Cmdlets:</span></span>
 ```powershell
 **New-ScriptFileInfo** \[-Path\] &lt;string&gt; -Description &lt;string&gt; \[-Version &lt;version&gt;\] \[-Author &lt;string&gt;\] \[-Guid &lt;guid&gt;\] \[-CompanyName &lt;string&gt;\] \[-Copyright &lt;string&gt;\] \[-RequiredModules &lt;Object\[\]&gt;\] \[-ExternalModuleDependencies &lt;string\[\]&gt;\] \[-RequiredScripts &lt;string\[\]&gt;\] \[-ExternalScriptDependencies &lt;string\[\]&gt;\] \[-Tags &lt;string\[\]&gt;\] \[-ProjectUri &lt;uri&gt;\] \[-LicenseUri &lt;uri&gt;\] \[-IconUri &lt;uri&gt;\] \[-ReleaseNotes &lt;string\[\]&gt;\] \[-PassThru\] \[-Force\] \[-WhatIf\] \[-Confirm\] \[&lt;CommonParameters&gt;\]
 
