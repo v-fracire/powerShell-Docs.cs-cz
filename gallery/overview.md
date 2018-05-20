@@ -1,13 +1,4 @@
----
-ms.date: 06/12/2017
-contributor: JKeithB
-keywords: Galerie prostředí powershell, rutiny, psgallery, psget
-title: Galerie prostředí PowerShell
-ms.openlocfilehash: 65e0c427310ac20621109a6620e926a7894cf8f8
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
-ms.translationtype: MT
-ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ a---ms.date: Přispěvatel 12/06/2017: JKeithB klíčová slova: Galerie prostředí powershell, rutiny, psgallery, psget title: galerii prostředí PowerShell
 ---
 # <a name="the-powershell-gallery"></a>Galerie prostředí PowerShell
 
@@ -27,9 +18,9 @@ Podívejte se [Začínáme](getting-started.md) stránka Další informace o tom
 
 ## <a name="supported-operating-systems"></a>Podporované operační systémy
 
-**PowerShellGet** module vyžaduje **prostředí PowerShell 3.0 nebo novější**.
+**PowerShellGet** module vyžaduje **prostředí Windows PowerShell 3.0 nebo novější**, nebo **základní prostředí PowerShell 6.0 nebo novější**.
 
-Proto **PowerShellGet** vyžaduje jednu z následujících operačních systémů:
+Vhodná verze **prostředí Windows PowerShell** je k dispozici pro tyto operační systémy:
 
 - Windows 10
 - Windows 8.1 Pro
@@ -40,6 +31,10 @@ Proto **PowerShellGet** vyžaduje jednu z následujících operačních systém�
 - Windows Server 2008 R2 SP1
 
 **PowerShellGet** taky vyžaduje rozhraní .NET Framework 4.5 nebo novější. Můžete nainstalovat rozhraní .NET Framework 4.5 nebo novější z [zde](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+
+**Základní prostředí PowerShell** podporuje řada operačních systémů. V tématu [v tomto článku](https://blogs.msdn.microsoft.com/powershell/2018/01/10/powershell-core-6-0-generally-available-ga-and-supported/) úplný seznam.
+
+Mnoho modulů, které jsou hostované v galerii bude podporovat různé operační systémy nebo mají další požadavky. Naleznete v dokumentaci pro moduly pro další informace.
 
 ## <a name="got-a-question-have-feedback"></a>Máte dotaz? Zpětné vazby máte?
 
