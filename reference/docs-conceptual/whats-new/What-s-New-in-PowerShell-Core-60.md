@@ -28,7 +28,7 @@ PowerShell teď oficiálně podporuje systému macOS a Linux, včetně:
 - Red Hat Enterprise Linux 7
 - OpenSUSE 42.2
 - Fedora 25, 26
-- macOS 10.12+
+- systému macOS 10.12 +
 
 Naše komunita také přispívá balíčky pro tyto platformy, ale nejsou oficiálně podporované:
 
@@ -373,7 +373,7 @@ Můžete najít další informace o tom, jak tato data používáme v tomto [př
 [os_log]: https://developer.apple.com/documentation/os/logging
 [Syslog]: https://en.wikipedia.org/wiki/Syslog
 [ssh-remoting]: ../core-powershell/SSH-Remoting-in-PowerShell-Core.md
-[breaking-changes]: https://github.com/PowerShell/PowerShell/tree/master/docs/BREAKINGCHANGES.md
+[breaking-changes]: breaking-changes-ps6.md
 [protokol změn]: https://github.com/PowerShell/PowerShell/tree/master/CHANGELOG.md
 [community-dashboard]: https://aka.ms/PSGitHubBI
 [telemetry-blog]: https://blogs.msdn.microsoft.com/powershell/2017/01/31/powershell-open-source-community-dashboard/
@@ -383,6 +383,6 @@ Můžete najít další informace o tom, jak tato data používáme v tomto [př
 [– nejčastější dotazy]: https://github.com/dotnet/standard/blob/master/docs/faq.md
 [CDXML]: https://msdn.microsoft.com/library/jj542525(v=vs.85).aspx
 [docker-hub]: https://hub.docker.com/r/microsoft/powershell/
-[docker]: https://github.com/PowerShell/PowerShell/tree/master/docker
+[Docker]: https://github.com/PowerShell/PowerShell/tree/master/docker
 [windowspsmodulepath]: https://www.powershellgallery.com/packages/WindowsPSModulePath/
 [semi-annual]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview

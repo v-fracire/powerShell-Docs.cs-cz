@@ -154,14 +154,20 @@
     - name: Novinky
       href: ''
       items:
-        - name: Co je nového v PowerShellu
-          href: whats-new/what-s-new-with-powershell.md
-        - name: Co je nového ve Windows PowerShellu 5.0
-          href: whats-new/what-s-new-in-windows-powershell-50.md
-        - name: Co je nového v PowerShellu 5.0 ISE
-          href: whats-new/what-s-new-in-the-powershell-50-ise.md
         - name: Co je nového ve Windows PowerShellu 6.0
           href: whats-new/what-s-new-in-powershell-core-60.md
+          items:
+            - name: Nejnovější změny v PowerShellu Core 6.0
+              href: whats-new/breaking-changes-ps6.md
+            - name: Známé problémy v PowerShellu Core 6.0
+              href: whats-new/known-issues-ps6.md
+        - name: Co je nového v PowerShellu 5.0
+          href: whats-new/what-s-new-with-powershell.md
+          items:
+            - name: Co je nového ve Windows PowerShellu 5.0
+              href: whats-new/what-s-new-in-windows-powershell-50.md
+            - name: Co je nového v PowerShellu 5.0 ISE
+              href: whats-new/what-s-new-in-the-powershell-50-ise.md
     - name: Životní cyklus podpory PowerShellu Core
       href: PowerShell-Core-Support.md
     - name: Další informace
