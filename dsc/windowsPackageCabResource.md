@@ -1,15 +1,14 @@
 ---
 ms.date: 06/12/2017
-ms.topic: conceptual
 keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: DSC WindowsPackageCab Resource
-ms.openlocfilehash: af45956c1fe8cffa1d7fd779847eded9e3f6b51e
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+title: WindowsPackageCab prostředek DSC
+ms.openlocfilehash: 8c4de193c8ea787dd125436f86aa0b5eafdb1509
+ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="dsc-windowspackagecab-resource"></a>DSC WindowsPackageCab Resource
+# <a name="dsc-windowspackagecab-resource"></a>WindowsPackageCab prostředek DSC
 
 > Platí pro: 5.1 a novějším se prostředí Windows PowerShell
 
