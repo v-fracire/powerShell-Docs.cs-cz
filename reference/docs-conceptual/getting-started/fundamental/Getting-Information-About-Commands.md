@@ -3,14 +3,14 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Získání informací o příkazech
 ms.assetid: 56f8e5b4-d97c-4e59-abbe-bf13e464eb0d
-ms.openlocfilehash: 1426c171d74afc87751f7d31d46571b9c98fa47e
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: c51579fe2cdf4f2a0d3248d1aaf3f1f9cac83868
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="getting-information-about-commands"></a>Získání informací o příkazech
-Prostředí Windows PowerShell **Get-Command** rutiny získá všechny příkazy, které jsou k dispozici v aktuální relaci. Pokud zadáte **Get-Command** na řádku prostředí Windows PowerShell, zobrazí se výstup podobný následujícímu:
+Prostředí Windows PowerShell `Get-Command` rutiny získá všechny příkazy, které jsou k dispozici v aktuální relaci. Pokud zadáte `Get-Command` v příkazovém řádku prostředí PowerShell, zobrazí se výstup podobný následujícímu:
 
 ```
 PS> Get-Command
@@ -24,13 +24,13 @@ Cmdlet          Add-Member                      Add-Member [-MemberType] <PS...
 
 To mnohem výstup vypadá jako výstup nápovědy Cmd.exe: tabulkový souhrn interní příkazy. V výňatek ze **Get-Command** příkaz uvedené výše, každý příkaz zobrazí výstup má CommandType rutiny. Rutiny je typ vnitřní příkazu prostředí Windows PowerShell - typ, který odpovídá zhruba na **dir** a **cd** Cmd.exe a built-ins v součásti pro UNIX, jako je například BASH příkazy.
 
-Ve výstupu **Get-Command** příkaz ukončení všech definic se třemi tečkami (...) k označení, že prostředí PowerShell nemůže zobrazit celý obsah v dostupného místa. Když prostředí Windows PowerShell zobrazí výstup, způsobí, že výstup jako text a pak ho tak, aby data řádně nevejde se do okna uspořádá. Se věnuje to později v části na formátování.
+Ve výstupu `Get-Command` příkaz ukončení všech definic se třemi tečkami (...) k označení, že prostředí PowerShell nemůže zobrazit celý obsah v dostupného místa. Když prostředí Windows PowerShell zobrazí výstup, způsobí, že výstup jako text a pak ho tak, aby data řádně nevejde se do okna uspořádá. Se věnuje to později v části na formátování.
 
-**Get-Command** rutina má **syntaxe** parametr, který získá syntaxe každou rutinu. Získání syntaxe rutiny Get-Help, použijte následující příkaz:
-
-**Get-Help Get-Command-syntaxe**
+`Get-Command` Rutina má **syntaxe** parametr, který získá syntaxe každou rutinu. Získání syntaxe rutiny Get-Help, použijte následující příkaz:
 
 ```
+Get-Command Get-Help -Syntax
+
 Get-Help [[-Name] <String>] [-Path <String>] [-Category <String[]>] [-Component <String[]>] [-Functionality <String[]>]
  [-Role <String[]>] [-Full] [-Online] [-Verbose] [-Debug] [-ErrorAction <ActionPreference>] [-WarningAction <ActionPreference>] [-ErrorVariable <String>] [-WarningVariable <String>] [-OutVariable <String>] [-OutBuffer <Int32>]
 
@@ -49,31 +49,31 @@ Get-Help [[-Name] <String>] [-Path <String>] [-Category <String[]>] [-Component 
 
 Chcete-li získat všechny příkazy v relaci, zadejte:
 
-```
+```powershell
 Get-Command *
 ```
 
 Tento seznam zahrnuje externí soubory v cestě vyhledávání, a proto může obsahovat tisíce položek. Je více užitečné prohlédnout si omezenou sadu příkazů.
 
-Nativní příkazy jiné typy, použijte **CommandType** parametr **Get-Command** rutiny.
+Nativní příkazy jiné typy, použijte **CommandType** parametr `Get-Command` rutiny.
 
 > [!NOTE]
-> Hvězdička (\*) se používá pro porovnávání v prostředí Windows PowerShell argumenty příkazu se zástupnými znaky. \* Znamená "odpovídat jeden nebo více znaky". Můžete zadat **Get-Command\&#42;** najít všechny příkazy, které začínají písmenem "a". Na rozdíl od v Cmd.exe porovnávání se zástupnými znaky bude odpovídat zástupné prostředí Windows PowerShell taky období.
+> Hvězdička (\*) se používá pro porovnávání v prostředí Windows PowerShell argumenty příkazu se zástupnými znaky. \* Znamená "odpovídat jeden nebo více znaky". Můžete zadat `Get-Command a*` najít všechny příkazy, které začínají písmenem "a". Na rozdíl od v Cmd.exe porovnávání se zástupnými znaky bude odpovídat zástupné prostředí Windows PowerShell taky období.
 
 Chcete-li získat aliasy příkazů, které jsou přiřazené zástupné názvy příkazů, zadejte:
 
-```
+```powershell
 Get-Command -CommandType Alias
 ```
 
 Chcete-li získat funkce v aktuální relaci, zadejte:
 
-```
+```powershell
 Get-Command -CommandType Function
 ```
 
 Chcete-li zobrazit skriptů v prostředí Windows PowerShell cesty pro hledání, zadejte:
 
-```
+```powershell
 Get-Command -CommandType Script
 ```

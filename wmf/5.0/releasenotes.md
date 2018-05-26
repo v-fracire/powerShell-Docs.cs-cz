@@ -1,13 +1,15 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: eb3be6ef8a0fb8e611178206cbc817ac34b40f3e
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: a6366e18b4b6478bfab89475bc6975e6491da9f7
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="windows-management-framework-wmf-50-rtm-release-notes-overview"></a>Poznámky k verzi Přehled služby Windows Management Framework (WMF) 5.0 RTM
+
+**WMF 5.0 je superceeded podle WMF 5.1. Uživatelé s WMF 5.0 musí upgradovat na WMF 5.1 odborná pomoc. Postupujte podle [intructions instalaci WMF 5.1](../5.1/install-configure.md)**
 
 Windows Management Framework (WMF) 5.0 RTM přináší funkce, který byl aktualizován z WMF 4.0. WMF 5.0 RTM, je možné nainstalovat jenom na **Windows Server 2012 R2**, **systému Windows Server 2012**, **Windows Server 2008 R2**, **Windows 8.1**, a **Windows 7 SP1** a obsahuje aktualizované verze nebo Úvod následující funkce:
 

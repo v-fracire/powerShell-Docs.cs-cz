@@ -2,11 +2,11 @@
 ms.date: 06/27/2017
 keywords: rutiny prostředí PowerShell
 title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
-ms.openlocfilehash: 0e765ae90661a054ca9bae71d0f6d449cccb185d
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 1b4d4339efda78a5cb719921a9cb06881d119930
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -112,7 +112,7 @@ Pokud uživatel neposkytne alternativní přihlašovací údaje, primární uži
 Autorizační pravidla se dají použít k povolení přístupu uživatelům ke konfiguraci konkrétní relace.
 Můžete vytvořit _omezený prostředí runspace_ nebo konfigurace relace pro Windows PowerShell Web Access a povolit konkrétním uživatelům se při přihlášení do Windows PowerShell Web Access připojit pouze ke konkrétním konfiguracím relací.
 Můžete použít seznamy řízení přístupu (ACL) k určení uživatelů, kteří mají přístup ke konkrétním koncovým bodům a dále omezit přístup k koncový bod pro konkrétní skupinu uživatelů pomocí autorizačních pravidel popsaných v této části.
-Další informace o prostředích runspace s omezeným přístupem najdete v tématu [vytváření omezené prostředí runspace](https://msdn.microsoft.com/en-us/library/dn614668).
+Další informace o prostředích runspace s omezeným přístupem najdete v tématu [vytváření omezené prostředí runspace](https://msdn.microsoft.com/library/dn614668).
 
 ### <a name="configuring-authorization-rules"></a>Konfigurace autorizačních pravidel
 
@@ -122,7 +122,7 @@ Druhý postup popisuje, jak odebrat autorizační pravidlo, které už není pot
 
 Pokud budete chtít povolit konkrétním uživatelům práci jenom v omezeném prostředí runspace ve Windows PowerShell Web Accessu pomocí vlastních konfigurací relace, vytvořte vlastní konfigurace relací předtím, než přidáte autorizační pravidla, která na ně odkazují.
 Rutiny Windows PowerShell Web Access nelze použít k vytvoření vlastních konfigurací relací.
-Další informace o vytváření vlastních konfigurací relací najdete v tématu [about_Session_Configuration_Files](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configuration_files).
+Další informace o vytváření vlastních konfigurací relací najdete v tématu [about_Session_Configuration_Files](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configuration_files).
 
 Rutiny Windows PowerShell Web Access podporují jeden zástupný znak – hvězdičku ( \* ).
 Zástupné znaky uvnitř řetězců se nepodporují. Na jednu položku (uživatele, počítače nebo konfigurace relací) použijte jednu hvězdičku.
@@ -142,7 +142,7 @@ Zástupné znaky uvnitř řetězců se nepodporují. Na jednu položku (uživate
 2. **Volitelný krok** pro omezení přístupu uživatelů s použitím konfigurací relace:
 
     Ověřte, že konfigurace relace, které chcete použít, již existuje ve vašich pravidlech.
-Pokud se ještě nejsou vytvořené, použijte pokyny pro vytvoření konfigurací relace v [about_Session_Configuration_Files](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configuration_files).
+Pokud se ještě nejsou vytvořené, použijte pokyny pro vytvoření konfigurací relace v [about_Session_Configuration_Files](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configuration_files).
 
 3. Toto autorizační pravidlo umožňuje konkrétní přístup uživatele k jednomu počítači v síti, ke kterým mají obvykle přístup, včetně přístupu ke konfiguraci konkrétní relace, která je omezená na uživatele '™ s typické skriptování a rutiny potřebám. Zadejte následující příkaz a stiskněte klávesu **Enter**.
 
@@ -253,6 +253,6 @@ Pokud server brány se systémem Windows Server 2012 R2, Windows PowerShell Web 
 
 ## <a name="see-also"></a>Viz také
 
-- [Nainstalovat a používat Windows PowerShell Web Accessu](https://technet.microsoft.com/en-us/library/hh831611(v=ws.11).aspx)
+- [Nainstalovat a používat Windows PowerShell Web Accessu](https://technet.microsoft.com/library/hh831611(v=ws.11).aspx)
 - [about_Session_Configurations](https://technet.microsoft.com/library/dd819508.aspx)
 - [Rutiny prostředí Windows PowerShell Web Access](cmdlets/web-access-cmdlets.md)

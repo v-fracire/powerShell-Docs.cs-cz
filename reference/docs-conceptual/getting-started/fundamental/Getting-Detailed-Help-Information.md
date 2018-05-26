@@ -3,11 +3,11 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Získání podrobné nápovědy
 ms.assetid: 6fb4daf7-8607-4a3e-b692-f77631adc1b9
-ms.openlocfilehash: bb0fac4eb338354e411458fad575c726a5f0da35
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 29c24af3f688f9388893044952442910e793842d
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="getting-detailed-help-information"></a>Získání podrobné nápovědy
 Prostředí Windows PowerShell obsahuje podrobné témata nápovědy, které vysvětlují koncepty prostředí Windows PowerShell a jazyk prostředí Windows PowerShell. Existují také témata nápovědy pro každou rutiny a zprostředkovatele a témata nápovědy pro mnoho funkcí a skriptů.
@@ -128,7 +128,7 @@ get-help c:\ps-test\TestScript.ps1
 
 Parametry, které byly navrženy pro zobrazení rutiny pomoci, jako například *podrobné*, *úplné*, *příklady*, a *parametr*, pracovní pro skript nápovědy a funkce Nápověda, příliš. Ale když zobrazit všechny nápovědu zadáním "get-help \*", Nápověda pro funkce a skripty se nezobrazí.
 
-Informace o vytváření témata nápovědy pro funkce a skripty, najdete v tématu [about_Functions [m2]](https://technet.microsoft.com/en-us/library/61d40692-5300-4de9-a9b5-bae31815e105), [about_Scripts](https://technet.microsoft.com/en-us/library/7dc08334-dcfe-450b-b949-0554855623af), a [about_Comment_Based_Help](https://technet.microsoft.com/en-us/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf).
+Informace o vytváření témata nápovědy pro funkce a skripty, najdete v tématu [about_Functions [m2]](https://technet.microsoft.com/library/61d40692-5300-4de9-a9b5-bae31815e105), [about_Scripts](https://technet.microsoft.com/library/7dc08334-dcfe-450b-b949-0554855623af), a [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf).
 
 ## <a name="getting-help-online"></a>Online nápovědy
 Pokud jste připojeni k Internetu, je jedním z nejlepší způsoby, jak získat nápovědu zobrazte témata nápovědy online. Protože online téma se dají snadno aktualizovat, jsou může zajistit nejaktuálnější obsah.
@@ -165,10 +165,10 @@ V prvním řádku související odkazy části tohoto tématu jsou uvedeny níž
 Online version: http://go.microsoft.com/fwlink/?LinkID=135194
 ```
 
-Informace o tom, jak poskytnout online podpory společnosti Microsoft pro vaše témata nápovědy najdete v tématu [about_Comment_Based_Help](https://technet.microsoft.com/en-us/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)a zobrazit [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
+Informace o tom, jak poskytnout online podpory společnosti Microsoft pro vaše témata nápovědy najdete v tématu [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)a zobrazit [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
 
 ## <a name="see-also"></a>Viz také
-- [about_Functions [m2]](https://technet.microsoft.com/en-us/library/61d40692-5300-4de9-a9b5-bae31815e105)
-- [about_Scripts](https://technet.microsoft.com/en-us/library/7dc08334-dcfe-450b-b949-0554855623af)
-- [about_Comment_Based_Help](https://technet.microsoft.com/en-us/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)
+- [about_Functions [m2]](https://technet.microsoft.com/library/61d40692-5300-4de9-a9b5-bae31815e105)
+- [about_Scripts](https://technet.microsoft.com/library/7dc08334-dcfe-450b-b949-0554855623af)
+- [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)
 - [Get-Help [m2]](https://technet.microsoft.com/library/2d7fe1b4-0025-4580-a911-d81922dd6cd2)

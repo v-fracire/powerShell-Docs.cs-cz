@@ -2,11 +2,11 @@
 ms.date: 08/23/2017
 keywords: rutiny prostředí PowerShell
 title: pomocí webové konzole na bázi windows powershell
-ms.openlocfilehash: 3ef2b39279745ffe78fa928247e8a1fb76519ba0
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 5d29a6f97fddf4b329fcc7097cf7d40d47d22cca
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="use-the-web-based-windows-powershell-console"></a>Používání webové konzoly Windows PowerShellu
 
@@ -81,7 +81,7 @@ Nejjednodušším způsobem, jak nakonfigurovat počítač, aby umožňoval vzd�
 
     Přihlašovacích údajů, které používáte k průchodu přes bránu Windows PowerShell Web Access jsou obvykle stejné těmi, která rozpoznává vzdálený počítač, který chcete spravovat. Ale pokud budete chtít použít různé přihlašovací údaje ke správě vzdáleného počítače, který jste zadali v kroku 2, rozbalte **volitelná nastavení připojení** části a zadat alternativní přihlašovací údaje. Jinak přejděte ke kroku 6.
 
-1. Pokud Windows PowerShell Web Access správce vytvoří vlastní konfiguraci relace pro uživatele Windows PowerShell Web Access, zadejte název název konfigurace relace ve **název konfigurace** pole. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_session_configurations).
+1. Pokud Windows PowerShell Web Access správce vytvoří vlastní konfiguraci relace pro uživatele Windows PowerShell Web Access, zadejte název název konfigurace relace ve **název konfigurace** pole. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_session_configurations).
 
 1. Zachovat **typ ověřování** nastavena na **výchozí** Pokud jste dostali pokyn správce Windows PowerShell Web Access neurčí jinak.
 
@@ -231,4 +231,4 @@ Alt+F7 | Vymazání seznamu historie příkazů
 - [Prostředí Windows PowerShell na webu Microsoft TechNet](https://technet.microsoft.com/library/bb978526.aspx)
 - [Úložiště centra skriptů na webu TechNet](http://gallery.technet.microsoft.com/scriptcenter)
 - [Centrum skriptů – Hey, Scripting Guy!](https://technet.microsoft.com/scriptcenter)
-- [Windows PowerShell Team Blog](http://blogs.msdn.com/b/powershell/)
+- [Blog týmu Windows PowerShell](http://blogs.msdn.com/b/powershell/)

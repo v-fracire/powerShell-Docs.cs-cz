@@ -3,11 +3,11 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Spuštění jádra Windows PowerShellu 2.0
 ms.assetid: edafc2fa-7576-49c2-bbba-9336f4bcfc28
-ms.openlocfilehash: 585e1003554362d11fe99414bd3e80c497799a88
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 618745ff4865dd046acf46487e87c3ca0e324f95
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="starting-the-windows-powershell-20-engine"></a>Spuštění jádra Windows PowerShellu 2.0
 
@@ -37,13 +37,13 @@ Pokud chcete spustit modul Windows PowerShell 2.0 ve vzdálené relaci, vytvořt
 
 Toto je pokročilé úlohy, které se obvykle provádí pomocí správce systému.
 
-Následující postup používá **PSVersion** parametr [Register-PSSessionConfiguration](https://technet.microsoft.com/en-us/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) rutiny pro vytvoření konfigurace relace, které používá modul Windows PowerShell 2.0. Můžete také **verze prostředí PowerShell** parametr [New-PSSessionConfigurationFile](https://technet.microsoft.com/en-us/library/5f3e3633-6e90-479c-aea9-ba45a1954866) rutiny k vytvoření relace konfigurační soubor pro relaci, která načte modul Windows PowerShell 2.0 a můžete použít **PSVersion** parametr [Set-PSSessionConfiguration](https://technet.microsoft.com/en-us/library/b21fbad3-1759-4260-b206-dcb8431cd6ea) parametr Chcete-li změnit konfiguraci relace, kterou chcete použít modul Windows PowerShell 2.0.
+Následující postup používá **PSVersion** parametr [Register-PSSessionConfiguration](https://technet.microsoft.com/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) rutiny pro vytvoření konfigurace relace, které používá modul Windows PowerShell 2.0. Můžete také **verze prostředí PowerShell** parametr [New-PSSessionConfigurationFile](https://technet.microsoft.com/library/5f3e3633-6e90-479c-aea9-ba45a1954866) rutiny k vytvoření relace konfigurační soubor pro relaci, která načte modul Windows PowerShell 2.0 a můžete použít **PSVersion** parametr [Set-PSSessionConfiguration](https://technet.microsoft.com/library/b21fbad3-1759-4260-b206-dcb8431cd6ea) parametr Chcete-li změnit konfiguraci relace, kterou chcete použít modul Windows PowerShell 2.0.
 
-Další informace o relaci konfigurační soubory, najdete v části [about_Session_Configuration_Files](https://technet.microsoft.com/en-us/library/c7217447-1ebf-477b-a8ef-4dbe9a1473b8). Informace o konfiguracích relace, včetně instalace a zabezpečení, najdete v článku [about_Session_Configurations [v4]](https://technet.microsoft.com/en-us/library/a2fbe12a-350c-4d04-be50-24102824e3ab).
+Další informace o relaci konfigurační soubory, najdete v části [about_Session_Configuration_Files](https://technet.microsoft.com/library/c7217447-1ebf-477b-a8ef-4dbe9a1473b8). Informace o konfiguracích relace, včetně instalace a zabezpečení, najdete v článku [about_Session_Configurations [v4]](https://technet.microsoft.com/library/a2fbe12a-350c-4d04-be50-24102824e3ab).
 
 #### <a name="to-start-a-remote-windows-powershell-20-session"></a>Spusťte vzdálenou relaci prostředí Windows PowerShell 2.0
 
-1. Chcete-li vytvořit konfiguraci relace, která vyžaduje modul Windows PowerShell 2.0, použijte **PSVersion** parametr [Register-PSSessionConfiguration](https://technet.microsoft.com/en-us/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) rutiny s hodnotou "2.0". Tento příkaz spusťte v počítači "na straně serveru" nebo přijímající stranou připojení.
+1. Chcete-li vytvořit konfiguraci relace, která vyžaduje modul Windows PowerShell 2.0, použijte **PSVersion** parametr [Register-PSSessionConfiguration](https://technet.microsoft.com/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) rutiny s hodnotou "2.0". Tento příkaz spusťte v počítači "na straně serveru" nebo přijímající stranou připojení.
 
    Následující ukázkový příkaz vytvoří na počítači Server01 konfiguraci relace PS2. Chcete-li spustit tento příkaz, spusťte prostředí Windows PowerShell 4.0 nebo prostředí Windows PowerShell 3.0 s **spustit jako správce** možnost.
 
@@ -51,7 +51,7 @@ Další informace o relaci konfigurační soubory, najdete v části [about_Sess
    Register-PSSessionConfiguration -Name PS2 -PSVersion 2.0
    ```
 
-2. Pro vytvoření relace v počítači Server01, který používá konfiguraci relace PS2, použijte **ConfigurationName** parametr rutin, které vytvářet vzdálené relace, jako [New-PSSession](https://technet.microsoft.com/en-us/library/76f6628c-054c-4eda-ba7a-a6f28daaa26f) rutiny.
+2. Pro vytvoření relace v počítači Server01, který používá konfiguraci relace PS2, použijte **ConfigurationName** parametr rutin, které vytvářet vzdálené relace, jako [New-PSSession](https://technet.microsoft.com/library/76f6628c-054c-4eda-ba7a-a6f28daaa26f) rutiny.
 
    Když se spustí relace, který používá konfiguraci relace, modul Windows PowerShell 2.0 je automaticky načíst do relace.
 
@@ -63,7 +63,7 @@ Další informace o relaci konfigurační soubory, najdete v části [about_Sess
 
 ## <a name="how-to-start-a-background-job-with-the-windows-powershell-20-engine"></a>Jak spustit úlohu na pozadí se modul Windows PowerShell 2.0
 
-Spusťte úlohu na pozadí se modul Windows PowerShell 2.0 pomocí **PSVersion** parametr [Start-Job](https://technet.microsoft.com/en-us/library/2bc04935-0deb-4ec0-b856-d7290cca6442) rutiny.
+Spusťte úlohu na pozadí se modul Windows PowerShell 2.0 pomocí **PSVersion** parametr [Start-Job](https://technet.microsoft.com/library/2bc04935-0deb-4ec0-b856-d7290cca6442) rutiny.
 
 Tento příkaz spustí úlohu na pozadí s modul Windows PowerShell 2.0
 

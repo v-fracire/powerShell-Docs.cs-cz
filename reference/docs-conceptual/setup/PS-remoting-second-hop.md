@@ -2,11 +2,11 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell
-ms.openlocfilehash: 893b4353c4244dc96c4b234bb4062b583a5cd36d
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 1d24473178bc50321a81ebf1115a20f17078844f
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="making-the-second-hop-in-powershell-remoting"></a>Vytváření druhé směrování v vzdálenou komunikaci prostředí PowerShell
 
@@ -21,7 +21,7 @@ Chcete-li vyřešit tento problém několika způsoby. V tomto tématu se podív
 
 ## <a name="credssp"></a>CredSSP
 
-Můžete použít [Credential Security Support Provider (CredSSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/bb931352.aspx) pro ověřování. Zprostředkovatel CredSSP ukládá do mezipaměti přihlašovací údaje na vzdáleném serveru (_ServerB_), takže ho pomocí otevře až útoku krádeží přihlašovacích údajů. Pokud vzdálený počítač v ohrožení, útočník má přístup k přihlašovacím údajům uživatele. Ve výchozím nastavení v počítačích klient i server vypnutá CredSSP. Měli byste povolit zprostředkovatele CredSSP pouze v nejdůvěryhodnější prostředích. Například správce domény připojení k řadiči domény, protože řadič domény je vysoce důvěryhodný.
+Můžete použít [Credential Security Support Provider (CredSSP)](https://msdn.microsoft.com/library/windows/desktop/bb931352.aspx) pro ověřování. Zprostředkovatel CredSSP ukládá do mezipaměti přihlašovací údaje na vzdáleném serveru (_ServerB_), takže ho pomocí otevře až útoku krádeží přihlašovacích údajů. Pokud vzdálený počítač v ohrožení, útočník má přístup k přihlašovacím údajům uživatele. Ve výchozím nastavení v počítačích klient i server vypnutá CredSSP. Měli byste povolit zprostředkovatele CredSSP pouze v nejdůvěryhodnější prostředích. Například správce domény připojení k řadiči domény, protože řadič domény je vysoce důvěryhodný.
 
 Další informace o potížích se zabezpečením při použití ověřování CredSSP pro vzdálenou komunikaci prostředí PowerShell najdete v tématu [náhodnému napadení: Pozor CredSSP](http://www.powershellmagazine.com/2014/03/06/accidental-sabotage-beware-of-credssp).
 
@@ -175,7 +175,7 @@ Invoke-Command -ComputerName $ServerB.Name -Credential $cred -ScriptBlock {
 }
 ```
 
-V tomto příkladu `$using` proměnná se používá k zajištění `$ServerC` proměnné, které jsou viditelné pro _ServerB_. Další informace o `$using` proměnné, viz [about_Remote_Variables](https://technet.microsoft.com/en-us/library/jj149005.aspx).
+V tomto příkladu `$using` proměnná se používá k zajištění `$ServerC` proměnné, které jsou viditelné pro _ServerB_. Další informace o `$using` proměnné, viz [about_Remote_Variables](https://technet.microsoft.com/library/jj149005.aspx).
 
 Povolit více serverů pro přihlašovací údaje pro delegování _ServerC_, nastavte hodnotu **PrincipalsAllowedToDelegateToAccount** parametr na _ServerC_ do pole:
 
@@ -212,8 +212,8 @@ Set-ADComputer -Identity $ServerC -PrincipalsAllowedToDelegateToAccount $null
 - [Jak Windows Server 2012 usnadňuje problémové Kerberos omezeného delegování, část 1](http://windowsitpro.com/security/how-windows-server-2012-eases-pain-kerberos-constrained-delegation-part-1)
 - [Jak Windows Server 2012 usnadňuje problémové Kerberos omezeného delegování, část 2](http://windowsitpro.com/security/how-windows-server-2012-eases-pain-kerberos-constrained-delegation-part-2)
 - [Principy protokolu Kerberos omezeného delegování pro nasazení Proxy aplikace služby Azure Active Directory pomocí integrovaného ověřování systému Windows](http://aka.ms/kcdpaper)
-- [[MS-ADA2]: Active Directory schématu atributů M2.210 atribut msDS-AllowedToActOnBehalfOfOtherIdentity](https://msdn.microsoft.com/en-us/library/hh554126.aspx)
-- [[MS-SFU]: rozšíření protokolu Kerberos: Service for User a protokolu 1.3.2 S4U2proxy omezeného delegování](https://msdn.microsoft.com/en-us/library/cc246079.aspx)
+- [[MS-ADA2]: Active Directory schématu atributů M2.210 atribut msDS-AllowedToActOnBehalfOfOtherIdentity](https://msdn.microsoft.com/library/hh554126.aspx)
+- [[MS-SFU]: rozšíření protokolu Kerberos: Service for User a protokolu 1.3.2 S4U2proxy omezeného delegování](https://msdn.microsoft.com/library/cc246079.aspx)
 - [Prostředků na základě protokolu Kerberos omezeného delegování](https://blog.kloud.com.au/2013/07/11/kerberos-constrained-delegation/)
 - [Vzdálená správa bez použití PrincipalsAllowedToDelegateToAccount omezeného delegování](https://blogs.msdn.microsoft.com/taylorb/2012/11/06/remote-administration-without-constrained-delegation-using-principalsallowedtodelegatetoaccount/)
 
@@ -236,7 +236,7 @@ Informace o používání PSSessionConfiguration a RunAs druhý směrování pro
 
 JEA umožňuje omezit jaké příkazy můžete spustit správce během relace prostředí PowerShell. Může sloužit k jejich vyřešení druhý směrování.
 
-Informace o JEA najdete v tématu [právě dostatečně správy](https://docs.microsoft.com/en-us/powershell/jea/overview).
+Informace o JEA najdete v tématu [právě dostatečně správy](https://docs.microsoft.com/powershell/jea/overview).
 
 ### <a name="pros"></a>Výhody
 
@@ -249,7 +249,7 @@ Informace o JEA najdete v tématu [právě dostatečně správy](https://docs.mi
 
 ## <a name="pass-credentials-inside-an-invoke-command-script-block"></a>Předávat přihlašovací údaje uvnitř bloku skriptu Invoke-Command
 
-Můžete předat pověření uvnitř **ScriptBlock** parametr volání [Invoke-Command](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/invoke-command) rutiny.
+Můžete předat pověření uvnitř **ScriptBlock** parametr volání [Invoke-Command](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/invoke-command) rutiny.
 
 ### <a name="pros"></a>Výhody
 

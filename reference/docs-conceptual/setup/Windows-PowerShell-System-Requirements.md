@@ -3,11 +3,11 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Systémové požadavky Windows PowerShellu
 ms.assetid: 6d1d3c75-3be4-4fc9-8805-ca9b2c454d42
-ms.openlocfilehash: a15b5b33b5296befae833e520cfdfbd41a07b122
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 74c65a97a30227997c48a23c42b0431189f9ed76
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="windows-powershell-system-requirements"></a>Systémové požadavky Windows PowerShellu
 Toto téma uvádí požadavky na systém pro Windows PowerShell 3.0, prostředí Windows PowerShell 4.0 a prostředí Windows PowerShell 5.0 a speciální funkce, jako je Windows PowerShell Integrované skriptovací prostředí (ISE), příkazů CIM a pracovních postupů.
@@ -83,19 +83,19 @@ Ale některé položky, například následující, vyžadují grafické uživat
 
 - Rutina
 
-    1.  [Out-GridView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview)
+    1.  [GridView na více systémů](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/out-gridview)
 
-    2.  [Zobrazit – příkaz](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Show-Command)
+    2.  [Zobrazit – příkaz](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Show-Command)
 
-    3.  [Show-ControlPanelItem](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-ControlPanelItem)
+    3.  [Zobrazit ControlPanelItem](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Show-ControlPanelItem)
 
-    4.  [Show-EventLog](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Show-EventLog)
+    4.  [Zobrazit-protokolu událostí](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Show-EventLog)
 
 - Parameters
 
-    1.  **ShowWindow** parametr [Get-Help](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Get-Help) rutiny.
+    1.  **ShowWindow** parametr [Get-Help](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Get-Help) rutiny.
 
-    2.  **ShowSecurityDescriptorUI** parametr [Register-PSSessionConfiguration](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Register-PSSessionConfiguration) a [Set-PSSessionConfiguration](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Set-PSSessionConfiguration) rutiny.
+    2.  **ShowSecurityDescriptorUI** parametr [Register-PSSessionConfiguration](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Register-PSSessionConfiguration) a [Set-PSSessionConfiguration](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Set-PSSessionConfiguration) rutiny.
 
 ## <a name="windows-powershell-engine-requirements"></a>Požadavky na modul prostředí PowerShell systému Windows
 Prostředí Windows PowerShell 4.0 je navržený jako zpětně kompatibilní s Windows PowerShell 3.0 a prostředí Windows PowerShell 2.0. Rutiny, zprostředkovatelé, moduly snap in, moduly a skripty, které jsou napsané pro prostředí Windows PowerShell 2.0 a prostředí Windows PowerShell 3.0 spustit v prostředí Windows PowerShell 4.0 beze změny.
@@ -111,13 +111,13 @@ Prostředí Windows PowerShell 2.0, prostředí Windows PowerShell 3.0 a prostř
 
 - [Background Intelligent Transfer Service (BITS) rutiny](http://go.microsoft.com/fwlink/?LinkId=257514)
 
-- [Get-EventLog](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Get-EventLog)
+- [Get-EventLog](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-EventLog)
 
-- [Get-WinEvent](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent)
+- [Get-WinEvent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent)
 
-- [Save-Help](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Save-Help)
+- [Save-Help](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Save-Help)
 
-- [Update-Help](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/Update-Help)
+- [Update-Help](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Update-Help)
 
 Navíc **WinRM** služby není k dispozici v systému Windows PE.
 

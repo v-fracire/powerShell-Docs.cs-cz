@@ -1,15 +1,15 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 4bfedd585958f84889954bd9ee022ea47ac191b2
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: e7198999c17b5c0d77724a82b322e6485065225e
+ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/25/2018
 ---
 # <a name="software-inventory-logging-sil"></a>Protokolování softwarového inventáře (SIL)
 
-** Důležité: ** *při instalaci WMF 5.0 na Server Windows Server 2012 R2, který je již spuštěna SIL, je nutné spuštěním rutiny Start-SilLogging po instalaci WMF, protože proces instalace se zastaví errantly softwaru Funkce protokolování inventáře.*
+**Důležité:** *při instalaci WMF 5.0 na Server Windows Server 2012 R2, který je již spuštěna SIL, je nutné spuštěním rutiny Start-SilLogging po instalaci WMF, protože proces instalace se zastaví errantly Funkce protokolování inventáře softwaru.*
 
 Protokolování inventáře softwaru pomáhá snižovat provozních nákladů na získávání přesných informací o softwaru společnosti Microsoft, které jsou nainstalovány místně na serveru, ale hlavně napříč mnoha servery v IT prostředí (za předpokladu, že je software nainstalován a spuštěn IT prostředí). Pokud má nějaký nastavený, můžete předávat tato data agregačnímu serveru a shromažďovat data protokolu na jednom místě pomocí jednotným, automatickým procesem.
 
