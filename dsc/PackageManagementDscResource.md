@@ -1,18 +1,22 @@
 ---
-ms.date: 06/12/2017
+ms.date: 06/20/2018
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: PackageManagement prostředek DSC
-ms.openlocfilehash: f850c389214fe5adf139c3bd01fb60addc5ec238
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 3d52934b130d59acee4d7f8a92da2c743c1eb305
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34753783"
 ---
 # <a name="dsc-packagemanagement-resource"></a>PackageManagement prostředek DSC
 
-> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0, 5.1 prostředí Windows PowerShell
 
 **PackageManagement** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro instalaci nebo odinstalaci balíčků správy balíčků na cílový uzel. Vyžaduje tento prostředek **PackageManagement** modulu, k dispozici z http://PowerShellGallery.com.
+
+> [!IMPORTANT]
+> **PackageManagement** modulu by měla být minimálně verze 1.1.7.0 následující vlastnost informace správné.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -20,31 +24,35 @@ ms.lasthandoff: 05/16/2018
 PackageManagement [string] #ResourceName
 {
     Name = [string]
-    [ Source = [string] ]
-    [ Ensure = [string] { Absent | Present }  ]
-    [ RequiredVersion = [string] ]
-    [ MinimumVersion = [string] ]
-    [ MaximumVersion = [string] ]
-    [ SourceCredential = [PSCredential] ]
-    [ ProviderName = [string] ]
-    [ AdditionalParameters = [Microsoft.Management.Infrastructure.CimInstance[]] ]
+    [AdditionalParameters = [HashTable]]
+    [DependsOn = [string[]]]
+    [Ensure = [string]{ Absent | Present }]
+    [MaximumVersion = [string]]
+    [MinimumVersion = [string]]
+    [ProviderName = [string]]
+    [PsDscRunAsCredential = [PSCredential]]
+    [RequiredVersion = [string]]
+    [Source = [string]]
+    [SourceCredential = [PSCredential]]
 }
 ```
 
 ## <a name="properties"></a>Properties
+
 |  Vlastnost  |  Popis   |
 |---|---|
 | Název| Určuje název balíčku, který má být nainstalována nebo odinstalována.|
-| Zdroj| Určuje název zdroje balíčku, které lze nalézt balíček. To může být identifikátor URI nebo zdroj zaregistrována Register-PackageSource nebo PackageManagementSource DSC prostředek. Prostředek DSC MSFT_PackageManagementSource taky moct registrovat zdroj balíčku.|
+| Další_parametry| Zprostředkovatel konkrétní zatřiďovací tabulku parametrů, které by byly předány `Get-Package -AdditionalArguments`. Například pro zprostředkovatele NuGet můžete předat další parametry, jako je Cílová_cesta.|
 | Ujistěte se| Určuje, zda balíček má být nainstalována nebo odinstalována.|
-| RequiredVersion| Určuje přesnou verzi balíčku, který chcete nainstalovat. Pokud tento parametr nezadáte, tento prostředek DSC nainstaluje na nejnovější dostupnou verzi balíčku, který splňuje všechny maximální verze zadaná v parametru MaximumVersion rovněž.|
-| MinimumVersion| Určuje minimální povolená verzi balíčku, který chcete nainstalovat. Pokud tento parametr, tento intalls prostředků DSC nejvyšší dostupné verze balíčku, který splňuje všechny maximální zadaná verze zadané parametrem MaximumVersion rovněž nepřidávejte.|
-| MaximumVersion| Určuje maximální povolený verze balíčku, který chcete nainstalovat. Pokud tento parametr nezadáte, tento prostředek DSC nainstaluje nejvyšší číslované dostupná verze balíčku.|
+| MaximumVersion|Určuje maximální povolený verze balíčku, který chcete najít. Pokud tento parametr nepřidáte, prostředek vyhledá nejvyšší dostupné verze balíčku.|
+| MinimumVersion|Určuje minimální povolená verzi balíčku, který chcete najít. Pokud tento parametr je nemůžete přidat, prostředek vyhledá nejvyšší dostupné verze balíčku, který také splňuje všechny maximální zadaná verze určeného _MaximumVersion_ parametr.|
+| ProviderName| Určuje název zprostředkovatele balíček do které chcete obor vyhledávání balíčku. Název zprostředkovatele balíček můžete získat spuštěním `Get-PackageProvider` rutiny.|
+| RequiredVersion| Určuje přesnou verzi balíčku, který chcete nainstalovat. Pokud tento parametr nezadáte, tento prostředek DSC nainstaluje na nejnovější dostupnou verzi balíčku, který také splňuje všechny maximální verze zadaná v _MaximumVersion_ parametr.|
+| Zdroj| Určuje název zdroje balíčku, které lze nalézt balíček. To může být identifikátor URI nebo zdroj zaregistrována `Register-PackageSource` nebo prostředek PackageManagementSource DSC.|
 | SourceCredential | Určuje uživatelský účet, který má práva pro instalaci balíčku pro zadaný balíček zprostředkovatele nebo zdroje.|
-| ProviderName| Určuje název zprostředkovatele balíček do které chcete obor vyhledávání balíčku. Název zprostředkovatele balíček můžete získat spuštěním rutiny Get-PackageProvider.|
-| Další_parametry| Zprostředkovatel konkrétní parametry, které jsou předány jako zatřiďovací tabulky. Například pro zprostředkovatele NuGet můžete předat další parametry, jako je Cílová_cesta.|
 
 ## <a name="additional-parameters"></a>Další parametry
+
 V následující tabulce je uveden seznam možností pro vlastnost Další_parametry.
 |  Parametr  | Popis   |
 |---|---|
@@ -63,7 +71,7 @@ Configuration PackageTest
         Ensure      = "Present"
         Name        = "MyNuget"
         ProviderName= "Nuget"
-        SourceUri   = "http://nuget.org/api/v2/"
+        SourceLocation   = "http://nuget.org/api/v2/"
         InstallationPolicy ="Trusted"
     }
 
@@ -72,7 +80,7 @@ Configuration PackageTest
         Ensure      = "Present"
         Name        = "psgallery"
         ProviderName= "PowerShellGet"
-        SourceUri   = "https://www.powershellgallery.com/api/v2/"
+        SourceLocation   = "https://www.powershellgallery.com/api/v2/"
         InstallationPolicy ="Trusted"
     }
 

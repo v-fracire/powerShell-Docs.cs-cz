@@ -3,21 +3,22 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Odebírání objektů z kanálu kde objektu
 ms.assetid: 01df8b22-2d22-4e2c-a18d-c004cd3cc284
-ms.openlocfilehash: 2d89defdb1b234a9d0021fc06e1f05a95bb1bce9
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 46f210e1418098f4809174cd975ab8d783580285
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34753834"
 ---
 # <a name="removing-objects-from-the-pipeline-where-object"></a>Odebírání objektů z kanálu (Where-Object)
 
 V prostředí Windows PowerShell často generovat a další objekty předají pro kanál, než má. Můžete zadat vlastnosti konkrétní objekty, které chcete zobrazit pomocí **formát** rutiny, ale nepomůže s problémem odebrání celé objekty ze zobrazení. Můžete filtrovat objekty před koncem kanálu, tak můžete provádět akce na pouze podmnožinu objektů původně vytvořil.
 
-Prostředí Windows PowerShell zahrnuje **Where-Object** rutinu, která umožňuje testování jednotlivých objektů v kanálu a pouze předat podél kanálu pokud splňuje podmínku konkrétní test. Objekty, které se nepředají test se odeberou z kanálu. Zadejte podmínky testu jako hodnota **kde ObjectFilterScript** parametr.
+Prostředí Windows PowerShell zahrnuje `Where-Object` rutinu, která umožňuje testování jednotlivých objektů v kanálu a pouze předat podél kanálu pokud splňuje podmínku konkrétní test. Objekty, které se nepředají test se odeberou z kanálu. Zadejte podmínky testu jako hodnota `Where-Object` **FilterScript** parametr.
 
 ### <a name="performing-simple-tests-with-where-object"></a>Provádění jednoduchých testů s Where-Object
 
-Hodnota **FilterScript** je *bloku skriptu* – jeden nebo více příkazů prostředí Windows PowerShell obklopená složených závorek {} –, která vyhodnotí jako true nebo false. Tyto bloky skriptu může být velmi jednoduchý, ale jejich vytváření vyžaduje znalost o jiný koncept prostředí Windows PowerShell, operátory porovnání. Relační operátor porovnání položek, které se zobrazí na každé straně ho. Operátory porovnání začínat '-' znak a jsou následuje název. Operátory porovnání základní fungovat na téměř k libovolnému druhu objektu. Pokročilejší operátory porovnání může fungovat jenom na text nebo pole.
+Hodnota **FilterScript** je *bloku skriptu* – jeden nebo více příkazů prostředí Windows PowerShell, které jsou v závorkách {} – který se vyhodnotí na true nebo false. Tyto bloky skriptu může být velmi jednoduchý, ale jejich vytváření vyžaduje znalost o jiný koncept prostředí Windows PowerShell, operátory porovnání. Relační operátor porovnání položek, které se zobrazí na každé straně ho. Operátory porovnání začínat '-' znak a jsou následuje název. Operátory porovnání základní fungovat na téměř k libovolnému druhu objektu. Pokročilejší operátory porovnání může fungovat jenom na text nebo pole.
 
 > [!NOTE]
 > Operátory porovnání prostředí Windows PowerShell jsou ve výchozím nastavení se při práci s textem velká a malá písmena.
@@ -28,7 +29,7 @@ Z důvodu analýzy aspekty symboly, například <>, a = nejsou používány jako
 |-----------------------|-----------|--------------------------|
 |-eq|je rovno|1 - eq 1|
 |-ne|Není rovno|1 – ne 2|
-|-lt|Je menší než|1 -lt 2|
+|-lt|Je menší než|1 - lt 2|
 |-le|Je menší než nebo rovno|1 - le 2|
 |-gt|Je větší než|2 - gt 1|
 |-ge|Je větší než nebo rovno|2 -ge 1|
@@ -103,4 +104,4 @@ Standardní logické operátory jsou uvedeny v následující tabulce.
 |- a|Logické a; Hodnota TRUE, pokud jsou splněny obě strany|(1 - eq 1) - a (2 - eq 2).|
 |- nebo|Logické nebo; Hodnota TRUE, pokud má jedna strana hodnotu true|(1 - eq 1) - nebo (1 - eq 2).|
 |-není|Logický operátor not; obrátí hodnotu true a false|-není (1 - eq 2)|
-|\!|Logický operátor not; obrátí hodnotu true a false|\!(1 -eq 2)|
+|\!|Logický operátor not; obrátí hodnotu true a false|\!(1 - eq 2)|
