@@ -34,7 +34,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 ## <a name="setup-on-windows-machine"></a>Instalace na počítač s Windows
 
-1. Nainstalujte nejnovější verzi [jádra prostředí PowerShell pro systém Windows]
+1. Nainstalujte nejnovější verzi [Základní prostředí PowerShell pro systém Windows]
     - Můžete zadat, že pokud má dokonalejší podpora SSH prohlížením Nastaví parametr pro New-PSSession
 
     ```powershell
@@ -131,7 +131,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
     - Přidat položku subsystém prostředí PowerShell
 
     ```
-    Subsystem powershell /usr/local/bin/powershell -sshs -NoLogo -NoProfile
+    Subsystem powershell /usr/local/bin/pwsh -sshs -NoLogo -NoProfile
     ```
 
     - Volitelně můžete povolit ověření pomocí klíče
@@ -241,9 +241,9 @@ GitCommitId                    v6.0.0-alpha.17
 
 1. příkaz sudo v vzdálené relace k počítači Linux nefunguje.
 
-[jádra prostředí PowerShell pro systém Windows]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi
+[Základní prostředí PowerShell pro systém Windows]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi
 [Win32 OpenSSH]: https://github.com/PowerShell/Win32-OpenSSH/releases
-[instalace]: https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
-[prostředí PowerShell pro Linux]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#ubuntu-1404
+[Instalace]: https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
+[Prostředí PowerShell pro Linux]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#ubuntu-1404
 [Ubuntu SSH]: https://help.ubuntu.com/lts/serverguide/openssh-server.html
-[prostředí PowerShell pro systému MacOS]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md#macos-1012
+[Prostředí PowerShell pro systému MacOS]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md#macos-1012
