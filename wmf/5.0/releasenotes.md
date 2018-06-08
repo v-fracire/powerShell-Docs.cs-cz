@@ -2,10 +2,11 @@
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
 ms.openlocfilehash: a6366e18b4b6478bfab89475bc6975e6491da9f7
-ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/25/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34482858"
 ---
 # <a name="windows-management-framework-wmf-50-rtm-release-notes-overview"></a>Poznámky k verzi Přehled služby Windows Management Framework (WMF) 5.0 RTM
 

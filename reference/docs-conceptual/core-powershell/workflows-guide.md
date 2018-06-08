@@ -3,10 +3,11 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Průvodce pracovních postupů
 ms.openlocfilehash: 7c4cbcb03bf5abaeba65563156acd588f7671d93
-ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/25/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34482790"
 ---
 # <a name="psworkflow-module"></a>Modul PSWorkflow
 

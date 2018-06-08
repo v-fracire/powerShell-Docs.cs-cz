@@ -4,10 +4,11 @@ keywords: rutiny prostředí PowerShell
 title: Získání podrobné nápovědy
 ms.assetid: 6fb4daf7-8607-4a3e-b692-f77631adc1b9
 ms.openlocfilehash: 29c24af3f688f9388893044952442910e793842d
-ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/25/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34483028"
 ---
 # <a name="getting-detailed-help-information"></a>Získání podrobné nápovědy
 Prostředí Windows PowerShell obsahuje podrobné témata nápovědy, které vysvětlují koncepty prostředí Windows PowerShell a jazyk prostředí Windows PowerShell. Existují také témata nápovědy pro každou rutiny a zprostředkovatele a témata nápovědy pro mnoho funkcí a skriptů.

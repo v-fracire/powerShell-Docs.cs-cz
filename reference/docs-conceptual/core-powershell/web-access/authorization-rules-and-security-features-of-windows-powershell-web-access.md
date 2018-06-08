@@ -3,10 +3,11 @@ ms.date: 06/27/2017
 keywords: rutiny prostředí PowerShell
 title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 ms.openlocfilehash: 1b4d4339efda78a5cb719921a9cb06881d119930
-ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
+ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/25/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34483130"
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
