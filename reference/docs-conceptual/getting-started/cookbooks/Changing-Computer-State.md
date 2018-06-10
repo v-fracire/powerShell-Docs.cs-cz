@@ -3,11 +3,12 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Změna stavu počítače
 ms.assetid: 8093268b-27f8-4a49-8871-142c5cc33f01
-ms.openlocfilehash: 3d3983c6d9e9b11db62bd71805da51be83331fdb
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: c659ad54325b0f7305f882e1cb9607062abad6a4
+ms.sourcegitcommit: 2ffb9fa92129c2001379ca2c17646466721f7165
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/09/2018
+ms.locfileid: "35251513"
 ---
 # <a name="changing-computer-state"></a>Změna stavu počítače
 
@@ -49,16 +50,16 @@ Další informace a k nalezení dalších funkcí Win32Shutdown obsahuje všechn
 
 Vypínání a restartování počítačů jsou obvykle stejné typy úloh. Nástroje, které vypnout počítač obecně restartuje ho také – a naopak. Existují dvě možnosti přehledné pro restartování počítače z prostředí Windows PowerShell. Pomocí příslušné argumenty Tsshutdn.exe nebo Shutdown.exe. Můžete získat podrobné informace o použití z **tsshutdn.exe /?** nebo **shutdown.exe /?**.
 
-Můžete také provést vypnutí a restartování operace pomocí **Win32_OperatingSystem** přímo z prostředí Windows PowerShell také.
+Můžete také provést vypnutí a restartování operací přímo z prostředí Windows PowerShell také.
 
-Chcete-li vypnout počítač, použijte metodu metody Win32Shutdown s **1** příznak.
+Chcete-li vypnout počítač, použijte příkaz restartování počítače
 
 ```powershell
-(Get-WmiObject -Class Win32_OperatingSystem -ComputerName .).Win32Shutdown(1)
+stop-computer
 ```
 
-Chcete-li restartovat operační systém, použijte metodu metody Win32Shutdown s **2** příznak.
+Chcete-li restartovat operační systém, použijte příkaz restartování počítače
 
 ```powershell
-(Get-WmiObject -Class Win32_OperatingSystem -ComputerName .).Win32Shutdown(2)
+restart-computer
 ```
