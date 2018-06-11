@@ -74,7 +74,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 ## <a name="setup-on-linux-ubuntu-1404-machine"></a>Instalační program na počítači Linux (Ubuntu 14.04)
 
-1. Nainstalujte si nejnovější verzi [prostředí PowerShell pro Linux] sestavení z Githubu
+1. Nainstalujte si nejnovější verzi [základní prostředí PowerShell pro Linux] sestavení z Githubu
 1. Nainstalujte [Ubuntu SSH] podle potřeby
 
     ```bash
@@ -109,7 +109,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 ## <a name="setup-on-macos-machine"></a>Instalační program na počítači systému MacOS
 
-1. Nainstalujte si nejnovější verzi [prostředí PowerShell pro systému MacOS] sestavení
+1. Nainstalujte si nejnovější verzi [jádro prostředí PowerShell pro systému MacOS] sestavení
     - Zkontrolujte, zda že je povolena vzdálená SSH komunikace pomocí následujících kroků:
       - Otevřete `System Preferences`
       - Klikněte na `Sharing`
@@ -241,9 +241,9 @@ GitCommitId                    v6.0.0-alpha.17
 
 1. příkaz sudo v vzdálené relace k počítači Linux nefunguje.
 
-[Základní prostředí PowerShell pro systém Windows]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md#msi
+[Základní prostředí PowerShell pro systém Windows]: ../setup/installing-powershell-core-on-windows.md#msi
+[Základní prostředí PowerShell pro Linux]: ../setup/installing-powershell-core-on-linux.md#ubuntu-1404
+[Jádro prostředí PowerShell pro systému MacOS]: ../setup/installing-powershell-core-on-macos.md
 [Win32 OpenSSH]: https://github.com/PowerShell/Win32-OpenSSH/releases
 [Instalace]: https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
-[Prostředí PowerShell pro Linux]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#ubuntu-1404
 [Ubuntu SSH]: https://help.ubuntu.com/lts/serverguide/openssh-server.html
-[Prostředí PowerShell pro systému MacOS]: https://github.com/PowerShell/PowerShell/blob/master/docs/installation/macos.md#macos-1012
