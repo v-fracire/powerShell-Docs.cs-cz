@@ -2,17 +2,17 @@
 
 ## <a name="msi"></a>MSI
 
-K instalaci prostředí PowerShell na Windows serveru nebo klienta Windows (funguje na Server 2008 R2, Windows 7 SP1 a novější), stáhněte si balíček Instalační služby MSI z našich Githubu [uvolní][] stránky.
+K instalaci prostředí PowerShell na Windows serveru nebo klienta Windows (funguje v Server 2008 R2, Windows 7 SP1 a novější), stáhněte si balíček Instalační služby MSI z naší stránce Githubu [verze] [].
 
-Soubor MSI vypadá takto- `PowerShell-6.0.0.<buildversion>.<os-arch>.msi`
+Soubor MSI vypadá takto- `PowerShell-<version>-win-<os-arch>.msi`
 <!-- TODO: should be updated to point to the Download Center as well -->
 
 Po stažení poklikejte na instalační program a postupujte podle pokynů.
 
 Je umístěn v nabídce Start po instalaci zástupce.
 
-- Ve výchozím nastavení je balíček nainstalován do `$env:ProgramFiles\PowerShell\`
-- Můžete spustit prostředí PowerShell pomocí nabídky Start nebo `$env:ProgramFiles\PowerShell\pwsh.exe`
+- Ve výchozím nastavení je balíček nainstalován do `$env:ProgramFiles\PowerShell\<version>`
+- Můžete spustit prostředí PowerShell pomocí nabídky Start nebo `$env:ProgramFiles\PowerShell\<version>\pwsh.exe`
 
 ### <a name="prerequisites"></a>Předpoklady
 
@@ -126,12 +126,12 @@ Následující kroky vás provedou nasazení jádra prostředí PowerShell pro s
 Prostředí PowerShell jádro podporuje protokol vzdálenou komunikaci prostředí PowerShell (PSRP) prostřednictvím služby WSMan a SSH.
 Další informace viz:
 
-- [SSH vzdálenou komunikaci prostředí PowerShell jádra][ssh-remoting]
-- [Vzdálená komunikace WSMan v prostředí PowerShell jádra][wsman-remoting]
+- [SSH vzdálené komunikace v prostředí PowerShell základní] [ssh-vzdálené komunikace]
+- [WSMan vzdálené komunikace v prostředí PowerShell základní] [wsman vzdálené komunikace]
 
 ## <a name="artifact-installation-instructions"></a>Pokyny k instalaci artefaktů
 
-Publikujeme archiv s CoreCLR bity na každé položky konfigurace sestavení s [AppVeyor][].
+Publikujeme archiv s CoreCLR bity na každé položky konfigurace sestavení pomocí [] – [AppVeyor].
 
 Instalace prostředí PowerShell základní z artefaktů CoreCLR:
 
@@ -140,8 +140,4 @@ Instalace prostředí PowerShell základní z artefaktů CoreCLR:
 3. Extrahujte soubor zip do `bin` adresáře
 4. `./bin/pwsh.exe`
 
-<!-- [download-center]: TODO -->
-[uvolní]: https://github.com/PowerShell/PowerShell/releases
-[ssh-remoting]: ../core-powershell/SSH-Remoting-in-PowerShell-Core.md
-[wsman-remoting]: ../core-powershell/WSMan-Remoting-in-PowerShell-Core.md
-[AppVeyor]: https://ci.appveyor.com/project/PowerShell/powershell
+<!-- [download-center]: TODO --> [uvolní]: https://github.com/PowerShell/PowerShell/releases [ssh-vzdálené komunikace]:... /Core-PowerShell/SSH-Remoting-in-PowerShell-Core.MD [wsman vzdálené komunikace]:... /Core-PowerShell/wsman-Remoting-in-PowerShell-Core.MD [AppVeyor]: https://ci.appveyor.com/project/PowerShell/powershell
