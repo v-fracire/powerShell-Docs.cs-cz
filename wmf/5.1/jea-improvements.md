@@ -9,6 +9,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34222413"
 ---
 # <a name="improvements-to-just-enough-administration-jea"></a>Vylepšení akorát správy (JEA)
 
@@ -49,7 +50,7 @@ Poté můžete napsat vlastní funkce a zpracovat data uložená na jednotce už
 
 V některých případech může úlohy, které uživatel potřebuje provést v relaci JEA potřebovat přístup k prostředkům v místním počítači.
 Pokud relaci JEA je nakonfigurovaná pro použití virtuální účet, zobrazí se pokusy o dosažení těchto zdrojů pocházet z identitu místního počítače, nikoli na virtuální účet nebo připojených uživatelů.
-V TP5, jsme povolena podpora pro spouštění v kontextu [skupinový účet spravované služby] JEA (https://technet.microsoft.com/en-us/library/jj128431(v=ws.11\).aspx), výrazně usnadňuje přístup k síťovým prostředkům pomocí identitu domény.
+V TP5, jsme povolena podpora JEA pro spouštění v kontextu [skupinový účet spravované služby](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11\).aspx) , výrazně usnadňuje přístup k síťovým prostředkům pomocí identitu domény.
 
 Ke konfiguraci relace JEA spuštěna pod účtem gMSA, použijte následující nový klíč v souboru PSSC:
 

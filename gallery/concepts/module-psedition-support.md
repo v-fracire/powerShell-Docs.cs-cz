@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189512"
 ---
 # <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní verze prostředí PowerShell
 
@@ -249,4 +250,4 @@ Find-Module -Tag PSEdition_Core
 
 - [Skripty s PSEditions](script-psedition-support.md)
 - [Podpora PSEditions na PowerShellGallery](../how-to/finding-items/searching-by-psedition.md)
-- [Aktualizace modulu manifest] (/ prostředí powershell nebo modul/powershellget/update-modulemanifest)
+- [Aktualizace modulu manifest] (/powershell/module/powershellget/update-modulemanifest)
