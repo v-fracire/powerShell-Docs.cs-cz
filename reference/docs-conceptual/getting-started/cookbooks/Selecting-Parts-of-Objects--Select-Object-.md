@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953884"
 ---
 # <a name="selecting-parts-of-objects-select-object"></a><span data-ttu-id="7e4d4-103">Výběr částí objektů (Select-Object)</span><span class="sxs-lookup"><span data-stu-id="7e4d4-103">Selecting Parts of Objects (Select-Object)</span></span>
 

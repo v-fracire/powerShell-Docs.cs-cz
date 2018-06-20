@@ -6,6 +6,7 @@ ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/25/2018
+ms.locfileid: "34482909"
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a><span data-ttu-id="2878c-102">Jednotné vyjádření stavu</span><span class="sxs-lookup"><span data-stu-id="2878c-102">Unified and Consistent State and Status Representation</span></span>
 

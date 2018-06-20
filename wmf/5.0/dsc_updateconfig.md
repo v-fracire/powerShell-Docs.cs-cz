@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34220338"
 ---
 # <a name="on-demand-pull-of-dsc-configurations"></a><span data-ttu-id="b8e3f-102">Načítání konfigurací DSC na vyžádání</span><span class="sxs-lookup"><span data-stu-id="b8e3f-102">On-demand PULL of DSC Configurations</span></span>
 

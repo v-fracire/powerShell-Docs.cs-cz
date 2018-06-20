@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34187653"
 ---
 # <a name="dsc-windowsoptionalfeatureset-resource"></a><span data-ttu-id="24ee4-103">WindowsOptionalFeatureSet prostředek DSC</span><span class="sxs-lookup"><span data-stu-id="24ee4-103">DSC WindowsOptionalFeatureSet Resource</span></span>
 

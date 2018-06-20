@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953119"
 ---
 # <a name="starting-windows-powershell"></a><span data-ttu-id="ab6a9-103">Spuštění Windows PowerShellu</span><span class="sxs-lookup"><span data-stu-id="ab6a9-103">Starting Windows PowerShell</span></span>
 <span data-ttu-id="ab6a9-104">PowerShell je skriptovací modulu dll, která je integrována do více hostitelů.</span><span class="sxs-lookup"><span data-stu-id="ab6a9-104">PowerShell is a scripting engine dll which is embedded into multiple hosts.</span></span>  <span data-ttu-id="ab6a9-105">Nejběžnější hostitele, který se spustí jsou interaktivního příkazového řádku PowerShell.exe a interaktivní PowerShell_ISE.exe prostředí skriptování.</span><span class="sxs-lookup"><span data-stu-id="ab6a9-105">The most common host you will start are the interactive command line PowerShell.exe and the Interactive Scripting Environment PowerShell_ISE.exe.</span></span>

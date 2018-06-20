@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189954"
 ---
 # <a name="resource-authoring-checklist"></a><span data-ttu-id="e5452-103">Kontrolní seznam při tvorbě prostředku</span><span class="sxs-lookup"><span data-stu-id="e5452-103">Resource authoring checklist</span></span>
 <span data-ttu-id="e5452-104">Tento kontrolní seznam je seznam osvědčené postupy při vytváření nového prostředku DSC.</span><span class="sxs-lookup"><span data-stu-id="e5452-104">This checklist is a list of best practices when authoring a new DSC Resource.</span></span>

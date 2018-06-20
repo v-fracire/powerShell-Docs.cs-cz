@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189716"
 ---
 # <a name="getting-started-with-powershell-desired-state-configuration"></a><span data-ttu-id="99c1f-103">Začínáme s prostředím PowerShell konfigurace požadovaného stavu</span><span class="sxs-lookup"><span data-stu-id="99c1f-103">Getting Started with PowerShell Desired State Configuration</span></span> #
 

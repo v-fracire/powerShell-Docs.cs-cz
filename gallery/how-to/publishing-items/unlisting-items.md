@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34187526"
 ---
 # <a name="unlisting-items"></a><span data-ttu-id="39ff8-103">Vynětí položek ze seznamu</span><span class="sxs-lookup"><span data-stu-id="39ff8-103">Unlisting items</span></span>
 

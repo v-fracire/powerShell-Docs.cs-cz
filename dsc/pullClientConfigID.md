@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34187489"
 ---
 # <a name="setting-up-a-pull-client-using-configuration-id"></a><span data-ttu-id="0d857-103">Použití konfiguračních identifikátorů k nastavení načítacího klienta</span><span class="sxs-lookup"><span data-stu-id="0d857-103">Setting up a pull client using configuration ID</span></span>
 

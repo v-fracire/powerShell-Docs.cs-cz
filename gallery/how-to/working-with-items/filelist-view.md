@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34219153"
 ---
 # <a name="filelist-feature-in-the-gallery"></a><span data-ttu-id="dca8a-103">Funkce seznam souborů v galerii</span><span class="sxs-lookup"><span data-stu-id="dca8a-103">FileList feature in the Gallery</span></span>
 

@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34218242"
 ---
 # <a name="authoring-improvements-using-powershell-ise"></a><span data-ttu-id="42ba8-102">Lepší vytváření v Integrovaném skriptovacím prostředí (ISE) v PowerShellu</span><span class="sxs-lookup"><span data-stu-id="42ba8-102">Authoring Improvements using PowerShell ISE</span></span>
 

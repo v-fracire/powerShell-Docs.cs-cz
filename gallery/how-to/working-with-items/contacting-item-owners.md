@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225500"
 ---
 # <a name="contacting-item-owners"></a><span data-ttu-id="39cdf-103">Kontaktování vlastníků položky</span><span class="sxs-lookup"><span data-stu-id="39cdf-103">Contacting item owners</span></span>
 

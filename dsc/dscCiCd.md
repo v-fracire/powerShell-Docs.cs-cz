@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34190549"
 ---
 # <a name="building-a-continuous-integration-and-continuous-deployment-pipeline-with-dsc"></a><span data-ttu-id="d90c2-103">Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC</span><span class="sxs-lookup"><span data-stu-id="d90c2-103">Building a Continuous Integration and Continuous Deployment pipeline with DSC</span></span>
 

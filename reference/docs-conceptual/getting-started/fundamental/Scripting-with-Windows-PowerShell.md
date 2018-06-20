@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30949396"
 ---
 # <a name="scripting-with-windows-powershell"></a><span data-ttu-id="55799-103">Skriptování ve Windows PowerShellu</span><span class="sxs-lookup"><span data-stu-id="55799-103">Scripting with Windows PowerShell</span></span>
 

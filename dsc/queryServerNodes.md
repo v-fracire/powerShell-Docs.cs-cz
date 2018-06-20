@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225619"
 ---
 # <a name="dsc-function-to-query-node-information-from-pull-server"></a><span data-ttu-id="e7508-103">DSC funkce uzlu dotazů na informace z načítacího serveru.</span><span class="sxs-lookup"><span data-stu-id="e7508-103">DSC function to query node information from pull server.</span></span>
 

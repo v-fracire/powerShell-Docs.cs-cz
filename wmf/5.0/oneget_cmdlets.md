@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34221948"
 ---
 # <a name="packagemanagement-cmdlets"></a><span data-ttu-id="dbe23-102">Rutiny PackageManagement</span><span class="sxs-lookup"><span data-stu-id="dbe23-102">PackageManagement Cmdlets</span></span>
 <span data-ttu-id="dbe23-103">Toto je základní PackageManagement na podporu softwaru zjišťování, instalace a inventáře (SDII).</span><span class="sxs-lookup"><span data-stu-id="dbe23-103">This is the core of PackageManagement to support software discovery, installation, and inventory (SDII).</span></span> <span data-ttu-id="dbe23-104">Vyzkoušejte rutiny pro tyto operace:</span><span class="sxs-lookup"><span data-stu-id="dbe23-104">Try out the cmdlets for these operations:</span></span>

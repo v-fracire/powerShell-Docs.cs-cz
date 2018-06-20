@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34222332"
 ---
 # <a name="mof-documents-are-encrypted-by-default"></a><span data-ttu-id="f6fc1-102">Ve výchozím nastavení jsou zašifrované dokumenty MOF</span><span class="sxs-lookup"><span data-stu-id="f6fc1-102">MOF Documents Are Encrypted By Default</span></span>
 

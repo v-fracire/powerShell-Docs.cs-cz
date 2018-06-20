@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34190294"
 ---
 # <a name="pull-server-best-practices"></a><span data-ttu-id="e3a3f-103">Osvědčené postupy serveru vyžádané replikace</span><span class="sxs-lookup"><span data-stu-id="e3a3f-103">Pull server best practices</span></span>
 

@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189546"
 ---
 # <a name="powershellget-cmdlets-for-script-management"></a><span data-ttu-id="4703c-102">Rutiny správce balíčků PowerShellGet pro správu skriptů</span><span class="sxs-lookup"><span data-stu-id="4703c-102">PowerShellGet Cmdlets for Script Management</span></span>
 

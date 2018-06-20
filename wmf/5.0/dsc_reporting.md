@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225517"
 ---
 # <a name="report-configuration-status-to-central-location"></a><span data-ttu-id="1c640-102">Hlášení stavu konfigurace na centrální místo</span><span class="sxs-lookup"><span data-stu-id="1c640-102">Report Configuration Status to Central Location</span></span>
 

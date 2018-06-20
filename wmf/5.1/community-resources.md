@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34219364"
 ---
 # <a name="community-resources"></a><span data-ttu-id="9125e-103">Materiály z komunity</span><span class="sxs-lookup"><span data-stu-id="9125e-103">Community Resources</span></span> #
 > <span data-ttu-id="9125e-104">Poznámka: Tyto informace jsou předběžné a může se změnit.</span><span class="sxs-lookup"><span data-stu-id="9125e-104">Note: This information is preliminary and subject to change.</span></span>

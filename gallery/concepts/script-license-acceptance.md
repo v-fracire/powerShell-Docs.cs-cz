@@ -5,8 +5,10 @@ keywords: Prostředí PowerShell
 title: Pro skripty, které vyžadují přijetí licence
 ms.openlocfilehash: 6374c8c8536dd0c8f27580a5b8895b8db18424f9
 ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34048754"
 ---
 # <a name="requiring-license-acceptance-for-scripts"></a><span data-ttu-id="7d521-103">Pro skripty, které vyžadují přijetí licence</span><span class="sxs-lookup"><span data-stu-id="7d521-103">Requiring license acceptance for scripts</span></span>
 

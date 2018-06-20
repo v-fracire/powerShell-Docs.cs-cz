@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30950963"
 ---
 # <a name="getting-ready-to-use-windows-powershell"></a><span data-ttu-id="f970e-103">Příprava na použití Windows PowerShellu</span><span class="sxs-lookup"><span data-stu-id="f970e-103">Getting Ready to Use Windows PowerShell</span></span>
 <span data-ttu-id="f970e-104">Pokud prostředí Windows PowerShell je nainstalován a spuštěn, zvažte následující možnosti instalace.</span><span class="sxs-lookup"><span data-stu-id="f970e-104">When Windows PowerShell is installed and started, consider the following setup options.</span></span> <span data-ttu-id="f970e-105">Kdykoli můžete provádět tyto úlohy.</span><span class="sxs-lookup"><span data-stu-id="f970e-105">You can perform these tasks at any time.</span></span>

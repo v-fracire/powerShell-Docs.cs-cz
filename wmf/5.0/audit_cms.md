@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189903"
 ---
 # <a name="cryptographic-message-syntax-cms-cmdlets"></a><span data-ttu-id="cd043-102">Kryptografické rutiny zpráva syntaxe (CMS)</span><span class="sxs-lookup"><span data-stu-id="cd043-102">Cryptographic Message Syntax (CMS) cmdlets</span></span>
 

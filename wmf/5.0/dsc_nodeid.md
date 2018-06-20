@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188281"
 ---
 # <a name="separation-of-node-and-configuration-ids"></a><span data-ttu-id="5796f-102">Oddělení ID uzlu od ID konfigurace</span><span class="sxs-lookup"><span data-stu-id="5796f-102">Separation of Node and Configuration IDs</span></span>
 

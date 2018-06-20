@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189359"
 ---
 # <a name="composite-resources-using-a-dsc-configuration-as-a-resource"></a><span data-ttu-id="8c663-103">Složené prostředky: použití konfigurace DSC jako prostředek</span><span class="sxs-lookup"><span data-stu-id="8c663-103">Composite resources: Using a DSC configuration as a resource</span></span>
 

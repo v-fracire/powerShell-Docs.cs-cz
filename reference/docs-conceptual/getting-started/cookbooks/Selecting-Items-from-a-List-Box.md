@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30951677"
 ---
 # <a name="selecting-items-from-a-list-box"></a><span data-ttu-id="f596a-103">Výběr položek ze seznamu</span><span class="sxs-lookup"><span data-stu-id="f596a-103">Selecting Items from a List Box</span></span>
 

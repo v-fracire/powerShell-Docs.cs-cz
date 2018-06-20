@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189563"
 ---
 # <a name="extract-and-parse-structured-objects-out-of-string"></a><span data-ttu-id="65220-102">Extrakce a analýza strukturovaných objektů mimo řetězec</span><span class="sxs-lookup"><span data-stu-id="65220-102">Extract and Parse Structured Objects out of String</span></span>
 <span data-ttu-id="65220-103">Vzniká některé další funkce pro rutinu ConvertFrom řetězec:</span><span class="sxs-lookup"><span data-stu-id="65220-103">This also introduces some additional functionality for the ConvertFrom-String cmdlet:</span></span>

@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34190039"
 ---
 # <a name="credentials-options-in-configuration-data"></a><span data-ttu-id="f630f-103">Možnosti přihlašovací údaje v konfiguračních dat</span><span class="sxs-lookup"><span data-stu-id="f630f-103">Credentials Options in Configuration Data</span></span>
 ><span data-ttu-id="f630f-104">Platí pro: Prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="f630f-104">Applies To: Windows PowerShell 5.0</span></span>

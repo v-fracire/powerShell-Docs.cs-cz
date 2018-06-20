@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188118"
 ---
 # <a name="separating-configuration-and-environment-data"></a><span data-ttu-id="2aa96-103">Oddělení konfiguračních dat od dat prostředí</span><span class="sxs-lookup"><span data-stu-id="2aa96-103">Separating configuration and environment data</span></span>
 

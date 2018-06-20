@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188135"
 ---
 # <a name="providing-feedback-via-social-media-or-comments"></a><span data-ttu-id="b8bf1-103">Poskytnutí názoru prostřednictvím sociálních médií nebo komentáře</span><span class="sxs-lookup"><span data-stu-id="b8bf1-103">Providing Feedback via social media or comments</span></span>
 

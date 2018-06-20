@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30954751"
 ---
 # <a name="creating-a-custom-input-box"></a><span data-ttu-id="8c46b-103">Vytvoření vlastního vstupního pole</span><span class="sxs-lookup"><span data-stu-id="8c46b-103">Creating a Custom Input Box</span></span>
 

@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188526"
 ---
 # <a name="dsc-package-resource"></a><span data-ttu-id="c817a-103">Prostředek DSC balíček</span><span class="sxs-lookup"><span data-stu-id="c817a-103">DSC Package Resource</span></span>
 

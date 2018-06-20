@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189495"
 ---
 # <a name="items-with-compatible-powershell-editions"></a><span data-ttu-id="96cb6-103">Položky s kompatibilní verze prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="96cb6-103">Items with compatible PowerShell Editions</span></span>
 

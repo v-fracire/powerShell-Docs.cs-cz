@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34222366"
 ---
 # <a name="build-custom-windows-powershell-desired-state-configuration-resources"></a><span data-ttu-id="00b8d-103">Sestavení vlastní Windows PowerShell Desired State Configuration prostředky</span><span class="sxs-lookup"><span data-stu-id="00b8d-103">Build Custom Windows PowerShell Desired State Configuration Resources</span></span>
 

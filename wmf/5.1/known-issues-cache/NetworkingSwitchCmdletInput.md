@@ -9,6 +9,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188679"
 ---
 <span data-ttu-id="c68e0-103">Rutiny správce přepínače sítě můžete použít ke správě přepínače sítě prostřednictvím služby WSMAN.</span><span class="sxs-lookup"><span data-stu-id="c68e0-103">The Network Switch Manager cmdlets can be used to manage network switches over WSMAN.</span></span>
 <span data-ttu-id="c68e0-104">Jsou schopný přijímat hodnoty z kanálů několik rutiny tohoto modulu.</span><span class="sxs-lookup"><span data-stu-id="c68e0-104">A few cmdlets of this module are capable of accepting values from pipelines.</span></span>

@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34187527"
 ---
 # <a name="allowing-for-identical-duplicate-resources-in-a-configuration"></a><span data-ttu-id="97c98-102">Povolení pro identické duplicitní prostředky v konfiguraci</span><span class="sxs-lookup"><span data-stu-id="97c98-102">Allowing for Identical Duplicate Resources in a Configuration</span></span>
 

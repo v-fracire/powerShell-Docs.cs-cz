@@ -7,6 +7,7 @@ ms.sourcegitcommit: 2d9cf1ccb9a653db7726a408ebcb65530dcb1522
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/19/2018
+ms.locfileid: "34309570"
 ---
 # <a name="breaking-changes-for-powershell-60"></a><span data-ttu-id="74be3-103">Nejnovější změny pro prostředí PowerShell 6.0</span><span class="sxs-lookup"><span data-stu-id="74be3-103">Breaking Changes for PowerShell 6.0</span></span>
 

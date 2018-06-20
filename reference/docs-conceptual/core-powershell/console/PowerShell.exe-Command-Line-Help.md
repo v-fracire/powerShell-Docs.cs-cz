@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30952575"
 ---
 # <a name="powershellexe-command-line-help"></a><span data-ttu-id="a3834-103">Nápověda příkazového řádku PowerShell.exe</span><span class="sxs-lookup"><span data-stu-id="a3834-103">PowerShell.exe Command-Line Help</span></span>
 

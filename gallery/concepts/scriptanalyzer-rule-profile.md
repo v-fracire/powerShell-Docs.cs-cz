@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225738"
 ---
 # <a name="scriptanalyzer-rule-profile-for-gallery"></a><span data-ttu-id="90ea1-103">Profil ScriptAnalyzer pravidlo pro galerie</span><span class="sxs-lookup"><span data-stu-id="90ea1-103">ScriptAnalyzer rule profile for Gallery</span></span>
 

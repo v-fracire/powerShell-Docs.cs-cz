@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30948206"
 ---
 # <a name="object-pipeline"></a><span data-ttu-id="79b65-103">Kanál objektů</span><span class="sxs-lookup"><span data-stu-id="79b65-103">Object Pipeline</span></span>
 <span data-ttu-id="79b65-104">Kanály fungovat stejně jako řadu připojené segmenty kanálu.</span><span class="sxs-lookup"><span data-stu-id="79b65-104">Pipelines act like a series of connected segments of pipe.</span></span> <span data-ttu-id="79b65-105">Položky přesunutí podél kanálu předávání jednotlivých segmentů.</span><span class="sxs-lookup"><span data-stu-id="79b65-105">Items moving along the pipeline pass through each segment.</span></span> <span data-ttu-id="79b65-106">Pokud chcete vytvořit kanál v prostředí Windows PowerShell, připojíte příkazy spolu s operátor kanálu "|".</span><span class="sxs-lookup"><span data-stu-id="79b65-106">To create a pipeline in Windows PowerShell, you connect commands together with the pipe operator "|".</span></span> <span data-ttu-id="79b65-107">Výstup každé příkazu se používá jako vstup dalšího příkazu.</span><span class="sxs-lookup"><span data-stu-id="79b65-107">The output of each command is used as input to the next command.</span></span>

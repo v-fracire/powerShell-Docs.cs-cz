@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30949260"
 ---
 # <a name="appendix-2---creating-a-custom-powershell-shortcut"></a><span data-ttu-id="b26fc-103">Příloha 2 – Vytvoření zástupce vlastní prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="b26fc-103">Appendix 2 - Creating a Custom PowerShell Shortcut</span></span>
 

@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30954122"
 ---
 # <a name="performing-networking-tasks"></a><span data-ttu-id="fc261-103">Provádění síťových úloh</span><span class="sxs-lookup"><span data-stu-id="fc261-103">Performing Networking Tasks</span></span>
 

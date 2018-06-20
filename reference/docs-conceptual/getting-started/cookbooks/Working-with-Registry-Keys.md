@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30951694"
 ---
 # <a name="working-with-registry-keys"></a><span data-ttu-id="a9682-103">Práce s klíči registru</span><span class="sxs-lookup"><span data-stu-id="a9682-103">Working with Registry Keys</span></span>
 

@@ -8,6 +8,7 @@ ms.sourcegitcommit: 2d9cf1ccb9a653db7726a408ebcb65530dcb1522
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/19/2018
+ms.locfileid: "34309538"
 ---
 # <a name="improvements-in-desired-state-configuration-dsc-in-wmf-51"></a><span data-ttu-id="5a2a4-103">Vylepšení v požadované konfigurace stavu (DSC) v WMF 5.1</span><span class="sxs-lookup"><span data-stu-id="5a2a4-103">Improvements in Desired State Configuration (DSC) in WMF 5.1</span></span>
 

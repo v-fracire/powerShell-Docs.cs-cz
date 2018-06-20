@@ -5,8 +5,10 @@ keywords: Prostředí PowerShell
 title: Moduly vyžadující přijetí licence
 ms.openlocfilehash: fe197ea271e18580a221ad4d5245b685bd81775b
 ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34048780"
 ---
 # <a name="modules-requiring-license-acceptance"></a><span data-ttu-id="cb3af-103">Moduly vyžadující přijetí licence</span><span class="sxs-lookup"><span data-stu-id="cb3af-103">Modules Requiring License Acceptance</span></span>
 

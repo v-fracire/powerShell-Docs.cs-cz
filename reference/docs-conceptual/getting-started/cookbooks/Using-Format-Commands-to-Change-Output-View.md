@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30952779"
 ---
 # <a name="using-format-commands-to-change-output-view"></a><span data-ttu-id="5afa8-103">Použití formátovacích příkazů ke změně zobrazení výstupů</span><span class="sxs-lookup"><span data-stu-id="5afa8-103">Using Format Commands to Change Output View</span></span>
 

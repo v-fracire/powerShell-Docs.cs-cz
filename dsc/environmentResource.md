@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34187295"
 ---
 # <a name="dsc-environment-resource"></a><span data-ttu-id="c8bb1-103">Prostředek DSC prostředí</span><span class="sxs-lookup"><span data-stu-id="c8bb1-103">DSC Environment Resource</span></span>
 

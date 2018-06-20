@@ -7,6 +7,7 @@ ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34047845"
 ---
 # <a name="more-powershell-learning"></a><span data-ttu-id="c85e1-103">Další zdroje informací o PowerShellu</span><span class="sxs-lookup"><span data-stu-id="c85e1-103">More PowerShell learning</span></span>
 

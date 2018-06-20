@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34218208"
 ---
 # <a name="format-hex"></a><span data-ttu-id="2922e-102">Rutina Format-Hex</span><span class="sxs-lookup"><span data-stu-id="2922e-102">Format-Hex</span></span>
 <span data-ttu-id="2922e-103">**Formát šestnáctkový** umožňuje zobrazit v šestnáctkovém formátu textu nebo binárních dat, najdete v části [šestnáctkový formátu](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/format-hex)</span><span class="sxs-lookup"><span data-stu-id="2922e-103">**Format-Hex** lets you view text or binary data in hexadecimal format; see [Format-Hex](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/format-hex)</span></span>

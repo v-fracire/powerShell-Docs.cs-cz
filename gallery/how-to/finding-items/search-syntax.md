@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188407"
 ---
 # <a name="gallery-search-syntax"></a><span data-ttu-id="55d40-103">Syntaxe vyhledávání Galerie</span><span class="sxs-lookup"><span data-stu-id="55d40-103">Gallery Search Syntax</span></span>
 

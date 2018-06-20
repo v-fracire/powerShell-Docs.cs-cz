@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189801"
 ---
 # <a name="nonewline-parameter"></a><span data-ttu-id="05423-102">Parametr NoNewLine</span><span class="sxs-lookup"><span data-stu-id="05423-102">NoNewLine parameter</span></span>
 <span data-ttu-id="05423-103">**Out-File**, **obsahu přidat**, a **obsah sady** Teď máte nový **– NoNewline** přepínač, který jednoduše za výstupem vynechá nový řádek.</span><span class="sxs-lookup"><span data-stu-id="05423-103">**Out-File**, **Add-Content**, and **Set-Content** now have a new **–NoNewline** switch which simply omits a new line after the output.</span></span>

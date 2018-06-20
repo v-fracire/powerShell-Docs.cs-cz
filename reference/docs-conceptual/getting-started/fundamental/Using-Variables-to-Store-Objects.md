@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953323"
 ---
 # <a name="using-variables-to-store-objects"></a><span data-ttu-id="bc605-103">Použití proměnných k ukládání objektů</span><span class="sxs-lookup"><span data-stu-id="bc605-103">Using Variables to Store Objects</span></span>
 <span data-ttu-id="bc605-104">PowerShell funguje s objekty.</span><span class="sxs-lookup"><span data-stu-id="bc605-104">PowerShell works with objects.</span></span> <span data-ttu-id="bc605-105">Prostředí PowerShell umožňuje vytvářet proměnné, které jsou v podstatě s názvem objektů, aby byla zachována výstup pro pozdější použití.</span><span class="sxs-lookup"><span data-stu-id="bc605-105">PowerShell lets you create variables, essentially named objects, to preserve output for later use.</span></span> <span data-ttu-id="bc605-106">Pokud se používají k práci s proměnné v jiných nutný Pamatujte, že proměnné prostředí PowerShell jsou objekty, nikoli textu.</span><span class="sxs-lookup"><span data-stu-id="bc605-106">If you are used to working with variables in other shells remember that PowerShell variables are objects, not text.</span></span>

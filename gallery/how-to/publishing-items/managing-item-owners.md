@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34222101"
 ---
 # <a name="managing-item-owners"></a><span data-ttu-id="c7c56-103">Správa vlastníků položek</span><span class="sxs-lookup"><span data-stu-id="c7c56-103">Managing item owners</span></span>
 

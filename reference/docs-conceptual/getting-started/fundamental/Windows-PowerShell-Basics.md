@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30950528"
 ---
 # <a name="windows-powershell-basics"></a><span data-ttu-id="02373-103">Základy Windows PowerShellu</span><span class="sxs-lookup"><span data-stu-id="02373-103">Windows PowerShell Basics</span></span>
 <span data-ttu-id="02373-104">Grafické uživatelské rozhraní pomocí některé základní pojmy, které jsou dobře známé pro většinu uživatelů počítače.</span><span class="sxs-lookup"><span data-stu-id="02373-104">Graphical user interfaces use some basic concepts that are well known to most computer users.</span></span> <span data-ttu-id="02373-105">Uživatelé využívají znalosti těchto rozhraní k provádění úloh.</span><span class="sxs-lookup"><span data-stu-id="02373-105">Users rely on the familiarity of those interfaces to accomplish tasks.</span></span> <span data-ttu-id="02373-106">Operační systémy představovat grafické reprezentace položky, které mohou procházet, obvykle pomocí rozevíracích nabídek pro přístup k určité funkce a kontext nabídky pro přístup k funkci konkrétní uživatelé.</span><span class="sxs-lookup"><span data-stu-id="02373-106">Operating systems present users with a graphical representation of items that can be browsed, usually with drop-down menus for accessing specific functionality and context menus for accessing context-specific functionality.</span></span>

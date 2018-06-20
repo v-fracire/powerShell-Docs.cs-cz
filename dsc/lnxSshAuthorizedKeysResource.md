@@ -7,6 +7,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34222033"
 ---
 # <a name="dsc-for-linux-nxsshauthorizedkeys-resource"></a><span data-ttu-id="da17f-103">DSC pro Linux nxSshAuthorizedKeys prostředků</span><span class="sxs-lookup"><span data-stu-id="da17f-103">DSC for Linux nxSshAuthorizedKeys Resource</span></span>
 

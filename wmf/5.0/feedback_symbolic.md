@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34221999"
 ---
 # <a name="interact-with-symbolic-links-using-improved-item-cmdlets"></a><span data-ttu-id="57433-102">Komunikovat s symbolické odkazy vylepšené rutin položky</span><span class="sxs-lookup"><span data-stu-id="57433-102">Interact with Symbolic links using improved Item cmdlets</span></span>
 

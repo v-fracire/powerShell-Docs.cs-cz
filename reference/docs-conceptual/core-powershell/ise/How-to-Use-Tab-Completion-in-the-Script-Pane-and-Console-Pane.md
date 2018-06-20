@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30954921"
 ---
 # <a name="how-to-use-tab-completion-in-the-script-pane-and-console-pane"></a><span data-ttu-id="12b85-103">Použití klávesy Tab k dokončování příkazů ve skriptovacím podokně a v podokně konzoly</span><span class="sxs-lookup"><span data-stu-id="12b85-103">How to Use Tab Completion in the Script Pane and Console Pane</span></span>
 

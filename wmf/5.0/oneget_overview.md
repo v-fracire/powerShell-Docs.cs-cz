@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34219483"
 ---
 # <a name="software-discovery-install-and-inventory-with-packagemanagement"></a><span data-ttu-id="da877-102">Zjišťování softwaru, instalovat a inventáře s PackageManagement</span><span class="sxs-lookup"><span data-stu-id="da877-102">Software Discovery, Install and Inventory with PackageManagement</span></span>
 

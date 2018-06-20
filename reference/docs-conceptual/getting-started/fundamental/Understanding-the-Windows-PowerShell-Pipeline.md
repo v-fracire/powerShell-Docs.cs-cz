@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30951065"
 ---
 # <a name="understanding-the-windows-powershell-pipeline"></a><span data-ttu-id="dbc4c-103">Vysvětlení kanálu Windows PowerShellu</span><span class="sxs-lookup"><span data-stu-id="dbc4c-103">Understanding the Windows PowerShell Pipeline</span></span>
 <span data-ttu-id="dbc4c-104">Zřetězení prakticky všude, kde funguje v prostředí Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="dbc4c-104">Piping works virtually everywhere in Windows PowerShell.</span></span> <span data-ttu-id="dbc4c-105">I když text se zobrazí na obrazovce, nejsou prostřednictvím prostředí Windows PowerShell kanálu text mezi příkazy.</span><span class="sxs-lookup"><span data-stu-id="dbc4c-105">Although you see text on the screen, Windows PowerShell does not pipe text between commands.</span></span> <span data-ttu-id="dbc4c-106">Místo toho ji prostřednictvím kanálu předá objekty.</span><span class="sxs-lookup"><span data-stu-id="dbc4c-106">Instead, it pipes objects.</span></span>

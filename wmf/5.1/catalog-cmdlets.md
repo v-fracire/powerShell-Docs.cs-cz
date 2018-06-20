@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189063"
 ---
 # <a name="catalog-cmdlets"></a><span data-ttu-id="bd433-103">Rutiny katalogu</span><span class="sxs-lookup"><span data-stu-id="bd433-103">Catalog Cmdlets</span></span>
 
