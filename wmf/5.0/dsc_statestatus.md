@@ -6,6 +6,7 @@ ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/25/2018
+ms.locfileid: "34482909"
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 

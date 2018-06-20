@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30952507"
 ---
 # <a name="the-powershelltab-object"></a>Objekt PowerShellTab
 

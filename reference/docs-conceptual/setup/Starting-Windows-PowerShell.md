@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953119"
 ---
 # <a name="starting-windows-powershell"></a>Spuštění Windows PowerShellu
 PowerShell je skriptovací modulu dll, která je integrována do více hostitelů.  Nejběžnější hostitele, který se spustí jsou interaktivního příkazového řádku PowerShell.exe a interaktivní PowerShell_ISE.exe prostředí skriptování.

@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34189563"
 ---
 # <a name="extract-and-parse-structured-objects-out-of-string"></a>Extrakce a analýza strukturovaných objektů mimo řetězec
 Vzniká některé další funkce pro rutinu ConvertFrom řetězec:

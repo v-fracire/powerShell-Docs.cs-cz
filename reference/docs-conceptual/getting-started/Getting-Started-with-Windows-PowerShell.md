@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30949481"
 ---
 # <a name="getting-started-with-windows-powershell"></a>Začínáme s Windows PowerShellem
 Prostředí Windows PowerShell je prostředí příkazového řádku Windows, který je určený pro správce systému. Prostředí Windows PowerShell obsahuje interaktivní řádku a skriptovací prostředí, které můžete použít samostatně nebo v kombinaci.

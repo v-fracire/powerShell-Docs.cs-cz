@@ -7,6 +7,7 @@ ms.sourcegitcommit: 4a841ebda3339ae2477e0f5f5be8c01740221232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33677242"
 ---
 # <a name="whats-new-with-powershell-50"></a>Co je nového v prostředí PowerShell 5.0
 Windows PowerShell® 5.0 obsahuje důležité nové funkce, které rozšiřují jeho použití, zlepšují použitelnost a umožňují řídit a spravovat prostředí ve Windows snadněji a komplexněji.  Hlavní vylepšení jsou v oblasti Konfigurace požadovaného stavu, zabezpečení, výkon, vzdálenou komunikaci a vylepšení jazyk.

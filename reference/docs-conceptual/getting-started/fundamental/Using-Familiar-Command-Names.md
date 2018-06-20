@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30952677"
 ---
 # <a name="using-familiar-command-names"></a>Použití známých názvů příkazů
 Pomocí mechanismus názvem *aliasy*, prostředí Windows PowerShell umožňuje uživatelům k odkazování na příkazy alternativní názvy. Aliasy umožňuje uživatelům s prostředí v jiné součásti pro běžné názvy příkazů, které již znáte k provádění podobných operací v prostředí Windows PowerShell znovu použít. I když nebude prostředí Windows PowerShell aliasy podrobně probereme, můžete je je stále používat, jak začít pracovat v prostředí Windows PowerShell.

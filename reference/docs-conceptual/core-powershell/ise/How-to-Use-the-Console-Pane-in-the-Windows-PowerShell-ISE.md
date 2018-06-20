@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30950783"
 ---
 # <a name="how-to-use-the-console-pane-in-the-windows-powershell-ise"></a>Použití pokokna konzoly v prostředí PowerShell ISE
 

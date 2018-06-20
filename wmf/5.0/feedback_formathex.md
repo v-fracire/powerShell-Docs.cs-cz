@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34218208"
 ---
 # <a name="format-hex"></a>Rutina Format-Hex
 **Formát šestnáctkový** umožňuje zobrazit v šestnáctkovém formátu textu nebo binárních dat, najdete v části [šestnáctkový formátu](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/format-hex)

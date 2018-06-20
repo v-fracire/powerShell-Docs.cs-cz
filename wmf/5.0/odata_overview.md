@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34219544"
 ---
 # <a name="generate-powershell-cmdlets-based-on-odata-endpoint"></a>Generování powershellových rutin na základě koncového bodu OData
 <a name="generate-windows-powershell-cmdlets-based-on-an-odata-endpoint"></a>Generovat rutiny prostředí Windows PowerShell, které jsou založené na koncový bod OData

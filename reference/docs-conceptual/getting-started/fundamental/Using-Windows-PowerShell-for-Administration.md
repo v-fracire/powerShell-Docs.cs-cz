@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30954326"
 ---
 # <a name="using-windows-powershell-for-administration"></a>Použití Windows PowerShellu ke správě
 Základní cíl prostředí Windows PowerShell poskytuje lepší, snadnější správu kontrolu nad systémy, interaktivní nebo ze skriptu. Tato kapitola provede řešení mnoha konkrétních problémů z hlediska správy systémy Windows v prostředí Windows PowerShell. I když nejsou už jsme mluvili o skriptech nebo funkcích v Průvodci uživatele Windows PowerShell, řešení lze z skripty nebo jako funkce později. Ukážeme příklady, které obsahují funkce jako součást řešení k řešení problémů.

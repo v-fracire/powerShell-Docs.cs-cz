@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30950528"
 ---
 # <a name="windows-powershell-basics"></a>Základy Windows PowerShellu
 Grafické uživatelské rozhraní pomocí některé základní pojmy, které jsou dobře známé pro většinu uživatelů počítače. Uživatelé využívají znalosti těchto rozhraní k provádění úloh. Operační systémy představovat grafické reprezentace položky, které mohou procházet, obvykle pomocí rozevíracích nabídek pro přístup k určité funkce a kontext nabídky pro přístup k funkci konkrétní uživatelé.

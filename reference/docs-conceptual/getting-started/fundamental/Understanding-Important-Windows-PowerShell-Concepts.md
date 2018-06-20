@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30951082"
 ---
 # <a name="understanding-important-windows-powershell-concepts"></a>Vysvětlení důležitých pojmů Windows PowerShellu
 Prostředí Windows PowerShell návrhu integruje koncepty z mnoha různých prostředích. Několik z nich jsou známé uživatelům s prostředím v součásti pro konkrétní nebo programovací prostředí, ale jen několik lidí věděli o všech z nich. Vyhledávání na některé z těchto pojmech obsahuje užitečné Přehled prostředí.

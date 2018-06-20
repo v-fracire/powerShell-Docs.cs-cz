@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953469"
 ---
 # <a name="learning-windows-powershell-names"></a>Učení názvů Windows PowerShellu
 Learning názvy příkazů a parametry příkazu je déle investice s Většina rozhraní příkazového řádku. Problém je, že v případě vzorů velmi málo tak, aby jediný způsob, jak další používáním každý příkaz a každý parametr, který je nutné použít v pravidelných intervalech.

@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30951847"
 ---
 # <a name="using-static-classes-and-methods"></a>Použití statických tříd a metod
 Ne všechny třídy rozhraní .NET Framework lze vytvořit pomocí **New-Object**. Například pokud se pokusíte vytvořit **System.Environment** nebo **System.Math** objektu s **New-Object**, zobrazí se následující chybové zprávy:

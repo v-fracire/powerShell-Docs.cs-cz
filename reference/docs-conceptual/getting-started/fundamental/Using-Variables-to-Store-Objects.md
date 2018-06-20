@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30953323"
 ---
 # <a name="using-variables-to-store-objects"></a>Použití proměnných k ukládání objektů
 PowerShell funguje s objekty. Prostředí PowerShell umožňuje vytvářet proměnné, které jsou v podstatě s názvem objektů, aby byla zachována výstup pro pozdější použití. Pokud se používají k práci s proměnné v jiných nutný Pamatujte, že proměnné prostředí PowerShell jsou objekty, nikoli textu.

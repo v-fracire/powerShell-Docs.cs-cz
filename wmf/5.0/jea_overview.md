@@ -6,6 +6,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188492"
 ---
 # <a name="just-enough-administration-jea"></a>Funkce Just Enough Administration (JEA)
 Právě dostatečně správy je nová funkce v WMF 5.0, která umožňuje správu na základě rolí pomocí vzdálenou komunikaci prostředí PowerShell.  Ji rozšiřuje stávající infrastrukturu omezené koncový bod umožňuje jiným uživatelům než správcům ke spuštění konkrétních příkazů, skripty a spustitelné soubory jako správce.  To umožňuje snížit počet úplná oprávnění správce ve vašem prostředí a zlepšit zabezpečení.  JEA se dá použít pro všechny objekty, které spravujete pomocí prostředí PowerShell; Pokud budete moct spravovat něco pomocí prostředí PowerShell, můžete JEA provést tak více bezpečně.  Pro podrobné podívejte se na právě dostatečně správy, podívejte se [prostředí průvodce](http://aka.ms/JEA).

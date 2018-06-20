@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30952337"
 ---
 # <a name="installing-the-windows-powershell-20-engine"></a>Instalace jádra Windows PowerShellu 2.0
 Toto téma vysvětluje, jak nainstalovat modul Windows PowerShell 2.0.

@@ -8,6 +8,7 @@ ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30948206"
 ---
 # <a name="object-pipeline"></a>Kanál objektů
 Kanály fungovat stejně jako řadu připojené segmenty kanálu. Položky přesunutí podél kanálu předávání jednotlivých segmentů. Pokud chcete vytvořit kanál v prostředí Windows PowerShell, připojíte příkazy spolu s operátor kanálu "|". Výstup každé příkazu se používá jako vstup dalšího příkazu.

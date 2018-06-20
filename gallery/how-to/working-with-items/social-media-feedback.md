@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34188135"
 ---
 # <a name="providing-feedback-via-social-media-or-comments"></a>Poskytnutí názoru prostřednictvím sociálních médií nebo komentáře
 

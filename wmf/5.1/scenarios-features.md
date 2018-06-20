@@ -8,6 +8,7 @@ ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34190311"
 ---
 # <a name="new-scenarios-and-features-in-wmf-51"></a>Nové scénáře a funkce v WMF 5.1
 
