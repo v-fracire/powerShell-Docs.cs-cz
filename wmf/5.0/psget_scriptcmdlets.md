@@ -1,19 +1,19 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: be53ebbfceefdbaabb76ccefa84aaa7746fee1f4
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: a2938c168f476e5f9c38ba55ceb45fa2b95571e2
+ms.sourcegitcommit: bad40d59598ae5597051fa381986316a2d9bf6c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189546"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36271173"
 ---
-# <a name="powershellget-cmdlets-for-script-management"></a><span data-ttu-id="4703c-102">Rutiny správce balíčků PowerShellGet pro správu skriptů</span><span class="sxs-lookup"><span data-stu-id="4703c-102">PowerShellGet Cmdlets for Script Management</span></span>
+# <a name="powershellget-cmdlets-for-script-management"></a><span data-ttu-id="9f8b8-102">Rutiny správce balíčků PowerShellGet pro správu skriptů</span><span class="sxs-lookup"><span data-stu-id="9f8b8-102">PowerShellGet Cmdlets for Script Management</span></span>
 
-## <a name="find-script-cmdlet"></a><span data-ttu-id="4703c-103">Rutiny najít skriptu</span><span class="sxs-lookup"><span data-stu-id="4703c-103">Find-Script cmdlet</span></span>
-<span data-ttu-id="4703c-104">Najít skriptu rutina umožňuje zjišťovat soubory skriptu s kritérii vyhledat jiný název, značku, filtr, název příkazu, rozsahu verze, přesnou verzi, všechny verze, včetně jeho závislosti a z určité nebo všech registrovaných úložiště.</span><span class="sxs-lookup"><span data-stu-id="4703c-104">Find-Script cmdlet lets you to discover the script files with different search criteria like name, tag, filter, command name, version range, exact version, all versions, including its dependencies and from specific or all registered repositories.</span></span>
+## <a name="find-script-cmdlet"></a><span data-ttu-id="9f8b8-103">Rutiny najít skriptu</span><span class="sxs-lookup"><span data-stu-id="9f8b8-103">Find-Script cmdlet</span></span>
+<span data-ttu-id="9f8b8-104">Najít skriptu rutina umožňuje zjišťovat soubory skriptu s kritérii vyhledat jiný název, značku, filtr, název příkazu, rozsahu verze, přesnou verzi, všechny verze, včetně jeho závislosti a z určité nebo všech registrovaných úložiště.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-104">Find-Script cmdlet lets you to discover the script files with different search criteria like name, tag, filter, command name, version range, exact version, all versions, including its dependencies and from specific or all registered repositories.</span></span>
 
-<span data-ttu-id="4703c-105">Příklad použití:</span><span class="sxs-lookup"><span data-stu-id="4703c-105">Example usage:</span></span>
+<span data-ttu-id="9f8b8-105">Příklad použití:</span><span class="sxs-lookup"><span data-stu-id="9f8b8-105">Example usage:</span></span>
 ```powershell
 \# Find a script from the registered repository with ScriptSourceLocation
 Find-Script -Repository GalleryINT -Name Required-Script2
@@ -149,8 +149,8 @@ Workflow {Test-WorkflowFromScript\_Fabrikam-ClientScript}
 Command {Test-FunctionFromScript\_Fabrikam-ClientScript, Test-WorkflowFromScript\_Fabrikam-ClientScript}
 ```
 
-## <a name="save-script-cmdlet"></a><span data-ttu-id="4703c-106">Uložení skriptu rutiny</span><span class="sxs-lookup"><span data-stu-id="4703c-106">Save-Script cmdlet</span></span>
-<span data-ttu-id="4703c-107">Umožňuje uložit skript rutiny a projděte si soubor skriptu uložením do zadaného umístění.</span><span class="sxs-lookup"><span data-stu-id="4703c-107">Save-Script cmdlet lets you to review the script file by saving it to a specified location.</span></span>
+## <a name="save-script-cmdlet"></a><span data-ttu-id="9f8b8-106">Uložení skriptu rutiny</span><span class="sxs-lookup"><span data-stu-id="9f8b8-106">Save-Script cmdlet</span></span>
+<span data-ttu-id="9f8b8-107">Umožňuje uložit skript rutiny a projděte si soubor skriptu uložením do zadaného umístění.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-107">Save-Script cmdlet lets you to review the script file by saving it to a specified location.</span></span>
 ```powershell
 \# Save a script file to the specified location for the script analysis
 \# Piping the Find-Script output to Save-Script cmdlet
@@ -162,10 +162,10 @@ Version Name Author Description
 1.5 Fabrikam-ClientScript manikb Description for the Fabrikam-ClientScript script
 ```
 
-## <a name="install-script-and-get-installedscript-cmdlets"></a><span data-ttu-id="4703c-108">Instalační skript a Get-InstalledScript rutiny</span><span class="sxs-lookup"><span data-stu-id="4703c-108">Install-Script and Get-InstalledScript cmdlets</span></span>
-<span data-ttu-id="4703c-109">Instalační skript rutiny umožňuje instalaci souboru specifického skriptu společně s jeho závislosti na zadaném oboru.</span><span class="sxs-lookup"><span data-stu-id="4703c-109">Install-Script cmdlet lets you to install a specific script file along with its dependencies to the specified scope.</span></span> <span data-ttu-id="4703c-110">Ve výchozím nastavení skripty jsou nainstalované na AllUsers obor.</span><span class="sxs-lookup"><span data-stu-id="4703c-110">By default, scripts are installed to the AllUsers scope.</span></span> <span data-ttu-id="4703c-111">Rutina Get-InstalledScript umožňuje načíst seznam souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="4703c-111">Get-InstalledScript cmdlet lets you to get the list of script files which were installed using Install-Script cmdlet.</span></span>
+## <a name="install-script-and-get-installedscript-cmdlets"></a><span data-ttu-id="9f8b8-108">Instalační skript a Get-InstalledScript rutiny</span><span class="sxs-lookup"><span data-stu-id="9f8b8-108">Install-Script and Get-InstalledScript cmdlets</span></span>
+<span data-ttu-id="9f8b8-109">Instalační skript rutiny umožňuje instalaci souboru specifického skriptu společně s jeho závislosti na zadaném oboru.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-109">Install-Script cmdlet lets you to install a specific script file along with its dependencies to the specified scope.</span></span> <span data-ttu-id="9f8b8-110">Ve výchozím nastavení skripty jsou nainstalované na AllUsers obor.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-110">By default, scripts are installed to the AllUsers scope.</span></span> <span data-ttu-id="9f8b8-111">Rutina Get-InstalledScript umožňuje načíst seznam souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-111">Get-InstalledScript cmdlet lets you to get the list of script files which were installed using Install-Script cmdlet.</span></span>
 
-<span data-ttu-id="4703c-112">Použití Poznámka: umožňující správu a vyhledání skripty po jejich instalaci instalační skript se vytvořit výchozí složku pro ukládání skriptů v $home\Documents\WindowsPowerShell\Scripts a přidejte této složky pro vaše prostředí cesta.</span><span class="sxs-lookup"><span data-stu-id="4703c-112">Use note: To allow management and locating of scripts once they are installed, Install-script will create a default folder for storing scripts at $home\Documents\WindowsPowerShell\Scripts, and add that folder to your PATH environment.</span></span> <span data-ttu-id="4703c-113">Pokud úprava cesta je důležité, použijte skript uložit místo instalační skript.</span><span class="sxs-lookup"><span data-stu-id="4703c-113">If modifying the path is a concern, use Save-Script instead of Install-Script.</span></span> <span data-ttu-id="4703c-114">Get-InstalledScripts a odinstalační skript můžete pracovat pouze s skripty, které jsou umístěny v systému pomocí instalační skript.</span><span class="sxs-lookup"><span data-stu-id="4703c-114">Get-InstalledScripts and Uninstall-Script can only work with scripts placed on the system using Install-Script.</span></span>
+<span data-ttu-id="9f8b8-112">Použití Poznámka: umožňující správu a vyhledání skripty po jejich instalaci instalační skript se vytvořit výchozí složku pro ukládání skriptů v $home\Documents\WindowsPowerShell\Scripts a přidejte této složky pro vaše prostředí cesta.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-112">Use note: To allow management and locating of scripts once they are installed, Install-script will create a default folder for storing scripts at $home\Documents\WindowsPowerShell\Scripts, and add that folder to your PATH environment.</span></span> <span data-ttu-id="9f8b8-113">Pokud úprava cesta je důležité, použijte skript uložit místo instalační skript.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-113">If modifying the path is a concern, use Save-Script instead of Install-Script.</span></span> <span data-ttu-id="9f8b8-114">Get-InstalledScripts a odinstalační skript můžete pracovat pouze s skripty, které jsou umístěny v systému pomocí instalační skript.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-114">Get-InstalledScripts and Uninstall-Script can only work with scripts placed on the system using Install-Script.</span></span>
 ```powershell
 \# Install locations for scripts:
 \# Default scope is AllUsers.
@@ -221,7 +221,7 @@ InstalledLocation : C:\\Users\\manikb\\Documents\\WindowsPowerShell\\Scripts
 Installed script file is immediately available for usage.
 ```
 
-<span data-ttu-id="4703c-115">Můžete taky Get-Command – název &lt;InstalledScriptFileName&gt; ho.</span><span class="sxs-lookup"><span data-stu-id="4703c-115">You can also use Get-Command –Name &lt;InstalledScriptFileName&gt; to get it.</span></span> <span data-ttu-id="4703c-116">Umístění instalace dvou se přidají do proměnné prostředí PATH na první použití zadaného oboru.</span><span class="sxs-lookup"><span data-stu-id="4703c-116">Two install locations are added to the PATH environment variable on first use of a specified scope.</span></span>
+<span data-ttu-id="9f8b8-115">Můžete taky Get-Command – název &lt;InstalledScriptFileName&gt; ho.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-115">You can also use Get-Command –Name &lt;InstalledScriptFileName&gt; to get it.</span></span> <span data-ttu-id="9f8b8-116">Umístění instalace dvou se přidají do proměnné prostředí PATH na první použití zadaného oboru.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-116">Two install locations are added to the PATH environment variable on first use of a specified scope.</span></span>
 ```powershell
 $env:Path -split ';'| Where-Object {$\_} | Select-Object -Last 2
 C:\\Program Files\\WindowsPowerShell\\Scripts
@@ -329,11 +329,11 @@ Version Name Type Repository Description
 .RELEASENOTES
 Script-WithDependencies2 release notes
 \#&gt;
-**\#Requires -Module RequiredModule1**
-**\#Requires -Module @{ModuleName = 'RequiredModule2'; ModuleVersion = '2.0'}**
-**\#Requires -Module @{RequiredVersion = '2.5'; ModuleName = 'RequiredModule3'}**
-**\#Requires -Module @{ModuleVersion = '1.1'; ModuleName = 'RequiredModule4'; MaximumVersion = '2.0'}**
-**\#Requires -Module @{MaximumVersion = '1.5'; ModuleName = 'RequiredModule5'}**
+**\#Requires -Modules RequiredModule1**
+**\#Requires -Modules @{ModuleName = 'RequiredModule2'; ModuleVersion = '2.0'}**
+**\#Requires -Modules @{RequiredVersion = '2.5'; ModuleName = 'RequiredModule3'}**
+**\#Requires -Modules @{ModuleVersion = '1.1'; ModuleName = 'RequiredModule4'; MaximumVersion = '2.0'}**
+**\#Requires -Modules @{MaximumVersion = '1.5'; ModuleName = 'RequiredModule5'}**
 &lt;\#
 .DESCRIPTION
 Description for the Script-WithDependencies2 script
@@ -343,8 +343,8 @@ Function Test-FunctionFromScript\_Script-WithDependencies2 { Get-Date }
 Workflow Test-WorkflowFromScript\_Script-WithDependencies2 { Get-Date }
 ```
 
-## <a name="update-script-cmdlet"></a><span data-ttu-id="4703c-117">Skript aktualizace rutiny</span><span class="sxs-lookup"><span data-stu-id="4703c-117">Update-Script cmdlet</span></span>
-<span data-ttu-id="4703c-118">Skript aktualizace rutina umožňuje místní aktualizace souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="4703c-118">Update-Script cmdlet lets you to do in-place update of the script files which were installed using Install-Script cmdlet.</span></span>
+## <a name="update-script-cmdlet"></a><span data-ttu-id="9f8b8-117">Skript aktualizace rutiny</span><span class="sxs-lookup"><span data-stu-id="9f8b8-117">Update-Script cmdlet</span></span>
+<span data-ttu-id="9f8b8-118">Skript aktualizace rutina umožňuje místní aktualizace souborů skriptů, které jsou nainstalované s použitím rutiny instalační skript.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-118">Update-Script cmdlet lets you to do in-place update of the script files which were installed using Install-Script cmdlet.</span></span>
 ```powershell
 Install-Script -Name Fabrikam-Script -RequiredVersion 1.0 -Repository GalleryINT -Scope
 Get-InstalledScript -Name Fabrikam-Script
@@ -385,7 +385,7 @@ Version Name Type Repository Description
 2.0 Script-WithDependencies2 Script GalleryINT Description for the Script-WithDependencies2 script
 ```
 
-## <a name="uninstall-script-cmdlet"></a><span data-ttu-id="4703c-119">Rutiny odinstalovat skriptu</span><span class="sxs-lookup"><span data-stu-id="4703c-119">Uninstall-Script cmdlet</span></span>
+## <a name="uninstall-script-cmdlet"></a><span data-ttu-id="9f8b8-119">Rutiny odinstalovat skriptu</span><span class="sxs-lookup"><span data-stu-id="9f8b8-119">Uninstall-Script cmdlet</span></span>
 ```powershell
 Uninstall-Script cmdlet lets you to uninstall the installed script files.
 Get-InstalledScript | Uninstall-Script -WhatIf
@@ -422,8 +422,8 @@ At C:\\Program Files\\WindowsPowerShell\\Modules\\PowerShellGet\\1.0.0.1\\PSModu
 + FullyQualifiedErrorId : NoMatchFound,Microsoft.PowerShell.PackageManagement.Cmdlets.GetPackage
 ```
 
-## <a name="new-scriptfileinfo-and-test-scriptfileinfo-cmdlets"></a><span data-ttu-id="4703c-120">Rutiny nové ScriptFileInfo a ScriptFileInfo testu</span><span class="sxs-lookup"><span data-stu-id="4703c-120">New-ScriptFileInfo and Test-ScriptFileInfo cmdlets</span></span>
-<span data-ttu-id="4703c-121">Nové ScriptFileInfo rutina umožňuje vytvořit nový soubor skriptu s metadaty, jako je verze, Guid, autora a popis, atd. Rutina test-ScriptFileInfo umožňuje ověřit a získat metadata souboru skriptu.</span><span class="sxs-lookup"><span data-stu-id="4703c-121">New-ScriptFileInfo cmdlet lets you to create a new script file with metadata like Version, Guid, Author, and Description, etc. Test-ScriptFileInfo cmdlet lets you to validate and get the script file metadata.</span></span>
+## <a name="new-scriptfileinfo-and-test-scriptfileinfo-cmdlets"></a><span data-ttu-id="9f8b8-120">Rutiny nové ScriptFileInfo a ScriptFileInfo testu</span><span class="sxs-lookup"><span data-stu-id="9f8b8-120">New-ScriptFileInfo and Test-ScriptFileInfo cmdlets</span></span>
+<span data-ttu-id="9f8b8-121">Nové ScriptFileInfo rutina umožňuje vytvořit nový soubor skriptu s metadaty, jako je verze, Guid, autora a popis, atd. Rutina test-ScriptFileInfo umožňuje ověřit a získat metadata souboru skriptu.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-121">New-ScriptFileInfo cmdlet lets you to create a new script file with metadata like Version, Guid, Author, and Description, etc. Test-ScriptFileInfo cmdlet lets you to validate and get the script file metadata.</span></span>
 ```powershell
 \# Create a new script file with minimum required metadata values
 New-ScriptFileInfo -Path C:\\ScriptSharingDemo\\Demo-Script.ps1 -Description "Script file description goes here"
@@ -532,12 +532,12 @@ Feature 3
 Feature 4
 Feature 5
 \#&gt;
-\#Requires -Module RequiredModule1
-\#Requires -Module @{ModuleName = 'RequiredModule2'; ModuleVersion = '1.0'}
-\#Requires -Module @{RequiredVersion = '2.0'; ModuleName = 'RequiredModule3'}
-\#Requires -Module @{ModuleVersion = '0.1'; ModuleName = 'RequiredModule4'; MaximumVersion = '1.\*'}
-\#Requires -Module @{MaximumVersion = '1.\*'; ModuleName = 'RequiredModule5'}
-\#Requires -Module ExternalModule1
+\#Requires -Modules RequiredModule1
+\#Requires -Modules @{ModuleName = 'RequiredModule2'; ModuleVersion = '1.0'}
+\#Requires -Modules @{RequiredVersion = '2.0'; ModuleName = 'RequiredModule3'}
+\#Requires -Modules @{ModuleVersion = '0.1'; ModuleName = 'RequiredModule4'; MaximumVersion = '1.\*'}
+\#Requires -Modules @{MaximumVersion = '1.\*'; ModuleName = 'RequiredModule5'}
+\#Requires -Modules ExternalModule1
 &lt;\#
 .DESCRIPTION
 my new script file
@@ -574,8 +574,8 @@ DefinedFunctions : Demo-ScriptFunction
 DefinedWorkflows : Demo-ScriptWorkflow
 ```
 
-## <a name="update-scriptfileinfo-cmdlet"></a><span data-ttu-id="4703c-122">Rutina aktualizace ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="4703c-122">Update-ScriptFileInfo cmdlet</span></span>
-<span data-ttu-id="4703c-123">Rutina aktualizace ScriptFileInfo umožňuje aktualizovat existující metadata souboru skriptu.</span><span class="sxs-lookup"><span data-stu-id="4703c-123">Update-ScriptFileInfo cmdlet lets you to update the existing script file metadata.</span></span>
+## <a name="update-scriptfileinfo-cmdlet"></a><span data-ttu-id="9f8b8-122">Rutina aktualizace ScriptFileInfo</span><span class="sxs-lookup"><span data-stu-id="9f8b8-122">Update-ScriptFileInfo cmdlet</span></span>
+<span data-ttu-id="9f8b8-123">Rutina aktualizace ScriptFileInfo umožňuje aktualizovat existující metadata souboru skriptu.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-123">Update-ScriptFileInfo cmdlet lets you to update the existing script file metadata.</span></span>
 ```powershell
 \# Use Update-ScriptFileInfo cmdlet to update the script metadata
 Update-ScriptFileInfo -Path C:\\ScriptSharingDemo\\Demo-ScriptWithCompletePSScriptInfo.ps1 -Version 2.0
@@ -585,8 +585,8 @@ Version Name Author Description
 2.0 Demo-ScriptWithComplet... manikb my new script file
 ```
 
-## <a name="register-psrepository-and-set-psrepository-cmdlets-with-script-sharing-support"></a><span data-ttu-id="4703c-124">Rutiny Register-PSRepository a Set-PSRepository pomocí skriptu sdílení podpory</span><span class="sxs-lookup"><span data-stu-id="4703c-124">Register-PSRepository and Set-PSRepository cmdlets with script sharing support</span></span>
-<span data-ttu-id="4703c-125">Pomocí rutiny Register-PSRepository/Set-PSRepository přidejte **ScriptSourceLocation** a **ScriptPublishLocation** k PSRepository.</span><span class="sxs-lookup"><span data-stu-id="4703c-125">Use Register-PSRepository/Set-PSRepository cmdlets to add the **ScriptSourceLocation** and **ScriptPublishLocation** to the PSRepository.</span></span>
+## <a name="register-psrepository-and-set-psrepository-cmdlets-with-script-sharing-support"></a><span data-ttu-id="9f8b8-124">Rutiny Register-PSRepository a Set-PSRepository pomocí skriptu sdílení podpory</span><span class="sxs-lookup"><span data-stu-id="9f8b8-124">Register-PSRepository and Set-PSRepository cmdlets with script sharing support</span></span>
+<span data-ttu-id="9f8b8-125">Pomocí rutiny Register-PSRepository/Set-PSRepository přidejte **ScriptSourceLocation** a **ScriptPublishLocation** k PSRepository.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-125">Use Register-PSRepository/Set-PSRepository cmdlets to add the **ScriptSourceLocation** and **ScriptPublishLocation** to the PSRepository.</span></span>
 ```powershell
 \# Register an GalleryINT repository with Scripts and Modules support
 Register-PSRepository -Name GalleryINT \`
@@ -643,8 +643,8 @@ ScriptPublishLocation : https://MyGallery.com/api/v2/package/
 ProviderOptions : {}
 ```
 
-## <a name="publish-script-cmdlet"></a><span data-ttu-id="4703c-126">Publikování skript rutiny</span><span class="sxs-lookup"><span data-stu-id="4703c-126">Publish-Script cmdlet</span></span>
-<span data-ttu-id="4703c-127">Publikování skriptu rutina umožňuje publikování souboru skriptu s platnou metadaty, jako je verze, Guid, autora a popis, atd.</span><span class="sxs-lookup"><span data-stu-id="4703c-127">Publish-Script cmdlet lets you to publish your script file with valid metadata like Version, Guid, Author, and Description, etc.</span></span>
+## <a name="publish-script-cmdlet"></a><span data-ttu-id="9f8b8-126">Publikování skript rutiny</span><span class="sxs-lookup"><span data-stu-id="9f8b8-126">Publish-Script cmdlet</span></span>
+<span data-ttu-id="9f8b8-127">Publikování skriptu rutina umožňuje publikování souboru skriptu s platnou metadaty, jako je verze, Guid, autora a popis, atd.</span><span class="sxs-lookup"><span data-stu-id="9f8b8-127">Publish-Script cmdlet lets you to publish your script file with valid metadata like Version, Guid, Author, and Description, etc.</span></span>
 ```powershell
 \# Publish the really basic script file with required metadata
 Publish-Script -Path C:\\ScriptSharingDemo\\Demo-Script.ps1 -Repository GalleryINT -NuGetApiKey cad91af7-a49c-4026-9570-a4c16564e785 -Verbose
