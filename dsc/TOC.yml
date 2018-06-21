@@ -161,6 +161,8 @@
           href: lnxGroupResource.md
         - name: Prostředek nxPackage
           href: lnxPackageResource.md
+        - name: Prostředek nxScript
+          href: lnxScriptResource.md
         - name: Prostředek nxService
           href: lnxServiceResource.md
         - name: Prostředek nxSshAuthorizedKeys
