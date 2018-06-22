@@ -1,7 +1,7 @@
-# <a name="installing-powershell-core-on-macos"></a>Instalace jádra prostředí PowerShell v systému macOS
+# <a name="installing-powershell-core-on-macos"></a>Instalace PowerShellu Core v macOS
 
 Prostředí PowerShell jádro podporuje systému macOS 10.12 a vyšší.
-Všechny balíčky jsou k dispozici na našem Githubu [uvolní][] stránky.
+Všechny balíčky jsou k dispozici na našem Githubu [Verze][] stránky.
 Spustit po instalaci balíčku `pwsh` z terminálu.
 
 ### <a name="installation-via-homebrew-on-macos-1012"></a>Instalaci přes Homebrew v systému macOS 10.12
@@ -36,15 +36,14 @@ brew cask upgrade powershell
 ```
 
 > [!NOTE]
-> Výše uvedených příkazů můžete volat v rámci hostitele prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade.
-> a aktualizujte hodnoty zobrazené v $PSVersionTable.
+> Výše uvedených příkazů můžete volat v rámci hostitele prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade aktualizujte hodnoty zobrazené v $PSVersionTable.
 
 [brew]: http://brew.sh/
 [cask]: https://caskroom.github.io/
 
 ### <a name="installation-via-direct-download"></a>Instalace prostřednictvím přímé stahování
 
-Stáhněte si balíček PKG `powershell-6.0.2-osx.10.12-x64.pkg` z [uvolní][] stránky do systému macOS počítače.
+Stáhněte si balíček PKG `powershell-6.0.2-osx.10.12-x64.pkg` z [Verze][] stránky do systému macOS počítače.
 
 Poklikejte na soubor a postupujte podle pokynů nebo ji nainstalovat z terminálu:
 
@@ -94,11 +93,11 @@ Odebrat další cesty prostředí PowerShell, najdete [cesty][] části v tomto 
 > [!NOTE]
 > Toto není nutné v případě, že jste nainstalovali s Homebrew.
 
-[cesty]:#paths
+[Cesty]:#paths
 
 ## <a name="paths"></a>Cesty
 
-* `$PSHOME` je `/opt/microsoft/powershell/6.0.0/`
+* `$PSHOME` je `/usr/local/microsoft/powershell/6.0.2/`
 * Profily uživatelů, bude číst ze `~/.config/powershell/profile.ps1`
 * Výchozí profily bude číst ze `$PSHOME/profile.ps1`
 * Moduly uživatele bude číst ze `~/.local/share/powershell/Modules`
@@ -112,7 +111,7 @@ Proto výchozí konkrétního hostitele profily existuje v `Microsoft.PowerShell
 Prostředí PowerShell respektuje [XDG základní Directory specifikace] [ xdg-bds] v systému macOS.
 
 Protože je odvozený od BSD, předponu systému macOS `/usr/local` se používá místo `/opt`.
-Proto `$PSHOME` je `/usr/local/microsoft/powershell/6.0.0/`, a symlink je umístěn na `/usr/local/bin/pwsh`.
+Proto `$PSHOME` je `/usr/local/microsoft/powershell/6.0.2/`, a symlink je umístěn na `/usr/local/bin/pwsh`.
 
-[uvolní]: https://github.com/PowerShell/PowerShell/releases/latest
+[Verze]: https://github.com/PowerShell/PowerShell/releases/latest
 [xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
