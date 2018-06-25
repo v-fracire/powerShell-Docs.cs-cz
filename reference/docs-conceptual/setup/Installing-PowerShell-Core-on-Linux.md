@@ -1,16 +1,16 @@
 # <a name="installing-powershell-core-on-linux"></a>Instalace PowerShellu Core v Linuxu
 
-Supports <bpt id="p1">[</bpt>Ubuntu 14.04<ept id="p1">]</ept><bpt id="p2">[</bpt><ept id="p2">u14]</ept>, <bpt id="p3">[</bpt>Ubuntu 16.04<ept id="p3">]</ept><bpt id="p4">[</bpt><ept id="p4">u16]</ept>, <bpt id="p5">[</bpt>Ubuntu 17.04<ept id="p5">]</ept><bpt id="p6">[</bpt><ept id="p6">u17]</ept>, <bpt id="p7">[</bpt>Debian 8<ept id="p7">]</ept><bpt id="p8">[</bpt><ept id="p8">deb8]</ept>, <bpt id="p9">[</bpt>Debian 9<ept id="p9">]</ept><bpt id="p10">[</bpt><ept id="p10">deb9]</ept>, <bpt id="p11">[</bpt>CentOS 7<ept id="p11">]</ept><bpt id="p12">[</bpt><ept id="p12">cos]</ept>, <bpt id="p13">[</bpt>Red Hat Enterprise Linux (RHEL) 7<ept id="p13">]</ept><bpt id="p14">[</bpt><ept id="p14">rhel7]</ept>, <bpt id="p15">[</bpt>OpenSUSE 42.2<ept id="p15">]</ept><bpt id="p16">[</bpt><ept id="p16">opensuse]</ept>, <bpt id="p17">[</bpt>Fedora 27<ept id="p17">]</ept><bpt id="p18">[</bpt><ept id="p18">fedora]</ept>, <bpt id="p19">[</bpt>Fedora 28<ept id="p19">]</ept><bpt id="p20">[</bpt><ept id="p20">fedora]</ept>, and <bpt id="p21">[</bpt>Arch Linux<ept id="p21">]</ept><bpt id="p22">[</bpt><ept id="p22">arch]</ept>.
+Supports [Ubuntu 14.04][u14], [Ubuntu 16.04][u16], [Ubuntu 17.10][u17], [Debian 8][deb8], [Debian 9][deb9], [CentOS 7][cos], [Red Hat Enterprise Linux (RHEL) 7][rhel7], [OpenSUSE 42.2][opensuse], [Fedora 27][fedora], [Fedora 28][fedora], and [Arch Linux][arch].
 
 Pro Linux distribuce, které nejsou oficiálně podporované, můžete se pokusit [prostředí PowerShell AppImage][lai].
 Můžete také zkusit nasazení binárních souborů prostředí PowerShell přímo pomocí sady Linux [ `tar.gz` archivu][tar], ale je potřeba nastavit podle operačního systému v samostatné kroky potřebné závislosti.
 
-Všechny balíčky jsou k dispozici na našem Githubu [Verze][] stránky.
+Všechny balíčky jsou k dispozici na našem Githubu [uvolní][] stránky.
 Spustit po instalaci balíčku `pwsh` z terminálu.
 
 [u14]: #ubuntu-1404
 [u16]: #ubuntu-1604
-[u17]: #ubuntu-1704
+[u17]: #ubuntu-1710
 [deb8]: #debian-8
 [deb9]: #debian-9
 [cos]: #centos-7
@@ -50,7 +50,7 @@ Od toho stačí použít `sudo apt-get upgrade powershell` k aktualizaci instala
 
 ### <a name="installation-via-direct-download---ubuntu-1404"></a>Instalace prostřednictvím přímé stahování - Ubuntu 14.04
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.14.04_amd64.deb` z [Verze][] stránky do počítače Ubuntu.
+Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.14.04_amd64.deb` z [uvolní][] stránky do počítače Ubuntu.
 
 Potom spusťte následující v terminálu:
 
@@ -95,7 +95,7 @@ Po registraci jednou úložiště společnosti Microsoft jako superuživatele, o
 
 ### <a name="installation-via-direct-download---ubuntu-1604"></a>Instalace prostřednictvím přímé stahování - Ubuntu 16.04
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.16.04_amd64.deb` z [Verze][] stránky do počítače Ubuntu.
+Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.16.04_amd64.deb` z [uvolní][] stránky do počítače Ubuntu.
 
 Potom spusťte následující v terminálu:
 
@@ -112,9 +112,11 @@ sudo apt-get install -f
 sudo apt-get remove powershell
 ```
 
-## <a name="ubuntu-1704"></a>Ubuntu č. 17.04
+## <a name="ubuntu-1710"></a>Ubuntu 17.10
 
-### <a name="installation-via-package-repository---ubuntu-1704"></a>Instalaci přes úložiště balíčků - Ubuntu č. 17.04
+> Poznámka: Po byla přidána podpora pro Ubuntu 18.04 `6.1.0-preview.2`
+
+### <a name="installation-via-package-repository---ubuntu-1710"></a>Instalaci přes úložiště balíčků - Ubuntu 17.10
 
 Základní prostředí PowerShell pro Linux, je publikovaný na balíček úložiště pro Snadná instalace (a aktualizace).
 Toto je upřednostňovaná metoda.
@@ -124,7 +126,7 @@ Toto je upřednostňovaná metoda.
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 
 # Register the Microsoft Ubuntu repository
-sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/17.04/prod.list
+sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/17.10/prod.list
 
 # Update the list of products
 sudo apt-get update
@@ -138,20 +140,67 @@ pwsh
 
 Po registraci jednou úložiště společnosti Microsoft jako superuživatele, od toho stačí použít `sudo apt-get upgrade powershell` jej aktualizovat.
 
-### <a name="installation-via-direct-download---ubuntu-1704"></a>Instalace prostřednictvím přímé stahování - Ubuntu č. 17.04
+### <a name="installation-via-direct-download---ubuntu-1710"></a>Instalace prostřednictvím přímé stahování - Ubuntu 17.10
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.17.04_amd64.deb` z [Verze][] stránky do počítače Ubuntu.
+Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.17.10_amd64.deb` z [uvolní][] stránky do počítače Ubuntu.
 
 Potom spusťte následující v terminálu:
 
 ```sh
-sudo dpkg -i powershell_6.0.2-1.ubuntu.17.04_amd64.deb
+sudo dpkg -i powershell_6.0.2-1.ubuntu.17.10_amd64.deb
 sudo apt-get install -f
 ```
 
 > Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
 
-### <a name="uninstallation---ubuntu-1704"></a>Odinstalace - Ubuntu č. 17.04
+### <a name="uninstallation---ubuntu-1710"></a>Odinstalace - Ubuntu 17.10
+
+```sh
+sudo apt-get remove powershell
+```
+
+## <a name="ubuntu-1804"></a>Ubuntu 18.04
+
+> Poznámka: Po byla přidána podpora pro Ubuntu 18.04 `6.1.0-preview.2`
+
+### <a name="installation-via-package-repository---ubuntu-1804"></a>Instalaci přes úložiště balíčků - Ubuntu 18.04
+
+Základní prostředí PowerShell pro Linux, je publikovaný na balíček úložiště pro Snadná instalace (a aktualizace).
+Toto je upřednostňovaná metoda.
+
+```sh
+# Import the public repository GPG keys
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+# Register the Microsoft Ubuntu repository
+sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/18.04/prod.list
+
+# Update the list of products
+sudo apt-get update
+
+# Install PowerShell
+sudo apt-get install -y powershell
+
+# Start PowerShell
+pwsh
+```
+
+Po registraci jednou úložiště společnosti Microsoft jako superuživatele, od toho stačí použít `sudo apt-get upgrade powershell` jej aktualizovat.
+
+### <a name="installation-via-direct-download---ubuntu-1804"></a>Instalace prostřednictvím přímé stahování - Ubuntu 18.04
+
+Stáhněte si balíček Debian `powershell_6.1.0-preview.3-1.ubuntu.18.04_amd64.deb` z [uvolní][] stránky do počítače Ubuntu.
+
+Potom spusťte následující v terminálu:
+
+```sh
+sudo dpkg -i powershell_6.1.0-preview.3-1.ubuntu.18.04_amd64.deb
+sudo apt-get install -f
+```
+
+> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+
+### <a name="uninstallation---ubuntu-1710"></a>Odinstalace - Ubuntu 17.10
 
 ```sh
 sudo apt-get remove powershell
@@ -189,7 +238,7 @@ Po registraci jednou úložiště společnosti Microsoft jako superuživatele, o
 
 ### <a name="installation-via-direct-download---debian-8"></a>Instalace prostřednictvím přímé stahování - Debian 8
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.debian.8_amd64.deb` z [Verze][] stránky do Debian počítače.
+Stáhněte si balíček Debian `powershell_6.0.2-1.debian.8_amd64.deb` z [uvolní][] stránky do Debian počítače.
 
 Potom spusťte následující v terminálu:
 
@@ -240,7 +289,7 @@ Po registraci jednou úložiště společnosti Microsoft jako superuživatele, o
 
 ### <a name="installation-via-direct-download---debian-9"></a>Instalace prostřednictvím přímé stahování - Debian 9
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.debian.9_amd64.deb` z [Verze][] stránky do Debian počítače.
+Stáhněte si balíček Debian `powershell_6.0.2-1.debian.9_amd64.deb` z [uvolní][] stránky do Debian počítače.
 
 Potom spusťte následující v terminálu:
 
@@ -282,7 +331,7 @@ Po registraci jednou úložiště společnosti Microsoft jako superuživatele, s
 
 ### <a name="installation-via-direct-download---centos-7"></a>Instalace prostřednictvím přímé stahování - CentOS 7
 
-Pomocí [CentOS 7][], stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [Verze][] stránky do počítače CentOS.
+Pomocí [CentOS 7][], stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače CentOS.
 
 Potom spusťte následující v terminálu:
 
@@ -325,7 +374,7 @@ Po registraci jednou úložiště společnosti Microsoft jako superuživatele, s
 
 ### <a name="installation-via-direct-download---red-hat-enterprise-linux-rhel-7"></a>Instalace prostřednictvím přímé stahování - Red Hat Enterprise Linux (RHEL) 7
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [Verze][] stránky do počítače Red Hat Enterprise Linux.
+Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače Red Hat Enterprise Linux.
 
 Potom spusťte následující v terminálu:
 
@@ -387,7 +436,7 @@ pwsh
 
 ### <a name="installation-via-direct-download---opensuse-422"></a>Instalace prostřednictvím přímé stahování - OpenSUSE 42.2
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [Verze][] stránky do počítače OpenSUSE.
+Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače OpenSUSE.
 
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -408,6 +457,8 @@ sudo zypper remove powershell
 ```
 
 ## <a name="fedora"></a>Fedora
+
+> Poznámka: Fedora 28 je podporována pouze v prostředí PowerShell základní 6.1 a novější.
 
 ### <a name="installation-via-package-repository-preferred---fedora-27-fedora-28"></a>Instalaci přes úložiště balíčků (doporučeno) - Fedora 27 Fedora 28
 
@@ -435,7 +486,7 @@ pwsh
 
 ### <a name="installation-via-direct-download---fedora-27-fedora-28"></a>Instalace prostřednictvím přímé stahování - Fedora 27, Fedora 28
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [Verze][] stránky do počítače Fedora.
+Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače Fedora.
 
 Potom spusťte následující v terminálu:
 
@@ -476,7 +527,7 @@ Další informace o instalaci balíčků z AUR najdete v tématu [architektura L
 
 ## <a name="linux-appimage"></a>Linux AppImage
 
-Pomocí poslední distribuci systému Linux, stáhněte si AppImage `powershell-6.0.1-x86_64.AppImage` z [Verze][] stránky do počítače Linux.
+Pomocí poslední distribuci systému Linux, stáhněte si AppImage `powershell-6.0.1-x86_64.AppImage` z [uvolní][] stránky do počítače Linux.
 
 Potom spusťte následující v terminálu:
 
@@ -587,7 +638,8 @@ Následující graf zobrazuje závislosti rozhraní .NET 2.0 jádra, které jsou
 | ------------------ | ------------ |
 | Ubuntu 14.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
 | Ubuntu 16.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu55 |
-| Ubuntu č. 17.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu57 |
+| Ubuntu 17.10       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu57 |
+| Ubuntu 18.04       | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu60 |
 | Debian 8 (Klára)  | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.0, libicu52 |
 | Debian 9 (Stretch) | libc6, ust0-libgcc1, libgssapi-krb5-2, liblttng, libstdc ++ 6, <br> libcurl3, libunwind8, libuuid1, zlib1g, libssl1.0.2, libicu57 |
 | CentOS 7 <br> Oracle Linux 7 <br> RHEL 7 <br> OpenSUSE 42.2 | libunwind, libcurl, knihovny openssl, libicu |
@@ -639,5 +691,5 @@ Profily respektují konfigurace Powershellu na hostitele, takže výchozí konkr
 
 Prostředí PowerShell respektuje [XDG základní Directory specifikace] [ xdg-bds] v systému Linux.
 
-[Verze]: https://github.com/PowerShell/PowerShell/releases/latest
+[uvolní]: https://github.com/PowerShell/PowerShell/releases/latest
 [xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
