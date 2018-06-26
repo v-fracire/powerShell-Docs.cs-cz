@@ -2,16 +2,16 @@
 ms.date: 06/12/2017
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Pomocí konfigurační data
-ms.openlocfilehash: d42c43fddb54050adcbac949e7f67f3b41b540f1
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 9b0b213e2d71bfdb473fd98f8080de5c874c70e2
+ms.sourcegitcommit: 68093cc12a7a22c53d11ce7d33c18622921a0dd1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189682"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36940374"
 ---
 # <a name="using-configuration-data-in-dsc"></a>Pomocí konfigurační data v DSC
 
->Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
 Pomocí předdefinovaných DSC **ConfigurationData** parametr, můžete definovat data, která lze použít v konfiguraci.
 To umožňuje vytvoření jedné konfigurace, které lze použít pro více uzly nebo v různých prostředích.
@@ -25,10 +25,11 @@ Příklady použití konfiguračních dat najdete v tématu [oddělení dat konf
 Konfigurace DSC trvá společný parametr **ConfigurationData**, zda jste zadali při kompilaci konfigurace.
 Informace o kompilování konfigurace najdete v tématu [konfigurace DSC](configurations.md).
 
-**ConfigurationData** parametr je hasthtable, kterou musí mít alespoň jeden klíč s názvem **AllNodes**.
+**ConfigurationData** parametr je zatřiďovací tabulky, který musí mít alespoň jeden klíč s názvem **AllNodes**.
 Může také obsahovat jeden či více klíčů.
 
->**Poznámka:** v příkladech v tomto tématu použijte jeden další klíč (než pojmenované **AllNodes** klíč) s názvem `NonNodeData`, ale může obsahovat libovolný počet dalších klíčů a název je všechno.
+> [!NOTE]
+> V příkladech v tomto tématu použijte jeden další klíč (než pojmenované **AllNodes** klíč) s názvem `NonNodeData`, ale může obsahovat libovolný počet dalších klíčů a název je všechno.
 
 ```powershell
 $MyData =
@@ -188,6 +189,7 @@ DSC poskytuje tři speciální proměnné, které lze použít v konfigurační 
 
 - **$AllNodes** odkazuje na celou kolekci uzlů, které jsou definované v **ConfigurationData**. Můžete filtrovat **AllNodes** kolekce pomocí **. WHERE()** a **. ForEach()**.
 - **Uzel** odkazuje na konkrétní položky v **AllNodes** kolekci po je filtrován pomocí **. WHERE()** nebo **. ForEach()**.
+  - Další informace o těchto metodách v [about_arrays](/powershell/reference/3.0/Microsoft.PowerShell.Core/About/about_Arrays.md)
 - **ConfigurationData** odkazuje na tabulku celou hodnotu hash, který je předán jako parametr při kompilaci konfigurace.
 
 ## <a name="using-non-node-data"></a>Pomocí data bez uzlu
@@ -199,5 +201,6 @@ Však můžete definovat libovolný počet dalších klíčů a název je všech
 Příklad použití dat na jiný uzel, naleznete v části [oddělení dat konfigurace a prostředí](separatingEnvData.md).
 
 ## <a name="see-also"></a>Viz také
+
 - [Možnosti přihlašovací údaje v konfiguračních dat](configDataCredentials.md)
 - [Konfigurace DSC](configurations.md)

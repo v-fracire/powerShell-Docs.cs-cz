@@ -2,12 +2,12 @@
 ms.date: 06/12/2017
 keywords: DSC prostředí powershell, konfiguraci, instalační program
 title: Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
-ms.openlocfilehash: ce0f2ed79f5f96a1c38e0beaf32529aba7538963
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: faeef5022cbd984cab0620b69db19de8b84cca0e
+ms.sourcegitcommit: 68093cc12a7a22c53d11ce7d33c18622921a0dd1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190549"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36940340"
 ---
 # <a name="building-a-continuous-integration-and-continuous-deployment-pipeline-with-dsc"></a>Vytváření kanál průběžnou integraci a průběžné nasazování pomocí DSC
 
@@ -36,6 +36,7 @@ Pro sestavení a spuštění tohoto příkladu, budete potřebovat v prostředí
 Toto je počítač, kde, můžete to udělat všechny pracovní nastavení a spuštění v příkladu.
 
 Klientský počítač musí být počítač se systémem Windows s nainstalované tyto položky:
+
 - [Git](https://git-scm.com/)
 - klonovat úložiště místní git z https://github.com/PowerShell/Demo_CI
 - textový editor, například [Visual Studio Code](https://code.visualstudio.com/)
@@ -73,21 +74,22 @@ Pokud se úložiště Demo_CI nebyly již klonovat na klientském počítači, p
 1. Na klientském počítači přejděte na server TFS ve webovém prohlížeči.
 1. V sadě TFS [vytvoření nového týmového projektu](https://www.visualstudio.com/en-us/docs/setup-admin/create-team-project) s názvem Demo_CI.
 
-    Ujistěte se, že **verzí** je nastaven na **Git**.
+   Ujistěte se, že **verzí** je nastaven na **Git**.
 1. Na klientském počítači přidejte vzdálené úložiště, které jste právě vytvořili v sadě TFS pomocí následujícího příkazu:
 
-    `git remote add tfs <YourTFSRepoURL>`
+   `git remote add tfs <YourTFSRepoURL>`
 
-    Kde `<YourTFSRepoURL>` je adresa URL klonování k úložišti sady TFS, který jste vytvořili v předchozím kroku.
+   Kde `<YourTFSRepoURL>` je adresa URL klonování k úložišti sady TFS, který jste vytvořili v předchozím kroku.
 
-    Pokud si nejste jisti, kde se tato adresa URL, najdete v části [klonovat existující úložiště Git](https://www.visualstudio.com/en-us/docs/git/tutorial/clone).
+   Pokud si nejste jisti, kde se tato adresa URL, najdete v části [klonovat existující úložiště Git](https://www.visualstudio.com/en-us/docs/git/tutorial/clone).
 1. Push kód z místního úložiště do úložiště TFS pomocí následujícího příkazu:
 
-    `git push tfs --all`
+   `git push tfs --all`
 1. Úložiště TFS vyplní kódem Demo_CI.
 
->**Poznámka:** kód v tomto příkladu používá `ci-cd-example` větve úložiště Git.
->Nezapomeňte zadat tuto větev jako výchozí větev ve vašem projektu sady TFS a aktivačních událostí CI/CD vytvoříte.
+> [!NOTE]
+> Kód v tomto příkladu používá `ci-cd-example` větve úložiště Git.
+> Nezapomeňte zadat tuto větev jako výchozí větev ve vašem projektu sady TFS a aktivačních událostí CI/CD vytvoříte.
 
 ## <a name="understanding-the-code"></a>Pochopení kódu
 
@@ -154,6 +156,8 @@ Node $AllNodes.Where{$_.Role -eq 'DNSServer'}.NodeName
 ```
 
 To vyhledá všechny uzly, které byly definovány tak, že má role `DNSServer` v [konfigurační data](configData.md), který je vytvořen `DevEnv.ps1` skriptu.
+
+Další informace o `Where` metoda v [about_arrays](/powershell/reference/3.0/Microsoft.PowerShell.Core/About/about_Arrays.md)
 
 Definování uzly pomocí konfiguračních dat je důležité, pokud to položek konfigurace, protože uzel informace změní pravděpodobně mezi prostředími, a pomocí konfigurační data můžete snadno provádět změny uzlu informace beze změny kódu konfigurace.
 
@@ -348,12 +352,12 @@ Tento krok sestavení spustí testy jednotek ve skriptu Pester jsme se podívali
 
 1. Přidejte všechny následující řádky, které se **obsah**:
 
-    ```
-    initiate.ps1
-    **\deploy.ps1
-    **\Acceptance\**
-    **\Integration\**
-    ```
+   ```
+   initiate.ps1
+   **\deploy.ps1
+   **\Acceptance\**
+   **\Integration\**
+   ```
 
 1. Nastavit **TargetFolder** na `$(Build.ArtifactStagingDirectory)\`
 

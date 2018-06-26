@@ -1,14 +1,14 @@
 ---
 description: Další informace o historii verzí pro rozšíření konfigurace požadovaného stavu (DSC) v Azure.
-ms.date: 05/09/2018
+ms.date: 06/21/2018
 keywords: DSC prostředí powershell, azure, rozšíření
 title: Historie verzí Azure rozšíření DSC
-ms.openlocfilehash: 81dfcf81bd8f8685a0c8c81cd07bc5447e1abf94
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 25248288291b9bf8efe6ce1eef203a552cd17736
+ms.sourcegitcommit: 68093cc12a7a22c53d11ce7d33c18622921a0dd1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189937"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36940323"
 ---
 # <a name="azure-desired-state-configuration-extension-version-history"></a>Historie verzí rozšíření konfigurace požadovaná stavu Azure
 
@@ -16,12 +16,12 @@ Rozšíření virtuálního počítače Azure požadovaného stavu konfigurace (
 
 Tento článek poskytuje informace o každou verzi rozšíření virtuálního počítače Azure DSC, jaké prostředí podporuje a komentáře a poznámky na nové funkce nebo změny.
 
-## <a name="latest-versions"></a>Nejnovější verze
+## <a name="latest-version"></a>Nejnovější verzi
 
 ### <a name="version-276"></a>Verze 2.76
 
 - **Datum vydání:**
-  - 9 může 2018
+  - 9 může 2018 (Azure) | 21 červen 2018 (Čína Azure, Azure Government)
 - **Podpora operačního systému:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -36,30 +36,11 @@ Tento článek poskytuje informace o každou verzi rozšíření virtuálního p
   - FORMÁT WMF 4.0
 - **Prostředí:**
   - Azure
+  - Azure Čína
+  - Azure Government
 - **Poznámky:** tato verze používá DSC, jak je zahrnutá v systému Windows Server 2016; pro další operační systémy Windows se instaluje [Windows Management Framework 5.1](https://blogs.msdn.microsoft.com/powershell/2016/12/06/wmf-5-1-releasing-january-2017/) (instalaci WMF vyžaduje restart). Pro Nano Server je nainstalována DSC role do virtuálního počítače.
 - **Nové funkce:**
   - Zlepšování rozšíření metadat pro substatus a dalších menšími opravami chyb.
-
-### <a name="version-219"></a>Verze 2.19
-
-- **Datum vydání:**
-  - 3. června 2016
-- **Podpora operačního systému:**
-  - Windows Server 2016 Technical Preview
-  - Windows Server 2012 R2
-  - Windows Server 2012
-  - Windows Server 2008 R2 SP1
-- **Podpora produktu WMF:**
-  - WMF 5.0 RTM
-  - Aktualizace WMF 4.0
-  - FORMÁT WMF 4.0
-- **Prostředí:**
-  - Azure
-  - Azure Čína
-  - Azure Government
-- **Poznámky:** tato verze používá DSC, jak je zahrnutá ve Windows serveru 2016 Technical Preview; pro další operační systémy, nainstaluje [Windows Management Framework 5.0 RTM](https://blogs.msdn.microsoft.com/powershell/2015/12/16/windows-management-framework-wmf-5-0-rtm-is-now-available/) (instalaci WMF vyžaduje restart).
-- **Nové funkce:**
-  - Rozšíření DSC je teď na zahrnuté do Číny Azure. Tato verze obsahuje především opravy pro spuštění rozšíření na Azure China.
 
 ## <a name="supported-versions"></a>Podporované verze
 
