@@ -3,12 +3,12 @@ ms.date: 06/12/2017
 ms.topic: conceptual
 keywords: wmf,powershell,setup
 title: Nové scénáře a funkce v WMF 5.1
-ms.openlocfilehash: 77b439e61c5802f8ddbc4a0f39923cc8c0c36fe9
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: b00069aad7422f86d1462a62a6c4bc8a91e46705
+ms.sourcegitcommit: 50b66cada6943784b8d3c103cebc3c1e3e286a16
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190311"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37090359"
 ---
 # <a name="new-scenarios-and-features-in-wmf-51"></a>Nové scénáře a funkce v WMF 5.1
 
@@ -25,12 +25,12 @@ Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí r
 
 - [Určení spuštěné ve verzi prostředí PowerShell pomocí $PSVersionTable](/powershell/module/microsoft.powershell.core/about/about_automatic_variables)
 - [Filtrování výsledků Get-Module podle CompatiblePSEditions pomocí parametru PSEdition](/powershell/module/microsoft.powershell.core/get-module)
-- [Zabránit spuštění skriptu, není-li spustit na kompatibilní verzi prostředí PowerShell](/powershell/gallery/psget/script/scriptwithpseditionsupport)
-- [Deklarace modul kompatibility na konkrétní verze prostředí PowerShell](/powershell/gallery/psget/module/modulewithpseditionsupport)
+- [Zabránit spuštění skriptu, není-li spustit na kompatibilní verzi prostředí PowerShell](/powershell/gallery/concepts/script-psedition-support)
+- [Deklarace modul kompatibility na konkrétní verze prostředí PowerShell](/powershell/gallery/concepts/module-psedition-support)
 
 ## <a name="catalog-cmdlets"></a>Rutiny katalogu
 
-Byly přidány dva nové rutiny v [Microsoft.PowerShell.Security](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security) modulu; tato generovat a ověření souborů katalogu systému Windows.
+Byly přidány dva nové rutiny v [Microsoft.PowerShell.Security](/powershell/module/microsoft.powershell.security) modulu; tato generovat a ověření souborů katalogu systému Windows.
 
 ### <a name="new-filecatalog"></a>New-FileCatalog
 --------------------------------
@@ -57,7 +57,7 @@ Tím se vytvoří soubor katalogu.
 
 ![](../images/CatalogFile2.jpg)
 
-Chcete-li ověřit integritu soubor katalogu (Pester.cat v výše příkladu), podepište ho pomocí [Set-AuthenticodeSignature](https://technet.microsoft.com/library/hh849819.aspx) rutiny.
+Chcete-li ověřit integritu soubor katalogu (Pester.cat v výše příkladu), podepište ho pomocí [Set-AuthenticodeSignature](/powershell/module/Microsoft.PowerShell.Security/Set-AuthenticodeSignature) rutiny.
 
 ### <a name="test-filecatalog"></a>Test FileCatalog
 --------------------------------
@@ -73,7 +73,7 @@ Test-FileCatalog [-CatalogFilePath] <string> [[-Path] <string[]>] [-Detailed] [-
 Tato rutina porovná všechny hodnoty hash souborů a jejich relativní cesty v *katalogu* s těch, které jsou na *disku*.
 Pokud zjistí jakékoli neshody mezi hodnoty hash souboru a cesty vrátí stav jako *ValidationFailed*.
 Uživatele můžete načíst pomocí těchto informací *-podrobné* parametr.
-Také se zobrazí stav podpisový katalogu v *podpis* vlastnost, která je ekvivalentní volání [Get-AuthenticodeSignature](https://technet.microsoft.com/library/hh849805.aspx) na soubor katalogu rutinu.
+Také se zobrazí stav podpisový katalogu v *podpis* vlastnost, která je ekvivalentní volání [Get-AuthenticodeSignature](/powershell/module/Microsoft.PowerShell.Security/Get-AuthenticodeSignature) na soubor katalogu rutinu.
 Uživatelé také přeskočit všechny soubory během ověřování pomocí *- FilesToSkip* parametr.
 
 ## <a name="module-analysis-cache"></a>Modul Analysis mezipaměti
@@ -115,7 +115,7 @@ Dříve bylo žádný způsob, jak určit konkrétního modulu verze; kdyby exis
 
 V WMF 5.1:
 
-- Můžete použít [ModuleSpecification – konstruktor (zatřiďovací tabulky)](https://msdn.microsoft.com/library/jj136290).
+- Můžete použít [ModuleSpecification – konstruktor (zatřiďovací tabulky)](/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).
 Tato tabulka hodnota hash má stejný formát jako `Get-Module -FullyQualifiedName`.
 
 **Příklad:** `using module @{ModuleName = 'PSReadLine'; RequiredVersion = '1.1'}`
