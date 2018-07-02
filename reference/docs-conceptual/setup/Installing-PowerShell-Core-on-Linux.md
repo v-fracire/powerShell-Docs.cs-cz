@@ -21,6 +21,21 @@ Spustit po instalaci balíčku `pwsh` z terminálu.
 [lai]: #linux-appimage
 [tar]: #binary-archives
 
+## <a name="installing-preview-releases"></a>Instalace verze Preview
+
+Při instalaci verze Preview základní prostředí PowerShell pro Linux prostřednictvím úložiště balíčků, název balíčku se změní z `powershell` k `powershell-preview`.
+
+Instalace prostřednictvím přímé stahování nezmění, než název souboru.
+
+Tady je tabulku příkazy pro instalaci balíčků stabilní a preview pomocí různých správce balíčku:
+
+|Distrobution(s)|Stabilní příkaz | Příkaz Preview |
+|---------------|---------------|-----------------|
+| Ubuntu, Debian |`sudo apt-get install -y powershell`| `sudo apt-get install -y powershell-preview`|
+| CentOS, RedHat |`sudo yum install -y powershell` | `sudo yum install -y powershell-preview`|
+| openSUSE |`sudo zypper install powershell` | `sudo zypper install powershell-preview`|
+| Fedora   |`sudo dnf install -y powershell` | `sudo dnf install -y powershell-preview`|
+
 ## <a name="ubuntu-1404"></a>Ubuntu 14.04
 
 ### <a name="installation-via-package-repository---ubuntu-1404"></a>Instalaci přes úložiště balíčků - Ubuntu 14.04
@@ -59,7 +74,9 @@ sudo dpkg -i powershell_6.0.2-1.ubuntu.14.04_amd64.deb
 sudo apt-get install -f
 ```
 
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+> [!NOTE]
+> `dpkg -i` Příkazu se nezdaří s unmet závislosti.
+> Další příkaz `apt-get install -f` řeší tyto problémy a dokončení konfigurace balíčku prostředí PowerShell.
 
 ### <a name="uninstallation---ubuntu-1404"></a>Odinstalace - Ubuntu 14.04
 
@@ -104,7 +121,9 @@ sudo dpkg -i powershell_6.0.2-1.ubuntu.16.04_amd64.deb
 sudo apt-get install -f
 ```
 
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+> [!NOTE]
+> `dpkg -i` Příkazu se nezdaří s unmet závislosti.
+> Další příkaz `apt-get install -f` řeší tyto problémy a dokončení konfigurace balíčku prostředí PowerShell.
 
 ### <a name="uninstallation---ubuntu-1604"></a>Odinstalace - Ubuntu 16.04
 
@@ -114,7 +133,8 @@ sudo apt-get remove powershell
 
 ## <a name="ubuntu-1710"></a>Ubuntu 17.10
 
-> Poznámka: Po byla přidána podpora pro Ubuntu 18.04 `6.1.0-preview.2`
+> [!NOTE]
+> Přidala se podpora pro Ubuntu č. 17.04 po `6.1.0-preview.2`
 
 ### <a name="installation-via-package-repository---ubuntu-1710"></a>Instalaci přes úložiště balíčků - Ubuntu 17.10
 
@@ -151,7 +171,9 @@ sudo dpkg -i powershell_6.0.2-1.ubuntu.17.10_amd64.deb
 sudo apt-get install -f
 ```
 
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+> [!NOTE]
+> `dpkg -i` Příkazu se nezdaří s unmet závislosti.
+> Další příkaz `apt-get install -f` řeší tyto problémy a dokončení konfigurace balíčku prostředí PowerShell.
 
 ### <a name="uninstallation---ubuntu-1710"></a>Odinstalace - Ubuntu 17.10
 
@@ -161,7 +183,8 @@ sudo apt-get remove powershell
 
 ## <a name="ubuntu-1804"></a>Ubuntu 18.04
 
-> Poznámka: Po byla přidána podpora pro Ubuntu 18.04 `6.1.0-preview.2`
+> [!NOTE]
+> Přidala se podpora pro Ubuntu 18.04 po `6.1.0-preview.2`
 
 ### <a name="installation-via-package-repository---ubuntu-1804"></a>Instalaci přes úložiště balíčků - Ubuntu 18.04
 
@@ -198,7 +221,9 @@ sudo dpkg -i powershell_6.1.0-preview.3-1.ubuntu.18.04_amd64.deb
 sudo apt-get install -f
 ```
 
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti; příkaz Další `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+> [!NOTE]
+> `dpkg -i` Příkazu se nezdaří s unmet závislosti.
+> Další příkaz `apt-get install -f` řeší tyto problémy a dokončení konfigurace balíčku prostředí PowerShell.
 
 ### <a name="uninstallation---ubuntu-1710"></a>Odinstalace - Ubuntu 17.10
 
@@ -248,8 +273,8 @@ sudo apt-get install -f
 ```
 
 > [!NOTE]
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti.
-> Další příkaz `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
+> `dpkg -i` Příkazu se nezdaří s unmet závislosti.
+> Další příkaz `apt-get install -f` řeší tyto problémy a dokončení konfigurace balíčku prostředí PowerShell.
 
 ### <a name="uninstallation---debian-8"></a>Odinstalace - Debian 8
 
@@ -298,10 +323,6 @@ sudo dpkg -i powershell_6.0.2-1.debian.9_amd64.deb
 sudo apt-get install -f
 ```
 
-> [!NOTE]
-> Pamatujte, že `dpkg -i` se nezdaří s unmet závislosti.
-> Další příkaz `apt-get install -f` řeší tyto a pak dokončení konfigurace balíčku prostředí PowerShell.
-
 ### <a name="uninstallation---debian-9"></a>Odinstalace - Debian 9
 
 ```sh
@@ -310,6 +331,7 @@ sudo apt-get remove powershell
 
 ## <a name="centos-7"></a>CentOS 7
 
+> [!NOTE]
 > Tento balíček funguje taky na Oracle Linux 7.
 
 ### <a name="installation-via-package-repository-preferred---centos-7"></a>Instalaci přes úložiště balíčků (doporučeno) - CentOS 7
@@ -396,22 +418,21 @@ sudo yum remove powershell
 
 ## <a name="opensuse-422"></a>OpenSUSE 42.2
 
-> [!NOTE]
-> Při instalaci prostředí PowerShell základní `zypper` může nahlaste mu následující chybu:
->
-> ```Output
-> Problem: nothing provides libcurl needed by powershell-6.0.1-1.rhel.7.x86_64
->  Solution 1: do not install powershell-6.0.1-1.rhel.7.x86_64
->  Solution 2: break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies
-> ```
->
-> V takovém případě ověřte, že kompatibilní `libcurl` knihovny nachází kontrolou, že následující příkaz ukazuje `libcurl4` balíčku se po instalaci:
->
-> ```sh
-> zypper search --file-list --match-exact '/usr/lib64/libcurl.so.4'
-> ```
->
-> Zvolte `break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies` řešení při instalaci balíčku prostředí PowerShell.
+Při instalaci prostředí PowerShell základní `zypper` může nahlaste mu následující chybu:
+
+```Output
+Problem: nothing provides libcurl needed by powershell-6.0.1-1.rhel.7.x86_64
+ Solution 1: do not install powershell-6.0.1-1.rhel.7.x86_64
+ Solution 2: break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies
+```
+
+V takovém případě ověřte, že kompatibilní `libcurl` knihovny nachází kontrolou, že následující příkaz ukazuje `libcurl4` balíčku se po instalaci:
+
+```sh
+zypper search --file-list --match-exact '/usr/lib64/libcurl.so.4'
+```
+
+Zvolte `break powershell-6.0.1-1.rhel.7.x86_64 by ignoring some of its dependencies` řešení při instalaci balíčku prostředí PowerShell.
 
 ### <a name="installation-via-package-repository-preferred---opensuse-422"></a>Instalaci přes úložiště balíčků (doporučeno) - OpenSUSE 42.2
 
@@ -458,7 +479,8 @@ sudo zypper remove powershell
 
 ## <a name="fedora"></a>Fedora
 
-> Poznámka: Fedora 28 je podporována pouze v prostředí PowerShell základní 6.1 a novější.
+> [!NOTE]
+> Fedora 28 je podporována pouze v prostředí PowerShell základní 6.1 a novější.
 
 ### <a name="installation-via-package-repository-preferred---fedora-27-fedora-28"></a>Instalaci přes úložiště balíčků (doporučeno) - Fedora 27 Fedora 28
 
@@ -510,6 +532,9 @@ sudo dnf remove powershell
 
 ## <a name="arch-linux"></a>Arch Linux
 
+> [!NOTE]
+> Podpora architektury je experimentální.
+
 PowerShell je k dispozici [Arch Linux][] uživatele úložiště (AUR).
 
 * Může být zkompilován s [označené nejnovější verze][arch-release]
@@ -527,6 +552,9 @@ Další informace o instalaci balíčků z AUR najdete v tématu [architektura L
 
 ## <a name="linux-appimage"></a>Linux AppImage
 
+> [!NOTE]
+> Podpora AppImage je experimentální
+
 Pomocí poslední distribuci systému Linux, stáhněte si AppImage `powershell-6.0.1-x86_64.AppImage` z [uvolní][] stránky do počítače Linux.
 
 Potom spusťte následující v terminálu:
@@ -543,6 +571,9 @@ Tento balíček je jednoho binárního souboru, který funguje nezávisle na dis
 [appimage]: http://appimage.org/
 
 ## <a name="kali"></a>Kali
+
+> [!NOTE]
+> Podpora Kali je experimentální.
 
 ### <a name="installation"></a>Instalace
 
@@ -579,6 +610,9 @@ sudo dpkg -r powershell_6.0.2-1.ubuntu.16.04_amd64.deb
 ```
 
 ## <a name="raspbian"></a>Raspbian
+
+> [!NOTE]
+> Podpora Raspbian je experimentální.
 
 V současné době prostředí PowerShell je podporována pouze na Raspbian Stretch.
 

@@ -34,7 +34,7 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
 ## <a name="setup-on-windows-machine"></a>Instalace na počítač s Windows
 
-1. Nainstalujte nejnovější verzi [Základní prostředí PowerShell pro systém Windows]
+1. Nainstalujte nejnovější verzi [jádra prostředí PowerShell pro systém Windows]
     - Můžete zadat, že pokud má dokonalejší podpora SSH prohlížením Nastaví parametr pro New-PSSession
 
     ```powershell
@@ -54,6 +54,22 @@ Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřován
 
     ```
     Subsystem    powershell c:/program files/powershell/6.0.0/pwsh.exe -sshs -NoLogo -NoProfile
+    ```
+    
+    > [!NOTE]
+    V OpenSSH pro Windows, který brání prostory v práci v subsystému spustitelné cesty je chyba.
+    V tématu [potíže na Githubu informace](https://github.com/PowerShell/Win32-OpenSSH/issues/784).
+    
+    Jedno řešení je vytvořit symlink do instalačního adresáře nástroje Powershell, který neobsahuje mezery:
+    
+    ```powershell
+    mklink /D c:\pwsh "C:\Program Files\PowerShell\6.0.0"
+    ```
+
+    a zadejte ho v subsystému:
+ 
+    ```
+    Subsystem    powershell c:\pwsh\pwsh.exe -sshs -NoLogo -NoProfile
     ```
 
     - Volitelně můžete povolit ověření pomocí klíče
@@ -241,7 +257,7 @@ GitCommitId                    v6.0.0-alpha.17
 
 1. příkaz sudo v vzdálené relace k počítači Linux nefunguje.
 
-[Základní prostředí PowerShell pro systém Windows]: ../setup/installing-powershell-core-on-windows.md#msi
+[jádra prostředí PowerShell pro systém Windows]: ../setup/installing-powershell-core-on-windows.md#msi
 [Základní prostředí PowerShell pro Linux]: ../setup/installing-powershell-core-on-linux.md#ubuntu-1404
 [Jádro prostředí PowerShell pro systému MacOS]: ../setup/installing-powershell-core-on-macos.md
 [Win32 OpenSSH]: https://github.com/PowerShell/Win32-OpenSSH/releases
