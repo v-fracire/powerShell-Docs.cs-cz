@@ -1,158 +1,174 @@
-# <a name="powershell-remoting-over-ssh"></a><span data-ttu-id="2ad3a-101">Vzdálená komunikace PowerShellu přes SSH</span><span class="sxs-lookup"><span data-stu-id="2ad3a-101">PowerShell Remoting Over SSH</span></span>
+# <a name="powershell-remoting-over-ssh"></a><span data-ttu-id="62a19-101">Vzdálená komunikace PowerShellu přes SSH</span><span class="sxs-lookup"><span data-stu-id="62a19-101">PowerShell Remoting Over SSH</span></span>
 
-## <a name="overview"></a><span data-ttu-id="2ad3a-102">Přehled</span><span class="sxs-lookup"><span data-stu-id="2ad3a-102">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="62a19-102">Přehled</span><span class="sxs-lookup"><span data-stu-id="62a19-102">Overview</span></span>
 
-<span data-ttu-id="2ad3a-103">Vzdálená komunikace prostředí PowerShell normálně používá WinRM pro vyjednávání připojení a přenosu dat.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-103">PowerShell remoting normally uses WinRM for connection negotiation and data transport.</span></span>
-<span data-ttu-id="2ad3a-104">SSH jste vybrali pro tuto implementaci vzdálenou komunikaci, protože je teď dostupná pro platformy Linux a Windows a umožňuje true vzdálenou komunikaci prostředí PowerShell s více platformami.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-104">SSH was chosen for this remoting implementation since it is now available for both Linux and Windows platforms and allows true multiplatform PowerShell remoting.</span></span>
-<span data-ttu-id="2ad3a-105">WinRM však také poskytuje robustní hostování model pro vzdálené relace prostředí PowerShell, které tato implementace ještě neprovádí.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-105">However, WinRM also provides a robust hosting model for PowerShell remote sessions which this implementation does not yet do.</span></span>
-<span data-ttu-id="2ad3a-106">A to znamená, že JEA (právě dostatečně správy) a konfigurace prostředí PowerShell vzdálený koncový bod není dosud podporováno v této implementaci.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-106">And this means that PowerShell remote endpoint configuration and JEA (Just Enough Administration) is not yet supported in this implementation.</span></span>
+<span data-ttu-id="62a19-103">Vzdálená komunikace prostředí PowerShell normálně používá WinRM pro vyjednávání připojení a přenosu dat.</span><span class="sxs-lookup"><span data-stu-id="62a19-103">PowerShell remoting normally uses WinRM for connection negotiation and data transport.</span></span>
+<span data-ttu-id="62a19-104">SSH jste vybrali pro tuto implementaci vzdálenou komunikaci, protože je teď dostupná pro platformy Linux a Windows a umožňuje true vzdálenou komunikaci prostředí PowerShell s více platformami.</span><span class="sxs-lookup"><span data-stu-id="62a19-104">SSH was chosen for this remoting implementation since it is now available for both Linux and Windows platforms and allows true multiplatform PowerShell remoting.</span></span>
+<span data-ttu-id="62a19-105">WinRM však také poskytuje robustní hostování model pro vzdálené relace prostředí PowerShell, které tato implementace ještě neprovádí.</span><span class="sxs-lookup"><span data-stu-id="62a19-105">However, WinRM also provides a robust hosting model for PowerShell remote sessions which this implementation does not yet do.</span></span>
+<span data-ttu-id="62a19-106">A to znamená, že JEA (právě dostatečně správy) a konfigurace prostředí PowerShell vzdálený koncový bod není dosud podporováno v této implementaci.</span><span class="sxs-lookup"><span data-stu-id="62a19-106">And this means that PowerShell remote endpoint configuration and JEA (Just Enough Administration) is not yet supported in this implementation.</span></span>
 
-<span data-ttu-id="2ad3a-107">Remoting SSH prostředí PowerShell vám umožňuje provést základní vzdálenou komunikaci prostředí PowerShell relací mezi počítači Windows a Linux.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-107">PowerShell SSH remoting lets you do basic PowerShell session remoting between Windows and Linux machines.</span></span>
-<span data-ttu-id="2ad3a-108">Děje se tak, že vytvoříte proces v cílovém počítači jako podsystému SSH hostování prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-108">This is done by creating a PowerShell hosting process on the target machine as an SSH subsystem.</span></span>
-<span data-ttu-id="2ad3a-109">Nakonec to bude změněno na další obecné podobný Princip WinRM za účelem podpory konfigurace koncového bodu a JEA hostování modelu.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-109">Eventually this will be changed to a more general hosting model similar to how WinRM works in order to support endpoint configuration and JEA.</span></span>
+<span data-ttu-id="62a19-107">Remoting SSH prostředí PowerShell vám umožňuje provést základní vzdálenou komunikaci prostředí PowerShell relací mezi počítači Windows a Linux.</span><span class="sxs-lookup"><span data-stu-id="62a19-107">PowerShell SSH remoting lets you do basic PowerShell session remoting between Windows and Linux machines.</span></span>
+<span data-ttu-id="62a19-108">Děje se tak, že vytvoříte proces v cílovém počítači jako podsystému SSH hostování prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="62a19-108">This is done by creating a PowerShell hosting process on the target machine as an SSH subsystem.</span></span>
+<span data-ttu-id="62a19-109">Nakonec to bude změněno na další obecné podobný Princip WinRM za účelem podpory konfigurace koncového bodu a JEA hostování modelu.</span><span class="sxs-lookup"><span data-stu-id="62a19-109">Eventually this will be changed to a more general hosting model similar to how WinRM works in order to support endpoint configuration and JEA.</span></span>
 
-<span data-ttu-id="2ad3a-110">Rutiny New-PSSession, Enter-PSSession a Invoke-Command Teď máte nový parametr nastavit pro usnadnění tohoto nového připojení vzdálené komunikace</span><span class="sxs-lookup"><span data-stu-id="2ad3a-110">The New-PSSession, Enter-PSSession and Invoke-Command cmdlets now have a new parameter set to facilitate this new remoting connection</span></span>
+<span data-ttu-id="62a19-110">Rutiny New-PSSession, Enter-PSSession a Invoke-Command Teď máte nový parametr nastavit pro usnadnění tohoto nového připojení vzdálené komunikace</span><span class="sxs-lookup"><span data-stu-id="62a19-110">The New-PSSession, Enter-PSSession and Invoke-Command cmdlets now have a new parameter set to facilitate this new remoting connection</span></span>
 
 ```powershell
 [-HostName <string>]  [-UserName <string>]  [-KeyFilePath <string>]
 ```
 
-<span data-ttu-id="2ad3a-111">Tuto novou sadu parametrů pravděpodobně se změní, ale teď umožňuje vytvářet SSH PSSessions můžete pracovat s z příkazového řádku nebo vyvolání na příkazy a skripty.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-111">This new parameter set will likely change but for now allows you to create SSH PSSessions that you can interact with from the command line or invoke commands and scripts on.</span></span>
-<span data-ttu-id="2ad3a-112">Zadejte cílový počítač s parametrem název hostitele a zadejte uživatelské jméno s uživatelským jménem.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-112">You specify the target machine with the HostName parameter and provide the user name with UserName.</span></span>
-<span data-ttu-id="2ad3a-113">Při interaktivním spuštění rutiny na příkazovém řádku prostředí PowerShell vás vyzve k zadání hesla.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-113">When running the cmdlets interactively at the PowerShell command line you will be prompted for a password.</span></span>
-<span data-ttu-id="2ad3a-114">Ale máte také možnost použít ověření pomocí klíče SSH a zadejte cestu soubor privátního klíče s parametrem KeyFilePath.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-114">But you also have the option to use SSH key authentication and provide a private key file path with the KeyFilePath parameter.</span></span>
+<span data-ttu-id="62a19-111">Tuto novou sadu parametrů pravděpodobně se změní, ale teď umožňuje vytvářet SSH PSSessions můžete pracovat s z příkazového řádku nebo vyvolání na příkazy a skripty.</span><span class="sxs-lookup"><span data-stu-id="62a19-111">This new parameter set will likely change but for now allows you to create SSH PSSessions that you can interact with from the command line or invoke commands and scripts on.</span></span>
+<span data-ttu-id="62a19-112">Zadejte cílový počítač s parametrem název hostitele a zadejte uživatelské jméno s uživatelským jménem.</span><span class="sxs-lookup"><span data-stu-id="62a19-112">You specify the target machine with the HostName parameter and provide the user name with UserName.</span></span>
+<span data-ttu-id="62a19-113">Při interaktivním spuštění rutiny na příkazovém řádku prostředí PowerShell vás vyzve k zadání hesla.</span><span class="sxs-lookup"><span data-stu-id="62a19-113">When running the cmdlets interactively at the PowerShell command line you will be prompted for a password.</span></span>
+<span data-ttu-id="62a19-114">Ale máte také možnost použít ověření pomocí klíče SSH a zadejte cestu soubor privátního klíče s parametrem KeyFilePath.</span><span class="sxs-lookup"><span data-stu-id="62a19-114">But you also have the option to use SSH key authentication and provide a private key file path with the KeyFilePath parameter.</span></span>
 
-## <a name="general-setup-information"></a><span data-ttu-id="2ad3a-115">Informace o obecné nastavení</span><span class="sxs-lookup"><span data-stu-id="2ad3a-115">General setup information</span></span>
+## <a name="general-setup-information"></a><span data-ttu-id="62a19-115">Informace o obecné nastavení</span><span class="sxs-lookup"><span data-stu-id="62a19-115">General setup information</span></span>
 
-<span data-ttu-id="2ad3a-116">SSH je musí být nainstalovaný na všech počítačích.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-116">SSH is required to be installed on all machines.</span></span>
-<span data-ttu-id="2ad3a-117">Musíte nainstalovat klienta (ssh.exe) a serveru (sshd.exe) tak, aby můžete experimentovat s vzdálené komunikace do a z počítačů.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-117">You should install both client (ssh.exe) and server (sshd.exe) so that you can experiment with remoting to and from the machines.</span></span>
-<span data-ttu-id="2ad3a-118">Pro systém Windows je potřeba nainstalovat [OpenSSH Win32 z Githubu](https://github.com/PowerShell/Win32-OpenSSH/releases).</span><span class="sxs-lookup"><span data-stu-id="2ad3a-118">For Windows you will need to install [Win32 OpenSSH from GitHub](https://github.com/PowerShell/Win32-OpenSSH/releases).</span></span>
-<span data-ttu-id="2ad3a-119">Pro Linux, musíte nainstalovat SSH (včetně sshd server) vhodné pro vaši platformu.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-119">For Linux you will need to install SSH (including sshd server) appropriate to your platform.</span></span>
-<span data-ttu-id="2ad3a-120">Budete také potřebovat poslední sestavení prostředí PowerShell nebo balíček z Githubu s funkci Vzdálená komunikace SSH.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-120">You will also need a recent PowerShell build or package from GitHub having the SSH remoting feature.</span></span>
-<span data-ttu-id="2ad3a-121">Subsystémy SSH se používá k zahájení procesu prostředí PowerShell ve vzdáleném počítači a serverem SSH bude nutné je nakonfigurovat pro tento.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-121">SSH subsystems is used to establish a PowerShell process on the remote machine and the SSH server will need to be configured for that.</span></span>
-<span data-ttu-id="2ad3a-122">Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřování založené na.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-122">In addition you will need to enable password authentication and optionally key based authentication.</span></span>
+<span data-ttu-id="62a19-116">SSH je musí být nainstalovaný na všech počítačích.</span><span class="sxs-lookup"><span data-stu-id="62a19-116">SSH is required to be installed on all machines.</span></span>
+<span data-ttu-id="62a19-117">Musíte nainstalovat klienta (ssh.exe) a serveru (sshd.exe) tak, aby můžete experimentovat s vzdálené komunikace do a z počítačů.</span><span class="sxs-lookup"><span data-stu-id="62a19-117">You should install both client (ssh.exe) and server (sshd.exe) so that you can experiment with remoting to and from the machines.</span></span>
+<span data-ttu-id="62a19-118">Pro systém Windows je potřeba nainstalovat [OpenSSH Win32 z Githubu](https://github.com/PowerShell/Win32-OpenSSH/releases).</span><span class="sxs-lookup"><span data-stu-id="62a19-118">For Windows you will need to install [Win32 OpenSSH from GitHub](https://github.com/PowerShell/Win32-OpenSSH/releases).</span></span>
+<span data-ttu-id="62a19-119">Pro Linux, musíte nainstalovat SSH (včetně sshd server) vhodné pro vaši platformu.</span><span class="sxs-lookup"><span data-stu-id="62a19-119">For Linux you will need to install SSH (including sshd server) appropriate to your platform.</span></span>
+<span data-ttu-id="62a19-120">Budete také potřebovat poslední sestavení prostředí PowerShell nebo balíček z Githubu s funkci Vzdálená komunikace SSH.</span><span class="sxs-lookup"><span data-stu-id="62a19-120">You will also need a recent PowerShell build or package from GitHub having the SSH remoting feature.</span></span>
+<span data-ttu-id="62a19-121">Subsystémy SSH se používá k zahájení procesu prostředí PowerShell ve vzdáleném počítači a serverem SSH bude nutné je nakonfigurovat pro tento.</span><span class="sxs-lookup"><span data-stu-id="62a19-121">SSH subsystems is used to establish a PowerShell process on the remote machine and the SSH server will need to be configured for that.</span></span>
+<span data-ttu-id="62a19-122">Kromě toho musíte povolit ověřování hesla a volitelně klíče ověřování založené na.</span><span class="sxs-lookup"><span data-stu-id="62a19-122">In addition you will need to enable password authentication and optionally key based authentication.</span></span>
 
-## <a name="setup-on-windows-machine"></a><span data-ttu-id="2ad3a-123">Instalace na počítač s Windows</span><span class="sxs-lookup"><span data-stu-id="2ad3a-123">Setup on Windows Machine</span></span>
+## <a name="setup-on-windows-machine"></a><span data-ttu-id="62a19-123">Instalace na počítač s Windows</span><span class="sxs-lookup"><span data-stu-id="62a19-123">Setup on Windows Machine</span></span>
 
-1. <span data-ttu-id="2ad3a-124">Nainstalujte nejnovější verzi [Základní prostředí PowerShell pro systém Windows]</span><span class="sxs-lookup"><span data-stu-id="2ad3a-124">Install the latest version of [PowerShell Core for Windows]</span></span>
-    - <span data-ttu-id="2ad3a-125">Můžete zadat, že pokud má dokonalejší podpora SSH prohlížením Nastaví parametr pro New-PSSession</span><span class="sxs-lookup"><span data-stu-id="2ad3a-125">You can tell if it has the SSH remoting support by looking at the parameter sets for New-PSSession</span></span>
+1. <span data-ttu-id="62a19-124">Nainstalujte nejnovější verzi [jádra prostředí PowerShell pro systém Windows]</span><span class="sxs-lookup"><span data-stu-id="62a19-124">Install the latest version of [PowerShell Core for Windows]</span></span>
+    - <span data-ttu-id="62a19-125">Můžete zadat, že pokud má dokonalejší podpora SSH prohlížením Nastaví parametr pro New-PSSession</span><span class="sxs-lookup"><span data-stu-id="62a19-125">You can tell if it has the SSH remoting support by looking at the parameter sets for New-PSSession</span></span>
 
     ```powershell
     PS> Get-Command New-PSSession -syntax
     New-PSSession [-HostName] <string[]> [-Name <string[]>] [-UserName <string>] [-KeyFilePath <string>] [-SSHTransport] [<CommonParameters>]
     ```
 
-1. <span data-ttu-id="2ad3a-126">Nainstalujte si nejnovější verzi [Win32 OpenSSH] sestavení z Githubu pomocí [instalace] pokyny</span><span class="sxs-lookup"><span data-stu-id="2ad3a-126">Install the latest [Win32 OpenSSH] build from GitHub using the [installation] instructions</span></span>
-1. <span data-ttu-id="2ad3a-127">Upravte soubor sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH</span><span class="sxs-lookup"><span data-stu-id="2ad3a-127">Edit the sshd_config file at the location where you installed Win32 OpenSSH</span></span>
-    - <span data-ttu-id="2ad3a-128">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="2ad3a-128">Make sure password authentication is enabled</span></span>
+1. <span data-ttu-id="62a19-126">Nainstalujte si nejnovější verzi [Win32 OpenSSH] sestavení z Githubu pomocí [instalace] pokyny</span><span class="sxs-lookup"><span data-stu-id="62a19-126">Install the latest [Win32 OpenSSH] build from GitHub using the [installation] instructions</span></span>
+1. <span data-ttu-id="62a19-127">Upravte soubor sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH</span><span class="sxs-lookup"><span data-stu-id="62a19-127">Edit the sshd_config file at the location where you installed Win32 OpenSSH</span></span>
+    - <span data-ttu-id="62a19-128">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="62a19-128">Make sure password authentication is enabled</span></span>
 
     ```
     PasswordAuthentication yes
     ```
 
-    - <span data-ttu-id="2ad3a-129">Přidat položku subsystém prostředí PowerShell, nahraďte `c:/program files/powershell/6.0.0/pwsh.exe` správná cesta na verzi, kterou chcete použít</span><span class="sxs-lookup"><span data-stu-id="2ad3a-129">Add a PowerShell subsystem entry, replace `c:/program files/powershell/6.0.0/pwsh.exe` with the correct path to the version you want to use</span></span>
+    - <span data-ttu-id="62a19-129">Přidat položku subsystém prostředí PowerShell, nahraďte `c:/program files/powershell/6.0.0/pwsh.exe` správná cesta na verzi, kterou chcete použít</span><span class="sxs-lookup"><span data-stu-id="62a19-129">Add a PowerShell subsystem entry, replace `c:/program files/powershell/6.0.0/pwsh.exe` with the correct path to the version you want to use</span></span>
 
     ```
     Subsystem    powershell c:/program files/powershell/6.0.0/pwsh.exe -sshs -NoLogo -NoProfile
     ```
+    
+    > [!NOTE]
+    <span data-ttu-id="62a19-130">V OpenSSH pro Windows, který brání prostory v práci v subsystému spustitelné cesty je chyba.</span><span class="sxs-lookup"><span data-stu-id="62a19-130">There is a bug in OpenSSH for Windows that prevents spaces from working in subsystem executable paths.</span></span>
+    <span data-ttu-id="62a19-131">V tématu [potíže na Githubu informace](https://github.com/PowerShell/Win32-OpenSSH/issues/784).</span><span class="sxs-lookup"><span data-stu-id="62a19-131">See [this issue on GitHub for more information](https://github.com/PowerShell/Win32-OpenSSH/issues/784).</span></span>
+    
+    <span data-ttu-id="62a19-132">Jedno řešení je vytvořit symlink do instalačního adresáře nástroje Powershell, který neobsahuje mezery:</span><span class="sxs-lookup"><span data-stu-id="62a19-132">One solution is to create a symlink to the Powershell installation directory that does not contain spaces:</span></span>
+    
+    ```powershell
+    mklink /D c:\pwsh "C:\Program Files\PowerShell\6.0.0"
+    ```
 
-    - <span data-ttu-id="2ad3a-130">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="2ad3a-130">Optionally enable key authentication</span></span>
+    <span data-ttu-id="62a19-133">a zadejte ho v subsystému:</span><span class="sxs-lookup"><span data-stu-id="62a19-133">and then enter it in the subsystem:</span></span>
+ 
+    ```
+    Subsystem    powershell c:\pwsh\pwsh.exe -sshs -NoLogo -NoProfile
+    ```
+
+    - <span data-ttu-id="62a19-134">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="62a19-134">Optionally enable key authentication</span></span>
 
     ```
     PubkeyAuthentication yes
     ```
 
-1. <span data-ttu-id="2ad3a-131">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="2ad3a-131">Restart the sshd service</span></span>
+1. <span data-ttu-id="62a19-135">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="62a19-135">Restart the sshd service</span></span>
 
     ```powershell
     Restart-Service sshd
     ```
 
-1. <span data-ttu-id="2ad3a-132">Přidat cestu, kde je nainstalován OpenSSH pro vaši cestu Env proměnné</span><span class="sxs-lookup"><span data-stu-id="2ad3a-132">Add the path where OpenSSH is installed to your Path Env Variable</span></span>
-    - <span data-ttu-id="2ad3a-133">Měl by být spolu čar `C:\Program Files\OpenSSH\`</span><span class="sxs-lookup"><span data-stu-id="2ad3a-133">This should be along the lines of `C:\Program Files\OpenSSH\`</span></span>
-    - <span data-ttu-id="2ad3a-134">To umožňuje, aby ssh.exe chcete vyhledat</span><span class="sxs-lookup"><span data-stu-id="2ad3a-134">This allows for the ssh.exe to be found</span></span>
+1. <span data-ttu-id="62a19-136">Přidat cestu, kde je nainstalován OpenSSH pro vaši cestu Env proměnné</span><span class="sxs-lookup"><span data-stu-id="62a19-136">Add the path where OpenSSH is installed to your Path Env Variable</span></span>
+    - <span data-ttu-id="62a19-137">Měl by být spolu čar `C:\Program Files\OpenSSH\`</span><span class="sxs-lookup"><span data-stu-id="62a19-137">This should be along the lines of `C:\Program Files\OpenSSH\`</span></span>
+    - <span data-ttu-id="62a19-138">To umožňuje, aby ssh.exe chcete vyhledat</span><span class="sxs-lookup"><span data-stu-id="62a19-138">This allows for the ssh.exe to be found</span></span>
 
-## <a name="setup-on-linux-ubuntu-1404-machine"></a><span data-ttu-id="2ad3a-135">Instalační program na počítači Linux (Ubuntu 14.04)</span><span class="sxs-lookup"><span data-stu-id="2ad3a-135">Setup on Linux (Ubuntu 14.04) Machine</span></span>
+## <a name="setup-on-linux-ubuntu-1404-machine"></a><span data-ttu-id="62a19-139">Instalační program na počítači Linux (Ubuntu 14.04)</span><span class="sxs-lookup"><span data-stu-id="62a19-139">Setup on Linux (Ubuntu 14.04) Machine</span></span>
 
-1. <span data-ttu-id="2ad3a-136">Nainstalujte si nejnovější verzi [základní prostředí PowerShell pro Linux] sestavení z Githubu</span><span class="sxs-lookup"><span data-stu-id="2ad3a-136">Install the latest [PowerShell Core for Linux] build from GitHub</span></span>
-1. <span data-ttu-id="2ad3a-137">Nainstalujte [Ubuntu SSH] podle potřeby</span><span class="sxs-lookup"><span data-stu-id="2ad3a-137">Install [Ubuntu SSH] as needed</span></span>
+1. <span data-ttu-id="62a19-140">Nainstalujte si nejnovější verzi [základní prostředí PowerShell pro Linux] sestavení z Githubu</span><span class="sxs-lookup"><span data-stu-id="62a19-140">Install the latest [PowerShell Core for Linux] build from GitHub</span></span>
+1. <span data-ttu-id="62a19-141">Nainstalujte [Ubuntu SSH] podle potřeby</span><span class="sxs-lookup"><span data-stu-id="62a19-141">Install [Ubuntu SSH] as needed</span></span>
 
     ```bash
     sudo apt install openssh-client
     sudo apt install openssh-server
     ```
 
-1. <span data-ttu-id="2ad3a-138">Upravte soubor sshd_config v umístění /etc/ssh</span><span class="sxs-lookup"><span data-stu-id="2ad3a-138">Edit the sshd_config file at location /etc/ssh</span></span>
-    - <span data-ttu-id="2ad3a-139">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="2ad3a-139">Make sure password authentication is enabled</span></span>
+1. <span data-ttu-id="62a19-142">Upravte soubor sshd_config v umístění /etc/ssh</span><span class="sxs-lookup"><span data-stu-id="62a19-142">Edit the sshd_config file at location /etc/ssh</span></span>
+    - <span data-ttu-id="62a19-143">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="62a19-143">Make sure password authentication is enabled</span></span>
 
     ```
     PasswordAuthentication yes
     ```
 
-    - <span data-ttu-id="2ad3a-140">Přidat položku subsystém prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="2ad3a-140">Add a PowerShell subsystem entry</span></span>
+    - <span data-ttu-id="62a19-144">Přidat položku subsystém prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="62a19-144">Add a PowerShell subsystem entry</span></span>
 
     ```
     Subsystem powershell /usr/bin/pwsh -sshs -NoLogo -NoProfile
     ```
 
-    - <span data-ttu-id="2ad3a-141">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="2ad3a-141">Optionally enable key authentication</span></span>
+    - <span data-ttu-id="62a19-145">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="62a19-145">Optionally enable key authentication</span></span>
 
     ```
     PubkeyAuthentication yes
     ```
 
-1. <span data-ttu-id="2ad3a-142">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="2ad3a-142">Restart the sshd service</span></span>
+1. <span data-ttu-id="62a19-146">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="62a19-146">Restart the sshd service</span></span>
 
     ```bash
     sudo service sshd restart
     ```
 
-## <a name="setup-on-macos-machine"></a><span data-ttu-id="2ad3a-143">Instalační program na počítači systému MacOS</span><span class="sxs-lookup"><span data-stu-id="2ad3a-143">Setup on MacOS Machine</span></span>
+## <a name="setup-on-macos-machine"></a><span data-ttu-id="62a19-147">Instalační program na počítači systému MacOS</span><span class="sxs-lookup"><span data-stu-id="62a19-147">Setup on MacOS Machine</span></span>
 
-1. <span data-ttu-id="2ad3a-144">Nainstalujte si nejnovější verzi [jádro prostředí PowerShell pro systému MacOS] sestavení</span><span class="sxs-lookup"><span data-stu-id="2ad3a-144">Install the latest [PowerShell Core for MacOS] build</span></span>
-    - <span data-ttu-id="2ad3a-145">Zkontrolujte, zda že je povolena vzdálená SSH komunikace pomocí následujících kroků:</span><span class="sxs-lookup"><span data-stu-id="2ad3a-145">Make sure SSH Remoting is enabled by following these steps:</span></span>
-      - <span data-ttu-id="2ad3a-146">Otevřete `System Preferences`</span><span class="sxs-lookup"><span data-stu-id="2ad3a-146">Open `System Preferences`</span></span>
-      - <span data-ttu-id="2ad3a-147">Klikněte na `Sharing`</span><span class="sxs-lookup"><span data-stu-id="2ad3a-147">Click on `Sharing`</span></span>
-      - <span data-ttu-id="2ad3a-148">Zkontrolujte `Remote Login` – by mělo být uvedeno `Remote Login: On`</span><span class="sxs-lookup"><span data-stu-id="2ad3a-148">Check `Remote Login` - Should say `Remote Login: On`</span></span>
-      - <span data-ttu-id="2ad3a-149">Povolit přístup k příslušné uživatele</span><span class="sxs-lookup"><span data-stu-id="2ad3a-149">Allow access to appropriate users</span></span>
-1. <span data-ttu-id="2ad3a-150">Upravit `sshd_config` soubor v umístění `/private/etc/ssh/sshd_config`</span><span class="sxs-lookup"><span data-stu-id="2ad3a-150">Edit the `sshd_config` file at location `/private/etc/ssh/sshd_config`</span></span>
-    - <span data-ttu-id="2ad3a-151">Pomocí oblíbeného editoru nebo</span><span class="sxs-lookup"><span data-stu-id="2ad3a-151">Use your favorite editor or</span></span>
+1. <span data-ttu-id="62a19-148">Nainstalujte si nejnovější verzi [jádro prostředí PowerShell pro systému MacOS] sestavení</span><span class="sxs-lookup"><span data-stu-id="62a19-148">Install the latest [PowerShell Core for MacOS] build</span></span>
+    - <span data-ttu-id="62a19-149">Zkontrolujte, zda že je povolena vzdálená SSH komunikace pomocí následujících kroků:</span><span class="sxs-lookup"><span data-stu-id="62a19-149">Make sure SSH Remoting is enabled by following these steps:</span></span>
+      - <span data-ttu-id="62a19-150">Otevřete `System Preferences`</span><span class="sxs-lookup"><span data-stu-id="62a19-150">Open `System Preferences`</span></span>
+      - <span data-ttu-id="62a19-151">Klikněte na `Sharing`</span><span class="sxs-lookup"><span data-stu-id="62a19-151">Click on `Sharing`</span></span>
+      - <span data-ttu-id="62a19-152">Zkontrolujte `Remote Login` – by mělo být uvedeno `Remote Login: On`</span><span class="sxs-lookup"><span data-stu-id="62a19-152">Check `Remote Login` - Should say `Remote Login: On`</span></span>
+      - <span data-ttu-id="62a19-153">Povolit přístup k příslušné uživatele</span><span class="sxs-lookup"><span data-stu-id="62a19-153">Allow access to appropriate users</span></span>
+1. <span data-ttu-id="62a19-154">Upravit `sshd_config` soubor v umístění `/private/etc/ssh/sshd_config`</span><span class="sxs-lookup"><span data-stu-id="62a19-154">Edit the `sshd_config` file at location `/private/etc/ssh/sshd_config`</span></span>
+    - <span data-ttu-id="62a19-155">Pomocí oblíbeného editoru nebo</span><span class="sxs-lookup"><span data-stu-id="62a19-155">Use your favorite editor or</span></span>
 
     ```bash
     sudo nano /private/etc/ssh/sshd_config
     ```
 
-    - <span data-ttu-id="2ad3a-152">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="2ad3a-152">Make sure password authentication is enabled</span></span>
+    - <span data-ttu-id="62a19-156">Ujistěte se, že je povolené ověřování hesla</span><span class="sxs-lookup"><span data-stu-id="62a19-156">Make sure password authentication is enabled</span></span>
 
     ```
     PasswordAuthentication yes
     ```
 
-    - <span data-ttu-id="2ad3a-153">Přidat položku subsystém prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="2ad3a-153">Add a PowerShell subsystem entry</span></span>
+    - <span data-ttu-id="62a19-157">Přidat položku subsystém prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="62a19-157">Add a PowerShell subsystem entry</span></span>
 
     ```
     Subsystem powershell /usr/local/bin/pwsh -sshs -NoLogo -NoProfile
     ```
 
-    - <span data-ttu-id="2ad3a-154">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="2ad3a-154">Optionally enable key authentication</span></span>
+    - <span data-ttu-id="62a19-158">Volitelně můžete povolit ověření pomocí klíče</span><span class="sxs-lookup"><span data-stu-id="62a19-158">Optionally enable key authentication</span></span>
 
     ```
     PubkeyAuthentication yes
     ```
 
-1. <span data-ttu-id="2ad3a-155">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="2ad3a-155">Restart the sshd service</span></span>
+1. <span data-ttu-id="62a19-159">Restartujte službu sshd</span><span class="sxs-lookup"><span data-stu-id="62a19-159">Restart the sshd service</span></span>
 
     ```bash
     sudo launchctl stop com.openssh.sshd
     sudo launchctl start com.openssh.sshd
     ```
 
-## <a name="powershell-remoting-example"></a><span data-ttu-id="2ad3a-156">Příklad vzdálenou komunikaci prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="2ad3a-156">PowerShell Remoting Example</span></span>
+## <a name="powershell-remoting-example"></a><span data-ttu-id="62a19-160">Příklad vzdálenou komunikaci prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="62a19-160">PowerShell Remoting Example</span></span>
 
-<span data-ttu-id="2ad3a-157">Nejjednodušší způsob, jak otestovat vzdálené komunikace je právě vyzkoušejte si to na jednom počítači.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-157">The easiest way to test remoting is to just try it on a single machine.</span></span>
-<span data-ttu-id="2ad3a-158">Tady na pole Linux vytvořím vzdálenou relaci zpátky do stejného počítače.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-158">Here I will create a remote session back to the same machine on a Linux box.</span></span>
-<span data-ttu-id="2ad3a-159">Všimněte si, že je používána rutiny prostředí PowerShell z příkazového řádku, vidíme výzvy ze SSH s dotazem, chcete-li ověřit na hostitelském počítači a také na zadání hesla.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-159">Notice that I am using PowerShell cmdlets from a command prompt so we see prompts from SSH asking to verify the host computer as well as password prompts.</span></span>
-<span data-ttu-id="2ad3a-160">Můžete to samé na počítač Windows k zajištění, že vzdálenou komunikaci pracuje existuje a pak vzdálené mezi počítači jednoduše změnou názvu hostitele.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-160">You can do the same thing on a Windows machine to ensure remoting is working there and then remote between machines by simply changing the host name.</span></span>
+<span data-ttu-id="62a19-161">Nejjednodušší způsob, jak otestovat vzdálené komunikace je právě vyzkoušejte si to na jednom počítači.</span><span class="sxs-lookup"><span data-stu-id="62a19-161">The easiest way to test remoting is to just try it on a single machine.</span></span>
+<span data-ttu-id="62a19-162">Tady na pole Linux vytvořím vzdálenou relaci zpátky do stejného počítače.</span><span class="sxs-lookup"><span data-stu-id="62a19-162">Here I will create a remote session back to the same machine on a Linux box.</span></span>
+<span data-ttu-id="62a19-163">Všimněte si, že je používána rutiny prostředí PowerShell z příkazového řádku, vidíme výzvy ze SSH s dotazem, chcete-li ověřit na hostitelském počítači a také na zadání hesla.</span><span class="sxs-lookup"><span data-stu-id="62a19-163">Notice that I am using PowerShell cmdlets from a command prompt so we see prompts from SSH asking to verify the host computer as well as password prompts.</span></span>
+<span data-ttu-id="62a19-164">Můžete to samé na počítač Windows k zajištění, že vzdálenou komunikaci pracuje existuje a pak vzdálené mezi počítači jednoduše změnou názvu hostitele.</span><span class="sxs-lookup"><span data-stu-id="62a19-164">You can do the same thing on a Windows machine to ensure remoting is working there and then remote between machines by simply changing the host name.</span></span>
 
 ```powershell
 #
@@ -237,11 +253,11 @@ GitCommitId                    v6.0.0-alpha.17
 [WinVM2]: PS C:\Users\PSRemoteUser\Documents>
 ```
 
-### <a name="known-issues"></a><span data-ttu-id="2ad3a-161">Známé problémy</span><span class="sxs-lookup"><span data-stu-id="2ad3a-161">Known Issues</span></span>
+### <a name="known-issues"></a><span data-ttu-id="62a19-165">Známé problémy</span><span class="sxs-lookup"><span data-stu-id="62a19-165">Known Issues</span></span>
 
-1. <span data-ttu-id="2ad3a-162">příkaz sudo v vzdálené relace k počítači Linux nefunguje.</span><span class="sxs-lookup"><span data-stu-id="2ad3a-162">sudo command does not work in remote session to Linux machine.</span></span>
+1. <span data-ttu-id="62a19-166">příkaz sudo v vzdálené relace k počítači Linux nefunguje.</span><span class="sxs-lookup"><span data-stu-id="62a19-166">sudo command does not work in remote session to Linux machine.</span></span>
 
-[Základní prostředí PowerShell pro systém Windows]: ../setup/installing-powershell-core-on-windows.md#msi
+[jádra prostředí PowerShell pro systém Windows]: ../setup/installing-powershell-core-on-windows.md#msi
 [PowerShell Core for Windows]: ../setup/installing-powershell-core-on-windows.md#msi
 [Základní prostředí PowerShell pro Linux]: ../setup/installing-powershell-core-on-linux.md#ubuntu-1404
 [PowerShell Core for Linux]: ../setup/installing-powershell-core-on-linux.md#ubuntu-1404
