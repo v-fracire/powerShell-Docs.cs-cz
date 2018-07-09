@@ -1,24 +1,21 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Prostředek DSC uživatele
-ms.openlocfilehash: f2660933aec43967e3f4082a983ef328a5b93851
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 04543351df19160a2da05ccea96e5d392d8c55bf
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189648"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892521"
 ---
-#<a name="dsc-user-resource"></a>Prostředek DSC uživatele #
+# <a name="dsc-user-resource"></a>Prostředek DSC uživatele
 
+Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
->Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+**Uživatele** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus ke správě místních uživatelských účtů na cílovém uzlu.
 
-
-__Uživatele__ prostředek v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus ke správě místní uživatelské účty na cílovém uzlu.
-
-
-##<a name="syntax"></a>Syntaxe ##
+## <a name="syntax"></a>Syntaxe
 
 ```
 User [string] #ResourceName
@@ -37,18 +34,19 @@ User [string] #ResourceName
 ```
 
 ## <a name="properties"></a>Properties
+
 |  Vlastnost  |  Popis   |
 |---|---|
 | UserName| Určuje název účtu, pro které chcete zajistit určitý stav.|
 | Popis| Určuje popis, který chcete použít pro uživatelský účet.|
-| Zakázáno| Určuje, zda je povolen účet. Tuto vlastnost nastavit na __$true__ zajistit, že tento účet je zakázané a nastavte ji na __$false__ zajistit, že je povolena.|
-| Ujistěte se| Určuje, jestli účet existuje. Nastavením této vlastnosti "Přítomen" zajistit, že existuje účet a nastavte ji na "Chybí" zajistit, že účet neexistuje.|
-| Úplný název| Představuje řetězec s úplný název, který chcete použít pro uživatelský účet.|
+| Zakázáno| Označuje, zda je účet povolen. Tuto vlastnost nastavte na `$true` zajistit, že tento účet je zakázaný a nastavte ho na `$false` ujistěte, že je povolena.|
+| Zkontrolujte| Určuje, jestli účet existuje. Nastavte tuto vlastnost na "Obsahuje" Ujistěte se, že existuje účet a nastavte ho na "Chybí" Ujistěte se, že účet neexistuje.|
+| Jméno a příjmení| Představuje řetězec s úplný název, který chcete použít pro uživatelský účet.|
 | Heslo| Určuje heslo, které chcete použít pro tento účet. |
-| PasswordChangeNotAllowed| Určuje, pokud uživatel změnit heslo. Tuto vlastnost nastavit na __$true__ zajistit, že uživatel nemůže změnit heslo a nastavte ji na __$false__ umožňuje uživatelům změnit heslo. Výchozí hodnota je __$false__.|
-| PasswordChangeRequired| Označuje, pokud uživatel musí změnit heslo při příštím přihlašování. Tuto vlastnost nastavit na __$true__ Pokud musí uživatel změnit heslo. Výchozí hodnota je __$true__.|
-| PasswordNeverExpires| Označuje, pokud vyprší platnost hesla. K zajištění, že heslo pro tento účet nikdy nevyprší, nastavte tuto vlastnost __$true__a nastavte ji na __$false__ Pokud vyprší platnost hesla. Výchozí hodnota je __$false__.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
+| PasswordChangeNotAllowed| Označuje, pokud uživatel může změnit heslo. Tuto vlastnost nastavte na `$true` zajistit, že uživatel nemůže změnit heslo a nastavte ho na `$false` aby uživatel mohl změnit heslo. Výchozí hodnota je `$false`.|
+| PasswordChangeRequired| Označuje, pokud uživatel musí změnit heslo při příštím přihlašování. Tuto vlastnost nastavte na `$true` Pokud musí uživatel změnit heslo. Výchozí hodnota je `$true`.|
+| PasswordNeverExpires| Označuje, pokud vyprší platnost hesla. K zajištění, že heslo pro tento účet nikdy nevyprší, nastavte tuto vlastnost na `$true`a nastavte ho na `$false` Pokud vyprší platnost hesla. Výchozí hodnota je `$false`.|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="example"></a>Příklad
 

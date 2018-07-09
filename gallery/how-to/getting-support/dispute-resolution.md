@@ -1,41 +1,40 @@
 ---
 ms.date: 06/12/2017
 contributor: JKeithB
-keywords: Galerie prostředí powershell, rutiny, psgallery
+keywords: Galerie prostředí powershell, rutina, psgallery
 title: Řešení sporů
-ms.openlocfilehash: 2a291773ae9391e417e14c4ec0b75379e0bf4640
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: a3a3b160366dc17f2fe0d1721d275387700e71e4
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34221820"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892337"
 ---
 # <a name="dispute-resolution"></a>Řešení sporů
 
-Tento dokument je doporučené sporu procesu překladu, který pro členy komunity pomáhající při řešení sporů s jinými vydavateli Galerie prostředí PowerShell.
+Tento dokument je proces řešení sporů doporučené pro členy komunity pomáhající při řešení sporů s jinými vydavateli Galerie prostředí PowerShell.
 
 ## <a name="process"></a>Proces
 
-1. Obraťte se na vlastníci položky máte sporu s použitím **obraťte se na vlastníky** odkaz na stránku podrobností položky.
-Popisují problém druh a přímé způsobem.
-2. Odeslat kopie zprávy do [ cgadmin@microsoft.com ](mailto:cgadmin@microsoft.com) tak, aby si vědomi spor správci Galerie prostředí PowerShell.
-3. Počkejte maximálně 30 dnů a pokud nemáte řešení oznámit [ cgadmin@microsoft.com ](mailto:cgadmin@microsoft.com) znovu.
-Tým podpory PowerShellGallery.com bude zapojení a zkuste to umožní zjistit.
+1. Obraťte se na vlastníky položky mají sporu s použitím **kontakt vlastníky** odkazu na stránce s podrobnostmi položky.
+   Popisují váš problém druhu a přímé způsobem.
+2. Odeslat kopie zprávy [ cgadmin@microsoft.com ](mailto:cgadmin@microsoft.com) tak, aby správci Galerie prostředí PowerShell spor vědět.
+3. Počkejte maximálně 30 dnů a pokud není nutné upozornit rozlišení [ cgadmin@microsoft.com ](mailto:cgadmin@microsoft.com) znovu.
 
+Tým podpory PowerShellGallery.com bude zapojení a zkuste to dokázali vyřešit.
 
-## <a name="prohibited-use"></a>Zakázané používání
+## <a name="prohibited-use"></a>Zakázané použití
 
-Následující akce nejsou povoleny ve veřejné galerii prostředí PowerShell a bude odebrán okamžitě bez diskuzi.  Vlastníci položky zobrazí upozornění, že je jejich položka odebrána.
+Následující akce nejsou povolené u veřejné Galerie prostředí PowerShell a okamžitě odeberou bez diskuse.  Vlastníci položky zobrazí upozornění, že jejich položka odebrána.
 
 - Malwaru, adwaru nebo jakýkoli druh spywaru
-- Položky, které jsou určeny k poškodit systémech uživatelů;
-- Věci porušení autorských práv nebo porušení licence;
-- Neplatný obsah;
-- "Obsazení" názvy položek, které plánujete používat, ale ve skutečnosti nepoužívají. To zahrnuje také publikování položky, které mají nulové produktivní obsah.
-Publikování kódu a zprovoznění nebo protihráči postoupit název někomu, kdo má ve skutečnosti produktu pro odeslání; a
-- Provedením Galerie dělejte, co to není navrženy explicitně.
+- Položky, které jsou určeny k jejich poškození systémů uživatele:
+- Porušení autorských práv nebo porušení licenčních;
+- Neplatný obsah.
+- "Obsazení" názvy položek, které jste v úmyslu používat, ale nejsou ve skutečnosti pomocí. To zahrnuje také publikování položek, které nemají žádnou produktivní obsah.
+  Publikování kódu a dát do toho nebo protihráči postoupit název někomu, kdo má ve skutečnosti produktu k odeslání; a
+- Pokusu o vytvoření Galerie něco udělat se nespouští explicitně provést.
 
+Pokud najdete položku, která je v rozporu s libovolnou z těchto položek klikněte na odkaz "Ohlášení zneužití" na stránce s podrobnostmi položky a odeslat sestavu.
 
-Pokud najít položku, která je v rozporu s některou z těchto položek, klikněte na odkaz 'Oznámení zneužití' na stránce podrobností položky a odeslání zprávy.
-
-**Tato zásada se mohou změnit uvážení Galerie prostředí PowerShell.**
+**Tato zásada je změnit na uvážení Galerie prostředí PowerShell.**

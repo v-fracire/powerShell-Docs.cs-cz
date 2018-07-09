@@ -1,23 +1,23 @@
 ---
 ms.date: 06/12/2017
 contributor: JKeithB
-keywords: Galerie prostředí powershell, rutiny, psgallery
+keywords: Galerie prostředí powershell, rutina, psgallery
 title: Odstranění položek
-ms.openlocfilehash: 3f67f78d63e5cf797d00ce43f95fb3b4f62d6f7c
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 454cd404437bf1c31b9a1b81cd9dd0ac81e6b0f6
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34218225"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893089"
 ---
 # <a name="deleting-items"></a>Odstranění položek
 
-Galerie prostředí PowerShell nepodporuje trvalé odstranění položek, vzhledem k tomu, který by rozdělit každý, kdo je v závislosti na něm zbývající k dispozici.
+Galerie prostředí PowerShell trvalého odstranění položek, nepodporuje, protože, který by narušil každý, kdo je v závislosti na jeho zbývající k dispozici.
 
-Místo toho Galerie prostředí PowerShell podporuje způsob, jak unlist položku, což lze provést na stránce Správa položky na webu.
-Pokud je položka neuvedené, ho už se zobrazí ve vyhledávání a v libovolné položce výpis, i v galerii prostředí PowerShell a pomocí příkazů PowerShellGet.
-Zůstane ale ke stažení zadáním přesnou verzi, která je co umožňuje automatické skripty, které chcete pokračovat v práci.
+Místo toho v galerii prostředí PowerShell podporuje způsob, jak "vyjmutí ze seznamu' položky, což lze provést na stránce Správa položek na webovém serveru.
+Pokud je položka neuvedené v seznamu, se už nebude zobrazovat ve službě search a v libovolnou položku, výpis, i v galerii prostředí PowerShell a použití příkazů PowerShellGet.
+Ale zůstává ke stažení tak, že zadáte jeho přesnou verzi, která umožňuje automatizované skripty chcete pokračovat v práci.
 
-Pokud spustíte do výjimečná situace, kdy si myslíte, že jedna z položek musí být odstraněny, to může být zpracována ručně týmem Galerie prostředí PowerShell.
-Například pokud je problém věci porušení autorských práv nebo potenciálně nebezpečný obsah, který může být platný důvod ho odstranit.
-Odešlete žádost o podporu prostřednictvím [Galerie prostředí PowerShell] (http://www.PowerShellGallery.com) v takovém případě.
+Pokud narazíte výjimečné situace, pokud si myslíte, že jednu z položek musí být odstraněny, to může být zpracována ručně týmu Galerie prostředí PowerShell.
+Například pokud je problém porušení autorských práv nebo potenciálně nebezpečný obsah, který může být důvodem k jeho odstranění.
+Odešlete žádost o podporu prostřednictvím [Galerie prostředí PowerShell](http://www.PowerShellGallery.com) v takovém případě.

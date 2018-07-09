@@ -1,29 +1,29 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-title: Vylepšení konzoly v WMF 5.1
-ms.openlocfilehash: fb689002caf42203d760f11acc64e52cfa681069
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+title: Vylepšení konzoly ve WMF 5.1
+ms.openlocfilehash: a8e82e2f973916c2ed5007eba90ee6f2b7a9a769
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189308"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892922"
 ---
-# <a name="console-improvements-in-wmf-51"></a>Vylepšení konzoly v WMF 5.1#
+# <a name="console-improvements-in-wmf-51"></a>Vylepšení konzoly ve WMF 5.1
 
-## <a name="powershell-console-improvements"></a>Vylepšení konzoly prostředí PowerShell
+## <a name="powershell-console-improvements"></a>Vylepšení konzoly Powershellu
 
-Powershell.exe v WMF 5.1 provedly lepší konzoly následující změny:
+Byly provedeny následující změny k powershell.exe ve WMF 5.1 na zlepšení uživatelského rozhraní konzoly:
 
-###<a name="vt100-support"></a>Podpora VT100
+### <a name="vt100-support"></a>Podpora VT100
 
-Přidání podpory pro Windows 10 [VT100 řídicí sekvence](https://msdn.microsoft.com/en-us/library/windows/desktop/mt638032(v=vs.85).aspx).
+Přidání podpory pro Windows 10 [VT100 řídicí sekvence](/windows/console/console-virtual-terminal-sequences).
 Prostředí PowerShell bude ignorovat určité VT100 formátování řídicí sekvence při výpočtu šířky tabulky.
 
-Prostředí PowerShell také přidat nové rozhraní API, který lze použít při formátování kódu k určení, jestli VT100 podporovaná.
+Prostředí PowerShell také přidali nová rozhraní API, které lze použít při formátování kódu k určení, jestli je podporovaná VT100.
 Příklad:
 
-```
+```powershell
 if ($host.UI.SupportsVirtualTerminal)
 {
     $esc = [char]0x1b
@@ -34,21 +34,22 @@ else
     "A default hello"
 }
 ```
-Zde je úplná [příklad](https://gist.github.com/lzybkr/dcb973dccd54900b67783c48083c28f7) který slouží k zvýrazněte odpovídá řetězci vyberte.
-Uložit v příkladu v souboru s názvem `MatchInfo.format.ps1xml`, pokud chcete používat, v profilu nebo jinde, spusťte `Update-FormatData -Prepend MatchInfo.format.ps1xml`.
 
-Všimněte si, že VT100 řídicí sekvence jsou podporovány pouze v počínaje systémem Windows 10 Anniversary aktualizace; v předchozích verzích systému nejsou podporovány.
+Tady je úplný [příklad](https://gist.github.com/lzybkr/dcb973dccd54900b67783c48083c28f7) , který lze použít ke zvýraznění shody z `Select-String`.
+Uložit v příkladu v souboru s názvem `MatchInfo.format.ps1xml`, pokud chcete použít, v profilu nebo jinde, spusťte `Update-FormatData -Prepend MatchInfo.format.ps1xml`.
+
+Všimněte si, že sekvence escape VT100 podporují jenom od verze Windows 10 Anniversary update; nejsou podporovány v předchozích verzích systému.
 
 ### <a name="vi-mode-support-in-psreadline"></a>Podpora režimu VI v PSReadline
 
-[PSReadline](https://github.com/lzybkr/PSReadLine) přidá podporu vi režimu. Chcete-li použít režim vi, spusťte `Set-PSReadlineOption -EditMode Vi`.
+[PSReadline](https://github.com/lzybkr/PSReadLine) přidává podporu pro režim editoru vi. Pokud chcete použít režim vi, spusťte `Set-PSReadlineOption -EditMode Vi`.
 
-### <a name="redirected-stdin-with-interactive-input"></a>Přesměrovaného stdin – s interaktivní vstup
+### <a name="redirected-stdin-with-interactive-input"></a>Přesměrované stdin s interaktivní vstup
 
-V dřívějších verzích, spouštění prostředí PowerShell s `powershell -File -` nebyla nutná, pokud byl přesměrován stdin – a chcete zadat příkazy interaktivně.
+V dřívějších verzích spuštění Powershellu s `powershell -File -` byla požadována, když byl přesměrován stdin a chcete zadat příkazy interaktivně.
 
-S WMF 5.1, tento obtížné zjistit, že je možnost už nebude potřeba.
-Prostředí PowerShell můžete spustit bez jakékoli možnosti, například `powershell`.
+S WMF 5.1, tomto je obtížné zjistit, že možnost již není nezbytné.
+Prostředí PowerShell můžete spustit bez jakýchkoli možností, například `powershell`.
 
-Všimněte si, že PSReadline v současné době nepodporuje přesměrování stdin a integrované příkazového řádku úpravy zkušenosti s přesměrovaného stdin je velmi omezené, například nejsou funkční klávesy se šipkami.
-Budoucích vydání systému PSReadline by měl tento problém vyřešit.
+Všimněte si, že PSReadline v současné době nepodporuje přesměrováno stdin a integrované prostředí příkazového řádku úprav s přesměrovaného stdin je velmi omezené, třeba klávesy se šipkami nefungují.
+Příští verzi PSReadline by měla tento problém vyřešit.

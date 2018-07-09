@@ -1,59 +1,61 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 7b4e4dbeaf9c3c48e7b2dfc74435dfa2cd9c7ea7
-ms.sourcegitcommit: 735ccab3fb3834ccd8559fab6700b798e8e5ffbf
+ms.openlocfilehash: 0e8d0cb1e4afa7bc791d45bfb0b981654cb09ed5
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/25/2018
-ms.locfileid: "34482909"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892565"
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 
-Řadu vylepšení byly provedeny v této verzi pro automatizaci vytvořené LCM stav a stav DSC. Patří mezi ně jednotné a konzistentní stav a stav vyjádření, vlastnost datetime spravovatelných objektů stav vrácen rutinou Get-DscConfigurationStatus a rozšířené vlastnosti podrobností LCM stav vrácený Get-DscLocalConfigurationManager rutiny.
+Řadu vylepšení byly provedeny v této verzi za účelem automatizace založená LCM stavu a statusu DSC. Patří mezi ně jednotné stavu a statusu reprezentace, spravovat data a času vlastnost stavu objektů vrácených podle `Get-DscConfigurationStatus` rutiny a vylepšené LCM stavu podrobnosti vlastnosti vrácené `Get-DscLocalConfigurationManager` rutiny.
 
-Reprezentace LCM stav a stav operace DSC jsou kdykoli znovu spustit a jednotná podle následujících pravidel:
-1.  Notprocessed prostředků neovlivní LCM stav a stav DSC.
-2.  LCM zastavit zpracování další prostředky, jakmile narazí na prostředek, který požaduje restartování.
-3.  Na prostředek, který požaduje restartování není v požadovaném stavu, dokud se ve skutečnosti stane restartování.
-4.  Po zjištění na prostředek, který selže, LCM uchová zpracování další prostředky, dokud nejsou závislé na jednu selhání.
-5.  Celkový stav, který vrátila Rutina Get-DscConfigurationStatus je supertřídou sada stavu všech prostředků.
-6.  Stav PendingReboot je nadmnožinou PendingConfiguration stavu.
+Vyjádření stavu LCM a stav operace DSC se znovu obrácena pozornost a unified podle následujících pravidel:
 
-Následující tabulka znázorňuje výsledné stav a stav souvisejících vlastností v rámci několik typické scénáře.
+1. Notprocessed prostředků neovlivní LCM stavu a statusu DSC.
+2. LCM zastavení zpracování další prostředky, jakmile narazí na prostředek, který vyžaduje restartování.
+3. Prostředek, který požaduje restartování není v požadovaném stavu, dokud se ve skutečnosti stane restartování.
+4. Po zjištění prostředek, který selže, LCM zajišťuje zpracování další prostředky, dokud nejsou závislé na selhání jedné.
+5. Celkový stav vrácený `Get-DscConfigurationStatus` rutina je super sadu stavu všechny prostředky.
+6. Stav PendingReboot je nadmnožinou PendingConfiguration stavu.
 
-| Scénář                    | LCMState       | Stav | Požadovaný restart  | ResourcesInDesiredState  | ResourcesNotInDesiredState |
-|---------------------------------|----------------------|------------|---------------|------------------------------|--------------------------------|
-| S**^**                          | Nečinnosti                 | Úspěch    | $false        | S                            | $null                          |
-| F**^**                          | PendingConfiguration | Chyba    | $false        | $null                        | F                              |
-| S,F                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
-| F,S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
-| S<sub>1</sub>, F, S<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S<sub>1</sub>, S<sub>2</sub> | F                              |
-| F<sub>1</sub>, S, F<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S                            | F<sub>1</sub>, F<sub>2</sub>   |
-| S, r                            | PendingReboot        | Úspěch    | $true         | S                            | R                              |
-| F, r                            | PendingReboot        | Chyba    | $true         | $null                        | F, r                           |
-| r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
-| r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | R                              |
+   Následující tabulka uvádí, výsledné stavy souvisejících vlastností v rámci několika typické scénáře.
 
-^ S<sub>i</sub>: řadu prostředky, které bylo úspěšně použito F<sub>i</sub>: řadu prostředky, které použije neúspěšně r: A prostředků, které vyžadují restartování: \*
+   | Scénář                    | LCMState       | Stav | Požadováno restartování  | ResourcesInDesiredState  | ResourcesNotInDesiredState |
+   |---------------------------------|----------------------|------------|---------------|------------------------------|--------------------------------|
+   | S**^**                          | Nečinnosti                 | Úspěch    | $false        | S                            | $null                          |
+   | F**^**                          | PendingConfiguration | Chyba    | $false        | $null                        | F                              |
+   | S,F                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
+   | F,S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
+   | S<sub>1</sub>, F, S<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S<sub>1</sub>, S<sub>2</sub> | F                              |
+   | F<sub>1</sub>, S, F<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S                            | F<sub>1</sub>, F<sub>2</sub>   |
+   | S, r                            | PendingReboot        | Úspěch    | $true         | S                            | r                              |
+   | F, r                            | PendingReboot        | Chyba    | $true         | $null                        | F, r                           |
+   | r, S                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
+   | r, F                            | PendingReboot        | Úspěch    | $true         | $null                        | r                              |
 
-```powershell
-$LCMState = (Get-DscLocalConfigurationManager).LCMState
-$Status = (Get-DscConfigurationStatus).Status
+   ^
+   S<sub>můžu</sub>: řadu prostředků, které se úspěšně použila F<sub>můžu</sub>: řadu prostředků, které se použijí neúspěšně r: A prostředků, která vyžaduje restartování \*
 
-$RebootRequested = (Get-DscConfigurationStatus).RebootRequested
+   ```powershell
+   $LCMState = (Get-DscLocalConfigurationManager).LCMState
+   $Status = (Get-DscConfigurationStatus).Status
 
-$ResourcesInDesiredState = (Get-DscConfigurationStatus).ResourcesInDesiredState
+   $RebootRequested = (Get-DscConfigurationStatus).RebootRequested
 
-$ResourcesNotInDesiredState = (Get-DscConfigurationStatus).ResourcesNotInDesiredState
-```
+   $ResourcesInDesiredState = (Get-DscConfigurationStatus).ResourcesInDesiredState
+
+   $ResourcesNotInDesiredState = (Get-DscConfigurationStatus).ResourcesNotInDesiredState
+   ```
 
 ## <a name="enhancement-in-get-dscconfigurationstatus-cmdlet"></a>Vylepšení v rutině Get-DscConfigurationStatus
 
-Rutina Get-DscConfigurationStatus v této verzi se provedly několik vylepšení. Vlastnost počátečním objektů vrácený rutinu dříve, je typu String. Nyní je typu datum a čas, který umožňuje komplexní, výběru a filtrování snadnější podle vnitřní vlastnosti objektu data a času.
+Bylo provedeno několik vylepšení na `Get-DscConfigurationStatus` rutiny v této verzi. Vlastnost StartDate objektů vrací rutina dříve, je typu řetězec. Nyní je typu datum a čas, který umožňuje komplexní, výběr a filtrování snadněji založené na vnitřní vlastnosti objektu data a času.
 
 ```powershell
-(Get-DscConfigurationStatus).StartDate | fl *
+(Get-DscConfigurationStatus).StartDate | Format-List *
 DateTime : Friday, November 13, 2015 1:39:44 PM
 Date : 11/13/2015 12:00:00 AM
 Day : 13
@@ -70,18 +72,18 @@ TimeOfDay : 13:39:44.8860000
 Year : 2015
 ```
 
-Následuje příklad, který vrátí že všechny záznamy operaci DSC došlo ve stejný den v týdnu jako dnes.
+Tady je příklad, který vrátí že všechny záznamy operace DSC došlo ve stejný den v týdnu jako dnes.
 
 ```powershell
-(Get-DscConfigurationStatus –All) | where { $_.startdate.dayofweek -eq (Get-Date).DayOfWeek }
+(Get-DscConfigurationStatus –All) | Where-Object { $_.startdate.dayofweek -eq (Get-Date).DayOfWeek }
 ```
 
-Tím se vyloučí záznamy operací, které nebyly provedeny změny konfigurace uzlu (tj. pouze operace čtení). Proto Test-DscConfiguration operace Get-DscConfiguration jsou již zfalšované v nevrátil z rutiny Get-DscConfigurationStatus objekty.
-Zaznamenává meta operace nastavení konfigurace se přidá k návratu rutiny Get-DscConfigurationStatus.
+Záznamy operací, které nelze provést změny konfigurace uzlu (například pouze operace čtení) jsou odstraněny. Proto `Test-DscConfiguration`, `Get-DscConfiguration` operace jsou již zfalšované v objektů vrácených z `Get-DscConfigurationStatus` rutiny.
+Záznamy meta operace nastavení konfigurace se přidá do návrat `Get-DscConfigurationStatus` rutiny.
 
-Tady je příklad výsledku vrácený z Get-DscConfigurationStatus – všechny rutiny.
+Tady je příklad výsledku vrácený z `Get-DscConfigurationStatus` – všechny rutiny.
 
-```powershell
+```output
 All configuration operations:
 
 Status StartDate Type RebootRequested
@@ -95,15 +97,15 @@ Success 11/13/2015 11:20:44 AM LocalConfigurationManager False
 
 ## <a name="enhancement-in-get-dsclocalconfigurationmanager-cmdlet"></a>Vylepšení v rutině Get-DscLocalConfigurationManager
 
-Nové pole LCMStateDetail se přidá do objekt vrácený z rutiny Get-DscLocalConfigurationManager. V tomto poli se zaplní při LCMState je "Zaneprázdněn". Se dá načíst pomocí následující rutiny:
+Přidání nového pole LCMStateDetail pro objekt vrácený z `Get-DscLocalConfigurationManager` rutiny. Toto pole se vyplní po LCMState "Zaneprázdněn". Se dá načíst pomocí následující rutiny:
 
 ```powershell
 (Get-DscLocalConfigurationManager).LCMStateDetail
 ```
 
-Následuje příklad výstupu nepřetržitého monitorování v konfiguraci, která vyžaduje dvě restartování na vzdáleném uzlu.
+Tady je příklad výstupu nepřetržitého monitorování v konfiguraci, která vyžaduje dvě restartování na vzdáleném uzlu.
 
-```powershell
+```output
 Start a configuration that requires two reboots
 
 Monitor LCM State:

@@ -1,32 +1,32 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Použití serveru sestav DSC
-ms.openlocfilehash: 143e0bdd9b637cee87a676ed327fe6ff3a7fd719
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: bcd414e9cc6d3b321676aaab6bbc3ca1b02e80aa
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34188543"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893133"
 ---
 # <a name="using-a-dsc-report-server"></a>Použití serveru sestav DSC
 
-> Platí pro: Prostředí Windows PowerShell 5.0
+Platí pro: Windows PowerShell 5.0
 
 > [!IMPORTANT]
-> Server pro vyžádání obsahu (funkce systému Windows *DSC služby*) je podporované součásti systému Windows Server jsou však nejsou žádné plány, které nabízí nové funkce nebo funkce. Doporučujeme začít Přechod spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace s v systému Windows Server) nebo jedno z řešení komunity uvedené [zde](pullserver.md#community-solutions-for-pull-service).
+> Serveru vyžádané replikace (funkce Windows *DSC služby*) jsou podporované součástí Windows serveru ale žádné plány nabízí nové funkce nebo funkce. Doporučujeme přechod od skupinám spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace v systému Windows Server) nebo jednoho z komunity řešení uvedené [tady](pullserver.md#community-solutions-for-pull-service).
+>
+> **Poznámka:** server sestav, které jsou popsané v tomto tématu není k dispozici v Powershellu 4.0.
 
->**Poznámka:** serveru sestav, které jsou popsané v tomto tématu není k dispozici v prostředí PowerShell 4.0.
+Místní Configuration Manageru (LCM) uzlu můžete nakonfigurovat zasílání zpráv o informace o jeho stavu konfigurace na serveru vyžádané replikace, který může být dotazován načíst data. Pokaždé, když uzel zkontroluje a použije konfiguraci, odešle sestavy na server sestav. Tyto sestavy jsou uloženy v databázi na serveru a může být načten voláním webové službě generování sestav. Každá sestava obsahuje informace, jako je konfigurace, které byly použity a určuje, zda jsou úspěšné, používá prostředky, všechny chyby, které byly vyvolány a časy zahájení a dokončení.
 
-Pokud chcete zasílat zprávy o jeho konfiguraci stavu na vyžádání obsahu server, který může být dotazován načíst data lze nakonfigurovat místní Configuration Manager (LCM) uzlu. Pokaždé, když uzel ověří a použije konfiguraci, odešle sestavy na server sestav. Tyto sestavy jsou uloženy v databázi na serveru a může načíst volání webové služby generování sestav. Každá sestava obsahuje informace, například jaký konfigurace byly použity, a jestli se úspěšně, používá prostředky, všechny chyby, které byly vyvolány a zahájení a dokončení časy.
+## <a name="configuring-a-node-to-send-reports"></a>Konfigurace uzlu zasílání zpráv
 
-## <a name="configuring-a-node-to-send-reports"></a>Konfigurace uzlu, pokud chcete zasílat zprávy
+Zjistit uzel odesílání sestav na server pomocí **ReportServerWeb** blokovat do konfigurace LCM uzlu (informace o konfiguraci LCM najdete v tématu [konfigurace Local Configuration Manageru](metaConfig.md) ). Server, ke kterému uzel odesílá sestavy musíte nastavit jako webového serveru vyžádané replikace (nelze odeslat sestavy do sdílené složky protokolu SMB). Informace o nastavení serveru vyžádané replikace najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md). Server sestav může být stejnou službu, ze kterého si vyžádá konfigurace uzlu a získá prostředky, nebo může být jiné služby.
 
-Zjistit uzel pro odesílají sestavy na server pomocí **ReportServerWeb** blokovat v konfiguraci uzlu LCM (informace o konfiguraci LCM najdete v tématu [konfigurace správce místní konfigurace](metaConfig.md) ). Server, na kterou uzlu, odešle sestavy musí nastavit jako vyžadování webový server (sestavy nelze odeslat ke sdílené složce protokolu SMB). Informace o nastavení serveru vyžádané replikace najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md). Server sestav může být stejnou službu, ze kterého uzlu vrátí konfigurace a získá prostředky, nebo může být jinou službu.
+V **ReportServerWeb** blok, můžete zadat adresu URL služby o přijetí změn a registrační klíč, který je známý k serveru.
 
-V **ReportServerWeb** bloku, zadejte adresu URL služby vyžádání obsahu a registrační klíč, který se označuje k serveru.
-
-Následující konfigurace nakonfiguruje uzel pro vyžádání obsahu konfigurace z jedné služby a služby na jiném serveru, odesílat sestavy.
+Následující konfigurace nakonfiguruje uzel o přijetí změn konfigurace z jedné služby a odesílat zprávy do služby na jiném serveru.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -56,10 +56,11 @@ configuration ReportClientConfig
         }
     }
 }
+
 ReportClientConfig
 ```
 
-Nakonfiguruje následující konfigurace uzlu používat jeden server pro konfigurace, prostředky a vytváření sestav.
+Následující konfigurace nakonfiguruje uzel, který použijete jeden server pro konfigurace, prostředků a vytváření sestav.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -91,20 +92,26 @@ configuration PullClientConfig
 PullClientConfig
 ```
 
->**Poznámka:** můžete pojmenovat webovou službu všechno při nastavení na server vyžádané replikace, ale **ServerURL** vlastnost musí odpovídat názvu služby.
+> [!NOTE]
+> Můžete pojmenovat webové službě cokoliv, co chcete, při nastavení serveru vyžádané replikace, ale **ServerURL** vlastnost musí odpovídat názvu služby.
 
-## <a name="getting-report-data"></a>Získávání dat sestavy
+## <a name="getting-report-data"></a>Načtení dat sestavy
 
-Sestavy odeslat na server vyžádané replikace jsou vloženy do databáze na serveru. Sestavy jsou k dispozici prostřednictvím volání webové služby. K načtení sestavy pro konkrétním uzlu, odeslání požadavku HTTP k webové službě sestavy v následující podobě: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId= 'MyNodeAgentId')/Reports` kde `MyNodeAgentId` je ID agenta uzlu, pro kterou chcete získat sestavy. Můžete získat ID agenta pro uzel voláním [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx) v tomto uzlu.
+Zprávy zasílané na server vyžádané replikace jsou zadány do databáze na serveru. Sestavy jsou k dispozici prostřednictvím volání webové služby. Pokud chcete načíst sestavy pro konkrétní uzel, odesláním požadavku HTTP k webové službě sestavy v následující podobě: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId='MyNodeAgentId')/Reports` kde `MyNodeAgentId` je ID agenta uzlu, pro které chcete získat sestavy. ID agenta pro uzel můžete získat voláním [Get-DscLocalConfigurationManager](/powershell/module/PSDesiredStateConfiguration/Get-DscLocalConfigurationManager) na tomto uzlu.
 
 Sestavy se vrátí jako pole objektů JSON.
 
-Následující skript vrátí sestavy pro uzel, na kterém je spuštěna:
+Sestavy pro uzel, na kterém je spuštěn, vrátí se následující skript:
 
 ```powershell
 function GetReport
 {
-    param($AgentId = "$((glcm).AgentId)", $serviceURL = "http://CONTOSO-REPORT:8080/PSDSCPullServer.svc")
+    param
+    (
+        $AgentId = "$((glcm).AgentId)", 
+        $serviceURL = "http://CONTOSO-REPORT:8080/PSDSCPullServer.svc"
+    )
+
     $requestUri = "$serviceURL/Nodes(AgentId= '$AgentId')/Reports"
     $request = Invoke-WebRequest -Uri $requestUri  -ContentType "application/json;odata=minimalmetadata;streaming=true;charset=utf-8" `
                -UseBasicParsing -Headers @{Accept = "application/json";ProtocolVersion = "2.0"} `
@@ -116,13 +123,14 @@ function GetReport
 
 ## <a name="viewing-report-data"></a>Zobrazení dat sestavy
 
-Pokud nastavíte proměnnou na výsledek **GetReport** funkce, můžete zobrazit jednotlivých polí v elementu pole, která je vrácena:
+Pokud jste nastavili proměnné na výsledek **GetReport** funkce, můžete zobrazit jednotlivá pole v elementu pole, která je vrácena:
 
 ```powershell
 $reports = GetReport
 $reports[1]
+```
 
-
+```output
 JobId                : 019dfbe5-f99f-11e5-80c6-001dd8b8065c
 OperationType        : Consistency
 RefreshMode          : Pull
@@ -156,19 +164,21 @@ StatusData           : {{"StartDate":"2016-04-03T06:21:43.7220000-07:00","IPV6Ad
 AdditionalData       : {}
 ```
 
-Ve výchozím nastavení, sestavy jsou seřazené podle **JobID**. Chcete-li získat nejnovější sestavu, můžete sestavy seřadit podle sestupném **StartTime** vlastnost a potom get první prvek pole:
+Ve výchozím nastavení, sestavy jsou seřazeny podle **JobID**. Pokud chcete získat nejnovější sestavy, můžete seřaďte sestavy podle sestupných **StartTime** vlastnost a potom získat první prvek pole:
 
 ```powershell
 $reportsByStartTime = $reports | Sort-Object {$_."StartTime" -as [DateTime] } -Descending
 $reportMostRecent = $reportsByStartTime[0]
 ```
 
-Všimněte si, že **StatusData** vlastnost je objekt s číslem vlastnosti. Toto je, kde je mnohem data pro generování sestav. Podívejme se na jednotlivé pole **StatusData** vlastnost na nejnovější sestavu:
+Všimněte si, **StatusData** vlastnosti je objekt s číslem vlastností. To je, kde velká část generování sestav dat je. Podívejme se na jednotlivé položky **StatusData** vlastnost nejnovější sestavy:
 
 ```powershell
 $statusData = $reportMostRecent.StatusData | ConvertFrom-Json
 $statusData
+```
 
+```output
 StartDate                  : 2016-04-04T11:21:41.2990000-07:00
 IPV6Addresses              : {2001:4898:d8:f2f2:852b:b255:b071:283b, fe80::852b:b255:b071:283b%12, ::2000:0:0:0, ::1...}
 DurationInSeconds          : 25
@@ -201,11 +211,13 @@ Locale                     : en-US
 Mode                       : Pull
 ```
 
-To mimo jiné to ukazuje, že nejaktuálnější konfiguraci názvem dva prostředky a jeden z nich byla v požadovaném stavu a jeden z nich nebyl. Můžete získat jen na čtení výstup **ResourcesNotInDesiredState** vlastnost:
+Mimo jiné to ukazuje, že volá nejaktuálnější konfiguraci dvou zdrojů a jeden z nich byl v požadovaném stavu a jeden z nich nebyl. Můžete získat pouze lépe čitelný výstup **ResourcesNotInDesiredState** vlastnost:
 
 ```powershell
 $statusData.ResourcesInDesiredState
+```
 
+```output
 SourceInfo        : C:\ReportTest\Sample_xFirewall_AddFirewallRule.ps1::16::9::Archive
 ModuleName        : PSDesiredStateConfiguration
 DurationInSeconds : 2.672
@@ -219,9 +231,12 @@ ConfigurationName : Sample_ArchiveFirewall
 InDesiredState    : True
 ```
 
-Všimněte si, že tyto příklady jsou určené získáte představu o co můžete dělat s daty sestavy. Úvodní informace o práci s JSON v prostředí PowerShell, naleznete [přehrávání s protokoly JSON a prostředí PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).
+Všimněte si, že tyto příklady jsou určeny pro získáte představu, co můžete dělat s daty sestavy. Úvodní informace o práci s JSON v prostředí PowerShell najdete v tématu [přehrávání s JSON a PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).
 
 ## <a name="see-also"></a>Viz také
-- [Konfigurace správce místní konfigurace](metaConfig.md)
-- [Nastavení webového serveru vyžádané replikace DSC](pullServer.md)
-- [Použití konfiguračních názvů k nastavení načítacího klienta](pullClientConfigNames.md)
+
+[Konfigurace Local Configuration Manageru](metaConfig.md)
+
+[Nastavení webového serveru vyžádané replikace DSC](pullServer.md)
+
+[Použití konfiguračních názvů k nastavení načítacího klienta](pullClientConfigNames.md)

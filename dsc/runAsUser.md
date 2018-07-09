@@ -1,32 +1,32 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Použití uživatelských přihlašovacích údajů ke spuštění DSC
-ms.openlocfilehash: b2992ad562dea375aba980611312c7b96a23189c
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 4a6c3d8b561cd0a27be07a68f1b577f7bf764254
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189699"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893901"
 ---
 # <a name="running-dsc-with-user-credentials"></a>Použití uživatelských přihlašovacích údajů ke spuštění DSC
 
-> Platí pro: Prostředí Windows PowerShell 5.0, 5.1 prostředí Windows PowerShell
+> Platí pro: Windows PowerShell 5.0, prostředí Windows PowerShell 5.1
 
 Prostředek DSC pod zadanou sadu přihlašovacích údajů můžete spustit pomocí automatického **PsDscRunAsCredential** vlastnosti v konfiguraci.
-Ve výchozím nastavení spouští DSC každý prostředek, jako systémový účet.
-Existují situace, kdy spuštěná jako uživatel je nezbytné, například instalaci balíčky MSI v kontextu konkrétního uživatele, nastavení klíče registru uživatele, přístup k určité místní adresáře uživatele nebo přístup k síti sdílet.
+Ve výchozím nastavení spouští DSC jednotlivé prostředky jako systémový účet.
+Existují situace, kdy spuštěn jako uživatel je nezbytné, jako je například instalace balíčky MSI v kontextu konkrétní uživatele, nastavení klíče registru, přístup ke konkrétní místní adresář uživatele nebo přístup k síti sdílet.
 
-Má každý prostředek DSC **PsDscRunAsCredential** vlastnost, která může být nastaven na všechny přihlašovací údaje uživatele ( [PSCredential](https://msdn.microsoft.com/library/ms572524(v=VS.85).aspx) objekt).
-Přihlašovací údaje mohou být pevně zakódované jako hodnota vlastnosti v konfiguraci, nebo nastavte hodnotu na [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx), který se zobrazí výzva pro pověření při kompilaci (pro informace o konfiguraci kompilování konfigurace, najdete v části [konfigurace](configurations.md).
+Má každý prostředek DSC **PsDscRunAsCredential** vlastnost, která může být nastaven na žádné přihlašovací údaje uživatele ( [PSCredential](/dotnet/api/system.management.automation.pscredential) objekt).
+Přihlašovací údaje, které mohou být pevně zakódovaný jako hodnota vlastnosti v konfiguraci, nebo nastavte hodnotu na [Get-Credential](/powershell/module/Microsoft.PowerShell.Security/Get-Credential), který se zobrazí výzva pro pověření při kompilaci (informace o konfiguraci kompilace konfigurací, naleznete v tématu [konfigurace](configurations.md).
 
->**Poznámka:** v prostředí PowerShell 5.0, pomocí **PsDscRunAsCredential** vlastnost v konfiguracích volání složené prostředků nebyla podporována.
->V prostředí PowerShell 5.1 **PsDscRunAsCredential** vlastnost je podporována v konfiguracích volání složené prostředky.
+> [!NOTE] 
+> V Powershellu 5.0, pomocí **PsDscRunAsCredential** nepodporuje vlastnost v konfiguracích volání složené prostředky.
+> V prostředí PowerShell 5.1 **PsDscRunAsCredential** vlastnost je podporována v konfiguracích volání složené prostředky.
+> **PsDscRunAsCredential** vlastnost není k dispozici v Powershellu 4.0.
 
->**Poznámka:** **PsDscRunAsCredential** vlastnost není k dispozici v prostředí PowerShell 4.0.
-
-V následujícím příkladu **Get-Credential** se používá k vyzvat uživatele k zadání přihlašovacích údajů.
-[Registru](registryResource.md) prostředků se používá ke změně klíč registru, který určuje barvu pozadí pro okno příkazového řádku systému Windows.
+V následujícím příkladu `Get-Credential` slouží k výzva k zadání přihlašovacích údajů.
+[Registru](registryResource.md) prostředků se používá ke změně klíče registru, který určuje barvu pozadí okna příkazového řádku Windows.
 
 ```powershell
 Configuration ChangeCmdBackGroundColor
@@ -62,5 +62,7 @@ $configData = @{
 
 ChangeCmdBackGroundColor -ConfigurationData $configData
 ```
->**Poznámka:** tento příklad předpokládá, že máte platný certifikát v `C:\publicKeys\targetNode.cer`, a že kryptografický otisk certifikátu je hodnota použitá.
->Informace o šifrování pověření v souborech MOF konfigurace DSC najdete v tématu [zabezpečení souboru MOF](secureMOF.md).
+
+> [!NOTE]
+> Tento příklad předpokládá, že máte platný certifikát na `C:\publicKeys\targetNode.cer`, a se zobrazenou hodnotu kryptografického otisku certifikátu.
+> Informace o šifrování přihlašovacích údajů v konfiguračních souborech MOF na DSC najdete v tématu [zabezpečení souboru MOF](secureMOF.md).

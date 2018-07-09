@@ -1,20 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: acd8f380f1c49eb008563398c2c3de3fce5477f9
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: b028079cf826719967858f50e357b441ba8f9d79
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34186673"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893889"
 ---
 # <a name="sendconfigurationapplyasync-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
 
-Asynchronně odešle dokumentu konfigurace na spravovaných uzel a používá Agent konfigurace můžete použít konfiguraci.
+Asynchronně odešle dokument konfigurace spravovaných uzlů a použít danou konfiguraci pomocí konfigurace agenta.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 SendConfigurationApplyAsync(
@@ -24,32 +23,28 @@ uint32 SendConfigurationApplyAsync(
 );
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
-*ConfigurationData* \[v\] data prostředí pro konfiguraci.
+*ConfigurationData* \[v\] dat prostředí pro konfiguraci.
 
-*Vynutit* \[v\] **true** vynutit konfiguraci zastavit.
+*Vynutit* \[v\] **true** vynutit konfiguraci tak, aby zastavit.
 
-*jobId* \[v\] ID úlohy, pro které chcete odeslat konfiguraci.
+*jobId* \[v\] ID úlohy, pro které se mají poslat konfiguraci.
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)

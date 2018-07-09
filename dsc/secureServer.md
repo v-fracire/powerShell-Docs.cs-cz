@@ -1,248 +1,254 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Osvědčené postupy serveru vyžádané replikace
-ms.openlocfilehash: 1efc016df6882fa962f59dfd3e53eaa6d6b0c121
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 04ad6940f443bc23d5e2347952b2d173aceac408
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190294"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893446"
 ---
 # <a name="pull-server-best-practices"></a>Osvědčené postupy serveru vyžádané replikace
 
->Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
 > [!IMPORTANT]
-> Server pro vyžádání obsahu (funkce systému Windows *DSC služby*) je podporované součásti systému Windows Server jsou však nejsou žádné plány, které nabízí nové funkce nebo funkce. Doporučujeme začít Přechod spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace s v systému Windows Server) nebo jedno z řešení komunity uvedené [zde](pullserver.md#community-solutions-for-pull-service).
+> Serveru vyžádané replikace (funkce Windows *DSC služby*) jsou podporované součástí Windows serveru ale žádné plány nabízí nové funkce nebo funkce. Doporučujeme přechod od skupinám spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace v systému Windows Server) nebo jednoho z komunity řešení uvedené [tady](pullserver.md#community-solutions-for-pull-service).
 
-Souhrn: Tento dokument je určený zahrnuje proces a rozšiřitelnost pomůže technici, kteří jsou Příprava řešení. Podrobnosti by měl poskytovat osvědčené postupy, jak identifikovaný zákazníků a potom ověřit produktový tým zajistit doporučení jsou budoucí přístupem a považovat za stabilní.
+Shrnutí: Tento dokument je určený proces a rozšiřitelnost pomáhat techniků, kteří se připravuje pro řešení. Podrobnosti by měly poskytnout doporučené postupy jsme uvedli, zákazníky a poté ověřen produktovému týmu a zkontrolujte doporučení jsou budoucí přístupem a považovat za stabilní.
 
 | |Informace o dokumentu|
 |:---|:---|
 Autor | Michael Greene
-Recenzenti | Ben Gelens, Ravikanth Chaganti Aleksandar Nikolic
-Publikovat | Duben 2015
+Recenzenti | Robert Gelens, Ravikanth Chaganti Aleksandar Nikolic
+Publikování | Duben 2015
 
 ## <a name="abstract"></a>Abstraktní
 
-Tento dokument určená k poskytování oficiální pokyny pro každý, kdo plánování implementaci serveru pro vyžádání obsahu konfigurace požadovaného stavu aplikace Windows PowerShell. Vyžádání obsahu server je jednoduchý služba, která by měla trvat jenom k nasazení. I když tento dokument nabídne technické postupy pokyny, které je možné v nasazení, hodnota tohoto dokumentu je referenční osvědčené postupy a co mají vezměte v úvahu před nasazením.
-Čtečky by měl mít základní znalost DSC a termínů používaných k popisu komponenty, které jsou zahrnuté v nasazení DSC. Další informace najdete v tématu [Přehled konfigurace prostředí Windows PowerShell požadovaného stavu](https://technet.microsoft.com/library/dn249912.aspx) tématu.
-Očekávaným DSC vyvíjí v cloudu cadence základní technologii, včetně serveru vyžádané replikace se také očekává vyvíjí a zavádět nové funkce. Tento dokument obsahuje tabulku verze v příloze, která poskytuje odkazy na předchozí verze a odkazy na budoucí vypadající řešení podporovat budoucnost návrhů.
+Cílem tohoto dokumentu je poskytnout oficiální pokyny pro vývojáře plánující pro implementaci serveru pro vyžádání obsahu Windows PowerShell Desired State Configuration. Serveru vyžádané replikace je jednoduché služby, který zabere jenom pár minut nasadit. I když tento dokument nabídne technické příručkách s postupy, které lze použít v nasazení, hodnota tohoto dokumentu je jako reference pro osvědčené postupy a co zvážit před nasazením.
+Čtenáři by měl mít základní znalost DSC a termíny používané k popisu komponenty, které jsou součástí nasazení DSC. Další informace najdete v tématu [Windows PowerShell Desired State Configuration přehled](/powershell/dsc/overview) tématu.
+Rozvoj na cloudové tempo očekávaným DSC je základní technologie, včetně serveru vyžádané replikace také očekává se vyvíjí a zavádět nové funkce. Tento dokument obsahuje tabulku verzí v dodatku, která poskytuje odkazy na předchozích verzích a odkazy na budoucí vypadající řešení podporovat budoucnost návrhy.
 
 Dvě hlavní části tohoto dokumentu:
 
- - Plánování konfigurace
- - Průvodce instalací
+- Plánování konfigurace
+- Průvodce instalací
 
-### <a name="versions-of-the-windows-management-framework"></a>Verze Windows Management Framework
-Informace v tomto dokumentu je určena pro použití na Windows Management Framework 5.0. Přestože WMF 5.0 není vyžadována pro nasazení a provozování vyžádání obsahu server, verze 5.0 je téma tohoto dokumentu.
+### <a name="versions-of-the-windows-management-framework"></a>Verze rozhraní Windows Management Framework
 
-### <a name="windows-powershell-desired-state-configuration"></a>Prostředí Windows PowerShell konfigurace požadovaného stavu
-Požadované konfigurace stavu (DSC) je platformu správy, která umožňuje nasazení a správa konfiguračních dat pomocí syntaxe odvětví s názvem formát MOF (Managed Object) k popisu modelu CIM (Common Information). Opensourcový projekt, otevřete Management Infrastructure (OMI), existuje další vývoj těchto standardů napříč platformami, včetně Linux a síťové hardwaru operační systémy. Další informace najdete v tématu [DMTF stránky propojení s MOF specifikace](http://dmtf.org/standards/cim), a [OMI dokumenty a zdroj](https://collaboration.opengroup.org/omi/documents.php).
+Informace v tomto dokumentu slouží platí pro Windows Management Framework 5.0. Zatímco WMF 5.0 není vyžadována pro nasazení a používání serveru vyžádané replikace, verze 5.0 je hlavním cílem tohoto dokumentu.
 
-Prostředí Windows PowerShell poskytuje sadu jazyková rozšíření pro konfigurace požadovaného stavu, můžete použít k vytváření a správě deklarativní konfigurace.
+### <a name="windows-powershell-desired-state-configuration"></a>Prostředí Windows PowerShell Desired State Configuration
 
-### <a name="pull-server-role"></a>Role serveru vyžádané replikace
+Desired State Configuration (DSC) je platforma pro správu, který umožňuje nasazení a správa konfiguračních dat pomocí syntaxe oboru s názvem formát MOF (Managed Object) pro popis Common Information Model (CIM). Opensourcový projekt, otevřete Management Infrastructure (OMI), existuje další rozvoj těchto standardů napříč platformami, včetně Linuxu a síťové hardwaru operační systémy. Další informace najdete v tématu [DMTF stránky propojení specifikací MOF](https://www.dmtf.org/standards/cim), a [OMI dokumenty a zdroj](https://collaboration.opengroup.org/omi/documents.php).
+
+Prostředí Windows PowerShell poskytuje sadu jazyková rozšíření pro Desired State Configuration, můžete použít k vytvoření a správa deklarativních konfigurací.
+
+### <a name="pull-server-role"></a>Role serveru o přijetí změn
+
 Načítacího serveru poskytuje centralizované služby k uložení konfigurace, které budou přístupné pro cílové uzly.
 
-Role serveru vyžádané replikace se dá nasadit jako instance webového serveru nebo sdílené složky SMB. Schopnost webového serveru obsahuje rozhraní OData a může volitelně obsahovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěšné nebo neúspěšné, jako jsou použita konfigurace. Tato funkce je užitečná v prostředích, kde je velké množství cílové uzly.
-Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na server vyžádané replikace s nejnovější konfigurací jsou data a všechny požadované skripty stažení a použití. Tato situace může nastat, jako jednorázové nasazení nebo jako znovu se vyskytující úlohy, který také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell požadovaného stavu konfigurace pro vyžádání obsahu servery](https://technet.microsoft.com/library/dn249913.aspx) a [nabízení a režimů pro vyžádání obsahu konfigurace](https://technet.microsoft.com/library/dn249913.aspx).
+Role serveru o přijetí změn můžete nasadit jako instance webového serveru nebo sdílené složky protokolu SMB. Funkce webového serveru zahrnuje rozhraní OData a může volitelně zahrnovat možnosti pro cílové uzly k hlášení zpět potvrzení úspěch nebo neúspěch jako konfigurace se použijí. Tato funkce je užitečná v prostředích, kdy existuje velký počet cílových uzlů.
+Po dokončení konfigurace cílový uzel (také označované jako klient) tak, aby odkazoval na serveru vyžádané replikace nejnovější konfiguraci. jsou data a všechny požadované skripty stáhnout a použít. Může to jako jednorázová nasazení nebo znovu se vyskytující úlohy, která také umožňuje serveru vyžádané replikace prostředek důležité pro správu změn ve velkém měřítku. Další informace najdete v tématu [Windows PowerShell Desired State Configuration o přijetí změn servery](/powershell/dsc/pullServer) a
+
+[Nabízená a vyžádaná režimů konfigurace](/powershell/dsc/pullServer).
 
 ## <a name="configuration-planning"></a>Plánování konfigurace
 
-Pro všechna nasazení softwaru enterprise je informace, které může být shromážděny předem vám pomohou při plánování pro správnou architekturu a abyste byli připraveni kroky potřebné k dokončení nasazení. Následující části obsahují informace o tom, jak připravit a organizační připojení, která bude pravděpodobně potřeba předem dojít.
+Pro každé nasazení softwaru enterprise je informace, které lze shromažďovat v předstihu vám pomohou při plánování pro správnou architekturu a abyste byli připraveni kroky potřebné k dokončení nasazení. Následující části obsahují informace o tom, jak připravit a organizační připojení, které pravděpodobně budete muset předem stát.
 
 ### <a name="software-requirements"></a>Požadavky na software
 
-Nasazení serveru pro vyžádání obsahu vyžaduje funkci DSC služby systému Windows Server. Tato funkce byla zavedená v systému Windows Server 2012 a byl aktualizován prostřednictvím probíhající verzích Windows Management Framework (WMF).
+Nasazení serveru vyžádané replikace vyžaduje funkce DSC služby systému Windows Server. Tato funkce byla zavedena v systému Windows Server 2012 a byl aktualizován prostřednictvím probíhající vydání služby Windows Management Frameworku (WMF).
 
 ### <a name="software-downloads"></a>Stahování softwaru
 
-Kromě instalace nejnovější obsah ze služby Windows Update, jsou považovány za osvědčený postup nasadit server DSC za dvě stahování: nejnovější verzi Windows Management Framework a modul DSC pro automatizaci vyžádání obsahu server zřizování.
+Kromě instalace nejnovější obsah z webu Windows Update, jsou k dispozici dva soubory ke stažení považovat za osvědčený postup nasazení serveru vyžádané replikace DSC: nejnovější verzi Windows Management Framework a modulu DSC můžete automatizovat zřizování serveru o přijetí změn.
 
 ### <a name="wmf"></a>WMF
 
-Windows Server 2012 R2 obsahuje funkci s názvem služby DSC. Funkce služby DSC poskytuje funkce serveru vyžádané replikace, včetně binárních souborů, které podporují koncový bod OData.
-WMF je součástí systému Windows Server a je aktualizován na agilní cadence mezi verzemi Windows serveru. [Nové verze WMF 5.0](http://aka.ms/wmf5latest) můžete zahrnout aktualizace do funkce služby DSC. Z tohoto důvodu je osvědčeným postupem stažení nejnovější verze WMF a přečtěte si poznámky k verzi k určení, pokud tato verze obsahuje aktualizaci funkce služby DSC. Měli byste taky zkontrolovat v části poznámky k verzi, která určuje, zda je stav návrhu pro aktualizaci nebo scénář v stabilní nebo experimentální.
-Povolit pro agilní verze cyklus, jednotlivých funkcí lze deklarovat stabilní, což naznačuje funkci je připravený k použití v produkčním prostředí i podpora produktu WMF vydání ve verzi preview.
-Další funkce, které byly v minulosti aktualizovány podle verze WMF (viz poznámky k verzi WMF další podrobnosti):
+Windows Server 2012 R2 obsahuje funkci s názvem služby DSC. Funkce služby DSC poskytuje funkce serveru o přijetí změn, včetně binárních souborů, které podporují koncový bod OData.
+WMF je součástí systému Windows Server a dojde k aktualizaci na agilní tempo mezi verzemi Windows serveru. [Nové verze WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=54616) mohou obsahovat aktualizace funkcí DSC služby. Z tohoto důvodu je osvědčeným postupem stažení nejnovější verze WMF a přečtěte si poznámky k určení, pokud tato verze obsahuje aktualizace funkcí služby DSC. Také byste měli revidovat část poznámky k verzi, která určuje, zda je stav návrhu pro aktualizaci nebo scénář uveden jako stabilní nebo experimentální.
+Povolit pro agilní vývojového cyklu, jednotlivé funkce mohou být deklarovány stabilní, což znamená, funkce je připravená k použití v produkčním prostředí, dokonce i za běhu WMF vydání ve verzi preview.
+Další funkce, které v minulosti byly aktualizovány podle verze WMF (viz poznámky k verzi WMF podrobnosti):
 
- - Integrované skriptovací prostředí Windows PowerShell Windows PowerShell
- - Prostředí (ISE) v prostředí Windows PowerShell webové služby (správu OData
- - Rozšíření IIS) prostředí Windows PowerShell konfigurace požadovaného stavu (DSC)
- - Windows (WinRM) Vzdálená správa Windows Management Instrumentation (WMI)
+- Integrované skriptovací prostředí Windows PowerShell, Windows PowerShell
+- Prostředí (ISE) Windows Powershellu webové služby (správu OData
+- Rozšíření IIS pro službu) Windows Powershellu Desired State Configuration (DSC)
+- Windows (WinRM) Vzdálená správa Windows Management Instrumentation (WMI)
 
 ### <a name="dsc-resource"></a>Prostředek DSC
 
-Nasazení na server vyžádané replikace můžete zjednodušit tím zřizováním služby pomocí skriptu konfigurace DSC. Tento dokument obsahuje konfigurační skripty, které slouží k nasazení uzlem produkční připravené serveru. Použít konfigurační skripty, DSC modul je potřeba který není součástí systému Windows Server. Název požadované modulu je **xPSDesiredStateConfiguration**, což zahrnuje prostředek DSC **xDscWebService**. Modul xPSDesiredStateConfiguration si můžete stáhnout [zde](https://gallery.technet.microsoft.com/xPSDesiredStateConfiguratio-417dc71d).
+Nasazení serveru o přijetí změn se dá zjednodušit tím, že zajistíte služby pomocí skriptu konfigurace DSC. Tento dokument obsahuje konfigurační skripty, které lze použít k nasazení uzlu produkční server připravený. Pokud chcete používat konfigurační skripty, DSC modul je potřeba, který je nejsou zahrnuty v systému Windows Server. Je název požadované modulu **xPSDesiredStateConfiguration**, což zahrnuje prostředků DSC **xDscWebService**. Je možné stáhnout modul xPSDesiredStateConfiguration [tady](https://gallery.technet.microsoft.com/xPSDesiredStateConfiguratio-417dc71d).
 
-Použití **instalace modulu** rutiny z **PowerShellGet** modulu.
+Použití `Install-Module` rutiny z **PowerShellGet** modulu.
 
 ```powershell
 Install-Module xPSDesiredStateConfiguration
 ```
 
-**PowerShellGet** modulu stáhne modulu:
+**PowerShellGet** modulu stáhne modul:
 
 `C:\Program Files\Windows PowerShell\Modules`
 
 Plánování úkolů|
 ---|
-Máte přístup k instalačním souborům pro Windows Server 2012 R2?|
-Prostředí nasazení budou mít přístup k Internetu stahovat WMF a modul z online galerie?|
+Máte přístup k souborům instalace pro Windows Server 2012 R2?|
+Prostředí nasazení bude mít přístup k Internetu stáhnout WMF a modul z online galerie?|
 Jak budou instalovat nejnovější aktualizace zabezpečení po instalaci operačního systému?|
-Prostředí bude mít přístup k Internetu k získání aktualizací, nebo bude mít na místním serveru Windows Server Update Services (WSUS)?|
-Máte přístup k systému Windows Server instalační soubory, které již obsahují aktualizace prostřednictvím offline vkládání?|
+Prostředí bude mít přístup k Internetu k získání aktualizací nebo bude mít na místním serveru Windows Server Update Services (WSUS)?|
+Máte přístup k Windows serveru instalační soubory, které už zahrnují aktualizace prostřednictvím injektáže offline?|
 
 ### <a name="hardware-requirements"></a>Požadavky na hardware
 
-Nasazení serveru vyžádané replikace jsou podporovány na fyzické i virtuální servery. Požadavky na nastavení velikosti pro vyžádání obsahu server zarovnané s požadavky na Windows Server 2012 R2.
+Nasazení serveru vyžádané replikace se podporují na fyzických i virtuálních serverů. Požadavky na velikost pro vyžádání obsahu server souladu s požadavky na systém Windows Server 2012 R2.
 
-Využití procesoru: 1, 4 GHz 64bitový procesor paměti: 512 MB místa na disku: 32 GB sítě: adaptér Gigabit Ethernet
+: 1,4 GHz 64bitový procesor paměti: 512 MB místa na disku: 32 GB sítě: adaptér Gigabit Ethernet
 
 Plánování úkolů|
 ---|
 Budete nasazovat na fyzickém hardwaru nebo na virtualizační platformě?|
-Co je proces požádat o nový server pro cílové prostředí?|
+Jaký je proces požádat o nový server pro cílové prostředí?|
 Co je průměrná doba vyřízení pro server k dispozici?|
-Jaké velikost serveru bude požadovat?|
+Jaké velikosti serveru bude požadovat?|
 
 ### <a name="accounts"></a>Účty
 
-Nejsou žádné požadavky na účet služby pro nasazení do instance serveru vyžádané replikace.
-Existují však scénáře, kde může web spustit v kontextu místního uživatelského účtu.
-Například pokud je potřeba přístup sdílené složky úložiště pro obsah webu a Windows Server nebo zařízení hostování sdílenou složku úložiště nejsou připojené k doméně.
+Neexistují žádné požadavky na účet služby pro nasazení instance serveru o přijetí změn.
+Existují ale scénáře, ve kterém webu může běžet v kontextu účtu místního uživatele.
+Například pokud není potřeba přístup sdílené složky úložiště obsahu webu a Windows Server nebo zařízení, který je hostitelem sdílené úložiště nejsou připojené k doméně.
 
 ### <a name="dns-records"></a>Záznamy DNS
 
-Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru vyžádané replikace.
-V testovacích prostředích obvykle se používá název hostitele serveru nebo adresu IP serveru lze použít, pokud překlad názvu DNS není k dispozici.
-V produkčních prostředích nebo v testovacím prostředí, který reprezentuje produkční nasazení osvědčeným postupem je vytvořit záznam DNS CNAME.
+Budete potřebovat název serveru, který má použít při konfiguraci klientů pro práci s prostředím serveru o přijetí změn.
+V testovacích prostředích obvykle se používá název hostitele serveru nebo IP adresa serveru je možné, pokud překlad názvů DNS není k dispozici.
+V produkčním prostředí nebo v testovacím prostředí, která je určená pro produkční nasazení představují osvědčeným postupem je vytvořit záznam DNS CNAME.
 
-Záznam CNAME DNS umožňuje vytvořit alias, který bude odkazovat na váš hostitel (A) záznam.
-Další název záznamu je cílem zvyšování flexibility, třeba změnu vyžadovat v budoucnu.
-Záznam CNAME pomůžou izolovat konfigurace klienta tak, aby změny prostředí serveru, jako je výměna načítacího serveru nebo přidání dalších vyžádání serverů, nebude vyžadovat odpovídající změny do konfigurace klienta.
+Záznam CNAME DNS můžete vytvořit alias pro odkazování na hostitele (A) záznam.
+Záměrem další název záznamu je zvýšit flexibilitu, třeba změny požadované v budoucnu.
+Může pomoct záznam CNAME izolace konfigurace klienta tak, aby změny serverovým prostředím, jako je například nahrazení serveru vyžádané replikace nebo při přidávání serverů další o přijetí změn, nebude vyžadovat odpovídající změnu konfigurace klienta.
 
-Když vyberete název záznamu DNS, uvědomte si architektury řešení.
-Pokud pomocí vyrovnávání zatížení, bude nutné sdílet stejný název jako záznam DNS certifikát použitý k zabezpečení přenosů přes protokol HTTPS.
+Pokud zvolíte, že název záznamu DNS, mějte architekturu řešení.
+Pokud pomocí vyrovnávání zatížení, bude nutné mají stejný název jako záznam DNS certifikát používaný k zabezpečení přenosů přes protokol HTTPS.
 
 Scénář |Osvědčený postup
 :---|:---
-Testovací prostředí |Reprodukujte plánované provozní prostředí, pokud je to možné. Název hostitele serveru je vhodná pro jednoduché konfigurace. Pokud DNS není k dispozici, může místo název hostitele použít IP adresu.|
-Nasazení jednoho uzlu |Vytvořte záznam DNS CNAME, který odkazuje na název hostitele serveru.|
+Testovací prostředí |Pokud je to možné reprodukujte plánované produkčního prostředí. Název hostitele serveru je vhodný pro jednoduchá konfigurace. Pokud DNS není k dispozici, IP adresu lze namísto názvu hostitele.|
+Nasazení s jedním uzlem |Vytvořte záznam DNS CNAME, který odkazuje na název hostitele serveru.|
 
-Další informace najdete v tématu [konfigurování kruhové dotazování DNS v systému Windows Server](https://technet.microsoft.com/en-us/library/cc787484(v=ws.10).aspx).
-
-Plánování úkolů|
----|
-Víte, kdo má záznamy DNS vytvořené a změněné kontaktovat?|
-Jaká je průměrná vyřízení pro žádost o záznam DNS?|
-Je třeba požádat o statické záznamy hostitele (A) pro servery?|
-Co se vám požadavku jako záznam CNAME?|
-V případě potřeby, jaký typ Vyrovnávání zatížení řešení bude využíváte? (viz část s názvem Vyrovnávání zatížení podrobnosti)|
-
-### <a name="public-key-infrastructure"></a>Infrastruktura veřejných klíčů
-
-Většina organizací dnes vyžadují, aby síťový provoz, zejména provoz, který zahrnuje takové citlivá data, jak jsou servery konfigurované, musí být ověřen nebo během přenosu šifrována.
-Když je možné nasadit vyžádání obsahu server pomocí protokolu HTTP, což usnadňuje požadavky klientů v prostý text, je osvědčeným postupem zabezpečení provozu pomocí protokolu HTTPS. Službu lze nakonfigurovat k využívání HTTPS pomocí sady parametrů v prostředek DSC **xPSDesiredStateConfiguration**.
-
-Požadavky na certifikát k zabezpečení přenosů HTTPS pro vyžádání obsahu server nejsou jiné než zabezpečení jakékoli jiný webový server HTTPS. **Webový Server** šablonu služby Windows Server certifikátů splňuje požadované možnosti.
+Další informace najdete v tématu [konfigurace kruhové dotazování DNS ve Windows serveru](/previous-versions/windows/it-pro/windows-server-2003/cc787484(v=ws.10)).
 
 Plánování úkolů|
 ---|
-Pokud nejsou automatizované žádosti o certifikát, který budete potřebovat obraťte se na požadavky na certifikát?|
-Jaká je průměrná vyřízení žádosti?|
-Jak bude na vás přenést soubor certifikátu?|
-Jak se vám převede privátní klíč certifikátu?|
-Jak dlouho je výchozí doba vypršení platnosti?|
-Mít vyrovnané na název DNS pro prostředí serveru vyžádání obsahu, který můžete použít pro název certifikátu?|
+Víte, koho se obrátit na záznamy DNS vytvořit a změnit?|
+Co je průměrná obrátkou pro požadavek na záznam DNS?|
+Každý modul musí být zabaleny v určitém formátu souboru .zip s názvem ModuleName_Version.zip obsahující datové části modulu.|
+Po zkopírování souboru na server, je nutné vytvořit kontrolní součet souboru.|
+Pokud se klienti připojují k serveru, kontrolní součet se používá k ověření, že obsah modulu DSC se nezměnil, protože byla publikována. Pokud plánujete prostředí test nebo testovací prostředí, které scénáře jsou klíčem k ověření?|
 
-### <a name="choosing-an-architecture"></a>Výběr architekturu
+### <a name="public-key-infrastructure"></a>Existují veřejně dostupných modulů, které obsahují prostředky vám pomůžou se vším, co potřebujete, nebo bude muset vytvořit vlastní prostředky?
 
-Vyžádání obsahu server se dá nasadit pomocí služby web hostované na IIS nebo sdílenou složku SMB. Ve většině případů bude možnosti webové služby poskytují větší flexibilitu. Není komunikaci přes protokol HTTPS napříč síťovými hranicemi, zatímco přenosy SMB je často filtrované blokované nebo mezi sítěmi. Webová služba také nabízí možnost zahrnout Server shoda nebo Reporting správce webu (i témata vzít v úvahu v budoucí verzi tohoto dokumentu), poskytují mechanismus pro klienty odesílat zprávy o stavu zpět na server pro centralizované viditelnosti.
-SMB nabízí možnost v prostředích, kde zásady stanoví, že webový server by neměl být využité a další požadavky prostředí, které role Webový server nežádoucí.
-V obou případech musíte vyhodnotit požadavky na podepisování a šifrování komunikace. Protokol HTTPS, podepisování SMB a zásady protokolu IPSEC jsou všechny možnosti vhodné zvažování.
+Prostředí bude mít přístup k Internetu se načíst veřejný moduly?
+Kdo bude zodpovídat za revize DSC moduly? Pokud plánujete do produkčního prostředí co budete používat jako místní úložiště pro ukládání DSC moduly?
+
+Přijme centrální tým DSC moduly z aplikační týmy? Co bude procesu?
+
+Plánování úkolů|
+---|
+Můžete automatizovat vytváření balíčků, kopírování a vytváření kontrolního součtu pro produkční prostředí DSC moduly na server z vašeho úložiště zdrojového kódu?|
+Bude váš tým zodpovědného za správu platformu automatizace?|
+Konfigurace DSC|
+Účelem serveru vyžádané replikace je centralizovaná mechanismus pro distribuci konfigurací DSC na uzly klienta.|
+Tyto konfigurace jsou uloženy na serveru jako MOF dokumenty.|
+Každý dokument budou mít názvy jedinečný identifikátor GUID.|
+
+### <a name="choosing-an-architecture"></a>Když jsou klienti nakonfigurováni pro připojení k serveru vyžádané replikace, jsou také uvedeny identifikátor GUID pro konfiguraci, kterou by měl žádat o.
+
+Tento systém odkazuje na konfigurace podle identifikátoru GUID zaručuje jedinečnost globální a je flexibilní, takže konfiguraci lze použít s členitosti podle počtu uzlů, nebo jako konfiguraci role, která zahrnuje mnoho serverů, které by měly mít stejné konfigurace. Identifikátory GUID Plánování konfigurace GUID je vhodné další pozornost dala až po nasazení serveru o přijetí změn. Neexistuje žádný konkrétní požadavek, způsob zpracování identifikátory GUID a proces je pravděpodobně být jedinečný pro každé prostředí.
+Proces může být v rozsahu od jednoduché složité: centrálně uloženého souboru CSV, jednoduché tabulky SQL, databáze CMDB nebo komplexní řešení, která vyžadují integraci s jiným řešením nástroj nebo softwaru.
+Existují dvě obecné metody: Přiřazení identifikátory GUID na server – poskytuje míru záruky, že všechny konfigurace serveru je řízen jednotlivě.
 
 #### <a name="load-balancing"></a>Vyrovnávání zatížení
-Klienti interakci s webovou službou může požádat o informace, které je vrácený v odpověď o jedné. Žádné sekvenční požadavky jsou povinné, takže není nutné pro platformu, která Ujistěte se, že relace udržované na jednom serveru v libovolném bodě v čase Vyrovnávání zatížení.
+
+To poskytuje úroveň přesnosti kolem aktualizace a může fungovat i v prostředí s několika servery. Přiřazení identifikátory GUID na roli serveru – všechny servery, které provádí stejnou funkci, jako jsou třeba webové servery, použijte stejný identifikátor GUID odkazovat na požadované konfigurační data.
 
 Plánování úkolů|
 ---|
-Jaká řešení se použije pro vyrovnávání zatížení provozu napříč servery?|
-Pokud se používá Vyrovnávání zatížení hardwaru, který bude trvat žádost o přidání novou konfiguraci zařízení?|
-Co je průměrná vyřízení požadavku konfigurace nového zatížení vyrovnáváním webovou službu?|
-Jaké informace budou potřeba pro požadavek?|
-Budete potřebovat k vyžádání dalších IP adresy nebo týmem zodpovědný za vyrovnávání zatížení zpracovává který?|
-Máte k dispozici záznamy DNS, které jsou potřebné a bude to vyžadovat tým zodpovědná za konfiguraci řešení vyrovnávání zatížení?|
-Řešení vyrovnávání zatížení vyžaduje, aby zařízení zpracovávat infrastruktury veřejných KLÍČŮ nebo můžete ho Vyrovnávání zatížení, které přenosy HTTPS, dokud nejsou žádné požadavky relace?|
+Mějte na paměti, že pokud mnoho serverů sdílejí stejný identifikátor GUID, všechny z nich se aktualizují najednou při změně konfigurace.|
+Identifikátor GUID je něco, co by měl být citlivá data vzhledem k tomu, že může využít uživatel s úmyslem získat informace o tom, jak jsou servery nasazené a nakonfigurovaných ve vašem prostředí.|
+Další informace najdete v tématu bezpečně přidělování identifikátorů GUID v prostředí PowerShell Desired State Configuration o přijetí změn režimu.|
+Kdo bude zodpovídat za konfigurací v kopírování do složky na serveru o přijetí změn, jakmile jsou připravené?|
+Pokud konfigurace vytvořené týmem aplikace, co proces bude je předat?|
+Bude využívat úložiště k ukládání konfigurace podle jejich probíhá čtení zleva doprava, napříč týmy?|
+Můžete automatizovat proces kopírování konfigurace do serveru a vytváření kontrolní součet, jakmile jsou připravené?|
 
-### <a name="staging-configurations-and-modules-on-the-pull-server"></a>Konfigurace pracovní a modulů na tomto serveru
+### <a name="staging-configurations-and-modules-on-the-pull-server"></a>Jak se namapujete identifikátory GUID na servery nebo role a kdy to se uloží?
 
-Jako součást plánování konfigurace musíte se zamyslet, o které DSC se bude hostovat modulů a konfigurací serverem pro vyžádání obsahu. Pro účely plánování konfigurace je důležité mít základní znalosti o tom, jak připravit a nasadit obsah na server vyžádané replikace.
+Co budete používat jako proces ke konfiguraci klientských počítačů a jak ji integrovat s vaším procesem pro vytváření a ukládání konfigurace identifikátory GUID? Skripty, které jsou uvedené v tomto dokumentu jsou stabilní příklady.
 
-V budoucnu v této části se rozšířit a zahrnuty v provozní příručce pro serveru vyžádané replikace s DSC.  V Průvodci zabývat den proces pro správu modulů a konfigurací v čase s automatizace.
+Vždy zkontrolujte pečlivě skripty před spuštěním v produkčním prostředí.  Chcete-li ověřit verzi prostředí PowerShell na vašem serveru použijte následující příkaz.
 
-#### <a name="dsc-modules"></a>Moduly DSC
-Klienty, kteří požadují konfiguraci bude nutné požadované moduly DSC. Funkce serveru pro vyžádání obsahu je automatizovat distribuci na vyžádání DSC moduly klientům. Pokud nasadíte načítacího serveru poprvé, třeba jako testovacího prostředí nebo testování konceptu, pravděpodobně chcete závisí na DSC moduly, které jsou dostupné z veřejných úložišť, jako je například Galerie prostředí PowerShell nebo úložišť PowerShell.org GitHub pro moduly DSC .
+#### <a name="dsc-modules"></a>Pokud je to možné upgradujte na nejnovější verzi Windows Management Framework.
 
-Je důležité si pamatovat, že i pro důvěryhodné online zdrojů, jako je například Galerie prostředí PowerShell, libovolný modul, který byl stažen z veřejného úložiště by měl být zkontrolovány uživatelem někdo pomocí prostředí PowerShell a znalosti o prostředí, kde budou moduly použít před používá v produkčním prostředí. Při dokončení této úlohy je vhodná doba zkontrolujte všechny další datové části v modulu, který lze odebrat například dokumentaci a ukázkové skripty. Tím se sníží šířku pásma sítě pro každého klienta v jejich první žádost, když moduly budou staženy přes síť ze serveru do klienta.
+Dále si stáhněte  modul pomocí následujícího příkazu. Příkaz vyzve ke schválení před stažením modulu. Instalace a konfigurace skriptů
 
-Každý modul musí být zabalené v konkrétním formátu ZIP soubor s názvem ModuleName_Version.zip, který obsahuje datové části modulu. Po zkopírování souboru na server musí být vytvořeny soubor kontrolního součtu. Pokud se klienti připojují k serveru, kontrolního součtu se používá k ověření, že obsah DSC modul nebylo změněno, protože byla publikována.
+Nejlepší metodou k nasazení serveru vyžádané replikace DSC je použití skriptu konfigurace DSC. Tento dokument zobrazíte skripty, včetně obě základní nastavení, které by konfigurovat jenom webovou službu DSC a upřesňující nastavení, která by konfigurovat Windows Server začátku do konce včetně DSC webové služby. Poznámka: Aktuálně  DSC modul vyžaduje serveru, aby se národního prostředí EN-US.
+
+Základní konfigurace pro Windows Server 2012 Upřesňující konfigurace pro Windows Server 2012 R2 Ověřte funkčnost serveru o přijetí změn
 
 ```powershell
-New-DscCheckSum -ConfigurationPath .\ -OutPath .\
+New-DscChecksum -ConfigurationPath .\ -OutPath .\
 ```
 
 Plánování úkolů|
 ---|
-Pokud plánujete testu nebo testovacím prostředí, které scénáře jsou klíčem k ověření?|
-Jsou veřejně dostupné moduly, které obsahují prostředky tak, aby pokrývalo vše, co potřebujete, nebo budete potřebovat vytvořit vaše vlastní prostředky?|
-Prostředí, budou mít přístup k Internetu k načtení veřejné moduly?|
-Kdo je zodpovědná za kontrola DSC moduly?|
-Pokud plánujete provozním prostředí co použijete jako místní úložiště pro ukládání DSC moduly?|
-Přijme centrální tým moduly DSC z týmy aplikací? Co bude tento proces?|
-Je balení, kopírování a vytváření kontrolních součtů pro produkční prostředí DSC moduly na server z vaší zdrojové úložiště bude automatizovat?|
-Bude váš tým zodpovědní za správu platformou automatizace?|
+Konfigurace klientů|
+Další odkazy na fragmenty kódu a příklady|
+Tento příklad ukazuje, jak ručně zahájit připojení klienta (vyžaduje WMF5) pro účely testování.|
+Přidat DnsServerResourceRecordName rutina se používá k přidání typ záznamu CNAME do zóny DNS.|
+Funkce, prostředí PowerShell vytvoření kontrolního součtu a publikovat MOF DSC na serveru vyžádané replikace SMB automaticky vytvoří požadované kontrolního součtu a pak zkopíruje MOF konfigurace i soubory kontrolního součtu serveru vyžádané replikace SMB.|
+Příloha – Principy ODATA typy dat služby souborů Datový soubor je uložen vytvořit informace během nasazování serveru vyžádané replikace, který obsahuje webovou službu OData.|
+Typ souboru závisí na operačním systému, jak je popsáno níže.|
+Windows Server 2012 typ souboru bude vždy .mdb|
 
-#### <a name="dsc-configurations"></a>Konfigurace DSC
+#### <a name="dsc-configurations"></a>Windows Server 2012 R2 typ souboru se ve výchozím nastavení .edb v konfiguraci je uvedeno .mdb
 
-Účelem serveru pro vyžádání obsahu je zajistit centralizovanou mechanismus pro distribuci konfigurací DSC uzlů klientů. Konfigurace jsou uloženy na serveru jako MOF dokumenty.
-Každý dokument budou mít názvy jedinečný identifikátor GUID. Pokud jsou klienti nakonfigurovaní pro připojení k serveru vyžádané replikace, jsou také uvedeny identifikátor GUID pro konfiguraci, kterou by měl žádat o. Tento systém odkazující na konfigurace pomocí identifikátoru GUID zaručuje globální jedinečnost a je flexibilní, tak, aby konfigurace lze použít s rozlišením na uzel, nebo jako konfiguraci role, která zahrnuje mnoho serverů, které by měl mít identické konfigurace.
+V Advanced ukázkový skript pro instalaci serveru vyžádaných replikací s také najdete příklad toho, jak automaticky řídit nastavení souboru web.config, aby se zabránilo pravděpodobné, že chyba způsobená podle typu souboru. Tyto konfigurace jsou uloženy na serveru jako MOF dokumenty.
+Každý dokument budou mít názvy jedinečný identifikátor GUID. Když jsou klienti nakonfigurováni pro připojení k serveru vyžádané replikace, jsou také uvedeny identifikátor GUID pro konfiguraci, kterou by měl žádat o. Tento systém odkazuje na konfigurace podle identifikátoru GUID zaručuje jedinečnost globální a je flexibilní, takže konfiguraci lze použít s členitosti podle počtu uzlů, nebo jako konfiguraci role, která zahrnuje mnoho serverů, které by měly mít stejné konfigurace.
 
 #### <a name="guids"></a>Identifikátory GUID
 
-Plánování konfigurace identifikátory GUID je vhodné další pozornost, pokud se rozhodujete nasazení na server vyžádané replikace. Neexistuje žádný konkrétní požadavek pro identifikátory GUID zpracování a proces je pravděpodobně být jedinečný pro každé prostředí. Proces může být v rozsahu od jednoduchého do komplexní: centrálně uloženého souboru CSV, jednoduché tabulku SQL, databáze CMDB nebo komplexní řešení, které vyžadují integraci s jiné nástroje nebo softwaru řešení. Existují dvě obecné přístupy:
+Plánování konfigurace GUID je vhodné další pozornost dala až po nasazení serveru o přijetí změn. Neexistuje žádný konkrétní požadavek, způsob zpracování identifikátory GUID a proces je pravděpodobně být jedinečný pro každé prostředí. Proces může být v rozsahu od jednoduché složité: centrálně uloženého souboru CSV, jednoduché tabulky SQL, databáze CMDB nebo komplexní řešení, která vyžadují integraci s jiným řešením nástroj nebo softwaru. Existují dvě obecné metody:
 
- - **Přiřazení identifikátory GUID na server** – poskytuje míru zajištění, že každý konfigurace serveru je řízena jednotlivě. To poskytuje úroveň přesnost kolem aktualizace a může fungovat i v prostředí s několika servery.
- - **Přiřazení identifikátory GUID podle role serveru** – všechny servery, které provádí stejnou funkci, jako jsou třeba webové servery používají stejný identifikátor GUID jako odkaz požadovaná konfigurační data.  Upozorňujeme, že pokud mnoho servery sdílejí stejný identifikátor GUID, všechny z nich by aktualizován současně při změny v konfiguraci.
+- **Přiřazení identifikátory GUID na server** – poskytuje míru záruky, že všechny konfigurace serveru je řízen jednotlivě. To poskytuje úroveň přesnosti kolem aktualizace a může fungovat i v prostředí s několika servery.
+- **Přiřazení identifikátory GUID na roli serveru** – všechny servery, které provádí stejnou funkci, jako jsou třeba webové servery, použijte stejný identifikátor GUID odkazovat na požadované konfigurační data.  Mějte na paměti, že pokud mnoho serverů sdílejí stejný identifikátor GUID, všechny z nich se aktualizují najednou při změně konfigurace.
 
-Identifikátor GUID je něco, co by měly zvažovat citlivá data, protože mohou být využity uživatel se zlými úmysly k získání zjištěných informací o tom, jak nasadit servery a ve svém prostředí nakonfigurováno. Další informace najdete v tématu [bezpečně přidělování identifikátorů GUID v režimu prostředí PowerShell požadovaného stavu konfigurace pro vyžádání obsahu](http://blogs.msdn.com/b/powershell/archive/2014/12/31/securely-allocating-guids-in-powershell-desired-state-configuration-pull-mode.aspx).
+  Identifikátor GUID je něco, co by měl být citlivá data vzhledem k tomu, že může využít uživatel s úmyslem získat informace o tom, jak jsou servery nasazené a nakonfigurovaných ve vašem prostředí. Další informace najdete v tématu [bezpečně přidělování identifikátorů GUID v prostředí PowerShell Desired State Configuration o přijetí změn režimu](https://blogs.msdn.microsoft.com/powershell/2014/12/31/securely-allocating-guids-in-powershell-desired-state-configuration-pull-mode/).
 
 Plánování úkolů|
 ---|
-Kdo je zodpovědná za kopírování konfigurace v ke složce pro vyžádání obsahu server, jakmile jsou připravené?|
-Pokud konfigurace vytvořené týmem aplikace, co proces bude přebírají je?|
-Můžete využít úložiště k ukládání konfigurace, protože se právě vytvořené, mezi týmy?|
-Se dá automatizovat proces kopírování konfigurace na server a vytváření kontrolní součet, jakmile jsou připravené?|
-Jak budou namapujete identifikátory GUID na servery nebo role, a to uložení?|
-Co můžete používat jako proces ke konfiguraci klientských počítačů, a způsobu, jakým bude ji integrovat váš proces pro vytváření a ukládání identifikátory GUID konfigurace?|
+Kdo bude zodpovídat za konfigurací v kopírování do složky na serveru o přijetí změn, jakmile jsou připravené?|
+Pokud konfigurace vytvořené týmem aplikace, co proces bude je předat?|
+Bude využívat úložiště k ukládání konfigurace podle jejich probíhá čtení zleva doprava, napříč týmy?|
+Můžete automatizovat proces kopírování konfigurace do serveru a vytváření kontrolní součet, jakmile jsou připravené?|
+Jak se namapujete identifikátory GUID na servery nebo role a kdy to se uloží?|
+Co budete používat jako proces ke konfiguraci klientských počítačů a jak ji integrovat s vaším procesem pro vytváření a ukládání konfigurace identifikátory GUID?|
 
 ## <a name="installation-guide"></a>Průvodce instalací
 
-*Skripty zadané v tomto dokumentu jsou stabilní příklady. Vždy zkontrolujte si důkladně skripty před provedením jejich v produkčním prostředí.*
+*Skripty, které jsou uvedené v tomto dokumentu jsou stabilní příklady. Vždy zkontrolujte pečlivě skripty před spuštěním v produkčním prostředí.*
 
 ### <a name="prerequisites"></a>Předpoklady
 
-Ověření verze prostředí PowerShell na serveru použijte následující příkaz.
+Chcete-li ověřit verzi prostředí PowerShell na vašem serveru použijte následující příkaz.
 
 ```powershell
 $PSVersionTable.PSVersion
 ```
 
 Pokud je to možné upgradujte na nejnovější verzi Windows Management Framework.
-V dalším kroku Stáhnout `xPsDesiredStateConfiguration` modulu pomocí následujícího příkazu.
-
+Dále si stáhněte `xPsDesiredStateConfiguration` modul pomocí následujícího příkazu.
 
 ```powershell
 Install-Module xPSDesiredStateConfiguration
@@ -251,14 +257,13 @@ Install-Module xPSDesiredStateConfiguration
 Příkaz vyzve ke schválení před stažením modulu.
 
 ### <a name="installation-and-configuration-scripts"></a>Instalace a konfigurace skriptů
--
 
-Je nejlepší metody nasadit server DSC za použití skriptu konfigurace DSC. Tento dokument nabídne skripty, včetně obě základní nastavení, které by konfigurovat jenom DSC webovou službu a upřesňující nastavení, která by konfigurovat Windows Server začátku do konce včetně DSC webové služby.
+Nejlepší metodou k nasazení serveru vyžádané replikace DSC je použití skriptu konfigurace DSC. Tento dokument zobrazíte skripty, včetně obě základní nastavení, které by konfigurovat jenom webovou službu DSC a upřesňující nastavení, která by konfigurovat Windows Server začátku do konce včetně DSC webové služby.
 
-Poznámka: Aktuálně `xPSDesiredStateConfiguation` DSC modulu vyžaduje server jako národní prostředí cs-cz.
+Poznámka: Aktuálně `xPSDesiredStateConfiguation` DSC modul vyžaduje serveru, aby se národního prostředí EN-US.
 
 ### <a name="basic-configuration-for-windows-server-2012"></a>Základní konfigurace pro Windows Server 2012
--------------------------------------------
+
 ```powershell
 # This is a very basic Configuration to deploy a pull server instance in a lab environment on Windows Server 2012.
 
@@ -355,6 +360,7 @@ Configuration PullServer {
             ValueData = 1
             ValueType = 'Dword'
         }
+
         Registry TLS1_2ServerDisabledByDefault
         {
             Ensure = 'Present'
@@ -363,6 +369,7 @@ Configuration PullServer {
             ValueData = 0
             ValueType = 'Dword'
         }
+
         Registry TLS1_2ClientEnabled
         {
             Ensure = 'Present'
@@ -371,6 +378,7 @@ Configuration PullServer {
             ValueData = 1
             ValueType = 'Dword'
         }
+
         Registry TLS1_2ClientDisabledByDefault
         {
             Ensure = 'Present'
@@ -379,6 +387,7 @@ Configuration PullServer {
             ValueData = 0
             ValueType = 'Dword'
         }
+
         Registry SSL2ServerDisabled
         {
             Ensure = 'Present'
@@ -449,6 +458,7 @@ Configuration PullServer {
         }
     }
 }
+
 $configData = @{
     AllNodes = @(
         @{
@@ -467,6 +477,7 @@ $configData = @{
             }
         )
     }
+
 PullServer -ConfigurationData $configData -OutputPath 'C:\PullServerConfig\'
 Set-DscLocalConfigurationManager -ComputerName localhost -Path 'C:\PullServerConfig\'
 Start-DscConfiguration -Wait -Force -Verbose -Path 'C:\PullServerConfig\'
@@ -474,16 +485,18 @@ Start-DscConfiguration -Wait -Force -Verbose -Path 'C:\PullServerConfig\'
 # .\Script.ps1 -ServerName web1 -domainname 'test.pha' -carootname 'test-dc01-ca' -caserverfqdn 'dc01.test.pha' -certsubject 'CN=service.test.pha' -smbshare '\\sofs1.test.pha\share'
 ```
 
-
-### <a name="verify-pull-server-functionality"></a>Ověřte funkčnost serveru vyžádané replikace
+### <a name="verify-pull-server-functionality"></a>Ověřte funkčnost serveru o přijetí změn
 
 ```powershell
 # This function is meant to simplify a check against a DSC pull server. If you do not use the default service URL, you will need to adjust accordingly.
 function Verify-DSCPullServer ($fqdn) {
-    ([xml](invoke-webrequest "https://$($fqdn):8080/psdscpullserver.svc" | % Content)).service.workspace.collection.href
+    ([xml](Invoke-WebRequest "https://$($fqdn):8080/psdscpullserver.svc" | % Content)).service.workspace.collection.href
 }
-Verify-DSCPullServer 'INSERT SERVER FQDN'
 
+Verify-DSCPullServer 'INSERT SERVER FQDN'
+```
+
+```output
 Expected Result:
 Action
 Module
@@ -511,28 +524,28 @@ Configuration PullClient {
                     DownloadManagerCustomData = @{ServerUrl = "http://"+$Server+":8080/PSDSCPullServer.svc"; AllowUnsecureConnection = $true}
                 }
 }
+
 PullClient -ID 'INSERTGUID' -Server 'INSERTSERVER' -Output 'C:\DSCConfig\'
 Set-DscLocalConfigurationManager -ComputerName 'Localhost' -Path 'C:\DSCConfig\' -Verbose
 ```
 
+## <a name="additional-references-snippets-and-examples"></a>Další odkazy na fragmenty kódu a příklady
 
-## <a name="additional-references-snippets-and-examples"></a>Další informace, fragmenty kódu a příklady
-
-Tento příklad ukazuje, jak chcete ručně zahájit připojení klienta (vyžaduje WMF5) pro testování.
+Tento příklad ukazuje, jak ručně zahájit připojení klienta (vyžaduje WMF5) pro účely testování.
 
 ```powershell
-Update-DSCConfiguration –Wait -Verbose
+Update-DscConfiguration –Wait -Verbose
 ```
 
-[Přidat DnsServerResourceRecordName](http://bit.ly/1G1H31L) rutina se používá k přidání typu záznamu CNAME do zóny DNS.
+[Přidat DnsServerResourceRecordName](http://bit.ly/1G1H31L) rutina se používá k přidání typ záznamu CNAME do zóny DNS.
 
-Funkce prostředí PowerShell k [vytvoření kontrolního součtu a publikovat MOF DSC pro vyžádání obsahu serveru SMB](http://bit.ly/1E46BhI) automaticky vytvoří požadované kontrolního součtu a pak zkopíruje MOF konfigurace i kontrolního součtu souborů k vyžádání serveru SMB.
+Funkce, prostředí PowerShell [vytvoření kontrolního součtu a publikovat MOF DSC na serveru vyžádané replikace SMB](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-Function-to-3bc4b7f0) automaticky vytvoří požadované kontrolního součtu a pak zkopíruje MOF konfigurace i soubory kontrolního součtu serveru vyžádané replikace SMB.
 
-## <a name="appendix---understanding-odata-service-data-file-types"></a>Příloha – Principy ODATA data služby typy souborů
+## <a name="appendix---understanding-odata-service-data-file-types"></a>Příloha – Principy ODATA typy dat služby souborů
 
-Datový soubor je uložen vytvořit informace při nasazení serveru vyžádané replikace, která zahrnuje webovou službu OData. Typ souboru závisí na operačním systému, jak je popsáno níže.
+Datový soubor je uložen vytvořit informace během nasazování serveru vyžádané replikace, který obsahuje webovou službu OData. Typ souboru závisí na operačním systému, jak je popsáno níže.
 
- - **Windows Server 2012** typ souboru bude vždy .mdb
- - **Windows Server 2012 R2** typ souboru bude použita výchozí .edb .mdb uvedeno v konfiguraci
+- **Windows Server 2012** typ souboru bude vždy .mdb
+- **Windows Server 2012 R2** typ souboru se ve výchozím nastavení .edb v konfiguraci je uvedeno .mdb
 
-V [Advanced ukázkový skript](https://github.com/mgreenegit/Whitepapers/blob/Dev/PullServerCPIG.md#installation-and-configuration-scripts) při instalaci serveru pro vyžádání obsahu, také najdete příklad toho, jak automaticky řídit nastavení souboru web.config, aby se zabránilo pravděpodobné, že chyba způsobila podle typu souboru.
+V [Advanced ukázkový skript](https://github.com/mgreenegit/Whitepapers/blob/Dev/PullServerCPIG.md#installation-and-configuration-scripts) pro instalaci serveru vyžádaných replikací s také najdete příklad toho, jak automaticky řídit nastavení souboru web.config, aby se zabránilo pravděpodobné, že chyba způsobená podle typu souboru.

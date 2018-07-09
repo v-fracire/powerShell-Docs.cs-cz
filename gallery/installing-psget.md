@@ -1,67 +1,67 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-keywords: Galerie prostředí powershell, rutiny, psget
+keywords: Galerie prostředí powershell, rutina, psget
 title: Instalace modulu PowerShellGet
-ms.openlocfilehash: 35be7d02ea856ea39218f05d32b43c60fa1bd53e
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: c385f7fbf6b688a11face9c3ebf4e6475a7b4c33
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219347"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893956"
 ---
 # <a name="installing-powershellget"></a>Instalace modulu PowerShellGet
 
-## <a name="powershellget-is-an-in-box-module-in-the-following-releases"></a>PowerShellGet je modul integrované v následujících verzích
+## <a name="powershellget-is-an-in-box-module-in-the-following-releases"></a>Správce balíčků PowerShellGet je modul dodávané v následujících verzích
 
-- [Windows 10](https://www.microsoft.com/windows/get-windows-10) nebo novější
-- [Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/windows-server-2016) nebo novější
-- [Windows Management Framework (WMF) 5.0](https://www.microsoft.com/download/details.aspx?id=50395) nebo novější
-- [Prostředí PowerShell 6](https://github.com/PowerShell/PowerShell/releases)
+- [Windows 10](https://www.microsoft.com/en-us/windows) nebo novější
+- [Windows Server 2016](/windows-server/windows-server) nebo novější
+- [Windows Management Frameworku (WMF) 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) nebo novější
+- [PowerShell 6](https://github.com/PowerShell/PowerShell/releases)
 
-## <a name="get-powershellget-module-for-powershell-versions-30-and-40"></a>Získat PowerShellGet modul prostředí PowerShell verze 3.0 a 4.0
+## <a name="get-powershellget-module-for-powershell-versions-30-and-40"></a>Získání modulu PowerShellGet pro prostředí PowerShell verze 3.0 a 4.0
 
-- [PackageManagement MSI](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409)
+- [PackageManagement MSI](https://www.microsoft.com/en-us/download/details.aspx?id=51451)
 
 ## <a name="get-the-latest-version-from-powershell-gallery"></a>Získat nejnovější verzi z Galerie prostředí PowerShell
 
-- Před aktualizací PowerShellGet, byste měli vždycky nainstalovat nejnovější zprostředkovatel Nuget. K tomu, spusťte následující příkazy v relaci prostředí PowerShell zvýšenými oprávněními.
+- Před aktualizací modulu PowerShellGet, by měla vždy nainstalujte si nejnovějšího zprostředkovatele Nuget. Chcete-li to mohli udělat, spusťte následující v relaci Powershellu se zvýšenými oprávněními.
 
-```powershell
-Install-PackageProvider Nuget –Force
-Exit
-```
+  ```powershell
+  Install-PackageProvider Nuget –Force
+  Exit
+  ```
 
-### <a name="for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget"></a>Pro systémy s PowerShell 5.0 (nebo novější) můžete nainstalovat nejnovější PowerShellGet
+### <a name="for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget"></a>U systémů pomocí prostředí PowerShell 5.0 (nebo novější) můžete nainstalovat nejnovější modul PowerShellGet
 
-- Chcete-li to provést ve Windows 10, Windows Server 2016, všechny systémy s WMF 5.0 nebo 5.1 nainstalována nebo jakéhokoli systému pomocí prostředí PowerShell 6, spusťte následující příkazy z zvýšenými relace prostředí PowerShell.
+- Chcete-li to provést ve Windows 10, Windows serveru 2016, všechny systémy s WMF 5.0 nebo 5.1 nainstalované nebo jakéhokoli systému pomocí prostředí PowerShell 6, spusťte následující příkazy z relace Powershellu se zvýšenými oprávněními.
 
-```powershell
-Install-Module –Name PowerShellGet –Force
-Exit
-```
+  ```powershell
+  Install-Module –Name PowerShellGet –Force
+  Exit
+  ```
 
-- Aktualizace modulu použijte k získání novější verze.
+- Použití `Update-Module` získat novější verze.
 
-```powershell
-Update-Module -Name PowerShellGet
-Exit
-```
+  ```powershell
+  Update-Module -Name PowerShellGet
+  Exit
+  ```
 
-### <a name="for-systems-running-powershell-3-or-powershell-4-that-have-installed-the-packagemanagement-msihttpgomicrosoftcomfwlinklinkid746217clcid0x409"></a>Pro systémy s operačním systémem prostředí PowerShell 3 nebo 4 prostředí PowerShell, který jste nainstalovali [PackageManagement MSI](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409)
+### <a name="for-systems-running-powershell-3-or-powershell-4-that-have-installed-the-packagemanagement-msihttpswwwmicrosoftcomen-usdownloaddetailsaspxid51451"></a>Pro systémy s Powershellem 3 nebo 4 prostředí PowerShell, který jste nainstalovali [PackageManagement MSI](https://www.microsoft.com/en-us/download/details.aspx?id=51451)
 
-- K uložení moduly do místního adresáře použijte následující rutinu PowerShellGet z zvýšenými relace prostředí PowerShell
+- Použijte následující rutiny Správce balíčků PowerShellGet z relace Powershellu se zvýšenými oprávněními na moduly uložit do místního adresáře
 
-```powershell
-Save-Module PowerShellGet -Path C:\LocalFolder
-Exit
-```
+  ```powershell
+  Save-Module PowerShellGet -Path C:\LocalFolder
+  Exit
+  ```
 
-- Ujistěte se, že moduly PowerShellGet a PackageManagment nenačtou v jiné procesy.
+- Ujistěte se, že Správce balíčků PowerShellGet a PackageManagment moduly nejsou načtené v jiných procesech.
 - Odstraňte obsah `$env:ProgramFiles\WindowsPowerShell\Modules\PowerShellGet\` a `$env:ProgramFiles\WindowsPowerShell\Modules\PackageManagement\` složek.
-- Znovu otevřete konzolu PS se zvýšenými oprávněními a spusťte následující příkazy.
+- Znovu otevřete konzoly PS se zvýšenými oprávněními a spusťte následující příkazy.
 
-```powershell
-Copy-Item "C:\LocalFolder\PowerShellGet\*" "$env:ProgramFiles\WindowsPowerShell\Modules\PowerShellGet\" -Recurse -Force
-Copy-Item "C:\LocalFolder\PackageManagement\*" "$env:ProgramFiles\WindowsPowerShell\Modules\PackageManagement\" -Recurse -Force
-```
+  ```powershell
+  Copy-Item "C:\LocalFolder\PowerShellGet\*" "$env:ProgramFiles\WindowsPowerShell\Modules\PowerShellGet\" -Recurse -Force
+  Copy-Item "C:\LocalFolder\PackageManagement\*" "$env:ProgramFiles\WindowsPowerShell\Modules\PackageManagement\" -Recurse -Force
+  ```

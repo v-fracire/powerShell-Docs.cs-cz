@@ -1,41 +1,46 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: e4588e8c69efb965cd33c273ad09a8bef8e9bf16
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: fcf2adf67f36edb534df3e2a849459fb20e1c2de
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189563"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892349"
 ---
 # <a name="extract-and-parse-structured-objects-out-of-string"></a>Extrakce a analýza strukturovaných objektů mimo řetězec
-Vzniká některé další funkce pro rutinu ConvertFrom řetězec:
 
--   Odebere rozsah vlastnost text ve výchozím nastavení. Můžete vytvořit s parametrem - IncludeExtent.
+Také zavádí některé další funkce pro `ConvertFrom-String` rutiny:
 
--   Mnoho učení algoritmu opravy chyb z MVP a komunity zpětnou vazbu.
+- Ve výchozím nastavení odebere vlastnost text rozsahu. Můžete ho zahrnout s parametrem - IncludeExtent.
 
--   Nový parametr - UpdateTemplate uložte výsledky algoritmus učení na komentář v souboru šablony. Díky tomu learning zpracovat jednorázové náklady (nejpomalejší fáze). Spuštění převést řetězec pomocí šablony, která obsahuje algoritmus učení kódovaného je nyní téměř okamžité.
+- Mnoho učení algoritmu opravy chyb od MVP a komunity zpětnou vazbu.
 
+- Nový parametr - UpdateTemplate uložit výsledky algoritmus učení do komentáře v souboru šablony. Díky tomu učení, zpracování (nejpomalejší fáze) jednorázové náklady. Převést řetězec šablonou, která obsahuje algoritmu učení kódovaného se nyní téměř okamžité.
 
-<a name="extract-and-parse-structured-objects-out-of-string-content"></a>Extrahování a analyzovat strukturovaných objekty mimo obsah řetězce
-----------------------------------------------------------
+## <a name="extract-and-parse-structured-objects-out-of-string-content"></a>Extrakce a analýza strukturovaných objektů mimo řetězec obsahu
 
-Ve spolupráci s [Microsoft Research](http://research.microsoft.com/), nový **ConvertFrom řetězec** rutiny byla přidána.
+Ve spolupráci s [Microsoft Research](https://www.microsoft.com/en-us/research/?from=http%3A%2F%2Fresearch.microsoft.com%2F), nový `ConvertFrom-String` rutiny se přidala.
 
-Tato rutina podporuje dva režimy: basic oddělený analýzy a řízené příklad analýza automaticky generovány.
+Tato rutina podporuje dva režimy: basic s oddělovači, analýze a příklad řízené analýze automaticky generovány.
 
-Analýza s oddělovači, ve výchozím nastavení, rozdělí vstupu v mezer a přiřadí názvy vlastností výsledné skupinám. Oddělovač, který můžete upravit:
+Analýza s oddělovači, ve výchozím nastavení, rozdělí vstupu v prázdné znaky a přiřadí názvy vlastností výsledné skupiny. Můžete přizpůsobit oddělovač:
 
-> 1 \[C:\\temp\] &gt; &gt; "Hello World" | Řetězec ConvertFrom | Format-Table-automaticky
+```powershell
+"Hello World" | ConvertFrom-String | Format-Table -Auto
+```
 
-P1    P2
---    --
+```output
+P1     P2
+--     --
+Hello  World
+```
 
-Rutina podporuje také automaticky generovaný řízené příklad analýza na základě [FlashExtract](http://research.microsoft.com/en-us/um/people/sumitg/flashextract.html) zkoumání práce v [Microsoft Research](http://research.microsoft.com).
+Rutina podporuje také automaticky generované řízené příklad analýza kódu na základě [FlashExtract](https://www.microsoft.com/en-us/research/publication/flashextract-framework-data-extraction-examples/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fsumitg%2Fflashextract.html) výzkum práce v [Microsoft Research](https://www.microsoft.com/en-us/research/?from=http%3A%2F%2Fresearch.microsoft.com%2F).
 
-Chcete-li začít, zvažte založený na textu adresáře:
+Abyste mohli začít, vezměte v úvahu založený na textu adresář:
 
+```
     Ana Trujillo
 
     Redmond, WA
@@ -55,9 +60,11 @@ Chcete-li začít, zvažte založený na textu adresáře:
     Hanna Moos
 
     Puyallup, WA
+```
 
-Do souboru, který budete používat jako šablony zkopírujte několik příkladů:
+Kopírovat do souboru, který budete používat jako šablona pár příkladů:
 
+```
     Ana Trujillo
 
     Redmond, WA
@@ -65,11 +72,11 @@ Do souboru, který budete používat jako šablony zkopírujte několik příkla
     Antonio Moreno
 
     Renton, WA
+```
 
+Umístěte složené závorky kolem data, která mají být extrahovány, zadání názvu jako uděláte. Protože **název** vlastnosti (a jeho spojené další vlastnosti) může objevit víckrát, použijte hvězdičku (\*) k označení, výsledkem je, že několik záznamů (spíše než extrahování spoustu vlastností do jednoho záznam):
 
-
-Uveďte složené závorky kolem data, která mají být extrahovány, ho pojmenujete jako uděláte. Protože **název** vlastnost (a jeho přidružené další vlastnosti) můžete zobrazit několikrát, použijte znak hvězdičky (\*) k označení, že to vede k více záznamů (ne extrahování bunch vlastností do jednoho záznam):
-
+```
     {Name\*:Ana Trujillo}
 
     {City:Redmond}, {State:WA}
@@ -77,15 +84,22 @@ Uveďte složené závorky kolem data, která mají být extrahovány, ho pojmen
     {Name\*:Antonio Moreno}
 
     {City:Renton}, {State:WA}
+```
 
-Z této sady příklady **ConvertFrom řetězec** může nyní automaticky extrahovat na základě objektů výstup z vstupní soubory s podobnou strukturou.
+Z této sady příklady `ConvertFrom-String` můžete teď automaticky extrahovat založenou na objektech výstupu ze vstupních souborů s podobnou strukturou.
 
-> 2 \[C:\\temp\]
->
-> &gt;&gt; Get obsah. \\addresses.output.txt | Řetězec ConvertFrom - TemplateFile. \\addresses.template.txt | &gt; &gt; &gt; Format-Table-automaticky
->
-> ExtentText název města stavu
-> ----------                     ----               ----     -----
-> ANA Trujillo...                ANA Trujillo Redmond WA Antonio Moreno...              Antonio Moreno Renton WA Thomas Hardy...                Thomas Hardy Seattle WA Jana Berglund...          Jana Berglund Redmond WA Hanna Moos...                  Hanna Moos Puyallup WA
+```powershell
+Get-Content .\addresses.output.txt | ConvertFrom-String -TemplateFile .\addresses.template.txt | Format-Table -Auto
+```
 
-Udělat manipulaci s daty další na extrahované textu **ExtentText** vlastnost zaznamená nezpracovaný text, ze kterého jste extrahovali záznamu. K poskytnutí zpětné vazby o této funkci nebo pro sdílení obsahu, pro které máte potíže s zápis příklady, pošlete e-mail <psdmfb@microsoft.com>.
+```output
+ExtentText                     Name               City     State
+----------                     ----               ----     -----
+Ana Trujillo...                Ana Trujillo       Redmond  WA
+Antonio Moreno...              Antonio Moreno     Renton   WA
+Thomas Hardy...                Thomas Hardy       Seattle  WA
+Christina Berglund...          Christina Berglund Redmond  WA
+Hanna Moos...                  Hanna Moos         Puyallup WA
+```
+
+Provádět manipulace s daty další na byl extrahován text **ExtentText** vlastnost zachycuje nezpracovaný text, ze které byl extrahován záznamu. Chcete poskytnout zpětnou vazbu o této funkci nebo sdílet obsah, pro kterou máte potíže zápis příklady prosím e-mail <psdmfb@microsoft.com>.

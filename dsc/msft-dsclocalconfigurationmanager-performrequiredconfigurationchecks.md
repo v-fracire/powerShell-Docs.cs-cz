@@ -1,20 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda PerformRequiredConfigurationChecks třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: c3fdaa23875815b1cf5cbf0b6e21c633e00664aa
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: b92eefb7fbea6d96afa31f6b802ba10fe20d4103
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34186690"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893225"
 ---
 # <a name="performrequiredconfigurationchecks-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda PerformRequiredConfigurationChecks třídy MSFT_DSCLocalConfigurationManager
 
 Spustí kontrolu konzistence pomocí plánovače úloh.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 PerformRequiredConfigurationChecks(
@@ -22,35 +21,31 @@ uint32 PerformRequiredConfigurationChecks(
 );
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
-*Příznaky* \[v\] bitová maska, která určuje typ spuštění kontroly konzistence. Následující hodnoty jsou platné a mohou být kombinovány s použitím bitové **nebo** operace:
+*Příznaky* \[v\] bitová maska, která určuje typ spuštění kontroly konzistence. Následující hodnoty jsou platné a je možné kombinovat pomocí logické bitové **nebo** operace:
 
 |Hodnota |Popis |
 |:--- |:---|
-|**1** | Kontrola konzistence normální. |
-|**2** | Pokračování kontrolu konzistence po restartu systému. Tato hodnota by neměla kombinovat s další hodnoty. |
-|**4** | Konfigurace by měl být vyžádány z načítacího serveru zadaný v metakonfiguraci pro uzel. Tato hodnota by měla vždycky kombinovat s **1**, pro hodnotu **5**. |
-|**8** | Stav odeslat na server sestav. |
+|**1** | Normální konzistence. |
+|**2** | Pokračování kontrolu konzistence po restartu. Tato hodnota by neměla kombinovat s jinými hodnotami. |
+|**4** | Konfigurace by měl být vyžádány z načítacího serveru zadaný v metaconfiguration pro uzel. Tato hodnota by měla vždy zkombinuje s **1**, pro hodnotu **5**. |
+|**8** | Stav odeslání na server sestav. |
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)

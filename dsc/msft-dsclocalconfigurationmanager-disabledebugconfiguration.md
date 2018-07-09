@@ -1,47 +1,42 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda DisableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: fef4337e4e9c5cc72b457704899498624476f131
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: ec5a401de4cb93f302f8572c0408e3f32d8876ad
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34218157"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892208"
 ---
 # <a name="disabledebugconfiguration-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda DisableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
 
 Zakáže ladění prostředků DSC.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 DisableDebugConfiguration();
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
 Tato metoda nemá žádné parametry.
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)

@@ -1,22 +1,22 @@
 ---
 ms.date: 06/20/2018
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: PackageManagement prostředek DSC
-ms.openlocfilehash: 3d52934b130d59acee4d7f8a92da2c743c1eb305
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+keywords: DSC, powershell, konfigurace, instalační program
+title: PackageManagement prostředků DSC
+ms.openlocfilehash: 281aee13eb005f00b23c97870eaefaa332d9c232
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34753783"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892497"
 ---
-# <a name="dsc-packagemanagement-resource"></a>PackageManagement prostředek DSC
+# <a name="dsc-packagemanagement-resource"></a>PackageManagement prostředků DSC
 
-> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0, 5.1 prostředí Windows PowerShell
+Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0, prostředí Windows PowerShell 5.1
 
-**PackageManagement** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro instalaci nebo odinstalaci balíčků správy balíčků na cílový uzel. Vyžaduje tento prostředek **PackageManagement** modulu, k dispozici z http://PowerShellGallery.com.
+**PackageManagement** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus pro instalaci nebo odinstalaci balíčku správy balíčků na cílový uzel. Vyžaduje tento prostředek **PackageManagement** modulu, k dispozici z [ http://PowerShellGallery.com ](http://PowerShellGallery.com).
 
 > [!IMPORTANT]
-> **PackageManagement** modulu by měla být minimálně verze 1.1.7.0 následující vlastnost informace správné.
+> **PackageManagement** modul by měl být dlouhý aspoň verzi 1.1.7.0 pro následující vlastnost informace správné.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -42,26 +42,26 @@ PackageManagement [string] #ResourceName
 |  Vlastnost  |  Popis   |
 |---|---|
 | Název| Určuje název balíčku, který má být nainstalována nebo odinstalována.|
-| Další_parametry| Zprostředkovatel konkrétní zatřiďovací tabulku parametrů, které by byly předány `Get-Package -AdditionalArguments`. Například pro zprostředkovatele NuGet můžete předat další parametry, jako je Cílová_cesta.|
-| Ujistěte se| Určuje, zda balíček má být nainstalována nebo odinstalována.|
-| MaximumVersion|Určuje maximální povolený verze balíčku, který chcete najít. Pokud tento parametr nepřidáte, prostředek vyhledá nejvyšší dostupné verze balíčku.|
-| MinimumVersion|Určuje minimální povolená verzi balíčku, který chcete najít. Pokud tento parametr je nemůžete přidat, prostředek vyhledá nejvyšší dostupné verze balíčku, který také splňuje všechny maximální zadaná verze určeného _MaximumVersion_ parametr.|
-| ProviderName| Určuje název zprostředkovatele balíček do které chcete obor vyhledávání balíčku. Název zprostředkovatele balíček můžete získat spuštěním `Get-PackageProvider` rutiny.|
-| RequiredVersion| Určuje přesnou verzi balíčku, který chcete nainstalovat. Pokud tento parametr nezadáte, tento prostředek DSC nainstaluje na nejnovější dostupnou verzi balíčku, který také splňuje všechny maximální verze zadaná v _MaximumVersion_ parametr.|
-| Zdroj| Určuje název zdroje balíčku, které lze nalézt balíček. To může být identifikátor URI nebo zdroj zaregistrována `Register-PackageSource` nebo prostředek PackageManagementSource DSC.|
-| SourceCredential | Určuje uživatelský účet, který má práva pro instalaci balíčku pro zadaný balíček zprostředkovatele nebo zdroje.|
+| Další_parametry| Zprostředkovatel konkrétní zatřiďovací tabulku parametrů, které by byly předány `Get-Package -AdditionalArguments`. Například pro zprostředkovatele NuGet můžete předat další parametry, jako je DestinationPath.|
+| Zkontrolujte| Určuje, zda balíček nainstalovat nebo odinstalovat.|
+| MaximumVersion|Určuje maximální povolenou verzi balíčku, který má být nalezena. Pokud nemůžete přidat tento parametr, vyhledá prostředek nejvyšší dostupnou verzi balíčku.|
+| MinimumVersion|Určuje minimální povolenou verzi balíčku, který má být nalezena. Pokud nemůžete přidat tento parametr, prostředek vyhledá nejvyšší dostupnou verzi balíčku, který také splňuje všechny maximální zadaná verze určená _MaximumVersion_ parametru.|
+| ProviderName| Určuje název zprostředkovatele balíček do kterého chcete omezit rozsah hledání balíčku. Názvy balíčků zprostředkovatele můžete získat spuštěním `Get-PackageProvider` rutiny.|
+| RequiredVersion| Určuje přesnou verzi balíčku, který chcete nainstalovat. Pokud tento parametr nezadáte, tento prostředek DSC nainstaluje na nejnovější dostupnou verzi balíčku, který také splňuje všechny maximální verze určená _MaximumVersion_ parametru.|
+| Zdroj| Určuje název zdroje balíčku, kde můžete najít balíček. Může to být buď identifikátor URI nebo zdroj zaregistrovaného `Register-PackageSource` nebo prostředek DSC PackageManagementSource.|
+| SourceCredential | Určuje uživatelský účet, který má oprávnění k instalaci balíčku pro zadaný balíček poskytovatele nebo zdroj.|
 
 ## <a name="additional-parameters"></a>Další parametry
 
-V následující tabulce je uveden seznam možností pro vlastnost Další_parametry.
+V následující tabulce jsou uvedeny možnosti pro vlastnost Další_parametry.
 |  Parametr  | Popis   |
 |---|---|
-| Cílová_cesta| Používá zprostředkovatele například předdefinované zprostředkovatele Nuget. Určuje umístění souboru, kam chcete balíček, který má být nainstalován.|
-| InstallationPolicy| Používá zprostředkovatele například předdefinované zprostředkovatele Nuget. Určuje, zda je důvěryhodné zdroje balíčku. Jeden z: "Nedůvěryhodná", "Důvěryhodné".|
+| DestinationPath| Použít poskytovatelé jako je předdefinovaný poskytovatel Nuget. Určuje umístění souboru, kam chcete balíček nainstalovat.|
+| InstallationPolicy| Použít poskytovatelé jako je předdefinovaný poskytovatel Nuget. Určuje, zda důvěřujete zdroje balíčku. Jeden z: "Nedůvěryhodných", "Důvěryhodné".|
 
 ## <a name="example"></a>Příklad
 
-Tento příklad nainstaluje **JQuery** balíček NuGet a **GistProvider** pomocí modulu prostředí PowerShell **PackageManagement** prostředek DSC. Tento příklad nejprve zajišťuje zdroje požadovaný balíček jsou k dispozici, pak definuje očekávaný stav **JQuery** a **GistProvider** balíčky (NuGet a prostředí PowerShell, v uvedeném pořadí).
+Tento příklad nainstaluje **JQuery** balíčku NuGet a **GistProvider** pomocí modulu PowerShell **PackageManagement** prostředků DSC. V tomto příkladu nejdřív zajišťuje zdroje požadovaný balíček jsou k dispozici, pak určuje očekávaný stav **JQuery** a **GistProvider** balíčky (NuGet a prostředí PowerShell, v uvedeném pořadí).
 
 ```powershell
 Configuration PackageTest

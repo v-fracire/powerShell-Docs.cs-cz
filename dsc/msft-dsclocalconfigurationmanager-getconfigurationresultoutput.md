@@ -1,20 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: 73d10a8b44e5056e3fce1598518630a84aff6ceb
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: ea572a4a66befd4e4b8d83e2957632b1b5ed7d93
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34186802"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893939"
 ---
 # <a name="getconfigurationresultoutput-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
 
-Získá výstup Agent konfigurace přidružené k určité úlohy.
+Získá konfiguraci agenta výstup přidružené k určité úlohy.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 GetConfigurationResultOutput(
@@ -24,32 +23,28 @@ uint32 GetConfigurationResultOutput(
 );
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
-*jobId* \[v\] ID úlohy, pro které chcete získat výstupní data.
+*jobId* \[v\] ID úlohy, pro který má být získána výstupní data.
 
 *resumeOutputBookmark* \[v\] Určuje, že výstup by měl být pokračování z předchozí záložku.
 
-*výstup* \[out\] výstup pro zadanou úlohu.
+*výstup* \[si\] výstup pro zadanou úlohu.
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)

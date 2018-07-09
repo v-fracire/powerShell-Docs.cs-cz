@@ -1,24 +1,24 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-keywords: Galerie prostředí powershell, rutiny, psget
-title: Řešení potíží s rutiny
-ms.openlocfilehash: e8890cb6bbe661b8524d83cabf91483acbde8095
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psget
+title: Řešení potíží s rutinami
+ms.openlocfilehash: c0a1fbcafd8c4443dc9d628c54c4c525d9701861
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219823"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892470"
 ---
-# <a name="troubleshooting-cmdlets"></a>Řešení potíží s rutiny
+# <a name="troubleshooting-cmdlets"></a>Řešení potíží s rutinami
 
-## <a name="how-to-resolve-warning-package-your-package-name-failed-to-download-issue"></a>Postup řešení "Upozornění: balíček 'váš název balíčku' stažení se nezdařilo" problém?
+## <a name="how-to-resolve-warning-package-your-package-name-failed-to-download-issue"></a>Jak vyřešit "Upozornění: 'váš název balíčku' balíček se nepovedlo stáhnout" problém
 
-Se hlásí, že modul instalace nebo aktualizace modulu někdy dojde k selhání na některé počítače.
-Podle našich šetření, je něco dělat s síťové připojení.
-Nedávno jsme NuGet zprostředkovatele aktualizovat tak, aby ho spolehlivě stáhnout balíčky.
-Můžete podle pokynů níže nainstalovat poskytovatele NuGet na nejnovější verzi a potom instalaci nebo aktualizaci modulu.
-Umožňuje použít modul "Azure" jako příklad níže.
+Nahlásí se, která `Install-Module` nebo `Update-Module` někdy nezdaří na některých počítačích.
+Podle našich šetření, je něco, co můžete dělat s síťové připojení.
+Nedávno jsme aktualizovali poskytovatele NuGet tak, aby spolehlivě může stáhnout balíčky.
+Můžete postupujte podle pokynů níže proveďte nainstalujte nejnovější sestavení NuGet poskytovatele a potom nainstalovat nebo aktualizovat modul.
+Jako příklad dole použijeme modul "Azure".
 
 ```powershell
 Install-PackageProvider NuGet -MinimumVersion 2.8.5.206 -Force

@@ -1,20 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda ResourceTest třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: 714bbb286ebbe4ed0f1faa15e03ac4b51a3ee87f
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: e7645b0c6b93b96cb01f72c1c92d468f7642ea13
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34218854"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893072"
 ---
 # <a name="resourcetest-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda ResourceTest třídy MSFT_DSCLocalConfigurationManager
 
 Volá přímo **Test** metoda prostředek DSC.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 ResourceTest(
@@ -25,34 +24,30 @@ uint32 ResourceTest(
 );
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
-*Typ prostředku* \[v\] název prostředku k volání.
+*Element ResourceType* \[v\] název prostředku, který chcete volat.
 
-*Název modulu* \[v\] název modul, který obsahuje prostředek, který volání.
+*Název modulu* \[v\] názvu modulu, který obsahuje prostředek, který chcete volat.
 
-*resourceProperty* \[v\] Určuje název vlastnosti prostředku a jeho hodnotu v zatřiďovací tabulku jako klíč a hodnotu, v uvedeném pořadí. Použití [Get-DscResource](https://technet.microsoft.com/library/dn521625.aspx) rutiny zjistit vlastnosti prostředku a jejich typy.
+*Vlastnost resourceProperty* \[v\] Určuje název vlastnosti prostředků a její hodnotu v zatřiďovací tabulce jako klíč a hodnotu, v uvedeném pořadí. Použití [Get-DscResource](/powershell/module/PSDesiredStateConfiguration/Get-DscResource) rutiny ke zjišťování vlastností prostředku a jejich typy.
 
-*InDesiredState* \[out\] na vrátit, je tato vlastnost nastavená na **true** Pokud cílový uzel je v požadovaném stavu.
+*InDesiredState* \[si\] návratu, je tato vlastnost nastavená na **true** Pokud cílový uzel je v požadovaném stavu.
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)

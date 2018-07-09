@@ -1,31 +1,34 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-keywords: Galerie prostředí powershell, rutiny, psget
-title: Zavedení spouštěcího programu NuGet
-ms.openlocfilehash: f707e23737361ee7f82a16150402c9e719ee0ae1
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psget
+title: Probíhá spuštění NuGet
+ms.openlocfilehash: a935b6862f3912a4b419ca00b4d4dd5aab9c20fc
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34221795"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892697"
 ---
-# <a name="bootstrap-the-nuget-provider-and-nugetexe"></a>Bootstrap zprostředkovatele NuGet a NuGet.exe
+# <a name="bootstrap-the-nuget-provider-and-nugetexe"></a>Bootstrap, NuGet zprostředkovatele a NuGet.exe
 
-NuGet.exe není zahrnutý ve zprostředkovateli nejnovější NuGet.
-Pro publikování operace modul nebo skriptu, PowerShellGet vyžaduje binární NuGet.exe spustitelný soubor.
-Pouze NuGet se vyžaduje pro všechny ostatní operace, včetně *najít*, *nainstalovat*, *Uložit*, a *odinstalovat*.
-PowerShellGet obsahuje logiku pro zpracování buď kombinované bootstrap zprostředkovatele NuGet a NuGet.exe nebo bootstrap pouze zprostředkovatele NuGet.
-V obou případech pouze jeden řádek zpráva se může zobrazit.
-Pokud počítač není připojený k Internetu, uživatel nebo správce musí zkopírovat důvěryhodné instanci zprostředkovatele NuGet nebo soubor NuGet.exe odpojené počítače.
+NuGet.exe není součástí nejnovějšího zprostředkovatele NuGet.
+Pro publikování operací modulu nebo skriptu, modulu PowerShellGet vyžaduje binární NuGet.exe spustitelný soubor.
+Jen pro NuGet se vyžaduje pro všechny ostatní operace, včetně *najít*, *nainstalovat*, *Uložit*, a *odinstalovat*.
+Správce balíčků PowerShellGet zahrnuje logiky, která by buď kombinované bootstrap, NuGet zprostředkovatele a NuGet.exe nebo bootstrap jediný poskytovatel NuGet.
+V obou případech se budou objevovat pouze jedna zpráva příkazový řádek.
+Pokud počítač není připojený k Internetu, uživatel nebo správce musíte zkopírovat instanci důvěryhodného zprostředkovatele NuGet a/nebo soubor NuGet.exe odpojeném počítači.
 
->**Poznámka:**: od verze 6 zprostředkovatele NuGet je součástí instalace prostředí PowerShell. [http://github.com/powershell/powershell](http://github.com/powershell/powershell)
+> [!NOTE]
+> Od verze 6, NuGet poskytovatel je součástí instalace prostředí PowerShell. [http://github.com/powershell/powershell](http://github.com/powershell/powershell)
 
-## <a name="resolving-error-when-the-nuget-provider-has-not-been-installed-on-a-machine-that-is-internet-connected"></a>Řešení chyby, pokud zprostředkovatel NuGet nebyl nainstalován v počítači, ve kterém je Internet připojení
+## <a name="resolving-error-when-the-nuget-provider-has-not-been-installed-on-a-machine-that-is-internet-connected"></a>Řešení chyby při NuGet zprostředkovatel nebyl nainstalován na počítači, který je internetové připojení
 
 ```powershell
-PS> Find-Module -Repository PSGallery -Verbose -Name Contoso
+Find-Module -Repository PSGallery -Verbose -Name Contoso
+```
 
+```output
 NuGet provider is required to continue
 PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
 'C:\Users\manikb\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running 'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import the NuGet provider
@@ -37,9 +40,13 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : InvalidOperation: (:) [Find-Module], InvalidOperationException
    + FullyQualifiedErrorId : CouldNotInstallNuGetProvider,Find-Module
+```
 
-PS> Find-Module -Repository PSGallery -Verbose -Name Contoso
+```powershell
+Find-Module -Repository PSGallery -Verbose -Name Contoso
+```
 
+```output
 NuGet provider is required to continue
 PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
 'C:\Users\manikb\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running 'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import the NuGet provider
@@ -52,11 +59,13 @@ Version    Name                                Type       Repository           D
 2.5        Contoso                             Module     PSGallery        Contoso module
 ```
 
-## <a name="resolving-error-when-the-nuget-provider-is-available-and-nugetexe-is-not-available-during-the-publish-operation-on-a-machine-that-is-internet-connected"></a>Řešení chyby, pokud je k dispozici zprostředkovatel NuGet a NuGet.exe není k dispozici na počítači, který je v Internetu během publikování připojení
+## <a name="resolving-error-when-the-nuget-provider-is-available-and-nugetexe-is-not-available-during-the-publish-operation-on-a-machine-that-is-internet-connected"></a>Řešení chyby, když je k dispozici poskytovatel NuGet a NuGet.exe není k dispozici během operace publikování na počítači, který je Internet připojení
 
 ```powershell
-PS> Publish-Module -Name Contoso -Repository PSGallery -Verbose
+Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
 
+```output
 NuGet.exe is required to continue
 PowerShellGet requires NuGet.exe to publish an item to the NuGet-based repositories. NuGet.exe must be available under one of the paths specified in PATH environment variable value. Do you want PowerShellGet to install NuGet.exe now?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): N
@@ -67,8 +76,13 @@ At line:1 char:1
     + CategoryInfo          : InvalidOperation: (:) [Publish-Module], InvalidOperationException
     + FullyQualifiedErrorId : CouldNotInstallNuGetExe,Publish-Module
 
-PS> Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
 
+```powershell
+Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
+
+```output
 NuGet.exe is required to continue
 PowerShellGet requires NuGet.exe to publish an item to the NuGet-based repositories. NuGet.exe must be available under one of the paths specified in PATH environment variable value. Do you want PowerShellGet to install NuGet.exe now?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -76,11 +90,13 @@ VERBOSE: Installing NuGet.exe.
 VERBOSE: Successfully published module 'Contoso' to the module publish location 'https://www.powershellgallery.com/api/v2/'. Please allow few minutes for 'Contoso' to show up in the search results.
 ```
 
-## <a name="resolving-error-when-both-nuget-provider-and-nugetexe-are-not-available-during-the-publish-operation-on-a-machine-that-is-internet-connected"></a>Řešení chyby, pokud zprostředkovatel NuGet a NuGet.exe nejsou k dispozici na počítači, který je v Internetu během publikování připojení
+## <a name="resolving-error-when-both-nuget-provider-and-nugetexe-are-not-available-during-the-publish-operation-on-a-machine-that-is-internet-connected"></a>Řešení chyby, pokud poskytovatel NuGet a NuGet.exe nejsou k dispozici během operace publikování na počítači, který je Internet připojení
 
 ```powershell
-PS> Publish-Module -Name Contoso -Repository PSGallery -Verbose
+Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
 
+```output
 NuGet.exe and NuGet provider are required to continue
 PowerShellGet requires NuGet.exe and NuGet provider version '2.8.5.201' or newer to interact with the NuGet-based repositories. Do you want PowerShellGet to install both NuGet.exe and NuGet provider now?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): N
@@ -92,8 +108,13 @@ At line:1 char:1
     + CategoryInfo          : InvalidOperation: (:) [Publish-Module], InvalidOperationException
     + FullyQualifiedErrorId : CouldNotInstallNuGetBinaries,Publish-Module
 
-PS> Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
 
+```powershell
+Publish-Module -Name Contoso -Repository PSGallery -Verbose
+```
+
+```output
 NuGet.exe and NuGet provider are required to continue
 PowerShellGet requires NuGet.exe and NuGet provider version '2.8.5.201' or newer to interact with the NuGet-based repositories. Do you want PowerShellGet to install both NuGet.exe and NuGet provider now?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -102,62 +123,64 @@ VERBOSE: Installing NuGet.exe.
 VERBOSE: Successfully published module 'Contoso' to the module publish location 'https://www.powershellgallery.com/api/v2/'. Please allow few minutes for 'Contoso' to show up in the search results.
 ```
 
-## <a name="manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet"></a>Ručně zavádění NuGet zprostředkovatele na počítači, který není připojený k Internetu
+## <a name="manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet"></a>Ruční spuštění poskytovatele NuGet na počítač, který není připojený k Internetu
 
-Procesy ukázán výše předpokládají tento počítač je připojený k Internetu a může stáhnout soubory z na veřejném místě.
-Pokud tento způsob není možný, je jedinou možností bootstrap počítače, pomocí výše uvedené procesy a ručně zkopírovat do uzlu izolované offline proces důvěryhodného zprostředkovatele.
-Nejběžnější případ použití pro tento scénář je-li k dispozici pro podporu prostředí izolované privátní galerie.
+Procesy, které jsme vám ukázali výše předpokládají tento počítač je připojený k Internetu a může stáhnout soubory ze na veřejném místě.
+Pokud tento způsob není možný, je jedinou možností spuštění počítače pomocí výše uvedené procesy a ručně zkopírujete do izolovaný uzel prostřednictvím offline proces důvěryhodného zprostředkovatele.
+Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie.
 
-Až projdete proces výše a bootstrap počítač připojený Internetu, zjistíte zprostředkovatele soubory v umístění:
+Po provedení postupu výše bootstrap počítač připojený k Internetu, najdete v umístění soubory zprostředkovatele:
 
 ```
 C:\Program Files\PackageManagement\ProviderAssemblies\
 ```
 
-Struktura složka či soubor zprostředkovatele NuGet bude (případně s číslem různé verze):
-
-NuGet<br>
---2.8.5.208<br>
----Microsoft.PackageManagement.NuGetProvider.dll
-
-Zkopírujte tyto složky a souboru pomocí důvěryhodného procesu na počítače, do režimu offline.
-
-## <a name="manually-bootstrapping-nugetexe-to-support-publish-operations-on-a-machine-that-is-not-connected-to-the-internet"></a>Ručně zavádění NuGet.exe pro podporu operací na počítači, který není připojený k Internetu publikování
-
-Kromě proces ručně bootstrap NuGet poskytovatele, pokud je počítač bude používat k publikování moduly nebo skripty k privátní Galerie pomocí *publikovat modulu* nebo *publikovat skriptu* rutin binární spustitelný soubor NuGet.exe bude požadován.
-Nejběžnější případ použití pro tento scénář je-li k dispozici pro podporu prostředí izolované privátní galerie.
-Existují dvě možnosti získání NuGet.exe souboru.
-
-Jednou z možností je bootstrap počítač, který je internetové připojení a zkopírujte soubory do offline počítače pomocí důvěryhodného procesu.
-Po zavedení spouštěcího programu připojený počítač Internet, budou umístěny binární NuGet.exe v jednom z dvě složky:
-
-Pokud *publikovat modulu* nebo *publikovat skriptu* rutiny měla provést se zvýšenými oprávněními (jako správce):
+Struktura složky nebo souboru NuGet poskytovatele bude (případně s jinou verzi číslo):
 
 ```
+NuGet
+--2.8.5.208
+----Microsoft.PackageManagement.NuGetProvider.dll
+```
+
+Zkopírujte tyto složky a souboru pomocí důvěryhodného procesu do počítače offline.
+
+## <a name="manually-bootstrapping-nugetexe-to-support-publish-operations-on-a-machine-that-is-not-connected-to-the-internet"></a>Ruční spuštění NuGet.exe pro podporu operací na počítači, který není připojen k Internetu publikování
+
+Kromě proces ručně bootstrap poskytovatele NuGet, pokud je počítač se použije k privátní Galerie pomocí publikování moduly nebo skripty `Publish-Module` nebo `Publish-Script` rutin NuGet.exe binárního spustitelného souboru se bude vyžadovat.
+
+Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie.
+Existují dvě možnosti, jak získat soubor NuGet.exe.
+
+Jednou z možností je spustit počítači, který je připojených k Internetu a zkopírujte soubory do počítače offline pomocí důvěryhodného procesu.
+Po spuštění počítač připojený Internet, budou umístěny binární NuGet.exe v jednom z dvě složky:
+
+Pokud `Publish-Module` nebo `Publish-Script` rutiny byly prováděn se zvýšenými oprávněními (jako správce):
+
+```powershell
 $env:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet
 ```
 
-Pokud rutiny měla provést jako uživatel bez zvýšenými oprávněními:
+Pokud rutiny bylo provedeno jako uživatel bez zvýšenou úroveň oprávnění:
 
-```
+```powershell
 $env:userprofile\AppData\Local\Microsoft\Windows\PowerShell\PowerShellGet\
 ```
 
-Druhou možností je stáhnout z webu NuGet.Org NuGet.exe: [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)<br>
-Když vyberete verze Nuget pro produkčního počítače, ujistěte se, že je novější než 2.8.5.208 a identifikovat verzi, která označené "doporučené".
-Mějte na paměti, chcete-li odblokovat soubor, pokud byl stažen pomocí prohlížeče.
-To lze provést pomocí *odblokovat soubor* rutiny.
+Druhou možností je můžete stáhnout z webu NuGet.Org NuGet.exe: [ https://dist.nuget.org/index.html ](https://www.nuget.org/downloads) při výběru verze Nuget pro počítače v produkčním prostředí, ujistěte se, že je pozdější než 2.8.5.208 a identifikovat verzi, která má s popiskem " Doporučené".
+Mějte na paměti odblokujete soubor, pokud byl stažen z prohlížeče.
+Můžete to provést pomocí `Unblock-File` rutiny.
 
-V obou případech lze zkopírovat soubor NuGet.exe na libovolné místo v *$env: cesta*, ale jsou standardní umístění:
+V obou případech se soubor NuGet.exe je možné zkopírovat do libovolného umístění v `$env:path`, ale standardní umístění jsou:
 
-Chcete zpřístupnit spustitelný soubor, aby všichni uživatelé používat *publikovat modulu* a *publikovat skriptu* rutiny:
+Spustitelný soubor zpřístupnit tak, aby všichni uživatelé můžou používat `Publish-Module` a `Publish-Script` rutiny:
 
-```
+```powershell
 $env:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet
 ```
 
-Spustitelný soubor zpřístupnit pro konkrétního uživatele, zkopírujte do umístění v rámci pouze tento uživatel profilu:
+Chcete-li spustitelný soubor k dispozici pro konkrétního uživatele, zkopírujte do umístění v rámci pouze profil daného uživatele:
 
-```
+```powershell
 $env:userprofile\AppData\Local\Microsoft\Windows\PowerShell\PowerShellGet\
 ```

@@ -1,24 +1,25 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 description: Poskytuje mechanismus ke správě místních skupin na cílový uzel.
-title: GroupSet prostředek DSC
-ms.openlocfilehash: 3d6fdcaef6053964d3fb3b709a5263d291a7c840
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+title: Prostředek Groupset DSC
+ms.openlocfilehash: 487a76ca7703b2c57b940b4c5bd176eada6c8019
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34222349"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892422"
 ---
-# <a name="dsc-groupset-resource"></a>GroupSet prostředek DSC
+# <a name="dsc-groupset-resource"></a>Prostředek Groupset DSC
 
-> Platí pro: Windows prostředí Windows PowerShell 5.0
+> Platí pro: Windows Windows PowerShell 5.0
 
-**GroupSet** prostředek v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus ke správě místních skupin na cílový uzel. Tento prostředek je [složené prostředků](authoringResourceComposite.md) , který volá [skupiny prostředků](groupResource.md) pro každou skupinu zadaný v `GroupName` parametr.
+**GroupSet** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus ke správě místních skupin na cílový uzel. Tento prostředek je [složený prostředek](authoringResourceComposite.md) , která volá [skupině prostředků](groupResource.md) pro každou skupinu podle `GroupName` parametru.
 
-Pokud chcete přidat nebo odebrat stejný seznam členů do více než jedné skupiny, odeberte více než jedné skupiny nebo přidat více než jednu skupinu s stejný seznam členů, použijte tento prostředek.
+Použijte tento prostředek, pokud chcete přidat nebo odebrat stejný seznam členů do více než jedné skupiny, odebrání více než jedné skupině nebo přidat více než jednu skupinu pomocí stejného seznamu členů.
 
-##<a name="syntax"></a>Syntaxe ##
+## <a name="syntax"></a>Syntaxe
+
 ```
 Group [string] #ResourceName
 {
@@ -36,16 +37,16 @@ Group [string] #ResourceName
 |  Vlastnost  |  Popis   |
 |---|---|
 | Název skupiny| Názvy skupin, pro které chcete zajistit určitý stav.|
-| MembersToExclude| Pomocí této vlastnosti se odebrat členy ze stávajícího členství skupin. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
-| přihlašovací údaje| Přihlašovací údaje potřebné pro přístup k vzdálené prostředky. **Poznámka:**: Tento účet musí mít příslušná oprávnění služby Active Directory přidat všechny jiné než místní účty do skupiny; jinak dojde k chybě.
-| Ujistěte se| Určuje, zda existují skupiny. Nastavením této vlastnosti "Chybí" zajistit, že skupiny nejsou k dispozici. Nastavení jej do "K dispozici" (výchozí hodnota) zajišťuje, že existují skupiny.|
-| Členové| Pomocí této vlastnosti můžete nahradit členství v aktuální skupině zadaný členy. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.|
-| MembersToInclude| Postup přidání členů do stávajícího členství skupiny pomocí této vlastnosti. Hodnota této vlastnosti je pole řetězce ve formátu *domény*\\*uživatelské jméno*. Pokud tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".|
+| MembersToExclude| Tuto vlastnost použijte k odebrání členů ze stávajícího členství skupin. Hodnota této vlastnosti je pole řetězců formuláře *domény*\\*uživatelské jméno*. Pokud byste tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
+| Přihlašovací údaje| Na pověření potřebná pro přístup ke vzdáleným prostředkům. **Poznámka:**: Tento účet musí mít příslušná oprávnění služby Active Directory přidat všechny jiné než místní účty do skupiny; v opačném případě dojde k chybě.
+| Zkontrolujte| Udává, zda existuje skupiny. Nastavte tuto vlastnost na "Chybí" Ujistěte se, že skupiny neexistují. Nastavení "Prezentovat" (výchozí hodnota) zajišťuje, že existují skupiny.|
+| Členové| Tuto vlastnost použijte k nahrazení aktuální členství ve skupině se zadanými členy. Hodnota této vlastnosti je pole řetězců formuláře *domény*\\*uživatelské jméno*. Pokud byste tuto vlastnost nastavit v konfiguraci, nepoužívejte buď **MembersToExclude** nebo **MembersToInclude** vlastnost. Tím dojde k chybě.|
+| MembersToInclude| Tuto vlastnost použijte k přidání členů do existující členství ve skupině. Hodnota této vlastnosti je pole řetězců formuláře *domény*\\*uživatelské jméno*. Pokud byste tuto vlastnost nastavit v konfiguraci, nepoužívejte **členy** vlastnost. Tím dojde k chybě.|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba __ResourceName__ a jejím typem je __ResourceType__, syntaxe pro použití této vlastnosti je "DependsOn ="[ ResourceName ResourceType]"".|
 
-## <a name="example-1"></a>Příklad 1
+## <a name="example-1-ensuring-groups-are-present"></a>Příklad 1: Skupiny zajistit, že jsou k dispozici
 
-Následující příklad ukazuje, jak zajistit, že jsou k dispozici dvě skupiny s názvem "myGroup" a "myOtherGroup".
+Následující příklad ukazuje, jak zajistit, aby byly k dispozici dvě skupiny s názvem "myGroup" a "myOtherGroup".
 
 ```powershell
 configuration GroupSetTest
@@ -73,8 +74,8 @@ $cd = @{
     )
 }
 
-
 GroupSetTest -ConfigurationData $cd
 ```
 
->**Poznámka:** tento příklad používá pro jednoduchost přihlašovací údaje ve formátu prostého textu. Informace o tom, jak šifrování přihlašovacích údajů v konfiguračním souboru MOF najdete v tématu [zabezpečení souboru MOF](secureMOF.md).
+> [!NOTE] 
+> Tento příklad používá pro jednoduchost přihlašovací údaje jako prostý text. Informace o tom, jak šifrování přihlašovacích údajů v konfiguračním souboru MOF najdete v tématu [zabezpečení souboru MOF](secureMOF.md).

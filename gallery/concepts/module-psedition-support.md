@@ -1,16 +1,16 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-keywords: Galerie prostředí powershell, rutiny, psget
-title: Moduly s kompatibilní verze prostředí PowerShell
-ms.openlocfilehash: fbbfda2f913d54c3e69c0724fea4d977923279c1
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psget
+title: Moduly s kompatibilní edice Powershellu
+ms.openlocfilehash: 653cfa82be9d0150da8d8765c96e35be99497262
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189512"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37892317"
 ---
-# <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní verze prostředí PowerShell
+# <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní edice Powershellu
 
 Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí různé sady funkcí a kompatibilitu platformy.
 
@@ -21,7 +21,9 @@ Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí r
 
 ```powershell
 $PSVersionTable
+```
 
+```output
 Name                           Value
 ----                           -----
 PSVersion                      5.1.14300.1000
@@ -36,50 +38,63 @@ SerializationVersion           1.1.0.1
 
 ## <a name="module-authors-can-declare-their-modules-to-be-compatible-with-one-or-more-powershell-editions-using-the-compatiblepseditions-module-manifest-key-this-key-is-only-supported-on-powershell-51-or-later"></a>Autoři modulu mají možnost deklarovat své moduly jako kompatibilní s jednou nebo více edicemi PowerShellu, které používají klíč manifestu CompatiblePSEditions. Podporu tohoto klíče poskytují jenom prostředí PowerShell 5.1 nebo novější.
 
-*Poznámka:* po modul manifestu je zadaný klíč CompatiblePSEditions, nelze jej importovat na nižší verze prostředí PowerShell.
+> [!NOTE]
+> Jakmile modul manifestu je zadán s klíčem CompatiblePSEditions, nelze importovat na nižší verzi prostředí PowerShell.
 
 ```powershell
 New-ModuleManifest -Path .\TestModuleWithEdition.psd1 -CompatiblePSEditions Desktop,Core -PowerShellVersion 5.1
 $ModuleInfo = Test-ModuleManifest -Path .\TestModuleWithEdition.psd1
 $ModuleInfo.CompatiblePSEditions
+```
+
+```output
 Desktop
 Core
+```
 
+```powershell
 $ModuleInfo | Get-Member CompatiblePSEditions
+```
 
+```output
    TypeName: System.Management.Automation.PSModuleInfo
 
 Name                 MemberType Definition
 ----                 ---------- ----------
 CompatiblePSEditions Property   System.Collections.Generic.IEnumerable[string] CompatiblePSEditions {get;}
-
 ```
 
 Při získávání seznamu dostupných modulů můžete filtrovat seznam podle edice PowerShellu.
 
 ```powershell
 Get-Module -ListAvailable -PSEdition Desktop
+```
 
+```output
     Directory: C:\Program Files\WindowsPowerShell\Modules
 
 
 ModuleType Version    Name                                ExportedCommands
 ---------- -------    ----                                ----------------
 Manifest   1.0        ModuleWithPSEditions
-
-Get-Module -ListAvailable -PSEdition Core | % CompatiblePSEditions
-Desktop
-Core
-
 ```
 
-## <a name="module-authors-can-publish-a-single-module-targeting-to-either-or-both-powershell-editions-desktop-and-core"></a>Autoři modulu můžete publikovat v modulu single cílení na obojím prostředí PowerShell edice (Desktop a jader)
+```powershell
+Get-Module -ListAvailable -PSEdition Core | % CompatiblePSEditions
+```
 
-Jeden modul může pracovat na ploše a základní verze, v tomto modulu má autor přidat požadované logiku v buď RootModule nebo v manifestu modulu pomocí $PSEdition proměnné.
-Moduly může mít dvě sady cílené na CoreCLR a FullCLR zkompilované knihovny DLL.
-Tady je několik možností balíček modulu s logiku pro načítání knihoven DLL správné.
+```output
+Desktop
+Core
+```
 
-### <a name="option-1-packaging-a-module-for-targeting-multiple-versions-and-multiple-editions-of-powershell"></a>Možnost 1: Zabalení modul pro cílení na více verzí a víc edicí prostředí PowerShell
+## <a name="module-authors-can-publish-a-single-module-targeting-to-either-or-both-powershell-editions-desktop-and-core"></a>Autoři modulu můžete publikovat v modulu single cílení jednoho nebo obou edice Powershellu (v desktopové i jader)
+
+Jeden modul mohl pracovat na ploše a jádra edice, v tomto modulu má autor přidat požadované logiku v obou RootModule, nebo v manifestu modulu pomocí $PSEdition proměnné.
+Moduly může mít dvě sady na CoreCLR a FullCLR zkompilované knihovny DLL.
+Tady je několik možností pro balíček modulu s logiku pro načítání knihoven DLL správné.
+
+### <a name="option-1-packaging-a-module-for-targeting-multiple-versions-and-multiple-editions-of-powershell"></a>Možnost 1: Vytvoření balíčku modulu pro cílení na více verzí a více edicemi Powershellu
 
 #### <a name="module-folder-contents"></a>Obsah složky modulu
 
@@ -121,7 +136,7 @@ ModuleVersion = '1.6.1'
 
 #### <a name="contents-of-psscriptanalyzerpsm1-file"></a>Obsah souboru PSScriptAnalyzer.psm1
 
-Níže logiku načte požadovaná sestavení v závislosti na aktuální edice nebo verze.
+Pod logiky načte požadované sestavení v závislosti na aktuální edici nebo verzi.
 
 ```powershell
 #
@@ -157,15 +172,15 @@ $PSModule.OnRemove = {
 
 ```
 
-### <a name="option-2-use-psedition-variable-in-the-psd1-file-to-load-the-proper-dlls-and-nestedrequired-modules"></a>Možnost 2: Použijte proměnnou $PSEdition v soubor PSD1 načíst správné knihovny DLL a vnořené/požadované moduly
+### <a name="option-2-use-psedition-variable-in-the-psd1-file-to-load-the-proper-dlls-and-nestedrequired-modules"></a>Možnost 2: Použití proměnné $PSEdition soubor PSD1 načíst správné knihovny DLL a vnořené/požadované moduly
 
-V PS 5.1 nebo novější $PSEdition – globální proměnná je povolena v souboru manifestu modulu.
-Pomocí této proměnné, Autor modulu můžete zadat podmíněného hodnoty v souboru manifestu modulu. $PSEdition proměnná může být odkaz v režimu s omezeným přístupem jazyk nebo datové části.
+PS 5.1 nebo novější je v souboru manifestu modulu povolen $PSEdition globální proměnné.
+Pomocí této proměnné, Autor modulu můžete určit podmíněného hodnoty v souboru manifestu modulu. $PSEdition proměnné může být odkazováno v režimu s omezeným přístupem jazyka nebo datové části.
 
-*Poznámka:* po modul manifestu je zadán s klíčem CompatiblePSEditions nebo používá proměnnou $PSEdition, nelze jej importovat na nižší verze prostředí PowerShell.
+> [!NOTE]
+> Jakmile manifestu modulu je zadán s klíčem CompatiblePSEditions nebo používá $PSEdition proměnnou, nelze importovat na nižší verzi prostředí PowerShell.
 
-
-#### <a name="sample-module-manifest-file-with-compatiblepseditions-key"></a>Ukázku souboru manifestu modulu klíčem CompatiblePSEditions
+#### <a name="sample-module-manifest-file-with-compatiblepseditions-key"></a>Ukázkový soubor manifestu modulu s klíčem CompatiblePSEditions
 
 ```powershell
 @{
@@ -203,9 +218,10 @@ else # Desktop
 #### <a name="module-contents"></a>Obsah modulu
 
 ```powershell
+dir -Recurse
+```
 
-PS C:\Users\manikb\Documents\WindowsPowerShell\Modules\ModuleWithEditions> dir -Recurse
-
+```output
     Directory: C:\Users\manikb\Documents\WindowsPowerShell\Modules\ModuleWithEditions
 
 Mode                LastWriteTime         Length Name
@@ -231,9 +247,9 @@ Mode                LastWriteTime         Length Name
 -a----         7/5/2016   1:35 PM              0 MyCoreClrRM.dl
 ```
 
-## <a name="powershell-gallery-users-can-find-the-list-of-modules-supported-on-a-specific-powershell-edition-using-tags-pseditiondesktop-and-pseditioncore"></a>Galerie prostředí PowerShell můžou uživatelé najít seznamu modulů, které jsou podporovány na konkrétní verzi prostředí PowerShell pomocí značek PSEdition_Desktop a PSEdition_Core.
+## <a name="powershell-gallery-users-can-find-the-list-of-modules-supported-on-a-specific-powershell-edition-using-tags-pseditiondesktop-and-pseditioncore"></a>Galerie prostředí PowerShell uživatelé najdou seznam modulů, které jsou podporovány na konkrétní edici Powershellu pomocí značek PSEdition_Desktop a PSEdition_Core.
 
-Moduly bez PSEdition_Desktop a PSEdition_Core značky jsou považovány za bez problémů fungují na edice Desktop prostředí PowerShell.
+Moduly bez PSEdition_Desktop a PSEdition_Core značek jsou považovány za fungovat bez problémů na edice Powershellu Desktop.
 
 ```powershell
 
@@ -245,9 +261,10 @@ Find-Module -Tag PSEdition_Core
 
 ```
 
+## <a name="more-details"></a>Další podrobnosti
 
-## <a name="more-details"></a>Další informace
+[Skripty s PSEditions](script-psedition-support.md)
 
-- [Skripty s PSEditions](script-psedition-support.md)
-- [Podpora PSEditions na PowerShellGallery](../how-to/finding-items/searching-by-psedition.md)
-- [Aktualizace modulu manifest] (/powershell/module/powershellget/update-modulemanifest)
+[Podpora PSEditions na PowerShellGallery](../how-to/finding-items/searching-by-psedition.md)
+
+[Aktualizace manifestu modulu](/powershell/module/powershellget/update-modulemanifest)

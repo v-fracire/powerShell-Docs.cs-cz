@@ -1,17 +1,17 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: DSC pro Linux nxFileLine prostředků
-ms.openlocfilehash: 6b927839c23478aa9916a5d23836b31fccc58484
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: DSC pro Linux prostředek nxFileLine
+ms.openlocfilehash: f2a989dd3a6746948e09ba94e279c02be8ebe2de
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219629"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893293"
 ---
-# <a name="dsc-for-linux-nxfileline-resource"></a>DSC pro Linux nxFileLine prostředků
+# <a name="dsc-for-linux-nxfileline-resource"></a>DSC pro Linux prostředek nxFileLine
 
-**NxFileLine** prostředků v prostředí PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro ke správě řádky v konfiguračním souboru na uzlu Linux.
+**NxFileLine** prostředků v prostředí PowerShell Desired State Configuration (DSC) poskytuje mechanismus k správě řádky v konfiguračním souboru v systému Linux uzlu.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -30,17 +30,17 @@ nxFileLine <string> #ResourceName
 
 |  Vlastnost |  Popis |
 |---|---|
-| Cesta k souboru| Úplná cesta k souboru ke správě řádků v na cílový uzel.|
-| ContainsLine| Řádek zajistit existuje v souboru. Tento řádek bude připojen k souboru, pokud neexistuje v souboru. **ContainsLine** je povinná, ale můžete nastavit na prázdný řetězec ("ContainsLine =".) Pokud není nutné.|
-| DoesNotContainPattern| Vzor regulárního výrazu řádky, které by neměly existovat v souboru. Pro všechny řádky, které existují v souboru odpovídající regulárnímu výrazu se odeberou ze souboru na řádku.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
+| Cesta k souboru| Úplná cesta k souboru, který má spravovat řádky v na cílový uzel.|
+| ContainsLine| Řádek zajistit existuje v souboru. Tento řádek bude připojen k souboru, pokud neexistuje v souboru. **ContainsLine** je povinná, ale lze nastavit na prázdný řetězec (`ContainsLine = ""`) Pokud není potřeba.|
+| DoesNotContainPattern| Vzor regulárního výrazu pro řádky, které by neměly existovat v souboru. Pro všechny řádky, které existují v souboru, které odpovídají tento regulární výraz se odebere ze souboru řádek.|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku bloku skriptu konfigurace, který chcete spustit nejdřív ale **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této funkce Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="example"></a>Příklad
 
-Tento příklad ukazuje, jak pomocí **nxFileLine** prostředků ke konfiguraci `/etc/sudoers` souboru zajistit, aby uživatel: monuser nakonfigurovaný tak, aby není requiretty.
+Tento příklad ukazuje použití **nxFileLine** prostředků ke konfiguraci `/etc/sudoers` souboru zajistit, aby uživatel: monuser nastavená na Ne requiretty.
 
-```
-Import-DSCResource -Module nx
+```powershell
+Import-DscResource -Module nx
 
 nxFileLine DoNotRequireTTY
 {

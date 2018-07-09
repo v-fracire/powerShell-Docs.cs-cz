@@ -1,103 +1,103 @@
 ---
 ms.date: 03/27/2018
 contributor: JKeithB
-keywords: Galerie prostředí powershell, psgallery, GDPR
+keywords: Galerie prostředí powershell, psgallery GDPR
 title: Dodržování předpisů GDPR Galerie prostředí PowerShell
-ms.openlocfilehash: dca1a82952c284980a84caafa13b2807e47e25a0
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 14b82fa07df52f02f0d7577cb0eef70faa4285a2
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189750"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893242"
 ---
 # <a name="powershell-gallery-gdpr-compliance"></a>Dodržování předpisů GDPR Galerie prostředí PowerShell
 
 ## <a name="overview"></a>Přehled
 
-V květnu 2018 zákonem Evropského ochrany osobních údajů, obecné Data Protection nařízení (GDPR), se projeví.
-GDPR ukládá nové pravidel na společnosti, organizace státní správy, bez zisku a organizace nabídka zboží a služeb na osoby ve Evropské unie (EU), nebo že shromažďovat a analyzovat data svázané s obyvatele Evropské unie.
-GDPR platí bez ohledu na to, kde se nacházíte.
+V květnu 2018 zákony Evropské ochrany osobních údajů, obecného Protection Regulation (GDPR), se projeví.
+GDPR ukládá nová pravidla pro společnosti, státních úřadů, – neziskové organizace a jinými organizacemi, že nabídka zboží a služby lidem v Evropské unii (EU) nebo které shromažďovat a analyzovat data svázaná s pobytem v EU.
+GDPR se vztahuje bez ohledu na to, kde se nachází.
 
 > [!NOTE]
-> Tento článek popisuje kroky pro odstranění osobní data z Galerie prostředí PowerShell a slouží k podpoře vaší povinností podle GDPR. Pokud hledáte obecné informace o GDPR, přečtěte si téma [GDPR části portálu služby důvěřovat](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> Tento článek popisuje kroky pro odstranění osobních údajů z Galerie prostředí PowerShell a slouží k podpoře vaší povinností v GDPR. Pokud potřebujete obecné informace o podle nařízení GDPR, najdete v článku [GDPR část Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
-## <a name="personally-identifiable-data"></a>Identifikovatelné osobní údaje
+## <a name="personally-identifiable-data"></a>Osobně identifikovatelných dat
 
-Galerie prostředí PowerShell se ukládají následující informace, které může poskytovat uživatelům, které můžou obsahovat osobní informace:
+Galerie prostředí PowerShell se ukládají následující informace, který může zadat uživatele, které mohou obsahovat osobní údaje:
 
-* Účet Galerie prostředí PowerShell
-* Položky, které jsou publikovány do Galerie prostředí PowerShell
-* E-mailové korespondence s týmem Galerie prostředí PowerShell
+- Účet Galerie prostředí PowerShell
+- Publikování položek v galerii prostředí PowerShell
+- E-mailové korespondence s týmem Galerie prostředí PowerShell
 
-Většina uživatelů nevytvářejte účet Galerie prostředí PowerShell.
-Účet se nevyžaduje, pokud chcete publikovat položku nebo použít funkci "Obraťte se na vlastníka" v galerii prostředí PowerShell.
-Kromě e-mailové korespondence iniciováno uživatelem Galerie prostředí PowerShell neukládá identifikovatelné osobní údaje pro uživatele, kteří ještě nevytvořili účet.
+Většina uživatelů, nevytvářejte účet Galerie prostředí PowerShell.
+Účet není povinný, pokud se chystáte publikovat položku nebo použít funkci "Kontaktujte vlastníka" v galerii prostředí PowerShell.
+Galerie prostředí PowerShell než e-mailové korespondence iniciované příslušným uživatelem, neukládá identifikovatelné osobní údaje pro uživatele, kteří ještě nevytvořili účet.
 
-Uživatelé, kteří vytvořit účet Galerie prostředí PowerShell můžete publikovat položky galerie prostředí PowerShell.
-Tyto položky se měl kódu PowerShell, ale může obsahovat další informace, včetně osobních údajů.
-Níže uvedené informace se zobrazí, jak můžete získat všechny položky jste publikovali do Galerie prostředí PowerShell.
+Uživatelé, kteří vytvořit účet Galerie prostředí PowerShell můžete publikovat položky v galerii prostředí PowerShell.
+Tyto položky se očekává, že se kód Powershellu, ale může obsahovat další informace, včetně osobních údajů.
+Níže uvedené informace se zobrazí, jak získat všechny položky v galerii prostředí PowerShell jste publikovali.
 
-## <a name="dsr-export-of-powershell-gallery-data"></a>DSR Export dat Galerie prostředí PowerShell
+## <a name="dsr-export-of-powershell-gallery-data"></a>Export PSÚ dat Galerie prostředí PowerShell
 
-Následující části popisují, jak Galerie prostředí PowerShell podporuje požadavky na data subjektu (DSR), tím, že vysvětlí, jak exportovat informace uložené v galerii prostředí PowerShell a jak požádat o odstranění těchto informací.
+Následující části popisují, jak v galerii prostředí PowerShell podporuje žádosti údajů (PSÚ), tak s vysvětlením, jak exportovat informace uložené v galerii prostředí PowerShell a jak požádat o odstranění těchto informací.
 
 ### <a name="email"></a>E-mail
 
-E-mailové korespondence může obsahovat žádné z následujících akcí:
+E-mailové korespondence může obsahovat žádný z následujících akcí:
 
-* E-mailu odeslaného na vlastníky Galerie prostředí PowerShell položky Pokud analýza kódu kontrol zjistil potíže s libovolnou položku, kterou jste publikovali do Galerie prostředí PowerShell
-* Každý, kdo posílá týmem Galerie prostředí PowerShell pomocí e-mailovou adresu na stránce "Kontaktujte nás" e-mailu (cgadmin@microsoft.com)
-* Registrované uživatele, kteří používají funkce "Obraťte se na vlastníka" v galerii prostředí PowerShell k odesílání e-mailu vlastníka položky v galerii prostředí PowerShell
+- E-mailu odeslaného pro vlastníky položky, pokud analýza kódu vyhledá zjistila problém s libovolnou položku, kterou jste publikovali v galerii prostředí PowerShell Galerie prostředí PowerShell
+- E-mailu odeslaného kdokoli v týmu Galerie prostředí PowerShell pomocí e-mailovou adresu v stránky "Kontaktujte nás" [cgadmin@microsoft.com](mailto:cgadmin@microsoft.com)
+- Registrovaný uživatelů, kteří používají funkci "Kontaktujte vlastníka" v galerii prostředí PowerShell k odesílání e-mailu na vlastníka položky v galerii prostředí PowerShell
 
-E-maily odesílané do Galerie prostředí PowerShell nebo mít zásady uchovávání informací 90 dní pro podporu vyšetřování možné zabezpečení by měl škodlivý kód zjištěných v galerii prostředí PowerShell.
-E-mailů jsou zásadami odstraněny po 90 dnech.
+E-mailů podle nebo v galerii prostředí PowerShell mají zásady uchovávání 90 dnů pro podporu možné bezpečnostní vyšetřování by měl škodlivý kód nalezených v galerii prostředí PowerShell.
+E-maily se odstraní podle zásad po 90 dnech.
 
-Může požádat o kopie všechny e-maily odesílané do nebo z e-mailovou adresu a Galerie prostředí PowerShell v rámci předchozích 90 dnů.
-Požádat o tato korespondence, pošlete e-mail na cgadmin@microsoft.com, s názvem: "DSR žádost o e-mailů týkajících se k tomuto účtu".
-V textu zprávy, jaké informace, které jste požádali o stavu (například: pošlete prosím všechny e-maily odesílané nebo přijímané z této e-mailovou adresu.) Všechny e-mailů zahrnující e-mailovou adresu do 90 dnů od žádosti budou odeslány do 7 dnů firmy.
+Může vyžadovat zkopíruje všechny e-maily odesílané do nebo z e-mailovou adresu a Galerie prostředí PowerShell v rámci za předchozích 90 dnů.
+Žádost o tuto komunikaci, pošlete e-mailu [ cgadmin@microsoft.com ](mailto:cgadmin@microsoft.com), s názvem: "Žádost PSÚ ohledně e-mailů týkajících se k tomuto účtu".
+V textu zprávy, jaké informace, které jste požádali stavu (například: odešlete všechny e-maily odesílané nebo přijímané z tohoto e-mailovou adresu.) Všechny e-mailů týkajících se e-mailovou adresu do 90 dnů od žádosti se odešlou do 7 pracovních dnů.
 
 ### <a name="powershell-gallery-account-information"></a>Informace o účtu Galerie prostředí PowerShell
 
-Pokud jste vytvořili účet Galerie prostředí PowerShell, můžete najít všechny osobní informace, která byla uložena v galerii prostředí PowerShell provedením následujících kroků:
+Pokud jste vytvořili účet Galerie prostředí PowerShell, můžete najít všechny osobní informace, které jsou uložená v galerii prostředí PowerShell pomocí následujících kroků:
 
-1. Přihlaste se k Galerie prostředí PowerShell, a potom klikněte na své uživatelské jméno
-2. Na další stránku, zobrazí se stránku účtu, který zobrazuje e-mailovou adresu, použité pro účet Galerie prostředí PowerShell
+1. Přihlaste se v galerii prostředí PowerShell a potom klikněte na své uživatelské jméno
+2. Na další stránku, zobrazí se na stránku účtu, který zobrazuje e-mailovou adresu použije pro účet Galerie prostředí PowerShell
 
-Pokud jste vytvořili více než jeden účet v galerii prostředí PowerShell, musíte tento postup opakujte pro každý účet.
+Pokud vytvoříte více než jeden účet v galerii prostředí PowerShell, musíte tento postup opakujte pro každý účet.
 
 ### <a name="items-in-the-powershell-gallery"></a>Položky v galerii prostředí PowerShell
 
-Pro usnadnění Export položky, které jsou publikovány do Galerie prostředí PowerShell, jsme publikovali skriptu "GetPSGalleryItemsForAuthor" do Galerie prostředí PowerShell.
-Tento skript exportuje kopii každé verzi každá položka vložena Galerie prostředí PowerShell založený na informacích Autor uložená v položce.
+Pro usnadnění exportu položky publikována do Galerie prostředí PowerShell, jsme publikovali skriptu "GetPSGalleryItemsForAuthor" v galerii prostředí PowerShell.
+Tento skript exportuje kopie každé verze každé položky do Galerie prostředí PowerShell na základě Autor informací uložených v položce.
 
 > [!NOTE]
-> Autor je uložený v manifestu položky při publikování vaší položky.
-> Není zaručeno, že autor se stejnou identitou jako účet, který používáte v galerii prostředí PowerShell.
-> Pokud použijete jinou hodnotu v poli autora, musíte zadat tuto hodnotu, při použití tohoto skriptu.
+> Autor se ukládají v manifestu položky při publikování položky.
+> Není zaručeno, že autor se stejnou identitou jako účet, který použijete v galerii prostředí PowerShell.
+> Pokud použijete jinou hodnotu v poli Autor, je potřeba zadat tuto hodnotu při použití tohoto skriptu.
 
 Skript může stáhnout pomocí následujícího příkazu Powershellu:
 
 ```powershell
-Save-Script GetPSGalleryItemsForAuthor -path <local folder location> -repository psgallery
+Save-Script Get-repository psgallery
 ```
 
-Když pak spustíte skript přímo, spuštěním následujících příkazů prostředí PowerShell:
+Potom spustíte skript přímo, spuštěním následujících příkazů Powershellu:
 
 ```powershell
-cd <local folder location >
+# cd <local folder location>
 .\GetPSGalleryItemsForAuthor.ps1
 ```
 
-Zobrazí se výzva k zadání autora a složku ve vašem systému místo položky, které chcete uložit.
+Zobrazí výzva k zadání jeho autorovi a složku ve vašem systému, požadované položky, které chcete uložit.
 
-## <a name="deleting-personal-data-from-the-powershell-gallery"></a>Odstranění osobní Data z Galerie Powershellu
+## <a name="deleting-personal-data-from-the-powershell-gallery"></a>Odstranění osobní údaje z Galerie prostředí PowerShell
 
-Pokud chcete odstranit účet Galerie prostředí PowerShell nebo libovolnou položku, kterou vlastníte v galerii prostředí PowerShell, odesílat e-mailu cgadmin@microsoft.com s názvem: "GDPR žádost pro položky vztahující se k tomuto účtu".
-V těle zprávy o stavu informacích chcete odstraněné. Příklad:
+Chcete-li odstranit svůj účet Galerie prostředí PowerShell nebo libovolnou položku, kterou vlastníte ve galerii prostředí PowerShell, pošlete e-mail na adresu cgadmin@microsoft.com s názvem: "Žádosti GDPR o položky vztahující se k tomuto účtu".
+V těle zprávy o stavu jaké informace chcete odstraněné. Příklad:
 
-* Odstraňte prosím verze x.y.z "název položky" Moje položky
-* Odstraňte všechny verze "název položky" Moje položky
-* Odstraňte Můj účet Galerie prostředí PowerShell
+- Odstraňte prosím verze x.y.z Moje položky "název"
+- Odstraňte prosím všechny verze Moje položky "název"
+- Odstraňte prosím svůj účet Galerie prostředí PowerShell
 
-Správci Galerie prostředí PowerShell odpovíte do 7 dnů firmy.
-Do 30 dní po odeslání žádosti se odstraní vybrané položky.
+Správci Galerie prostředí PowerShell odpovíte do 7 pracovních dnů.
+Do 30 dní po odeslání žádosti se odstraní zadané položky.

@@ -1,20 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Metoda RollBack třídy MSFT_DSCLocalConfigurationManager
-ms.openlocfilehash: d2f9b7025d611912e119800408e25fcb66bc0228
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 4956900ecd2c9cb7f2e2b5bcab94616f9f5d5565
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219874"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893014"
 ---
 # <a name="rollback-method-of-the-msftdsclocalconfigurationmanager-class"></a>Metoda RollBack třídy MSFT_DSCLocalConfigurationManager
 
-Vrátí konfiguraci zpět na předchozí verzi.
+Vrátí konfiguraci zpátky na předchozí verzi.
 
-<a name="syntax"></a>Syntaxe
-------
+## <a name="syntax"></a>Syntaxe
 
 ```mof
 uint32 RollBack(
@@ -22,28 +21,24 @@ uint32 RollBack(
 );
 ```
 
-<a name="parameters"></a>Parameters
-----------
+## <a name="parameters"></a>Parameters
 
 *configurationNumber* \[v\] určuje požadovanou konfiguraci.
 
 ## <a name="return-value"></a>Návratová hodnota
-------------
 
-Vrátí nula v případě úspěchu; v opačném případě vrátí kód chyby.
+Vrátí nulu v případě úspěchu; v opačném případě vrátí kód chyby.
 
 ## <a name="remarks"></a>Poznámky
 
-Jde o statickou metodu.
+Toto je statické metody.
 
 ## <a name="requirements"></a>Požadavky
-------------
->**MOF:** DscCore.mof
 
->**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
+**Soubor MOF:** DscCore.mof
 
+**Namespace**: Root\Microsoft\Windows\DesiredStateConfiguration
 
 ## <a name="see-also"></a>Viz taky
-
 
 [**MSFT_DSCLocalConfigurationManager**](msft-dsclocalconfigurationmanager.md)
