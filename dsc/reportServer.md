@@ -1,32 +1,32 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Použití serveru sestav DSC
-ms.openlocfilehash: 143e0bdd9b637cee87a676ed327fe6ff3a7fd719
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: bcd414e9cc6d3b321676aaab6bbc3ca1b02e80aa
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34188543"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893133"
 ---
-# <a name="using-a-dsc-report-server"></a><span data-ttu-id="7e6f8-103">Použití serveru sestav DSC</span><span class="sxs-lookup"><span data-stu-id="7e6f8-103">Using a DSC report server</span></span>
+# <a name="using-a-dsc-report-server"></a><span data-ttu-id="f7188-103">Použití serveru sestav DSC</span><span class="sxs-lookup"><span data-stu-id="f7188-103">Using a DSC report server</span></span>
 
-> <span data-ttu-id="7e6f8-104">Platí pro: Prostředí Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="7e6f8-104">Applies To: Windows PowerShell 5.0</span></span>
+<span data-ttu-id="f7188-104">Platí pro: Windows PowerShell 5.0</span><span class="sxs-lookup"><span data-stu-id="f7188-104">Applies To: Windows PowerShell 5.0</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="7e6f8-105">Server pro vyžádání obsahu (funkce systému Windows *DSC služby*) je podporované součásti systému Windows Server jsou však nejsou žádné plány, které nabízí nové funkce nebo funkce.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-105">The Pull Server (Windows Feature *DSC-Service*) is a supported component of Windows Server however there are no plans to offer new features or capabilities.</span></span> <span data-ttu-id="7e6f8-106">Doporučujeme začít Přechod spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace s v systému Windows Server) nebo jedno z řešení komunity uvedené [zde](pullserver.md#community-solutions-for-pull-service).</span><span class="sxs-lookup"><span data-stu-id="7e6f8-106">It is recommended to begin transitioning managed clients to [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (includes features beyond Pull Server on Windows Server) or one of the community solutions listed [here](pullserver.md#community-solutions-for-pull-service).</span></span>
+> <span data-ttu-id="f7188-105">Serveru vyžádané replikace (funkce Windows *DSC služby*) jsou podporované součástí Windows serveru ale žádné plány nabízí nové funkce nebo funkce.</span><span class="sxs-lookup"><span data-stu-id="f7188-105">The Pull Server (Windows Feature *DSC-Service*) is a supported component of Windows Server however there are no plans to offer new features or capabilities.</span></span> <span data-ttu-id="f7188-106">Doporučujeme přechod od skupinám spravované klientům [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (zahrnuje funkce nad rámec serveru vyžádané replikace v systému Windows Server) nebo jednoho z komunity řešení uvedené [tady](pullserver.md#community-solutions-for-pull-service).</span><span class="sxs-lookup"><span data-stu-id="f7188-106">It is recommended to begin transitioning managed clients to [Azure Automation DSC](/azure/automation/automation-dsc-getting-started) (includes features beyond Pull Server on Windows Server) or one of the community solutions listed [here](pullserver.md#community-solutions-for-pull-service).</span></span>
+>
+> <span data-ttu-id="f7188-107">**Poznámka:** server sestav, které jsou popsané v tomto tématu není k dispozici v Powershellu 4.0.</span><span class="sxs-lookup"><span data-stu-id="f7188-107">**Note** The report server described in this topic is not available in PowerShell 4.0.</span></span>
 
-><span data-ttu-id="7e6f8-107">**Poznámka:** serveru sestav, které jsou popsané v tomto tématu není k dispozici v prostředí PowerShell 4.0.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-107">**Note:** The report server described in this topic is not available in PowerShell 4.0.</span></span>
+<span data-ttu-id="f7188-108">Místní Configuration Manageru (LCM) uzlu můžete nakonfigurovat zasílání zpráv o informace o jeho stavu konfigurace na serveru vyžádané replikace, který může být dotazován načíst data.</span><span class="sxs-lookup"><span data-stu-id="f7188-108">The Local Configuration Manager (LCM) of a node can be configured to send reports about its configuration status to a pull server, which can then be queried to retrieve that data.</span></span> <span data-ttu-id="f7188-109">Pokaždé, když uzel zkontroluje a použije konfiguraci, odešle sestavy na server sestav.</span><span class="sxs-lookup"><span data-stu-id="f7188-109">Each time the node checks and applies a configuration, it sends a report to the report server.</span></span> <span data-ttu-id="f7188-110">Tyto sestavy jsou uloženy v databázi na serveru a může být načten voláním webové službě generování sestav.</span><span class="sxs-lookup"><span data-stu-id="f7188-110">These reports are stored in a database on the server, and can be retrieved by calling the reporting web service.</span></span> <span data-ttu-id="f7188-111">Každá sestava obsahuje informace, jako je konfigurace, které byly použity a určuje, zda jsou úspěšné, používá prostředky, všechny chyby, které byly vyvolány a časy zahájení a dokončení.</span><span class="sxs-lookup"><span data-stu-id="f7188-111">Each report contains information such as what configurations were applied and whether they succeeded, the resources used, any errors that were thrown, and start and finish times.</span></span>
 
-<span data-ttu-id="7e6f8-108">Pokud chcete zasílat zprávy o jeho konfiguraci stavu na vyžádání obsahu server, který může být dotazován načíst data lze nakonfigurovat místní Configuration Manager (LCM) uzlu.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-108">The Local Configuration Manager (LCM) of a node can be configured to send reports about its configuration status to a pull server, which can then be queried to retrieve that data.</span></span> <span data-ttu-id="7e6f8-109">Pokaždé, když uzel ověří a použije konfiguraci, odešle sestavy na server sestav.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-109">Each time the node checks and applies a configuration, it sends a report to the report server.</span></span> <span data-ttu-id="7e6f8-110">Tyto sestavy jsou uloženy v databázi na serveru a může načíst volání webové služby generování sestav.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-110">These reports are stored in a database on the server, and can be retrieved by calling the reporting web service.</span></span> <span data-ttu-id="7e6f8-111">Každá sestava obsahuje informace, například jaký konfigurace byly použity, a jestli se úspěšně, používá prostředky, všechny chyby, které byly vyvolány a zahájení a dokončení časy.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-111">Each report contains information such as what configurations were applied and whether they succeeded, the resources used, any errors that were thrown, and start and finish times.</span></span>
+## <a name="configuring-a-node-to-send-reports"></a><span data-ttu-id="f7188-112">Konfigurace uzlu zasílání zpráv</span><span class="sxs-lookup"><span data-stu-id="f7188-112">Configuring a node to send reports</span></span>
 
-## <a name="configuring-a-node-to-send-reports"></a><span data-ttu-id="7e6f8-112">Konfigurace uzlu, pokud chcete zasílat zprávy</span><span class="sxs-lookup"><span data-stu-id="7e6f8-112">Configuring a node to send reports</span></span>
+<span data-ttu-id="f7188-113">Zjistit uzel odesílání sestav na server pomocí **ReportServerWeb** blokovat do konfigurace LCM uzlu (informace o konfiguraci LCM najdete v tématu [konfigurace Local Configuration Manageru](metaConfig.md) ).</span><span class="sxs-lookup"><span data-stu-id="f7188-113">You tell a node to send reports to a server by using a **ReportServerWeb** block in the node's LCM configuration (for information about configuring the LCM, see [Configuring the Local Configuration Manager](metaConfig.md)).</span></span> <span data-ttu-id="f7188-114">Server, ke kterému uzel odesílá sestavy musíte nastavit jako webového serveru vyžádané replikace (nelze odeslat sestavy do sdílené složky protokolu SMB).</span><span class="sxs-lookup"><span data-stu-id="f7188-114">The server to which the node sends reports must be set up as a web pull server (you cannot send reports to an SMB share).</span></span> <span data-ttu-id="f7188-115">Informace o nastavení serveru vyžádané replikace najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md).</span><span class="sxs-lookup"><span data-stu-id="f7188-115">For information about setting up a pull server, see [Setting up a DSC web pull server](pullServer.md).</span></span> <span data-ttu-id="f7188-116">Server sestav může být stejnou službu, ze kterého si vyžádá konfigurace uzlu a získá prostředky, nebo může být jiné služby.</span><span class="sxs-lookup"><span data-stu-id="f7188-116">The report server can be the same service from which the node pulls configurations and gets resources, or it can be a different service.</span></span>
 
-<span data-ttu-id="7e6f8-113">Zjistit uzel pro odesílají sestavy na server pomocí **ReportServerWeb** blokovat v konfiguraci uzlu LCM (informace o konfiguraci LCM najdete v tématu [konfigurace správce místní konfigurace](metaConfig.md) ).</span><span class="sxs-lookup"><span data-stu-id="7e6f8-113">You tell a node to send reports to a server by using a **ReportServerWeb** block in the node's LCM configuration (for information about configuring the LCM, see [Configuring the Local Configuration Manager](metaConfig.md)).</span></span> <span data-ttu-id="7e6f8-114">Server, na kterou uzlu, odešle sestavy musí nastavit jako vyžadování webový server (sestavy nelze odeslat ke sdílené složce protokolu SMB).</span><span class="sxs-lookup"><span data-stu-id="7e6f8-114">The server to which the node sends reports must be set up as a web pull server (you cannot send reports to an SMB share).</span></span> <span data-ttu-id="7e6f8-115">Informace o nastavení serveru vyžádané replikace najdete v tématu [nastavení webového serveru vyžádané replikace DSC](pullServer.md).</span><span class="sxs-lookup"><span data-stu-id="7e6f8-115">For information about setting up a pull server, see [Setting up a DSC web pull server](pullServer.md).</span></span> <span data-ttu-id="7e6f8-116">Server sestav může být stejnou službu, ze kterého uzlu vrátí konfigurace a získá prostředky, nebo může být jinou službu.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-116">The report server can be the same service from which the node pulls configurations and gets resources, or it can be a different service.</span></span>
+<span data-ttu-id="f7188-117">V **ReportServerWeb** blok, můžete zadat adresu URL služby o přijetí změn a registrační klíč, který je známý k serveru.</span><span class="sxs-lookup"><span data-stu-id="f7188-117">In the **ReportServerWeb** block, you specify the URL of the pull service and a registration key that is known to the server.</span></span>
 
-<span data-ttu-id="7e6f8-117">V **ReportServerWeb** bloku, zadejte adresu URL služby vyžádání obsahu a registrační klíč, který se označuje k serveru.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-117">In the **ReportServerWeb** block, you specify the URL of the pull service and a registration key that is known to the server.</span></span>
-
-<span data-ttu-id="7e6f8-118">Následující konfigurace nakonfiguruje uzel pro vyžádání obsahu konfigurace z jedné služby a služby na jiném serveru, odesílat sestavy.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-118">The following configuration configures a node to pull configurations from one service, and send reports to a service on a different server.</span></span>
+<span data-ttu-id="f7188-118">Následující konfigurace nakonfiguruje uzel o přijetí změn konfigurace z jedné služby a odesílat zprávy do služby na jiném serveru.</span><span class="sxs-lookup"><span data-stu-id="f7188-118">The following configuration configures a node to pull configurations from one service, and send reports to a service on a different server.</span></span>
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -56,10 +56,11 @@ configuration ReportClientConfig
         }
     }
 }
+
 ReportClientConfig
 ```
 
-<span data-ttu-id="7e6f8-119">Nakonfiguruje následující konfigurace uzlu používat jeden server pro konfigurace, prostředky a vytváření sestav.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-119">The following configuration configures a node to use a single server for configurations, resources, and reporting.</span></span>
+<span data-ttu-id="f7188-119">Následující konfigurace nakonfiguruje uzel, který použijete jeden server pro konfigurace, prostředků a vytváření sestav.</span><span class="sxs-lookup"><span data-stu-id="f7188-119">The following configuration configures a node to use a single server for configurations, resources, and reporting.</span></span>
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -91,20 +92,26 @@ configuration PullClientConfig
 PullClientConfig
 ```
 
-><span data-ttu-id="7e6f8-120">**Poznámka:** můžete pojmenovat webovou službu všechno při nastavení na server vyžádané replikace, ale **ServerURL** vlastnost musí odpovídat názvu služby.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-120">**Note:** You can name the web service whatever you want when you set up a pull server, but the **ServerURL** property must match the service name.</span></span>
+> [!NOTE]
+> <span data-ttu-id="f7188-120">Můžete pojmenovat webové službě cokoliv, co chcete, při nastavení serveru vyžádané replikace, ale **ServerURL** vlastnost musí odpovídat názvu služby.</span><span class="sxs-lookup"><span data-stu-id="f7188-120">You can name the web service whatever you want when you set up a pull server, but the **ServerURL** property must match the service name.</span></span>
 
-## <a name="getting-report-data"></a><span data-ttu-id="7e6f8-121">Získávání dat sestavy</span><span class="sxs-lookup"><span data-stu-id="7e6f8-121">Getting report data</span></span>
+## <a name="getting-report-data"></a><span data-ttu-id="f7188-121">Načtení dat sestavy</span><span class="sxs-lookup"><span data-stu-id="f7188-121">Getting report data</span></span>
 
-<span data-ttu-id="7e6f8-122">Sestavy odeslat na server vyžádané replikace jsou vloženy do databáze na serveru.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-122">Reports sent to the pull server are entered into a database on the server.</span></span> <span data-ttu-id="7e6f8-123">Sestavy jsou k dispozici prostřednictvím volání webové služby.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-123">The reports are available through calls to the web service.</span></span> <span data-ttu-id="7e6f8-124">K načtení sestavy pro konkrétním uzlu, odeslání požadavku HTTP k webové službě sestavy v následující podobě: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId= 'MyNodeAgentId')/Reports` kde `MyNodeAgentId` je ID agenta uzlu, pro kterou chcete získat sestavy.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-124">To retrieve reports for a specific node, send an HTTP request to the report web service in the following form: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId= 'MyNodeAgentId')/Reports` where `MyNodeAgentId` is the AgentId of the node for which you want to get reports.</span></span> <span data-ttu-id="7e6f8-125">Můžete získat ID agenta pro uzel voláním [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx) v tomto uzlu.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-125">You can get the AgentID for a node by calling [Get-DscLocalConfigurationManager](https://technet.microsoft.com/library/dn407378.aspx) on that node.</span></span>
+<span data-ttu-id="f7188-122">Zprávy zasílané na server vyžádané replikace jsou zadány do databáze na serveru.</span><span class="sxs-lookup"><span data-stu-id="f7188-122">Reports sent to the pull server are entered into a database on the server.</span></span> <span data-ttu-id="f7188-123">Sestavy jsou k dispozici prostřednictvím volání webové služby.</span><span class="sxs-lookup"><span data-stu-id="f7188-123">The reports are available through calls to the web service.</span></span> <span data-ttu-id="f7188-124">Pokud chcete načíst sestavy pro konkrétní uzel, odesláním požadavku HTTP k webové službě sestavy v následující podobě: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId='MyNodeAgentId')/Reports` kde `MyNodeAgentId` je ID agenta uzlu, pro které chcete získat sestavy.</span><span class="sxs-lookup"><span data-stu-id="f7188-124">To retrieve reports for a specific node, send an HTTP request to the report web service in the following form: `http://CONTOSO-REPORT:8080/PSDSCReportServer.svc/Nodes(AgentId='MyNodeAgentId')/Reports` where `MyNodeAgentId` is the AgentId of the node for which you want to get reports.</span></span> <span data-ttu-id="f7188-125">ID agenta pro uzel můžete získat voláním [Get-DscLocalConfigurationManager](/powershell/module/PSDesiredStateConfiguration/Get-DscLocalConfigurationManager) na tomto uzlu.</span><span class="sxs-lookup"><span data-stu-id="f7188-125">You can get the AgentID for a node by calling [Get-DscLocalConfigurationManager](/powershell/module/PSDesiredStateConfiguration/Get-DscLocalConfigurationManager) on that node.</span></span>
 
-<span data-ttu-id="7e6f8-126">Sestavy se vrátí jako pole objektů JSON.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-126">The reports are returned as an array of JSON objects.</span></span>
+<span data-ttu-id="f7188-126">Sestavy se vrátí jako pole objektů JSON.</span><span class="sxs-lookup"><span data-stu-id="f7188-126">The reports are returned as an array of JSON objects.</span></span>
 
-<span data-ttu-id="7e6f8-127">Následující skript vrátí sestavy pro uzel, na kterém je spuštěna:</span><span class="sxs-lookup"><span data-stu-id="7e6f8-127">The following script returns the reports for the node on which it is run:</span></span>
+<span data-ttu-id="f7188-127">Sestavy pro uzel, na kterém je spuštěn, vrátí se následující skript:</span><span class="sxs-lookup"><span data-stu-id="f7188-127">The following script returns the reports for the node on which it is run:</span></span>
 
 ```powershell
 function GetReport
 {
-    param($AgentId = "$((glcm).AgentId)", $serviceURL = "http://CONTOSO-REPORT:8080/PSDSCPullServer.svc")
+    param
+    (
+        $AgentId = "$((glcm).AgentId)", 
+        $serviceURL = "http://CONTOSO-REPORT:8080/PSDSCPullServer.svc"
+    )
+
     $requestUri = "$serviceURL/Nodes(AgentId= '$AgentId')/Reports"
     $request = Invoke-WebRequest -Uri $requestUri  -ContentType "application/json;odata=minimalmetadata;streaming=true;charset=utf-8" `
                -UseBasicParsing -Headers @{Accept = "application/json";ProtocolVersion = "2.0"} `
@@ -114,15 +121,16 @@ function GetReport
 }
 ```
 
-## <a name="viewing-report-data"></a><span data-ttu-id="7e6f8-128">Zobrazení dat sestavy</span><span class="sxs-lookup"><span data-stu-id="7e6f8-128">Viewing report data</span></span>
+## <a name="viewing-report-data"></a><span data-ttu-id="f7188-128">Zobrazení dat sestavy</span><span class="sxs-lookup"><span data-stu-id="f7188-128">Viewing report data</span></span>
 
-<span data-ttu-id="7e6f8-129">Pokud nastavíte proměnnou na výsledek **GetReport** funkce, můžete zobrazit jednotlivých polí v elementu pole, která je vrácena:</span><span class="sxs-lookup"><span data-stu-id="7e6f8-129">If you set a variable to the result of the **GetReport** function, you can view the individual fields in an element of the array that is returned:</span></span>
+<span data-ttu-id="f7188-129">Pokud jste nastavili proměnné na výsledek **GetReport** funkce, můžete zobrazit jednotlivá pole v elementu pole, která je vrácena:</span><span class="sxs-lookup"><span data-stu-id="f7188-129">If you set a variable to the result of the **GetReport** function, you can view the individual fields in an element of the array that is returned:</span></span>
 
 ```powershell
 $reports = GetReport
 $reports[1]
+```
 
-
+```output
 JobId                : 019dfbe5-f99f-11e5-80c6-001dd8b8065c
 OperationType        : Consistency
 RefreshMode          : Pull
@@ -156,19 +164,21 @@ StatusData           : {{"StartDate":"2016-04-03T06:21:43.7220000-07:00","IPV6Ad
 AdditionalData       : {}
 ```
 
-<span data-ttu-id="7e6f8-130">Ve výchozím nastavení, sestavy jsou seřazené podle **JobID**.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-130">By default, the reports are sorted by **JobID**.</span></span> <span data-ttu-id="7e6f8-131">Chcete-li získat nejnovější sestavu, můžete sestavy seřadit podle sestupném **StartTime** vlastnost a potom get první prvek pole:</span><span class="sxs-lookup"><span data-stu-id="7e6f8-131">To get the most recent report, you can sort the reports by descending **StartTime** property, and then get the first element of the array:</span></span>
+<span data-ttu-id="f7188-130">Ve výchozím nastavení, sestavy jsou seřazeny podle **JobID**.</span><span class="sxs-lookup"><span data-stu-id="f7188-130">By default, the reports are sorted by **JobID**.</span></span> <span data-ttu-id="f7188-131">Pokud chcete získat nejnovější sestavy, můžete seřaďte sestavy podle sestupných **StartTime** vlastnost a potom získat první prvek pole:</span><span class="sxs-lookup"><span data-stu-id="f7188-131">To get the most recent report, you can sort the reports by descending **StartTime** property, and then get the first element of the array:</span></span>
 
 ```powershell
 $reportsByStartTime = $reports | Sort-Object {$_."StartTime" -as [DateTime] } -Descending
 $reportMostRecent = $reportsByStartTime[0]
 ```
 
-<span data-ttu-id="7e6f8-132">Všimněte si, že **StatusData** vlastnost je objekt s číslem vlastnosti.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-132">Notice that the **StatusData** property is an object with a number of properties.</span></span> <span data-ttu-id="7e6f8-133">Toto je, kde je mnohem data pro generování sestav.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-133">This is where much of the reporting data is.</span></span> <span data-ttu-id="7e6f8-134">Podívejme se na jednotlivé pole **StatusData** vlastnost na nejnovější sestavu:</span><span class="sxs-lookup"><span data-stu-id="7e6f8-134">Let's look at the individual fields of the **StatusData** property for the most recent report:</span></span>
+<span data-ttu-id="f7188-132">Všimněte si, **StatusData** vlastnosti je objekt s číslem vlastností.</span><span class="sxs-lookup"><span data-stu-id="f7188-132">Notice that the **StatusData** property is an object with a number of properties.</span></span> <span data-ttu-id="f7188-133">To je, kde velká část generování sestav dat je.</span><span class="sxs-lookup"><span data-stu-id="f7188-133">This is where much of the reporting data is.</span></span> <span data-ttu-id="f7188-134">Podívejme se na jednotlivé položky **StatusData** vlastnost nejnovější sestavy:</span><span class="sxs-lookup"><span data-stu-id="f7188-134">Let's look at the individual fields of the **StatusData** property for the most recent report:</span></span>
 
 ```powershell
 $statusData = $reportMostRecent.StatusData | ConvertFrom-Json
 $statusData
+```
 
+```output
 StartDate                  : 2016-04-04T11:21:41.2990000-07:00
 IPV6Addresses              : {2001:4898:d8:f2f2:852b:b255:b071:283b, fe80::852b:b255:b071:283b%12, ::2000:0:0:0, ::1...}
 DurationInSeconds          : 25
@@ -201,11 +211,13 @@ Locale                     : en-US
 Mode                       : Pull
 ```
 
-<span data-ttu-id="7e6f8-135">To mimo jiné to ukazuje, že nejaktuálnější konfiguraci názvem dva prostředky a jeden z nich byla v požadovaném stavu a jeden z nich nebyl.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-135">Among other things, this shows that the most recent configuration called two resources, and that one of them was in the desired state, and one of them was not.</span></span> <span data-ttu-id="7e6f8-136">Můžete získat jen na čtení výstup **ResourcesNotInDesiredState** vlastnost:</span><span class="sxs-lookup"><span data-stu-id="7e6f8-136">You can get a more readable output of just the **ResourcesNotInDesiredState** property:</span></span>
+<span data-ttu-id="f7188-135">Mimo jiné to ukazuje, že volá nejaktuálnější konfiguraci dvou zdrojů a jeden z nich byl v požadovaném stavu a jeden z nich nebyl.</span><span class="sxs-lookup"><span data-stu-id="f7188-135">Among other things, this shows that the most recent configuration called two resources, and that one of them was in the desired state, and one of them was not.</span></span> <span data-ttu-id="f7188-136">Můžete získat pouze lépe čitelný výstup **ResourcesNotInDesiredState** vlastnost:</span><span class="sxs-lookup"><span data-stu-id="f7188-136">You can get a more readable output of just the **ResourcesNotInDesiredState** property:</span></span>
 
 ```powershell
 $statusData.ResourcesInDesiredState
+```
 
+```output
 SourceInfo        : C:\ReportTest\Sample_xFirewall_AddFirewallRule.ps1::16::9::Archive
 ModuleName        : PSDesiredStateConfiguration
 DurationInSeconds : 2.672
@@ -219,9 +231,12 @@ ConfigurationName : Sample_ArchiveFirewall
 InDesiredState    : True
 ```
 
-<span data-ttu-id="7e6f8-137">Všimněte si, že tyto příklady jsou určené získáte představu o co můžete dělat s daty sestavy.</span><span class="sxs-lookup"><span data-stu-id="7e6f8-137">Note that these examples are meant to give you an idea of what you can do with report data.</span></span> <span data-ttu-id="7e6f8-138">Úvodní informace o práci s JSON v prostředí PowerShell, naleznete [přehrávání s protokoly JSON a prostředí PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).</span><span class="sxs-lookup"><span data-stu-id="7e6f8-138">For an introduction on working with JSON in PowerShell, see [Playing with JSON and PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).</span></span>
+<span data-ttu-id="f7188-137">Všimněte si, že tyto příklady jsou určeny pro získáte představu, co můžete dělat s daty sestavy.</span><span class="sxs-lookup"><span data-stu-id="f7188-137">Note that these examples are meant to give you an idea of what you can do with report data.</span></span> <span data-ttu-id="f7188-138">Úvodní informace o práci s JSON v prostředí PowerShell najdete v tématu [přehrávání s JSON a PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).</span><span class="sxs-lookup"><span data-stu-id="f7188-138">For an introduction on working with JSON in PowerShell, see [Playing with JSON and PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/08/playing-with-json-and-powershell/).</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="7e6f8-139">Viz také</span><span class="sxs-lookup"><span data-stu-id="7e6f8-139">See Also</span></span>
-- [<span data-ttu-id="7e6f8-140">Konfigurace správce místní konfigurace</span><span class="sxs-lookup"><span data-stu-id="7e6f8-140">Configuring the Local Configuration Manager</span></span>](metaConfig.md)
-- [<span data-ttu-id="7e6f8-141">Nastavení webového serveru vyžádané replikace DSC</span><span class="sxs-lookup"><span data-stu-id="7e6f8-141">Setting up a DSC web pull server</span></span>](pullServer.md)
-- [<span data-ttu-id="7e6f8-142">Použití konfiguračních názvů k nastavení načítacího klienta</span><span class="sxs-lookup"><span data-stu-id="7e6f8-142">Setting up a pull client using configuration names</span></span>](pullClientConfigNames.md)
+## <a name="see-also"></a><span data-ttu-id="f7188-139">Viz také</span><span class="sxs-lookup"><span data-stu-id="f7188-139">See Also</span></span>
+
+[<span data-ttu-id="f7188-140">Konfigurace Local Configuration Manageru</span><span class="sxs-lookup"><span data-stu-id="f7188-140">Configuring the Local Configuration Manager</span></span>](metaConfig.md)
+
+[<span data-ttu-id="f7188-141">Nastavení webového serveru vyžádané replikace DSC</span><span class="sxs-lookup"><span data-stu-id="f7188-141">Setting up a DSC web pull server</span></span>](pullServer.md)
+
+[<span data-ttu-id="f7188-142">Použití konfiguračních názvů k nastavení načítacího klienta</span><span class="sxs-lookup"><span data-stu-id="f7188-142">Setting up a pull client using configuration names</span></span>](pullClientConfigNames.md)
