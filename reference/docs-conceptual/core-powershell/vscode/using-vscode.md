@@ -1,67 +1,67 @@
-# <a name="using-visual-studio-code-for-powershell-development"></a>Pomocí kódu v sadě Visual Studio pro vývoj prostředí PowerShell
+# <a name="using-visual-studio-code-for-powershell-development"></a>Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 
-Kromě [prostředí PowerShell ISE][ise], prostředí PowerShell je také dobře podporované v kódu Visual Studio.
-Kromě toho se ISE nepodporuje základní prostředí PowerShell, když Visual Studio Code je podporována pro základní prostředí PowerShell na všech platformách (Windows, systému macOS a Linux)
+Kromě [prostředí PowerShell ISE][ise], prostředí PowerShell je také dobře podporované ve Visual Studio Code.
+Kromě toho ISE nepodporuje pomocí prostředí PowerShell Core, i když Visual Studio Code podporuje prostředí PowerShell Core na všech platformách (Windows, macOS a Linux)
 
-Visual Studio Code můžete použít v systému Windows v prostředí PowerShell verze 5 s použitím Windows 10 nebo instalací [Windows Management Framework 5.0 RTM](https://www.microsoft.com/en-us/download/details.aspx?id=50395) pro nižší úrovně operačních systémů Windows (např. Windows 8.1, atd.).
+Můžete použít Visual Studio Code ve Windows pomocí prostředí PowerShell verze 5 s použitím Windows 10 nebo po instalaci [Windows Management Framework 5.0 RTM](https://www.microsoft.com/en-us/download/details.aspx?id=50395) pro nižší úrovně OSs Windows (např. Windows 8.1, atd.).
 
-Před zahájením ho, Zkontrolujte prosím, že prostředí PowerShell v systému existuje.
-Pro moderní úlohy u systému Windows, systému macOS a Linux, přečtěte si část:
+Před jeho zahájením, ujistěte se prosím, že prostředí PowerShell v systému existuje.
+Pro moderní úlohy ve Windows, macOS a Linuxu naleznete v tématu:
 
-- [Instalace jádra prostředí PowerShell v systému Linux][install-pscore-linux]
-- [Instalace jádra prostředí PowerShell v systému macOS][install-pscore-macos]
-- [Instalace jádra prostředí PowerShell v systému Windows][install-pscore-windows]
+- [Instalace Powershellu Core v Linuxu][install-pscore-linux]
+- [Instalace Powershellu Core v macOS][install-pscore-macos]
+- [Instalace Powershellu Core ve Windows][install-pscore-windows]
 
-Pro tradiční úlohy prostředí Windows PowerShell, najdete v části [instalace prostředí Windows PowerShell][install-winps].
+Pro tradiční úlohy v prostředí Windows PowerShell najdete v článku [instalace prostředí Windows PowerShell][install-winps].
 
-## <a name="editing-with-visual-studio-code"></a>Úpravy s Visual Studio Code
+## <a name="editing-with-visual-studio-code"></a>Úpravy ve Visual Studiu Code
 
 ### <a name="1-installing-visual-studio-codehttpscodevisualstudiocomdocssetupsetup-overview"></a>[1. Instalace Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)
 
-- **Linux**: postupujte podle pokynů k instalaci na [systémem VS Code v systému Linux](https://code.visualstudio.com/docs/setup/linux) stránky
+- **Linux**: postupujte podle pokynů k instalaci na [spuštění VS Code na Linuxu](https://code.visualstudio.com/docs/setup/linux) stránky
 
-- **systému macOS**: postupujte podle pokynů k instalaci na [systémem VS Code v systému macOS](https://code.visualstudio.com/docs/setup/mac) stránky
+- **macOS**: postupujte podle pokynů k instalaci na [spuštění VS Code na macOS](https://code.visualstudio.com/docs/setup/mac) stránky
 
-> [!IMPORTANT]
-> V systému macOS je třeba nainstalovat OpenSSL pro rozšíření prostředí PowerShell fungovala správně.
-> Nejjednodušší způsob, jak se má nainstalovat [Homebrew](http://brew.sh/) a spusťte `brew install openssl`.
-> Nyní můžete načíst VS Code prostředí PowerShell rozšíření úspěšně.
+  > [!IMPORTANT]
+  > V systému macOS musíte nainstalovat OpenSSL pro rozšíření prostředí PowerShell správně fungovat.
+  > Nejjednodušší způsob, jak to provést, je instalace [Homebrew](http://brew.sh/) a pak spusťte `brew install openssl`.
+  > Nyní můžete načíst VS Code rozšíření Powershellu úspěšně.
 
-- **Windows**: postupujte podle pokynů k instalaci na [systémem VS Code v systému Windows](https://code.visualstudio.com/docs/setup/windows) stránky
+- **Windows**: postupujte podle pokynů k instalaci na [spuštění VS Code na Windows](https://code.visualstudio.com/docs/setup/windows) stránky
 
-### <a name="2-installing-powershell-extension"></a>2. Instaluje se rozšíření prostředí PowerShell
+### <a name="2-installing-powershell-extension"></a>2. Instaluje se rozšíření Powershellu
 
-- Spuštění sady Visual Studio Code aplikace pomocí:
-    - **Windows**: zadáním `code` v relaci prostředí PowerShell
-    - **Linux**: zadáním `code` v terminálu
-    - **systému macOS**: zadáním `code` v terminálu
+- Spuštění sady Visual Studio Code aplikaci:
+  - **Windows**: psaní `code` v relaci prostředí PowerShell
+  - **Linux**: psaní `code` v terminálu
+  - **macOS**: psaní `code` v terminálu
 
-- Spusťte **rychlé otevřete** stisknutím **Ctrl + P** (**Cmd + P** na Mac).
-- V rychlé otevřený, zadejte `ext install powershell` a počtu **Enter**.
-- **Rozšíření** otevře zobrazení na straně panelu. Vyberte požadované rozšíření prostředí PowerShell od společnosti Microsoft.
-  Měli byste vidět něco jako níže:
+- Spuštění **okno rychlého otevření** stisknutím kombinace kláves **Ctrl + P** (**Cmd + P** na počítači Mac).
+- Okno rychlého otevření zadejte `ext install powershell` a přístupů **Enter**.
+- **Rozšíření** na bočním panelu otevře se zobrazení. Vyberte rozšíření prostředí PowerShell od Microsoftu.
+  By měl vypadat přibližně jako následující:
 
   ![VSCode](../../images/vscode.png)
 
-- Klikněte **nainstalovat** tlačítko pro rozšíření prostředí PowerShell od společnosti Microsoft.
-- Po instalaci zobrazí **nainstalovat** tlačítko se změní **opětovného načtení**.
-  Klikněte na **opětovného načtení**.
-- Po Visual Studio Code má načíst znovu, jste připraveni pro úpravy.
+- Klikněte na tlačítko **nainstalovat** tlačítko na rozšíření prostředí PowerShell od Microsoftu.
+- Po instalaci, zobrazí **nainstalovat** tlačítko se změní **Reload**.
+  Klikněte na **Reload**.
+- Poté, co Visual Studio Code má nové načtení, jste připraveni pro úpravy.
 
-Například pokud chcete vytvořit nový soubor, klikněte na možnost **souboru -> Nový**.
-Chcete-li uložit, klikněte na tlačítko **souboru -> Uložit** a pak zadejte název souboru, můžeme vyslovte `HelloWorld.ps1`.
-Zavřete soubor, klikněte na "x" vedle názvu souboru.
-Chcete-li ukončit Visual Studio Code **souboru -> ukončení**.
+Například chcete-li vytvořit nový soubor, klikněte na tlačítko **soubor -> Nový**.
+Pokud chcete uložit, klikněte na tlačítko **soubor -> Uložit** a pak zadejte název souboru, Pojďme Dejme tomu, že `HelloWorld.ps1`.
+Zavřete soubor, klikněte na "x" vedle jeho názvu.
+Chcete-li ukončit Visual Studio Code, **soubor -> ukončení**.
 
-#### <a name="using-a-specific-installed-version-of-powershell"></a>Pomocí konkrétní nainstalovaná verze prostředí PowerShell
+#### <a name="using-a-specific-installed-version-of-powershell"></a>Pomocí konkrétní nainstalovanou verzi prostředí PowerShell
 
-Pokud chcete použít konkrétní instalaci prostředí PowerShell s kódem jazyka Visual Studio, budete muset přidat nové proměnné do souboru nastavení uživatele.
+Pokud chcete použít konkrétní instalaci prostředí PowerShell pomocí Visual Studio Code, budete muset do souboru nastavení uživatele přidejte novou proměnnou.
 
-1. Klikněte na tlačítko **souboru -> Předvolby -> Nastavení**
-1. Zobrazí se dvě podokna editor.
-   V podokně nejvíce vpravo (`settings.json`), vložte následující nastavení vhodné pro váš operační systém někde mezi dvěma složené závorky (`{` a `}`) a nahraďte *<version>* s nainstalovaným klientem Verze prostředí PowerShell:
+1. Klikněte na tlačítko **soubor -> Předvolby -> Nastavení**
+2. Zobrazí se dvě podokna editoru.
+   V podokně úplně vpravo (`settings.json`), vložte níže uvedené nastavení vhodná pro váš operační systém někde mezi dva složené závorky (`{` a `}`) a nahraďte *<version>* s nainstalovaným klientem Verze prostředí PowerShell:
 
-  ```json
+   ```json
     // On Windows:
     "powershell.powerShellExePath": "c:/Program Files/PowerShell/<version>/pwsh.exe"
 
@@ -70,9 +70,10 @@ Pokud chcete použít konkrétní instalaci prostředí PowerShell s kódem jazy
 
     // On macOS:
     "powershell.powerShellExePath": "/usr/local/microsoft/powershell/<version>/pwsh"
-  ```
-1. Nastavení nahraďte cesta k požadované spustitelný soubor prostředí PowerShell
-1. Uložte soubor s nastaveními a restartujte Visual Studio Code
+   ```
+
+3. Nahraďte cestou do požadovaného Powershellu spustitelný soubor nastavení
+4. Uložte soubor s nastaveními a restartujte Visual Studio Code
 
 #### <a name="configuration-settings-for-visual-studio-code"></a>Nastavení konfigurace pro Visual Studio Code
 
@@ -90,41 +91,41 @@ Doporučujeme následující nastavení konfigurace pro Visual Studio Code:
 }
 ```
 
-## <a name="debugging-with-visual-studio-code"></a>Ladění pomocí kódu v sadě Visual Studio
+## <a name="debugging-with-visual-studio-code"></a>Ladění ve Visual Studiu Code
 
-### <a name="no-workspace-debugging"></a>Prostoru bez ladění
+### <a name="no-workspace-debugging"></a>Ladění žádný pracovní prostor
 
-Od verze Visual Studio Code 1.9 můžete ladit skripty prostředí PowerShell, bez nutnosti otevřít složku, která obsahuje skript prostředí PowerShell.
-Stačí otevřít soubor skriptu prostředí PowerShell s **souboru -> Otevřít soubor...** , zarážku na řádek (stiskněte F9) a poté stisknutím klávesy F5 spusťte ladění.
-Měli byste vidět v podokně Akce ladění zobrazují, které umožňuje rozdělit ladicí program, krok, opětovné spuštění a zastavení ladění.
+Od verze Visual Studio Code 1.9 můžete ladit skripty Powershellu bez nutnosti otevřít složku, která obsahuje skript prostředí PowerShell.
+Jednoduše otevřete soubor skriptu Powershellu pomocí **soubor -> Otevřít soubor...** , nastavte zarážku na řádku (stiskněte klávesu F9) a potom stiskněte klávesu F5 pro spuštění ladění.
+Měli byste vidět podokna akcí ladění se zobrazí, které umožňuje proniknout do ladicího programu, krok, obnovit a Zastavit ladění.
 
-### <a name="workspace-debugging"></a>Pracovní prostor ladění
+### <a name="workspace-debugging"></a>Ladění pracovního prostoru
 
-Pracovní prostor ladění odkazuje na ladění v kontextu složce, kterou jste otevřeli pomocí Visual Studio Code **otevřít složku...**  z **souboru** nabídky.
-Otevření složky je obvykle složky projektu prostředí PowerShell nebo kořenového úložiště Git.
+Pracovní prostor ladění odkazuje na ladění v rámci složky, kterou jste otevřeli pomocí Visual Studio Code **otevřít složku...**  z **souboru** nabídky.
+Otevření složky je obvykle složky projektu Powershellu a/nebo kořenu úložiště Git.
 
-I v tomto režimu můžete spustit ladění aktuálně vybrané skriptu prostředí PowerShell jednoduše stisknutím klávesy F5.
-Ale ladění prostoru umožňuje definovat ladění konfigurací s více než jen ladění aktuálně otevřených souborů.
-Například můžete přidat konfigurace, které:
+I v tomto režimu ladění lze spustit vybrané skript Powershellu jednoduše stisknutím klávesy F5.
+Ale ladění pracovního prostoru můžete zadat ladění konfigurací s víc než jenom ladění aktuálně otevřený soubor.
+Můžete například přidat konfigurace, které:
 
 - Spusťte testy Pester v ladicím programu
-- Spuštění určitého souboru s argumenty v ladicím programu
-- Spusťte interaktivní relace v ladicím programu
-- Připojí ladicí program k hostitelskému procesu prostředí PowerShell
+- Spuštění konkrétního souboru s argumenty v ladicím programu
+- Spustit interaktivní relaci v ladicím programu
+- Připojit ladicí program k procesu hostitele prostředí PowerShell
 
-Postupujte podle těchto kroků můžete vytvořit ladění konfiguračním souboru:
+  Postupujte podle těchto kroků můžete vytvořit konfigurační soubor ladění:
 
-1. Otevřete **ladění** zobrazení stisknutím **Ctrl + Shift + D** (**Cmd + Shift + D** v systému Mac).
-1. Stiskněte **konfigurace** ozubené kolečko ikonu na panelu nástrojů.
-1. Visual Studio Code vás vyzve, abyste **vyberte prostředí**.
-   Zvolte **prostředí PowerShell**.
+  1. Otevřít **ladění** zobrazit stisknutím klávesy **Ctrl + Shift + D** (**Cmd + Shift + D** na počítači Mac).
+  2. Stisknutím klávesy **konfigurovat** ikonu ozubeného kolečka v panelu nástrojů.
+  3. Visual Studio Code vás vyzve, abyste **vyberte prostředí**.
+  Zvolte **Powershellu**.
 
-   Když to uděláte, Visual Studio Code vytvoří adresář a soubor ".vscode\launch.json" v kořenové složce pracovního prostoru.
-   Toto je, kde je uložen konfiguraci ladění. Pokud jsou vaše soubory v úložišti Git, obvykle chcete potvrdit soubor launch.json.
-   Obsah souboru launch.json jsou:
+  Když toto provedete, Visual Studio Code vytvoří adresář a soubor ".vscode\launch.json" v kořenovém adresáři vašeho pracovního prostoru.
+  Toto je ukládat konfiguraci ladění. Pokud jsou vaše soubory v úložišti Git, obvykle chcete potvrdit souboru launch.json.
+  Obsah souboru launch.json jsou:
 
-```json
-{
+  ```json
+  {
     "version": "0.2.0",
     "configurations": [
         {
@@ -149,43 +150,45 @@ Postupujte podle těchto kroků můžete vytvořit ladění konfiguračním soub
             "cwd": "${workspaceRoot}"
         }
     ]
-}
-```
+  }
+  ```
 
-To představuje běžné scénáře ladění.
-Ale při otevření tohoto souboru v editoru, uvidíte **Přidat konfiguraci...**  tlačítko.
-Toto tlačítko k přidání více konfigurací ladění prostředí PowerShell. Je užitečný konfigurací přidat **prostředí PowerShell: Spustí skript**.
-Pomocí této konfigurace můžete zadat konkrétní soubor s volitelné argumenty, které musí být spuštěna vždy, když stisknete klávesu F5, bez ohledu na soubor, který je aktuálně aktivní v editoru.
+  To představuje běžné scénáře ladění.
+  Ale při otevření tohoto souboru v editoru, se zobrazí **Přidat konfiguraci...**  tlačítko.
+  Toto tlačítko pro přidání další konfiguraci ladění Powershellu. Je jedna po ruce konfigurace k přidání **prostředí PowerShell: Spusťte skript**.
+  S touto konfigurací můžete zadat konkrétní soubor s volitelné argumenty, které má být spuštěna vždy, když stisknete klávesu F5, bez ohledu na to soubor, který je právě aktivní v editoru.
 
-Po vytvoření konfiguraci ladění, můžete vybrat konfiguraci, kterou chcete použít během relace ladění výběrem jedné z rozevíracího seznamu v konfiguraci ladění **ladění** zobrazení panelu nástrojů.
+  Jakmile se naváže konfiguraci ladění, můžete vybrat konfiguraci, kterou chcete použít během relace ladění výběrem jedné z rozevíracího seznamu v konfiguraci ladění **ladění** nástrojů pro zobrazení.
 
-Existuje několik blogy, které mohou být užitečné, které vám pomůžou začít pomocí prostředí PowerShell rozšíření pro Visual Studio Code
+  Existuje několik blogy, které mohou být užitečné, které vám pomůžou začít pomocí rozšíření prostředí PowerShell pro Visual Studio Code
 
-- Visual Studio Code: [rozšíření prostředí PowerShell][ps-extension]
-- [Zápis a ladění skriptů prostředí PowerShell v kódu Visual Studio][debug]
+Visual Studio Code:
+
+- [Rozšíření prostředí PowerShell][ps-extension]
+- [Programujte a laďte Powershellových skriptů v aplikaci Visual Studio Code][debug]
 - [Ladění v sadě Visual Studio Code pokyny][vscode-guide]
-- [Ladění prostředí PowerShell v sadě Visual Studio kódu][ps-vscode]
-- [Začínáme s vývojem pro prostředí PowerShell v kódu Visual Studio][getting-started]
-- [Visual Studio Code úpravy funkce pro vývoj prostředí PowerShell – část 1][editing-part1]
-- [Visual Studio Code úpravy funkce pro vývoj prostředí PowerShell – část 2][editing-part2]
-- [Ladění skriptu prostředí PowerShell v kódu Visual Studio – část 1][debugging-part1]
-- [Ladění skriptu prostředí PowerShell v kódu Visual Studio – část 2][debugging-part2]
+- [Ladění v prostředí PowerShell ve službě Visual Studio Code][ps-vscode]
+- [Začínáme s vývojem Powershellu ve Visual Studio Code][getting-started]
+- [Visual Studio Code úpravy funkce pro vývoj Powershellu – část 1][editing-part1]
+- [Visual Studio Code úpravy funkce pro vývoj Powershellu – část 2][editing-part2]
+- [Ladění skriptů Powershellu v aplikaci Visual Studio Code – část 1][debugging-part1]
+- [Ladění skriptů Powershellu v aplikaci Visual Studio Code – část 2][debugging-part2]
 
 [ise]: ../ise-guide.md
 [install-pscore-linux]:  ../../setup/Installing-PowerShell-Core-on-Linux.md
 [install-pscore-macos]:  ../../setup/Installing-PowerShell-Core-on-macOS.md
 [install-pscore-windows]: ../../setup/Installing-PowerShell-Core-on-Windows.md
 [install-winps]: ../../setup/Installing-Windows-PowerShell.md
-[ps-extension]:https://blogs.msdn.microsoft.com/cdndevs/2015/12/11/visual-studio-code-powershell-extension/
-[debug]:https://blogs.msdn.microsoft.com/powershell/2015/11/16/announcing-powershell-language-support-for-visual-studio-code-and-more/
-[vscode-guide]:https://johnpapa.net/debugging-with-visual-studio-code/
-[ps-vscode]:https://github.com/PowerShell/vscode-powershell/tree/master/examples
-[getting-started]:https://blogs.technet.microsoft.com/heyscriptingguy/2016/12/05/get-started-with-powershell-development-in-visual-studio-code/
-[editing-part1]:https://blogs.technet.microsoft.com/heyscriptingguy/2017/01/11/visual-studio-code-editing-features-for-powershell-development-part-1/
-[editing-part2]:https://blogs.technet.microsoft.com/heyscriptingguy/2017/01/12/visual-studio-code-editing-features-for-powershell-development-part-2/
-[debugging-part1]:https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/
-[debugging-part2]:https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/13/debugging-powershell-script-in-visual-studio-code-part-2/
+[ps-extension]: https://blogs.msdn.microsoft.com/cdndevs/2015/12/11/visual-studio-code-powershell-extension/
+[debug]: https://blogs.msdn.microsoft.com/powershell/2015/11/16/announcing-powershell-language-support-for-visual-studio-code-and-more/
+[vscode-guide]: https://johnpapa.net/debugging-with-visual-studio-code/
+[ps-vscode]: https://github.com/PowerShell/vscode-powershell/tree/master/examples
+[getting-started]: https://blogs.technet.microsoft.com/heyscriptingguy/2016/12/05/get-started-with-powershell-development-in-visual-studio-code/
+[editing-part1]: https://blogs.technet.microsoft.com/heyscriptingguy/2017/01/11/visual-studio-code-editing-features-for-powershell-development-part-1/
+[editing-part2]: https://blogs.technet.microsoft.com/heyscriptingguy/2017/01/12/visual-studio-code-editing-features-for-powershell-development-part-2/
+[debugging-part1]: https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/
+[debugging-part2]: https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/13/debugging-powershell-script-in-visual-studio-code-part-2/
 
 ## <a name="powershell-extension-for-visual-studio-code"></a>Rozšíření prostředí PowerShell pro Visual Studio Code
 
-Rozšíření prostředí PowerShell zdrojový kód najdete na [Githubu](https://github.com/PowerShell/vscode-powershell).
+Rozšíření prostředí PowerShell zdrojový kód můžete najít na [Githubu](https://github.com/PowerShell/vscode-powershell).

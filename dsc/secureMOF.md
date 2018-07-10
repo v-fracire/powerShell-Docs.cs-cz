@@ -1,86 +1,90 @@
 ---
 ms.date: 10/31/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Zabezpečení souboru MOF
-ms.openlocfilehash: d6f213e497838192ca6ce8d537cc291ee3811e79
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: f17c95c951151c0c11057ac0bce172c4ec73c91d
+ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190192"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37893259"
 ---
 # <a name="securing-the-mof-file"></a>Zabezpečení souboru MOF
 
->Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-DSC spravuje konfigurace uzlů serveru pomocí informace uložené v souboru MOF, kde místní Configuration Manager (LCM) implementuje požadované koncové stavu.
-Protože tento soubor obsahuje podrobnosti o konfiguraci, je důležité k lepšímu zabezpečení.
-Toto téma popisuje, jak na cílový uzel je šifrovaný soubor.
+DSC spravuje konfiguraci uzlů serveru s použitím informací uložených v souboru MOF, kde místní Configuration Manageru (LCM) implementuje požadované koncový stav.
+Tento soubor obsahuje podrobnosti o konfiguraci, proto je důležité, abyste zajistili jeho zabezpečení.
+Toto téma popisuje, jak zajistit cílový uzel má šifrování souboru.
 
-Od verze prostředí PowerShell, verze 5.0, celý soubor MOF je zašifrovaná ve výchozím nastavení při použití na uzlu pomocí **Start-DSCConfiguration** rutiny.
-Proces popsaný v tomto článku se vyžaduje jenom v případě, že implementaci řešení pro použití protokolu vyžádání obsahu, pokud nejsou spravovány certifikáty, aby konfigurace stáhne cílový uzel může dešifrovat a číst systému před jejich instalací (například službu vyžádání obsahu k dispozici v systému Windows Server).
-Uzly zaregistrované [Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-overview) bude automaticky certifikáty instalaci a spravuje službu s žádné režijní náklady na správu požadované.
+Od verze prostředí PowerShell verze 5.0, celý soubor MOF zašifrují ve výchozím nastavení při použití na uzlu pomocí `Start-DSCConfiguration` rutiny.
+Proces popsaný v tomto článku se vyžaduje jenom při implementaci řešení, které využívá službu protokolu o přijetí změn, pokud nejsou spravované certifikáty, aby konfigurace stáhl cílový uzel je možné dešifrovat a čtení systém předtím, než se použijí (například službu přijetí změn ve Windows serveru k dispozici).
+Uzly zaregistrovaný [Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-overview) bude automaticky certifikáty instalaci a spravovaná služba s žádné administrativní režii vyžaduje.
 
->**Poznámka:** Toto téma popisuje certifikátů používaných pro šifrování.
->Certifikát podepsaný svým držitelem pro šifrování, stačí, protože privátní klíč je vždy tajný klíč a šifrování neznamená důvěryhodnosti dokumentu.
->Certifikáty podepsané svým držitelem by *není* být použito pro účely ověřování.
->Měli byste použít certifikát od důvěryhodné certifikační autority (CA) k jakýmkoli jiným účelům ověřování.
+> [!NOTE]
+> Toto téma popisuje certifikáty používané k šifrování.
+> Pro šifrování certifikát podepsaný svým držitelem je dostačující, protože privátní klíč zůstane vždy tajný klíč a šifrování neznamená důvěryhodnosti dokumentu.
+> Certifikáty podepsané svým držitelem by *není* slouží k jeho ověřování.
+> Pro účely ověřování používejte certifikát od důvěryhodné certifikační autority (CA).
 
 ## <a name="prerequisites"></a>Předpoklady
 
-Chcete-li úspěšně šifrovat přihlašovací údaje používané k zabezpečení konfigurace DSC, ujistěte se, že máte následující:
+Chcete-li úspěšně šifrovat přihlašovací údaje používané k zabezpečení konfiguraci DSC, ujistěte se, že máte následující:
 
-* **Některé prostředky, vydávání a distribuci certifikátů**. Toto téma a jeho příklady předpokládají, že používáte Active Directory certifikační autority. Pro další základní informace o službě Active Directory Certificate Services naleznete v tématu [přehled Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx) a [Active Directory Certificate Services v systému Windows Server 2008](https://technet.microsoft.com/windowsserver/dd448615.aspx).
-* **Přístup pro správu na cílový uzel nebo uzly**.
-* **Každý cílový uzel má certifikát podporující šifrování uložit jeho osobní úložiště**. V prostředí Windows PowerShell je cesta k úložišti Cert: \LocalMachine\My. V příkladech v tomto tématu použijte šablonu "ověřování pracovní stanice", které můžete vyhledat (spolu s další šablony certifikátů) v [výchozí šablony certifikátů](https://technet.microsoft.com/library/cc740061(v=WS.10).aspx).
-* Pokud budete používat tuto konfiguraci na jiném počítači než cílový uzel **exportujte veřejný klíč certifikátu**a importujte ho do počítače se spustí konfiguraci z. Ujistěte se, že exportujete pouze **veřejné** klíče; zabezpečit privátní klíč.
+- **Některé prostředky, vydávání a distribuci certifikátů**. Toto téma a jeho příklady předpokládají, že používáte Active Directory certifikační autority. Další informace na pozadí v Active Directory Certificate Services najdete v tématu [přehled Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx) a [Active Directory Certificate Services ve Windows serveru 2008](https://technet.microsoft.com/windowsserver/dd448615.aspx).
+- **Přístup pro správu na cílový uzel nebo uzly**.
+- **Každý cílový uzel má certifikát podporující šifrování, uložit své osobní Store**. V prostředí Windows PowerShell je cesta k úložišti certifikátů: \LocalMachine\My. Příklady v tomto tématu použijte šablonu "ověřování pracovní stanice", která můžete najít (společně s další šablony certifikátů) v [výchozí šablony certifikátů](https://technet.microsoft.com/library/cc740061(v=WS.10).aspx).
+- Pokud budete používat tuto konfiguraci na jiném počítači než cílový uzel **export veřejného klíče certifikátu**a importovat ho do počítače se spustí konfiguraci z. Ujistěte se, že je exportovat pouze **veřejné** klíče; zabezpečit privátní klíč.
 
 ## <a name="overall-process"></a>Celkový proces
 
- 1. Nastavení klíče, certifikátů a kryptografických otisků, a ujistěte se, že každý cílový uzel má kopie certifikátu a v počítači konfigurace je veřejný klíč a kryptografický otisk.
- 2. Vytvořte blok dat konfigurace, který obsahuje cestu a kryptografický otisk veřejný klíč.
- 3. Vytvořte konfigurační skript, který definuje požadovanou konfiguraci pro cílový uzel a nastaví dešifrování na cílové uzly podle tvorba příkazů konfiguraci místního správce k dešifrování dat konfigurace pomocí certifikátu a jeho kryptografický otisk.
- 4. Spusťte konfigurace, který bude nastavení správce místní konfigurace a spuštění konfigurace DSC.
+ 1. Nastavte certifikáty, klíče a kryptografických otisků, ujistěte se, že každý cílový uzel má kopie certifikátu a konfigurace počítače veřejným klíčem a kryptografického otisku.
+ 2. Vytvoří blok dat konfigurace, který obsahuje cestu a kryptografický otisk veřejný klíč.
+ 3. Vytvořte konfigurační skript, který definuje požadovanou konfiguraci pro cílový uzel a nastaví dešifrování cílové uzly podle příkazů místní konfiguraci správce dešifrovat konfigurační data pomocí certifikátu a jeho kryptografický otisk.
+ 4. Spusťte konfiguraci, která bude nastavení Local Configuration Manageru a spustit konfiguraci DSC.
 
 ![Diagram1](images/CredentialEncryptionDiagram1.png)
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikát
 
-K uplatní šifrování přihlašovacích údajů, musí být k dispozici na certifikátu veřejného klíče _cílový uzel_ tedy **důvěryhodné** pro počítač používá k vytváření konfigurace DSC.
-Certifikát veřejného klíče má specifické požadavky pro něj má být použit pro šifrování přihlašovacích údajů DSC:
- 1. **Použití klíče**:
-   - Musí obsahovat: 'KeyEncipherment' a 'DataEncipherment'.
-   - Měli _není_ obsahovat: 'Digitální podpis'.
- 2. **Rozšířené použití klíče**:
+K uplatní šifrování přihlašovacích údajů, certifikát veřejného klíče musí být k dispozici na _cílový uzel_ , který je **důvěryhodné** počítač používá pro vytvoření konfigurace DSC.
+Tento certifikát veřejného klíče má specifické požadavky, aby se používá pro šifrování přihlašovacích údajů DSC:
+
+1. **Použití klíče**:
+   - Musí obsahovat: "KeyEncipherment" a "DataEncipherment".
+   - By měl _není_ obsahovat: "Digitální podpis".
+2. **Rozšířené použití klíče**:
    - Musí obsahovat: šifrování dokumentů (1.3.6.1.4.1.311.80.1).
-   - Měli _není_ obsahovat: ověření klienta (1.3.6.1.5.5.7.3.2) a ověření serveru (1.3.6.1.5.5.7.3.1).
- 3. Soukromý klíč pro certifikát je k dispozici na * Node_ cíl.
- 4. **Zprostředkovatele** pro certifikát musí být "Microsoft RSA SChannel Cryptographic Provider".
+   - By měl _není_ obsahovat: ověření klienta (1.3.6.1.5.5.7.3.2) a ověření serveru (1.3.6.1.5.5.7.3.1).
+3. Privátní klíč certifikátu je k dispozici na * Node_ cíl.
+4. **Poskytovatele** pro tento certifikát musí být "Microsoft RSA SChannel Cryptographic Provider".
 
->**Doporučený osvědčený postup:** i když používáte certifikát s obsahující použití klíče, digitální podpis, nebo jednoho z ověřování EKU tím povolíte šifrovacího klíče se snadněji chybná a bude zranitelný vůči útoku. Proto je vhodné používat certifikát vytvořena speciálně pro účely zabezpečení DSC pověření, který vynechá tyto použití klíče a rozšířená použití klíče.
+> [!IMPORTANT]
+> I když používáte certifikát s obsahující použití klíče 'Digitální podpis' nebo některou z použití klíče ověřování, tím povolíte šifrovacího klíče na možné snadněji chybná a zranitelný vůči útoku. Proto je osvědčeným postupem je použití certifikátu vytvořené speciálně pro účely zabezpečení přihlašovacích údajů DSC, která vynechává tyto použití klíče a rozšířená použití klíče.
 
-Všechny existující certifikát na _cílový uzel_ , že splňuje tyto kritéria slouží k zabezpečené přihlašovací údaje DSC.
+Všechny existující certifikát na _cílový uzel_ , že splňuje tyto kritéria lze použít na zabezpečené přihlašovací údaje DSC.
 
 ## <a name="certificate-creation"></a>Vytvoření certifikátu
 
-Existují dva přístupy, které můžete použít k vytváření a používání požadovaný certifikát šifrování (pár veřejného a privátního klíče).
+Existují dva přístupy, které si můžete vytvořit a použít požadované šifrovací certifikát (pár veřejného a privátního klíče).
 
-1. Vytvořte na **cílový uzel** a exportovat pouze veřejný klíč k **vytváření uzlu**
-2. Vytvořit na **vytváření uzlu** a celý páru klíčů pro export **cílový uzel.**
+1. Vytvořit v **cílový uzel** a exportovat pouze veřejný klíč, který **vytváření uzlu**
+2. Vytvořit v **vytváření uzel** a exportovat celé dvojici klíčů k **cílový uzel**
 
-Metoda 1 se doporučuje, protože privátní klíč používaný k dešifrování přihlašovací údaje v MOF zůstává na cílový uzel za všech okolností.
+Metoda 1 se doporučuje, protože privátní klíč používaný k dešifrování přihlašovacích údajů v soubor MOF táhnou za jeden cílový uzel za všech okolností.
 
+### <a name="creating-the-certificate-on-the-target-node"></a>Vytvoření certifikátu na cílový uzel
 
-### <a name="creating-the-certificate-on-the-target-node"></a>Vytváření certifikátu na cílovém uzlu
-
-Privátní klíč musí být udržovány tajný, protože se používá k dešifrování MOF na **cílový uzel** je nejjednodušší způsob, jak to udělat k vytvoření certifikátu privátního klíče na **cílový uzel**a zkopírujte  **certifikát veřejného klíče** k počítači používá k vytváření konfigurace DSC do souboru MOF.
+Privátní klíč musí být udržen v tajnosti, protože se používá k dešifrování soubor MOF v **cílový uzel** je nejjednodušší způsob, jak to udělat k vytvoření certifikátu privátního klíče na **cílový uzel**a zkopírujte  **certifikát veřejného klíče** do počítače se použije k vytvoření konfigurace DSC do souboru MOF.
 V následujícím příkladu:
- 1. vytvoří certifikát na **cílový uzel.**
- 2. Exportuje certifikátu veřejného klíče na **cílový uzel**.
- 3. Importuje certifikátu veřejného klíče do **Moje** úložiště certifikátů na **vytváření uzlu**.
+
+1. vytvoří certifikát na **cílový uzel**
+2. Exportuje certifikátu veřejného klíče na **cílový uzel**.
+3. Importuje certifikát veřejného klíče do **Moje** úložiště certifikátů na **vytváření obsahu uzlu**.
 
 #### <a name="on-the-target-node-create-and-export-the-certificate"></a>Na cílovém uzlu: vytvoření a export certifikátu
->Cílový uzel: Windows Server 2016 a Windows 10
+
+> Cílový uzel: Windows Server 2016 a Windows 10
 
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
@@ -88,14 +92,17 @@ $cert = New-SelfSignedCertificate -Type DocumentEncryptionCertLegacyCsp -DnsName
 # export the public key certificate
 $cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
-Po exportu ```DscPublicKey.cer``` by bylo potřeba kopírovat do **vytváření uzlu**.
 
->Cílový uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
+Jednou exportovat `DscPublicKey.cer` by bylo potřeba zkopírovat do **vytváření uzel**.
 
-Protože rutinu New-SelfSignedCertificate na Windows operačních systémech starších než Windows 10 a Windows Server 2016 nepodporují **typ** parametr, alternativní metodu vytváření tohoto certifikátu je povinný, pokud k nim operační systémy.
-V takovém případě můžete použít ```makecert.exe``` nebo ```certutil.exe``` k vytvoření certifikátu.
+> Cílový uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
+> [!WARNING]
+> Protože `New-SelfSignedCertificate` rutiny ve Windows operačních systémech starších než Windows 10 a Windows Server 2016 nepodporuje **typ** parametr, alternativní způsob vytváření tento certifikát je nutný v těchto operačních systémech.
+>
+> V tomto případě můžete použít `makecert.exe` nebo `certutil.exe` k vytvoření certifikátu.
+>
+>Alternativní způsob je [stáhnout skript New-SelfSignedCertificateEx.ps1 z webu Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) a použít ho k vytvoření certifikátu místo toho:
 
-Je to alternativní metoda [stáhnout z webu Microsoft Script Center skript New-SelfSignedCertificateEx.ps1](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) a použít ho k vytvoření certifikátu místo:
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
 # and in the folder that contains New-SelfSignedCertificateEx.ps1
@@ -113,35 +120,38 @@ New-SelfsignedCertificateEx `
     -AlgorithmName 'RSA' `
     -SignatureAlgorithm 'SHA256'
 # Locate the newly created certificate
-$Cert = Get-ChildItem -Path cert:\LocalMachine\My `
-    | Where-Object {
-        ($_.FriendlyName -eq 'DSC Credential Encryption certificate') `
-        -and ($_.Subject -eq "CN=${ENV:ComputerName}")
+$Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {
+        ($_.FriendlyName -eq 'DSC Credential Encryption certificate') -and ($_.Subject -eq "CN=${ENV:ComputerName}")
     } | Select-Object -First 1
 # export the public key certificate
 $cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
-Po exportu ```DscPublicKey.cer``` by bylo potřeba kopírovat do **vytváření uzlu**.
 
-#### <a name="on-the-authoring-node-import-the-certs-public-key"></a>Na uzlu vytváření: import veřejného klíče certifikátu
+Jednou exportovat ```DscPublicKey.cer``` by bylo potřeba zkopírovat do **vytváření uzel**.
+
+#### <a name="on-the-authoring-node-import-the-certs-public-key"></a>V uzlu pro tvorbu: Importovat veřejný klíč certifikátu
+
 ```powershell
 # Import to the my store
 Import-Certificate -FilePath "$env:temp\DscPublicKey.cer" -CertStoreLocation Cert:\LocalMachine\My
 ```
 
-### <a name="creating-the-certificate-on-the-authoring-node"></a>Vytváření certifikátu na uzlu pro tvorbu
-Alternativně lze vytvořit šifrovací certifikát na **vytváření uzlu**, exportovaný s **privátní klíč** jako PFX souboru a poté importovat na **cílový uzel**.
-Toto je aktuální metoda pro implementaci šifrování přihlašovacích údajů DSC na _Nano Server_.
-I když soubor PFX je zabezpečen heslo se musí být zabezpečen během přenosu.
-V následujícím příkladu:
- 1. vytvoří certifikát na **vytváření uzlu**.
- 2. Exportuje certifikát, včetně privátního klíče **vytváření uzlu**.
- 3. Odebere privátní klíč z **vytváření uzlu**, ale zachová certifikátu veřejného klíče **Moje** uložit.
- 4. Importuje privátní klíč certifikátu do úložiště certifikátů My(Personal) na **cílový uzel**.
-   - musí být přidané do kořenového úložiště tak, aby se důvěřují **cílový uzel**.
+### <a name="creating-the-certificate-on-the-authoring-node"></a>Vytvoření certifikátu pro vytváření obsahu uzlu
 
-#### <a name="on-the-authoring-node-create-and-export-the-certificate"></a>Na uzlu vytváření: vytvoření a export certifikátu
->Cílový uzel: Windows Server 2016 a Windows 10
+Alternativně se dají vytvořit šifrovací certifikát na **vytváření uzel**, exportovaný s **privátní klíč** jako PFX soubor a potom naimportovat **cílový uzel**.
+Toto je aktuální metody pro implementaci šifrování přihlašovacích údajů DSC v _Nano Server_.
+I když soubor PFX je zabezpečený pomocí hesla by měla být ukázal jako nedocenitelný zabezpečené během přenosu.
+V následujícím příkladu:
+
+1. vytvoří certifikát na **vytváření obsahu uzlu**.
+2. Exportuje včetně soukromého klíče v certifikátu **vytváření obsahu uzlu**.
+3. Odstraní privátní klíč z **vytváření obsahu uzlu**, uchová certifikátu veřejného klíče, ale **Moje** ukládat.
+4. provede import certifikátu privátního klíče do úložiště certifikátů My(Personal) na **cílový uzel**.
+   - musí být přidán do kořenového úložiště tak, aby se důvěryhodná **cílový uzel**.
+
+#### <a name="on-the-authoring-node-create-and-export-the-certificate"></a>V uzlu pro tvorbu: vytvoření a export certifikátu
+
+> Cílový uzel: Windows Server 2016 a Windows 10
 
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
@@ -154,14 +164,17 @@ $cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 $cert | Remove-Item -Force
 Import-Certificate -FilePath "$env:temp\DscPublicKey.cer" -CertStoreLocation Cert:\LocalMachine\My
 ```
-Po exportu ```DscPrivateKey.pfx``` by bylo potřeba kopírovat do **cílový uzel**.
 
->Cílový uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
+Po exportu `DscPrivateKey.pfx` by bylo potřeba zkopírovat do **cílový uzel**.
 
-Protože rutinu New-SelfSignedCertificate na Windows operačních systémech starších než Windows 10 a Windows Server 2016 nepodporují **typ** parametr, alternativní metodu vytváření tohoto certifikátu je povinný, pokud k nim operační systémy.
-V takovém případě můžete použít ```makecert.exe``` nebo ```certutil.exe``` k vytvoření certifikátu.
+> Cílový uzel: Windows Server 2012 R2 nebo Windows 8.1 a starší
+> [!WARNING]
+> Protože `New-SelfSignedCertificate` rutiny ve Windows operačních systémech starších než Windows 10 a Windows Server 2016 nepodporuje **typ** parametr, alternativní způsob vytváření tento certifikát je nutný v těchto operačních systémech.
+>
+> V tomto případě můžete použít `makecert.exe` nebo `certutil.exe` k vytvoření certifikátu.
+>
+> Alternativní způsob je [stáhnout skript New-SelfSignedCertificateEx.ps1 z webu Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) a použít ho k vytvoření certifikátu místo toho:
 
-Je to alternativní metoda [stáhnout z webu Microsoft Script Center skript New-SelfSignedCertificateEx.ps1](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) a použít ho k vytvoření certifikátu místo:
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
 # and in the folder that contains New-SelfSignedCertificateEx.ps1
@@ -179,10 +192,8 @@ New-SelfsignedCertificateEx `
     -AlgorithmName 'RSA' `
     -SignatureAlgorithm 'SHA256'
 # Locate the newly created certificate
-$Cert = Get-ChildItem -Path cert:\LocalMachine\My `
-    | Where-Object {
-        ($_.FriendlyName -eq 'DSC Credential Encryption certificate') `
-        -and ($_.Subject -eq "CN=${ENV:ComputerName}")
+$Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {
+        ($_.FriendlyName -eq 'DSC Credential Encryption certificate') -and ($_.Subject -eq "CN=${ENV:ComputerName}")
     } | Select-Object -First 1
 # export the public key certificate
 $mypwd = ConvertTo-SecureString -String "YOUR_PFX_PASSWD" -Force -AsPlainText
@@ -193,7 +204,8 @@ $cert | Remove-Item -Force
 Import-Certificate -FilePath "$env:temp\DscPublicKey.cer" -CertStoreLocation Cert:\LocalMachine\My
 ```
 
-#### <a name="on-the-target-node-import-the-certs-private-key-as-a-trusted-root"></a>Na cílovém uzlu: import privátní klíč certifikátu jako důvěryhodné kořenové
+#### <a name="on-the-target-node-import-the-certs-private-key-as-a-trusted-root"></a>Na cílovém uzlu: import certifikátu privátní klíč jako důvěryhodné kořenové
+
 ```powershell
 # Import to the root store so that it is trusted
 $mypwd = ConvertTo-SecureString -String "YOUR_PFX_PASSWD" -Force -AsPlainText
@@ -202,15 +214,16 @@ Import-PfxCertificate -FilePath "$env:temp\DscPrivateKey.pfx" -CertStoreLocation
 
 ## <a name="configuration-data"></a>Konfigurační data
 
-Datový blok konfigurace definuje cílový uzlů, které fungují na tom, zda nebo šifrovat přihlašovací údaje, způsob šifrování a další informace. Další informace o konfiguraci datového bloku najdete v tématu [oddělení konfigurace a Data prostředí](configData.md).
+Blok dat konfigurace definuje cílové uzly, na kterých pracují na tom, zda nebo šifrovat přihlašovací údaje, znamená, že šifrování a dalších informací. Další informace o konfiguraci datového bloku, naleznete v tématu [oddělení konfiguraci a Data prostředí](configData.md).
 
-Prvky, které lze nastavit pro každý uzel, které se vztahují k šifrování přihlašovacích údajů jsou:
-* **NodeName** -název cílového uzlu, který je nakonfigurováno šifrování přihlašovacích údajů.
-* **PsDscAllowPlainTextPassword** – ať nezašifrované přihlašovací údaje se bude moct být předána pro tento uzel. Toto je **nedoporučuje**.
-* **Kryptografický otisk** -kryptografický otisk certifikátu, který se použije k dešifrování přihlašovací údaje v konfigurace DSC na _cílový uzel_. **Tento certifikát musí existovat v úložišti certifikátů místního počítače na cílovém uzlu.**
-* **CertificateFile** – soubor certifikátu (obsahuje pouze veřejný klíč), který slouží k šifrování přihlašovacích údajů pro _cílový uzel_. Tato hodnota musí být buď Binární X.509, kódování DER nebo soubor certifikátu X.509 formátu s kódováním Base-64.
+Prvky, které je možné nakonfigurovat pro každý uzel, ke které se vztahují k šifrování přihlašovacích údajů jsou:
 
-Tento příklad ukazuje blok dat konfigurace, který určuje cílový uzel tak, aby fungoval na pojmenované cílovým uzlem, cestu k souboru certifikátu veřejného klíče (s názvem targetNode.cer) a kryptografický otisk pro veřejný klíč.
+- **NodeName** – název nakonfigurované šifrování přihlašovacích údajů pro cílový uzel.
+- **PsDscAllowPlainTextPassword** – ať už se bude moct nezašifrované přihlašovací údaje předávat do tohoto uzlu. Toto je **ale nedoporučený krok**.
+- **Kryptografický otisk** – kryptografický otisk certifikátu, který se použije k dešifrování přihlašovacích údajů v konfiguraci DSC na _cílový uzel_. **Tento certifikát musí existovat v úložišti certifikátů místního počítače na cílový uzel.**
+- **CertificateFile** – soubor certifikátu (který obsahuje pouze veřejný klíč), který má použít k šifrování přihlašovacích údajů pro _cílový uzel_. Musí se jednat buď Binární X.509, kódování DER nebo soubor certifikátu formátu X.509 s kódováním Base-64.
+
+Tento příklad ukazuje blok dat konfigurace, který určuje cílový uzel tak, aby fungoval na pojmenované targetNode, cestu k souboru certifikátu veřejného klíče (s názvem targetNode.cer) a kryptografický otisk pro veřejný klíč.
 
 ```powershell
 $ConfigData= @{
@@ -233,12 +246,11 @@ $ConfigData= @{
     }
 ```
 
-
 ## <a name="configuration-script"></a>Konfigurační skript
 
-V samotný skript konfigurace pomocí `PsCredential` parametr zajistit, že přihlašovací údaje jsou uloženy pro co nejdříve. Když spustíte zadaný příklad, bude DSC výzvu k zadání pověření a zašifrování souboru MOF pomocí CertificateFile, který je přidružen k uzlu cíl v bloku dat konfigurace. Tento příklad kódu zkopíruje soubor ze sdílené složky, která je zabezpečená na uživatele.
+V samotný skript konfigurace, použijte `PsCredential` parametr Ujistěte se, že přihlašovací údaje jsou uložené pro nejkratší možné době. Při spuštění zadaný příklad DSC bude vyzve k zadání přihlašovacích údajů a zašifrování souboru MOF pomocí CertificateFile, který je přidružený cílový uzel v bloku dat konfigurace. Tento příklad kódu ze sdílené složky, která je zabezpečena zkopíruje soubor na uživatele.
 
-```
+```powershell
 configuration CredentialEncryptionExample
 {
     param(
@@ -262,7 +274,7 @@ configuration CredentialEncryptionExample
 
 ## <a name="setting-up-decryption"></a>Nastavení dešifrování
 
-Před [ `Start-DscConfiguration` ](https://technet.microsoft.com/library/dn521623.aspx) můžete pracovat, je nutné zjistit správce místní konfigurace na každý cílový uzel, který certifikát má použít k dešifrování přihlašovacích údajů, pomocí prostředků CertificateID ověření kryptografický otisk certifikátu. Tento příklad funkce se najít odpovídající místní certifikát (bude pravděpodobně nutné přizpůsobit ho tak najde přesný certifikátu, který chcete použít):
+Před [ `Start-DscConfiguration` ](https://technet.microsoft.com/library/dn521623.aspx) můžete pracovat, je nutné zjistit Local Configuration Manageru na každém cílovém uzlu, který certifikát se má použít k dešifrování přihlašovacích údajů, pomocí prostředků CertificateID ověřit kryptografický otisk certifikátu. Tuto ukázkovou funkci najdete příslušné místní certifikát (může mít vlastní nastavení, takže se přesně certifikát, který chcete použít):
 
 ```powershell
 # Get the certificate that works for encryption
@@ -278,7 +290,7 @@ function Get-LocalEncryptionCertificateThumbprint
 }
 ```
 
-Se identifikovanou pomocí jeho kryptografický otisk certifikátu můžete aktualizovat konfigurační skript, a použít hodnotu:
+S certifikátem identifikován jeho kryptografický otisk konfigurační skript aktualizovat tak, použijte hodnotu:
 
 ```powershell
 configuration CredentialEncryptionExample
@@ -307,14 +319,14 @@ configuration CredentialEncryptionExample
 }
 ```
 
-## <a name="running-the-configuration"></a>Spuštění konfigurace
+## <a name="running-the-configuration"></a>Konfigurace spuštění
 
-V tomto okamžiku můžete spustit konfigurace, který bude výstup dva soubory:
+V tomto okamžiku spustíte konfiguraci, která bude výstup dva soubory:
 
- * A *. meta.mof soubor, který konfiguruje správce místní konfigurace dešifrovat přihlašovací údaje pomocí certifikátu, který je uložen v úložišti místního počítače a identifikovaný jeho kryptografický otisk. [`Set-DscLocalConfigurationManager`](https://technet.microsoft.com/library/dn521621.aspx) se vztahuje *. meta.mof souboru.
- * Soubor MOF, který ve skutečnosti aplikuje konfiguraci. Spuštění DscConfiguration aplikuje konfiguraci.
+- A *. meta.mof soubor, který konfiguruje Local Configuration Manageru k dešifrování přihlašovacích údajů pomocí certifikátu, který je uložen v úložišti místního počítače a identifikován jeho kryptografický otisk. [`Set-DscLocalConfigurationManager`](https://technet.microsoft.com/library/dn521621.aspx) se vztahuje *. meta.mof souboru.
+- Soubor MOF, který ve skutečnosti aplikuje konfiguraci. Start-DscConfiguration aplikuje konfiguraci.
 
-Tyto příkazy bude možné provést tyto kroky:
+Tyto příkazy bude provádět tyto kroky:
 
 ```powershell
 Write-Host "Generate DSC Configuration..."
@@ -327,14 +339,14 @@ Write-Host "Starting Configuration..."
 Start-DscConfiguration .\CredentialEncryptionExample -wait -Verbose
 ```
 
-V tomto příkladu by nabízená konfigurace DSC cílový uzel.
-Konfigurace DSC můžete použít také pomocí DSC pro vyžádání obsahu serveru, pokud je k dispozici.
+V tomto příkladu by nabízená konfigurace DSC na cílový uzel.
+Konfigurace DSC můžete použít také pomocí serveru vyžádané replikace DSC, pokud je k dispozici.
 
-V tématu [nastavení klienta vyžádání DSC](pullClient.md) Další informace o použití konfigurace DSC pomocí serveru vyžádané replikace DSC.
+Zobrazit [nastavení načítacího klienta DSC](pullClient.md) Další informace o použití konfigurací DSC pomocí serveru vyžádané replikace DSC.
 
-## <a name="credential-encryption-module-example"></a>Příklad modulu pro šifrování přihlašovacích údajů
+## <a name="credential-encryption-module-example"></a>Příklad modulu šifrování přihlašovacích údajů
 
-Tady je příklad úplné, která zahrnuje všechny tyto kroky, a dále pomocná rutina, která exportuje a zkopíruje veřejných klíčů:
+Tady je úplný příklad, který zahrnuje všechny tyto kroky a pomocné rutiny, který exportuje a zkopíruje veřejných klíčů:
 
 ```powershell
 # A simple example of using credentials
