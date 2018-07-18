@@ -1,68 +1,91 @@
 # <a name="powershell-core-support-lifecycle"></a>Životní cyklus podpory PowerShellu Core
 
-Základní prostředí PowerShell je odlišnou sadu nástrojů a součásti, které je součástí, nainstalovat a nakonfigurovat samostatně z prostředí Windows PowerShell.
-Proto základní prostředí PowerShell není součástí systému Windows 7/8.1/10 nebo Windows Server licenčních smluv.
+PowerShell Core je odlišnou sadu nástrojů a komponenty, které je dodán, nainstalovat a nakonfigurovat samostatně z prostředí Windows PowerShell.
+PowerShell Core není proto součástí licenční smlouvy Windows 7/8.1/10 nebo Windows Server.
 
-Ale jádra prostředí PowerShell je podporován v rámci tradiční smlouvy podpory společnosti Microsoft, včetně [Premier][], [smlouvách Microsoft Enterprise][enterprise-agreement]a [Programu Microsoft Software Assurance][assurance].
-Můžete také platíte [odbornou pomoc][] pro základní prostředí PowerShell pomocí vyplnění žádosti o podporu pro váš problém.
+PowerShell Core je však podporováno v tradiční Microsoft smlouvy o podpoře, včetně [Premier][], [smlouvy Microsoft Enterprise][enterprise-agreement]a [Programu Microsoft Software Assurance][assurance].
+Můžete také platit [odbornou pomoc][] pro PowerShell Core vyplněním žádosti o podporu pro váš problém.
 
-Také nabízí [podpora komunity][] na Githubu, kde můžete soubor problému, chyby nebo žádost o funkce.
-Alternativně můžete zjistit pomoci ostatním členům komunity na Obecné [Microsoft Community][] nebo Microsoft [Prostředí PowerShell technické komunity][].
-Nabízíme žádná záruka, existuje, bude problém řešit nebo přeložit včas.
-Pokud máte potíže, které vyžadují okamžitou pozornost, používejte tradiční, placené možnosti podpory.
+Nabízíme také [Podpora komunity][] na Githubu, kde můžete soubor problému, chyby nebo žádost o funkci.
+Alternativně můžete zjistit pomoc od ostatních členů komunity na Obecné [Microsoft Community][] nebo Microsoft [Prostředí PowerShell technické komunity][].
+Nabízíme-zaručeno existuje, že váš problém bude řešit nebo vyřešení v časovém limitu.
+Pokud máte problém vyžadující okamžitou pozornost, měli byste použít tradiční, placené možnosti podpory.
 
-## <a name="lifecycle-of-powershell-core"></a>Životní cyklus jádra prostředí PowerShell
+## <a name="lifecycle-of-powershell-core"></a>Životní cyklus Powershellu Core
 
-Základní prostředí PowerShell přechází [moderní zásad životního cyklu Microsoft][modern].
-Tohoto životního cyklu podpory je určený k zachování aktualizovaného stavu s nejnovější verzí zákazníků.
+PowerShell Core se seznámíte s požadavky [moderní životní cyklus Microsoft][modern].
+Tento životní cyklus podpory má Informujte zákazníky o nejnovější verze.
 
-Verze 6.x větev základní prostředí PowerShell bude aktualizovat přibližně jednou za šest měsíců (např. 6.0, 6.1, 6.2, atd.)
+Větev verze 6.x PowerShell Core aktualizují přibližně jednou za šest měsíců (např. 6.0, 6.1, 6.2, atd.)
 
 > [!IMPORTANT]
-> Je třeba aktualizovat šest měsíců po každé nové podverze verze dál dostávat podpory.
+> Je nutné aktualizovat do šesti měsíců po vydání každý nový dílčí verze, chcete-li i nadále zajistit podporu.
 
-Například pokud 6.1 základní prostředí PowerShell je vydána na 1. července 2018, můžete se očekává, aktualizujte na 6.1 základní prostředí PowerShell tak, že 1. ledna 2019 pro zachování podpory.
+Například pokud 1. července 2018, se uvolní prostředí PowerShell Core 6.1 by být očekáváte aktualizaci do prostředí PowerShell Core 6.1 1. ledna 2019 kvůli zachování podpory.
 
-![Životní cyklus větve základní prostředí PowerShell][lifecycle-chart]
+![Životní cyklus větev Powershellu Core][lifecycle-chart]
 
-Moderní zásadách životního cyklu také vyžaduje, aby Microsoft oznámit zákazníkům dobu 12 měsíců před zrušený podporu pro produkt (tj. v prostředí PowerShell jader).
+Moderní zásady životního cyklu také vyžaduje, aby Microsoft oznámit zákazníkům 12 měsíců před ukončením odborné pomoci pro produkt (tj. PowerShell Core).
 
-Nakonec Očekáváme, že základní prostředí PowerShell zavede "dlouhodobé údržby" přístup, pokud jsme vyžadují jenom údržby a bezpečnostní aktualizace zůstat v podporu na konkrétní firemní pobočky nebo verze 6.x.
+Nakonec Očekáváme, že přijímají PowerShell Core "dlouhodobé údržby" zůstat podporována v konkrétní větvi nebo verze 6.x aktualizuje přístupu, kde by vyžadujeme pouze pro obsluhu a zabezpečení.
 
 ## <a name="supported-platforms"></a>Podporované platformy
 
-Základní prostředí PowerShell je oficiálně podporován na následujících platformách:
+Podrobnosti najdete v následující tabulce zobrazíte jaké platformy je oficiálně podporované verze prostředí PowerShell Core používáte.
 
-* Windows 7, 8.1 a 10
-* Windows Server 2008 R2, 2012 R2, 2016
-* [Windows Server zadáte roční kanálu][semi-annual]
-* Ubuntu 14.04 a 16.04, č. 17.04
-* Debian 8.7 + a 9
-* CentOS 7
-* Red Hat Enterprise Linux 7
-* OpenSUSE 42.2
-* Fedora 27, 28
-* systému macOS 10.12 +
+Naše komunita také přidal balíčky pro některé platformy, ale nejsou oficiálně podporované.
+Tyto balíčky jsou označeny jako `Community` v tabulce.
 
-Naše komunita také přispívá balíčky pro tyto platformy, ale nejsou oficiálně suppported:
+Uvedené jako platformy `Experimental` nejsou oficiálně podporované, ale jsou k dispozici pro experimentování ve službě a zpětnou vazbu.
 
-* Arch Linux
-* Kali Linux
-* AppImage (funguje na více platforem Linux)
+|                                                   | 6.0         | 6.1         |
+|---------------------------------------------------|:-----------:|:-----------:|
+| Windows 7, 8.1 a 10                            | Podporované   | Podporované   |
+| Windows Server 2008 R2, 2012 R2, 2016             | Podporované   | Podporované   |
+| [Windows Server prostřednictvím půlročního kanálu][semi-annual] | Podporované   | Podporované   |
+| Ubuntu 14.04 a 16.04                           | Podporované   | Podporované   |
+| Ubuntu 17.10 a 18.04                           |             | Podporované   |
+| Debian 8.7 + a 9                                | Podporované   | Podporované   |
+| CentOS 7                                          | Podporované   | Podporované   |
+| Red Hat Enterprise Linux 7                        | Podporované   | Podporované   |
+| OpenSUSE 42.2                                     | Podporované   | Podporované   |
+| Fedora 27                                         | Podporované   | Podporované   |
+| Fedora 28                                         |             | Podporované   |
+| macOS 10.12 +                                      | Podporované   | Podporované   |
+| Architektura                                              | Komunita   | Komunita   |
+| Raspbian                                          | Experimentální| Komunita   |
+| Kali                                              | Komunita   | Komunita   |
+| AppImage (funguje na různých platformách Linux)     | Komunita   | Komunita   |
+
+## <a name="platform-which-are-out-of-support"></a>Platforma, která už skončila podpora
+
+Ukončení životnosti technologie definovaným vlastníkem platformy dosáhne verze platformy PowerShell Core přestane také k poskytování podpory pro tuto verzi platformy. Dříve vydané balíčky zůstávají dostupné i pro zákazníky, kteří potřebují přístup, ale formální podpory a aktualizace jakéhokoli druhu už, poskytneme vám.
+
+Proto podpora pro tyto verze vlastníky distribuce softwaru bylo ukončeno a nejsou podporovány.
+
+| Operační systém       | Verze | Ukončení životnosti                                                                                 |
+|----------|---------|---------------------------------------------------------------------------------------------|
+| Fedora   | 26      | [. Května 2018.](https://fedoramagazine.org/fedora-26-end-life/)                                  |
+| Fedora   | 25      | [. Prosince 2017](https://fedoramagazine.org/fedora-25-end-life/)                             |
+| Fedora   | 24      | [Červen 2017](https://fedoramagazine.org/fedora-24-eol/)                                    |
+| OpenSUSE | 42.2    | [. Ledna 2018](https://lists.opensuse.org/opensuse-security-announce/2017-11/msg00066.html) |
+| OpenSUSE | 42.1    | [Květen 2017](https://lists.opensuse.org/opensuse-security-announce/2017-05/msg00053.html)     |
+| Ubuntu   | č. 17.04   | [. Ledna 2018](https://lists.ubuntu.com/archives/ubuntu-announce/2018-January.txt)          |
+| Ubuntu   | 16.10   | [Obrázek aplikace portál společnosti pro Windows 10 registrací do správy, který ukazuje stavu dokončení zpráva oznamující, že zařízení uživatele je teď zaregistrované a že klepnutím na tlačítko 'Další' pokračujte.](https://lists.ubuntu.com/archives/ubuntu-announce/2017-July/000223.html)        |
 
 ## <a name="notes-on-licensing"></a>Poznámky k licencování
 
-Základní prostředí PowerShell je vydávaný v rámci [licencí MIT][].
-V části tuto licenci a bez placené podporu smlouvy, uživatelé jsou omezeny na [podpora komunity][].
-S podporou komunity společnost Microsoft neposkytuje žádné záruky odezvy nebo opravy.
+PowerShell Core je vydávaný v rámci [Licence MIT][].
+V rámci této licence a bez smlouvy placená odborná pomoc. Uživatelé jsou omezené na [Podpora komunity][].
+Podpora komunity Microsoft neposkytuje žádnou záruku rychlosti odezvy nebo opravy.
 
-## <a name="windows-powershell-module"></a>Modul prostředí Windows PowerShell
+## <a name="windows-powershell-module"></a>Modul Windows PowerShell
 
-Podpora pro PowerShell základní neprodlužuje z ostatních modulů produktu, pokud tyto moduly explicitně nepodporují základní prostředí PowerShell.
-Například pomocí `ActiveDirectory` modul, který se dodává jako součást systému Windows Server se o nepodporovaný scénář.
+Podpora pro PowerShell Core nerozšiřuje ostatní moduly produktu, pokud tyto moduly explicitně podporují PowerShell Core.
+Například použití `ActiveDirectory` modul, který se dodává jako součást systému Windows Server se o nepodporovaný scénář.
 
-Moduly, které nepodporují explicitně základní prostředí PowerShell však může být v některých případech kompatibilní.
-Nainstalováním [ `WindowsPSModulePath` ][] modulu prostředí Windows PowerShell můžete připojit `PSModulePath` pro vaše prostředí PowerShell základní `PSModulePath`.
+Moduly, které nepodporují explicitně PowerShell Core však může být v některých případech kompatibilní.
+Po instalaci [ `WindowsPSModulePath` ][] modulu, prostředí Windows PowerShell můžete připojit `PSModulePath` k Powershellu Core `PSModulePath`.
 
 Nejdřív nainstalujte `WindowsPSModulePath` modulu z Galerie prostředí PowerShell:
 
@@ -71,7 +94,7 @@ Nejdřív nainstalujte `WindowsPSModulePath` modulu z Galerie prostředí PowerS
 Install-Module WindowsPSModulePath -Force
 ```
 
-Po instalaci tohoto modulu, spusťte `Add-WindowsPSModulePath` rutiny prostředí Windows PowerShell přidat `PSModulePath` na jádro prostředí PowerShell:
+Po instalaci tohoto modulu, spusťte `Add-WindowsPSModulePath` rutiny prostředí Windows PowerShell přidat `PSModulePath` do prostředí PowerShell Core:
 
 ```powershell
 # Add this line to your profile if you always want Windows PowerShell PSModulePath
@@ -88,5 +111,5 @@ Add-WindowsPSModulePath
 [modern]: https://support.microsoft.com/help/30881/modern-lifecycle-policy
 [lifecycle-chart]: ./images/modern-lifecycle.png
 [semi-annual]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
-[Licencí MIT]: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
-['WindowsPSModulePath.]: https://www.powershellgallery.com/packages/WindowsPSModulePath/
+[Licence MIT]: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
+["WindowsPSModulePath.]: https://www.powershellgallery.com/packages/WindowsPSModulePath/
