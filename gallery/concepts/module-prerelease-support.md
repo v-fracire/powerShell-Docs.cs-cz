@@ -1,39 +1,39 @@
 ---
 ms.date: 09/26/2017
 contributor: keithb
-keywords: Galerie prostředí powershell, rutiny, psget
-title: Modul předprodejní verze
-ms.openlocfilehash: 2a4fcd40353450e5ba03910984c5a05772a93d0d
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psget
+title: Verze předběžnou verzi modulu
+ms.openlocfilehash: 371aae7eed4afe341755133c5ee2d356cd5876e0
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189835"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093775"
 ---
-# <a name="prerelease-module-versions"></a>Modul předprodejní verze
+# <a name="prerelease-module-versions"></a>Verze předběžnou verzi modulu
 
-Počínaje verzí 1.6.0, PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování příznaky verze větší než 1.0.0 jako zkušební verze. Před touto funkcí předprodejní položky byly omezeny na situaci, kdy verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence Správa verzí, aniž by vás zpětnou kompatibilitu s verzemi 3 a výše uvedené nebo existující verze prostředí PowerShell služby PowerShellGet. Toto téma se zaměřuje na funkce specifické pro modul. Ekvivalentní funkce skriptů jsou v [vydanou verzí skripty](script-prerelease-support.md) tématu. Používání těchto funkcí, vydavatelů můžete identifikovat modulu nebo skriptu jako verze 2.5.0-alpha a novější verze na produkční prostředí verzi 2.5.0, která nahrazuje předběžné verze.
+Od verze 1.6.0, Správce balíčků PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování verze větší než 1.0.0 jako zkušební verze. Před tato funkce předběžné verze položky byly omezeny s tím, že verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence správy verzí bez narušení zpětnou kompatibilitu s verzí Powershellu 3 a vyšší nebo stávající verze Správce balíčků PowerShellGet. Toto téma se zaměřuje na funkce specifické pro modul. Ekvivalentní funkce pro skripty jsou [zkušební verze skriptů](script-prerelease-support.md) tématu. Pomocí těchto funkcí, vydavatelů můžete identifikovat pomocí modulu nebo skriptu jako verze 2.5.0-alpha a novější verze produkční prostředí 2.5.0, který nahrazuje tuto předprodejní verzi.
 
-Na vysoké úrovni funkce předběžné verze modulu patří:
+Na vysoké úrovni zahrnují funkce předběžné verze modulu:
 
-- Přidání předprodejní řetězec do části PSData manifestu modulu identifikuje modul jako předprodejní verze. Pokud modul je publikovaná v galerii prostředí PowerShell, tato data jsou extrahovány z manifestu a použít k identifikaci předprodejní položky.
-- Získávání předprodejní položky vyžaduje přidání příznak - AllowPrerelease PowerShellGet příkazy najít-Module instalace modulu, aktualizace modulu a uložit modulu. Pokud není zadán příznak, nebude se zobrazovat předprodejní položky.
-- Verze modulu zobrazovat najít-modulu, Get-InstalledModule a v galerii prostředí PowerShell se zobrazí jako jeden řetězec předprodejní řetězcem, který připojí jako 2.5.0-alpha.
+- Přidání předběžné verze řetězce do části PSData manifestu modulu identifikuje jako předprodejní verze modulu. Při publikování modulu v galerii prostředí PowerShell tato data jsou extrahovány z manifestu a slouží k identifikaci předběžné verze položky.
+- Získání položky předběžné verze vyžaduje přidání příznak - AllowPrerelease do příkazů PowerShellGet Find-Module Install-Module aktualizace modulu a Save-Module. Pokud se nezadá příznak, nezobrazí se předběžné verze položky.
+- Verze modulu zobrazeny Find-Module, Get-InstalledModule a v galerii prostředí PowerShell se zobrazí jako jeden řetězec předprodejní řetězcem, který připojí jako 2.5.0-alpha.
 
-Podrobnosti pro funkce, které jsou popsány níže.
+Podrobnosti o funkcích jsou uvedené níže.
 
-Tyto změny neovlivňují podpora verze modulu, který je součástí prostředí PowerShell a jsou kompatibilní s prostředím PowerShell 3.0, 4.0 a 5.
+Tyto změny neovlivní podporu verze modulu, který je součástí prostředí PowerShell a jsou kompatibilní s prostředím PowerShell 3.0 a 4.0, 5.
 
-## <a name="identifying-a-module-version-as-a-prerelease"></a>Identifikace verze modulu jako zkušební verze
+## <a name="identifying-a-module-version-as-a-prerelease"></a>Určení verze modulu jako zkušební verze
 
-Podpora PowerShellGet pro předběžné verze vyžaduje použití dvě pole v manifestu modulu:
+Podpora Správce balíčků PowerShellGet pro předběžné verze vyžaduje použití dvou polí v manifestu modulu:
 
-- Verze modulu zahrnuté v manifestu modulu musí být verze 3 část, pokud předprodejní verze se používá a musí být v souladu s existující verze prostředí PowerShell. Verze formátu by A.B.C, kde A, B a C jsou všechny celá čísla.
-- Předběžné verze řetězec je zadáno v manifestu modulu, v části PSData PrivateData.
+- ModuleVersion součástí manifestu modulu musí být ve verzi 3 části Pokud Předběžná verze je používáno a musí být v souladu s existující verzí Powershellu. Formát verze by A.B.C, kde jsou A, B a C všech celých čísel.
+- Předběžné verze řetězce je určená v manifestu modulu, v části PSData PrivateData.
 
-Podrobné požadavky na předprodejní řetězce jsou níže.
+Podrobné požadavky na předběžnou verzi řetězci jsou uvedené níže.
 
-Příklad části modul manifestu, který definuje modul jako zkušební verze by vypadat třeba takto:
+Vzorový oddíl manifestu modulu, který definuje modul jako zkušební verze by vypadat nějak takto:
 
 ```powershell
 @{
@@ -49,26 +49,26 @@ Příklad části modul manifestu, který definuje modul jako zkušební verze b
 
 Podrobné požadavky pro předběžné verze řetězce jsou:
 
-- Předběžné verze řetězec lze zadat pouze pokud verze modulu 3 segmenty pro Major.Minor.Build. To zarovnaná s SemVer v1.0.0.
-- Pomlčka je odděleny číslo sestavení a předběžné verze řetězce. Pomlčka může být součástí předběžné verze řetězec jako první znak, pouze.
-- Předběžné verze řetězce mohou obsahovat pouze alfanumerické znaky ASCII [0-9A-Za - z –]. Je osvědčeným postupem zahájit zkušební řetězce s alfanumerický znak, jako je jednodušší zjistit, to je předprodejní verze při kontrole seznam položek.
-- V tuto chvíli jsou podporovány pouze SemVer v1.0.0 předprodejní řetězce. Předběžné verze řetězec __musí není__ obsahovat buď období nebo + [. +], které jsou povoleny v SemVer 2.0.
-- Příklady podporovaných předprodejní řetězec:-alpha, - α1,-BETA, - update20171020
+- Předběžné verze řetězce jde zadat jenom při ModuleVersion se 3 segmenty Major.Minor.Build. Ten je v souladu s SemVer v1.0.0.
+- Pomlčka je oddělovač mezi předprodejní řetězec a číslo sestavení. Pomlčka může být součástí předběžné verze řetězec jako první znak, pouze.
+- Předběžné verze řetězec může obsahovat jenom alfanumerické znaky ASCII [0-9A-Za - z-]. Je nejvhodnější začít zkušební řetězce alfanumerického znaku, jak ji bude snazší zjistit, toto je předběžná verze při kontrole seznamu položek.
+- V tuto chvíli jsou podporovány pouze SemVer v1.0.0 předběžné verze řetězce. Předběžné verze řetězce __nesmí__ obsahovat buď období nebo + [. +], které jsou povoleny v SemVer 2.0.
+- Příklady podporovaných předběžné verze řetězce:-alfa, - α1,-BETA, - update20171020
 
-__Předprodejní verze dopad na složky instalace a pořadí řazení__
+__Předběžné verze správy verzí dopad na složky instalace a pořadí řazení__
 
-Pořadí řazení se změní při použití předprodejní verze, což je důležité při publikování do Galerie prostředí PowerShell, a při instalaci modulů pomocí PowerShellGet příkazy. Pokud předprodejní řetězec je zadán pro dva moduly, pořadí řazení podle části řetězce následující spojovník. Ano 2.5.0-alpha verze je menší než 2.5.0-beta, která je menší než 2.5.0-gamma. Pokud dva moduly mají stejné verze modulu a jenom jedna má předprodejní řetězec, se předpokládá, že jako verze na produkční prostředí a seřadí jako vyšší verzi než předprodejní verze (která zahrnuje zkušební modul bez předprodejní řetězec řetězec). Jako příklad, při porovnání uvolní 2.5.0 a 2.5.0-beta, 2.5.0 verze bude považovat za delší než dva.
+Pořadí řazení se změní při používání předběžné verze, což je důležité při publikování do Galerie prostředí PowerShell, a při instalaci modulů pomocí příkazů PowerShellGet. Pokud se předběžné verze řetězce je zadaný pro moduly, pořadí řazení podle část řetězce po spojovník. Ano 2.5.0-alpha verze je menší než 2.5.0-beta, což je míň než 2.5.0-gamma. Pokud dva moduly mají stejné verze modulu a pouze jeden má řetězec předběžné verze, modul bez předběžné verze řetězce je považován za verze připravené pro produkční prostředí a budou seřazeny jako větší než předběžné verze (která zahrnuje zkušební verze řetězec). Jako příklad, když porovnání uvolní 2.5.0 a 2.5.0-beta, 2.5.0 verzi se budou považovat za větší z nich.
 
-Při publikování do Galerie prostředí PowerShell, ve výchozím nastavení verzi modulu publikovanému musí mít vyšší verzi než všechny dříve publikované verze, která je v galerii prostředí PowerShell.
+Při publikování do Galerie prostředí PowerShell, ve výchozím nastavení verze modulu zveřejněná musí mít s vyšší verzí, než všechny dříve publikované verzi, která je v galerii prostředí PowerShell.
 
-## <a name="finding-and-acquiring-prerelease-items-using-powershellget-commands"></a>Hledání a získávání předprodejní položek pomocí PowerShellGet příkazy
+## <a name="finding-and-acquiring-prerelease-items-using-powershellget-commands"></a>Hledání a získávání předběžnou verzi položky pomocí příkazů PowerShellGet
 
-Plánování práce s předprodejní položek pomocí modulu-najít PowerShellGet-Module, instalace modulu, aktualizace, a příkazy Uložit-Module vyžaduje přidání příznak - AllowPrerelease. Pokud je zadán - AllowPrerelease, předprodejní položky budou zahrnuty, pokud jsou přítomna. Pokud není zadán příznak - AllowPrerelease, nebude se zobrazovat předprodejní položky.
+Práce s předběžnou verzi položek pomocí modulu – najděte – modulu PowerShellGet, Install-Module, aktualizace, a příkazy Save-Module vyžaduje přidání příznaku - AllowPrerelease. Pokud - AllowPrerelease není zadána, předběžné verze položky budou zahrnuty v případě, že jsou k dispozici. Pokud se nezadá příznak - AllowPrerelease, nezobrazí se předběžné verze položky.
 
-To v příkazech modulu PowerShellGet jedinou výjimkou jsou Get-InstalledModule a někdy modulem odinstalovat.
+Jedinou výjimkou tohoto v příkazech modulu PowerShellGet jsou Get-InstalledModule a někdy se odinstalace modulu.
 
-- Get-InstalledModule vždy se automaticky zobrazí předběžné informace v řetězec verze pro moduly.
-- Odinstalujte modul bude ve výchozím nastavení nejnovější verzi odinstalujte modul, pokud __žádná verze__ je zadán. Daná chování se nezměnilo. Ale pokud předprodejní verze je zadán pomocí - RequiredVersion, - AllowPrerelease se bude vyžadovat.
+- Get-InstalledModule vždy automaticky zobrazí informace o předběžnou verzi v řetězci verze pro moduly.
+- Odinstalujte modul bude ve výchozím nastavení odinstalace nejnovější verzi modulu, pokud __žádná verze__ je zadán. Aby nedošlo ke změně chování. Nicméně pokud předprodejní verze určena pomocí - RequiredVersion, - AllowPrerelease se bude vyžadovat.
 
 ## <a name="examples"></a>Příklady
 
@@ -108,10 +108,9 @@ C:\windows\system32> Get-InstalledModule TestPackage
 Version         Name                                Repository           Description
 -------         ----                                ----------           -----------
 1.9.0-alpha     TestPackage                         PSGallery            Package used to validate changes to the PowerShe...
-
 ```
 
-Souběžně sdílená instalace verze modulu, které se liší pouze z důvodu předběžné verze zadané není podporována. Při instalaci modulu pomocí PowerShellGet, jsou různé verze stejného modulu nainstalované-souběžného vytvořením název složky pomocí verze modulu. Verze modulu, bez předprodejní řetězec se používá v názvu složky. Pokud uživatel nainstaluje verzi 2.5.0-alpha MyModule, nainstaluje se do složky MyModule\2.5.0. Pokud uživatel potom nainstaluje 2.5.0-beta, bude verze 2.5.0-beta __přečerpání zápisu__ obsah složky MyModule\2.5.0. Jednou z výhod tohoto přístupu je, že není nutné provést odinstalaci Tuto předprodejní verzi po instalaci verze produkční prostředí. Následující příklad ukazuje, co můžete očekávat:
+Vedle sebe instalace verzí modulu, které se liší pouze z důvodu předběžné verze zadané není podporována. Při instalaci modulu pomocí Správce balíčků PowerShellGet, jsou různé verze stejného modulu nainstalovaného side-by-side tak, že vytvoříte pomocí ModuleVersion název složky. Verze modulu bez předprodejní řetězec se používá pro název složky. Pokud uživatel nainstaluje verzi 2.5.0-alpha MyModule, nainstaluje se do složky MyModule\2.5.0. Pokud uživatel pak nainstaluje 2.5.0-beta, bude verze 2.5.0-beta __typu over-pass-the zápisu__ obsah složky MyModule\2.5.0. Jednou z výhod tohoto přístupu je, že není nutné provést odinstalaci předběžné verze po instalaci verze připravené pro produkční prostředí. Následující příklad ukazuje, co můžete očekávat:
 
 ``` powershell
 C:\windows\system32> Get-InstalledModule TestPackage -AllVersions
@@ -139,8 +138,8 @@ Version         Name                                Repository           Descrip
 
 ```
 
-Odinstalujte modul odeberete nejnovější verzi modulu, pokud není zadáno - RequiredVersion.
-Pokud - RequiredVersion byl zadán a je předběžné verze, - AllowPrerelease je nutné přidat do příkazu.
+Odinstalujte modul odebere nejnovější verzi modulu, pokud není zadán - RequiredVersion.
+Pokud je zadán - RequiredVersion a je zkušební verze, - AllowPrerelease musí přidat k příkazu.
 
 ``` powershell
 C:\windows\system32> Get-InstalledModule TestPackage -AllVersions
@@ -183,12 +182,12 @@ Version         Name                                Repository           Descrip
 
 ```
 
-## <a name="more-details"></a>Další informace
+## <a name="more-details"></a>Další podrobnosti
 
 - [Skript předprodejní verze](script-prerelease-support.md)
-- [Najít – modul](/powershell/module/powershellget/find-module)
-- [Instalace modulu](/powershell/module/powershellget/install-module)
-- [Uložit – modul](/powershell/module/powershellget/save-module)
+- [Find-Module](/powershell/module/powershellget/find-module)
+- [Install-Module](/powershell/module/powershellget/install-module)
+- [Save-Module](/powershell/module/powershellget/save-module)
 - [Aktualizace modulu](/powershell/module/powershellget/Update-Module)
 - [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule)
 - [Odinstalujte modul](/powershell/gallery/psget/module/psget_uninstall-module)

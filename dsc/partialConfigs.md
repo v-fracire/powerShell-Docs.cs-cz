@@ -2,12 +2,12 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Částečné konfigurace prostředí PowerShell Desired State Configuration
-ms.openlocfilehash: 1f5ec5bd5055ccc3d83a60712aebe635f2548828
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 6d344b666421aba5745945f6148570e4c8229c1a
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37892997"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093928"
 ---
 # <a name="powershell-desired-state-configuration-partial-configurations"></a>Částečné konfigurace prostředí PowerShell Desired State Configuration
 
@@ -217,7 +217,7 @@ SharePointConfig.mof.checksum
 
 ### <a name="naming-and-placing-the-configuration-documents-on-the-pull-server-configurationid"></a>Názvy a umístění konfigurace dokumentů na serveru vyžádané replikace (ConfigurationID)
 
-Částečné konfigurace dokumenty musí být umístěné ve složce určené jako **ConfigurationPath** v `web.config` soubor pro vyžádání obsahu server (obvykle `C:\Program Files\WindowsPowerShell\DscService\Configuration`). Konfigurace dokumenty musí mít název takto: *ConfigurationName*. * ConfigurationID8`.mof`, kde *ConfigurationName* je název částečné konfigurace a *ConfigurationID* je podle ID konfigurace LCM na cílovém uzlu. V našem příkladu by měl být pojmenován dokumenty konfigurace následujícím způsobem:
+Částečné konfigurace dokumenty musí být umístěné ve složce určené jako **ConfigurationPath** v `web.config` soubor pro vyžádání obsahu server (obvykle `C:\Program Files\WindowsPowerShell\DscService\Configuration`). Konfigurace dokumenty musí mít název takto: _ConfigurationName_. * ConfigurationID8`.mof`, kde _ConfigurationName_ je název částečné konfigurace a _ConfigurationID_ je podle ID konfigurace LCM na cílovém uzlu. V našem příkladu by měl být pojmenován dokumenty konfigurace následujícím způsobem:
 
 ```
 ServiceAccountConfig.1d545e3b-60c3-47a0-bf65-5afc05182fd0.mof
@@ -330,7 +330,6 @@ Configuration ServiceAccountConfig
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
 
-
     Node localhost
     {
         Group LocalAdmins
@@ -340,7 +339,6 @@ Configuration ServiceAccountConfig
                                   'admins@example.domain'
             Ensure              = 'Present'
             Credential          = $Credential
-
         }
 
         WindowsFeature Telnet
@@ -351,7 +349,6 @@ Configuration ServiceAccountConfig
     }
 }
 ServiceAccountConfig
-
 ```
 
 ## <a name="example-sharepointconfig-partial-configuration"></a>Příklad SharePointConfig částečné konfigurace

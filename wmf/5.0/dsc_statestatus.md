@@ -1,12 +1,12 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 0e8d0cb1e4afa7bc791d45bfb0b981654cb09ed5
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: b279d388754c5ee42215f21317f7b3d8089b7608
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37892565"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093877"
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 
@@ -15,11 +15,11 @@ ms.locfileid: "37892565"
 Vyjádření stavu LCM a stav operace DSC se znovu obrácena pozornost a unified podle následujících pravidel:
 
 1. Notprocessed prostředků neovlivní LCM stavu a statusu DSC.
-2. LCM zastavení zpracování další prostředky, jakmile narazí na prostředek, který vyžaduje restartování.
-3. Prostředek, který požaduje restartování není v požadovaném stavu, dokud se ve skutečnosti stane restartování.
-4. Po zjištění prostředek, který selže, LCM zajišťuje zpracování další prostředky, dokud nejsou závislé na selhání jedné.
-5. Celkový stav vrácený `Get-DscConfigurationStatus` rutina je super sadu stavu všechny prostředky.
-6. Stav PendingReboot je nadmnožinou PendingConfiguration stavu.
+1. LCM zastavení zpracování další prostředky, jakmile narazí na prostředek, který vyžaduje restartování.
+1. Prostředek, který požaduje restartování není v požadovaném stavu, dokud se ve skutečnosti stane restartování.
+1. Po zjištění prostředek, který selže, LCM zajišťuje zpracování další prostředky, dokud nejsou závislé na selhání jedné.
+1. Celkový stav vrácený `Get-DscConfigurationStatus` rutina je super sadu stavu všechny prostředky.
+1. Stav PendingReboot je nadmnožinou PendingConfiguration stavu.
 
    Následující tabulka uvádí, výsledné stavy souvisejících vlastností v rámci několika typické scénáře.
 

@@ -1,16 +1,16 @@
 ---
 ms.date: 06/12/2017
 contributor: manikb
-keywords: Galerie prostředí powershell, rutiny, psget
-title: Skript se kompatibilní verze prostředí PowerShell
-ms.openlocfilehash: 27b50be4e99b6c6b8fa089d1d4a436a27eeb17c9
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psget
+title: Skript s kompatibilní edice Powershellu
+ms.openlocfilehash: 386e65295641fb6932c13047246742531aeaec64
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219245"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093656"
 ---
-# <a name="script-with-compatible-powershell-editions"></a>Skript se kompatibilní verze prostředí PowerShell
+# <a name="script-with-compatible-powershell-editions"></a>Skript s kompatibilní edice Powershellu
 
 Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí různé sady funkcí a kompatibilitu platformy.
 
@@ -52,20 +52,18 @@ At line:1 char:1
     + FullyQualifiedErrorId : ScriptRequiresUnmatchedPSEdition
 ```
 
-Uživatelé Galerie prostředí PowerShell najdete seznam skripty, které jsou podporovány na konkrétní verzi prostředí PowerShell.
-Skripty bez PSEdition_Desktop a PSEditon_Core jsou považovány za bez problémů fungují na edice Desktop prostředí PowerShell.
+Galerie prostředí PowerShell uživatelé najdou seznam skripty, které jsou podporovány na konkrétní edici Powershellu.
+Skripty bez PSEdition_Desktop a PSEditon_Core jsou považovány za fungovat bez problémů na edice Powershellu Desktop.
 
 ```powershell
-
 # Find scripts supported on PowerShell Desktop edition
 Find-Script -Tag PSEditon_Desktop
 
 # Find scripts supported on PowerShell Core editions
 Find-Script -Tag PSEditon_Core
-
 ```
 
-## <a name="more-details"></a>Další informace
+## <a name="more-details"></a>Další podrobnosti
 
 - [Moduly s PSEditions](module-psedition-support.md)
 - [Podpora PSEditions na PowerShellGallery](../how-to/finding-items/searching-by-psedition.md)

@@ -4,12 +4,12 @@ keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
 title: Add-PswaAuthorizationRule
 schema: 2.0.0
-ms.openlocfilehash: a5e55611ac59ff5bfecee59ba2b7d7669d08f840
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: a8904ac36f7fd9fe3c649ad4ca709a98c31b63c3
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893735"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094224"
 ---
 # <a name="add-pswaauthorizationrule"></a>Add-PswaAuthorizationRule
 
@@ -191,8 +191,10 @@ Tato rutina vrátí objektu pravidla autorizace.
 
 ### <a name="example-1"></a>PŘÍKLAD 1
 
-Tento příklad uděluje přístup ke konfiguraci relace *Pswakoncovybod*, omezuje prostředí runspace *srv2* pro uživatele v *SMAdmins* skupiny. \
-**Poznámka:**: název počítače musí být plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou spouštět. Definování omezeném prostředí runspace můžete zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolených Windows PowerShell® prostředí runspace, což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a používání Windows PowerShell Web Accessu](../install-and-use-windows-powershell-web-access.md).
+Tento příklad uděluje přístup ke konfiguraci relace _Pswakoncovybod_, omezuje prostředí runspace _srv2_ pro uživatele v _SMAdmins_ skupiny.
+
+> [!NOTE]
+> Název počítače musí být plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou spouštět. Definování omezeném prostředí runspace můžete zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolených Windows PowerShell® prostředí runspace, což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a používání Windows PowerShell Web Accessu](../install-and-use-windows-powershell-web-access.md).
 
 ```PowerShell
 Add-PswaAuthorizationRule -ComputerName srv2.contoso.com -UserGroupName contoso\SMAdmins -ConfigurationName PSWAEndpoint
@@ -240,8 +242,10 @@ Add-PswaAuthorizationRule –UserName PswaServer\ChrisLocal –ComputerName srv1
 ### <a name="example-6"></a>PŘÍKLAD 6
 
 Tento příklad umožňuje všem uživatelům přístup k všechny koncové body na všech počítačích.
-To v podstatě vypne autorizačních pravidel. \
-**Poznámka:**: použití `*` zástupný znak se doporučují pro nasazení zabezpečené a by měl pouze se považuje za pro testovací prostředí nebo použít v nasazeních, kde můžete zmírnit zabezpečení.
+To v podstatě vypne autorizačních pravidel.
+
+> [!NOTE]
+> Použití `*` zástupný znak se doporučují pro nasazení zabezpečené a by měl pouze se považuje za pro testovací prostředí nebo použít v nasazeních, kde můžete zmírnit zabezpečení.
 
 ````PowerShell
 Add-PswaAuthorizationRule –UserName * -ComputerName * -ConfigurationName *

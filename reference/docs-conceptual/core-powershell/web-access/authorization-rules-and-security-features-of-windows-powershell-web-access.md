@@ -2,12 +2,12 @@
 ms.date: 06/27/2017
 keywords: rutiny prostředí PowerShell
 title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
-ms.openlocfilehash: a3a743d83ae3e387ee51056042c98753104e925e
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 14bb18cfc5d9826523a239aede42307a7688eaf5
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893718"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094241"
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -163,9 +163,8 @@ Toto jsou některé z příkladů tohoto scénáře.
 
 - Správce nastavil privátní testovací prostředí a chce umožnit všem oprávněným uživatelům v síti přístup ke všem počítačům v síti, ke kterým mají obvykle přístup, včetně přístupu ke všem konfiguracím relace, ke kterým obvykle přistupují. Protože se jedná o privátní testovací prostředí, správce vytvoří autorizační pravidlo, které není zabezpečené. – Správce spustí rutinu `Add-PswaAuthorizationRule * * *`, která používá zástupný znak **\*** k reprezentaci všech uživatelů, všech počítačů a všechny konfigurace. -Toto pravidlo je ekvivalentem tohoto: `Add-PswaAuthorizationRule -UserName * -ComputerName * -ConfigurationName *`.
 
-  >[!NOTE]
-  >
-  >Toto pravidlo se nedoporučuje v zabezpečeném prostředí a obchází vrstvu autorizační pravidlo zabezpečení poskytované službou Windows PowerShell Web Accessu.
+  > [!NOTE]
+  > Toto pravidlo se nedoporučuje v zabezpečeném prostředí a obchází vrstvu autorizační pravidlo zabezpečení poskytované službou Windows PowerShell Web Accessu.
 
 - Správce musí povolit uživatelům, aby se mohli připojovat k cílovým počítačům v prostředí, které obsahuje pracovní skupiny a domény, kde se počítače pracovních skupin občas používají pro připojení k cílovým počítačům v doménách a počítače v doménách se příležitostně používají pro připojení k cílovým počítačům v pracovních skupinách. Správce má server brány, *PswaServer*, v pracovní skupině a cílový počítač *srv1.contoso.com* v doméně. Uživatel *Chris* je oprávněný místní uživatel na serveru brány pracovní skupiny a cílovým počítačem. Jeho uživatelské jméno na serveru pracovní skupiny je *Janlocal*; a jeho uživatelské jméno v cílovém počítači je *contoso\\chris*. Správce přidá následující pravidlo, aby Janovi autorizoval přístup k srv1.contoso.com.
 
@@ -180,10 +179,9 @@ V předchozím scénáři Windows PowerShell Web Accessu vytvoří úspěšné p
 
 1. Ověřování na serveru brány pracovní skupiny přidáním uživatelského jména ve formátu *název_serveru*\\*uživatelské_jméno* do ověřovacího pravidla
 
-2. Ověřování v cílovém počítači pomocí alternativních přihlašovacích údajů, které jsou součástí na stránce přihlášení **volitelná nastavení připojení** oblasti
+1. Ověřování v cílovém počítači pomocí alternativních přihlašovacích údajů, které jsou součástí na stránce přihlášení **volitelná nastavení připojení** oblasti
 
    > [!NOTE]
-   >
    > Pokud jsou brána a cílové počítače v různých pracovních skupinách nebo doménách, musí se mezi těmito dvěma počítači pracovních skupin, dvěma doménami nebo pracovní skupinou a doménou vytvořit vztah důvěryhodnosti. Tento vztah se nedá nakonfigurovat pomocí rutin Windows PowerShell Web Accessu autorizačních pravidel. Autorizační pravidla nedefinují vztah důvěryhodnosti mezi počítači. Jenom autorizují uživatele, aby se mohli připojit ke konkrétním cílovým počítačům a konfiguracím relací. Další informace o tom, jak nakonfigurovat vztah důvěryhodnosti mezi různými doménami, najdete v části [vytváření domény a vztahy důvěryhodnosti doménové struktury](https://technet.microsoft.com/library/cc794775.aspx").
    > Další informace o tom, jak přidat do seznamu důvěryhodných hostitelů počítače v pracovních skupinách najdete v tématu [vzdálené správy přes správce serveru](https://technet.microsoft.com/library/dd759202.aspx)
 

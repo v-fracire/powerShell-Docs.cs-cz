@@ -1,31 +1,31 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: Možnosti přihlašovací údaje v konfiguračních dat
-ms.openlocfilehash: 2c6685f3b6992537d1652f172cf926b85dd634c6
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: Možnosti přihlašovacích údajů v konfiguračních datech
+ms.openlocfilehash: 12bb8d8ce5fc4685e583e74d411b098320ac4fd4
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190039"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093673"
 ---
-# <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovací údaje v konfiguračních dat
->Platí pro: Prostředí Windows PowerShell 5.0
+# <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovacích údajů v konfiguračních datech
+>Platí pro: Windows PowerShell 5.0
 
-## <a name="plain-text-passwords-and-domain-users"></a>Hesla ve formátu prostého textu a uživatelé domény
+## <a name="plain-text-passwords-and-domain-users"></a>Hesla v prostém textu a uživatelé domény
 
-Konfigurace DSC obsahující pověření bez šifrování vygeneruje chybovou zprávu o hesla v prostém textu.
-Navíc DSC vygeneruje upozornění při použití přihlašovacích údajů do domény.
-Chcete-li potlačit tyto chybové zprávy a upozornění používat klíčová slova, DSC konfigurační data:
+Konfigurace DSC obsahující přihlašovací údaje bez šifrování se vygeneruje chybovou zprávu o hesla v prostém textu.
+DSC, vygeneruje upozornění při použití přihlašovacích údajů do domény.
+Můžete potlačit pomocí klíčových dat konfigurace DSC tyto chybové zprávy a upozornění:
 * **PsDscAllowPlainTextPassword**
 * **PsDscAllowDomainUser**
 
 > [!NOTE]
-> Ukládání nebo přenos hesel ve formátu prostého textu bez šifrování není zabezpečený. Doporučuje se zabezpečení přihlašovacích údajů pomocí techniky popsané dál v tomto tématu.
-> Služba Azure Automation DSC umožňuje centrálně spravovat pověření k kompilovat v konfiguracích a bezpečně uložit.
-> Informace najdete v tématu: [kompilaci konfigurace DSC / prostředků přihlašovacích údajů](/azure/automation/automation-dsc-compile#credential-assets)
+> Ukládání a přenos hesel ve formátu prostého textu nešifrované není obecně bezpečné. Doporučuje se zabezpečení přihlašovacích údajů pomocí techniky popsané dále v tomto tématu.
+> Služba Azure Automation DSC umožňuje centrálně spravovat přihlašovací údaje pro kompilaci v konfiguracích a bezpečně uložen.
+> Informace najdete v tématu: [kompilaci konfigurace DSC / Assety přihlašovacích údajů](/azure/automation/automation-dsc-compile#credential-assets)
 
-Následuje příklad předávání přihlašovací údaje ve formátu prostého textu:
+Následuje příklad předá přihlašovací údaje ve formátu prostého textu:
 
 ```powershell
 #Prompt user for their credentials
@@ -125,20 +125,20 @@ unencryptedPasswordDemo -ConfigurationData $ConfigurationData
 Start-DscConfiguration ./unencryptedPasswordDemo -verbose -wait -force
 ```
 
-## <a name="handling-credentials-in-dsc"></a>Zpracování pověření v DSC
+## <a name="handling-credentials-in-dsc"></a>Zpracování přihlašovacích údajů v DSC
 
-Prostředky konfigurace DSC spustit jako `Local System` ve výchozím nastavení.
-Ale některé prostředky je nutné pověření, například když `Package` prostředků je potřeba nainstalovat software v části konkrétní uživatelský účet.
+Prostředky DSC konfigurace spustit jako `Local System` ve výchozím nastavení.
+Ale některé prostředky nutné přihlašovací údaje, například při `Package` prostředků je potřeba nainstalovat software v rámci konkrétního uživatelského účtu.
 
-Starší prostředky používá pevně zakódovaným `Credential` název vlastnosti pro toto zpracování.
-WMF 5.0 přidat automatické `PsDscRunAsCredential` vlastnost pro všechny prostředky.
-Informace o používání `PsDscRunAsCredential`, najdete v části [DSC spuštěná s pověřeními uživatele](runAsUser.md).
+Použít starší prostředky pevně zakódovaná `Credential` název vlastnosti pro toto zpracování.
+Automatické přidání WMF 5.0 `PsDscRunAsCredential` vlastnost pro všechny prostředky.
+Informace o používání `PsDscRunAsCredential`, naleznete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).
 Novější a vlastních prostředků pomocí této vlastnosti automatické místo vytvoření vlastní vlastnost pro přihlašovací údaje.
 
 > [!NOTE]
-> Návrh některé prostředky se mají používat více přihlašovací údaje pro konkrétní důvod, proč a budou mít vlastní vlastnosti přihlašovacích údajů.
+> Návrh některých prostředků mají používat více přihlašovací údaje pro konkrétní důvod, proč a mají své vlastní vlastnosti přihlašovacích údajů.
 
-K vyhledání dostupných přihlašovacích údajů vlastnosti prostředku, použijte buď `Get-DscResource -Name ResourceName -Syntax` nebo Intellisense (ISE) v (`CTRL+SPACE`).
+Pokud chcete zjistit přihlašovací údaje, které k dispozici vlastnosti prostředku, použijte buď `Get-DscResource -Name ResourceName -Syntax` nebo technologie Intellisense v prostředí ISE (`CTRL+SPACE`).
 
 ```powershell
 PS C:\> Get-DscResource -Name Group -Syntax
@@ -156,26 +156,26 @@ Group [String] #ResourceName
 }
 ```
 
-Tento příklad používá [skupiny](https://msdn.microsoft.com/powershell/dsc/groupresource) prostředek z `PSDesiredStateConfiguration` integrovaného modulu prostředků DSC.
+Tento příklad používá [skupiny](https://msdn.microsoft.com/powershell/dsc/groupresource) prostředku z `PSDesiredStateConfiguration` integrovaný modul prostředků DSC.
 Můžete vytvořit místní skupiny a přidat nebo odebrat členy.
-Přijímá i `Credential` vlastnost a automatického `PsDscRunAsCredential` vlastnost.
-Ale prostředek používá jenom `Credential` vlastnost.
+Přijímá i `Credential` vlastnost a automatické `PsDscRunAsCredential` vlastnost.
+Nicméně pouze prostředek používá `Credential` vlastnost.
 
-Další informace o `PsDscRunAsCredential` vlastnost, najdete v části [DSC spuštěná s pověřeními uživatele](runAsUser.md).
+Další informace o `PsDscRunAsCredential` vlastnost, naleznete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).
 
-## <a name="example-the-group-resource-credential-property"></a>Příklad: Skupina prostředků vlastnost pověření
+## <a name="example-the-group-resource-credential-property"></a>Příklad: Skupina prostředků vlastnost Credential
 
 DSC běží pod `Local System`, takže už má oprávnění ke změně místní uživatelé a skupiny.
-Pokud je člen přidat místní účet, se žádné přihlašovací údaje nezbytné.
-Pokud `Group` prostředků přidá doménový účet do místní skupiny a pak je nutné pověření.
+Pokud Přidání člena je místní účet, nevyžadují se přihlašovací údaje je nezbytné.
+Pokud `Group` zdroj přidá doménový účet do místní skupiny a pak je nutné přihlašovací údaje.
 
 Anonymní dotazy do služby Active Directory nejsou povoleny.
-`Credential` Vlastnost `Group` prostředek je doménový účet použít k dotazu služby Active Directory.
-Pro většinu účelů to může být obecné uživatelský účet, ve výchozím nastavení mohou uživatelé *číst* většinu objektů ve službě Active Directory.
+`Credential` Vlastnost `Group` prostředků je účet domény používaný k dotazu služby Active Directory.
+Pro většinu účelů příčinou může být obecný uživatelský účet ve výchozím nastavení můžou uživatelé *čtení* většinu objektů ve službě Active Directory.
 
 ## <a name="example-configuration"></a>Příklad konfigurace
 
-Následující příklad kódu používá DSC k naplnění místní skupiny s uživatelem domény:
+Následující příklad kódu používá DSC k naplnění místní skupinu jako uživatel domény:
 
 ```powershell
 Configuration DomainCredentialExample
@@ -201,7 +201,7 @@ $cred = Get-Credential -UserName contoso\genericuser -Message "Password please"
 DomainCredentialExample -DomainCredential $cred
 ```
 
-Tento kód se generuje k chybě a upozornění:
+Tento kód vygeneruje chyby i upozornění:
 
 ```
 ConvertTo-MOFInstance : System.InvalidOperationException error processing
@@ -225,16 +225,16 @@ for node 'localhost'.
 ```
 
 V tomto příkladu má dva problémy:
-1. Chybu vysvětluje, že se nedoporučují hesla v prostém textu
-2. Upozornění informuje o tom proti pomocí pověření domény
+1. Chyba vysvětluje, že nedoporučujeme používat hesla v prostém textu
+2. Upozornění se nedoporučuje používat přihlašovací údaje domény
 
 ## <a name="psdscallowplaintextpassword"></a>PsDscAllowPlainTextPassword
 
-První chybovou zprávu s adresou URL naleznete v dokumentaci.
-Tento odkaz vysvětluje, jak šifrovat pomocí hesla [ConfigurationData](https://msdn.microsoft.com/powershell/dsc/configdata) struktura a certifikát.
-Další informace o certifikátech a DSC [si tento příspěvek](http://aka.ms/certs4dsc).
+První chybovou zprávu má adresu URL s dokumentací.
+Tento odkaz vysvětluje, jak šifrovat pomocí hesla [ConfigurationData](https://msdn.microsoft.com/powershell/dsc/configdata) strukturu a certifikát.
+Další informace o certifikátech a DSC [přečtěte si tento příspěvek](http://aka.ms/certs4dsc).
 
-Chcete-li vynutit hesla v podobě prostého textu, prostředku vyžaduje `PsDscAllowPlainTextPassword` – klíčové slovo v konfigurační data části následujícím způsobem:
+Vynutit heslo jako prostý text, prostředek, vyžaduje `PsDscAllowPlainTextPassword` – klíčové slovo v konfiguračních datech části následujícím způsobem:
 
 ```powershell
 Configuration DomainCredentialExample
@@ -270,26 +270,24 @@ DomainCredentialExample -DomainCredential $cred -ConfigurationData $cd
 ```
 
 > [!NOTE]
-> `NodeName` se nesmí rovnat hvězdičky, konkrétním uzlu jméno je povinné.
+> `NodeName` se nesmí rovnat hvězdičky, konkrétní uzel název je povinné.
 
-**Microsoft informuje o tom, aby se zabránilo hesla v prostém textu z důvodu významné bezpečnostní riziko.**
+**Microsoft se výzva, aby hesla v prostém textu kvůli významné riziko zabezpečení.**
 
-Výjimku by při použití služby Azure Automation DSC, protože data se vždy ukládají zašifrovaně (na cestě, umístěná ve službě a v klidovém stavu uložených v uzlu).
+## <a name="domain-credentials"></a>Přihlašovací údaje domény
 
-## <a name="domain-credentials"></a>Přihlašovací údaje do domény
+Spuštění skriptu konfigurace příklad znovu (s nebo bez šifrování), stále generuje upozornění, že používáte doménu účtu zadání přihlašovacích údajů se nedoporučuje.
+Pomocí místního účtu eliminuje potenciální riziko pověření domény, které lze použít na jiných serverech.
 
-Spuštění skriptu konfigurace příklad opakujte (s nebo bez šifrování), stále generuje upozornění, že používáte doménu účtu pro přihlašovací údaje se nedoporučuje.
-Pomocí místního účtu eliminuje potenciální ohrožení pověření domény, které by mohly být použity na jiných serverech.
-
-**Pokud používáte přihlašovací údaje s prostředky DSC, raději místní účet přes účet domény, pokud je to možné.**
+**Při použití přihlašovacích údajů pomocí prostředků DSC, dáváte přednost místní účet kontrolu nad účtem domény, pokud je to možné.**
 
 Pokud je '\' nebo '\@' v `Username` vlastnosti přihlašovacích údajů, pak DSC bude zpracována jako účet domény.
-Dojde k výjimce pro "localhost", "127.0.0.1" a ":: 1" v části domény uživatelského jména.
+Dojde k výjimce pro "localhost", "127.0.0.1" a ":: 1" v části domény uživatelské jméno.
 
 ## <a name="psdscallowdomainuser"></a>PSDscAllowDomainUser
 
-V DSC `Group` prostředků příkladu výše, dotazování domény služby Active Directory *vyžaduje* účet domény.
-V takovém případě přidejte `PSDscAllowDomainUser` vlastnost, která má `ConfigurationData` blokovat následujícím způsobem:
+V DSC `Group` prostředků příklad výše, dotazování domény služby Active Directory *vyžaduje* účet domény.
+V takovém případě přidejte `PSDscAllowDomainUser` vlastnost `ConfigurationData` blokovat následujícím způsobem:
 
 ```powershell
 $cd = @{
@@ -304,4 +302,4 @@ $cd = @{
 }
 ```
 
-Nyní konfigurační skript vygeneruje soubor MOF se žádné chyby nebo upozornění.
+Konfigurační skript nyní vygeneruje soubor MOF bez jakýchkoli chyb nebo upozornění.

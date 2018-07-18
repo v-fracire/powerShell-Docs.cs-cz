@@ -1,19 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: Prostředek DSC registru
-ms.openlocfilehash: 8819b3704fa1a61d2be5ce11c974542f48177e09
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: Prostředek Registry DSC
+ms.openlocfilehash: b77710d7a6fc599949e78c17af309ad88a1a0872
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34188696"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093581"
 ---
-# <a name="dsc-registry-resource"></a>Prostředek DSC registru
+# <a name="dsc-registry-resource"></a>Prostředek Registry DSC
 
-> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-**Registru** prostředek v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro správu klíčů registru a hodnoty na cílový uzel.
+**Registru** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus ke správě klíčů registru a hodnoty na cílový uzel.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,35 +32,22 @@ Registry [string] #ResourceName
 ```
 
 ## <a name="properties"></a>Properties
+
 |  Vlastnost  |  Popis   |
 |---|---|
-| Klávesa| Určuje cestu klíč registru, pro které chcete zajistit určitý stav. Tato cesta musí obsahovat podregistr.|
-| Název hodnoty| Určuje název hodnoty registru. Chcete-li přidat nebo odebrat klíč registru, zadejte tuto vlastnost jako prázdný řetězec bez zadání ValueType nebo data. Změnit nebo odebrat výchozí hodnota klíče registru, zadejte tuto vlastnost při zadávání také ValueType nebo data jako prázdný řetězec.|
-| Ujistěte se| Určuje, zda existují klíč a hodnotu. Aby se zajistilo, že udělají, nastavte tuto vlastnost na "Dispozici". Aby se zajistilo, že neexistují, nastavte vlastnost na "Chybí". Výchozí hodnota je "Dispozici".|
-| Force| Pokud zadaný klíč registru existuje, __Force__ přepíše s novou hodnotou. Pokud odstraníte klíč registru s podklíče, musí se jednat __$true__|
-| Hex| Označuje, pokud budou data vyjádřeny v šestnáctkovém formátu. -Li zadána, data hodnotu DWORD nebo QWORD jsou zobrazena v šestnáctkovém formátu. Pro jiné typy není platná. Výchozí hodnota je __$false__.|
-| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
+| Klávesa| Označuje cestu klíče registru, pro které chcete zajistit určitý stav. Tato cesta musí obsahovat hive.|
+| Název hodnoty| Určuje název hodnoty registru. Přidání nebo odebrání určitého klíče registru, zadejte tuto vlastnost jako prázdný řetězec bez předchozího určení ValueType nebo data. Chcete-li upravit nebo odebrat výchozí hodnota klíče registru, tuto vlastnost zadávejte jako prázdný řetězec při zadávání také ValueType nebo data.|
+| Zkontrolujte| Označuje, zda existují klíče a hodnoty. Aby bylo zajištěno, že dělají, nastavte tuto vlastnost na "K dispozici". Aby bylo zajištěno, že neexistují, nastavte vlastnost na "Chybí". Výchozí hodnota je "K dispozici".|
+| Force| Pokud zadaný klíč registru je k dispozici, **platnost** přepíšete novou hodnotou. Pokud se odstranění klíče registru s podklíčích, musí se jednat **$true** |
+| Hex| Označuje, pokud se data vyjadřují v šestnáctkovém formátu. Je-li zadána, data hodnotu DWORD/QWORD se zobrazují v šestnáctkovém formátu. Není platný pro jiné typy. Výchozí hodnota je **$false**.|
+| DependsOn| Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
 | Data| Data pro hodnotu registru.|
-| ValueType| Označuje typ hodnoty. Podporované typy jsou:
-<ul><li>Řetězec (REG_SZ)</li>
-
-
-<li>Binární (REG binární)</li>
-
-
-<li>DWORD 32-bit (REG_DWORD)</li>
-
-
-<li>Qword 64-bit (REG_QWORD)</li>
-
-
-<li>Víceřetězcovou (REG_MULTI_SZ)</li>
-
-
-<li>Rozšíření řetězce (REG_EXPAND_SZ)</li></ul>
+| ValueType| Určuje typ hodnoty. Podporované typy jsou: řetězce (REG_SZ), binární soubor (REG binární soubor), Dword 32 bitů (REG_DWORD), Qword 64-bit (REG_QWORD), víceřetězcovou (REG_MULTI_SZ), Rozšiřitelná řetězcová (REG_EXPAND_SZ) |
 
 ## <a name="example"></a>Příklad
-Tento příklad zajišťuje, že klíč s názvem "ExampleKey" součástí **HKEY\_místní\_počítač** hive.
+
+Tento příklad zajistí, že klíč s názvem "ExampleKey" je k dispozici v **HKEY\_místní\_počítač** hive.
+
 ```powershell
 Configuration RegistryTest
 {
@@ -74,5 +61,5 @@ Configuration RegistryTest
 }
 ```
 
->**Poznámka:** Změna nastavení registru **HKEY\_aktuální\_uživatele** hive vyžaduje, že konfigurace bude spuštěna s pověřeními uživatele, nikoli jako systém.
->Můžete použít **PsDscRunAsCredential** vlastnosti a určit přihlašovací údaje uživatele pro danou konfiguraci. Příklad, naleznete v části [DSC spuštěná s pověřeními uživatele](runAsUser.md)
+> [!NOTE]
+> Změna nastavení v registru **HKEY\_aktuální\_uživatele** hive vyžaduje, že konfigurace spouští pomocí přihlašovacích údajů uživatele, nikoli jako systém. Můžete použít **PsDscRunAsCredential** vlastnosti a určit přihlašovací údaje uživatele pro danou konfiguraci. Příklad najdete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).

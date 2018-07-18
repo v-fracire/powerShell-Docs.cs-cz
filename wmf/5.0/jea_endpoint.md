@@ -1,15 +1,15 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 66db78cfb136f22cad9078d7113dad085ee667a5
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: e4910e95a417da61661aaddd98b2dc7da9f98a3d
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34188424"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093714"
 ---
 # <a name="creating-and-connecting-to-a-jea-endpoint"></a>Vytvoření koncového bodu JEA a připojení k tomuto bodu
-Chcete-li vytvořit koncový bod JEA, je potřeba vytvořit a registrovat souboru speciálně nakonfigurované konfiguraci relace prostředí PowerShell, který se dá vygenerovat pomocí **New-PSSessionConfigurationFile** rutiny.
+K vytvoření koncového bodu JEA, budete muset vytvořit a zaregistrovat soubor speciálně nakonfigurován konfiguraci relace prostředí PowerShell, který se dá vygenerovat pomocí **New-PSSessionConfigurationFile** rutiny.
 
 ```powershell
 New-PSSessionConfigurationFile -SessionType RestrictedRemoteServer -TranscriptDirectory "C:\ProgramData\JEATranscripts" -RunAsVirtualAccount -RoleDefinitions @{ 'CONTOSO\NonAdmin_Operators' = @{ RoleCapabilities = 'Maintenance' }} -Path "$env:ProgramData\JEAConfiguration\Demo.pssc"
@@ -53,20 +53,20 @@ RoleDefinitions = @{
 
 }
 ```
-Při vytváření koncový bod JEA, musíte nastavit následující parametry příkazu (a odpovídající klíče v souboru):
+Při vytváření koncového bodu JEA, musí být nastaveny následující parametry příkazu (a odpovídající klíče v souboru):
 1.  SessionType k RestrictedRemoteServer
 2.  RunAsVirtualAccount k **$true**
-3.  TranscriptPath k adresáři, kde "přes rameno" přepisy se uloží po každé relaci
-4.  RoleDefinitions do zatřiďovací tabulky, která definuje, které skupiny mají přístup k jaké "funkce Role."  Toto pole definuje **kdo** můžete provést **co** na tento koncový bod.   Funkce role jsou speciální soubory, které bude za chvíli vysvětlit.
+3.  TranscriptPath do adresáře, kde "přes rameno" záznamy o studiu se uloží po každé relaci
+4.  RoleDefinitions na zatřiďovací tabulku, která definuje, které skupiny mají přístup ke které "Role funkce."  Toto pole definuje **kdo** dokáže **co** na tomto koncovém bodu.   Funkce rolí jsou speciální soubory, které budou vysvětlena za chvíli.
 
 
-Pole RoleDefinitions definuje, které skupiny mají přístup k jaké funkce Role.  Funkce Role je soubor, který definuje sadu funkcí, které se zveřejní pro připojení uživatelů.  Můžete vytvořit Role funkce **New-PSRoleCapabilityFile** příkaz.
+Pole RoleDefinitions definuje skupiny, které má přístup k funkcím, které Role.  Funkce Role je soubor, který definuje sadu funkcí, které budou přístupné pro připojení uživatelů.  Můžete vytvořit funkce rolí s **New-PSRoleCapabilityFile** příkazu.
 
 ```powershell
 New-PSRoleCapabilityFile -Path "$env:ProgramFiles\WindowsPowerShell\Modules\DemoModule\RoleCapabilities\Maintenance.psrc"
 ```
 
-Tím se vygeneruje funkci role šablony, která vypadá takto:
+Tím se vygeneruje role funkce šablony, který vypadá takto:
 ```
 @{
 
@@ -128,22 +128,24 @@ Copyright = '(c) 2015 Administrator. All rights reserved.'
 # AssembliesToLoad = 'System.Web', 'System.OtherAssembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
 
 }
-
 ```
-Konfigurace relace JEA se má používat, musíte ho uložit možnosti Role jako platný modul prostředí PowerShell v adresáři s názvem "RoleCapabilities". Modul může obsahovat několik souborů funkce role, v případě potřeby.
 
-Pro spuštění konfigurace rutin, funkcí, aliasy a skripty, které uživatel může přistupovat k při připojování k relaci JEA, přidejte do souboru schopnosti Role následující komentáři se šablony svých vlastních pravidel. Pro hlubší podívejte se na tom, jak můžete konfigurovat Role schopnosti, podívejte se na celý [prostředí průvodce](http://aka.ms/JEA).
+Použije JEA konfiguraci relace, je třeba Role funkce Uložit jako platný modul prostředí PowerShell v adresáři s názvem "RoleCapabilities". Modul může obsahovat více souborech schopností roli, v případě potřeby.
 
-Nakonec po dokončení přizpůsobení konfigurace relace a související možnosti Role zaregistrovat tuto konfiguraci relace a vytvořit koncový bod spuštěním **Register-PSSessionConfiguration**.
+Konfigurace rutin, funkcí, aliasy a skripty, které uživatel může přistupovat k při připojování k relaci JEA přidejte vlastní pravidla do souboru funkce Role po komentářem si šablony. Kde najdete podrobnější do konfigurace funkce rolí, podívejte se na kompletní [prostředí průvodce](http://aka.ms/JEA).
+
+Nakonec po dokončení konfigurace relací a související funkce rolí zaregistrujte tuto konfiguraci relace a vytvořte koncový bod spuštěním **Register-PSSessionConfiguration**.
 
 ```powershell
 Register-PSSessionConfiguration -Name Maintenance -Path "C:\ProgramData\JEAConfiguration\Demo.pssc"
 ```
 
 ## <a name="connect-to-a-jea-endpoint"></a>Připojení ke koncovému bodu JEA
-Připojení ke koncovému bodu JEA funguje stejným způsobem připojení k jakékoli jiné výtvory koncový bod prostředí PowerShell.  Jednoduše muset poskytnout název koncového bodu JEA jako parametr "ConfigurationName" pro **New-PSSession**, **Invoke-Command**, nebo **Enter-PSSession**.
+
+Připojení ke koncovému bodu JEA funguje stejným způsobem jako připojení k žádné jiné funguje Powershellu koncového bodu.  Stačí poskytnout název koncového bodu JEA jako parametr "ConfigurationName" **New-PSSession**, **Invoke-Command**, nebo **Enter-PSSession**.
 
 ```powershell
 Enter-PSSession -ConfigurationName Maintenance -ComputerName localhost
 ```
-Jakmile se připojíte k relaci JEA, bude omezena na seznam povolených adres příkazy spuštěné v roli možnosti, které máte přístup k. Pokud se pokusíte spustit libovolný příkaz není povolen pro vaši roli, bude dojde k chybě.
+
+Jakmile se připojíte k relaci JEA, bude omezena na používané funkcí Role, které máte přístup k seznamu povolených příkazů. Pokud se pokusíte spustit jakýkoli příkaz není povolený pro vaši roli, narazíte na chybu.

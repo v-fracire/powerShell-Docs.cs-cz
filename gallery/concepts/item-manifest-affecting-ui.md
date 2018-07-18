@@ -3,12 +3,12 @@ ms.date: 06/09/2017
 schema: 2.0.0
 keywords: prostředí PowerShell
 title: Manifestu hodnoty položek, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
-ms.openlocfilehash: fd5e48f8cc36795742ae597fc7715f7377605b6f
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 00350d3558e2bfa487fb116304956ffa7291ee05
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893473"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093969"
 ---
 # <a name="item-manifest-values-that-impact-the-powershell-gallery-ui"></a>Manifestu hodnoty položek, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
 
@@ -84,65 +84,67 @@ Pro referenci Zde jsou některé běžně používané značky k 12/14/2017.
 V některých případech jsou podobné, ale možná méně ideální možností uvedených vedle značky.
 Je osvědčeným postupem použít značku upřednostňované jako, který bude mít za následek méně rušivé a lepší výsledky hledání pro zákazníky.
 
-| **Upřednostňované značky** | **Náhradní řešení a poznámky** |
+| Upřednostňované značky | Náhradní řešení a poznámky |
 | --- | --- |
-| **Azure** |  |
-| **DSC** | DesiredStateConfiguration je méně vhodné, je příliš dlouhý |
-| **Správce prostředků** | Slouží k popisu skupiny procesory ARM a neměl by se používat pro Azure Resource Manageru | **DSCResourceKit** |  |
-| **SQL** |  |
-| **AWS** |  |
-| **DSCResource** |  |
-| **Automatizace** |  |
-| **REST** |  |
-| **Active Directory** | AD se aktuálně nepoužívá samostatně  |
-| **SQLServer** |  |
-| **DBA** |  |
-| **Zabezpečení** | Obrana je méně přesné |
-| **Databáze** | Je méně vhodné databáze (množné číslo) |
-| **DevOps** |  |
-| **Windows** |  |
-| **Sestavení** |  |
-| **Nasazení** | Nasazení se používá méně často |
-| **Cloud** |  |
-| **GIT** |  |
-| **Test** | Testování je méně vhodné |
-| **VersionControl** | Verze je méně přesné, i když se často používá  |
-| **Protokolování** | Upřednostňované použití protokolování jako akci |
-| **Protokol** | Upřednostňované použití protokolu jako objekt |
-| **Zálohování** |  |
-| **IaaS** |  |
-| **Linux** |  |
-| **SLUŽBA IIS** |  |
-| **AzureAutomation** |  |
-| **Úložiště** |  |
-| **GitHub** |  |
-| **JSON** |  |
-| **Exchange** |  |
-| **Sítě** | Sítě je podobné, méně často používají |
-| **SharePoint** |  |
-| **Vytváření sestav** | Vytváření sestav je akce, sestava je to |
-| **Sestavy** | To je sestava |
-| **WinRM** |  |
-| **Monitorování** |  |
-| **VSTS** |  |
-| **Excel** |  |
-| **Google** |  |
-| **Barva** |  |
-| **DNS** |  |
-| **Office365** | Hláskování Office je vhodnější. O365 je méně často používány, i když je kratší | **Gitlab** |  |
-| **Pester** |  |
-| **AzureAD** |  |
-| **HTML** |  |
-| **Hyper-V** | Hyper-v je méně častý jako značku |
-| **Konfigurace** |  |
-| **ChatOps** |  |
-| **PackageManagement** |  |
-| **WMI** |  |
-| **Brány firewall** |  |
-| **Docker** |  |
-| **Appveyor** |  |
-| **AzureRm** | Používá hlavně pro moduly AzureRM |
-| **PSČ** |  |
-| **MSI** |  |
-| **Mac** |  |
-| **PoshBot** |  |
+| Azure |  |
+| DSC | DesiredStateConfiguration je méně vhodné, je příliš dlouhý |
+| Správce prostředků | Slouží k popisu skupiny procesory ARM a neměl by se používat pro Azure Resource Manageru |
+| DSCResourceKit |  |
+| SQL |  |
+| AWS |  |
+| DSCResource |  |
+| Automatizace |  |
+| REST |  |
+| Rutina | AD se aktuálně nepoužívá samostatně  |
+| Systému SQL Server |  |
+| DBA |  |
+| Zabezpečení | Obrana je méně přesné |
+| Databáze | Je méně vhodné databáze (množné číslo) |
+| DevOps |  |
+| Windows |  |
+| Sestavení |  |
+| Nasazení | Nasazení se používá méně často |
+| Cloud |  |
+| GIT |  |
+| Test | Testování je méně vhodné |
+| VersionControl | Verze je méně přesné, i když se často používá  |
+| Protokolování | Upřednostňované použití protokolování jako akci |
+| Protokol | Upřednostňované použití protokolu jako objekt |
+| Zálohování |  |
+| IaaS |  |
+| Linux |  |
+| IIS |  |
+| AzureAutomation |  |
+| Úložiště |  |
+| GitHub |  |
+| JSON |  |
+| Exchange |  |
+| Síť | Sítě je podobné, méně často používají |
+| SharePoint |  |
+| Generování sestav | Vytváření sestav je akce, sestava je to |
+| Sestava | To je sestava |
+| Služba WinRM |  |
+| Monitorování |  |
+| VSTS |  |
+| Excel |  |
+| Google |  |
+| Barva |  |
+| DNS |  |
+| Office 365 | Hláskování Office je vhodnější. O365 je méně často používány, i když je kratší |
+| Gitlab |  |
+| Pester |  |
+| Azure AD |  |
+| HTML |  |
+| Hyper-V | Hyper-v je méně častý jako značku |
+| Konfigurace |  |
+| ChatOps |  |
+| PackageManagement |  |
+| WMI |  |
+| Brána firewall |  |
+| Docker |  |
+| Appveyor |  |
+| AzureRm | Používá hlavně pro moduly AzureRM |
+| PSČ |  |
+| INSTALAČNÍ SLUŽBY MSI |  |
+| Mac |  |
+| PoshBot |  |

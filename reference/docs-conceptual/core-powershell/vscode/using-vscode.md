@@ -58,8 +58,8 @@ Chcete-li ukončit Visual Studio Code, **soubor -> ukončení**.
 Pokud chcete použít konkrétní instalaci prostředí PowerShell pomocí Visual Studio Code, budete muset do souboru nastavení uživatele přidejte novou proměnnou.
 
 1. Klikněte na tlačítko **soubor -> Předvolby -> Nastavení**
-2. Zobrazí se dvě podokna editoru.
-   V podokně úplně vpravo (`settings.json`), vložte níže uvedené nastavení vhodná pro váš operační systém někde mezi dva složené závorky (`{` a `}`) a nahraďte *<version>* s nainstalovaným klientem Verze prostředí PowerShell:
+1. Zobrazí se dvě podokna editoru.
+   V podokně úplně vpravo (`settings.json`), vložte níže uvedené nastavení vhodná pro váš operační systém někde mezi dva složené závorky (`{` a `}`) a nahraďte **\<verze\>** s nainstalovanou verzí Powershellu:
 
    ```json
     // On Windows:
@@ -72,8 +72,8 @@ Pokud chcete použít konkrétní instalaci prostředí PowerShell pomocí Visua
     "powershell.powerShellExePath": "/usr/local/microsoft/powershell/<version>/pwsh"
    ```
 
-3. Nahraďte cestou do požadovaného Powershellu spustitelný soubor nastavení
-4. Uložte soubor s nastaveními a restartujte Visual Studio Code
+1. Nahraďte cestou do požadovaného Powershellu spustitelný soubor nastavení
+1. Uložte soubor s nastaveními a restartujte Visual Studio Code
 
 #### <a name="configuration-settings-for-visual-studio-code"></a>Nastavení konfigurace pro Visual Studio Code
 

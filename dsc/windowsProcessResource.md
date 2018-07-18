@@ -1,19 +1,19 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: WindowsProcess prostředek DSC
-ms.openlocfilehash: 72668136a3a51c17c52f762c6f94bec3ed4597b0
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: Prostředek Windowsprocess DSC
+ms.openlocfilehash: 3c4e6d8377c3dcbf4f1db87a603d5483b8caafb8
+ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34187023"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093731"
 ---
-# <a name="dsc-windowsprocess-resource"></a>WindowsProcess prostředek DSC
+# <a name="dsc-windowsprocess-resource"></a>Prostředek Windowsprocess DSC
 
-> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
 
-**WindowsProcess** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro konfiguraci procesů na cílový uzel.
+**WindowsProcess** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus pro konfiguraci procesů na cílový uzel.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -33,14 +33,15 @@ WindowsProcess [string] #ResourceName
 ```
 
 ## <a name="properties"></a>Properties
+
 |  Vlastnost  |  Popis   |
 |---|---|
-| Argumenty| Určuje řetězec argumenty předání do procesu jako-je. Pokud potřebujete předání několik argumentů, uložili je na tento řetězec.|
-| Cesta| Cesta ke spustitelnému souboru procesu. Pokud název souboru nebo spustitelný soubor (není plně kvalifikovanou cestu), prostředek DSC hledat prostředí **cesta** proměnné (`$env:Path`) najít spustitelný soubor. Pokud je hodnota této vlastnosti plně kvalifikovanou cestu, nebude používat DSC **cesta** proměnné prostředí se najít soubor a vyvolá chybu, pokud cesta neexistuje. Relativní cesty nejsou povoleny.|
-| přihlašovací údaje| Určuje pověření ke spuštění procesu.|
-| Ujistěte se| Označuje, pokud proces existuje. Nastavením této vlastnosti "Přítomen" Zkontrolujte, zda existuje proces. V opačném případě ji nastavte na "Chybí". Výchozí hodnota je "Dispozici".|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba __ResourceName__ a její typ je __ResourceType__, syntaxe pro používání této vlastnosti je ' DependsOn = "[Typ prostředku] ResourceName"".|
-| StandardErrorPath| Určuje, cesta k adresáři pro zápis standardní chybu. Všechny existující soubory budou přepsány.|
-| StandardInputPath| Určuje standardní vstupní umístění.|
+| Argumenty| Určuje řetězec argumenty budou předány procesu jako-je. Pokud je potřeba předat několik argumentů, vytvořte z nich všechny v tomto řetězci.|
+| Cesta| Cesta ke spustitelnému souboru procesu. Pokud tento soubor název spustitelného souboru (není plně kvalifikovanou cestu), prostředek DSC bude hledat prostředí **cesta** proměnné (`$env:Path`) spustitelný soubor se nenašel. Pokud je hodnota této vlastnosti plně kvalifikovanou cestu, nebudeme je používat DSC **cesta** proměnnou prostředí, aby našli požadovaný soubor a vyvolá chybu, pokud cesta neexistuje. Relativní cesty nejsou povoleny.|
+| Přihlašovací údaje| Určuje přihlašovací údaje pro spuštění procesu.|
+| Zkontrolujte| Určuje, jestli proces existuje. Nastavte tuto vlastnost na "Obsahuje" Ujistěte se, že proces existuje. Jinak ji nastavte na "Chybí". Výchozí hodnota je "K dispozici".|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je "DependsOn ="[ ResourceName ResourceType]"".|
+| StandardErrorPath| Určuje cestu k adresáři zapsat standardní chybu. Všechny existující soubory budou přepsány.|
+| StandardInputPath| Označuje standardní vstupní umístění.|
 | StandardOutputPath| Určuje umístění pro zápis ve standardním výstupu. Všechny existující soubory budou přepsány.|
 | WorkingDirectory| Určuje umístění, které se použije jako aktuální pracovní adresář pro proces.|

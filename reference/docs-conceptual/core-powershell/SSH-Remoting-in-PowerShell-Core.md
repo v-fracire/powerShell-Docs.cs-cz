@@ -46,8 +46,8 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
    New-PSSession [-HostName] <string[]> [-Name <string[]>] [-UserName <string>] [-KeyFilePath <string>] [-SSHTransport] [<CommonParameters>]
    ```
 
-2. Nainstalujte nejnovější sestavení [Win32 OpenSSH] z Githubu pomocí instrukcí [instalace]
-3. Úprava souboru sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH
+1. Nainstalujte nejnovější sestavení [Win32 OpenSSH] z Githubu pomocí instrukcí [instalace]
+1. Úprava souboru sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH
    - Ujistěte se, že je povoleno ověřování hesla
 
    ```
@@ -59,8 +59,8 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
     ```
 
     > [!NOTE]
-    OpenSSH pro Windows, který brání práce v cestách spustitelný subsystému prostorů je chyba.
-    Zobrazit [tento problém na Githubu pro další informace o](https://github.com/PowerShell/Win32-OpenSSH/issues/784).
+    > OpenSSH pro Windows, který brání práce v cestách spustitelný subsystému prostorů je chyba.
+    > Zobrazit [tento problém na Githubu pro další informace o](https://github.com/PowerShell/Win32-OpenSSH/issues/784).
 
     Jedním z řešení je vytvořte symlink do instalačního adresáře prostředí Powershell, který neobsahuje mezery:
 
@@ -84,27 +84,27 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
    PubkeyAuthentication yes
    ```
 
-4. Restartujte službu sshd
+1. Restartujte službu sshd
 
    ```powershell
    Restart-Service sshd
    ```
 
-5. Přidat cestu, kde je nainstalován OpenSSH na vaše proměnné Env cesta
+1. Přidat cestu, kde je nainstalován OpenSSH na vaše proměnné Env cesta
    - To by měla být podle `C:\Program Files\OpenSSH\`
    - To umožňuje ssh.exe nalezen
 
 ## <a name="setup-on-linux-ubuntu-1404-machine"></a>Instalační program na počítači s Linuxem (Ubuntu 14.04)
 
 1. Nainstalujte nejnovější sestavení [PowerShell Core pro Linux] z Githubu
-2. Instalace [Ubuntu SSH] podle potřeby
+1. Instalace [Ubuntu SSH] podle potřeby
 
    ```bash
    sudo apt install openssh-client
    sudo apt install openssh-server
    ```
 
-3. Úprava souboru sshd_config na umístění /etc/ssh
+1. Úprava souboru sshd_config na umístění /etc/ssh
    - Ujistěte se, že je povoleno ověřování hesla
 
    ```
@@ -123,7 +123,7 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
    PubkeyAuthentication yes
    ```
 
-4. Restartujte službu sshd
+1. Restartujte službu sshd
 
    ```bash
    sudo service sshd restart
@@ -137,7 +137,7 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
      - Klikněte na `Sharing`
      - Zkontrolujte `Remote Login` – by mělo být uvedeno `Remote Login: On`
      - Povolit přístup k příslušným uživatelům
-2. Upravit `sshd_config` soubor na místě `/private/etc/ssh/sshd_config`
+1. Upravit `sshd_config` soubor na místě `/private/etc/ssh/sshd_config`
    - Pomocí oblíbeného editoru nebo
 
      ```bash
@@ -162,7 +162,7 @@ Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče
      PubkeyAuthentication yes
      ```
 
-3. Restartujte službu sshd
+1. Restartujte službu sshd
 
    ```bash
    sudo launchctl stop com.openssh.sshd
