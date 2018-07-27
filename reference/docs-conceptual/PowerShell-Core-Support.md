@@ -48,7 +48,7 @@ Uvedené jako platformy `Experimental` nejsou oficiálně podporované, ale jsou
 | Debian 8.7 + a 9                                | Podporované   | Podporované   |
 | CentOS 7                                          | Podporované   | Podporované   |
 | Red Hat Enterprise Linux 7                        | Podporované   | Podporované   |
-| OpenSUSE 42.2                                     | Podporované   | Podporované   |
+| OpenSUSE 42.3                                     | Podporované   | Podporované   |
 | Fedora 27                                         | Podporované   | Podporované   |
 | Fedora 28                                         |             | Podporované   |
 | macOS 10.12 +                                      | Podporované   | Podporované   |
@@ -67,11 +67,11 @@ Proto podpora pro tyto verze vlastníky distribuce softwaru bylo ukončeno a nej
 |----------|---------|---------------------------------------------------------------------------------------------|
 | Fedora   | 26      | [. Května 2018.](https://fedoramagazine.org/fedora-26-end-life/)                                  |
 | Fedora   | 25      | [. Prosince 2017](https://fedoramagazine.org/fedora-25-end-life/)                             |
-| Fedora   | 24      | [Červen 2017](https://fedoramagazine.org/fedora-24-eol/)                                    |
+| Fedora   | 24      | [Ze srpna 2017](https://fedoramagazine.org/fedora-24-eol/)                                    |
 | OpenSUSE | 42.2    | [. Ledna 2018](https://lists.opensuse.org/opensuse-security-announce/2017-11/msg00066.html) |
 | OpenSUSE | 42.1    | [Květen 2017](https://lists.opensuse.org/opensuse-security-announce/2017-05/msg00053.html)     |
 | Ubuntu   | č. 17.04   | [. Ledna 2018](https://lists.ubuntu.com/archives/ubuntu-announce/2018-January.txt)          |
-| Ubuntu   | 16.10   | [Obrázek aplikace portál společnosti pro Windows 10 registrací do správy, který ukazuje stavu dokončení zpráva oznamující, že zařízení uživatele je teď zaregistrované a že klepnutím na tlačítko 'Další' pokračujte.](https://lists.ubuntu.com/archives/ubuntu-announce/2017-July/000223.html)        |
+| Ubuntu   | 16.10   | [. Července 2017](https://lists.ubuntu.com/archives/ubuntu-announce/2017-July/000223.html)        |
 
 ## <a name="notes-on-licensing"></a>Poznámky k licencování
 

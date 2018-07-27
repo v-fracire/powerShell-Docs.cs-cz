@@ -2,12 +2,12 @@
 ms.date: 08/23/2017
 keywords: rutiny prostředí PowerShell
 title: instalace a používání windows powershell web Accessu
-ms.openlocfilehash: c14da421e372f6c4c4f203b16bbd37f28a9ba255
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 8fa965ff30cd9e0b688bcc46d01d843a0f1c2e0b
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39094258"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268411"
 ---
 # <a name="install-and-use-windows-powershell-web-access"></a>Instalace a používání Windows PowerShell Web Accessu
 
@@ -29,8 +29,7 @@ Windows PowerShell Web Accessu nastavení a konfigurace je třech krocích:
 1. [Konfigurace brány](#configure-the-gateway)
 1. [Konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule)
 
-Než nainstalujete a nakonfigurujete Windows PowerShell Web Accessu, doporučujeme, abyste si celou tuto příručku, který obsahuje pokyny k instalaci, zabezpečení a odinstalace Windows PowerShell Web Accessu.
-[Pomocí webové konzoly Powershellu Windows](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831417(v=ws.11)) téma popisuje, jak se uživatelé přihlašují k webové konzole a věnuje se omezením a rozdílům mezi webovou konzolu prostředí Windows PowerShell a  **PowerShell.exe** konzoly. Přečtěte si koncoví uživatelé webové konzoly [používání webové konzoly Windows Powershellu](use-the-web-based-windows-powershell-console.md), ale nemusí číst zbývající části této příručky.
+Než nainstalujete a nakonfigurujete Windows PowerShell Web Accessu, doporučujeme, abyste si celou tuto příručku, který obsahuje pokyny k instalaci, zabezpečení a odinstalace Windows PowerShell Web Accessu. [Pomocí webové konzoly Powershellu Windows](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831417(v=ws.11)) téma popisuje, jak se uživatelé přihlašují k webové konzole a věnuje se omezením a rozdílům mezi webovou konzolu prostředí Windows PowerShell a  **PowerShell.exe** konzoly. Přečtěte si koncoví uživatelé webové konzoly [používání webové konzoly Windows Powershellu](use-the-web-based-windows-powershell-console.md), ale nemusí číst zbývající části této příručky.
 
 Toto téma neobsahuje podrobné pokyny operace webového serveru služby IIS; v tomto tématu jsou popsány pouze kroky nutné ke konfiguraci brány Windows PowerShell Web Accessu. Další informace o konfiguraci a zabezpečení webů ve službě IIS najdete v dokumentaci ke službě IIS v části Viz také.
 
@@ -46,8 +45,8 @@ Windows PowerShell Web Accessu umožňuje vzdáleným uživatelům přístup k p
 
 ## <a name="browser-and-client-device-support"></a>Podpora prohlížeče a klientského zařízení
 
-Windows PowerShell Web Accessu podporuje následujících prohlížečů Internet.
-Přestože mobilní prohlížeče nejsou oficiálně podporované, mnoho může být možné spouštět webové konzoly Windows Powershellu. Jiné prohlížeče, které používají soubory cookie a umožňují spouštět JavaScript a weby HTTPS, budou pravděpodobně fungovat, ale nejsou oficiálně testované.
+Windows PowerShell Web Accessu podporuje následujících prohlížečů Internet. Přestože mobilní prohlížeče nejsou oficiálně podporované, mnoho může být možné spouštět webové konzoly Windows Powershellu.
+Jiné prohlížeče, které používají soubory cookie a umožňují spouštět JavaScript a weby HTTPS, budou pravděpodobně fungovat, ale nejsou oficiálně testované.
 
 ### <a name="supported-desktop-computer-browsers"></a>Podporované prohlížeče pro počítače
 
@@ -85,17 +84,19 @@ Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kter�
 #### <a name="to-install-windows-powershell-web-access-by-using-windows-powershell-cmdlets"></a>Postup instalace Windows PowerShell Web Accessu pomocí rutin Windows PowerShellu
 
 1. Proveďte jednu z následujících akcí otevřete relaci Windows Powershellu se zvýšenými uživatelskými právy.
+
    - Na ploše Windows klikněte pravým tlačítkem na **prostředí Windows PowerShell** na hlavním panelu a pak klikněte na tlačítko **spustit jako správce**.
    - V Windows **Start** obrazovce, klikněte pravým tlačítkem na **prostředí Windows PowerShell**a potom klikněte na tlačítko **spustit jako správce**.
 
-   > **![Poznámka:](images/note.jpeg) Poznámka** v prostředí Windows PowerShell 3.0 a 4.0, je nutné je importovat modul rutin Správce serveru do relace prostředí Windows PowerShell před spuštěním rutin, které jsou součástí daného modulu. Modul je automaticky importován při prvním spuštění rutiny, která je součástí daného modulu. Rutiny prostředí Windows PowerShell nejsou malá a velká písmena.
+   > [!NOTE]
+   > Ve Windows Powershellu 3.0 a 4.0 je nutné je importovat modul rutin Správce serveru do relace prostředí Windows PowerShell před spuštěním rutin, které jsou součástí daného modulu. Modul se automaticky importuje, jakmile poprvé spustíte rutinu, která je součástí daného modulu.
+   > Rutiny prostředí Windows PowerShell nejsou malá a velká písmena.
 
 1. Zadejte následující příkaz a stiskněte klávesu **Enter**, kde *název_počítače* představuje vzdálený počítač, na kterém chcete nainstalovat Windows PowerShell Web Accessu, pokud je k dispozici. Parametr `-Restart` automaticky restartuje cílové servery, pokud je to potřeba.
 
    `Install-WindowsFeature -Name WindowsPowerShellWebAccess -ComputerName <computer_name> -IncludeManagementTools -Restart`
 
-   > **![Poznámka:](images/note.jpeg) Poznámka**
-   >
+   > [!NOTE]
    > Instalace Windows PowerShell Web Accessu pomocí rutin prostředí Windows PowerShell nepřidá nástroje pro správu webového serveru (IIS) ve výchozím nastavení. Pokud chcete nainstalovat nástroje pro správu na stejném serveru jako brána Windows PowerShell Web Accessu, přidejte `-IncludeManagementTools` parametr k instalačnímu příkazu (jak je uvedeno v tomto kroku). Pokud spravujete web Windows PowerShell Web Accessu ze vzdáleného počítače, nainstalujte modul snap-in Správce služby IIS nainstalováním [vzdáleného serveru pro správu Toolsfor Windows 8.1](https://www.microsoft.com/en-us/download/details.aspx?id=39296) nebo [vzdálenou správu serveru Nástroje pro systém Windows 8](https://www.microsoft.com/en-us/download/details.aspx?id=28972) na počítači, ze kterého chcete ke správě brány.
 
    Pokud chcete nainstalovat role a funkce na offline virtuálním pevném disku, musíte přidat parametr `-ComputerName` i parametr `-VHD`. Parametr `-ComputerName` obsahuje název serveru, ke kterému se má připojit virtuální pevný disk. Parametr `-VHD` pak obsahuje cestu k souboru VHD na určeném serveru.
@@ -108,30 +109,25 @@ Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kter�
 
 ### <a name="configure-the-gateway"></a>Konfigurace brány
 
-**Rutiny Install-PswaWebApplication** rutina je rychlý způsob, jak získat Windows PowerShell Web Accessu nakonfigurované. I když můžete do rutiny `Install-PswaWebApplication` přidat parametr `UseTestCertificate` k instalaci certifikátu SSL podepsaného držitelem pro testovací účely, není to bezpečné. Pro bezpečné produkční prostředí vždy používejte platný certifikát SSL, který podepsala certifikační autorita.
-Správci mají možnost testovací certifikát nahradit podobným certifikátem, který sami vyberou, pomocí konzoly Správce služby IIS.
+**Rutiny Install-PswaWebApplication** rutina je rychlý způsob, jak získat Windows PowerShell Web Accessu nakonfigurované. I když můžete do rutiny `Install-PswaWebApplication` přidat parametr `UseTestCertificate` k instalaci certifikátu SSL podepsaného držitelem pro testovací účely, není to bezpečné. Pro bezpečné produkční prostředí vždy používejte platný certifikát SSL, který podepsala certifikační autorita. Správci mají možnost testovací certifikát nahradit podobným certifikátem, který sami vyberou, pomocí konzoly Správce služby IIS.
 
-Můžete použít Windows PowerShell Web Accessu konfiguraci webové aplikace tak, že spustíte `Install-PswaWebApplication` rutiny nebo uděláte kroky konfigurace založeným na GUI ve Správci služby IIS. Ve výchozím nastavení rutina nainstaluje webovou aplikaci **pswa** (a její fond aplikací, **pswa_pool**) v **výchozí webový server** kontejneru, jak je znázorněno v Správce služby IIS; Pokud Chcete, můžete dát pokyn rutiny změně kontejneru výchozího webu webové aplikace. Správce služby IIS nabízí možnosti konfigurace, které jsou k dispozici pro webové aplikace, jako je například změna číslo portu nebo certifikátu vrstvy SSL (Secure Sockets Layer).
+Můžete použít Windows PowerShell Web Accessu konfiguraci webové aplikace tak, že spustíte `Install-PswaWebApplication` rutiny nebo uděláte kroky konfigurace založeným na GUI ve Správci služby IIS.
+Ve výchozím nastavení rutina nainstaluje webovou aplikaci **pswa** (a její fond aplikací, **pswa_pool**) v **výchozí webový server** kontejneru, jak je znázorněno v Správce služby IIS; Pokud Chcete, můžete dát pokyn rutiny změně kontejneru výchozího webu webové aplikace. Správce služby IIS nabízí možnosti konfigurace, které jsou k dispozici pro webové aplikace, jako je například změna číslo portu nebo certifikátu vrstvy SSL (Secure Sockets Layer).
 
-> **![Poznámka k zabezpečení](images/securitynote.jpeg) Poznámka k zabezpečení**
->
-> Důrazně doporučujeme, aby správci bránu nakonfigurovali na používání platného certifikátu podepsaného certifikační autoritou.
+> **![Poznámka k zabezpečení](images/securitynote.jpeg) Poznámka k zabezpečení** důrazně doporučujeme, aby správci bránu nakonfigurovali na použít platný certifikát podepsaný Certifikační autoritou.
 
 #### <a name="to-configure-the-windows-powershell-web-access-gateway-with-a-test-certificate-by-using-install-pswawebapplication"></a>Nakonfigurování brány Windows PowerShell Web Accessu s testovacím certifikátem pomocí rutiny Install-PswaWebApplication
 
 1. Proveďte jednu z následujících akcí otevřete relaci Windows Powershellu.
 
    - Na ploše Windows klikněte pravým tlačítkem na **prostředí Windows PowerShell** na hlavním panelu.
-
    - V Windows **Start** obrazovce, klikněte na tlačítko **prostředí Windows PowerShell**.
 
 2. Zadejte následující příkaz a stiskněte klávesu **Enter**.
 
    `Install-PswaWebApplication -UseTestCertificate`
 
-   > **![Poznámka k zabezpečení](images/securitynote.jpeg) Poznámka k zabezpečení**
-   >
-   > Parametr `UseTestCertificate` by se měl používat jenom v privátním testovacím prostředí. Pro zabezpečené produkční prostředí doporučujeme použít platný certifikát podepsaný certifikační autoritou.
+   > **![Poznámka k zabezpečení](images/securitynote.jpeg) Poznámka k zabezpečení** `UseTestCertificate` parametr byste měli použít pouze ve privátní testovací prostředí. Pro zabezpečené produkční prostředí doporučujeme použít platný certifikát podepsaný certifikační autoritou.
 
    Spuštěním rutiny se nainstaluje Windows PowerShell Web Accessu webové aplikace v kontejneru výchozí web služby IIS. Rutina vytvoří infrastrukturu požadovanou pro spuštění Windows PowerShell Web Accessu na výchozím webu, `https://<server_name>/pswa`. Pokud chcete webovou aplikaci nainstalovat na jiný web, zadejte jeho název přidáním parametru `WebSiteName`. Pokud chcete změnit název webové aplikace (výchozí je `pswa`), přidejte parametr `WebApplicationName`.
 
@@ -142,12 +138,11 @@ Můžete použít Windows PowerShell Web Accessu konfiguraci webové aplikace ta
    - EnabledProtocols: http
    - PhysicalPath: `%*windir*%/Web/PowerShellWebAccess/wwwroot`
 
-     **Příklad**: `Install-PswaWebApplication -webApplicationName myWebApp -useTestCertificate`
+   **Příklad**: `Install-PswaWebApplication -webApplicationName myWebApp -useTestCertificate`
 
-     V tomto příkladu je výsledný web pro Windows PowerShell Web Accessu `https://<server_name>/myWebApp`.
+   V tomto příkladu je výsledný web pro Windows PowerShell Web Accessu `https://<server_name>/myWebApp`.
 
-   > **![Poznámka:](images/note.jpeg) Poznámka**
-   >
+   > [!NOTE]
    > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel. Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule) a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
 #### <a name="to-configure-the-windows-powershell-web-access-gateway-with-a-genuine-certificate-by-using-install-pswawebapplication-and-iis-manager"></a>Nakonfigurování brány Windows PowerShell Web Access s pravým certifikátem pomocí rutiny Install-PswaWebApplication a Správce služby IIS
@@ -155,49 +150,42 @@ Můžete použít Windows PowerShell Web Accessu konfiguraci webové aplikace ta
 1. Proveďte jednu z následujících akcí otevřete relaci Windows Powershellu.
 
    - Na ploše Windows klikněte pravým tlačítkem na **prostředí Windows PowerShell** na hlavním panelu.
-
    - V Windows **Start** obrazovce, klikněte na tlačítko **prostředí Windows PowerShell**.
 
 2. Zadejte následující příkaz a stiskněte klávesu **Enter**.
 
    `Install-PswaWebApplication`
 
-   Spuštěním rutiny se konfiguruje následující nastavení brány.
-   Pokud chcete, můžete je ručně změnit v konzole Správce služby IIS.
-   Můžete také zadat hodnoty parametrů `WebsiteName` a `WebApplicationName` rutiny `Install-PswaWebApplication`.
+   Spuštěním rutiny se konfiguruje následující nastavení brány. Pokud chcete, můžete je ručně změnit v konzole Správce služby IIS. Můžete také zadat hodnoty parametrů `WebsiteName` a `WebApplicationName` rutiny `Install-PswaWebApplication`.
 
    - Cesta: / pswa
-
    - ApplicationPool: pswa_pool
-
    - EnabledProtocols: http
-
    - PhysicalPath: `%*windir*%/Web/PowerShellWebAccess/wwwroot`
 
 3. Otevřete konzolu Správce služby IIS některým z následujících postupů.
 
    - Na ploše Windows spusťte Správce serveru klikněte na **správce serveru** na hlavním panelu Windows. Na **nástroje** nabídky ve Správci serveru klikněte na tlačítko **Správce Internetové informační služby (IIS)**.
-
    - V Windows **Start** obrazovce, klikněte na tlačítko **správce serveru**.
 
 4. V podokně stromu Správce služby IIS rozbalte uzel pro server, na kterém je nainstalovaný Windows PowerShell Web Accessu do **lokality** složka je viditelné. Rozbalte **lokality** složky.
 
-5. Vyberte web, ve kterém jste nainstalovali webovou aplikaci Windows PowerShell Web Accessu. V **akce** podokně klikněte na tlačítko **vazby**.
+5. Vyberte web, ve kterém jste nainstalovali webovou aplikaci Windows PowerShell Web Accessu.
+   V **akce** podokně klikněte na tlačítko **vazby**.
 
 6. V **vazbu webu** dialogové okno, klikněte na tlačítko **přidat**.
 
 7. V **přidat vazbu webu** v dialogu **typ** pole, vyberte **https**.
 
-8. V **certifikát SSL** vyberte v rozevírací nabídce podepsaný certifikát. Klikněte na **OK**. Zobrazit [nakonfigurovat certifikát SSL ve Správci služby IIS](#to-configure-an-ssl-certificate-in-iis-Manager) v tomto tématu pro další informace o tom, jak získat certifikát.
+8. V **certifikát SSL** vyberte v rozevírací nabídce podepsaný certifikát.
+   Klikněte na **OK**. Zobrazit [nakonfigurovat certifikát SSL ve Správci služby IIS](#to-configure-an-ssl-certificate-in-iis-Manager) v tomto tématu pro další informace o tom, jak získat certifikát.
 
    Windows PowerShell Web Accessu webové aplikace je nyní nakonfigurováno pro použití podepsaného certifikátu SSL.
 
-   Dostanete tak, že otevřete Windows PowerShell Web Accessu **https://\<název_serveru\>/pswa** v okně prohlížeče.
+   Dostanete tak, že otevřete Windows PowerShell Web Accessu `https://<server_name>/pswa` v okně prohlížeče.
 
-   > **![Poznámka:](images/note.jpeg) Poznámka**
-   >
-   > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel.
-   > Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
+   > [!NOTE]
+   > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel. Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
 ### <a name="configure-a-restrictive-authorization-rule"></a>Konfigurace omezujícího autorizačního pravidla
 
@@ -210,7 +198,6 @@ Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravid
 1. Proveďte jednu z následujících akcí otevřete relaci Windows Powershellu se zvýšenými uživatelskými právy.
 
    - Na ploše Windows klikněte pravým tlačítkem na **prostředí Windows PowerShell** na hlavním panelu a pak klikněte na tlačítko **spustit jako správce**.
-
    - V Windows **Start** obrazovce, klikněte pravým tlačítkem na **prostředí Windows PowerShell**a potom klikněte na tlačítko **spustit jako správce**.
 
 2. Volitelný krok pro omezení přístupu uživatelů s použitím konfigurací relace: Ověřte, že konfigurace relace, které chcete použít v pravidlech již existují. V případě, že jste ještě nevytvořili, postupujte podle pokynů pro vytvoření konfigurací relace v [about_Session_Configuration_Files](/powershell/module/microsoft.powershell.core/about/about_session_configurations).
@@ -227,25 +214,26 @@ Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravid
 
 4. Ověřte, zda byl vytvořen pravidla buď spuštěním `Get-PswaAuthorizationRule` rutiny, nebo `Test-PswaAuthorizationRule -UserName <domain\user> -ComputerName <computer-name>`
 
-5. Například `Test-PswaAuthorizationRule -UserName 'Contoso\JSmith' -ComputerName Contoso_214`.
+   Například `Test-PswaAuthorizationRule -UserName 'Contoso\JSmith' -ComputerName Contoso_214`.
 
 Po nakonfigurování autorizačního pravidla se můžou Autorizovaní uživatelé přihlásit k webové konzole a začít používat Windows PowerShell Web Accessu.
 
 ## <a name="custom-deployment"></a>Vlastní nasazení
 
-Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kterém běží Windows Server 2012 R2 nebo Windows Server 2012 pomocí funkce Průvodce přidáním rolí a ve Správci serveru. Po dokončení instalace Windows PowerShell Web Access můžete přizpůsobit konfiguraci brány ve Správci služby IIS.
+Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kterém běží Windows Server 2012 R2 nebo Windows Server 2012 pomocí funkce Průvodce přidáním rolí a ve Správci serveru.
+Po dokončení instalace Windows PowerShell Web Access můžete přizpůsobit konfiguraci brány ve Správci služby IIS.
 
 ### <a name="install-windows-powershell-web-access-using-the-add-roles-and-features-wizard"></a>Instalace Windows PowerShell Web Accessu pomocí funkce Průvodce přidáním rolí a
 
 1. Pokud správce serveru je už otevřená, přejděte k dalšímu kroku. Správce serveru ještě není otevřený, otevřete ho jedním z následujících akcí.
 
    - Na ploše Windows spusťte Správce serveru klikněte na **správce serveru** na hlavním panelu Windows.
-
    - V Windows **Start** obrazovce, klikněte na tlačítko **správce serveru**.
 
 2. Na **spravovat** nabídky, klikněte na tlačítko **přidat role a funkce**.
 
-3. Na **vybrat typ instalace** stránce **instalace na základě rolí nebo na základě funkcí**. Klikněte na **Další**.
+3. Na **vybrat typ instalace** stránce **instalace na základě rolí nebo na základě funkcí**.
+   Klikněte na **Další**.
 
 4. Na **vybrat cílový server** stránky, vyberte server z fondu serverů nebo offline virtuální pevný disk. Pokud chcete jako cílový server zvolit offline virtuální pevný disk, vyberte nejdřív server, ke kterému chcete virtuální pevný disk připojit, a pak vyberte příslušný soubor VHD. Informace o tom, jak přidat servery do fondu serverů najdete v nápovědě k nástroji Server Manager. Po výběru cílového serveru, klikněte na tlačítko **Další**.
 
@@ -253,8 +241,7 @@ Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kter�
 
 6. Zobrazí se výzva k přidání požadovaných funkcí, jako je rozhraní .NET Framework 4.5 a služby role Webový Server (IIS). Přidejte požadované funkce a pokračujte.
 
-   > **![Poznámka:](images/note.jpeg) Poznámka**
-   >
+   > [!NOTE]
    > Instalace Windows PowerShell Web Accessu pomocí funkce Průvodce přidáním rolí a nainstaluje také webový Server (IIS), včetně modulu snap-in Správce služby IIS. Modul snap-in a jiné nástroje pro správu služby IIS instalují ve výchozím nastavení, pokud použijete Průvodce přidání rolí a funkcí. Pokud instalujete Windows PowerShell Web Accessu pomocí rutin prostředí Windows PowerShell, jak je popsáno v následujícím postupu, nástroje pro správu nepřidají ve výchozím nastavení.
 
 7. Na **potvrdit vybrané možnosti instalace** stránky, pokud soubory funkcí pro Windows PowerShell Web Accessu není uložený na cílovém serveru, který jste vybrali v kroku 4, klikněte na tlačítko **zadejte alternativní zdrojová_cesta_operačního_systému**a zadejte cestu k souborům funkcí. V opačném případě klikněte na tlačítko **nainstalovat**.
@@ -270,7 +257,6 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 1. Otevřete konzolu Správce služby IIS některým z následujících postupů.
 
    - Na ploše Windows spusťte Správce serveru klikněte na **správce serveru** na hlavním panelu Windows. Na **nástroje** nabídky ve Správci serveru klikněte na tlačítko **Správce Internetové informační služby (IIS)**.
-
    - V Windows **Start** zadejte libovolné části názvu **Správce Internetové informační služby (IIS)**. Až se zobrazí, klikněte na zástupce **aplikace** výsledky.
 
 2. Vytvořte nový fond aplikací pro Windows PowerShell Web Accessu. Rozbalte uzel serveru brány ve Správci služby IIS podokně stromu vyberte **fondy aplikací**a klikněte na tlačítko **přidat fond aplikací** v **akce** podokně.
@@ -281,20 +267,18 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
 5. Klikněte pravým tlačítkem na web (například **výchozí webový server**) do které chcete přidat web Windows PowerShell Web Accessu a potom klikněte na **přidat aplikaci**.
 
-6. V **Alias** pole, zadejte pswa nebo uveďte jiný alias. Z aliasu se stane název virtuálního adresáře. Například **pswa** v následující adrese URL označuje alias zadaný v tomto kroku: **https://\<název serveru\>/pswa**.
+6. V **Alias** pole, zadejte pswa nebo uveďte jiný alias. Z aliasu se stane název virtuálního adresáře. Například **pswa** v následující adrese URL označuje alias zadaný v tomto kroku: `https://<server-name>/pswa`.
 
 7. V **fond aplikací** vyberte fond aplikací, který jste vytvořili v kroku 3.
 
-8. V **fyzická cesta** vyhledejte umístění aplikace. Můžete použít výchozí umístění %windir%/Web/PowerShellWebAccess/wwwroot. Klikněte na **OK**.
+8. V **fyzická cesta** vyhledejte umístění aplikace. Můžete použít výchozí umístění `%windir%/Web/PowerShellWebAccess/wwwroot`. Klikněte na **OK**.
 
-9. Postupujte podle kroků v postupu nakonfigurujte certifikát protokolu SSL ve službě IIS manager](#to-configure-an-ssl-certificate-in-iis-Manager) v tomto tématu.
+9. Postupujte podle kroků v postupu [nakonfigurovat certifikát SSL ve Správci služby IIS](#to-configure-an-ssl-certificate-in-iis-Manager) v tomto tématu.
 
 10. ![](images/SecurityNote.jpeg) Volitelný krok zabezpečení:
 
     Web a v podokně stromu, klikněte dvakrát na **nastavení SSL** v podokně obsahu.
-    Vyberte **požadovat protokol SSL**a pak v **akce** podokně klikněte na tlačítko **použít**.
-    Volitelně **nastavení SSL** podokno, můžete vyžadovat, aby uživatelé připojující se k webu Windows PowerShell Web Accessu měli klientské certifikáty. Klientské certifikáty pomáhají ověřit identitu uživatele klientského zařízení.
-    Další informace o tom, jak vyžadování klientských certifikátů můžete zvýšit zabezpečení Windows PowerShell Web Accessu, naleznete v tématu [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md) v této příručce.
+    Vyberte **požadovat protokol SSL**a pak v **akce** podokně klikněte na tlačítko **použít**. Volitelně **nastavení SSL** podokno, můžete vyžadovat, aby uživatelé připojující se k webu Windows PowerShell Web Accessu měli klientské certifikáty. Klientské certifikáty pomáhají ověřit identitu uživatele klientského zařízení. Další informace o tom, jak vyžadování klientských certifikátů můžete zvýšit zabezpečení Windows PowerShell Web Accessu, naleznete v tématu [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md) v této příručce.
 
 11. Otevře relaci prohlížeče v klientském zařízení. Další informace o podporovaných prohlížečích a zařízeních najdete v tématu [prohlížeče a klientského zařízení podporují](#browser-and-client-device-support) v tomto tématu.
 
@@ -302,14 +286,12 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
     Prohlížeč by měl zobrazit Windows PowerShell Web Accessu konzoly přihlašovací stránku.
 
-    > **![Poznámka:](images/note.jpeg) Poznámka**
-    >
-    > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel.
-    > Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
+    > [!NOTE]
+    > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel. Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
 13. V relaci Windows Powershellu otevřené se zvýšenými uživatelskými právy (Spustit jako správce) spusťte následující skript, ve kterém *název_fondu_aplikací* představuje název fondu aplikací, kterou jste vytvořili v kroku 3 aby měl fond aplikací přístupová práva k souboru autorizace.
 
-    ```
+    ```powershell
     $applicationPoolName = "<application_pool_name>"
     $authorizationFile = "C:\windows\web\powershellwebaccess\data\AuthorizationRules.xml"
     c:\windows\system32\icacls.exe $authorizationFile /grant ('"' + "IIS AppPool\$applicationPoolName" + '":R') > $null
@@ -317,7 +299,7 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
     Pokud chcete zobrazit stávající přístupová práva k souboru autorizace, spusťte následující příkaz:
 
-    ```
+    ```powershell
     c:\windows\system32\icacls.exe $authorizationFile
     ```
 
@@ -326,7 +308,6 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 1. Otevřete konzolu Správce služby IIS některým z následujících postupů.
 
    - Na ploše Windows spusťte Správce serveru klikněte na **správce serveru** na hlavním panelu Windows. Na **nástroje** nabídky ve Správci serveru klikněte na tlačítko **Správce Internetové informační služby (IIS)**.
-
    - V Windows **Start** zadejte libovolné části názvu **Správce Internetové informační služby (IIS)**. Až se zobrazí, klikněte na zástupce **aplikace** výsledky.
 
 1. V podokně stromu Správce služby IIS rozbalte uzel pro server, na kterém je nainstalovaný Windows PowerShell Web Accessu do **lokality** složka je viditelné. Vyberte **lokality** složky.
@@ -341,7 +322,8 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
 1. V **typ** pole **vazby** vyberte **https**.
 
-1. Přiřaďte číslo portu webu, který ještě nepoužívá jiný web nebo aplikace. Pokud chcete vyhledat otevřené porty, můžete spustit **netstat** příkazu v okně příkazového řádku. Výchozí číslo portu je 443.
+1. Přiřaďte číslo portu webu, který ještě nepoužívá jiný web nebo aplikace.
+   Pokud chcete vyhledat otevřené porty, můžete spustit **netstat** příkazu v okně příkazového řádku. Výchozí číslo portu je 443.
 
    Pokud už číslo 443 používá jiný web nebo pokud máte jiné bezpečnostní důvody pro změnu čísla portu, změňte výchozí port. Pokud vybraný port používá jiný web, na kterém běží na serveru brány, když kliknete, zobrazí se upozornění **OK** v **přidat web** dialogové okno. Spuštění Windows PowerShell Web Accessu musí použití nepoužitého portu.
 
@@ -353,17 +335,17 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
 1. V relaci Windows Powershellu otevřené se zvýšenými uživatelskými právy (Spustit jako správce) spusťte následující skript, ve kterém _název_fondu_aplikací_ představuje název fondu aplikací, který jste vytvořili v kroku 4, aby měl fond aplikací přístupová práva k souboru autorizace.
 
-    ```    
-    $applicationPoolName = "<application_pool_name>"
-    $authorizationFile = "C:\windows\web\powershellwebaccess\data\AuthorizationRules.xml"
-    c:\windows\system32\icacls.exe $authorizationFile /grant ('"' + "IIS AppPool\$applicationPoolName" + '":R') > $null
-    ```
+   ```powershell
+   $applicationPoolName = "<application_pool_name>"
+   $authorizationFile = "C:\windows\web\powershellwebaccess\data\AuthorizationRules.xml"
+   c:\windows\system32\icacls.exe $authorizationFile /grant ('"' + "IIS AppPool\$applicationPoolName" + '":R') > $null
+   ```
 
-    Pokud chcete zobrazit stávající přístupová práva k souboru autorizace, spusťte následující příkaz:
+   Pokud chcete zobrazit stávající přístupová práva k souboru autorizace, spusťte následující příkaz:
 
-    ```
-    c:\windows\system32\icacls.exe $authorizationFile
-    ```
+   ```powershell
+   c:\windows\system32\icacls.exe $authorizationFile
+   ```
 
 1. S novým webem vybraným v podokně stromu Správce služby IIS, klikněte na tlačítko **Start** v **akce** podokně spusťte web.
 
@@ -371,12 +353,10 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
 1. Otevřete nový web Windows PowerShell Web Accessu.
 
-    Vzhledem k tomu, že kořenový web odkazuje na složku Windows PowerShell Web Accessu, by měla v prohlížeči při otevření zobrazení Windows PowerShell Web Accessu přihlašovací stránku **https://\<*název_serveru_brány* \>**. By neměl muset přidat **/pswa** na adresu URL.
+   Vzhledem k tomu, že kořenový web odkazuje na složku Windows PowerShell Web Accessu, by měla v prohlížeči při otevření zobrazení Windows PowerShell Web Accessu přihlašovací stránku `https://<gateway_server_name>`. By neměl muset přidat **/pswa** na adresu URL.
 
-    > **![Poznámka:](images/note.jpeg) Poznámka**
-    >
-    > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel.
-    > Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
+   > [!NOTE]
+   > Není možné se přihlásit, dokud uživatelům nebude udělen přístup na web přidáním autorizačních pravidel. Další informace najdete v tématu [konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule), v tomto tématu a [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
 ### <a name="configuring-a-restrictive-authorization-rule"></a>Konfigurace omezujícího autorizačního pravidla
 
@@ -389,7 +369,6 @@ Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravid
 1. Proveďte jednu z následujících akcí otevřete relaci Windows Powershellu se zvýšenými uživatelskými právy.
 
    - Na ploše Windows klikněte pravým tlačítkem na **prostředí Windows PowerShell** na hlavním panelu a pak klikněte na tlačítko **spustit jako správce**.
-
    - V Windows **Start** obrazovce, klikněte pravým tlačítkem na **prostředí Windows PowerShell**a potom klikněte na tlačítko **spustit jako správce**.
 
 1. ![Poznámka k zabezpečení](images/SecurityNote.jpeg) Volitelný krok pro omezení přístupu uživatelů s použitím konfigurací relace:
@@ -398,13 +377,13 @@ Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravid
 
 1. Zadejte následující příkaz a stiskněte klávesu **Enter**.
 
-   Add-PswaAuthorizationRule - UserName < doména\uživatel | počítač\uživatel > - ComputerName < název_počítače > - ConfigurationName < session_configuration_name >
+   `Add-PswaAuthorizationRule -UserName <domain\user | computer\user> -ComputerName <computer_name> -ConfigurationName <session_configuration_name>`
 
    Toto autorizační pravidlo umožňuje konkrétní přístup uživatele k jednomu počítači v síti, ke kterým mají obvykle přístup, včetně přístupu ke konfiguraci konkrétní relace, které budou platit pro uživatele "™ potřeby typický skriptování a rutiny s.
 
    V následujícím příkladu se uživateli se jménem `JSmith` v doméně `Contoso` udělí přístup ke správě počítače `Contoso_214` a použití konfigurace relace s názvem `NewAdminsOnly`.
 
-   Add-PswaAuthorizationRule - UserName "Contoso\jmacek" - ComputerName Contoso_214 - při ConfigurationName NewAdminsOnly
+   `Add-PswaAuthorizationRule -UserName 'Contoso\JSmith' -ComputerName Contoso_214 -ConfigurationName NewAdminsOnly`
 
 1. Ověřte, zda byl vytvořen pravidla buď spuštěním `Get-PswaAuthorizationRule` rutiny nebo `Test-PswaAuthorizationRule -UserName '<domain\user>' -ComputerName <computer-name>`.
 
@@ -425,10 +404,9 @@ Aby bylo produkční prostředí zabezpečené, používejte vždy platný certi
 1. V **akce** podokno, proveďte jednu z následujících akcí. Další informace o konfiguraci certifikátů serveru ve službě IIS najdete v tématu [konfigurace certifikátů serveru ve službě IIS 7](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732230(v=ws.10)).
 
    - Klikněte na tlačítko **importovat** k naimportovat stávající platný certifikát z umístění v síti.
-
    - Klikněte na tlačítko **vytvořit žádost o certifikát** požádat o certifikát od certifikační Autority, jako [VeriSign](http://www.verisign.com/), [Thawte](https://www.thawte.com/), nebo [GeoTrust](https://www.geotrust.com/). Běžný název certifikátu musí odpovídat hlavičce hostitele v žádosti.
 
-   Například, pokud prohlížeč klienta požaduje http://www.contoso.com/, pak musí také být běžný název http://www.contoso.com/. Toto je nejbezpečnější a doporučená možnost poskytnutí brány Windows PowerShell Web Accessu pomocí certifikátu.
+     Například, pokud prohlížeč klienta požaduje http://www.contoso.com/, pak musí také být běžný název http://www.contoso.com/. Toto je nejbezpečnější a doporučená možnost poskytnutí brány Windows PowerShell Web Accessu pomocí certifikátu.
 
    - Klikněte na tlačítko **vytvořit certifikát podepsaný svým držitelem** vytvoření certifikátu můžete použít okamžitě a mají novější podepsaný Certifikační autoritou v případě potřeby. Zadejte popisný název certifikátu podepsaného držitelem, například **Windows PowerShell Web Accessu**. Tato možnost se nepovažuje za bezpečnou a doporučuje se pouze pro privátní testovací prostředí.
 

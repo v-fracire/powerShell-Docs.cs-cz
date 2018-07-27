@@ -2,12 +2,12 @@
 ms.date: 05/17/2018
 keywords: prostředí PowerShell, core
 title: Známé problémy pro Powershellu 6.0
-ms.openlocfilehash: 7fa6b9935ae75b62df72609b8a9ec16246b1c610
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: e3e718be903ff2223064d5790d3d0fe554ef04cd
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893684"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39267996"
 ---
 # <a name="known-issues-for-powershell-60"></a>Známé problémy pro Powershellu 6.0
 
@@ -102,8 +102,8 @@ Velký počet příkazů (rutiny) běžně k dispozici v prostředí PowerShell 
 
 Následující tabulka uvádí příkazy, které se ví, že fungují v prostředí PowerShell v systému Linux/macOS.
 
-|Příkazy |Provozní stav | Poznámky|
-|---------|------------------|------|
+|Příkazy|Provozní stav|Poznámky|
+|--------|-----------------|-----|
 |`Get-Service`, `New-Service`, `Restart-Service`, `Resume-Service`, `Set-Service`, `Start-Service`, `Stop-Service`, `Suspend-Service`|Není k dispozici.|Tyto příkazy nebude rozpoznán. Tento problém by měl vyřešen v budoucí verzi.|
 |`Get-Acl`, `Set-Acl`|Tato možnost není dostupná.|Tyto příkazy nebude rozpoznán. Tento problém by měl vyřešen v budoucí verzi.|
 |`Get-AuthenticodeSignature`, `Set-AuthenticodeSignature`|Tato možnost není dostupná.|Tyto příkazy nebude rozpoznán. Tento problém by měl vyřešen v budoucí verzi.|
