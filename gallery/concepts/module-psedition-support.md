@@ -3,12 +3,12 @@ ms.date: 06/12/2017
 contributor: manikb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Moduly s kompatibilní edice Powershellu
-ms.openlocfilehash: 2b11d833e7abc50f26b1581f678b9509a098c2c5
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 7f38e6e1d4f4d45814bf331f33e962e06f4e03c1
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093520"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268700"
 ---
 # <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní edice Powershellu
 
@@ -17,7 +17,7 @@ Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí r
 - **Desktop Edition:** Tato edice je založená na rozhraní .NET Framework a zajišťuje kompatibilitu se skripty a moduly cílenými na verze PowerShellu spouštěné na plných edicích Windows, jako je Jádro serveru a Windows Desktop.
 - **Core Edition:** Tato edice je založená na rozhraní .NET Core a zajišťuje kompatibilitu se skripty a moduly cílenými na verze PowerShellu spouštěné na edicích Windows s nízkými nároky na prostředky, jako je Nano Server a Windows IoT.
 
-## <a name="the-running-edition-of-powershell-is-shown-in-the-psedition-property-of-psversiontable"></a>Používaná verze PowerShellu je uvedena ve vlastnosti PSEdition parametru $PSVersionTable.
+Verze powershellu je zobrazena ve vlastnosti PSEdition `$PSVersionTable`.
 
 ```powershell
 $PSVersionTable
@@ -36,7 +36,9 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-## <a name="module-authors-can-declare-their-modules-to-be-compatible-with-one-or-more-powershell-editions-using-the-compatiblepseditions-module-manifest-key-this-key-is-only-supported-on-powershell-51-or-later"></a>Autoři modulu mají možnost deklarovat své moduly jako kompatibilní s jednou nebo více edicemi PowerShellu, které používají klíč manifestu CompatiblePSEditions. Podporu tohoto klíče poskytují jenom prostředí PowerShell 5.1 nebo novější.
+## <a name="declaring-compatible-editions"></a>Deklarování kompatibilní edice
+
+Autoři modulu mají možnost deklarovat své moduly jako kompatibilní s jednou nebo více edicemi PowerShellu, které používají klíč manifestu CompatiblePSEditions. Podporu tohoto klíče poskytují jenom prostředí PowerShell 5.1 nebo novější.
 
 > [!NOTE]
 > Jakmile modul manifestu je zadán s klíčem CompatiblePSEditions, nelze importovat na nižší verzi prostředí PowerShell.
@@ -88,15 +90,15 @@ Desktop
 Core
 ```
 
-## <a name="module-authors-can-publish-a-single-module-targeting-to-either-or-both-powershell-editions-desktop-and-core"></a>Autoři modulu můžete publikovat v modulu single cílení jednoho nebo obou edice Powershellu (v desktopové i jader)
+## <a name="targeting-multiple-editions"></a>Cílení na více verzí
 
-Jeden modul mohl pracovat na ploše a jádra edice, v tomto modulu má autor přidat požadované logiku v obou RootModule, nebo v manifestu modulu pomocí $PSEdition proměnné.
-Moduly může mít dvě sady na CoreCLR a FullCLR zkompilované knihovny DLL.
-Tady je několik možností pro balíček modulu s logiku pro načítání knihoven DLL správné.
+Autoři modulu můžete publikovat v modulu single cílení jednoho nebo obou edice Powershellu (v desktopové i Core).
+
+Jeden modul mohl pracovat na ploše a jádra edice, v tomto modulu má autor přidat požadované logiku v obou RootModule, nebo v manifestu modulu pomocí $PSEdition proměnné. Moduly může mít dvě sady na CoreCLR a FullCLR zkompilované knihovny DLL. Tady je několik možností pro balíček modulu s logiku pro načítání knihoven DLL správné.
 
 ### <a name="option-1-packaging-a-module-for-targeting-multiple-versions-and-multiple-editions-of-powershell"></a>Možnost 1: Vytvoření balíčku modulu pro cílení na více verzí a více edicemi Powershellu
 
-#### <a name="module-folder-contents"></a>Obsah složky modulu
+Obsah složky modulu
 
 - Microsoft.Windows.PowerShell.ScriptAnalyzer.BuiltinRules.dll
 - Microsoft.Windows.PowerShell.ScriptAnalyzer.dll
@@ -116,7 +118,7 @@ Tady je několik možností pro balíček modulu s logiku pro načítání kniho
 - Settings\ScriptingStyle.psd1
 - Settings\ScriptSecurity.psd1
 
-#### <a name="contents-of-psscriptanalyzerpsd1-file"></a>Obsah souboru PSScriptAnalyzer.psd1
+Obsah souboru PSScriptAnalyzer.psd1
 
 ```powershell
 @{
@@ -134,9 +136,9 @@ ModuleVersion = '1.6.1'
 }
 ```
 
-#### <a name="contents-of-psscriptanalyzerpsm1-file"></a>Obsah souboru PSScriptAnalyzer.psm1
-
 Pod logiky načte požadované sestavení v závislosti na aktuální edici nebo verzi.
+
+Obsah souboru PSScriptAnalyzer.psm1:
 
 ```powershell
 #
@@ -157,7 +159,8 @@ if (($PSVersionTable.Keys -contains "PSEdition") -and ($PSVersionTable.PSEdition
 }
 else
 {
-    if ($PSVersionTable.PSVersion -lt [Version]'5.0') {
+    if ($PSVersionTable.PSVersion -lt [Version]'5.0')
+    {
         $binaryModuleRoot = Join-Path -Path $PSModuleRoot -ChildPath 'PSv3'
     }
 }
@@ -173,48 +176,43 @@ $PSModule.OnRemove = {
 
 ### <a name="option-2-use-psedition-variable-in-the-psd1-file-to-load-the-proper-dlls-and-nestedrequired-modules"></a>Možnost 2: Použití proměnné $PSEdition soubor PSD1 načíst správné knihovny DLL a vnořené/požadované moduly
 
-PS 5.1 nebo novější je v souboru manifestu modulu povolen $PSEdition globální proměnné.
-Pomocí této proměnné, Autor modulu můžete určit podmíněného hodnoty v souboru manifestu modulu. $PSEdition proměnné může být odkazováno v režimu s omezeným přístupem jazyka nebo datové části.
+PS 5.1 nebo novější je v souboru manifestu modulu povolen $PSEdition globální proměnné. Pomocí této proměnné, Autor modulu můžete určit podmíněného hodnoty v souboru manifestu modulu. $PSEdition proměnné může být odkazováno v režimu s omezeným přístupem jazyka nebo datové části.
 
 > [!NOTE]
-> Jakmile manifestu modulu je zadán s klíčem CompatiblePSEditions nebo používá $PSEdition proměnnou, nelze importovat na nižší verzi prostředí PowerShell.
+> Jakmile modul manifestu je zadán s parametrem CompatiblePSEditions klíč nebo používá `$PSEdition` proměnné, nelze jej importovat na nižší verzi prostředí PowerShell.
 
-#### <a name="sample-module-manifest-file-with-compatiblepseditions-key"></a>Ukázkový soubor manifestu modulu s klíčem CompatiblePSEditions
+Ukázkový soubor manifestu modulu s klíčem CompatiblePSEditions
 
 ```powershell
 @{
-# - - -
+    # Script module or binary module file associated with this manifest.
+    RootModule = if($PSEdition -eq 'Core')
+    {
+        'coreclr\MyCoreClrRM.dll'
+    }
+    else # Desktop
+    {
+        'clr\MyFullClrRM.dll'
+    }
 
-# Script module or binary module file associated with this manifest.
-RootModule = if($PSEdition -eq 'Core')
-{
-'coreclr\MyCoreClrRM.dll'
-}
-else # Desktop
-{
-'clr\MyFullClrRM.dll'
-}
+    # Supported PSEditions
+    CompatiblePSEditions = 'Desktop', 'Core'
 
-# Supported PSEditions
-CompatiblePSEditions = 'Desktop', 'Core'
-
-# Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = if($PSEdition -eq 'Core')
-{
-'coreclr\MyCoreClrNM1.dll',
-'coreclr\MyCoreClrNM2.dll'
-}
-else # Desktop
-{
-'clr\MyFullClrNM1.dll',
-'clr\MyFullClrNM2.dll'
-}
-
-# -- - -
+    # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
+    NestedModules = if($PSEdition -eq 'Core')
+    {
+        'coreclr\MyCoreClrNM1.dll',
+        'coreclr\MyCoreClrNM2.dll'
+    }
+    else # Desktop
+    {
+        'clr\MyFullClrNM1.dll',
+        'clr\MyFullClrNM2.dll'
+    }
 }
 ```
 
-#### <a name="module-contents"></a>Obsah modulu
+### <a name="module-contents"></a>Obsah modulu
 
 ```powershell
 dir -Recurse
@@ -223,30 +221,30 @@ dir -Recurse
 ```output
     Directory: C:\Users\manikb\Documents\WindowsPowerShell\Modules\ModuleWithEditions
 
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d-----         7/5/2016   1:37 PM                clr
-d-----         7/5/2016   1:36 PM                coreclr
--a----         7/5/2016   1:34 PM           4906 ModuleWithEditions.psd1
+Mode           LastWriteTime   Length Name
+----           -------------   ------ ----
+d-----    7/5/2016   1:37 PM          clr
+d-----    7/5/2016   1:36 PM          coreclr
+-a----    7/5/2016   1:34 PM     4906 ModuleWithEditions.psd1
 
     Directory: C:\Users\manikb\Documents\WindowsPowerShell\Modules\ModuleWithEditions\clr
 
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
--a----         7/5/2016   1:35 PM              0 MyFullClrNM1.dll
--a----         7/5/2016   1:35 PM              0 MyFullClrNM2.dll
--a----         7/5/2016   1:35 PM              0 MyFullClrRM.dl
+Mode           LastWriteTime    Length Name
+----           -------------    ------ ----
+-a----    7/5/2016   1:35 PM         0 MyFullClrNM1.dll
+-a----    7/5/2016   1:35 PM         0 MyFullClrNM2.dll
+-a----    7/5/2016   1:35 PM         0 MyFullClrRM.dl
 
     Directory: C:\Users\manikb\Documents\WindowsPowerShell\Modules\ModuleWithEditions\coreclr
 
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
--a----         7/5/2016   1:35 PM              0 MyCoreClrNM1.dll
--a----         7/5/2016   1:35 PM              0 MyCoreClrNM2.dll
--a----         7/5/2016   1:35 PM              0 MyCoreClrRM.dl
+Mode           LastWriteTime   Length Name
+----           -------------   ------ ----
+-a----    7/5/2016   1:35 PM        0 MyCoreClrNM1.dll
+-a----    7/5/2016   1:35 PM        0 MyCoreClrNM2.dll
+-a----    7/5/2016   1:35 PM        0 MyCoreClrRM.dl
 ```
 
-## <a name="powershell-gallery-users-can-find-the-list-of-modules-supported-on-a-specific-powershell-edition-using-tags-pseditiondesktop-and-pseditioncore"></a>Galerie prostředí PowerShell uživatelé najdou seznam modulů, které jsou podporovány na konkrétní edici Powershellu pomocí značek PSEdition_Desktop a PSEdition_Core.
+Galerie prostředí PowerShell uživatelé najdou seznam modulů, které jsou podporovány na konkrétní edici Powershellu pomocí značek PSEdition_Desktop a PSEdition_Core.
 
 Moduly bez PSEdition_Desktop a PSEdition_Core značek jsou považovány za fungovat bez problémů na edice Powershellu Desktop.
 

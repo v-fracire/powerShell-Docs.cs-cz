@@ -3,12 +3,12 @@ ms.date: 10/17/2017
 contributor: keithb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Předběžné verze skriptů
-ms.openlocfilehash: 7d4cec9d2b4ee5ad0b19ad5d9c68bb68747abd57
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 14ae1968e5ee73260b6eae05b11185069d047e93
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093844"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268462"
 ---
 # <a name="prerelease-versions-of-scripts"></a>Předběžné verze skriptů
 
@@ -45,12 +45,12 @@ Pokud chcete použít příponu předběžné verze, řetězec verze musí splň
 - Příponu předběžné verze jde zadat jenom když je verze 3 segmenty Major.Minor.Build.
   Ten je v souladu s SemVer v1.0.0
 - Předběžné verze přípona je řetězec, který začíná spojovníkem a může obsahovat alfanumerické znaky ASCII [0-9A-Za - z-]
-- Jsou podporovány pouze řetězce předběžnou verzi v1.0.0 SemVer v tuto chvíli tak příponu předběžné verze __nesmí__ obsahovat buď období nebo + [. +], které jsou povoleny v SemVer 2.0
+- Jsou podporovány pouze řetězce předběžnou verzi v1.0.0 SemVer v tuto chvíli tak příponu předběžné verze **nesmí** obsahovat buď období nebo + [. +], které jsou povoleny v SemVer 2.0
 - Příklady podporovaných řetězců PrereleaseString:-alfa, - α1,-BETA, - update20171020
 
-__Předběžné verze správy verzí dopad na složky instalace a pořadí řazení__
+### <a name="prerelease-versioning-impact-on-sort-order-and-installation-folders"></a>Předběžné verze správy verzí dopad na složky instalace a pořadí řazení
 
-Pořadí řazení se změní při používání předběžné verze, což je důležité při publikování do Galerie prostředí PowerShell, a při instalaci skriptů pomocí příkazů PowerShellGet. Pokud dva skripty verze s číslem verze neexistuje, pořadí řazení je podle následující spojovník část řetězce. Ano 2.5.0-alpha verze je menší než 2.5.0-beta, což je míň než 2.5.0-gamma. Pokud dva skripty mají stejné číslo verze a pouze jeden má PrereleaseString, skript __bez__ příponu předběžné verze se předpokládá se, že verze připravené pro produkční prostředí a budou seřazeny jako větší než zkušební verze verze. Jako příklad, když porovnání uvolní 2.5.0 a 2.5.0-beta, 2.5.0 verzi se budou považovat za větší z nich.
+Pořadí řazení se změní při používání předběžné verze, což je důležité při publikování do Galerie prostředí PowerShell, a při instalaci skriptů pomocí příkazů PowerShellGet. Pokud dva skripty verze s číslem verze neexistuje, pořadí řazení je podle následující spojovník část řetězce. Ano 2.5.0-alpha verze je menší než 2.5.0-beta, což je míň než 2.5.0-gamma. Pokud dva skripty mají stejné číslo verze a pouze jeden má PrereleaseString, skript **bez** příponu předběžné verze se předpokládá se, že verze připravené pro produkční prostředí a budou seřazeny jako větší než zkušební verze verze. Jako příklad, když porovnání uvolní 2.5.0 a 2.5.0-beta, 2.5.0 verzi se budou považovat za větší z nich.
 
 Při publikování do Galerie prostředí PowerShell, ve výchozím nastavení verzi publikován skriptu musí mít s vyšší verzí, než všechny dříve publikované verzi, která je v galerii prostředí PowerShell. Vydavatel může aktualizovat verzi 2.5.0-alpha 2.5.0-beta nebo s 2.5.0 (s příponou žádné předběžné verze).
 
@@ -61,7 +61,7 @@ Práce s předběžnou verzi položky pomocí Správce balíčků PowerShellGet 
 Jedinou výjimkou tohoto v příkazy skriptu PowerShellGet jsou Get-InstalledScript a někdy se skript pro odinstalaci.
 
 - Get-InstalledScript vždy automaticky zobrazí informace o předběžnou verzi v řetězci verze pokud je k dispozici.
-- Odinstalovat skriptu bude ve výchozím nastavení odinstalace nejnovější verzi skriptu, pokud __žádná verze__ je zadán. Aby nedošlo ke změně chování. Nicméně pokud předprodejní verze určena pomocí - RequiredVersion, - AllowPrerelease se bude vyžadovat.
+- Odinstalovat skriptu bude ve výchozím nastavení odinstalace nejnovější verzi skriptu, pokud **žádná verze** je zadán. Aby nedošlo ke změně chování. Nicméně pokud předprodejní verze určena pomocí `-RequiredVersion`, `-AllowPrerelease` se bude vyžadovat.
 
 ## <a name="examples"></a>Příklady
 
@@ -83,13 +83,13 @@ Version        Name                                Repository           Descript
 # To install a prerelease, you must specify -AllowPrerelease. Specifying a prerelease version string is not sufficient.
 
 C:\windows\system32> Install-Script TestPackage -RequiredVersion 1.9.0-alpha
+
 PackageManagement\Find-Package : No match was found for the specified search criteria and script name 'TestPackage'.
 Try Get-PSRepository to see all available registered script repositories.
 At C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.6.0\PSModule.psm1:1455 char:3
 +         PackageManagement\Find-Package @PSBoundParameters | Microsoft ...
 +         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Microsoft.Power...ets.FindPackage:FindPackage) [Find-Package], Exceptio
-   n
+    + CategoryInfo          : ObjectNotFound: (Microsoft.Power...ets.FindPackage:FindPackage)[Find-Package], Exception
     + FullyQualifiedErrorId : NoMatchFoundForCriteria,Microsoft.PowerShell.PackageManagement.Cmdlets.FindPackage
 
 # The previous command failed because -AllowPrerelease was not specified.

@@ -4,18 +4,18 @@ keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
 title: Add-PswaAuthorizationRule
 schema: 2.0.0
-ms.openlocfilehash: a8904ac36f7fd9fe3c649ad4ca709a98c31b63c3
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: bcf897730881551ec16ce970de6a1330961b67e6
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39094224"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268261"
 ---
 # <a name="add-pswaauthorizationrule"></a>Add-PswaAuthorizationRule
 
 ## <a name="synopsis"></a>SOUHRN
 
-Přidá nové autorizační pravidlo sada pravidel autorizace pro Windows PowerShell® Web Accessu.
+Přidá nové autorizační pravidlo sada pravidel autorizace pro Windows PowerShell Web Accessu.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -45,12 +45,11 @@ Add-PswaAuthorizationRule [-UserName] <String[]> [-ComputerName] <String> [-Conf
 
 ## <a name="description"></a>POPIS
 
-**Add-PswaAuthorizationRule** rutina přidá nové autorizační pravidlo do sada pravidel autorizace pro Windows PowerShell® Web Accessu.
+**Add-PswaAuthorizationRule** rutina přidá nové autorizační pravidlo do sada pravidel autorizace pro Windows PowerShell(r) Web Access.
 
 Musíte zadat uživatelů, počítačů a prostředí Windows PowerShell koncové body pro toto pravidlo. Můžete určit uživatele a počítače jednotlivých uživatelských účtů a názvy počítačů nebo zadáním skupiny.
 
-Pro počítač, který je připojený k doméně služby Active Directory rutina k vytvoření pravidla používá identifikátor zabezpečení (SID) počítače.
-Díky tomu můžete použít krátký název, plně kvalifikovaný název domény (FQDN) nebo IP adresu pro **název_počítače** na přihlašovací stránku.
+Pro počítač, který je připojený k doméně služby Active Directory rutina k vytvoření pravidla používá identifikátor zabezpečení (SID) počítače. Díky tomu můžete použít krátký název, plně kvalifikovaný název domény (FQDN) nebo IP adresu pro **název_počítače** na přihlašovací stránku.
 
 Pro počítač, který není připojený k doméně služby Active Directory rutina vytvoří pravidlo s použitím názvu počítače program od správce. K úspěšnému připojení k tomuto počítači, musí koncový uživatel poskytnutí názvu počítače, v naprosto stejném tvaru v pravidle.
 
@@ -66,12 +65,12 @@ Určuje název skupiny počítačů v Active Directory Domain Services (AD DS) n
 
 |||
 |-|-|
-| Aliasy                              | žádný                                 |
-| Povinné?                            | Hodnota TRUE                                 |
-| Pozice?                            | s názvem                                |
-| Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
-| Přijímat zástupné znaky?          | false                                |
+| Aliasy                     | žádný                  |
+| Povinné?                   | Hodnota TRUE                  |
+| Pozice?                   | s názvem                 |
+| Výchozí hodnota               | žádný                  |
+| Přijmout kanálový vstup?      | True (ByPropertyName) |
+| Přijímat zástupné znaky? | false                 |
 
 ### <a name="-computername-string"></a>-ComputerName \<řetězec\>
 
@@ -79,12 +78,12 @@ Určuje název počítače, na které toto pravidlo udělí přístup.
 
 |||
 |-|-|
-| Aliasy                              | žádný                                 |
-| Povinné?                            | Hodnota TRUE                                 |
-| Pozice?                            | s názvem                                |
-| Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
-| Přijímat zástupné znaky?          | false                                |
+| Aliasy                     | žádný                  |
+| Povinné?                   | Hodnota TRUE                  |
+| Pozice?                   | s názvem                 |
+| Výchozí hodnota               | žádný                  |
+| Přijmout kanálový vstup?      | True (ByPropertyName) |
+| Přijímat zástupné znaky? | false                 |
 
 ### <a name="-configurationname-string"></a>– Při ConfigurationName \<řetězec\>
 
@@ -92,12 +91,12 @@ Určuje název konfigurace relace prostředí Windows PowerShell, označované t
 
 |||
 |-|-|
-| Aliasy                              | žádný                                 |
-| Povinné?                            | Hodnota TRUE                                 |
-| Pozice?                            | s názvem                                |
-| Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | True (ByPropertyName)                |
-| Přijímat zástupné znaky?          | false                                |
+| Aliasy                     | žádný                  |
+| Povinné?                   | Hodnota TRUE                  |
+| Pozice?                   | s názvem                 |
+| Výchozí hodnota               | žádný                  |
+| Přijmout kanálový vstup?      | True (ByPropertyName) |
+| Přijímat zástupné znaky? | false                 |
 
 ### <a name="-credential--pscredential"></a>-Credential \<PSCredential\>
 
@@ -105,17 +104,16 @@ Určuje **PSCredential** objektu pro uživatelský účet, který chcete použí
 
 |||
 |-|-|
-| Aliasy                              | žádný                                 |
-| Povinné?                            | false                                |
-| Pozice?                            | s názvem                                |
-| Výchozí hodnota                        | žádný                                 |
-| Přijmout kanálový vstup?               | false                                |
-| Přijímat zástupné znaky?          | false                                |
+| Aliasy                     | žádný  |
+| Povinné?                   | false |
+| Pozice?                   | s názvem |
+| Výchozí hodnota               | žádný  |
+| Přijmout kanálový vstup?      | false |
+| Přijímat zástupné znaky? | false |
 
 ### <a name="-force"></a>-Force
 
-Vynutí příkazu ke spuštění bez nutnosti potvrzení uživatelem. \
-Kromě toho se také zobrazí výzvu k potvrzení při zadání názvu počítače jednoduché nebo krátké (jako je například název, který není název domény nebo není plně kvalifikovaný). Potvrzení je požadována z důvodu zabezpečení tak, aby jednoduchý název slouží k přidání počítače pouze v případě, že je počítač v pracovní skupině.
+Vynutí spuštění příkazu, aniž by požádal uživatele o potvrzení. Kromě toho se také zobrazí výzvu k potvrzení při zadání názvu počítače jednoduché nebo krátké (jako je například název, který není název domény nebo není plně kvalifikovaný). Potvrzení je požadována z důvodu zabezpečení tak, aby jednoduchý název slouží k přidání počítače pouze v případě, že je počítač v pracovní skupině.
 
 |||
 |-|-|
@@ -154,8 +152,7 @@ Určuje název jedné nebo víc skupin uživatelů ve službě AD DS nebo místn
 
 ### <a name="-username-string"></a>-UserName \<řetězec\[\]\>
 
-Určuje jeden nebo více uživatelů, na které toto pravidlo udělí přístup. Uživatelské jméno může být místní uživatelský účet na počítači brány nebo uživatel ve službě AD DS.
-Formát je `domain\user` nebo `computer\user`.
+Určuje jeden nebo více uživatelů, na které toto pravidlo udělí přístup. Uživatelské jméno může být místní uživatelský účet na počítači brány nebo uživatel ve službě AD DS. Formát je `domain\user` nebo `computer\user`.
 
 |||
 |-|-|
@@ -168,7 +165,9 @@ Formát je `domain\user` nebo `computer\user`.
 
 ###  <a name="commonparameters"></a>\<CommonParameters\>
 
-Tato rutina podporuje běžné parametry:-Verbose,-Debug, - ErrorAction, - ErrorVariable,-OutBuffer a - OutVariable.
+Tato rutina podporuje běžné parametry:
+
+-Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer a -OutVariable.
 Další informace najdete v tématu [about_CommonParameters](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_commonparameters).
 
 ## <a name="inputs"></a>VSTUPY
@@ -194,9 +193,9 @@ Tato rutina vrátí objektu pravidla autorizace.
 Tento příklad uděluje přístup ke konfiguraci relace _Pswakoncovybod_, omezuje prostředí runspace _srv2_ pro uživatele v _SMAdmins_ skupiny.
 
 > [!NOTE]
-> Název počítače musí být plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou spouštět. Definování omezeném prostředí runspace můžete zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolených Windows PowerShell® prostředí runspace, což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a používání Windows PowerShell Web Accessu](../install-and-use-windows-powershell-web-access.md).
+> Název počítače musí být plně kvalifikovaný název domény (FQDN). Správci definují konfiguraci relace s omezeným přístupem nebo prostředí runspace, což je omezeným rozsahem rutin a úloh, které koncoví uživatelé můžou spouštět. Definování omezeném prostředí runspace můžete zabránit uživatelům v přístupu k jiným počítačům, které nejsou v povolených prostředí runspace Windows PowerShell(r), což zajišťuje bezpečnější připojení. Další informace o konfiguracích relace najdete v tématu [about_Session_Configurations](/powershell/module/microsoft.powershell.core/about/about_session_configurations) nebo [instalace a používání Windows PowerShell Web Accessu](../install-and-use-windows-powershell-web-access.md).
 
-```PowerShell
+```powershell
 Add-PswaAuthorizationRule -ComputerName srv2.contoso.com -UserGroupName contoso\SMAdmins -ConfigurationName PSWAEndpoint
 ```
 
@@ -204,8 +203,8 @@ Add-PswaAuthorizationRule -ComputerName srv2.contoso.com -UserGroupName contoso\
 
 Tento příklad uděluje přístup k výchozí konfiguraci relace prostředí Windows PowerShell `Microsoft.PowerShell`na *srv2* pro uživatele v uživatelů s názvem `contoso\user1`, `contoso\user2`, a `contoso\user3`. Tato rutina vytvoří tři pravidla (1 na osobu).
 
-```PowerShell
-Add-PswaAuthorizationRule –UserName contoso\user1, contoso\user2, contoso\user3 –ComputerName srv2.contoso.com -ConfigurationName Microsoft.PowerShell
+```powershell
+Add-PswaAuthorizationRule -UserName contoso\user1, contoso\user2, contoso\user3 -ComputerName srv2.contoso.com -ConfigurationName Microsoft.PowerShell
 ```
 
 ### <a name="example-3"></a>PŘÍKLAD 3
@@ -213,18 +212,18 @@ Add-PswaAuthorizationRule –UserName contoso\user1, contoso\user2, contoso\user
 Tento příklad ukazuje, jak vstupní hodnoty název uživatele prostřednictvím kanálu.
 
 ```powershell
-"contoso\user1","contoso\user2" | Add-pswaAuthorizationRule –ComputerName srv2.contoso.com –ConfigurationName Microsoft.PowerShell
+"contoso\user1","contoso\user2" | Add-pswaAuthorizationRule -ComputerName srv2.contoso.com -ConfigurationName Microsoft.PowerShell
 ```
 
 ### <a name="example-4"></a>PŘÍKLAD 4:
 
 Tento příklad ukazuje, jak všechny parametry v této hodnoty z kanálu název vlastnosti.
 
-````PowerShell
+````powershell
 $o = New-Object -TypeName PSObject |
     Add-Member -Type NoteProperty -Name "UserName" -Value "contoso\user1" -PassThru |
     Add-Member -Type NoteProperty -Name "ComputerName" -Value "srv2.contoso.com" -PassThru |
-    Add-Member -Type NoteProperty -Name "ConfigurationName" -Value "Microsoft.PowerShell" –PassThru
+    Add-Member -Type NoteProperty -Name "ConfigurationName" -Value "Microsoft.PowerShell" -PassThru
 
 $o | Add-PswaAuthorizationRule -UserName contoso\user1 -ConfigurationName Microsoft.PowerShell
 ````
@@ -236,19 +235,18 @@ V tomto příkladu přidá pravidla povolení místního uživatele s názvem `P
 Tento příklad ukazuje scénář, ve kterém je brána v pracovní skupině a cílový počítač nachází v doméně. Autorizační pravidlo platí pro místní uživatele v bráně. Na Windows PowerShell Web Accessu přihlašovací stránku k ověření úspěšně, uživatel musí zadat druhou sadu pověření v **volitelná nastavení připojení** oblasti. Server brány použije další sadu pověření pro ověření uživatele v cílovém počítači, serveru s názvem *srv1.contoso.com*.
 
 ````powershell
-Add-PswaAuthorizationRule –UserName PswaServer\ChrisLocal –ComputerName srv1.contoso.com –ConfigurationName Microsoft.PowerShell
+Add-PswaAuthorizationRule -UserName PswaServer\ChrisLocal -ComputerName srv1.contoso.com -ConfigurationName Microsoft.PowerShell
 ````
 
 ### <a name="example-6"></a>PŘÍKLAD 6
 
-Tento příklad umožňuje všem uživatelům přístup k všechny koncové body na všech počítačích.
-To v podstatě vypne autorizačních pravidel.
+Tento příklad umožňuje všem uživatelům přístup k všechny koncové body na všech počítačích. To v podstatě vypne autorizačních pravidel.
 
 > [!NOTE]
 > Použití `*` zástupný znak se doporučují pro nasazení zabezpečené a by měl pouze se považuje za pro testovací prostředí nebo použít v nasazeních, kde můžete zmírnit zabezpečení.
 
-````PowerShell
-Add-PswaAuthorizationRule –UserName * -ComputerName * -ConfigurationName *
+````powershell
+Add-PswaAuthorizationRule -UserName * -ComputerName * -ConfigurationName *
 ````
 
 ## <a name="see-also"></a>Viz také

@@ -1,19 +1,19 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 2fb2e4b0c40322b5ec78fabede22a7e3ecbbd2aa
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: cd3338ae305896e282056a871974e5f899ef6ff5
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093758"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268574"
 ---
 # <a name="reporting-on-jea"></a>Vytváření sestav funkce JEA
 
 Za účelem hlášení o stavu konfigurace JEA, můžete použít:
 
 1. **Get-PSSessionConfiguration** vrátí seznam všech registrovaných koncových bodů na daném počítači.
-1. **Get-PSSessionCapability** hlášení o možnostech libovolný daný uživatel má na určitý koncový bod.
+2. **Get-PSSessionCapability** hlášení o možnostech libovolný daný uživatel má na určitý koncový bod.
 
 Tady je příklad **Get-PSSessionCapability**:
 
@@ -41,5 +41,6 @@ Cmdlet          Restart-Service                                    3.0.0.0 Micro
 ```
 
 K vytvoření sestavy _akce_ uživatelé trvalo během relace JEA, můžete:
+
 1. Povolit záznamy o studiu "over-the-rameno, bude" pro tohoto koncového bodu JEA a prostudovat si adresáři přepisu pro úplný protokol akcí jednotlivých uživatelů
 2. Zapnutí protokolování modulu prostředí PowerShell a zkontrolujte protokoly událostí prostředí PowerShell.

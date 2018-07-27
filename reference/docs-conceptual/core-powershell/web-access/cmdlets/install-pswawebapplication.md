@@ -3,18 +3,18 @@ ms.topic: reference
 keywords: rutiny prostředí PowerShell
 ms.date: 12/12/2016
 title: Install-PswaWebApplication
-ms.openlocfilehash: 68455d9490f7d5c33c1a928ac262a76a78ad7128
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 29e074b75eeb387640831229c63142e6dd5e991a
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189597"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268295"
 ---
 # <a name="install-pswawebapplication"></a>Install-PswaWebApplication
 
-## <a name="synopsis"></a>STRUČNÝ OBSAH
+## <a name="synopsis"></a>SOUHRN
 
-Nakonfiguruje Windows PowerShell® Web Access webové aplikace ve službě IIS.
+Nakonfiguruje Windows PowerShell Web Accessu webové aplikace ve službě IIS.
 
 ## <a name="syntax"></a>SYNTAXE
 
@@ -25,26 +25,27 @@ Install-PswaWebApplication [[-WebApplicationName] <String> ] [-UseTestCertificat
 
 ## <a name="description"></a>POPIS
 
-**Rutiny Install-PswaWebApplication** rutiny se konfiguruje Windows PowerShell Web Access webové aplikace. Tato rutina nainstaluje webovou aplikaci, přidruží ji k webovému serveru a volitelně vytváří pomocí certifikátu testovací SSL **useTestCertificate** parametr. Pro zabezpečení Správci webové důvodů neměli používat testovací certifikát pro produkční prostředí.
+**Rutiny Install-PswaWebApplication** rutina nakonfiguruje webové aplikace Windows PowerShell Web Accessu.
+Tato rutina nainstaluje webovou aplikaci, přidruží ji k webu a volitelně vytváří certifikát SSL test pomocí **useTestCertificate** parametru. Pro zabezpečení správcům webových důvodů nepoužívejte testovací certifikát pro produkční prostředí.
 
 ## <a name="parameters"></a>PARAMETRY
 
 ### <a name="-usetestcertificate"></a>-UseTestCertificate
 
-Určuje, jestli je vytvořená testovací certifikát. Pokud tento parametr je nastaven na hodnotu true, pak tato rutina vytvoří testovací certifikát a nakonfiguruje webové aplikace Windows PowerShell Web Access k použití certifikátu pro požadavky HTTPS. Pokud tento parametr je nastaven na hodnotu false, pak je vytvořen žádný certifikát nebo vazby. Tuto hodnotu nastavte na hodnotu false, pokud se používá jiný certifikát pro Windows PowerShell Web Access.
+Určuje, že se vytvoří testovací certifikát. Pokud tento parametr je nastaven na hodnotu true, pak tato rutina vytvoří testovací certifikát a nakonfiguruje webovou aplikaci Windows PowerShell Web Access k použití certifikátu pro požadavky HTTPS. Pokud tento parametr je nastaven na hodnotu false, pak je vytvořen žádný certifikát nebo vazby. Tuto hodnotu nastavte na hodnotu false, pokud jiný certifikát se používá pro Windows PowerShell Web Accessu.
 
 |||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
-| Pozice?                            | S názvem                                |
+| Pozice?                            | s názvem                                |
 | Výchozí hodnota                        | Hodnota TRUE                                 |
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-webapplicationnameltstringgt"></a>-WebApplicationName&lt;řetězec&gt;
+### <a name="-webapplicationname"></a>-WebApplicationName
 
-Určuje název webové aplikace. Zobrazuje se jako poslední část Windows PowerShell Web Access URL.
+Určuje název pro vaši webovou aplikaci. Zobrazí se jako poslední část Windows PowerShell Web Access URL.
 
 |||
 |-|-|
@@ -55,15 +56,15 @@ Určuje název webové aplikace. Zobrazuje se jako poslední část Windows Powe
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
 
-### <a name="-websitenameltstringgt"></a>-Zadaným hodnotám WebSiteName&lt;řetězec&gt;
+### <a name="-websitename"></a>-Zadaným hodnotám WebSiteName
 
-Určuje název webového serveru (IIS) webu, na který chcete nainstalovat tuto webovou aplikaci Windows PowerShell Web Access.
+Určuje název webového serveru (IIS) webu, na které chcete nainstalovat tuto webovou aplikaci Windows PowerShell Web Accessu.
 
 |||
 |-|-|
 | Aliasy                              | žádný                                 |
 | Povinné?                            | false                                |
-| Pozice?                            | S názvem                                |
+| Pozice?                            | s názvem                                |
 | Výchozí hodnota                        | Výchozí web                     |
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
@@ -75,7 +76,7 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 |||
 |-|-|
 | Povinné?                            | false                                |
-| Pozice?                            | S názvem                                |
+| Pozice?                            | s názvem                                |
 | Výchozí hodnota                        | false                                |
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
@@ -88,15 +89,14 @@ Rutina není spuštěna.
 |||
 |-|-|
 | Povinné?                            | false                                |
-| Pozice?                            | S názvem                                |
+| Pozice?                            | s názvem                                |
 | Výchozí hodnota                        | false                                |
 | Přijmout kanálový vstup?               | false                                |
 | Přijímat zástupné znaky?          | false                                |
 
 ### <a name="ltcommonparametersgt"></a>&lt;CommonParameters&gt;
 
-Tato rutina podporuje běžné parametry:-Verbose,-Debug, - ErrorAction, - ErrorVariable,-OutBuffer a - OutVariable.
-Další informace najdete v tématu [about_CommonParameters](http://go.microsoft.com/fwlink/p/?LinkID=113216).
+Tato rutina podporuje běžné parametry:-Verbose,-Debug, - ErrorAction, - ErrorVariable,-OutBuffer a - OutVariable. Další informace najdete v tématu [about_CommonParameters](http://go.microsoft.com/fwlink/p/?LinkID=113216).
 
 ## <a name="inputs"></a>VSTUPY
 
@@ -104,13 +104,13 @@ Tato rutina nemá žádný vstup.
 
 ## <a name="outputs"></a>VÝSTUPY
 
-Tato rutina neprodukuje žádný výstup.
+Tato rutina negeneruje žádný výstup.
 
 ## <a name="examples"></a>PŘÍKLADY
 
 ### <a name="example-1"></a>PŘÍKLAD 1
 
-Tento příklad nainstaluje pomocí výchozí hodnoty pro webové aplikace PSWA **WebApplicationName** (*pswa*) a **zadaným hodnotám WebSiteName** (*výchozí web* ) parametry.
+Tento příklad nainstaluje PSWA webovou aplikaci pomocí výchozích hodnot pro **WebApplicationName** (*pswa*) a **zadaným hodnotám WebSiteName** (*výchozí webový server* ) parametry.
 
 ```
 Install-PswaWebApplication
@@ -118,7 +118,7 @@ Install-PswaWebApplication
 
 ### <a name="example-2"></a>PŘÍKLAD 2
 
-Tento příklad nainstaluje s testovací certifikát a pomocí výchozí hodnoty pro webové aplikace PSWA **WebApplicationName** a **zadaným hodnotám WebSiteName** parametry.
+Tento příklad nainstaluje webovou aplikaci PSWA testovací certifikát a pomocí výchozích hodnot pro **WebApplicationName** a **zadaným hodnotám WebSiteName** parametry.
 
 ```
 Install-PswaWebApplication -UseTestCertificate

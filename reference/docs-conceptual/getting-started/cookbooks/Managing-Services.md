@@ -3,22 +3,22 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Správa služeb
 ms.assetid: 7a410e4d-514b-4813-ba0c-0d8cef88df31
-ms.openlocfilehash: e2388f5d73a320a69faae0772c8403a7d77f8b52
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 81fd8802215da80ce22fa3fd4750b1df6efe8206
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39094166"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268071"
 ---
 # <a name="managing-services"></a>Správa služeb
 
-Nejsou k dispozici osm jader rutiny, navržená pro širokou škálu úloh služby. Se podíváme jenom na zobrazení a změna stavu spuštění pro služby, ale můžete získat seznam rutin služby pomocí **Get-Help \*– služba**, a informace o všech rutin služby můžete najít pomocí  **Get-Help \<název rutiny\>**, jako například **Get-Help novou službu**.
+Nejsou k dispozici osm jader rutiny, navržená pro širokou škálu úloh služby. Se podíváme jenom na zobrazení a změna stavu spuštění pro služby, ale můžete získat seznam rutin služby pomocí `Get-Help \*-Service`, a informace o všech rutin služby můžete najít pomocí `Get-Help <Cmdlet-Name>`, jako například `Get-Help New-Service`.
 
 ## <a name="getting-services"></a>Získání služby
 
-Služby na místním nebo vzdáleném počítači můžete získat pomocí **Get-Service** rutiny. Stejně jako u **Get-Process**, použije **Get-Service** příkaz bez parametrů vrátí všechny služby. Můžete filtrovat podle názvu, dokonce i pomocí hvězdičky jako zástupný znak:
+Služby na místním nebo vzdáleném počítači můžete získat pomocí `Get-Service` rutiny. Stejně jako u `Get-Process`, použije `Get-Service` příkaz bez parametrů vrátí všechny služby. Můžete filtrovat podle názvu, dokonce i pomocí hvězdičky jako zástupný znak:
 
-```
+```powershell
 PS> Get-Service -Name se*
 
 Status   Name               DisplayName
@@ -30,7 +30,7 @@ Stopped  ServiceLayer       ServiceLayer
 
 Protože není vždy zřejmé novinky o reálný název služby, může se stát, že je nutné vyhledat podle zobrazovaného názvu služby. Máte to podle konkrétního názvu pomocí zástupných znaků, nebo pomocí seznamu zobrazované názvy:
 
-```
+```powershell
 PS> Get-Service -DisplayName se*
 
 Status   Name               DisplayName
@@ -63,7 +63,7 @@ Tyto parametry se zobrazí pouze hodnoty DependentServices a ServicesDependedOn 
 
 V následujícím příkazu je získán služby, které vyžaduje služba LanmanWorkstation.
 
-```
+```powershell
 PS> Get-Service -Name LanmanWorkstation -RequiredServices
 
 Status   Name               DisplayName
@@ -76,7 +76,7 @@ Running  NSI                Network Store Interface Service
 
 V následujícím příkazu je získán služby, které vyžaduje služba LanmanWorkstation.
 
-```
+```powershell
 PS> Get-Service -Name LanmanWorkstation -DependentServices
 
 Status   Name               DisplayName
@@ -94,6 +94,7 @@ Get-Service -Name * | Where-Object {$_.RequiredServices -or $_.DependentServices
 ```
 
 ## <a name="stopping-starting-suspending-and-restarting-services"></a>Zastavení, spuštění, pozastavení a restartování služeb
+
 Všechny rutiny služby mají stejný obecný tvar. Služby je možné zadat tak běžný název nebo zobrazovaný název a seznamy a zástupné znaky jako hodnoty. K zastavení služby zařazování tisku, použijte:
 
 ```powershell
@@ -112,9 +113,9 @@ Pozastavení služby zařazování tisku, použijte:
 Suspend-Service -Name spooler
 ```
 
-**Restart-Service** rutiny funguje stejným způsobem jako u jiných rutin služby, ale ukážeme některé příklady složitější pro něj. V nejjednodušší použití zadejte název služby:
+`Restart-Service` Rutiny funguje stejným způsobem jako u jiných rutin služby, ale ukážeme některé příklady složitější pro něj. V nejjednodušší použití zadejte název služby:
 
-```
+```powershell
 PS> Restart-Service -Name spooler
 
 WARNING: Waiting for service 'Print Spooler (Spooler)' to finish starting...
@@ -126,7 +127,7 @@ Můžete si všimnout, získejte opakované zpráva upozornění o zařazování
 
 Pokud chcete restartovat víc služeb, můžete získat seznam služeb, filtrovat je a pak proveďte restart:
 
-```
+```powershell
 PS> Get-Service | Where-Object -FilterScript {$_.CanStop} | Restart-Service
 
 WARNING: Waiting for service 'Computer Browser (Browser)' to finish stopping...
@@ -147,9 +148,10 @@ Invoke-Command -ComputerName Server01 {Restart-Service Spooler}
 
 ## <a name="setting-service-properties"></a>Nastavení vlastnosti služby
 
-Rutina Set-Service změní vlastnosti služby na místním nebo vzdáleném počítači. Vzhledem k tomu, že stav služby je vlastnost, můžete použít tuto rutinu pro spuštění, zastavení a pozastavení služby. Rutina Set-Service má také parametr typ spuštění, která umožňuje změnit typ spuštění služby.
+`Set-Service` Rutina změní vlastnosti služby na místním nebo vzdáleném počítači. Vzhledem k tomu, že stav služby je vlastnost, můžete použít tuto rutinu pro spuštění, zastavení a pozastavení služby.
+Rutina Set-Service má také parametr typ spuštění, která umožňuje změnit typ spuštění služby.
 
-Pokud chcete použít nastavení služby ve Windows Vista a novějších verzích Windows, otevřete prostředí Windows PowerShell pomocí možnosti "Spustit jako správce".
+Chcete-li použít `Set-Service` ve Windows Vista a novějších verzích Windows, otevřete Windows PowerShell pomocí možnosti "Spustit jako správce".
 
 Další informace najdete v tématu [Set-Service [m2]](https://technet.microsoft.com/library/b71e29ed-372b-4e32-a4b7-5eb6216e56c3)
 

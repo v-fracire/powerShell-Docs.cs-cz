@@ -3,24 +3,20 @@ ms.date: 06/12/2017
 contributor: manikb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Probíhá spuštění NuGet
-ms.openlocfilehash: 2d321097fda201c0d8f843b2194a161eceabe4e1
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: e82fe7bec2e6b7a321fb173cdf9a54c5a97d5f18
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39094013"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39267843"
 ---
 # <a name="bootstrap-the-nuget-provider-and-nugetexe"></a>Bootstrap, NuGet zprostředkovatele a NuGet.exe
 
-NuGet.exe není součástí nejnovějšího zprostředkovatele NuGet.
-Pro publikování operací modulu nebo skriptu, modulu PowerShellGet vyžaduje binární NuGet.exe spustitelný soubor.
-Jen pro NuGet se vyžaduje pro všechny ostatní operace, včetně *najít*, *nainstalovat*, *Uložit*, a *odinstalovat*.
-Správce balíčků PowerShellGet zahrnuje logiky, která by buď kombinované bootstrap, NuGet zprostředkovatele a NuGet.exe nebo bootstrap jediný poskytovatel NuGet.
-V obou případech se budou objevovat pouze jedna zpráva příkazový řádek.
-Pokud počítač není připojený k Internetu, uživatel nebo správce musíte zkopírovat instanci důvěryhodného zprostředkovatele NuGet a/nebo soubor NuGet.exe odpojeném počítači.
+NuGet.exe není součástí nejnovějšího zprostředkovatele NuGet. Pro publikování operací modulu nebo skriptu, modulu PowerShellGet vyžaduje binární NuGet.exe spustitelný soubor. Jen pro NuGet se vyžaduje pro všechny ostatní operace, včetně *najít*, *nainstalovat*, *Uložit*, a *odinstalovat*.
+Správce balíčků PowerShellGet zahrnuje logiky, která by buď kombinované bootstrap, NuGet zprostředkovatele a NuGet.exe nebo bootstrap jediný poskytovatel NuGet. V obou případech se budou objevovat pouze jedna zpráva příkazový řádek. Pokud počítač není připojený k Internetu, uživatel nebo správce musíte zkopírovat instanci důvěryhodného zprostředkovatele NuGet a/nebo soubor NuGet.exe odpojeném počítači.
 
 > [!NOTE]
-> Od verze 6, NuGet poskytovatel je součástí instalace prostředí PowerShell. [http://github.com/powershell/powershell](http://github.com/powershell/powershell)
+> Od verze 6, NuGet poskytovatel je součástí instalace prostředí PowerShell.
 
 ## <a name="resolving-error-when-the-nuget-provider-has-not-been-installed-on-a-machine-that-is-internet-connected"></a>Řešení chyby při NuGet zprostředkovatel nebyl nainstalován na počítači, který je internetové připojení
 
@@ -123,15 +119,11 @@ VERBOSE: Successfully published module 'Contoso' to the module publish location 
 
 ## <a name="manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet"></a>Ruční spuštění poskytovatele NuGet na počítač, který není připojený k Internetu
 
-Procesy, které jsme vám ukázali výše předpokládají tento počítač je připojený k Internetu a může stáhnout soubory ze na veřejném místě.
-Pokud tento způsob není možný, je jedinou možností spuštění počítače pomocí výše uvedené procesy a ručně zkopírujete do izolovaný uzel prostřednictvím offline proces důvěryhodného zprostředkovatele.
-Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie.
+Procesy, které jsme vám ukázali výše předpokládají tento počítač je připojený k Internetu a může stáhnout soubory ze na veřejném místě. Pokud tento způsob není možný, je jedinou možností spuštění počítače pomocí výše uvedené procesy a ručně zkopírujete do izolovaný uzel prostřednictvím offline proces důvěryhodného zprostředkovatele. Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie.
 
 Po provedení postupu výše bootstrap počítač připojený k Internetu, najdete v umístění soubory zprostředkovatele:
 
-```
-C:\Program Files\PackageManagement\ProviderAssemblies\
-```
+`C:\Program Files\PackageManagement\ProviderAssemblies\`
 
 Struktura složky nebo souboru NuGet poskytovatele bude (případně s jinou verzi číslo):
 
@@ -147,11 +139,9 @@ Zkopírujte tyto složky a souboru pomocí důvěryhodného procesu do počíta�
 
 Kromě proces ručně bootstrap poskytovatele NuGet, pokud je počítač se použije k privátní Galerie pomocí publikování moduly nebo skripty `Publish-Module` nebo `Publish-Script` rutin NuGet.exe binárního spustitelného souboru se bude vyžadovat.
 
-Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie.
-Existují dvě možnosti, jak získat soubor NuGet.exe.
+Nejběžnější případ použití pro tento scénář je, když je k dispozici pro podporu prostředí izolované privátní galerie. Existují dvě možnosti, jak získat soubor NuGet.exe.
 
-Jednou z možností je spustit počítači, který je připojených k Internetu a zkopírujte soubory do počítače offline pomocí důvěryhodného procesu.
-Po spuštění počítač připojený Internet, budou umístěny binární NuGet.exe v jednom z dvě složky:
+Jednou z možností je spustit počítači, který je připojených k Internetu a zkopírujte soubory do počítače offline pomocí důvěryhodného procesu. Po spuštění počítač připojený Internet, budou umístěny binární NuGet.exe v jednom z dvě složky:
 
 Pokud `Publish-Module` nebo `Publish-Script` rutiny byly prováděn se zvýšenými oprávněními (jako správce):
 
@@ -165,9 +155,7 @@ Pokud rutiny bylo provedeno jako uživatel bez zvýšenou úroveň oprávnění:
 $env:userprofile\AppData\Local\Microsoft\Windows\PowerShell\PowerShellGet\
 ```
 
-Druhou možností je můžete stáhnout z webu NuGet.Org NuGet.exe: [ https://dist.nuget.org/index.html ](https://www.nuget.org/downloads) při výběru verze Nuget pro počítače v produkčním prostředí, ujistěte se, že je pozdější než 2.8.5.208 a identifikovat verzi, která má s popiskem " Doporučené".
-Mějte na paměti odblokujete soubor, pokud byl stažen z prohlížeče.
-Můžete to provést pomocí `Unblock-File` rutiny.
+Druhou možností je můžete stáhnout z webu NuGet.Org NuGet.exe: [ https://dist.nuget.org/index.html ](https://www.nuget.org/downloads) při výběru verze Nuget pro počítače v produkčním prostředí, ujistěte se, že je pozdější než 2.8.5.208 a identifikovat verzi, která má s popiskem " Doporučené". Mějte na paměti odblokujete soubor, pokud byl stažen z prohlížeče. Můžete to provést pomocí `Unblock-File` rutiny.
 
 V obou případech se soubor NuGet.exe je možné zkopírovat do libovolného umístění v `$env:path`, ale standardní umístění jsou:
 

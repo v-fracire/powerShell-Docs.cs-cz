@@ -2,12 +2,12 @@
 ms.date: 06/20/2018
 keywords: DSC, powershell, konfigurace, instalační program
 title: PackageManagement prostředků DSC
-ms.openlocfilehash: 281aee13eb005f00b23c97870eaefaa332d9c232
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 18cbbfe0715c82dcfdf4a5fb6ee36ee814e43d3b
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37892497"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268088"
 ---
 # <a name="dsc-packagemanagement-resource"></a>PackageManagement prostředků DSC
 
@@ -39,8 +39,8 @@ PackageManagement [string] #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   |
-|---|---|
+| Vlastnost | Popis |
+| --- | --- |
 | Název| Určuje název balíčku, který má být nainstalována nebo odinstalována.|
 | Další_parametry| Zprostředkovatel konkrétní zatřiďovací tabulku parametrů, které by byly předány `Get-Package -AdditionalArguments`. Například pro zprostředkovatele NuGet můžete předat další parametry, jako je DestinationPath.|
 | Zkontrolujte| Určuje, zda balíček nainstalovat nebo odinstalovat.|
@@ -54,10 +54,11 @@ PackageManagement [string] #ResourceName
 ## <a name="additional-parameters"></a>Další parametry
 
 V následující tabulce jsou uvedeny možnosti pro vlastnost Další_parametry.
-|  Parametr  | Popis   |
-|---|---|
+
+| Parametr | Popis |
+| --- | --- |
 | DestinationPath| Použít poskytovatelé jako je předdefinovaný poskytovatel Nuget. Určuje umístění souboru, kam chcete balíček nainstalovat.|
-| InstallationPolicy| Použít poskytovatelé jako je předdefinovaný poskytovatel Nuget. Určuje, zda důvěřujete zdroje balíčku. Jeden z: "Nedůvěryhodných", "Důvěryhodné".|
+| InstallationPolicy| Použít poskytovatelé jako je předdefinovaný poskytovatel Nuget. Určuje, zda důvěřujete zdroje balíčku. Jeden z: `Untrusted`, `Trusted`.|
 
 ## <a name="example"></a>Příklad
 

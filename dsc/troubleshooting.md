@@ -2,27 +2,26 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Řešení potíží s DSC
-ms.openlocfilehash: 1e8bfdf3540e65e3be94bf6a9b04e7d3b14ff044
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 93a2f3728968882f78d4c050238d226b71c11ca5
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39094064"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268190"
 ---
 # <a name="troubleshooting-dsc"></a>Řešení potíží s DSC
 
->Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+_Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0_
 
 Toto téma popisuje způsoby řešení potíží s DSC při vzniknou problémy.
 
 ## <a name="winrm-dependency"></a>Služba WinRM závislostí
 
-Windows PowerShell Desired State Configuration (DSC) závisí na WinRM. Ve výchozím nastavení v systému Windows Server 2008 R2 a Windows 7 není povolená služba WinRM. Spustit ```Set-WSManQuickConfig```, ve Windows Powershellu se zvýšenými oprávněními relace, aby Služba WinRM.
+Windows PowerShell Desired State Configuration (DSC) závisí na WinRM. Ve výchozím nastavení v systému Windows Server 2008 R2 a Windows 7 není povolená služba WinRM. Spustit `Set-WSManQuickConfig`, ve Windows Powershellu se zvýšenými oprávněními relace, aby Služba WinRM.
 
 ## <a name="using-get-dscconfigurationstatus"></a>Pomocí Get-DscConfigurationStatus
 
-[Get-DscConfigurationStatus](https://technet.microsoft.com/library/mt517868.aspx) rutina načte informace o konfiguraci stavu z cílového uzlu.
-Bohaté objekt je vrácen, který zahrnuje souhrnné informace o Určuje, jestli spuštění konfigurace byla nebo nebyla úspěšná. Při prozkoumávání objekt, který chcete zjistit podrobnosti o konfiguraci, jako je:
+[Get-DscConfigurationStatus](https://technet.microsoft.com/library/mt517868.aspx) rutina načte informace o konfiguraci stavu z cílového uzlu. Bohaté objekt je vrácen, který zahrnuje souhrnné informace o Určuje, jestli spuštění konfigurace byla nebo nebyla úspěšná. Při prozkoumávání objekt, který chcete zjistit podrobnosti o konfiguraci, jako je:
 
 - Všechny prostředky, které selhaly
 - Prostředek, který požaduje restartování
@@ -31,20 +30,20 @@ Bohaté objekt je vrácen, který zahrnuje souhrnné informace o Určuje, jestli
 
 Následující sada parametrů vrátí informace o stavu pro poslední konfigurace spuštění:
 
-```powershell
-Get-DscConfigurationStatus  [-CimSession <CimSession[]>]
-                            [-ThrottleLimit <int>]
-                            [-AsJob]
-                            [<CommonParameters>]
+```
+Get-DscConfigurationStatus [-CimSession <CimSession[]>]
+                           [-ThrottleLimit <int>]
+                           [-AsJob]
+                           [<CommonParameters>]
 ```
 Následující sada parametrů vrátí informace o stavu pro všechny předchozí konfigurace spuštění:
 
-```powershell
-Get-DscConfigurationStatus  -All
-                            [-CimSession <CimSession[]>]
-                            [-ThrottleLimit <int>]
-                            [-AsJob]
-                            [<CommonParameters>]
+```
+Get-DscConfigurationStatus -All
+                           [-CimSession <CimSession[]>]
+                           [-ThrottleLimit <int>]
+                           [-AsJob]
+                           [<CommonParameters>]
 ```
 
 ## <a name="example"></a>Příklad
@@ -54,35 +53,36 @@ PS C:\> $Status = Get-DscConfigurationStatus
 
 PS C:\> $Status
 
-Status      StartDate               Type            Mode    RebootRequested     NumberOfResources
-------      ---------               ----            ----    ---------------     -----------------
-Failure     11/24/2015  3:44:56     Consistency     Push    True                36
+Status         StartDate                Type            Mode    RebootRequested        NumberOfResources
+------        ---------                ----            ----    ---------------        -----------------
+Failure        11/24/2015  3:44:56     Consistency        Push    True                36
 
 PS C:\> $Status.ResourcesNotInDesiredState
 
-ConfigurationName       :   MyService
-DependsOn               :
-ModuleName              :   PSDesiredStateConfiguration
-ModuleVersion           :   1.1
-PsDscRunAsCredential    :
-ResourceID              :   [File]ServiceDll
-SourceInfo              :   c:\git\CustomerService\Configs\MyCustomService.ps1::5::34::File
-DurationInSeconds       :   0.19
-Error                   :   SourcePath must be accessible for current configuration. The related file/directory is:
-                            \\Server93\Shared\contosoApp.dll. The related ResourceID is [File]ServiceDll
-FinalState              :
-InDesiredState          :   False
-InitialState            :
-InstanceName            :   ServiceDll
-RebootRequested         :   False
-ReosurceName            :   File
-StartDate               :   11/24/2015  3:44:56
-PSComputerName          :
+ConfigurationName     :    MyService
+DependsOn             :
+ModuleName            :    PSDesiredStateConfiguration
+ModuleVersion         :    1.1
+PsDscRunAsCredential  :
+ResourceID            :    [File]ServiceDll
+SourceInfo            :    c:\git\CustomerService\Configs\MyCustomService.ps1::5::34::File
+DurationInSeconds     :    0.19
+Error                 :    SourcePath must be accessible for current configuration. The related file/directory is:
+                           \\Server93\Shared\contosoApp.dll. The related ResourceID is [File]ServiceDll
+FinalState            :
+InDesiredState        :    False
+InitialState          :
+InstanceName          :    ServiceDll
+RebootRequested       :    False
+ReosurceName          :    File
+StartDate             :    11/24/2015  3:44:56
+PSComputerName        :
 ```
 
 ## <a name="my-script-wont-run-using-dsc-logs-to-diagnose-script-errors"></a>Tento skript se nespustí: pomocí DSC protokoly pro diagnostiku chyby skriptu
 
-Stejně jako všechny software Windows DSC zaznamenává chyby a události v [protokoly](https://msdn.microsoft.com/library/windows/desktop/aa363632.aspx) , který si můžete prohlížet [Prohlížeč událostí](http://windows.microsoft.com/windows/what-information-event-logs-event-viewer). Zkoumání tyto protokoly pomůžou pochopit, proč určité operace se nezdařila a jak zabránit selhání v budoucnu. Psaní konfiguračních skriptů může být velmi obtížné, proto kvůli jako autor můžete zjednodušit sledování chyb, použít prostředek DSC Log ke sledování pokroku vaší konfigurace DSC analytického protokolu událostí.
+Stejně jako všechny software Windows DSC zaznamenává chyby a události v [protokoly](https://msdn.microsoft.com/library/windows/desktop/aa363632.aspx) , který si můžete prohlížet [Prohlížeč událostí](http://windows.microsoft.com/windows/what-information-event-logs-event-viewer).
+Zkoumání tyto protokoly pomůžou pochopit, proč určité operace se nezdařila a jak zabránit selhání v budoucnu. Psaní konfiguračních skriptů může být velmi obtížné, proto kvůli jako autor můžete zjednodušit sledování chyb, použít prostředek DSC Log ke sledování pokroku vaší konfigurace DSC analytického protokolu událostí.
 
 ## <a name="where-are-dsc-event-logs"></a>Kde jsou protokoly událostí DSC?
 
@@ -92,16 +92,19 @@ Odpovídající rutiny prostředí PowerShell [Get-WinEvent](https://technet.mic
 
 ```
 PS C:\> Get-WinEvent -LogName "Microsoft-Windows-Dsc/Operational"
+
    ProviderName: Microsoft-Windows-DSC
+
 TimeCreated                     Id LevelDisplayName Message
 -----------                     -- ---------------- -------
 11/17/2014 10:27:23 PM        4102 Information      Job {02C38626-D95A-47F1-9DA2-C1D44A7128E7} :
 ```
 
-Jak uvádíme výš, je název vaší DSC primární protokolu **Microsoft -> Windows -> DSC** (jiné názvy protokolů v rámci Windows nejsou zobrazené pro zkrácení). Primární název je připojeným k názvu kanálu k vytvoření názvu úplný protokol. Modul DSC zapíše hlavně na tři typy protokolů: [provozní, analýzu a ladit protokoly](https://technet.microsoft.com/library/cc722404.aspx). Od analýzy a protokoly ladění jsou ve výchozím nastavení vypnuta, měli byste povolit v prohlížeči událostí. Chcete-li to provést, otevřete Prohlížeč událostí tak, že zadáte zobrazit protokolu událostí Windows PowerShell nebo klikněte na tlačítko **Start** tlačítko, klikněte na tlačítko **ovládací panely**, klikněte na tlačítko **nástroje pro správu**a potom klikněte na tlačítko **Prohlížeč událostí**. Na **zobrazení** klikněte na tlačítko nabídky v prohlížeči událostí **zobrazit protokoly ladění a analýzu**. Název protokolu analytického kanálu je **Microsoft-Windows-Dsc/analytické**, a je kanál ladění **Microsoft-Windows-Dsc/Debug**. Můžete také použít [wevtutil](https://technet.microsoft.com/library/cc732848.aspx) nástroj a povolte je, jak je znázorněno v následujícím příkladu.
+Jak uvádíme výš, je název vaší DSC primární protokolu **Microsoft -> Windows -> DSC** (jiné názvy protokolů v rámci Windows nejsou zobrazené pro zkrácení). Primární název je připojeným k názvu kanálu k vytvoření názvu úplný protokol. Modul DSC zapíše hlavně na tři typy protokolů: [provozní, analýzu a ladit protokoly](https://technet.microsoft.com/library/cc722404.aspx). Od analýzy a protokoly ladění jsou ve výchozím nastavení vypnuta, měli byste povolit v prohlížeči událostí. Chcete-li to provést, otevřete Prohlížeč událostí tak, že zadáte zobrazit protokolu událostí Windows PowerShell nebo klikněte na tlačítko **Start** tlačítko, klikněte na tlačítko **ovládací panely**, klikněte na tlačítko **nástroje pro správu**a potom klikněte na tlačítko **Prohlížeč událostí**.
+Na **zobrazení** klikněte na tlačítko nabídky v prohlížeči událostí **zobrazit protokoly ladění a analýzu**. Název protokolu analytického kanálu je **Microsoft-Windows-Dsc/analytické**, a je kanál ladění **Microsoft-Windows-Dsc/Debug**. Můžete také použít [wevtutil](https://technet.microsoft.com/library/cc732848.aspx) nástroj a povolte je, jak je znázorněno v následujícím příkladu.
 
 ```powershell
-wevtutil.exe set-log “Microsoft-Windows-Dsc/Analytic” /q:true /e:true
+wevtutil.exe set-log "Microsoft-Windows-Dsc/Analytic" /q:true /e:true
 ```
 
 ## <a name="what-do-dsc-logs-contain"></a>Co neobsahují DSC protokoly?
@@ -118,8 +121,10 @@ Consistency engine was run successfully.
 
 DSC události jsou protokolovány v konkrétní strukturu, která umožňuje uživateli pro agregaci událostí z jednoho projektu DSC. Struktura je následujícím způsobem:
 
-**ID úlohy: \<Guid\>**
-**\<zpráva o události\>**
+```
+Job ID : <Guid>
+<Event Message>
+```
 
 ## <a name="gathering-events-from-a-single-dsc-operation"></a>Shromažďování událostí v rámci jedné operace DSC
 
@@ -130,8 +135,8 @@ Protokoly událostí DSC obsahovat události generované modulem různé operace
  Step 1 : Enable analytic and debug DSC channels (Operational channel is enabled by default)
 ###########################################################################>
 
-wevtutil.exe set-log “Microsoft-Windows-Dsc/Analytic” /q:true /e:true
-wevtutil.exe set-log “Microsoft-Windows-Dsc/Debug” /q:True /e:true
+wevtutil.exe set-log "Microsoft-Windows-Dsc/Analytic" /q:true /e:true
+wevtutil.exe set-log "Microsoft-Windows-Dsc/Debug" /q:True /e:true
 
 <##########################################################################
  Step 2 : Perform the required DSC operation (Below is an example, you could run any DSC operation instead)
@@ -163,8 +168,11 @@ Count Name                      Group
 ----- ----                      -----
    48 {1A776B6A-5BAC-11E3-BF... {System.Diagnostics.Eventing.Reader.EventLogRecord, System.Diagnostics....
    40 {E557E999-5BA8-11E3-BF... {System.Diagnostics.Eventing.Reader.EventLogRecord, System.Diagnostics....
+
 PS C:\> $SeparateDscOperations[0].Group
+
    ProviderName: Microsoft-Windows-DSC
+
 TimeCreated                     Id LevelDisplayName Message
 -----------                     -- ---------------- -------
 12/2/2013 3:47:29 PM          4115 Information      Job {1A776B6A-5BAC-11E3-BF41-00155D553612} : ...
@@ -192,6 +200,7 @@ Všechny události mají [úrovně závažnosti](https://msdn.microsoft.com/libr
 
 ```
 PS C:\> $SeparateDscOperations | Where-Object {$_.Group.LevelDisplayName -contains "Error"}
+
 Count Name                      Group
 ----- ----                      -----
    38 {5BCA8BE7-5BB6-11E3-BF... {System.Diagnostics.Eventing.Reader.EventLogRecord, System.Diagnostics....
@@ -204,6 +213,7 @@ Count Name                      Group
 ```powershell
 PS C:\> $DateLatest = (Get-Date).AddMinutes(-30)
 PS C:\> $SeparateDscOperations | Where-Object {$_.Group.TimeCreated -gt $DateLatest}
+
 Count Name                      Group
 ----- ----                      -----
     1 {6CEC5B09-5BB0-11E3-BF... {System.Diagnostics.Eventing.Reader.EventLogRecord}
@@ -211,9 +221,10 @@ Count Name                      Group
 
 ### <a name="3-messages-from-the-latest-operation"></a>3: zprávy z nejnovější operace
 
-Nejnovější operace je uložen v první index pole skupiny `$SeparateDscOperations`. Dotazování skupiny zpráv pro index 0, vrátí se všechny zprávy o poslední operaci:
+Nejnovější operace je uložen v první index pole skupiny `$SeparateDscOperations`.
+Dotazování skupiny zpráv pro index 0, vrátí se všechny zprávy o poslední operaci:
 
-```powershelll
+```powershell
 PS C:\> $SeparateDscOperations[0].Group.Message
 Job {5BCA8BE7-5BB6-11E3-BF41-00155D553612} :
 Running consistency engine.
@@ -239,6 +250,7 @@ Displaying messages from built-in DSC resources:
 PS C:\> $myFailedEvent = ($SeparateDscOperations[0].Group | Where-Object {$_.LevelDisplayName -eq "Error"})
 
 PS C:\> $myFailedEvent.Message
+
 Job {5BCA8BE7-5BB6-11E3-BF41-00155D553612} :
 DSC Engine Error :
  Error Message Current configuration does not exist. Execute Start-DscConfiguration command with -Path pa
@@ -265,13 +277,11 @@ TimeCreated                     Id LevelDisplayName Message
 
 ## <a name="using-xdscdiagnostics-to-analyze-dsc-logs"></a>Použití xDscDiagnostics k analýze DSC protokoly
 
-**xDscDiagnostics** je modul Powershellu, které obsahuje několik funkcí, které vám mohou pomoci analýza selhání DSC na svém počítači. Tyto funkce můžete identifikovat všechny místní akce z poslední DSC operace nebo události DSC na vzdálených počítačích (se platné přihlašovací údaje). Termín DSC operace tady, se používá k definování jeden jedinečný spuštění DSC od jeho začátku jeho ukončení. Například `Test-DscConfiguration` by samostatné operaci DSC. Podobně, každý další rutiny v DSC (například `Get-DscConfiguration`, `Start-DscConfiguration`atd) každý nelze identifikovat jako samostatné operace DSC. Funkce jsou vysvětleny v [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics).
-Není k dispozici nápověda spuštěním `Get-Help <cmdlet name>`.
+**xDscDiagnostics** je modul Powershellu, které obsahuje několik funkcí, které vám mohou pomoci analýza selhání DSC na svém počítači. Tyto funkce můžete identifikovat všechny místní akce z poslední DSC operace nebo události DSC na vzdálených počítačích (se platné přihlašovací údaje). Termín DSC operace tady, se používá k definování jeden jedinečný spuštění DSC od jeho začátku jeho ukončení. Například `Test-DscConfiguration` by samostatné operaci DSC. Podobně, každý další rutiny v DSC (například `Get-DscConfiguration`, `Start-DscConfiguration`atd) každý nelze identifikovat jako samostatné operace DSC. Funkce jsou vysvětleny v [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics). Není k dispozici nápověda spuštěním `Get-Help <cmdlet name>`.
 
 ### <a name="getting-details-of-dsc-operations"></a>Získávání podrobností operací DSC
 
-`Get-xDscOperation` Funkce vám umožní najít výsledky operací DSC, které běží na jeden nebo více počítačů a vrátí objekt, který obsahuje kolekci událostí produkovaný každou operaci DSC.
-V následující výstup například tři příkazy byly spuštěny. Předaný první a druhé dvě selhala. Tyto výsledky jsou shrnuty v rámci výstupu `Get-xDscOperation`.
+`Get-xDscOperation` Funkce vám umožní najít výsledky operací DSC, které běží na jeden nebo více počítačů a vrátí objekt, který obsahuje kolekci událostí produkovaný každou operaci DSC. V následující výstup například tři příkazy byly spuštěny. Předaný první a druhé dvě selhala. Tyto výsledky jsou shrnuty v rámci výstupu `Get-xDscOperation`.
 
 ```powershell
 PS C:\DiagnosticsTest> Get-xDscOperation
@@ -300,7 +310,8 @@ SRV1   5          6/23/2016 4:36:51 PM  Success                                 
 
 `Trace-xDscOperation` Rutina vrátí objekt, který obsahuje kolekci událostí, jejich typy událostí, a výstupní zprávy generované určitou operaci DSC. Obvykle, když najdete selhání v některém z operací pomocí `Get-xDscOperation`, by trasování činnosti s cílem zjistit, která z události způsobila chybu.
 
-Použití `SequenceID` parametr získat události pro konkrétní operaci pro určitý počítač. Pokud zadáte například `SequenceID` 9, `Trace-xDscOperaion` získat trasování pro operace DSC, která byla 9 od poslední operace:
+Použití `SequenceID` parametr získat události pro konkrétní operaci pro určitý počítač.
+Pokud zadáte například `SequenceID` 9, `Trace-xDscOperaion` získat trasování pro operace DSC, která byla 9 od poslední operace:
 
 ```powershell
 PS C:\DiagnosticsTest> Trace-xDscOperation -SequenceID 9
@@ -367,7 +378,7 @@ PS C:\DiagnosticsTest> $Trace.Event
 
 Zobrazí se stejné výsledky jako `Get-WinEvent` rutiny, jako je například následující výstup:
 
-```powershell
+```output
    ProviderName: Microsoft-Windows-DSC
 
 TimeCreated                     Id LevelDisplayName Message
@@ -410,6 +421,7 @@ Použití `ComputerName` parametr `Trace-xDscOperation` rutiny pro získání po
 ```powershell
 New-NetFirewallRule -Name "Service RemoteAdmin" -DisplayName "Remote" -Action Allow
 ```
+
 Nyní zadáte tento počítač při volání funkce vaše `Trace-xDscOperation`:
 
 ```powershell
@@ -451,7 +463,8 @@ SRV2   ANALYTIC     6/24/2016 11:36:56 AM Deleting file from C:\Windows\System32
 
 ## <a name="my-resources-wont-update-how-to-reset-the-cache"></a>Moje prostředky se neaktualizuje: Resetování mezipaměti
 
-Modul DSC prostředky, které jsou implementovány jako modul Powershellu pro účely efektivitu ukládá do mezipaměti. Nicméně to může způsobit problémy při vytváření prostředku a otestujete ji současně, protože DSC načte verze uložené v mezipaměti až po restartování procesu. Jediný způsob, jak provést DSC načíst novější verze je explicitně ukončení procesu, který je hostitelem modulu DSC.
+Modul DSC prostředky, které jsou implementovány jako modul Powershellu pro účely efektivitu ukládá do mezipaměti.
+Nicméně to může způsobit problémy při vytváření prostředku a otestujete ji současně, protože DSC načte verze uložené v mezipaměti až po restartování procesu. Jediný způsob, jak provést DSC načíst novější verze je explicitně ukončení procesu, který je hostitelem modulu DSC.
 
 Podobně, když spustíte `Start-DscConfiguration`, po přidání a úpravy vlastní prostředek, pravděpodobně nebude spuštěna úpravy, není-li nebo, dokud nebude počítač restartován. Je to proto DSC běží v hostitelském procesu zprostředkovatele rozhraní WMI (WmiPrvSE) a existují obvykle velký počet instancí WmiPrvSE najednou spuštěna. Když restartujete, restartování hostitelského procesu a nevymažete mezipaměť.
 
@@ -479,10 +492,11 @@ Můžete nakonfigurovat DSC místní Configuration Manageru (LCM) používat `De
 
 Tady je ukázka zobrazíte jak `DebugMode` můžete automaticky aktualizovat mezipaměť. Nejprve Podívejme se na výchozí konfigurace:
 
-```
+```powershell
 PS C:\> Get-DscLocalConfigurationManager
+```
 
-
+```output
 AllowModuleOverwrite           : False
 CertificateID                  :
 ConfigurationID                :
@@ -550,7 +564,7 @@ Configuration ConfigTestDebugMode
 ConfigTestDebugMode
 ```
 
-Uvidíte, že obsah souboru: "**$env:SystemDrive\OutputFromTestProviderDebugMode.txt**" je **1**.
+Uvidíte, že obsah souboru: `$env:SystemDrive\OutputFromTestProviderDebugMode.txt` je **1**.
 
 Nyní aktualizace zprostředkovatele kódu pomocí následujícího skriptu:
 

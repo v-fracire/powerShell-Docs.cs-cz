@@ -2,16 +2,16 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Prostředek DSC Log
-ms.openlocfilehash: fade94efd8133ae0172737e4bb1aed89fc0f97d9
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 50fd6cd31ba426108830fcf124a767318060a95d
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093472"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268428"
 ---
 # <a name="dsc-log-resource"></a>Prostředek DSC Log
 
-> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+_Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0_
 
 __Protokolu__ prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus pro zápis zpráv do protokolu událostí Microsoft-Windows-Desired State Configuration / analýzy.
 
@@ -26,14 +26,14 @@ Log [string] #ResourceName
 ```
 
 > [!NOTE]
-> Ve výchozím nastavení jsou povoleny pouze v provozních protokolech DSC. Předtím, než v analytickém protokolu bude k dispozici nebo viditelné, musí být povolena. Další informace najdete v tématu [kde jsou protokoly událostí DSC?](https://msdn.microsoft.com/en-us/powershell/dsc/troubleshooting#where-are-dsc-event-logs).
+> Ve výchozím nastavení jsou povoleny pouze v provozních protokolech DSC. Předtím, než v analytickém protokolu bude k dispozici nebo viditelné, musí být povolena. Další informace najdete v tématu [kde jsou protokoly událostí DSC?](troubleshooting.md#where-are-dsc-event-logs).
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   |
-|---|---|
+| Vlastnost | Popis |
+| --- | --- |
 | Zpráva| Určuje zprávu, kterou chcete zapisovat do protokolu událostí stavu Microsoft-Windows-Desired konfigurace/analýzy.|
-| DependsOn | Označuje, že konfigurace jiný prostředek musí spustit před napsané tuto zprávu protokolu. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba __ResourceName__ a jejím typem je __ResourceType__, syntaxe pro použití této vlastnosti je `DependsOn = '[ResourceType]ResourceName'`.|
+| DependsOn | Označuje, že konfigurace jiný prostředek musí spustit před napsané tuto zprávu protokolu. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je `DependsOn = '[ResourceType]ResourceName'`.|
 
 ## <a name="example"></a>Příklad
 

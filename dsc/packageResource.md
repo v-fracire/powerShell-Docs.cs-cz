@@ -2,16 +2,16 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Prostředek DSC balíček
-ms.openlocfilehash: 3046ba7d57776a996a0b917348a0e863db6cd0c8
-ms.sourcegitcommit: 77f62a55cac8c13d69d51eef5fade18f71d66955
+ms.openlocfilehash: 9285df71a303c9a53dd50d450272575a64e962e7
+ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093799"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39268666"
 ---
 # <a name="dsc-package-resource"></a>Prostředek DSC balíček
 
-> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
+_Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.0_
 
 **Balíčku** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus pro instalaci nebo odinstalaci balíčků, jako jsou například balíčky Instalační služby systému Windows a setup.exe, na cílový uzel.
 
@@ -34,8 +34,8 @@ Package [string] #ResourceName
 
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   |
-|---|---|
+| Vlastnost | Popis |
+| --- | --- |
 | Název| Určuje název balíčku, pro které chcete zajistit určitý stav.|
 | Cesta| Určuje cestu, kde se nachází balíček.|
 | productId| Určuje ID produktu, který jednoznačně identifikuje balíček.|
@@ -43,7 +43,7 @@ Package [string] #ResourceName
 | Přihlašovací údaje| Poskytuje přístup k balíčku na vzdáleného zdroje. Tato vlastnost se používá k instalaci balíčku. Balíček je vždy nainstalován v místním systému.|
 | Zkontrolujte| Určuje, zda je nainstalován balíček. Nastavte tuto vlastnost na "Chybí" Ujistěte se, že balíček není nainstalovaný, (nebo odinstalovat balíček, je-li nainstalován). Nastavte tak, aby "Předložit" (výchozí hodnota) ujistěte se, že je balíček nainstalován.|
 | LogPath| Určuje úplnou cestu, kam chcete poskytovatele za účelem uložení souboru protokolu instalace nebo odinstalace balíčku.|
-| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je "DependsOn ="[ ResourceName ResourceType]"".|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
 | ReturnCode| Označuje očekávaný návratový kód. Pokud skutečný návratový kód neodpovídá očekávané hodnotě. k dispozici tady, že konfiguraci, vrátí se chyba.|
 
 ## <a name="example"></a>Příklad
