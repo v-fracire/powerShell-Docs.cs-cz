@@ -1,3 +1,14 @@
+---
+title: Instalace PowerShellu Core ve Windows
+description: Informace o instalaci Powershellu Core ve Windows
+ms.date: 08/06/2018
+ms.openlocfilehash: 84c158b97519194888cf031c57a2a4634120c456
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587114"
+---
 # <a name="installing-powershell-core-on-windows"></a>Instalace PowerShellu Core ve Windows
 
 ## <a name="msi"></a>INSTALAČNÍ SLUŽBY MSI

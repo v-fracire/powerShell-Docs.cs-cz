@@ -1,3 +1,14 @@
+---
+title: Instalace PowerShellu Core v macOS
+description: Informace o instalaci Powershellu Core v macOS
+ms.date: 08/06/2018
+ms.openlocfilehash: ff1814d95b3ca3fa8497069dff249fd2ad5576ef
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587461"
+---
 # <a name="installing-powershell-core-on-macos"></a>Instalace PowerShellu Core v macOS
 
 PowerShell Core podporuje macOS 10.12 a vyšší.
@@ -37,7 +48,7 @@ Nakonec ověřte, že vaše instalace pracuje správně:
 pwsh
 ```
 
-Ukončete prostředí PowerShell a vraťte se do bash, použijte příkaz "konec". 
+Ukončete prostředí PowerShell a vraťte se do bash, použijte příkaz "konec".
 ```sh
 exit
 ```

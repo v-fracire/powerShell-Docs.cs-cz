@@ -1,22 +1,22 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 9aa7e92632c671751020687ddbfc374eeda7148b
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: a96a4a58dafa01fb43f5bdffb52ef833816148e7
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189410"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587291"
 ---
-# <a name="new-language-features-in-powershell-50"></a>Nové jazykové funkce v prostředí PowerShell 5.0
+# <a name="new-language-features-in-powershell-50"></a>Nové funkce jazyků v Powershellu 5.0
 
-Prostředí PowerShell 5.0 zavádí následující nové jazykové elementy v prostředí Windows PowerShell:
+PowerShell 5.0 zavádí následující nové prvky jazyka v prostředí Windows PowerShell:
 
 ## <a name="class-keyword"></a>Class – klíčové slovo
 
-**Třída** – klíčové slovo definuje novou třídu. Toto je true typ rozhraní .NET Framework.
-Členy třídy jsou veřejné, ale pouze veřejné v rámci oboru modulu.
-Nemůže odkazovat na název typu jako řetězec (například `New-Object` nefunguje), a v této verzi nelze použít typ literál (například `[MyClass]`) mimo modulu skriptu nebo soubor, ve kterém je třída definovaná.
+**Třídy** – klíčové slovo definuje novou třídu. To je PRAVDA typ rozhraní .NET Framework.
+Členy třídy jsou veřejné, ale pouze veřejné v rámci oboru modul.
+Nemůže odkazovat na název typu jako řetězec (například `New-Object` nefunguje), a v této verzi nelze použít typ literál (například `[MyClass]`) mimo modul skriptu nebo soubor, ve kterém je třída definovaná.
 
 ```powershell
 class MyClass
@@ -27,9 +27,9 @@ class MyClass
 
 ## <a name="enum-keyword-and-enumerations"></a>Enum – klíčové slovo a výčty
 
-Podpora pro **výčtu** byla přidána – klíčové slovo, které používá nový řádek jako oddělovač.
-Aktuální omezení: nelze definovat enumerátor z hlediska sám sebe, ale bude možné inicializovat výčet z hlediska jiné výčtu, jak je znázorněno v následujícím příkladu.
-Navíc nelze momentálně zadaný základní typ; je vždy [int].
+Podpora **výčtu** – klíčové slovo se přidala, který používá jako oddělovač znaku nového řádku.
+Aktuální omezení: nelze definovat enumerátor z hlediska samotný, ale můžete inicializovat výčet z hlediska jiného výčtu, jak je znázorněno v následujícím příkladu.
+Kromě toho nelze aktuálně zadané základní typ; Ten je vždy [int].
 
 ```powershell
 enum Color2
@@ -38,7 +38,7 @@ enum Color2
 }
 ```
 
-Hodnotu výčtu musí být konstanta doba analýzy; Nelze nastavit ho na výsledek vyvolaná příkazu.
+Hodnotou výčtu musí být časovou konstantou analýzy; nelze ho nastavíte na výsledek volaný příkaz.
 
 ```powershell
 enum MyEnum
@@ -50,23 +50,23 @@ enum MyEnum
 }
 ```
 
-Výčty podporovat aritmetické operace, jak je znázorněno v následujícím příkladu.
+Výčty podporují aritmetické operace, jak je znázorněno v následujícím příkladu.
 
 ```powershell
 enum SomeEnum { Max = 42 }
 enum OtherEnum { Max = [SomeEnum]::Max + 1 }
 ```
 
-## <a name="import-dscresource"></a>Import DscResource
+## <a name="import-dscresource"></a>Import-DscResource
 
-**Import DscResource** je nyní true dynamické – klíčové slovo.
-Prostředí PowerShell analyzuje zadaný modul modul kořenové, hledání tříd, které obsahují **DscResource** atribut.
+**Import-DscResource** je nyní true dynamické – klíčové slovo.
+Prostředí PowerShell analyzuje zadaný modul kořenový modul, hledání třídy, které obsahují **DscResource** atribut.
 
 ## <a name="implementingassembly"></a>ImplementingAssembly
 
-Nové pole **ImplementingAssembly**, byl přidán do ModuleInfo. Jinak je nastavená na dynamické sestavení vytvoří modulu skriptu, pokud skript definuje třídy nebo načíst sestavení pro binární moduly. Není nastavena, když ModuleType = manifestu.
+Nové pole **ImplementingAssembly**, byl přidán do ModuleInfo. Je nastavena na dynamickém sestavení vytvořené pro modul skriptu, pokud skript definuje třídy nebo načíst sestavení pro binární moduly. Není nastavena, když ModuleType = manifestu.
 
-Reflexe na **ImplementingAssembly** pole vyhledá prostředky v modulu. To znamená, že může zjistit prostředky, které jsou napsané v prostředí PowerShell nebo jiné spravované jazyky.
+Reflexe v **ImplementingAssembly** pole zjišťuje prostředky v modulu. To znamená, že může zjistit prostředky, které jsou napsané v Powershellu nebo jiných spravovaných jazycích.
 
 Pole s inicializátory:
 
@@ -74,54 +74,54 @@ Pole s inicializátory:
 [int] $i = 5
 ```
 
-Je podporován statické; funguje jako atribut, stejně jako omezení typu, můžete zadat v libovolném pořadí.
+Je statická nejsou podporovány. funguje stejně jako atribut, stejně jako omezení typu, takže ho můžete zadat v libovolném pořadí.
 
 ```powershell
 static [int] $count = 0
 ```
 
-Typ je volitelný.
+Typ je volitelné.
 
 ```powershell
 $s = "hello"
 ```
 
-Veřejné se všichni její členové.
+Všichni členové jsou veřejné.
 
-## <a name="constructors-and-instantiation"></a>Konstruktory a vytváření instancí
+## <a name="constructors-and-instantiation"></a>Konstruktory a instance
 
-Prostředí Windows PowerShell třídy mohou mít konstruktory; mají stejný název jako jejich třídy. Konstruktory může být přetížený. Statické konstruktory jsou podporovány. Vlastnosti inicializace výrazy se inicializují před spuštěním jakékoli kódu v konstruktoru. Statické vlastnosti se inicializují před text statického konstruktoru a vlastnosti instance se inicializují před text nestatické konstruktoru. V současné době není žádné syntaxi pro volání konstruktoru z jiného konstruktoru (C jako\# syntaxe ": this()"). Alternativní řešení je definovat běžné metody Init.
+Prostředí Windows PowerShell třídy mohou mít konstruktory; mají stejný název jako své třídy. Konstruktory mohou být přetíženy. Statické konstruktory jsou podporovány. Vlastnosti s výrazy inicializace jsou inicializovány před spuštěním jakéhokoli kódu v konstruktoru. Před tělo statického konstruktoru jsou inicializovány statické vlastnosti a vlastnosti instance se inicializuje před tělo konstruktoru nestatické. V současné době neexistuje žádná syntaxe pro volání konstruktoru od jiného konstruktoru (C, jako jsou\# syntaxe ": this()"). Alternativním řešením je definovat běžnou metodou Init.
 
-Následující způsoby konkretizujete tříd v této verzi.
+Tyto způsoby konkretizujete tříd v této verzi.
 
-Vytváření instancí pomocí výchozí konstruktor. Všimněte si, že není v této verzi podporovány New-Object.
+Vytvoření instance pomocí výchozího konstruktoru. Všimněte si, že se v této verzi nepodporuje New-Object.
 
 ```powershell
 $a = [MyClass]::new()
 ```
 
-Volání metody konstruktor s parametrem
+Volání konstruktoru s parametrem
 
 ```powershell
 $b = [MyClass]::new(42)
 ```
 
-Předávání pole do konstruktoru s více parametrů
+Předá pole do konstruktoru s více parametry
 ```powershell
 $c = [MyClass]::new(@(42,43,44), "Hello")
 ```
 
-V této verzi nefunguje New-Object s třídami definovanými v prostředí Windows PowerShell. Také pro tuto verzi, název typu je jenom viditelné lexikálně, což znamená, že se nezobrazuje jinde než v modulu nebo skript, který definuje třídu. Funkce může vrátit instance třídy definované v prostředí Windows PowerShell a instancí fungovat i jinde než v modulu nebo skriptu.
+V této verzi nefunguje New-Object s třídami definovanými ve Windows Powershellu. Pro tuto verzi, název typu je také pouze viditelné lexikálně, což znamená, že není viditelný mimo modul nebo skript, který definuje třídu. Funkce může vrátit instanci třídy definované v prostředí Windows PowerShell a instance fungovat dobře mimo modul nebo skriptu.
 
-`Get-Member -Static` uvádí konstruktory, aby se dala Zobrazit přetížení jako jakékoliv jiné metody. Výkon této syntaxe je také výrazně rychlejší než New-Object.
+`Get-Member -Static` Zobrazí seznam konstruktory, abyste mohli zobrazit přetížení jako jakékoliv jiné metody. Výkon této syntaxe je také výrazně rychlejší než New-Object.
 
-Částečně statickou metodu s názvem **nové** funguje s typy .NET, jak je znázorněno v následujícím příkladu.
+Částečně statická metoda s názvem **nové** funguje s typy .NET, jak je znázorněno v následujícím příkladu.
 
 ```powershell
 [hashtable]::new()
 ```
 
-Nyní můžete vidět konstruktor přetížení Get-členovi, nebo jak je uvedené v tomto příkladu:
+Nyní je vidět přetížení konstruktoru pomocí Get-Member, nebo jak je znázorněno v tomto příkladu:
 
 ```powershell
 PS> [hashtable]::new
@@ -134,7 +134,7 @@ hashtable new(int capacity, float loadFactor)
 
 ## <a name="methods"></a>Metody
 
-Metoda třídy prostředí Windows PowerShell je implementovaný jako blok skriptu, který má jenom koncový blok. Všechny metody jsou veřejné. Ukazuje následující příklad definování metodu s názvem **DoSomething**.
+Metoda třídy prostředí Windows PowerShell je implementovaný jako hodnota ScriptBlock, který má pouze koncový blok. Všechny metody jsou veřejné. Následující ukázka definuje metodu s názvem **DoSomething**.
 
 ```powershell
 class MyClass
@@ -154,35 +154,35 @@ $b = [MyClass]::new()
 $b.DoSomething(42)
 ```
 
-Přetížení metody – to znamená, ty, které jsou se stejným názvem jako stávající metodu, ale rozlišené pomocí jejich zadaných hodnot – jsou také podporovány.
+Přetížené metody – tedy ty, které jsou stejná jako existující metodu s názvem, ale rozlišené pomocí jejich zadaných hodnot – jsou také podporovány.
 
 ## <a name="properties"></a>Properties
 
-Všechny vlastnosti jsou veřejné. Vlastnosti vyžadují buď nového řádku nebo středníkem. Pokud není zadaný žádný typ objektu, typ vlastnosti je objekt.
+Všechny vlastnosti jsou veřejné. Vlastnosti vyžadují znaku nového řádku nebo středníkem. Pokud není zadán žádný typ objektu, je vlastnost typu objektu.
 
-Vlastnosti, které pomocí atributů ověření nebo atributy transformaci argumentu (například `[ValidateSet("aaa")]`) fungovat podle očekávání.
+Vlastnosti, které používají ověřování atributy nebo transformaci argumentu (třeba `[ValidateSet("aaa")]`) fungovat podle očekávání.
 
 ## <a name="hidden"></a>Skryté
 
-New – klíčové slovo **Hidden**, byla přidána. **Skrytý** lze použít k vlastnosti a metody (včetně konstruktory).
+New – klíčové slovo **skryté**, byl přidán. **Skryté** lze použít u vlastnosti a metody (včetně konstruktory).
 
-Skryté členy jsou veřejné, ale pokud se nezobrazí ve výstupu člena Get-Force přidat parametr.
+Skryté členy jsou veřejné, ale pokud se nezobrazí ve výstupu příkazu Get-Member-Force přidat parametr.
 
-Skryté členy nejsou zahrnuty při kartě dokončení nebo pomocí Intellisense nenastane dokončení ve třídě definování člen skrytý.
+Skryté členy nejsou zahrnuty při kartě dokončení nebo pomocí technologie Intellisense, pokud dojde k dokončení ve třídě definovat člen skrytý.
 
-Nový atribut **System.Management.Automation.HiddenAttribute** byla přidána tak, aby kód C# může mít stejnou sémantiku v rámci prostředí Windows PowerShell.
+Nový atribut **System.Management.Automation.HiddenAttribute** byl přidán tak, aby kód jazyka C# může mít stejnou sémantiku v rámci prostředí Windows PowerShell.
 
 ## <a name="return-types"></a>Návratové typy
 
-Návratový typ je kontraktu; Návratová hodnota je převést na očekávaný typ. Pokud není zadaný žádný návratový typ, je návratový typ void. Neexistuje žádné streamování objekty; objekty nelze zapsat do kanálu, ať už úmyslně nebo omylem odstraněný.
+Návratový typ je smlouva; Návratová hodnota je převedena na očekávaný typ. Pokud není zadán žádný návratový typ, je návratový typ void. Neexistuje žádné streamování objekty. objekty nelze zapsat do kanálu, ať už úmyslně nebo náhodná.
 
 ## <a name="attributes"></a>Atributy
 
-Dvou nových atributů **DscResource** a **DscProperty** byly přidány.
+Dvě nové atributy **DscResource** a **DscProperty** byly přidány.
 
-## <a name="lexical-scoping-of-variables"></a>Lexikální rozsahu proměnné
+## <a name="lexical-scoping-of-variables"></a>Lexikální rozsah proměnné
 
-Následující ukazuje příklad jak lexikální oboru funguje v této verzi.
+Následující příklad funguje jak lexikálním oboru v této verzi.
 
 ```powershell
 $d = 42 # Script scope
@@ -210,8 +210,8 @@ $v -eq $d # true
 
 ## <a name="end-to-end-example"></a>Příklad začátku do konce
 
-Následující příklad vytvoří několik nových, vlastních třídy k implementaci list jazyce dynamické stylu HTML (DSL).
-V příkladu potom přidá podpůrné funkce vytvořit specifické typy elementů v rámci elementu třídy, jako je záhlaví styly a tabulek, protože typů nelze použít mimo obor modulu.
+Následující příklad vytvoří několik nových, vlastních tříd pro implementaci HTML dynamické style sheet jazyk (DSL).
+Potom příklad přidá pomocné funkce k vytvoření specifické typy elementů v rámci elementu třídy, jako je například stylů a tabulky, protože typy nelze použít mimo obor modulu.
 
 ```powershell
 # Classes that define the structure of the document
@@ -308,7 +308,7 @@ $bodyText += $Properties.foreach{TH $_}
 # Add the rows
 $bodyText += foreach ($row in $Data)
     {
-        TR (-join $Properties.Foreach{ TD ($row.$\_) } )
+        TR (-join $Properties.Foreach{ TD ($row.$_) } )
     }
 
     $table = [Element] @{

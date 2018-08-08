@@ -1,44 +1,44 @@
 ---
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
-title: Odebírání objektů z kanálu kde objektu
+title: Odebrání objektů z kanálu Where-Object
 ms.assetid: 01df8b22-2d22-4e2c-a18d-c004cd3cc284
-ms.openlocfilehash: 46f210e1418098f4809174cd975ab8d783580285
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+ms.openlocfilehash: c060b93a3823be26ad6c7757acc633bb4fc2fcfa
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34753834"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587138"
 ---
-# <a name="removing-objects-from-the-pipeline-where-object"></a>Odebírání objektů z kanálu (Where-Object)
+# <a name="removing-objects-from-the-pipeline-where-object"></a>Odebrání objektů z kanálu (Where-Object)
 
-V prostředí Windows PowerShell často generovat a další objekty předají pro kanál, než má. Můžete zadat vlastnosti konkrétní objekty, které chcete zobrazit pomocí **formát** rutiny, ale nepomůže s problémem odebrání celé objekty ze zobrazení. Můžete filtrovat objekty před koncem kanálu, tak můžete provádět akce na pouze podmnožinu objektů původně vytvořil.
+V prostředí Windows PowerShell často generovat a předali více objektů do kanálu, než se. Můžete zadat vlastnosti konkrétní objekty zobrazíte pomocí **formátu** rutiny, ale to nepomůže s problémem, který odebrat celé objekty ze zobrazení. Můžete filtrovat objekty do konce profilace, abyste mohli provádět akce s pouze podmnožinu původně vytvořil objekty.
 
-Prostředí Windows PowerShell zahrnuje `Where-Object` rutinu, která umožňuje testování jednotlivých objektů v kanálu a pouze předat podél kanálu pokud splňuje podmínku konkrétní test. Objekty, které se nepředají test se odeberou z kanálu. Zadejte podmínky testu jako hodnota `Where-Object` **FilterScript** parametr.
+Obsahuje prostředí Windows PowerShell `Where-Object` rutinu, která umožňuje testování jednotlivých objektů v kanálu a pouze předat podél kanálu pokud splňuje podmínku určitého testu. Objekty, které nepředávejte testu se odeberou z kanálu. Jako hodnotu zadáte testovací podmínku `Where-Object` **FilterScript** parametru.
 
-### <a name="performing-simple-tests-with-where-object"></a>Provádění jednoduchých testů s Where-Object
+### <a name="performing-simple-tests-with-where-object"></a>Provedením jednoduchých testů s Where-Object
 
-Hodnota **FilterScript** je *bloku skriptu* – jeden nebo více příkazů prostředí Windows PowerShell, které jsou v závorkách {} – který se vyhodnotí na true nebo false. Tyto bloky skriptu může být velmi jednoduchý, ale jejich vytváření vyžaduje znalost o jiný koncept prostředí Windows PowerShell, operátory porovnání. Relační operátor porovnání položek, které se zobrazí na každé straně ho. Operátory porovnání začínat '-' znak a jsou následuje název. Operátory porovnání základní fungovat na téměř k libovolnému druhu objektu. Pokročilejší operátory porovnání může fungovat jenom na text nebo pole.
+Hodnota **FilterScript** je *bloku skriptu* – jeden nebo více příkazů prostředí Windows PowerShell, které jsou uzavřeny ve složených závorkách {} –, který se vyhodnotí na hodnotu true nebo false. Tyto bloky skriptu může být velmi jednoduchý, ale vytváří, je nutné, abyste znali o jiné koncept prostředí Windows PowerShell, operátory porovnání. Operátor porovnání porovná položky, které se zobrazí na každé straně. Operátory porovnání začínat "-" znaků a jsou následována název. Operátory porovnání základní pracovat na téměř jakýkoli druh objektu. Rozšířené operátory porovnání může fungovat jenom na text nebo pole.
 
 > [!NOTE]
-> Operátory porovnání prostředí Windows PowerShell jsou ve výchozím nastavení se při práci s textem velká a malá písmena.
+> Ve výchozím nastavení se při práci s textem operátory porovnání prostředí Windows PowerShell jsou malá a velká písmena.
 
-Z důvodu analýzy aspekty symboly, například <>, a = nejsou používány jako relační operátory. Operátory porovnání místo toho se skládají z písmena. V následující tabulce jsou uvedeny základní relační operátory.
+Z důvodu důležité informace o analýze, symboly, jako je například <>, a = nejsou používány jako operátory porovnání. Místo toho operátory porovnání se skládají z písmen. Základní porovnávací operátory jsou uvedeny v následující tabulce.
 
-|Relační operátor|Význam|Příklad (vrací hodnotu true)|
+|Operátor porovnání|Význam|Příklad (vrátí hodnotu true)|
 |-----------------------|-----------|--------------------------|
 |-eq|je rovno|1 - eq 1|
-|-ne|Není rovno|1 – ne 2|
-|-lt|Je menší než|1 - lt 2|
-|-le|Je menší než nebo rovno|1 - le 2|
-|-gt|Je větší než|2 - gt 1|
+|-ne|Není rovno|1 - ne 2|
+|-lt|je menší než|1 - lt 2|
+|-le.|Je menší než nebo rovno|1 - le 2|
+|-gt|je větší než|2 - gt 1|
 |-ge|Je větší než nebo rovno|2 -ge 1|
-|-jako|Je třeba (porovnání zástupný text)|"soubor.doc"-jako "f\*.používat?"|
-|-notlike|Není třeba (porovnání zástupný text)|"soubor.doc"-notlike "p\*.doc"|
-|-obsahuje|Obsahuje|1,2,3 – obsahuje 1|
-|-notcontains|Neobsahuje|1,2,3 - notcontains 4|
+|– například|Je třeba (porovnání zástupný text)|"soubor.doc"-jako "f\*.používat?"|
+|-notlike|Není podobné (porovnání zástupný text)|"soubor.doc"-notlike "p\*doc"|
+|-obsahuje|obsahuje|1,2,3 – obsahuje 1|
+|-notcontains|neobsahuje|1,2,3 - notcontains 4|
 
-WHERE-Object blocích skriptu použít speciální proměnná ($_)' k odkazování na aktuální objekt v kanálu. Tady je příklad toho, jak funguje. Pokud máte seznam čísel a chcete pouze vrátit ty, které jsou menší než 3, můžete filtrovat čísla zadáním Where-Object:
+Bloky skriptu Where-Object používat speciální proměnné `$_` pro odkazování na aktuální objekt v kanálu. Tady je příklad toho, jak funguje. Pokud máte seznam čísel a pouze chcete vrátit těch, které jsou kratší než 3, můžete filtrovat tak, že zadáte čísla Where-Object:
 
 ```
 PS> 1,2,3,4 | Where-Object -FilterScript {$_ -lt 3}
@@ -46,17 +46,17 @@ PS> 1,2,3,4 | Where-Object -FilterScript {$_ -lt 3}
 2
 ```
 
-### <a name="filtering-based-on-object-properties"></a>Filtrování podle vlastnosti objektu
+### <a name="filtering-based-on-object-properties"></a>Filtrování podle vlastností objektu
 
-Vzhledem k tomu, že $_ odkazuje na aktuální objekt kanálu, jsme pro naše testy otevřete jeho vlastnosti.
+Protože `$_` odkazuje na aktuální objekt kanálu jsme můžete získat přístup k vlastnostem pro naše testy.
 
-Jako příklad může podíváme na třídě Win32_SystemDriver v rozhraní WMI. Může být stovky ovladače systému na konkrétní systém, ale pouze může být zájem o konkrétní sadu ovladačů systému, jako jsou ty, které jsou aktuálně spuštěné. Pokud chcete zobrazit členy Win32_SystemDriver použít Get-člen (**Get-WmiObject – Třída Win32_SystemDriver | Vlastnost Get-Member - MemberType**) uvidíte, že je odpovídající vlastnost stavu a jeho má hodnotu "Spuštěný", když běží ovladače. Můžete filtrovat ovladače systému výběr jenom spuštěné ty zadáním:
+Jako příklad abychom se mohli podívat na Win32_SystemDriver třídu v rozhraní WMI. Může být stovky ovladače systému na konkrétní systém, ale pouze byste měli zájem konkrétní sadu ovladačů systému, jako jsou ty, které jsou aktuálně spuštěny. Pokud používáte k zobrazení členů Win32_SystemDriver Get-Member (**Get-WmiObject – Třída Win32_SystemDriver | Vlastnost Get-Member - MemberType**) uvidíte, že je odpovídající vlastnost stavu, a aby měla hodnotu "Spustit" při spuštění ovladače. Můžete filtrovat ovladače systému vyberete pouze spuštěné ty zadáním:
 
 ```powershell
 Get-WmiObject -Class Win32_SystemDriver | Where-Object -FilterScript {$_.State -eq 'Running'}
 ```
 
-To vytváří ještě dlouhý seznam. Chcete filtrovat, aby pouze vyberte ovladače nastavená na automatické spouštění testování hodnotě StartMode:
+To vytváří ještě dlouhý seznam. Můžete chtít filtrovat jenom vybraným nastavená na automatické spouštění otestováním hodnotu StartMode ovladače:
 
 ```
 PS> Get-WmiObject -Class Win32_SystemDriver | Where-Object -FilterScript {$_.State -eq "Running"} | Where-Object -FilterScript {$_.StartMode -eq "Auto"}
@@ -74,7 +74,7 @@ Status      : OK
 Started     : True
 ```
 
-To nám dává velké množství informací, které již nepotřebujete, protože víme, že jsou spuštěny ovladače. Ve skutečnosti jenom informace, které pravděpodobně potřebujeme v tomto okamžiku jsou název a zobrazovaný název. Následující příkaz obsahuje pouze tyto dvě vlastnosti, což vede k mnohem jednodušší výstup:
+Tento produkt nám nabízí velké množství informací, které už nepotřebujete, protože víme, že jsou spuštěny ovladače. Ve skutečnosti pouze informace, které pravděpodobně potřebujeme v tomto okamžiku jsou název a zobrazovaný název. Následující příkaz zahrnuje pouze tyto dvě vlastnosti, což vede k mnohem jednodušší výstup:
 
 ```
 PS> Get-WmiObject -Class Win32_SystemDriver | Where-Object -FilterScript {$_.State -eq "Running"} | Where-Object -FilterScript {$_.StartMode -eq "Manual"} | Format-Table -Property Name,DisplayName
@@ -91,7 +91,7 @@ MRxDAV                                  WebDav Client Redirector
 mssmbios                                Microsoft System Management BIOS Driver
 ```
 
-Existují dva elementy Where-Object ve výše uvedeném příkazu, ale mohou být vyjádřeny v jednom elementu Where-Object pomocí- a logickým operátorem takto:
+Existují dva prvky Where-Object v předchozím příkazu, ale dají se vyjádřit v jednom elementu Where-Object s použitím- a logický operátor, následujícím způsobem:
 
 ```powershell
 Get-WmiObject -Class Win32_SystemDriver | Where-Object -FilterScript { ($_.State -eq 'Running') -and ($_.StartMode -eq 'Manual') } | Format-Table -Property Name,DisplayName
@@ -99,9 +99,9 @@ Get-WmiObject -Class Win32_SystemDriver | Where-Object -FilterScript { ($_.State
 
 Standardní logické operátory jsou uvedeny v následující tabulce.
 
-|Logický operátor|Význam|Příklad (vrací hodnotu true)|
+|Logický operátor|Význam|Příklad (vrátí hodnotu true)|
 |--------------------|-----------|--------------------------|
 |- a|Logické a; Hodnota TRUE, pokud jsou splněny obě strany|(1 - eq 1) - a (2 - eq 2).|
-|- nebo|Logické nebo; Hodnota TRUE, pokud má jedna strana hodnotu true|(1 - eq 1) - nebo (1 - eq 2).|
-|-není|Logický operátor not; obrátí hodnotu true a false|-není (1 - eq 2)|
-|\!|Logický operátor not; obrátí hodnotu true a false|\!(1 - eq 2)|
+|- nebo|Logická nebo; Hodnota TRUE, pokud obě strany hodnotu true|(1 - eq 1) - nebo (1 - eq 2).|
+|– Ne|Logický operátor not; Vrátí hodnotu true a false|-není (1 - eq 2)|
+|\!|Logický operátor not; Vrátí hodnotu true a false|\!(1 - eq 2)|

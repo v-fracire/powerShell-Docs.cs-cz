@@ -1,3 +1,14 @@
+---
+title: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
+description: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
+ms.date: 08/06/2018
+ms.openlocfilehash: f8e1e9af257037fc7bd74549e4197c9a1695e952
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587427"
+---
 # <a name="using-visual-studio-code-for-powershell-development"></a>Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 
 Kromě [prostředí PowerShell ISE][ise], prostředí PowerShell je také dobře podporované ve Visual Studio Code.
