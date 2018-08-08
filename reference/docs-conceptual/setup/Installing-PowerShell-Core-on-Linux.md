@@ -1,8 +1,19 @@
+---
+title: Instalace PowerShellu Core v Linuxu
+description: Informace o instalaci Powershellu Core v různých distribucích systému Linux
+ms.date: 08/06/2018
+ms.openlocfilehash: a6b0e3003f84ea6dc99cffcc7edf1b5b6963aa21
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587444"
+---
 # <a name="installing-powershell-core-on-linux"></a>Instalace PowerShellu Core v Linuxu
 
-Podporuje [Ubuntu 14.04][u14], [Ubuntu 16.04][u16], [Ubuntu 17.10] [ u17], [Debian 8][deb8], [Debian 9][deb9], [CentOS 7] [ cos], [Red Hat Enterprise Linux (RHEL) 7][rhel7], [OpenSUSE 42.3][opensuse], [Fedora 27 ] [ fedora], [Fedora 28][fedora], a [Arch Linux][arch].
+Podporuje [Ubuntu 14.04][u14], [Ubuntu 16.04][u16], [Ubuntu 18.10] [ u18], [Debian 8][deb8], [Debian 9][deb9], [CentOS 7] [ cos], [Red Hat Enterprise Linux (RHEL) 7][rhel7], [OpenSUSE 42.3][opensuse], [Fedora 27 ] [ fedora], [Fedora 28][fedora], a [Arch Linux][arch].
 
-Pro distribuce Linuxu, které nejsou oficiálně podporované, můžete zkusit použít [PowerShell AppImage][lai].
+Pro distribuce Linuxu, které nejsou oficiálně podporované, můžete zkusit použít [balíčků v Powershellu Přichytit][snap].
 Nasazení prostředí PowerShell binární soubory přímo s Linuxem můžete také zkusit [ `tar.gz` archivu][tar], ale je potřeba nastavit potřebné závislosti podle operačního systému v samostatné kroky.
 
 Všechny balíčky jsou k dispozici na náš GitHub [uvolní][] stránky.
@@ -10,7 +21,7 @@ Jakmile je balíček nainstalován, spustit `pwsh` z terminálu.
 
 [u14]: #ubuntu-1404
 [u16]: #ubuntu-1604
-[u17]: #ubuntu-1710
+[u18]: #ubuntu-1810
 [u18]: #ubuntu-1804
 [deb8]: #debian-8
 [deb9]: #debian-9
@@ -19,7 +30,7 @@ Jakmile je balíček nainstalován, spustit `pwsh` z terminálu.
 [opensuse]: #opensuse-423
 [fedora]: #fedora
 [arch]: #arch-linux
-[lai]: #linux-appimage
+[snap]: #snap-package
 [tar]: #binary-archives
 
 ## <a name="installing-preview-releases"></a>Instalace Preview verzí
@@ -132,56 +143,6 @@ sudo apt-get install -f
 sudo apt-get remove powershell
 ```
 
-## <a name="ubuntu-1710"></a>Ubuntu 17.10
-
-> [!NOTE]
-> Přidali jsme podporu pro Ubuntu č. 17.04 po `6.1.0-preview.2`
-
-### <a name="installation-via-package-repository---ubuntu-1710"></a>Instalace přes úložiště balíčků – Ubuntu 17.10
-
-PowerShell Core pro Linux, se publikují do úložišť balíčků pro snadnou instalaci (a aktualizace).
-Toto je upřednostňovaná metoda.
-
-```sh
-# Import the public repository GPG keys
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-
-# Register the Microsoft Ubuntu repository
-sudo curl -o /etc/apt/sources.list.d/microsoft.list https://packages.microsoft.com/config/ubuntu/17.10/prod.list
-
-# Update the list of products
-sudo apt-get update
-
-# Install PowerShell
-sudo apt-get install -y powershell
-
-# Start PowerShell
-pwsh
-```
-
-Po registraci úložiště společnosti Microsoft jednou jako superuživatele, od té chvíle stačí použít `sudo apt-get upgrade powershell` ji aktualizovat.
-
-### <a name="installation-via-direct-download---ubuntu-1710"></a>Instalace přes přímé stažení – Ubuntu 17.10
-
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.17.10_amd64.deb` z [uvolní][] stránky do počítače se systémem Ubuntu.
-
-Potom v terminálu spusťte následující:
-
-```sh
-sudo dpkg -i powershell_6.0.2-1.ubuntu.17.10_amd64.deb
-sudo apt-get install -f
-```
-
-> [!NOTE]
-> `dpkg -i` Příkaz selže s dosud nevyřešených závislosti.
-> Další příkaz `apt-get install -f` řeší tyto problémy po dokončení konfigurace balíčku prostředí PowerShell.
-
-### <a name="uninstallation---ubuntu-1710"></a>Odinstalace – Ubuntu 17.10
-
-```sh
-sudo apt-get remove powershell
-```
-
 ## <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 > [!NOTE]
@@ -231,6 +192,14 @@ sudo apt-get install -f
 ```sh
 sudo apt-get remove powershell
 ```
+
+## <a name="ubuntu-1810"></a>Ubuntu 18.10
+
+> [!NOTE]
+> Přidali jsme podporu pro Ubuntu 18.10 po `6.1.0-preview.3`.
+> Je 18.10 každodenními buildy, je podporovaná pouze komunitou.
+
+Instalace na 18.10 je podporované prostřednictvím `snapd`. Zobrazit [Přichytit balíček] [ snap] úplné pokyny;
 
 ## <a name="debian-8"></a>Debian 8
 
@@ -550,6 +519,33 @@ Další informace o instalaci balíčků z AUR najdete v tématu [Arch Linux wik
 [arch-release]: https://aur.archlinux.org/packages/powershell/
 [arch-git]: https://aur.archlinux.org/packages/powershell-git/
 [arch-bin]: https://aur.archlinux.org/packages/powershell-bin/
+
+## <a name="snap-package"></a>Přichytit balíčku
+
+### <a name="getting-snapd"></a>Získávání snapd
+
+`snapd` je požadován pro spuštění při kolika rozehrávkách byli.  Použití [tyto pokyny](https://docs.snapcraft.io/core/install) abyste měli jistotu, že máte `snapd` nainstalované.
+
+### <a name="installation-via-snap"></a>Instalace přes modul Snap
+
+PowerShell Core pro Linux, je publikovaná [Snap úložiště](https://snapcraft.io/store) Snadná instalace (a aktualizace).
+Toto je upřednostňovaná metoda.
+
+```sh
+# Install PowerShell
+sudo snap install powershell-preview --classic
+
+# Start PowerShell
+pwsh-preview
+```
+
+Po instalaci modulu Snap budou automaticky upgradovat, ale můžete aktivovat upgradu pomocí `sudo snap refresh powershell-preview`.
+
+### <a name="uninstallation"></a>Odinstalace
+
+```sh
+sudo snap remove powershell-preview
+```
 
 ## <a name="linux-appimage"></a>Linux AppImage
 

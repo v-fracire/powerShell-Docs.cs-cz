@@ -1,3 +1,14 @@
+---
+title: Životní cyklus podpory PowerShellu Core
+description: Zásady, kterými se řídí podporu pro prostředí PowerShell Core
+ms.date: 08/06/2018
+ms.openlocfilehash: 2e0ca1b9c133e6f316a40aff13365d0489059165
+ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39587155"
+---
 # <a name="powershell-core-support-lifecycle"></a>Životní cyklus podpory PowerShellu Core
 
 PowerShell Core je odlišnou sadu nástrojů a komponenty, které je dodán, nainstalovat a nakonfigurovat samostatně z prostředí Windows PowerShell.
@@ -6,8 +17,8 @@ PowerShell Core není proto součástí licenční smlouvy Windows 7/8.1/10 nebo
 PowerShell Core je však podporováno v tradiční Microsoft smlouvy o podpoře, včetně [Premier][], [smlouvy Microsoft Enterprise][enterprise-agreement]a [Programu Microsoft Software Assurance][assurance].
 Můžete také platit [odbornou pomoc][] pro PowerShell Core vyplněním žádosti o podporu pro váš problém.
 
-Nabízíme také [Podpora komunity][] na Githubu, kde můžete soubor problému, chyby nebo žádost o funkci.
-Alternativně můžete zjistit pomoc od ostatních členů komunity na Obecné [Microsoft Community][] nebo Microsoft [Prostředí PowerShell technické komunity][].
+Nabízíme také [komunitní podpory][] na Githubu, kde můžete soubor problému, chyby nebo žádost o funkci.
+Alternativně můžete zjistit pomoc od ostatních členů komunity na Obecné [Microsoft Community][] nebo Microsoft [technické komunity Powershellu][].
 Nabízíme-zaručeno existuje, že váš problém bude řešit nebo vyřešení v časovém limitu.
 Pokud máte problém vyžadující okamžitou pozornost, měli byste použít tradiční, placené možnosti podpory.
 
@@ -44,7 +55,8 @@ Uvedené jako platformy `Experimental` nejsou oficiálně podporované, ale jsou
 | Windows Server 2008 R2, 2012 R2, 2016             | Podporované   | Podporované   |
 | [Windows Server prostřednictvím půlročního kanálu][semi-annual] | Podporované   | Podporované   |
 | Ubuntu 14.04 a 16.04                           | Podporované   | Podporované   |
-| Ubuntu 17.10 a 18.04                           |             | Podporované   |
+| Ubuntu 18.04                                      |             | Podporované   |
+| Ubuntu 18.10 (prostřednictvím přichycení balíček)                   |             | Komunita   |
 | Debian 8.7 + a 9                                | Podporované   | Podporované   |
 | CentOS 7                                          | Podporované   | Podporované   |
 | Red Hat Enterprise Linux 7                        | Podporované   | Podporované   |
@@ -56,6 +68,10 @@ Uvedené jako platformy `Experimental` nejsou oficiálně podporované, ale jsou
 | Raspbian                                          | Experimentální| Komunita   |
 | Kali                                              | Komunita   | Komunita   |
 | AppImage (funguje na různých platformách Linux)     | Komunita   | Komunita   |
+| [Přichytit balíčku](https://snapcraft.io/powershell)   | Další informace v poznámce    | Další informace v poznámce    |
+
+> [!NOTE]
+> Přichytit balíčky budou experimentální určitou dobu.  Po jsme si jisti, že Snap nezavádí nové problémy podpory, podpora bude následovat distribuci, kterou používáte balíček na.
 
 ## <a name="platform-which-are-out-of-support"></a>Platforma, která už skončila podpora
 
@@ -65,18 +81,19 @@ Proto podpora pro tyto verze vlastníky distribuce softwaru bylo ukončeno a nej
 
 | Operační systém       | Verze | Ukončení životnosti                                                                                 |
 |----------|---------|---------------------------------------------------------------------------------------------|
-| Fedora   | 26      | [. Května 2018.](https://fedoramagazine.org/fedora-26-end-life/)                                  |
-| Fedora   | 25      | [. Prosince 2017](https://fedoramagazine.org/fedora-25-end-life/)                             |
 | Fedora   | 24      | [Ze srpna 2017](https://fedoramagazine.org/fedora-24-eol/)                                    |
-| OpenSUSE | 42.2    | [. Ledna 2018](https://lists.opensuse.org/opensuse-security-announce/2017-11/msg00066.html) |
+| Fedora   | 25      | [. Prosince 2017](https://fedoramagazine.org/fedora-25-end-life/)                             |
+| Fedora   | 26      | [. Května 2018.](https://fedoramagazine.org/fedora-26-end-life/)                                  |
 | OpenSUSE | 42.1    | [Květen 2017](https://lists.opensuse.org/opensuse-security-announce/2017-05/msg00053.html)     |
-| Ubuntu   | č. 17.04   | [. Ledna 2018](https://lists.ubuntu.com/archives/ubuntu-announce/2018-January.txt)          |
+| OpenSUSE | 42.2    | [. Ledna 2018](https://lists.opensuse.org/opensuse-security-announce/2017-11/msg00066.html) |
 | Ubuntu   | 16.10   | [. Července 2017](https://lists.ubuntu.com/archives/ubuntu-announce/2017-July/000223.html)        |
+| Ubuntu   | č. 17.04   | [. Ledna 2018](https://lists.ubuntu.com/archives/ubuntu-announce/2018-January.txt)          |
+| Ubuntu   | 17.10   | [. Července 2018](https://lists.ubuntu.com/archives/ubuntu-announce/2018-July/000232.html)        |
 
 ## <a name="notes-on-licensing"></a>Poznámky k licencování
 
 PowerShell Core je vydávaný v rámci [Licence MIT][].
-V rámci této licence a bez smlouvy placená odborná pomoc. Uživatelé jsou omezené na [Podpora komunity][].
+V rámci této licence a bez smlouvy placená odborná pomoc. Uživatelé jsou omezené na [komunitní podpory][].
 Podpora komunity Microsoft neposkytuje žádnou záruku rychlosti odezvy nebo opravy.
 
 ## <a name="windows-powershell-module"></a>Modul Windows PowerShell
@@ -104,9 +121,9 @@ Add-WindowsPSModulePath
 [Premier]: https://www.microsoft.com/en-us/microsoftservices/support.aspx
 [enterprise-agreement]: https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx
 [assurance]: https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx
-[Podpora komunity]: https://github.com/powershell/powershell/issues
+[komunitní podpory]: https://github.com/powershell/powershell/issues
 [Microsoft Community]: https://answers.microsoft.com/
-[Prostředí PowerShell technické komunity]: https://techcommunity.microsoft.com/t5/PowerShell/ct-p/WindowsPowerShell
+[technické komunity Powershellu]: https://techcommunity.microsoft.com/t5/PowerShell/ct-p/WindowsPowerShell
 [odbornou pomoc]: https://support.microsoft.com/assistedsupportproducts
 [modern]: https://support.microsoft.com/help/30881/modern-lifecycle-policy
 [lifecycle-chart]: ./images/modern-lifecycle.png
