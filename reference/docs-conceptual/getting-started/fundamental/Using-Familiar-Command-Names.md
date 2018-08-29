@@ -1,58 +1,84 @@
 ---
-ms.date: 06/05/2017
+ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Použití známých názvů příkazů
 ms.assetid: 021e2424-c64e-4fa5-aa98-aa6405758d5d
-ms.openlocfilehash: 37fc6dfad5a2f1363254744141dcab1e13aa5066
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 08402aa5b959711c150fff89aa6747b6b43f8aa8
+ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30952677"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43134079"
 ---
 # <a name="using-familiar-command-names"></a>Použití známých názvů příkazů
-Pomocí mechanismus názvem *aliasy*, prostředí Windows PowerShell umožňuje uživatelům k odkazování na příkazy alternativní názvy. Aliasy umožňuje uživatelům s prostředí v jiné součásti pro běžné názvy příkazů, které již znáte k provádění podobných operací v prostředí Windows PowerShell znovu použít. I když nebude prostředí Windows PowerShell aliasy podrobně probereme, můžete je je stále používat, jak začít pracovat v prostředí Windows PowerShell.
 
-Aliasy přidruží název příkazu, který zadáte jiný příkaz. Například prostředí Windows PowerShell má interní funkci s názvem **Clear-Host** který vymaže okně výstupu. Pokud zadáte buď **specifikací cls** nebo **vymazat** příkaz na příkazovém řádku prostředí Windows PowerShell interpretuje, že se jedná o alias **Clear-Host** funkce a spustí  **Clear-Host** funkce.
+PowerShell podporuje aliasy jako reference k příkazům alternativní názvy. Aliasy umožňuje uživatelům s prostředím v jiné prostředí používat běžné názvy příkazů, které už znáte podobných operací v prostředí PowerShell.
 
-Tato funkce vám pomůže uživatelům další prostředí Windows PowerShell. První, většina uživatelů Cmd.exe a UNIX má velký rozsah příkazy, které uživatelé již znáte podle názvu a i když prostředí Windows PowerShell ekvivalenty nemusí poskytovat stejné výsledky, jsou dostatečně Zavřít ve formuláři, který uživatelé mohou používat pracovat bez nutnosti nejprve pamatovat názvy prostředí Windows PowerShell. Druhou hlavní zdroj před dozvědět nové prostředí, pokud je uživatel již obeznámeni s jinou prostředí, je chyby, které jsou způsobeny "prstem paměti". Pokud jste použili Cmd.exe let, když máte úplná výstupu na obrazovku a chcete jej vyčistit, reflexively zadejte **specifikací cls** příkaz a stiskněte klávesu ENTER. Bez zástupce pro **Clear-Host** funkce v prostředí Windows PowerShell, jednoduše zobrazí chybová zpráva "**'specifikací cls' nebyl rozpoznán jako rutiny, funkce, spustitelného programu nebo souboru skriptu.**" a být ponecháno s žádné představu o tom, co dělat, zrušte výstup.
+Aliasy přiřadí nový název jiného příkazu. Například Powershellu má vnitřní funkci s názvem `Clear-Host` , který vymaže v okně výstup. Můžete zadat buď `cls` nebo `clear` alias příkazového řádku. Interpretuje tyto aliasy prostředí PowerShell a běží `Clear-Host` funkce.
 
-Toto je stručný seznam běžných Cmd.exe a UNIX příkazy, které můžete použít v prostředí Windows PowerShell:
+Tato funkce pomáhá uživatelům předvést prostředí PowerShell. První, většina uživatelů Cmd.exe a Unix mít velký repertoáru příkazů, které uživatelé již znáte pod názvem. Ekvivalenty Powershellu nemusí vytvářet identické výsledky. Výsledky jsou však zavřít dostatek, které uživatelé můžou pracovat bez znalosti názvu příkazu prostředí PowerShell. "Prsty paměti" je jiný hlavní příčiny frustrace při učení nové příkazové okno. Pokud jste použili Cmd.exe let, můžete například reflexively zadat `cls` příkaz pro vymazání obrazovky. Bez aliasu pro `Clear-Host`, zobrazí se chybová zpráva a nebude vědět, co dělat, zrušte výstup.
+
+Následující seznam uvádí některé běžné Cmd.exe a Unix, které můžete použít příkazy v prostředí PowerShell:
 
 |||||
 |-|-|-|-|
-|CAT|Dir|připojení|rm|
-|cd|zobrazení výsledků|Přesunutí|rmdir –|
-|chdir –|vymazání|popd|Přejít do režimu spánku|
-|Zrušte zaškrtnutí|h|ps|Řazení|
-|specifikací CLS|Historie|pushd|typu t|
-|Kopírování|příkaz kill|pwd|typ|
-|del|lp|r|zápis|
-|diff|ls|ren||
+|CAT|adresář|připojení|Správce prostředků|
+|CD|echo|Přesunutí|rmdir|
+|chdir|Vymazání|popd|Přejít do režimu spánku|
+|Vymazat|H|PS|Řazení|
+|specifikace CLS|Historie|pushd|TEE|
+|Kopírování|ukončit|PWD|typ|
+|del|LP|r|zápis|
+|diff|Ls|ren||
 
-Pokud se přistihnete pomocí jedné z těchto příkazů reflexively a chcete se dozvědět skutečné jméno nativní příkazu prostředí Windows PowerShell, můžete použít **Get-Alias** příkaz:
+`Get-Alias` Rutiny se dozvíte, skutečným názvem nativní příkaz prostředí PowerShell, které jsou spojené s aliasem.
 
-```
+```powershell
 PS> Get-Alias cls
-
-CommandType     Name                            Definition
------------     ----                            ----------
-Alias           cls                             Clear-Host
 ```
 
-Chcete-li příklady lépe čitelný, Průvodce uživatele systému Windows PowerShell obecně nevyužívá aliasy. Ale zároveň budete vědět více o aliasech již v rané fázi můžete stále bude užitečné, pokud pracujete s libovolnými fragmenty kódu prostředí Windows PowerShell z jiného zdroje nebo chcete definovat vlastní aliasy. Zbývající část tohoto oddílu popisuje standardní aliasy a jak definovat vlastní aliasy.
-
-### <a name="interpreting-standard-aliases"></a>Interpretace standardní aliasy
-Na rozdíl od zástupci popsané výše, které byly navrženy pro název kompatibilitu s dalších rozhraní, jsou navrženy pro jako stručný výtah obecně aliasy integrovaný do prostředí Windows PowerShell. Názvy těchto kratší lze rychle zadat, ale není možné číst, pokud si nejste jisti, co použijí pro referenci.
-
-Prostředí Windows PowerShell se pokusí ohrozit mezi přehlednost a jako stručný výtah tím, že poskytuje sadu standardní aliasy, které jsou založeny na názvy sdružená vlastnost pro běžné operace a podstatná jména. To umožňuje základní sady aliasy pro běžné rutin, které jsou čitelný, když znáte názvy sdružená. Například v standardní aliasy příkaz **získat** je zkratka **g**, příkaz **nastavit** je zkratka **s**, podstatné jméno **Položky** je zkratka **i**, podstatným jménem **umístění** je zkratka **l**a podstatné jméno příkaz je zkratka **cm**.
-
-Zde je stručný příklad k objasnění, jak to funguje. Standardní aliasu pro Get-Item pochází z kombinování **g** pro Get a **i** pro položku: **grafického rozhraní**. Standardní aliasu pro sadu položek pochází z kombinování **s** pro sadu a **i** pro položku: **si**. Standardní aliasu pro Get-umístění pochází z kombinování **g** pro Get a **l** k umístění, **gl**. Standardní aliasu pro nastavení umístění pochází z kombinování **s** pro sadu a **l** k umístění, **sl**. Standardní aliasu pro Get-Command pochází z kombinování **g** pro Get a **cm** pro příkaz, **gcm**. Neexistuje žádné rutiny Set-Command, ale pokud nebyly, jsme budou moci snadno uhodnout, že standardní alias pochází z **s** pro sadu a **cm** pro příkaz: **scm**. Kromě toho uživatelé obeznámeni s aliasy prostředí Windows PowerShell, který dojde **scm** budou moci snadno uhodnout, že alias odkazuje na příkazu Set.
-
-### <a name="creating-new-aliases"></a>Vytvoření nové aliasy
-Můžete vytvořit vlastní aliasy pomocí rutiny Set-Alias. Můžete například vytvořit následující příkazy aliasy standardní rutiny popsané v interpretace standardní aliasy:
-
+```Output
+CommandType     Name                               Version    Source
+-----------     ----                               -------    ------
+Alias           cls -> Clear-Host
 ```
+
+## <a name="interpreting-standard-aliases"></a>Interpretace standardní aliasy
+
+Aliasy jsme popisuje předchozí byly navrženy pro název kompatibilitu s další příkazových prostředích systémů.
+Většina aliasy, které jsou integrované do prostředí PowerShell jsou navržené pro zkrácení. Je snazší typu, ale jsou obtížně čitelné, pokud neznáte odkazují na kratší názvy.
+
+Aliasy prostředí PowerShell se pokusí najít kompromis mezi jasné a zkrácení. PowerShell používá standardní sadu aliasy pro běžné podstatná jména a příkazy.
+
+Příklad zkratky:
+
+| Podstatné jméno nebo příkaz | Zkratka |
+|--------------|--------------|
+| Get          | G            |
+| Nastavit          | s            |
+| Položka         | Můžu            |
+| Umístění     | L            |
+| Příkaz      | cm           |
+| Alias        | Al           |
+
+Tyto aliasy jsou srozumitelné, když víte, zkrácené názvy.
+
+| Název rutiny    | Alias |
+|----------------|-------|
+| `Get-Item `    | grafického rozhraní    |
+| `Set-Item`     | si    |
+| `Get-Location` | GL    |
+| `Set-Location` | SL    |
+| `Get-Command`  | gcm   |
+| `Get-Alias`    | GAL   |
+
+Jakmile jste obeznámeni s aliasy prostředí PowerShell, je snadno uhodnutelné, který **sal** alias odkazuje na `Set-Alias`.
+
+## <a name="creating-new-aliases"></a>Vytváří se nový aliasy
+
+Můžete vytvořit vlastní aliasy pomocí `Set-Alias` rutiny. Například následující příkazy vytvoří standardní rutiny aliasy jsme uvedli:
+
+```powershell
 Set-Alias -Name gi -Value Get-Item
 Set-Alias -Name si -Value Set-Item
 Set-Alias -Name gl -Value Get-Location
@@ -60,7 +86,8 @@ Set-Alias -Name sl -Value Set-Location
 Set-Alias -Name gcm -Value Get-Command
 ```
 
-Interně používá příkazy, jako je to při spuštění prostředí Windows PowerShell, ale tyto aliasy nejsou změnit. Pokud se pokusíte provést jednu z těchto příkazů ve skutečnosti, obdržíte chybu, která vysvětluje, že nemůže být upraven alias. Příklad:
+Interně prostředí PowerShell používá podobné příkazy během spouštění, ale nejsou změnit tyto aliasy.
+Pokud se pokusíte provést jednu z těchto příkazů, obdržíte chybu s vysvětlením, že alias nelze upravit. Příklad:
 
 ```
 PS> Set-Alias -Name gi -Value Get-Item

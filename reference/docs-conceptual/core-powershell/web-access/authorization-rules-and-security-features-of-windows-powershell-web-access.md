@@ -2,12 +2,12 @@
 ms.date: 06/27/2017
 keywords: rutiny prostředí PowerShell
 title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
-ms.openlocfilehash: 07b85a3c7bced58b9ee8db401f0339ba6011bc96
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: e9bed3900263a51b1b8236a3c3430154a5d11886
+ms.sourcegitcommit: 31a221d982305c7f999b1afeb15e3629e9620de8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39268343"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "43133851"
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -144,7 +144,7 @@ Rutiny Windows PowerShell Web Accessu podporují jeden zástupný znak – hvěz
    ```
    Get-PswaAuthorizationRule `
       -RuleName <rule-name> | Remove-PswaAuthorizationRule
-  ```
+   ```
 
 > [!NOTE]
 > Zobrazí se výzva k potvrzení odstranění zadaného autorizačního pravidla; Pravidlo se odstraní po stisknutí klávesy **Enter**. Ujistěte se, že chcete odebrat autorizační pravidlo dřív, než spustíte rutinu `Remove-PswaAuthorizationRule`.

@@ -1,83 +1,84 @@
 ---
-ms.date: 06/05/2017
+ms.date: 08/14/2018
 keywords: rutiny prostředí PowerShell
 title: Spuštění vzdálených příkazů
 ms.assetid: d6938b56-7dc8-44ba-b4d4-cd7b169fd74d
-ms.openlocfilehash: d21d1def1e25895f65b3578bf2892d56f14cc150
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+ms.openlocfilehash: 2001b5509acde6ec4259bb1442944958a67aa66f
+ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34482875"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "43133823"
 ---
 # <a name="running-remote-commands"></a>Spuštění vzdálených příkazů
 
-Příkazy můžete spustit na jednom nebo stovky počítačů pomocí jednoho příkazu prostředí Windows PowerShell. Prostředí Windows PowerShell podporuje vzdálený přístup pomocí různých technologií, včetně WS-Management, rozhraní WMI a RPC.
+Příkazy můžete spustit na jednom nebo stovky počítačů pomocí jediného příkazu prostředí PowerShell. Prostředí Windows PowerShell podporuje vzdálený přístup pomocí různých technologií, včetně služby WMI, RPC a WS-Management.
 
-## <a name="remoting-in-powershell-core"></a>Vzdálená komunikace prostředí PowerShell jádra
+PowerShell Core podporuje rozhraní WMI, WS-Management a vzdálenou komunikaci SSH. RPC se už nepodporuje.
 
-Jádro prostředí PowerShell, na novější edici prostředí PowerShell v systému Windows, systému macOS a Linux, podporuje rozhraní WMI, WS-Management a vzdálené komunikace s SSH.
-(RPC již není podporována.)
+Další informace o vzdálené komunikace v prostředí PowerShell Core najdete v následujících článcích:
 
-Další informace o toto nastavení najdete v tématu:
+- [SSH vzdálené komunikace v Powershellu Core][ssh-remoting]
+- [Vzdálená komunikace WSMan v Powershellu Core][wsman-remoting]
 
-* [SSH vzdálenou komunikaci prostředí PowerShell jádra][ssh-remoting]
-* [Vzdálená komunikace WSMan v prostředí PowerShell jádra][wsman-remoting]
+## <a name="windows-powershell-remoting-without-configuration"></a>Vzdálená komunikace Windows Powershellu bez konfigurace
 
-## <a name="remoting-without-configuration"></a>Vzdálená komunikace bez konfigurace
+Mnoho rutin prostředí Windows PowerShell mají parametr ComputerName, který vám umožní shromažďovat data a nastavení na jeden nebo více vzdálených počítačích. Tyto rutiny použít různé komunikační protokoly a fungovat ve všech operačních systémech Windows bez žádnou zvláštní konfiguraci.
 
-Mnoho rutin prostředí Windows PowerShell mít parametr ComputerName, která umožňuje shromažďování dat a změňte nastavení na jeden nebo více vzdálených počítačích. Používají různé technologie komunikace a mnoho pracovních na všechny operační systémy Windows, které podporuje prostředí Windows PowerShell bez žádnou zvláštní konfiguraci.
+Tyto rutiny zahrnují:
 
-Zahrnout tyto rutiny:
+- [Restart-Computer](/powershell/module/microsoft.powershell.management/restart-computer)
+- [Test připojení](/powershell/module/microsoft.powershell.management/test-connection)
+- [Clear-EventLog](/powershell/module/microsoft.powershell.management/clear-eventlog)
+- [Get-EventLog](/powershell/module/microsoft.powershell.management/get-eventlog)
+- [Get-HotFix](/powershell/module/microsoft.powershell.management/get-hotfix)
+- [Get-Process](/powershell/module/microsoft.powershell.management/get-process)
+- [Get-Service](/powershell/module/microsoft.powershell.management/get-service)
+- [Nastavení služby](/powershell/module/microsoft.powershell.management/set-service)
+- [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent)
+- [Get-WmiObject](/powershell/module/microsoft.powershell.management/get-wmiobject)
 
-* [Restartování počítače](https://go.microsoft.com/fwlink/?LinkId=821625)
-* [Test připojení](https://go.microsoft.com/fwlink/?LinkId=821646)
-* [Clear-EventLog](https://go.microsoft.com/fwlink/?LinkId=821568)
-* [Get-EventLog](https://go.microsoft.com/fwlink/?LinkId=821585)
-* [Get-HotFix](https://go.microsoft.com/fwlink/?LinkId=821586)
-* [Get-Process](https://go.microsoft.com/fwlink/?linkid=821590)
-* [Get-Service](https://go.microsoft.com/fwlink/?LinkId=821593)
-* [Nastavení služby](https://go.microsoft.com/fwlink/?LinkId=821633)
-* [Get-WinEvent](https://go.microsoft.com/fwlink/?linkid=821529)
-* [Get-WmiObject](https://go.microsoft.com/fwlink/?LinkId=821595)
-
-Rutiny, které podporují vzdálené komunikace bez zvláštní konfiguraci obvykle mají parametr ComputerName a nemají parametr relace. Chcete-li v relaci najít tyto rutiny, zadejte:
+Rutiny, které podporují vzdálené komunikace bez speciální konfigurace obvykle mít parametr ComputerName a nemáte parametr relace. Chcete-li tyto rutiny najdete v relaci, zadejte:
 
 ```powershell
 Get-Command | where { $_.parameters.keys -contains "ComputerName" -and $_.parameters.keys -notcontains "Session"}
 ```
 
-## <a name="windows-powershell-remoting"></a>Vzdálenou komunikaci Windows PowerShell
+## <a name="windows-powershell-remoting"></a>Vzdálená komunikace Windows Powershellu
 
-Vzdálená komunikace prostředí Windows PowerShell, který používá protokol WS-Management, vám umožní spustit libovolný příkaz prostředí Windows PowerShell na jeden nebo více vzdálených počítačích. Umožňuje vytvořit trvalé připojení, spusťte interaktivní relace 1:1 a spouštět skripty ve více počítačích.
+Pomocí protokolu WS-Management, umožňuje vzdálenou komunikaci Windows Powershellu můžete spouštět jakékoli příkazy prostředí Windows PowerShell na jeden nebo více vzdálených počítačích. Můžete navázat trvalé připojení, spouštění interaktivních relací a spouštět skripty na vzdálených počítačích.
 
-Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač konfigurován pro vzdálenou správu. Další informace, včetně pokynů, najdete v části [vzdálené požadavky](https://technet.microsoft.com/library/dd315349.aspx).
+Pokud chcete použít vzdálenou komunikaci prostředí Windows PowerShell, musí být vzdálený počítač nakonfigurovaný pro vzdálenou správu.
+Další informace, včetně pokynů, najdete v části [vzdálené požadavky](/powershell/module/microsoft.powershell.core/about/about_remote_requirements).
 
-Po dokončení konfigurace vzdálené komunikace Windows Powershellu jsou dostupné mnoho strategií vzdálené komunikace. Zbývající část tohoto dokumentu jsou uvedeny jen některé z nich. Další informace najdete v tématu [o vzdálené](https://technet.microsoft.com/library/dd347744.aspx) a [o vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd347744.aspx).
+Po nakonfigurování vzdálenou komunikaci prostředí Windows PowerShell, jsou k dispozici, mnoho strategií vzdálené komunikace.
+Tento článek uvádí jenom některé z nich. Další informace najdete v tématu [o vzdálené](/powershell/module/microsoft.powershell.core/about/about_remote).
 
-### <a name="start-an-interactive-session"></a>Spusťte interaktivní relace.
+### <a name="start-an-interactive-session"></a>Spuštění interaktivní relace
 
-Spusťte interaktivní relace s jeden vzdálený počítač pomocí [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) rutiny.
-Například spuštění interaktivní relace na vzdáleném počítači Server01, zadejte:
+Chcete-li spustit interaktivní relaci s jeden vzdálený počítač, použijte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) rutiny.
+Například spuštění interaktivní relace Server01 na vzdáleném počítači, zadejte:
 
 ```powershell
 Enter-PSSession Server01
 ```
 
-Změny příkazového řádku a zobrazí se název počítače, do které jste připojeni. Od toho všechny příkazy, které zadejte v příkazovém řádku spusťte na vzdáleném počítači a výsledky jsou zobrazeny v místním počítači.
+Příkazový řádek se změny zobrazily název vzdáleného počítače. Všechny příkazy, které zadáte v příkazovém řádku spustit na vzdáleném počítači a výsledky se zobrazí v místním počítači.
 
-Chcete-li ukončit interaktivní relace, zadejte:
+Pokud chcete ukončit interaktivní relace, zadejte:
 
 ```powershell
 Exit-PSSession
 ```
 
-Další informace o rutinách Enter-PSSession a ukončení-PSSession najdete v tématu [Enter-PSSession](https://go.microsoft.com/fwlink/?LinkId=821477) a [ukončení-PSSession](https://go.microsoft.com/fwlink/?LinkID=821478).
+Další informace o rutinách Enter-PSSession a ukončení relace PSSession najdete v článku:
 
-### <a name="run-a-remote-command"></a>Spuštění vzdáleného příkazu
+- [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession)
+- [Ukončení relace PSSession](/powershell/module/microsoft.powershell.core/exit-pssession)
 
-Chcete-li spustit libovolný příkaz na jeden nebo více vzdálených počítačích, použijte [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493) rutiny.
-Chcete-li například spustit [Get-UICulture](https://go.microsoft.com/fwlink/?LinkId=821806) na Server01 a Server02 vzdálených počítačích, zadejte příkaz:
+### <a name="run-a-remote-command"></a>Spustit vzdálený příkaz
+
+Chcete-li spustit příkaz na jeden nebo více počítačů, použijte [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command) rutiny. Chcete-li například spustit [Get-UICulture](/powershell/module/microsoft.powershell.utility/get-uiculture) v Server01 a Server02 vzdálenými počítači, zadejte příkaz:
 
 ```powershell
 Invoke-Command -ComputerName Server01, Server02 -ScriptBlock {Get-UICulture}
@@ -92,39 +93,33 @@ LCID    Name     DisplayName               PSComputerName
 1033    en-US    English (United States)   server02.corp.fabrikam.com
 ```
 
-Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).
+### <a name="run-a-script"></a>Spuštění skriptu
 
-### <a name="run-a-script"></a>Spustit skript
+Pro spuštění skriptu na jeden nebo více vzdálených počítačích, použít parametr FilePath `Invoke-Command` rutiny. Skript musí být přístupné pro místního počítače. Výsledky jsou vráceny do místního počítače.
 
-Chcete-li spustit skript na jeden nebo více vzdálených počítačích, použijte parametr FilePath rutiny Invoke-Command. Skript musí být na nebo přístupné pro místního počítače. Výsledky jsou vráceny do místního počítače.
-
-Například následující příkaz spustí skript DiskCollect.ps1 na vzdálených počítačích Server01 a Server02.
+Například následující příkaz spustí skript DiskCollect.ps1 na vzdálených počítačích, Server01 a Server02.
 
 ```powershell
 Invoke-Command -ComputerName Server01, Server02 -FilePath c:\Scripts\DiskCollect.ps1
 ```
 
-Další informace o rutinu Invoke-Command najdete v tématu [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493).
+### <a name="establish-a-persistent-connection"></a>Navázat trvalé připojení
 
-### <a name="establish-a-persistent-connection"></a>Trvalé připojení
-
-Pokud chcete spustit řadu související příkazy, které sdílet data, vytvoření relace na vzdáleném počítači a pak spusťte příkazy v relaci, kterou vytvoříte pomocí rutiny Invoke-Command. Pokud chcete vytvořit vzdálené relace, použijte rutinu New-PSSession.
-
-Například následující příkaz vytvoří relaci vzdálené počítače Server01 a jiná relace vzdáleného počítače Server02. Objekty relace ukládá v proměnné $s.
+Použití `New-PSSession` rutina pro vytvoření trvalého relace na vzdáleném počítači. Následující příklad vytvoří na Server01 a Server02 vzdálené relace. Objekty relace jsou uloženy v `$s` proměnné.
 
 ```powershell
 $s = New-PSSession -ComputerName Server01, Server02
 ```
 
-Teď, když jsou určeny k relacím, můžete v nich spustit libovolný příkaz. A protože relací jsou trvalé, můžete shromažďování dat do jednoho příkazu a použít ho v následující příkaz.
+Teď, když jsou vytvořeny na relace, můžete spouštět jakékoli příkazy v nich. A protože relací jsou trvalé, můžete shromažďovat data z jednoho příkazu a použít v jiné příkazu.
 
-Například následující příkaz spustí příkaz Get-opravu HotFix v relacích v $s proměnné a uloží výsledky v $h proměnné. Proměnná $h je vytvořen v každé z relací v $s, ale neexistuje v místní relaci.
+Například následující příkaz spustí příkaz Get-HotFix v relacích $s proměnné a uloží výsledky do $h proměnné. $H proměnná je vytvořená ve všech relacích v $s, ale neexistuje v místní relaci.
 
 ```powershell
 Invoke-Command -Session $s {$h = Get-HotFix}
 ```
 
-Nyní můžete v proměnné $h v dalších příkazech, jako je třeba následující data. Výsledky jsou zobrazeny v místním počítači.
+Teď můžete použít data v `$h` proměnné s jinými příkazy ve stejné relaci. Výsledky se zobrazí v místním počítači. Příklad:
 
 ```powershell
 Invoke-Command -Session $s {$h | where {$_.InstalledBy -ne "NTAUTHORITY\SYSTEM"}}
@@ -132,18 +127,19 @@ Invoke-Command -Session $s {$h | where {$_.InstalledBy -ne "NTAUTHORITY\SYSTEM"}
 
 ### <a name="advanced-remoting"></a>Pokročilé vzdálené komunikace
 
-Vzdálená správa prostředí Windows PowerShell začíná právě tady. Pomocí rutin nainstalován pomocí prostředí Windows PowerShell můžete vytvořit a nakonfigurovat vzdálené relace z místních i vzdálených zakončení, vytvoření relace přizpůsobené a s omezeným přístupem, povolte uživatelům importovat příkazy ze vzdálené relace, které ve skutečnosti spuštěna implicitně na ke vzdálené relaci, nakonfigurujte zabezpečení vzdálené relace a mnoho dalšího.
+Vzdálená správa prostředí Windows PowerShell začíná právě tady. Pomocí rutiny nainstalované pomocí prostředí Windows PowerShell můžete vytvořit a nakonfigurovat vzdálené relace z konců místních a vzdálených vytvářet přizpůsobené a s omezeným přístupem relace, umožňuje uživatelům importovat příkazy ze vzdálené relace, které skutečně běží. implicitně na vzdálenou relaci, nakonfigurujte zabezpečení vzdálené relace a spoustu dalších věcí.
 
-Pro usnadnění konfigurace vzdáleného, prostředí Windows PowerShell obsahuje poskytovatele WSMan. WSMAN: jednotku, která se vytvoří zprostředkovatel umožňuje procházet hierarchie konfigurační nastavení v místním počítači a vzdálených počítačů.
-Další informace o poskytovateli WSMan najdete v tématu [WSMan zprostředkovatele](https://technet.microsoft.com/library/dd819476.aspx) a [o rutiny WS-Management](https://technet.microsoft.com/library/dd819481.aspx), nebo v konzole Windows PowerShell, zadejte "Get-Help wsman".
+Prostředí Windows PowerShell obsahuje poskytovatele služby WSMan. Vytvoří poskytovatele `WSMAN:` jednotky, ve kterém můžete procházet hierarchii konfigurovat nastavení pro místní i vzdálené počítače.
+
+Další informace o poskytovateli WSMan najdete v tématu [WSMan poskytovatele](https://technet.microsoft.com/library/dd819476.aspx) a [o WS-Management – rutiny](/powershell/module/microsoft.powershell.core/about/about_ws-management_cmdlets), nebo v konzole Windows Powershellu zadejte `Get-Help wsman`.
 
 Další informace viz:
 
-- [O vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd315359.aspx)
+- [Informace o vzdálené – nejčastější dotazy](https://technet.microsoft.com/library/dd315359.aspx)
 - [Register-PSSessionConfiguration](https://go.microsoft.com/fwlink/?LinkId=821508)
 - [Import-PSSession](https://go.microsoft.com/fwlink/?LinkId=821821)
 
-Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troubleshooting](https://technet.microsoft.com/library/dd347642.aspx).
+Vzdálená komunikace vyřešení problémů, najdete v části [about_Remote_Troubleshooting](https://technet.microsoft.com/library/dd347642.aspx).
 
 ## <a name="see-also"></a>Viz také
 
@@ -153,11 +149,11 @@ Pomoc s chybami vzdálenou komunikaci, najdete v tématu [about_Remote_Troublesh
 - [about_Remote_Troubleshooting](https://technet.microsoft.com/library/2f890148-8578-49ed-85ea-79a489dd6317)
 - [about_PSSessions](https://technet.microsoft.com/library/7a9b4e0e-fa1b-47b0-92f6-6e2995d70acb)
 - [about_WS-Management_Cmdlets](https://technet.microsoft.com/library/6ed3370a-ea10-45a5-9493-696aeace27ed)
-- [Invoke-Command](https://go.microsoft.com/fwlink/?LinkId=821493)
+- [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command)
 - [Import-PSSession](https://go.microsoft.com/fwlink/?LinkId=821821)
-- [Nový PSSession](https://go.microsoft.com/fwlink/?LinkId=821498)
+- [Nová relace PSSession](https://go.microsoft.com/fwlink/?LinkId=821498)
 - [Register-PSSessionConfiguration](https://go.microsoft.com/fwlink/?LinkId=821508)
-- [Zprostředkovatel služby WSMan](https://technet.microsoft.com/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
+- [Poskytovatel služby WSMan](https://technet.microsoft.com/library/66fe1241-e08f-49ca-832f-a84c33ca8735)
 
 [wsman-remoting]: WSMan-Remoting-in-PowerShell-Core.md
 [ssh-remoting]: SSH-Remoting-in-PowerShell-Core.md

@@ -1,175 +1,182 @@
 ---
-ms.date: 06/05/2017
+ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Získání podrobné nápovědy
 ms.assetid: 6fb4daf7-8607-4a3e-b692-f77631adc1b9
-ms.openlocfilehash: 29c24af3f688f9388893044952442910e793842d
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+ms.openlocfilehash: 88f0357b935a7c75df07d667e3f2f2d0e493f89d
+ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34483028"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43134030"
 ---
 # <a name="getting-detailed-help-information"></a>Získání podrobné nápovědy
-Prostředí Windows PowerShell obsahuje podrobné témata nápovědy, které vysvětlují koncepty prostředí Windows PowerShell a jazyk prostředí Windows PowerShell. Existují také témata nápovědy pro každou rutiny a zprostředkovatele a témata nápovědy pro mnoho funkcí a skriptů.
 
-Můžete zobrazit tato témata nápovědy na příkazovém řádku nebo zobrazit nedávno aktualizované verze těchto témat v Microsoft TechNet Library. Mnoho programy, které hostí prostředí Windows PowerShell, jako je Windows Integrované skriptovací prostředí PowerShell, zadejte další pomoc funkce, jako je kontextová nápověda a zkompilovaný soubor nápovědy (CHM.).
+PowerShell zahrnuje podrobné články nápovědy, které vysvětluje koncepty prostředí PowerShell a jazyku prostředí PowerShell. Existují také články nápovědy pro jednotlivé rutiny a zprostředkovatele a pro mnoho funkcí a skriptů.
 
-## <a name="getting-help-for-cmdlets"></a>Získání nápovědy k rutinám
-Chcete-li získat nápovědu o rutinách prostředí Windows PowerShell, použijte [Get-Help [m2]](https://technet.microsoft.com/library/2d7fe1b4-0025-4580-a911-d81922dd6cd2) rutiny. Například pro získání nápovědy pro [Get-ChildItem [m2]](https://technet.microsoft.com/library/4b270d63-c995-45b8-b5b4-3f8887efbfcc) rutiny, zadejte:
+Tyto články nápovědy může zobrazit na příkazovém řádku nebo zobrazení naposledy aktualizované verze v těchto článcích [Powershellu](/powershell/scripting/powershell-scripting) online dokumentaci.
 
-```
-get-help get-childitem
-```
+## <a name="getting-help-for-cmdlets"></a>Získání nápovědy pro rutiny
 
-nebo
+Chcete-li získat nápovědu o rutinách prostředí PowerShell, použijte [Get-Help](/powershell/module/microsoft.powershell.core/Get-Help) rutiny. Například, chcete-li získat nápovědu pro `Get-ChildItem` rutiny, typ:
 
-```
-get-childitem -?
-```
-
-Dokonce můžete získat nápovědu o rutinu Get-Help. Příklad:
-
-```
-get-help get-help
-```
-
-Pokud chcete získat seznam všech témat nápovědy rutinu v relaci, zadejte:
-
-```
-get-help -category cmdlet
-```
-
-Chcete-li zobrazit jednu stránku každého tématu nápovědy v čase, použijte **pomoci** funkce nebo jeho alias **man**. Například pokud chcete zobrazit nápovědu pro rutinu Get-ChildItem, zadejte
-
-```
-man get-childitem
+```powershell
+Get-Help Get-ChildItem
 ```
 
 nebo
 
-```
-help get-childitem
-```
-
-Chcete-li zobrazit podrobné informace o rutiny, funkce nebo skriptu, včetně popisu jeho parametry a příkladů jeho použití, použijte *podrobné* parametru rutiny Get-Help. Chcete-li získat podrobné informace o rutině Get-ChildItem, zadejte například:
-
-```
-get-help get-childitem -detailed
+```powershell
+Get-ChildItem -?
 ```
 
-Chcete-li zobrazit veškerý obsah v tématu nápovědy, použijte *úplné* parametru rutiny Get-Help. Například pokud chcete zobrazit veškerý obsah v tématu nápovědy pro rutinu Get-ChildItem, zadejte:
+Nápovědu získáte i o rutinu Get-Help. Příklad:
 
-```
-get-help get-childitem -full
-```
-
-Chcete-li získat podrobnou nápovědu k parametry rutiny, použijte *parametr* parametru rutiny Get-Help. Například získat podrobné nápovědy pro všechny parametry rutiny Get-ChildItem, zadejte:
-
-```
-get-help get-childitem -parameter *
+```powershell
+Get-Help Get-Help
 ```
 
-Chcete-li zobrazit pouze v příkladech v tématu nápovědy, použijte *příklad* parametr Get-Help. Například pokud chcete zobrazit jenom příklady v tématu nápovědy pro rutinu Get-ChildItem, zadejte:
+Pokud chcete získat seznam všech rutin články nápovědy v relaci, zadejte:
 
-```
-get-help get-childitem -examples
+```powershell
+Get-Help -Category Cmdlet
 ```
 
-Informace o tom, jak psát témata nápovědy k rutinám, které můžete psát najdete v tématu [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
+Chcete-li zobrazit jednu stránku každého článku nápovědy v čase, použijte `help` funkci nebo její alias `man`.
+Například chcete-li zobrazit nápovědu pro `Get-ChildItem` rutiny, typ
+
+```powershell
+man Get-ChildItem
+```
+
+nebo
+
+```powershell
+help Get-ChildItem
+```
+
+Chcete-li zobrazit podrobné informace, použijte **podrobné** parametr `Get-Help` rutiny. Například, chcete-li získat podrobné informace `Get-ChildItem` rutiny, typ:
+
+```powershell
+Get-Help Get-ChildItem -Detailed
+```
+
+Chcete-li zobrazit veškerý obsah v článku nápovědy, použijte **úplné** parametr `Get-Help` rutiny. Například, chcete-li zobrazit veškerý obsah v článku nápovědy `Get-ChildItem` rutiny, typ:
+
+```powershell
+Get-Help Get-ChildItem -Full
+```
+
+Chcete-li získat podrobnou nápovědu k parametry rutiny, použijte **parametr** parametr `Get-Help` rutiny. Například, chcete-li získat podrobnou nápovědu pro všechny parametry `Get-ChildItem` rutiny, typ:
+
+```powershell
+Get-Help Get-ChildItem -Parameter *
+```
+
+Chcete-li zobrazit pouze v příkladech v článku nápovědy, použijte **příklady** parametr `Get-Help`.
+Chcete-li například zobrazit pouze v příkladech v tomto článku nápovědy pro `Get-ChildItem `rutiny, typ:
+
+```powershell
+Get-Help Get-ChildItem -Examples
+```
+
+Informace o tom, jak psát články nápovědy pro rutiny, které píšete, naleznete v tématu [jak napsat nápovědě k rutině](/powershell/developer/help/writing-help-for-windows-powershell-cmdlets).
 
 ## <a name="getting-conceptual-help"></a>Koncepční nápovědy
-Rutinu Get-Help také zobrazí informace o koncepční témata v prostředí Windows PowerShell, včetně témata týkající se jazyka prostředí Windows PowerShell. Koncepční témata nápovědy začínat předponu "about_", jako je například about_line_editing. (Název koncepční téma je třeba zadat v angličtině i na jiných než anglických verzí prostředí Windows PowerShell.)
 
-Chcete-li zobrazit seznam koncepční témata, zadejte:
+`Get-Help` Rutina taky zobrazí informace o koncepčních článků v prostředí PowerShell, včetně články o jazyce Powershellu. Koncepční články začínají předponou "about_", například about_line_editing nápovědy. (Název konceptuální článek musí být zadaná v angličtině i na jiných než anglických verzí Powershellu.)
 
-```
-get-help about_*
-```
+Pokud chcete zobrazit seznam koncepčních článků, zadejte:
 
-Pokud chcete zobrazit na určité téma nápovědy, zadejte například název tématu:
-
-```
-get-help about_command_syntax
+```powershell
+Get-Help about_*
 ```
 
-Parametry Get-Help, jako například *podrobné*, *parametr*, a *příklady*, nemají vliv na zobrazení koncepční témata nápovědy.
+Pokud chcete zobrazit konkrétní článek nápovědy, zadejte název článku, například:
+
+```powershell
+Get-Help about_command_syntax
+```
+
+Parametry `Get-Help`, jako například **podrobné**, **parametr**, a **příklady**, nemají žádný vliv na displeji koncepční články nápovědy.
 
 ## <a name="getting-help-about-providers"></a>Získání nápovědy o zprostředkovatelích
-Rutina Get-Help zobrazí informace o poskytovatelích prostředí Windows PowerShell. Chcete-li získat nápovědu pro zprostředkovatele, zadejte "Get-Help" následuje název zprostředkovatele. Například chcete-li získat nápovědu pro zprostředkovatele registru, zadejte:
 
-```
-get-help registry
-```
+`Get-Help` Rutina zobrazí informace o poskytovatelích prostředí PowerShell. Chcete-li získat nápovědu pro zprostředkovatele, zadejte `Get-Help` za nímž následuje název zprostředkovatele. Chcete-li získat nápovědu pro zprostředkovatele registru, zadejte například:
 
-Chcete-li získat seznam všech témat nápovědy zprostředkovatele v relaci, zadejte
-
-```
-get-help -category provider
+```powershell
+Get-Help registry
 ```
 
-Parametry Get-Help, jako například *podrobné*, *parametr*, a *příklady*, nemají vliv na zobrazení témat nápovědy zprostředkovatele.
+Chcete-li získat seznam všech poskytovatele články nápovědy v relaci, zadejte
+
+```powershell
+Get-Help -Category provider
+```
+
+Parametry `Get-Help`, jako například **podrobné**, **parametr**, a **příklady**, nemají žádný vliv na displeji články nápovědy zprostředkovatele.
 
 ## <a name="getting-help-about-scripts-and-functions"></a>Získání nápovědy o skriptech a funkcích
-Mnoho funkcí v prostředí Windows PowerShell a skriptů mít témata nápovědy. Použijte rutinu Get-Help zobrazíte témata nápovědy pro skriptech a funkcích.
 
-Pokud chcete zobrazit nápovědu pro funkci, zadejte "get-help" následuje název funkce. Například pro získání nápovědy pro funkce Disable-PSRemoting, zadejte:
+Mnoho funkcí v prostředí PowerShell a skripty mají články nápovědy. Použití `Get-Help` rutiny článků nápovědy, skriptech a funkcích.
 
-```
-get-help disable-psremoting
-```
+Chcete-li zobrazit nápovědu pro funkci, zadejte `Get-Help` následovaný názvem funkce. Například, chcete-li získat nápovědu pro `Disable-PSRemoting` funkci, zadejte:
 
-Chcete-li zobrazit nápovědu pro skript, zadejte plně kvalifikovanou cestu k souboru skriptu. Pokud se skript v cestě, která je uvedena v proměnné prostředí Path, můžete vynechat cestu z příkazu.
-
-Pokud máte skript s názvem "TestScript.ps1" v jednotce C:, například\\directory PS testu chcete zobrazit téma nápovědy pro skript, typ:
-
-```
-get-help c:\ps-test\TestScript.ps1
+```powershell
+Get-Help Disable-PSRemoting
 ```
 
-Parametry, které byly navrženy pro zobrazení rutiny pomoci, jako například *podrobné*, *úplné*, *příklady*, a *parametr*, pracovní pro skript nápovědy a funkce Nápověda, příliš. Ale když zobrazit všechny nápovědu zadáním "get-help \*", Nápověda pro funkce a skripty se nezobrazí.
+Chcete-li zobrazit nápovědu pro skript, zadejte cestu k souboru skriptu. Pokud skript není v cestě uvedené v proměnné prostředí Path, musíte použít plně kvalifikovanou cestu.
 
-Informace o vytváření témata nápovědy pro funkce a skripty, najdete v tématu [about_Functions [m2]](https://technet.microsoft.com/library/61d40692-5300-4de9-a9b5-bae31815e105), [about_Scripts](https://technet.microsoft.com/library/7dc08334-dcfe-450b-b949-0554855623af), a [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf).
+Například, pokud máte skript volá "TestScript.ps1" c:\\PS testovací adresář, chcete-li zobrazit článek nápovědy pro skript, typ:
 
-## <a name="getting-help-online"></a>Online nápovědy
-Pokud jste připojeni k Internetu, je jedním z nejlepší způsoby, jak získat nápovědu zobrazte témata nápovědy online. Protože online téma se dají snadno aktualizovat, jsou může zajistit nejaktuálnější obsah.
-
-Chcete-li získat online nápovědu, zkuste *Online* parametru rutiny Get-Help. *Online* parametr funguje rutiny Get-Help jenom pro rutinu nápovědy, funkce nápovědy a skriptu nápovědy. Nelze použít *Online* parametr s koncepční (o) témata nebo témata nápovědy zprostředkovatele. Navíc vzhledem k tomu, že tato funkce je volitelný, ale nefunguje pro všechny rutiny, funkce nebo téma nápovědy skriptu.
-
-Ale všechna témata nápovědy pocházející pomocí prostředí Windows PowerShell, včetně zprostředkovatele nápovědy a koncepční (témata nápovědy o) jsou k dispozici online v [prostředí Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=107116) části Microsoft TechNet Library.
-
-Použít *Online* parametru rutiny Get-Help, použijte následující příkaz Formát.
-
-```
-get-help <command-name> -online
+```powershell
+Get-Help c:\ps-test\TestScript.ps1
 ```
 
-Například získat online verzi tématu nápovědy o rutinu Get-ChildItem, zadejte:
+Parametry, které jsou navržené k zobrazování pracovní nápovědy rutiny pro skript a funkce pomáhají příliš. Však není nápovědy pro funkce a skripty zobrazený při spuštění `Get-Help *`.
 
+Informace o psaní článků nápovědy, funkcí a skriptů najdete v následujících článcích:
+
+- [about_Functions](/powershell/module/microsoft.powershell.core/about/about_functions)
+- [about_Scripts](/powershell/module/microsoft.powershell.core/about/about_scripts)
+- [about_Comment_Based_Help](/powershell/module/microsoft.powershell.core/about/about_comment_based_help)
+
+## <a name="getting-help-online"></a>Získat online nápovědu
+
+Zobrazení online článků nápovědy, který je jedním z nejlepších způsobů, jak získat pomoc. Online články jsou snáze aktualizovat a poskytovat nejaktuálnější obsah.
+
+Chcete-li získat nápovědu online, použijte **Online** parametr `Get-Help` rutiny. Všech článků nápovědy, které jsou součástí prostředí PowerShell, včetně zprostředkovatele nápovědy a koncepční (články nápovědy o) jsou k dispozici online v [Powershellu](/powershell/scripting/powershell-scripting) dokumentaci.
+
+> [!NOTE]
+> Nelze použít **Online** parametr s koncepční (about_ *) nebo zprostředkovatele články nápovědy.
+> Online nápovědy je volitelné, takže nefunguje pro všechny rutiny, funkce nebo skriptu.
+
+Například, chcete-li získat online verzi nápovědy článku `Get-ChildItem` rutiny, typ:
+
+```powershell
+Get-Help Get-ChildItem -Online
 ```
-get-help get-childitem -online
+
+Prostředí PowerShell otevře článek ve vašem výchozím prohlížeči. Pokud se podporuje online nápovědy pro článek nápovědy, můžete také zobrazit adresu URL článek nápovědy. Adresa URL se zobrazí v části související odkazy na článek nápovědy.
+
+Pokud chcete zobrazit adresu URL pro online verzi rutinu Add-Computer, zadejte například:
+
+```powershell
+Get-Help Add-Computer
 ```
 
-Pokud je k dispozici online verzi tématu nápovědy, otevře se ve výchozím prohlížeči.
+První řádek v souvisejících odkazů části tohoto článku je uveden níže.
 
-Pokud online nápovědy je podporováno pro téma nápovědy, můžete také zobrazit internetové adresy (URL) tématu nápovědy. Internetové adresy se zobrazí v části tématu nápovědy související odkazy.
-
-Například najdete v části Adresa URL pro online verzi rutinu Add-Computer, zadejte:
-
-```
-get-help add-computer
+```Output
+Online version: http://go.microsoft.com/fwlink/?LinkId=821564
 ```
 
-V prvním řádku související odkazy části tohoto tématu jsou uvedeny níže.
+Informace o tom, jak poskytovat online podporu pro vaše články nápovědy najdete v tématu [about_Comment_Based_Help](/powershell/module/microsoft.powershell.core/about/about_comment_based_help).
 
-```
-Online version: http://go.microsoft.com/fwlink/?LinkID=135194
-```
+## <a name="see-also"></a>Viz taky
 
-Informace o tom, jak poskytnout online podpory společnosti Microsoft pro vaše témata nápovědy najdete v tématu [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)a zobrazit [postup nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
-
-## <a name="see-also"></a>Viz také
-- [about_Functions [m2]](https://technet.microsoft.com/library/61d40692-5300-4de9-a9b5-bae31815e105)
-- [about_Scripts](https://technet.microsoft.com/library/7dc08334-dcfe-450b-b949-0554855623af)
-- [about_Comment_Based_Help](https://technet.microsoft.com/library/99a81ccc-21a0-49ec-a1b3-9efe2b4c0bbf)
-- [Get-Help [m2]](https://technet.microsoft.com/library/2d7fe1b4-0025-4580-a911-d81922dd6cd2)
+- [about_Functions](/powershell/module/microsoft.powershell.core/about/about_functions)
+- [about_Scripts](/powershell/module/microsoft.powershell.core/about/about_scripts)
+- [about_Comment_Based_Help](/powershell/module/microsoft.powershell.core/about/about_comment_based_help)
+- [Get-Help](/powershell/module/microsoft.powershell.core/get-help)

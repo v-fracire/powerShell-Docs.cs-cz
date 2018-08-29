@@ -2,12 +2,12 @@
 title: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 description: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 ms.date: 08/06/2018
-ms.openlocfilehash: f8e1e9af257037fc7bd74549e4197c9a1695e952
-ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.openlocfilehash: 8fbaba826624199d06fe4fdc785998e0135d7fe7
+ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39587427"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43134096"
 ---
 # <a name="using-visual-studio-code-for-powershell-development"></a>Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 
@@ -36,7 +36,7 @@ Pro tradiční úlohy v prostředí Windows PowerShell najdete v článku [insta
   > [!IMPORTANT]
   > V systému macOS musíte nainstalovat OpenSSL pro rozšíření prostředí PowerShell správně fungovat.
   > Nejjednodušší způsob, jak to provést, je instalace [Homebrew](http://brew.sh/) a pak spusťte `brew install openssl`.
-  > Nyní můžete načíst VS Code rozšíření Powershellu úspěšně.
+  > VS Code teď možné úspěšně načíst rozšíření prostředí PowerShell.
 
 - **Windows**: postupujte podle pokynů k instalaci na [spuštění VS Code na Windows](https://code.visualstudio.com/docs/setup/windows) stránky
 

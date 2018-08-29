@@ -1,37 +1,39 @@
 ---
 title: Vzdálená komunikace PowerShellu přes SSH
 description: Vzdálená komunikace v prostředí PowerShell Core pomocí protokolu SSH
-ms.date: 08/06/2018
-ms.openlocfilehash: 27a8fc5623796a270a2ea67aa550c9a0998e766b
-ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.date: 08/14/2018
+ms.openlocfilehash: 1de034d667aa9a377e5460e7eb474402c690cb42
+ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39587495"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "43133881"
 ---
 # <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace PowerShellu přes SSH
 
 ## <a name="overview"></a>Přehled
 
-Vzdálenou komunikaci prostředí PowerShell pro vyjednávání připojení a přenos dat obvykle používá WinRM. SSH byla vybrána pro tuto implementaci vzdálenou komunikaci, protože je teď dostupná pro platformy Linux i Windows a umožňuje true multiplatformní vzdálenou komunikaci prostředí PowerShell. Služba WinRM však také poskytuje robustní model hostingu pro vzdálené relace prostředí PowerShell, které tato implementace zatím nenabízí. A to znamená, že vzdálený koncový bod konfigurace prostředí PowerShell a JEA (Just Enough Administration) se ještě nepodporuje v této implementaci.
+Vzdálenou komunikaci prostředí PowerShell pro vyjednávání připojení a přenos dat obvykle používá WinRM. SSH je teď dostupná pro platformy operačních systémů Linux a Windows a umožňuje true multiplatformní vzdálenou komunikaci prostředí PowerShell.
 
-PowerShell SSH remoting umožňuje provádět základní vzdálené komunikace Powershellu relace mezi počítače s Windows a Linuxem. To se provádí tak, že vytvoříte Powershellu hostující proces na cílovém počítači jako podsystému SSH. Nakonec to bude změněno na obecnější hostování model podobný Princip WinRM, aby bylo možné podporovat konfiguraci koncového bodu a JEA.
+Služba WinRM poskytuje robustní model hostingu pro vzdálené relace prostředí PowerShell. které tato implementace založeného na protokolu SSH remoting není aktuálně podporují konfigurace vzdáleného koncového bodu a JEA (Just Enough Administration).
 
-`New-PSSession`, `Enter-PSSession` a `Invoke-Command` tyto rutiny teď mají nový parametr nastavte pro usnadnění tohoto nového připojení vzdálené komunikace
+Vzdálenou komunikaci SSH umožňuje provádět základní vzdálené komunikace Powershellu relace mezi počítače s Windows a Linuxem. Vzdálenou komunikaci SSH vytvoří proces hostitele prostředí PowerShell na cílovém počítači jako podsystému SSH.
+Nakonec jsme budete implementovat obecný hostování model, podobně jako WinRM pro podporu konfigurace koncového bodu a JEA.
+
+`New-PSSession`, `Enter-PSSession`, A `Invoke-Command` tyto rutiny teď mají nový parametr nastavte pro podporu této nové připojení vzdálené komunikace.
 
 ```
 [-HostName <string>]  [-UserName <string>]  [-KeyFilePath <string>]
 ```
 
-Tato nová sada parametrů se pravděpodobně změní, ale teď umožňuje vytvářet SSH PSSessions, že budete pracovat z příkazového řádku nebo vyvolat příkazy a skripty na. Zadejte cílový počítač s parametrem názvu hostitele a zadejte uživatelské jméno s uživatelským jménem. Při interaktivním spuštění rutiny příkazového řádku Powershellu se výzva k zadání hesla. Ale máte také možnost použít ověřování pomocí klíče SSH a zadejte cestu souboru s privátním klíčem s parametrem KeyFilePath.
+Chcete-li vytvořit vzdálené relace, zadejte cílový počítač s `HostName` parametr a zadejte uživatelské jméno s `UserName`. Při interaktivním spuštění rutiny se zobrazí výzva k zadání hesla. Můžete také, použijte soubor privátního klíče s použitím ověřování pomocí klíče SSH `KeyFilePath` parametru.
 
 ## <a name="general-setup-information"></a>Informace o obecných nastavení
 
-SSH je musí být nainstalovaný na všech počítačích. Měli byste nainstalovat klientské (`ssh.exe`) a serveru (`sshd.exe`) tak, že můžete experimentovat s vzdálené komunikace do a z počítače. Pro Windows je potřeba nainstalovat [Win32 OpenSSH z Githubu](https://github.com/PowerShell/Win32-OpenSSH/releases).
-Pro Linux je potřeba nainstalovat SSH (včetně server sshd) pro vaši platformu. Budete také potřebovat poslední sestavení prostředí PowerShell nebo balíček z Githubu s funkcí vzdálenou komunikaci SSH.
-Subsystémy SSH se používá k navázání Powershellu procesu ve vzdáleném počítači a SSH server bude potřeba nakonfigurovat pro daný. Kromě toho je potřeba povolit ověřování pomocí hesla a volitelně klíče ověřování.
+SSH musí být nainstalován ve všech počítačích. Instalace klienta SSH (`ssh.exe`) a serveru (`sshd.exe`), který umožňuje vzdálený do a z počítače. Pro Windows, nainstalujte [Win32 OpenSSH z Githubu](https://github.com/PowerShell/Win32-OpenSSH/releases).
+Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musíte nainstalovat PowerShell Core z Githubu, které chcete tuto funkci vzdálenou komunikaci SSH. SSH server musí nakonfigurovat, aby vytvořila podsystému SSH k hostování prostředí PowerShell procesu ve vzdáleném počítači. Musíte také povolit heslo nebo nastavit ověřování na základě klíče.
 
-## <a name="setup-on-windows-machine"></a>Instalační program na počítači s Windows
+## <a name="set-up-on-windows-machine"></a>Nastavení na počítači s Windows
 
 1. Nainstalujte nejnovější verzi [PowerShell Core pro Windows]
 
@@ -55,27 +57,22 @@ Subsystémy SSH se používá k navázání Powershellu procesu ve vzdáleném p
      ```
 
      ```
-     Subsystem    powershell c:/program files/powershell/6.0.0/pwsh.exe -sshs -NoLogo -NoProfile
+     Subsystem    powershell c:/program files/powershell/6.0.4/pwsh.exe -sshs -NoLogo -NoProfile
      ```
 
      > [!NOTE]
-     > OpenSSH pro Windows, který brání práce v cestách spustitelný subsystému prostorů je chyba.
-     > Zobrazit [tento problém na Githubu pro další informace o](https://github.com/PowerShell/Win32-OpenSSH/issues/784).
+     > OpenSSH pro Windows, který brání práce v cestách spustitelný subsystému prostorů je chyba. Další informace najdete v tématu [tento problém Githubu](https://github.com/PowerShell/Win32-OpenSSH/issues/784).
 
      Jedním z řešení je vytvořte symlink do instalačního adresáře prostředí Powershell, který neobsahuje mezery:
 
      ```powershell
-     mklink /D c:\pwsh "C:\Program Files\PowerShell\6.0.0"
+     mklink /D c:\pwsh "C:\Program Files\PowerShell\6.0.4"
      ```
 
      a zadejte ho v subsystému:
 
      ```
      Subsystem    powershell c:\pwsh\pwsh.exe -sshs -NoLogo -NoProfile
-     ```
-
-     ```
-     Subsystem    powershell c:/program files/powershell/6.0.0/pwsh.exe -sshs -NoLogo -NoProfile
      ```
 
    - Volitelně můžete povolit ověřování pomocí klíče
@@ -90,12 +87,9 @@ Subsystémy SSH se používá k navázání Powershellu procesu ve vzdáleném p
    Restart-Service sshd
    ```
 
-5. Přidat cestu, kde je nainstalován OpenSSH na vaše proměnné Env cesta
+5. Přidáte cestu, kde je nainstalován OpenSSH do proměnné prostředí Path. Například `C:\Program Files\OpenSSH\`. Tato položka umožňuje ssh.exe nalezen.
 
-   - To by měla být podle `C:\Program Files\OpenSSH\`
-   - To umožňuje ssh.exe nalezen
-
-## <a name="setup-on-linux-ubuntu-1404-machine"></a>Instalační program na počítači s Linuxem (Ubuntu 14.04)
+## <a name="set-up-on-linux-ubuntu-1404-machine"></a>Nastavte na počítači s Linuxem (Ubuntu 14.04)
 
 1. Nainstalujte nejnovější sestavení [PowerShell Core pro Linux] z Githubu
 2. Instalace [Ubuntu SSH] podle potřeby
@@ -131,7 +125,7 @@ Subsystémy SSH se používá k navázání Powershellu procesu ve vzdáleném p
    sudo service sshd restart
    ```
 
-## <a name="setup-on-macos-machine"></a>Instalace na počítači s MacOS
+## <a name="set-up-on-macos-machine"></a>Na počítači s MacOS
 
 1. Nainstalujte nejnovější sestavení [PowerShell Core pro MacOS]
 
@@ -176,7 +170,7 @@ Subsystémy SSH se používá k navázání Powershellu procesu ve vzdáleném p
 
 ## <a name="powershell-remoting-example"></a>Příklad vzdálené komunikace Powershellu
 
-Nejjednodušší způsob otestování vzdálené komunikace je prostě to zkuste na jednom počítači. Tady můžu se vytvořit relaci vzdálené zpět do stejného počítače v systému Linux box. Všimněte si, že používám rutin Powershellu z příkazového řádku, proto jsme zobrazovat výzvy z SSH s výzvou k ověření hostitelského počítače, stejně jako zadání hesla. Můžete provést totéž v počítači Windows k zajištění, že existuje funguje vzdálené komunikace a pak vzdálené mezi počítači jednoduchou změnou názvu hostitele.
+Nejjednodušší způsob otestování vzdálené komunikace je vyzkoušejte na jednom počítači. V tomto příkladu vytvoříme relaci vzdálené zpět na stejný počítač s Linuxem. Používáme Powershellu rutiny interaktivně, takže uvidíme výzev SSH s výzvou k ověření hostitelského počítače a s výzvou k zadání hesla. Můžete to samé udělá na počítači s Windows k zajištění, že funguje vzdálené komunikace. Pak pro něj mezi počítači tak, že změníte název hostitele.
 
 ```powershell
 #
@@ -197,9 +191,9 @@ $session
 ```
 
 ```output
- Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
- -- ----            ------------    ------------    -----         -----------------     ------------
-  1 SSH1            UbuntuVM1       RemoteMachine   Opened        DefaultShell             Available
+ Id Name   ComputerName    ComputerType    State    ConfigurationName     Availability
+ -- ----   ------------    ------------    -----    -----------------     ------------
+  1 SSH1   UbuntuVM1       RemoteMachine   Opened   DefaultShell             Available
 ```
 
 ```powershell

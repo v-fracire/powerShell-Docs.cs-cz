@@ -1,33 +1,31 @@
 ---
-ms.date: 06/05/2017
+ms.date: 08/14/2018
 keywords: rutiny prostředí PowerShell
 title: Úvod do prostředí PowerShell ISE
-ms.openlocfilehash: b09e64d0258d11f1f16f96b319ef232ebdfa0c49
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: d27a0eb594d7271121cee59f38d096995cc98648
+ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30952898"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "43133861"
 ---
 # <a name="introducing-the-windows-powershell-ise"></a>Úvod do prostředí PowerShell ISE
 
-Systému Windows PowerShell Integrované skriptovací prostředí (ISE) je hostitelskou aplikaci pro Windows PowerShell. V systému Windows PowerShell ISE můžete spustit příkazy a zápisu, test a ladění skriptů v jednom systému Windows grafické uživatelské rozhraní pomocí víceřádkovým úpravy, dokončování pomocí tabulátorů, barevné zvýrazňování syntaxe, selektivní provádění, Kontextová nápověda a podpora pro jazyky zprava doleva. Položky nabídky a klávesové zkratky můžete provádět mnoho úloh, které můžete provést v konzole Windows PowerShell. Například při ladění skript v systému Windows PowerShell ISE k nastavení boru přerušení řádku ve skriptu, klikněte pravým tlačítkem myši na řádek kódu a pak klikněte na tlačítko **Přepnout zarážku**.
+Windows Powershellu integrovaném skriptovacím prostředí (ISE) je hostitelskou aplikaci pro Windows PowerShell. V prostředí Windows PowerShell ISE můžete spouštět příkazy a zápis, testování a ladění skriptů v jedné založené na Windows grafické uživatelské rozhraní. Rozhraní poskytuje víceřádkové úpravy, tab k dokončování příkazů, barevné zvýrazňování syntaxe, selektivní spouštění, kontextové nápovědy a podpory pro jazyky zprava doleva. Položky nabídky a klávesové zkratky se mapují na řadu stejných úkolů, které by se v konzole Windows Powershellu. Například při ladění skriptu v prostředí Windows PowerShell ISE, kliknete pravým tlačítkem na řádek kódu pro nastavení zarážky.
 
-Zkuste tyto funkce v systému Windows PowerShell ISE.
+Tyto funkce v prostředí Windows PowerShell ISE vyzkoušejte.
 
-- Víceřádkové úpravy: Chcete-li vložit prázdný řádek v rámci aktuálního řádku podokna příkazu stiskněte SHIFT + ENTER.
-- Selektivní provádění: součástí skript spustit, vyberte text, který chcete spustit a potom klikněte na **spustit skript** tlačítko. Nebo stiskněte klávesu F5.
-- Kontextová nápověda: typ **Invoke-Item**, a potom stiskněte klávesu F1. Téma nápovědy pro otevření souboru nápovědy **Invoke-Item** rutiny.
+- Víceřádkové úpravy: Chcete-li vložit prázdný řádek pod aktuálním řádkem v příkazovém podokně, stiskněte SHIFT + ENTER.
+- Výběrové spuštění: spustit část skriptu, vyberte text, který chcete spustit a pak klikněte na tlačítko **spustit skript** tlačítko. Nebo stisknutím klávesy F5.
+- Kontextová nápověda: typ **Invoke-Item**, a potom stiskněte klávesu F1. V souboru nápovědy se otevře v článku **Invoke-Item** rutiny.
 
-Windows PowerShell ISE umožňuje přizpůsobit některé aspekty její vzhled. Je také vlastní profil prostředí Windows PowerShell, kam můžete ukládat funkcí, aliasy, proměnné a příkazy, které používáte v systému Windows PowerShell ISE.
+Windows PowerShell ISE umožňuje přizpůsobit některé aspekty její vzhled. Má také svůj vlastní profil skript prostředí Windows PowerShell.
 
 ## <a name="to-start-the-windows-powershell-ise"></a>Spusťte Windows PowerShell ISE
 
-Udělejte jednu z těchto věcí:
+Klikněte na tlačítko **Start**vyberte **prostředí Windows PowerShell**a potom klikněte na tlačítko **Windows PowerShell ISE**.
+Alternativně můžete zadat `powershell_ise.exe` libovolného příkazového řádku nebo v poli Spustit.
 
-- Klikněte na tlačítko **spustit**, přejděte na příkaz **všechny programy**, přejděte na příkaz **Windows PowerShell V2**a potom klikněte na **Windows PowerShell ISE**.
-- V konzole Windows PowerShell Cmd.exe nebo v poli Spustit typu **powershell_ise.exe**.
+## <a name="to-get-help-in-the-windows-powershell-ise"></a>Chcete-li získat nápovědu v prostředí Windows PowerShell ISE
 
-## <a name="to-get-help-in-the-windows-powershell-ise"></a>Jak získat nápovědu v systému Windows PowerShell ISE
-
-Na **pomoci** nabídky, klikněte na tlačítko **nápovědy prostředí Windows PowerShell**. Nebo stisknete klávesu F1. Soubor, který otevírá popisuje Windows PowerShell ISE a prostředí Windows PowerShell, včetně všech objektů v nápovědě k dispozici z rutiny Get-Help.
+Na **pomáhají** nabídky, klikněte na tlačítko **nápovědu k prostředí Windows PowerShell**. Nebo stisknutím klávesy F1. Soubor, který otevře popisuje Windows PowerShell ISE a prostředí Windows PowerShell, včetně všech objektů v nápovědě k dispozici z rutiny Get-Help.

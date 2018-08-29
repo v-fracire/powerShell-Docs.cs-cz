@@ -1,29 +1,19 @@
 ---
-ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: DSC skriptu prostředků
-ms.openlocfilehash: 1163d454972d8ee519d1c55b77bb85979faf3536
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.date: 08/24/2018
+keywords: DSC, powershell, konfigurace, instalační program
+title: Prostředek DSC Script
+ms.openlocfilehash: ef84239820a44aab2a028f7f0fe17653a851b72e
+ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189444"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43133889"
 ---
-# <a name="dsc-script-resource"></a>DSC skriptu prostředků
+# <a name="dsc-script-resource"></a>Prostředek DSC Script
 
+> Platí pro: Windows PowerShell 4.0, prostředí Windows PowerShell 5.x
 
-> Platí pro: Prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 5.0
-
-**Skriptu** prostředků v systému Windows PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus ke spuštění blocích skriptu prostředí Windows PowerShell na cílové uzly. `Script` Prostředek má `GetScript`, `SetScript`, a `TestScript` vlastnosti. Tyto vlastnosti musí být nastaven na skript bloky, které poběží na každý cílový uzel.
-
-`GetScript` Bloku skriptu by měla vrátit zatřiďovací tabulku představující stav aktuálního uzlu. Zatřiďovací tabulky musí obsahovat jenom jeden klíč `Result` a hodnota musí být typu `String`. Není potřeba nic vrátit. DSC nic se neděje s výstup tento blok skriptu.
-
-`TestScript` Bloku skriptu měli zjistit, pokud má být změněn na aktuální uzel. Měla by vrátit `$true` Pokud je aktuální uzel. Měla by vrátit `$false` Pokud konfigurace uzlu je zastaralý a by měl být aktualizován `SetScript` bloku skriptu. `TestScript` Bloku skriptu je volána metodou DSC.
-
-`SetScript` Bloku skriptu by měl změnit uzlu. Je volána metodou DSC, pokud `TestScript` blokovat vrátit `$false`.
-
-Pokud budete muset použít proměnné z vaší konfigurační skript v `GetScript`, `TestScript`, nebo `SetScript` bloky skriptu, použijte `$using:` oboru (dole najdete příklad).
-
+**Skript** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus pro spuštění bloky skriptu prostředí Windows PowerShell na cílové uzly. **Skript** prostředků používá `GetScript`, `SetScript`, a `TestScript` vlastnosti, které obsahují bloky skriptu definujete k provedení odpovídající DSC stavu operace.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,37 +28,68 @@ Script [string] #ResourceName
 }
 ```
 
+> [!NOTE]
+> `GetScript`, `TestScript`, A `SetScript` bloky jsou uloženy jako řetězce.
+
 ## <a name="properties"></a>Properties
 
-|  Vlastnost  |  Popis   |
-|---|---|
-| GetScript| Poskytuje blok skriptu prostředí Windows PowerShell, který je spuštěn při vyvolání [Get-DscConfiguration](https://technet.microsoft.com/library/dn407379.aspx) rutiny. Tento blok musí vracet zatřiďovací tabulku. Zatřiďovací tabulky musí obsahovat jenom jeden klíč **výsledek** a hodnota musí být typu **řetězec**.|
-| SetScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) rutiny **TestScript** bloku spustí první. Pokud **TestScript** blokovat vrátí **$false**, **SetScript** bloku se spustí. Pokud **TestScript** blokovat vrátí **$true**, **SetScript** bloku se nespustí.|
-| TestScript| Poskytuje blok skriptu prostředí Windows PowerShell. Při vyvolání [Start-DscConfiguration](https://technet.microsoft.com/library/dn521623.aspx) spuštění rutiny, tento blok. Vrátí-li **$false**, spustí SetScript bloku. Vrátí-li **$true**, SetScript bloku se nespustí. **TestScript** bloku poběží i v případě vyvolání [Test DscConfiguration](https://technet.microsoft.com/en-us/library/dn407382.aspx) rutiny. V takovém případě však **SetScript** bloku nebude spouštět, bez ohledu na to, co hodnotu TestScript blokovat vrátí. **TestScript** bloku musí vracet hodnotu True, pokud skutečné konfigurace odpovídá aktuální konfigurace požadovaného stavu a na hodnotu False, pokud neodpovídá. (Aktuální konfigurace požadovaného stavu je poslední konfigurace použity na uzlu, který používá DSC.)|
-| přihlašovací údaje| Určuje pověření sloužící ke spuštění tohoto skriptu, pokud je třeba zadat pověření.|
-| dependsOn| Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud ID konfigurace prostředků skriptu blok, který chcete spustit nejprve je třeba **ResourceName** a její typ je **ResourceType**, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.
+|Vlastnost|Popis|
+|--------|-----------|
+|GetScript|Blok skriptu, který vrací aktuální stav tohoto uzlu.|
+|SetScript|Blok skriptu, který používá DSC pro vynucování dodržování předpisů, pokud uzel není v požadovaném stavu.|
+|TestScript|Blok skriptu, který určuje, zda je uzel v požadovaném stavu.|
+|Přihlašovací údaje| Určuje přihlašovací údaje používat pro spouštění tohoto skriptu, pokud se vyžadují přihlašovací údaje.|
+|DependsOn| Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Pokud blok, který chcete spustit skript ID prostředku konfigurace nejprve je třeba **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.
 
-## <a name="example-1"></a>Příklad 1
+### <a name="getscript"></a>GetScript
+
+DSC nepoužívá výstup z `GetScript`. [Get-DscConfiguration](/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration) spustí rutinu `GetScript` načíst aktuální stav uzlu. Návratová hodnota není zapotřebí ve směru z `GetScript`. Pokud zadáte návratovou hodnotu, musí být `hashtable` obsahující **výsledek** klíč, jehož hodnota je `String`.
+
+### <a name="testscript"></a>TestScript
+
+`TestScript` Provádí DSC k určení, zda `SetScript` by se měl spustit. Pokud `TestScript` vrátí `$false`, provede DSC `SetScript` Chcete-li převést uzel zpět do požadovaného stavu. Musí vrátit `boolean` hodnotu. Výsledkem `$true` označuje, zda je uzel kompatibilní a `SetScript` by neměla provést.
+
+[Test-DscConfiguration](/powershell/module/PSDesiredStateConfiguration/Test-DscConfiguration) spustí rutinu `TestScript` načíst dodržování předpisů uzly s **skript** prostředky. V takovém případě však `SetScript` nespustí, bez ohledu na to, co `TestScript` blokovat vrátí.
+
+> [!NOTE]
+> Veškerý výstup z vaší `TestScript` je součástí jeho návratovou hodnotu. Prostředí PowerShell interpretuje nepotlačená výstup jako nenulová, což znamená, že vaše `TestScript` vrátí `$true` bez ohledu na stav vašeho uzlu.
+> Výsledkem nepředvídatelné výsledky, počet falešně pozitivních výsledků a způsobí, že potíže při odstraňování problémů.
+
+### <a name="setscript"></a>SetScript
+
+`SetScript` Upraví uzel, který má enfore požadovaného stavu. Je volána metodou DSC, pokud `TestScript` skript vrátí bloku `$false`. `SetScript` By měl mít žádnou návratovou hodnotu.
+
+## <a name="examples"></a>Příklady
+
+### <a name="example-1-write-sample-text-using-a-script-resource"></a>Příklad 1: Zápis textu vzorku pomocí skriptu prostředků
+
+V tomto příkladu ověřuje existenci `C:\TempFolder\TestFile.txt` na každém uzlu. Pokud neexistuje, vytvoří pomocí `SetScript`. `GetScript` Vrátí obsah souboru a jeho návratovou hodnotu není používán.
+
 ```powershell
 Configuration ScriptTest
 {
     Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
 
-    Script ScriptExample
+    Node localhost
     {
-        SetScript =
+        Script ScriptExample
         {
-            $sw = New-Object System.IO.StreamWriter("C:\TempFolder\TestFile.txt")
-            $sw.WriteLine("Some sample string")
-            $sw.Close()
+            SetScript = {
+                $sw = New-Object System.IO.StreamWriter("C:\TempFolder\TestFile.txt")
+                $sw.WriteLine("Some sample string")
+                $sw.Close()
+            }
+            TestScript = { Test-Path "C:\TempFolder\TestFile.txt" }
+            GetScript = { @{ Result = (Get-Content C:\TempFolder\TestFile.txt) } }
         }
-        TestScript = { Test-Path "C:\TempFolder\TestFile.txt" }
-        GetScript = { @{ Result = (Get-Content C:\TempFolder\TestFile.txt) } }
     }
 }
 ```
 
-## <a name="example-2"></a>Příklad 2
+### <a name="example-2-compare-version-information-using-a-script-resource"></a>Příklad 2: Porovnání informace o verzi použitím skriptu prostředků
+
+Tento příklad načte *kompatibilní* informace o verzi z textového souboru na vývojovém počítači a uloží jej do `$version` proměnné. Při generování souboru MOF uzlu DSC nahradí `$using:version` blokovat proměnné do každého skriptu s hodnotou `$version` proměnné. Během provádění *kompatibilní* verze je uložený v textovém souboru na každém uzlu a porovnání a aktualizovat na další spuštění.
+
 ```powershell
 $version = Get-Content 'version.txt'
 
@@ -76,27 +97,30 @@ Configuration ScriptTest
 {
     Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
 
-    Script UpdateConfigurationVersion
+    Node localhost
     {
-        GetScript = {
-            $currentVersion = Get-Content (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
-            return @{ 'Result' = "$currentVersion" }
-        }
-        TestScript = {
-            $state = $GetScript
-            if( $state['Result'] -eq $using:version )
-            {
-                Write-Verbose -Message ('{0} -eq {1}' -f $state['Result'],$using:version)
-                return $true
+        Script UpdateConfigurationVersion
+        {
+            GetScript = {
+                $currentVersion = Get-Content (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
+                return @{ 'Result' = "$currentVersion" }
             }
-            Write-Verbose -Message ('Version up-to-date: {0}' -f $using:version)
-            return $false
-        }
-        SetScript = {
-            $using:version | Set-Content -Path (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
+            TestScript = {
+                # Create and invoke a scriptblock using the $GetScript automatic variable, which contains a string representation of the GetScript.
+                $state = [scriptblock]::Create($GetScript).Invoke()
+
+                if( $state['Result'] -eq $using:version )
+                {
+                    Write-Verbose -Message ('{0} -eq {1}' -f $state['Result'],$using:version)
+                    return $true
+                }
+                Write-Verbose -Message ('Version up-to-date: {0}' -f $using:version)
+                return $false
+            }
+            SetScript = {
+                $using:version | Set-Content -Path (Join-Path -Path $env:SYSTEMDRIVE -ChildPath 'version.txt')
+            }
         }
     }
 }
 ```
-
-Tento prostředek je zapisování konfigurace do textového souboru. Tato verze je dostupná v klientském počítači, ale není na všech uzlech, tak musí být předán ke každému `Script` blocích skriptu prostředku v prostředí PowerShell na `using` oboru. Při generování uzlu MOF souboru, hodnota `$version` proměnnou je pro čtení z textového souboru v klientském počítači. Nahradí DSC `$using:version` proměnné v každý skript blokovat s hodnotou `$version` proměnné.
