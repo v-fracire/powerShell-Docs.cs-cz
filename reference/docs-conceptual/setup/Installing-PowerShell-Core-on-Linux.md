@@ -2,12 +2,12 @@
 title: Instalace PowerShellu Core v Linuxu
 description: Informace o instalaci Powershellu Core v různých distribucích systému Linux
 ms.date: 08/06/2018
-ms.openlocfilehash: a6b0e3003f84ea6dc99cffcc7edf1b5b6963aa21
-ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.openlocfilehash: 0a1f30ef75a0feeb97df9a35a08d6b0d3edaeccf
+ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39587444"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "43133846"
 ---
 # <a name="installing-powershell-core-on-linux"></a>Instalace PowerShellu Core v Linuxu
 
@@ -77,12 +77,13 @@ Od té chvíle stačí použít `sudo apt-get upgrade powershell` k aktualizaci 
 
 ### <a name="installation-via-direct-download---ubuntu-1404"></a>Instalace přes přímé stažení – Ubuntu 14.04
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.14.04_amd64.deb` z [uvolní][] stránky do počítače se systémem Ubuntu.
+Stáhněte si balíček Debian `powershell_6.0.3-1.ubuntu.14.04_amd64.deb`
+z [uvolní][] stránky do počítače se systémem Ubuntu.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo dpkg -i powershell_6.0.2-1.ubuntu.14.04_amd64.deb
+sudo dpkg -i powershell_6.0.3-1.ubuntu.14.04_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -124,12 +125,13 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, o
 
 ### <a name="installation-via-direct-download---ubuntu-1604"></a>Instalace přes přímé stažení – Ubuntu 16.04
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.ubuntu.16.04_amd64.deb` z [uvolní][] stránky do počítače se systémem Ubuntu.
+Stáhněte si balíček Debian `powershell_6.0.3-1.ubuntu.16.04_amd64.deb`
+z [uvolní][] stránky do počítače se systémem Ubuntu.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo dpkg -i powershell_6.0.2-1.ubuntu.16.04_amd64.deb
+sudo dpkg -i powershell_6.0.3-1.ubuntu.16.04_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -174,7 +176,8 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, o
 
 ### <a name="installation-via-direct-download---ubuntu-1804"></a>Instalace přes přímé stažení – Ubuntu 18.04
 
-Stáhněte si balíček Debian `powershell_6.1.0-preview.3-1.ubuntu.18.04_amd64.deb` z [uvolní][] stránky do počítače se systémem Ubuntu.
+Stáhněte si balíček Debian `powershell_6.1.0-preview.3-1.ubuntu.18.04_amd64.deb`
+z [uvolní][] stránky do počítače se systémem Ubuntu.
 
 Potom v terminálu spusťte následující:
 
@@ -233,12 +236,13 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, o
 
 ### <a name="installation-via-direct-download---debian-8"></a>Instalace přes přímé stažení – Debian 8
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.debian.8_amd64.deb` z [uvolní][] stránky do počítače, Debian.
+Stáhněte si balíček Debian `powershell_6.0.3-1.debian.8_amd64.deb`
+z [uvolní][] stránky do počítače, Debian.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo dpkg -i powershell_6.0.2-1.debian.8_amd64.deb
+sudo dpkg -i powershell_6.0.3-1.debian.8_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -284,12 +288,13 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, o
 
 ### <a name="installation-via-direct-download---debian-9"></a>Instalace přes přímé stažení – Debian 9
 
-Stáhněte si balíček Debian `powershell_6.0.2-1.debian.9_amd64.deb` z [uvolní][] stránky do počítače, Debian.
+Stáhněte si balíček Debian `powershell_6.0.3-1.debian.9_amd64.deb`
+z [uvolní][] stránky do počítače, Debian.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo dpkg -i powershell_6.0.2-1.debian.9_amd64.deb
+sudo dpkg -i powershell_6.0.3-1.debian.9_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -323,18 +328,19 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, s
 
 ### <a name="installation-via-direct-download---centos-7"></a>Instalace přes přímé stažení - CentOS 7
 
-Pomocí [CentOS 7][], stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače CentOS.
+Pomocí [CentOS 7][], stáhněte si balíček RPM `powershell-6.0.3-1.rhel.7.x86_64.rpm`
+z [uvolní][] stránky do počítače CentOS.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo yum install powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo yum install powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 Můžete také nainstalovat RPM bez přechodný krok stahování ho:
 
 ```sh
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.2/powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.3/powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 ### <a name="uninstallation---centos-7"></a>Odinstalace - CentOS 7
@@ -366,18 +372,19 @@ Po registraci úložiště společnosti Microsoft jednou jako superuživatele, s
 
 ### <a name="installation-via-direct-download---red-hat-enterprise-linux-rhel-7"></a>Instalace přes přímé stažení – Red Hat Enterprise Linux (RHEL) 7
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače, Red Hat Enterprise Linux.
+Stáhněte si balíček RPM `powershell-6.0.3-1.rhel.7.x86_64.rpm`
+z [uvolní][] stránky do počítače, Red Hat Enterprise Linux.
 
 Potom v terminálu spusťte následující:
 
 ```sh
-sudo yum install powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo yum install powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 Můžete také nainstalovat RPM bez přechodný krok stahování ho:
 
 ```sh
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.2/powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.3/powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 ### <a name="uninstallation---red-hat-enterprise-linux-rhel-7"></a>Odinstalace – Red Hat Enterprise Linux (RHEL) 7
@@ -427,18 +434,18 @@ pwsh
 
 ### <a name="installation-via-direct-download---opensuse-423"></a>Instalace přes přímé stažení - OpenSUSE 42.3
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače OpenSUSE.
+Stáhněte si balíček RPM `powershell-6.0.3-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače OpenSUSE.
 
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo zypper install powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo zypper install powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 Můžete také nainstalovat RPM bez přechodný krok stahování ho:
 
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo zypper install https://github.com/PowerShell/PowerShell/releases/download/v6.0.2/powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo zypper install https://github.com/PowerShell/PowerShell/releases/download/v6.0.3/powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 ### <a name="uninstallation---opensuse-423"></a>Odinstalace - OpenSUSE 42.3
@@ -478,13 +485,14 @@ pwsh
 
 ### <a name="installation-via-direct-download---fedora-27-fedora-28"></a>Instalace přes přímé stažení - Fedora 27, Fedora 28
 
-Stáhněte si balíček RPM `powershell-6.0.2-1.rhel.7.x86_64.rpm` z [uvolní][] stránky do počítače, Fedora.
+Stáhněte si balíček RPM `powershell-6.0.3-1.rhel.7.x86_64.rpm`
+z [uvolní][] stránky do počítače, Fedora.
 
 Potom v terminálu spusťte následující:
 
 ```sh
 sudo dnf install compat-openssl10
-sudo dnf install powershell-6.0.2-1.rhel.7.x86_64.rpm
+sudo dnf install powershell-6.0.3-1.rhel.7.x86_64.rpm
 ```
 
 Můžete také nainstalovat RPM bez přechodný krok stahování ho:
@@ -581,7 +589,7 @@ wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libs
 sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
 
 # Install PowerShell
-sudo dpkg -i powershell_6.0.2-1.ubuntu.16.04_amd64.deb
+sudo dpkg -i powershell_6.0.3-1.ubuntu.16.04_amd64.deb
 
 # Start PowerShell
 pwsh
@@ -624,13 +632,13 @@ Stáhněte si [Raspbian Stretch](https://www.raspberrypi.org/downloads/raspbian/
 sudo apt-get install libunwind8
 
 # Grab the latest tar.gz
-wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.2/powershell-6.0.2-linux-arm32.tar.gz
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.3/powershell-6.0.3-linux-arm32.tar.gz
 
 # Make folder to put powershell
 mkdir ~/powershell
 
 # Unpack the tar.gz file
-tar -xvf ./powershell-6.0.2-linux-arm32.tar.gz -C ~/powershell
+tar -xvf ./powershell-6.0.3-linux-arm32.tar.gz -C ~/powershell
 
 # Start PowerShell
 ~/powershell/pwsh
@@ -710,7 +718,7 @@ sudo rm -rf /usr/bin/pwsh /opt/microsoft/powershell
 
 ## <a name="paths"></a>Cesty
 
-* `$PSHOME` je `/opt/microsoft/powershell/6.0.2/`
+* `$PSHOME` je `/opt/microsoft/powershell/6.0.3/`
 * Uživatelské profily se budou číst z `~/.config/powershell/profile.ps1`
 * Výchozí profily se budou číst z `$PSHOME/profile.ps1`
 * Moduly uživatele bude číst z `~/.local/share/powershell/Modules`
