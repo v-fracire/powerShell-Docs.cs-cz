@@ -3,12 +3,12 @@ ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Získání informací o příkazech
 ms.assetid: 56f8e5b4-d97c-4e59-abbe-bf13e464eb0d
-ms.openlocfilehash: f4238927f10b4204cd3e23f0b0453011f54cb04a
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: 7af83e3a0e776d96e580b442430357b4ea063a72
+ms.sourcegitcommit: c170a1608d20d3c925d79c35fa208f650d014146
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43134006"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43353166"
 ---
 # <a name="getting-information-about-commands"></a>Získání informací o příkazech
 
@@ -29,7 +29,7 @@ Cmdlet          Add-Type                3.1.0.0    Microsoft.PowerShell.Utility
 ...
 ```
 
-To mnohem výstup vypadá podobně jako výstup s nápovědou programu Cmd.exe: tabulkové souhrn vnitřních příkazů. V výňatek z `Get-Command` příkaz výstupu vidíte výše, každý příkaz, zobrazí se CommandType rutiny. Rutina je typ vnitřní příkaz Powershellu. Tento typ odpovídá zhruba příkazů, jako jsou `dir` a `cd` v Cmd.exe nebo předdefinovaných příkazů systému Unix prostředí, jako je bash.
+To mnohem výstup vypadá podobně jako výstup s nápovědou z **cmd.exe**: tabulkové souhrn vnitřních příkazů. V výňatek z `Get-Command` příkaz výstupu vidíte výše, každý příkaz, zobrazí se CommandType rutiny. Rutina je typ vnitřní příkaz Powershellu. Tento typ odpovídá zhruba příkazů, jako jsou `dir` a `cd` v **cmd.exe** nebo integrované příkazy prostředí Unix, jako je bash.
 
 `Get-Command` Rutina má **syntaxe** parametr, který vrátí syntaxe jednotlivých rutin. Následující příklad ukazuje, jak získat syntaxe `Get-Help` rutiny:
 
@@ -71,7 +71,7 @@ Tento seznam obsahuje externích příkazů v cestách pro vyhledávání, tak m
 Je další užitečné podívat se na omezenou sadu příkazů.
 
 > [!NOTE]
-> Hvězdička (\*) se používá pro porovnávání v argumentech příkazového prostředí PowerShell se zástupnými znaky. \* Znamená "odpovídat jeden nebo více znaky". Můžete zadat `Get-Command a*` najít všechny příkazy, které začínají písmenem "a". Na rozdíl od v Cmd.exe porovnávání se zástupnými znaky zástupný znak pro prostředí PowerShell také Porovná tečku.
+> Hvězdička (\*) se používá pro porovnávání v argumentech příkazového prostředí PowerShell se zástupnými znaky. \* Znamená "odpovídat jeden nebo více znaky". Můžete zadat `Get-Command a*` najít všechny příkazy, které začínají písmenem "a". Na rozdíl od porovnávání se zástupnými znaky v **cmd.exe**, Powershellu zástupných znaků se také Porovná tečku.
 
 Použití **CommandType** parametr `Get-Command` zobrazíte nativní příkazy z ostatních typů.
 .

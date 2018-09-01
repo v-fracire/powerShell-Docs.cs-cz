@@ -3,12 +3,12 @@ ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Použití proměnných k ukládání objektů
 ms.assetid: b1688d73-c173-491e-9ba6-6d0c1cc852de
-ms.openlocfilehash: 3168b64039a601857f9c684108de5770f88329e3
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: f4254199facb914c68a487b281b30070c35550a1
+ms.sourcegitcommit: c170a1608d20d3c925d79c35fa208f650d014146
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43134054"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43353214"
 ---
 # <a name="using-variables-to-store-objects"></a>Použití proměnných k ukládání objektů
 
@@ -78,15 +78,15 @@ Prostředí PowerShell také vytvoří proměnné jednotku. Chcete-li zobrazit v
 Get-ChildItem variable:
 ```
 
-## <a name="using-cmdexe-variables"></a>Použití proměnných Cmd.exe
+## <a name="using-cmdexe-variables"></a>Použití proměnných cmd.exe
 
-Prostředí PowerShell můžete použít stejné proměnné prostředí, která je k dispozici pro jakýkoli proces Windows, včetně Cmd.exe. Tyto proměnné jsou vystaveny prostřednictvím jednotku s názvem `env:`. Tyto proměnné můžete zobrazit zadáním následujícího příkazu:
+Prostředí PowerShell můžete použít stejné proměnné prostředí, která je k dispozici pro jakýkoli proces Windows, včetně **cmd.exe**. Tyto proměnné jsou vystaveny prostřednictvím jednotku s názvem `env:`. Tyto proměnné můžete zobrazit zadáním následujícího příkazu:
 
 ```powershell
 Get-ChildItem env:
 ```
 
-Standardní `*-Variable` rutin nejsou navržené pro práci s proměnnými prostředí. Proměnné prostředí jsou přístupné pomocí `env:` předponu jednotky. Například **adresáře % SystemRoot %** proměnné v Cmd.exe obsahuje název kořenového adresáře operačního systému. V Powershellu, použijte `$env:SystemRoot` pro přístup k stejnou hodnotu.
+Standardní `*-Variable` rutin nejsou navržené pro práci s proměnnými prostředí. Proměnné prostředí jsou přístupné pomocí `env:` předponu jednotky. Například **adresáře % SystemRoot %** proměnné v **cmd.exe** obsahuje název kořenového adresáře operačního systému. V Powershellu, použijte `$env:SystemRoot` pro přístup k stejnou hodnotu.
 
 ```
 PS> $env:SystemRoot

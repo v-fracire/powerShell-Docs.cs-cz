@@ -1,16 +1,16 @@
 ---
 ms.date: 08/24/2018
 keywords: rutiny prostředí PowerShell
-title: Učení Powershellových názvů
+title: Učení powershellových názvů
 ms.assetid: b4d0fd22-8298-4ee6-82ae-9b6f2907c986
-ms.openlocfilehash: d4e374530c8628df0d53fd860c4b7a149c58eb60
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: 44c66488a20c38d8528c92d753f6b32dda5a2dcb
+ms.sourcegitcommit: c170a1608d20d3c925d79c35fa208f650d014146
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43134199"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43353262"
 ---
-# <a name="learning-powershell-names"></a>Učení Powershellových názvů
+# <a name="learning-powershell-names"></a>Učení powershellových názvů
 
 Učení názvů příkazů a parametry vyžaduje spoustu času investici se většina rozhraní příkazového řádku. Problém je, že existuje několik vzorových postupů. Zapamatování je pouze způsob, jak další příkazy a parametry, které je třeba použít v pravidelných intervalech.
 
@@ -19,10 +19,13 @@ Vypadá to, že logické pro názvy příkazů vzhledem k tomu, že každý př�
 
 ## <a name="learning-command-names-in-traditional-shells"></a>Učení názvů příkazů v tradiční prostředí
 
-Většina příkazů se za účelem správy prvky operačních systémech a aplikacích, jako je například služeb nebo procesů. Příkazy mají názvy, které můžou nebo nemusí vejde do rodiny. Například v systémech Windows, můžete použít `net start` a `net stop` příkazy ke spuštění a zastavení služby. **RŮZNÉ Soubor EXE** je jiný nástroj pro ovládací prvek služby pro Windows. Tento název se nevejde do vzor pojmenování `net` služby příkazy. Pro řízení procesů, má Windows `tasklist` příkaz listovat procesy a `taskkill` příkazu ukončit.
+Většina příkazů se za účelem správy prvky operačních systémech a aplikacích, jako je například služeb nebo procesů. Příkazy mají názvy, které můžou nebo nemusí vejde do rodiny. Například v systémech Windows, můžete použít `net start` a `net stop` příkazy ke spuštění a zastavení služby. **Sc.exe** je jiný nástroj pro ovládací prvek služby pro Windows. Tento název se nevejde do vzor pojmenování **net.exe** služby příkazy. Pro řízení procesů, má Windows **tasklist.exe** příkaz listovat procesy a **taskkill.exe** příkazu ukončit.
 
-Tyto příkazy mají navíc specifikace nestandardní parametru. Nelze použít `net start` příkaz pro spuštění služby ve vzdáleném počítači. `sc` Příkaz službu můžete spustit na vzdáleném počítači.
-Ale pokud chcete zadat vzdálený počítač, musíte přidat předponu stejný název jako dvojité zpětné lomítko. Chcete-li spustit službu zařazování tisku ve vzdáleném počítači s názvem DC01, zadejte `sc \\DC01 start spooler`. Do seznamu Úkoly spuštěné v DC01 použijete **/S** parametr a název počítače bez zpětná lomítka. Například `tasklist /S DC01`.
+Tyto příkazy mají navíc specifikace nestandardní parametru. Nelze použít `net start` příkaz pro spuštění služby ve vzdáleném počítači. **Sc.exe** příkaz službu můžete spustit na vzdáleném počítači. Ale pokud chcete zadat vzdálený počítač, musíte přidat předponu stejný název jako dvojité zpětné lomítko. Chcete-li spustit službu zařazování tisku ve vzdáleném počítači s názvem DC01, zadejte `sc.exe \\DC01 start spooler`.
+Do seznamu Úkoly spuštěné v DC01 použijete **/S** parametr a název počítače bez zpětná lomítka. Například `tasklist /S DC01`.
+
+> [!NOTE]
+> Před Powershellu v6 `sc` se alias pro `Set-Content` rutiny. Ke spuštění **sc.exe** příkaz, musí obsahovat příponu souboru.
 
 Příklady prvků spravovat počítače, které mají jasně definovaných životní cykly jsou služby a procesy. Můžete spustit nebo zastavit služby a procesy nebo získat seznam všech aktuálně spuštěné služby nebo procesy. I když existují důležité technické rozdíly mezi nimi, akce, které můžete provádět na službách a procesy jsou koncepčně stejné. Kromě toho volby, které provedeme přizpůsobit tak, že zadáte parametry akce může být koncepčně podobné také.
 
@@ -37,8 +40,7 @@ PowerShell je doporučená sada standardních operací. Podstatná jména jsou m
 Tento příklad dvou podstatná jména a příkazy konzistence není zjednodušit učení této snazší. Rozšíření seznamu standardizované sadu 10 příkazy a 10 podstatná jména. Nyní máte jenom 20 slova, která chcete pochopit.
 Ale tato slova mohou být kombinovány pro názvy formuláře 100 různých příkazů.
 
-Je snadno pochopit, co dělá příkaz prostředí PowerShell najdete jeho název. Vypnout počítač pomocí příkazu `Stop-Computer`. Seznam všech počítačů v síti pomocí příkazu `Get-Computer`.
-Pomocí příkazu získat systémové datum `Get-Date`.
+Je snadno pochopit, co dělá příkaz prostředí PowerShell najdete jeho název. Vypnout počítač pomocí příkazu `Stop-Computer`. Seznam všech počítačů v síti pomocí příkazu `Get-Computer`. Pomocí příkazu získat systémové datum `Get-Date`.
 
 Můžete zobrazit seznam všech příkazů, které obsahují konkrétní operaci s **příkaz** parametr pro `Get-Command`. Například, pokud chcete zobrazit všechny rutiny, které používají příkaz `Get`, typ:
 
