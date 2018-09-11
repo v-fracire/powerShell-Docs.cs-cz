@@ -1,12 +1,12 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: bed1186c10082bbdac7249503bf623678f13fccd
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: ff2c2bd7369893d72db001ecabf63991ded0bfd5
+ms.sourcegitcommit: ac20e0faaa37142e9c6e4507a21df2f4a3fdbece
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267935"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44339867"
 ---
 # <a name="unified-and-consistent-state-and-status-representation"></a>Jednotné vyjádření stavu
 
@@ -25,8 +25,8 @@ Následující tabulka uvádí, výsledné stavy souvisejících vlastností v r
 
 | Scénář                        | LCMState             | Stav     | Požadováno restartování | ResourcesInDesiredState   | ResourcesNotInDesiredState |
 |---------------------------------|----------------------|------------|---------------|------------------------------|--------------------------------|
-| S**^**                          | Nečinnosti                 | Úspěch    | $false        | S                            | $null                          |
-| F**^**                          | PendingConfiguration | Chyba    | $false        | $null                        | F                              |
+| S<sub>mi</sub>                   | Nečinnosti                 | Úspěch    | $false        | S                            | $null                          |
+| F<sub>mi</sub>                   | PendingConfiguration | Chyba    | $false        | $null                        | F                              |
 | S,F                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
 | F,S                             | PendingConfiguration | Chyba    | $false        | S                            | F                              |
 | S<sub>1</sub>, F, S<sub>2</sub> | PendingConfiguration | Chyba    | $false        | S<sub>1</sub>, S<sub>2</sub> | F                              |

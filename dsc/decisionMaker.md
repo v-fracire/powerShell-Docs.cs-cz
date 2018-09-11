@@ -1,60 +1,59 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Přehled platformy Desired State Configuration pro pracovníky s rozhodovací pravomocí
-ms.openlocfilehash: 70fc5c55266970165dc16eac85f6b850cf409d64
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 7c36aa5fadeab8bcb381f316288d102b5ce402e2
+ms.sourcegitcommit: ac20e0faaa37142e9c6e4507a21df2f4a3fdbece
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189869"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44339833"
 ---
 # <a name="desired-state-configuration-overview-for-decision-makers"></a>Přehled platformy Desired State Configuration pro pracovníky s rozhodovací pravomocí
 
-Tento dokument popisuje obchodní výhody použití prostředí PowerShell požadovaného stavu konfigurace (DSC). Není technické příručce.
+Tento dokument popisuje výhodách pro firmy pomocí Windows Powershellu Desired State Configuration (DSC). Nejedná se o technický průvodce.
 
-## <a name="what-is-desired-state-configuration"></a>Co je konfigurace požadovaného stavu?
+## <a name="what-is-desired-state-configuration"></a>Co je Desired State Configuration?
 
-Požadovaného stavu aplikace Windows PowerShell (DSC) je součástí systému Windows, která je založená na standardech, otevřete platforma pro správu konfigurace. DSC je dostatečně flexibilní, aby fungovat spolehlivě a konzistentní v jednotlivých fázích životního cyklu nasazení (vývoj, testovací, předprodukční, produkční), a také během Škálováním na více systémů.
+Prostředí PowerShell Desired State Configuration je platforma pro správu konfigurace integrovaný do Windows, která je založená na otevřených standardech. DSC je dostatečně flexibilní, aby funkce konzistentně a spolehlivě v jednotlivých fázích životního cyklu nasazení (vývojové, testovací, předprodukčním prostředí, produkční), stejně jako při škálování na víc systémů.
 
-DSC se soustředí kolem "[konfigurace](https://msdn.microsoft.com/powershell/dsc/configurations)".
-Konfigurace je snadno číst dokument, který popisuje prostředí počítače ("uzlů"), s konkrétními vlastnostmi.
-Tyto charakteristiky může být stejně jednoduché jako zajistit, že určité funkce systému Windows je povolený nebo komplexní jako nasazení služby SharePoint.
+DSC se soustředí kolem [konfigurace](configurations.md).
+Konfigurace je snadné čtení dokumentu, který popisuje prostředí skládá z počítače ("uzly") s konkrétními vlastnostmi.
+Tyto vlastnosti lze jednoduše zajištění, že se že konkrétní funkce Windows je povolený nebo komplexního, jako při nasazování služby SharePoint.
 
-DSC má také monitorování a vytváření sestav součástí.
-Pokud již není kompatibilní s systému, DSC můžete vygenerovat výstrahu v a fungovat na systému.
+DSC má také monitorování a vytváření sestav, integrované.
+Pokud již není kompatibilní s systému, DSC můžete vygenerovat výstrahu a Jednejte a opravte systém.
 
 ## <a name="benefits-of-using-desired-state-configuration"></a>Výhody použití Desired State Configuration
 
-Konfigurace jsou navrženy pro snadno přečíst, ukládat a aktualizovat.
-Konfigurace deklarovat stavu cílová zařízení musí být v, místo aby se pokyny, jak je uvést v tomto stavu.
-Díky tomu je mnohem méně nákladná další, přijímat, implementovat a Udržovat konfigurace pomocí DSC.
+Konfigurace jsou určeny k snadno přečíst, ukládat a aktualizovat.
+Konfigurace deklarace zařízení cílový stav by měl být v, místo psaní pokyny, jak uvést v tomto stavu.
+Díky tomu je mnohem méně nákladné na další, přijmout, implementaci a údržbu konfigurací pomocí DSC.
 
-Vytvoření konfigurace znamená, že jsou kroky komplexní nasazení zaznamená jako "jednoho zdroje založená" na jednom místě.
-Díky tomu mnohem méně náchylný opakované nasazení určitou sadu počítačů.
-Pak provedení nasazení rychlejší a spolehlivější což umožňuje rychlost na nasazení komplexní.
+Vytvoření konfigurace znamená, že složité nasazení kroky se zaznamenají jako "jediný zdroj pravdivých informací" na jednom místě.
+Tím je mnohem méně náchylný opakované nasazení konkrétní sady počítačů.
+Zase provádět nasazení, rychlejší a spolehlivější umožňující rychlé vyřízení na komplexních nasazení.
 
-Konfigurace je také možné sdílet prostřednictvím [Galerie prostředí PowerShell](https://powershellgallery.com) znamená běžné scénáře a osvědčené postupy možná již existuje pro práci, je třeba provést.
+Konfigurace jsou také sdílet prostřednictvím [Galerie prostředí PowerShell](https://powershellgallery.com) znamená běžné scénáře a osvědčené postupy možná již existuje pro práci, kterou je potřeba udělat.
 
 
-## <a name="desired-state-configuration-and-devops"></a>Konfigurace požadovaného stavu a DevOps
+## <a name="desired-state-configuration-and-devops"></a>Desired State Configuration a DevOps
 
-[DevOps](http://blogs.technet.com/b/ashleymcglone/archive/2015/11/20/devops-for-n00bs-ie-windows-people.aspx) je kombinací osoby, proces a nástroje, které umožňují pro rychlé nasazení a iterace zaměřuje na hodnotu koncovým uživatelům, ať už interní nebo externí.
-DSC byla vytvořena DevOps v paměti.
-S konfigurací jedné definovat prostředí znamená, že vývojáři mohou kódování požadavky do konfigurace, zkontrolujte, že konfigurace do správy zdrojového kódu a oddělení můžete snadno nasadit kód aniž by museli projít k chybám Manuální procesy.
+DSC byla navržena s [DevOps](http://blogs.technet.com/b/ashleymcglone/archive/2015/11/20/devops-for-n00bs-ie-windows-people.aspx) na paměti, kombinaci lidi, procesy a nástroje, které umožňují rychlé nasazení a iterace, zaměřuje na poskytování hodnoty koncovým uživatelům, ať už interní nebo externí.
+S konfigurací jedné definice prostředí znamená, že vývojáři můžou kódování jejich požadavky na konfiguraci, zkontrolujte, že konfigurace do správy zdrojového kódu a týmy, které operace můžete snadno nasadit kód bez nutnosti přejít náchylné k chybě ruční procesy.
 
-Konfigurace jsou také [řízené daty](https://msdn.microsoft.com/powershell/dsc/configdata), což usnadňuje ops týmy identifikovat a změnit prostředí bez zásahu vývojáře.
+Konfigurace jsou také [řízené daty](configData.md), což usnadňuje ops tak může identifikovat a změnit prostředí bez zásahu pro vývojáře.
 
-## <a name="desired-state-configuration-on--and-off-premises"></a>Požadované konfigurace stavu na - a mimo pracoviště
+## <a name="desired-state-configuration-on--and-off-premises"></a>Desired State Configuration a vypnout – místní
 
-DSC umožňuje spravovat místní i mimo pracoviště nasazení.
-Pro místní řešení pro DSC má [načítacího serveru](https://msdn.microsoft.com/powershell/dsc/pullserver) který slouží k centralizovat správu počítačů a tvorba sestav o jejich stav.
-Pro cloudové řešení pro DSC je použít kdekoli Windows použitelné.
-Existují také určité nabídky z Azure postaveny na konfigurace požadovaného stavu jako [Azure Automation](https://azure.microsoft.com/en-us/documentation/services/automation/), který centralizuje sestavy DSC.
+DSC umožňuje spravovat místní a provozovaných nasazení.
+Pro místní řešení má DSC [serveru vyžádané replikace](pullServer.md) , který umožňuje centralizovat správu počítačů a tvorba sestav o stavu.
+Cloudová řešení je DSC použít všude, kde je možné použít Windows.
+Existují také určité nabídky z Azure postavená na Desired State Configuration, jako například [Azure Automation](https://azure.microsoft.com/en-us/documentation/services/automation/), který centralizuje, vytvářet sestavy DSC.
 
 ## <a name="dsc-and-compatibility"></a>DSC a kompatibility
 
-I když DSC byla zavedena v systému Windows Server 2012 R2, je k dispozici pro operační systémy nižší úrovně prostřednictvím balíčku Windows Management Framework (WMF).
-Další informace o WMF naleznete na [domovské stránky prostředí PowerShell](https://msdn.microsoft.com/en-us/powershell/).
+Přestože DSC byla zavedena v systému Windows Server 2012 R2, je dostupná pro operační systémy nižší úrovně prostřednictvím balíček Windows Management Frameworku (WMF).
+Další informace o WMF najdete na [domovské stránce Powershellu](/powershell/).
 
-DSC můžete také použít ke správě systému Linux. Další informace najdete v tématu [Začínáme s DSC pro Linux](https://msdn.microsoft.com/en-us/powershell/dsc/lnxgettingstarted).
+DSC můžete také použít ke správě systému Linux. Další informace najdete v tématu [Začínáme s DSC pro Linux](lnxGettingStarted.md).
