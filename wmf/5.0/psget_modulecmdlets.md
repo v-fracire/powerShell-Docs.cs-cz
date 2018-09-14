@@ -1,47 +1,47 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: 02aebbd2557298b1b88229fdf5f67bdd08cea452
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 29b11e8b11f27fc5be60ea8c5cd56138326b3998
+ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190600"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45522818"
 ---
 # <a name="powershellget-cmdlets-for-module-management"></a>Rutiny správce balíčků PowerShellGet pro správu modulů
 
-- [Najít DscResource](https://technet.microsoft.com/library/mt654006.aspx)
-- [Najít – modul](https://technet.microsoft.com/library/dn807167.aspx)
-- [Najít skriptu](https://technet.microsoft.com/library/mt654001.aspx)
-- [Get-InstalledModule](https://technet.microsoft.com/en-us/library/mt653990.aspx)
-- [Get-InstalledScript](https://technet.microsoft.com/en-us/library/mt653994.aspx)
-- [Get-PSRepository](https://technet.microsoft.com/en-us/library/dn807170.aspx)
-- [Instalace modulu](https://technet.microsoft.com/en-us/library/dn807162.aspx)
-- [Instalační skript](https://technet.microsoft.com/en-us/library/mt653998.aspx)
-- [New-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt653995.aspx)
-- [Publikování modulu](https://technet.microsoft.com/en-us/library/dn807163.aspx)
-- [Publish-Script](https://technet.microsoft.com/en-us/library/mt654003.aspx)
-- [Registrace PSRepository](https://technet.microsoft.com/en-us/library/dn807168.aspx)
-- [Uložit – modul](https://technet.microsoft.com/en-us/library/mt653992.aspx)
-- [Save-Script](https://technet.microsoft.com/en-us/library/mt654004.aspx)
-- [Set-PSRepository](https://technet.microsoft.com/en-us/library/dn807165.aspx)
-- [Test-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt654005.aspx)
-- [Odinstalujte modul](https://technet.microsoft.com/en-us/library/mt653996.aspx)
-- [Odinstalujte skriptu](https://technet.microsoft.com/en-us/library/mt653989.aspx)
-- [Aktualizace modulu](https://technet.microsoft.com/en-us/library/dn807166.aspx)
-- [Update-ModuleManifest](https://technet.microsoft.com/en-us/library/mt654002.aspx)
-- [Update-Script](https://technet.microsoft.com/en-us/library/mt653997.aspx)
-- [Update-ScriptFileInfo](https://technet.microsoft.com/en-us/library/mt653991.aspx)
-- [Zrušit registraci PSRepository](https://technet.microsoft.com/en-us/library/dn807161.aspx)
+- [Find-DscResource](https://technet.microsoft.com/library/mt654006.aspx)
+- [Find-Module](https://technet.microsoft.com/library/dn807167.aspx)
+- [Find-Script](https://technet.microsoft.com/library/mt654001.aspx)
+- [Get-InstalledModule](https://technet.microsoft.com/library/mt653990.aspx)
+- [Get-InstalledScript](https://technet.microsoft.com/library/mt653994.aspx)
+- [Get-PSRepository](https://technet.microsoft.com/library/dn807170.aspx)
+- [Install-Module](https://technet.microsoft.com/library/dn807162.aspx)
+- [Install-Script](https://technet.microsoft.com/library/mt653998.aspx)
+- [New-ScriptFileInfo](https://technet.microsoft.com/library/mt653995.aspx)
+- [Publish-Module](https://technet.microsoft.com/library/dn807163.aspx)
+- [Publish-Script](https://technet.microsoft.com/library/mt654003.aspx)
+- [Register-PSRepository](https://technet.microsoft.com/library/dn807168.aspx)
+- [Save-Module](https://technet.microsoft.com/library/mt653992.aspx)
+- [Save-Script](https://technet.microsoft.com/library/mt654004.aspx)
+- [Set-PSRepository](https://technet.microsoft.com/library/dn807165.aspx)
+- [Test-ScriptFileInfo](https://technet.microsoft.com/library/mt654005.aspx)
+- [Odinstalujte modul](https://technet.microsoft.com/library/mt653996.aspx)
+- [Odinstalace Script](https://technet.microsoft.com/library/mt653989.aspx)
+- [Aktualizace modulu](https://technet.microsoft.com/library/dn807166.aspx)
+- [Update-ModuleManifest](https://technet.microsoft.com/library/mt654002.aspx)
+- [Update-Script](https://technet.microsoft.com/library/mt653997.aspx)
+- [Update-ScriptFileInfo](https://technet.microsoft.com/library/mt653991.aspx)
+- [Zrušit registraci PSRepository](https://technet.microsoft.com/library/dn807161.aspx)
 
-## <a name="module-dependency-installation-support-get-installedmodule-and-uninstall-module-cmdlets"></a>Podpora instalace modulu závislostí, Get-InstalledModule a odinstalace modulu rutiny
-- Přidat modul závislosti naplnění v rutině modulu publikovat. Seznamy RequiredModules a NestedModules PSModuleInfo se používají při přípravě seznamu závislostí modulu k publikování.
-- Přidání závislostí instalace podpora rutiny Install-Module a aktualizace modulu. Modul závislosti jsou nainstalované a aktualizovat ve výchozím nastavení.
-- Přidat parametrem - IncludeDependencies do rutiny modulu najít zahrnout modulu závislosti ve výsledcích.
-- Přidaná podpora - MaximumVersion na Najít modulu modulu instalace a aktualizace modulu rutiny.
-- Přidání nové Get-InstalledModule a odinstalace modulu rutiny.
+## <a name="module-dependency-installation-support-get-installedmodule-and-uninstall-module-cmdlets"></a>Podpora instalace závislostí modulů, Get-InstalledModule a rutiny Uninstall-Module
+- Naplnění závislosti modulu do rutiny Publish-Module. RequiredModules a NestedModules seznamů PSModuleInfo se používají při přípravě seznam závislostí modulu má být publikován.
+- Podpora instalace přidání závislostí v rutiny Install-Module a aktualizace modulu. Závislosti modulu jsou nainstalovány a aktualizovány ve výchozím nastavení.
+- Přidat parametr - IncludeDependencies do rutiny Find-Module zahrnout závislostí modulů ve výsledcích.
+- Přidání podpory - MaximumVersion na Find-Module, Install-Module a rutiny Update-Module.
+- Přidání nových Get-InstalledModule a odinstalovat modul rutin.
 
-## <a name="powershellget-cmdlets-demo-with-module-dependencies-support"></a>Ukázkové rutiny PowerShellGet modulu závislosti podporují:
+## <a name="powershellget-cmdlets-demo-with-module-dependencies-support"></a>Ukázkový rutiny PowerShellGet s závislosti modulu podporovat:
 
 ### <a name="ensure-that-module-dependencies-are-available-on-the-repository"></a>Ujistěte se, že modul závislosti jsou k dispozici v úložišti:
 ```powershell
@@ -57,7 +57,7 @@ Version    Name                     Repository    Description
 2.0        RequiredModule3          LocalRepo     RequiredModule3 module
 ```
 
-### <a name="create-a-module-with-dependencies-that-are-specified-in-the-requiredmodules-and-nestedmodules-properties-of-its-module-manifest"></a>Vytvoření modulu s závislosti, které jsou určené ve vlastnostech RequiredModules a NestedModules jeho manifestu modulu.
+### <a name="create-a-module-with-dependencies-that-are-specified-in-the-requiredmodules-and-nestedmodules-properties-of-its-module-manifest"></a>Vytvoření modulu se závislostmi, které jsou určené ve vlastnostech RequiredModules a NestedModules manifestu modulu.
 ```powershell
 $RequiredModules = @('RequiredModule1',
                      @{ModuleName = 'RequiredModule2'; ModuleVersion = '1.5'; },
@@ -76,7 +76,7 @@ New-ModuleManifest -Path 'C:\Program Files\WindowsPowerShell\Modules\TestDepWith
 Publish-Module -Name TestDepWithNestedRequiredModules1 -Repository LocalRepo -NuGetApiKey "MyNuGet-ApiKey-For-LocalRepo"
 ```
 
-###  <a name="find-the-testdepwithnestedrequiredmodules1-module-with-its-dependencies-by-specifying--includedependencies"></a>Zadáním - IncludeDependencies najít modul TestDepWithNestedRequiredModules1 s jeho závislé součásti.
+###  <a name="find-the-testdepwithnestedrequiredmodules1-module-with-its-dependencies-by-specifying--includedependencies"></a>Zadáním - IncludeDependencies se najdete modul TestDepWithNestedRequiredModules1 její závislosti.
 ```powershell
 Find-Module -Name TestDepWithNestedRequiredModules1 -Repository LocalRepo –IncludeDependencies -MaximumVersion "1.0"
 
@@ -91,7 +91,7 @@ Version    Name                                Repository  Description
 2.0        NestedRequiredModule3               LocalRepo   NestedRequiredModule3 module
 ```
 
-### <a name="use-find-module-metadata-to-find-the-module-dependencies"></a>Metadata modulu najít slouží k vyhledání modulu závislosti.
+### <a name="use-find-module-metadata-to-find-the-module-dependencies"></a>Find-Module metadata použijte k vyhledání závislostí modulů.
 ```powershell
 $psgetModuleInfo = Find-Module -Repository MSPSGallery -Name ModuleWithDependencies2
 $psgetModuleInfo.Dependencies.ModuleName
@@ -130,7 +130,7 @@ RequiredVersion 2.5
 CanonicalId PowerShellGet:NestedRequiredModule3/2.5#http://psget/psGallery/api/v2/
 ```
 
-###  <a name="install-the-testdepwithnestedrequiredmodules1-module-with-dependencies"></a>Nainstalujte modul TestDepWithNestedRequiredModules1 se závislostmi.
+###  <a name="install-the-testdepwithnestedrequiredmodules1-module-with-dependencies"></a>Instalace modulu TestDepWithNestedRequiredModules1 se závislostmi.
 ```powershell
 Install-Module -Name TestDepWithNestedRequiredModules1 -Repository LocalRepo -RequiredVersion "1.0"
 Get-InstalledModule
@@ -172,8 +172,8 @@ Version    Name                                Repository  Description
 2.0        TestDepWithNestedRequiredModules1   LocalRepo   TestDepWithNestedRequiredModules1 module
 ```
 
-###  <a name="run-the-uninstall-module-cmdlet-to-uninstall-a-module-that-you-installed-by-using-powershellget"></a>Spusťte rutinu Uninstall-Module odinstalovat modul, který jste nainstalovali pomocí PowerShellGet.
-Pokud ostatní moduly závisí na modul, který chcete odstranit, PowerShellGet vrátí chybu.
+###  <a name="run-the-uninstall-module-cmdlet-to-uninstall-a-module-that-you-installed-by-using-powershellget"></a>Spusťte rutinu Uninstall-Module k odinstalaci modulu, který jste nainstalovali pomocí Správce balíčků PowerShellGet.
+Pokud jakýkoli modul závisí na modul, který chcete odstranit, Správce balíčků PowerShellGet vyvolá chybu.
 ```powershell
 Get-InstalledModule -Name RequiredModule1 | Uninstall-Module
 
@@ -185,7 +185,7 @@ At C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\PSGet.psm1:1303 char
 + FullyQualifiedErrorId : UnableToUninstallAsOtherModulesNeedThisModule,Uninstall-Package,Microsoft.PowerShell.PackageManagement.Cmdlets.UninstallPackage
 ```
 
-## <a name="save-module-cmdlet"></a>Rutinu modulu uložit
+## <a name="save-module-cmdlet"></a>Rutina Save-Module
 ```powershell
 Save-Module -Repository MSPSGallery -Name ModuleWithDependencies2 -Path C:\MySavedModuleLocation
 dir C:\MySavedModuleLocation
@@ -203,12 +203,12 @@ d----- 4/21/2015 5:40 PM RequiredModule2
 d----- 4/21/2015 5:40 PM RequiredModule3
 ```
 
-## <a name="update-modulemanifest-cmdlet"></a>Rutina aktualizace ModuleManifest
-Tato nová rutina se používá k aktualizace manifest souboru s hodnotami vstupní vlastnost nápovědy. Všechny parametry, které nemá testovací ModuleManifest trvá.
+## <a name="update-modulemanifest-cmdlet"></a>Rutina Update-ModuleManifest
+Tato nová rutina slouží ke snadnější aktualizace hodnoty vstupní vlastnosti souboru manifestu. Všechny parametry, které provádí Test ModuleManifest trvá.
 
-Zjistíme, že mnoho modulu autoři chtěli zadejte "\*" exportovaný hodnoty, jako je například FunctionsToExport, CmdletsToExport, atd. Při publikování modulu v galerii prostředí PowerShell, neurčené funkce a příkazy se nenaplní správně do galerie. Proto doporučujeme aktualizace modulu autoři jejich manifesty s správné hodnoty.
+Zjistíme, že velké množství autoři modulu chtěli "\*" v exportovaných hodnot, jako je například FunctionsToExport CmdletsToExport, atd. Během publikování modulu galerii prostředí PowerShell, příkazy a neurčené funkce nebudou naplněné, správně do galerie. Proto doporučujeme aktualizovat autoři modulu svých manifestech s odpovídajícími hodnotami.
 
-Pokud máte moduly, které byly exportovány vlastnosti, naplní aktualizace ModuleManifest zadaný soubor manifestu informace z exportovaných funkcí, rutin, proměnné atd:
+Pokud máte moduly, které jste exportovali vlastnosti aktualizace ModuleManifest vyplní zadaný soubor manifestu s informacemi z exportovaných funkcí, rutiny, proměnné atd:
 ```powershell
 Get-Content -Path "C:\Temp\PSGTEST-TestPackageMetadata\2.5\PSGTEST-TestPackageMetadata.psd1"
 @{
@@ -257,11 +257,11 @@ CmdletsToExport = 'Test-PSGetTestCmdlet'
 }
 ```
 
-Pro každý modul existují také pole metadat, které jsou s ním spojená. Aby bylo možné zobrazit metadata správně na PowrShell galerie, můžete aktualizace ModuleManifest k naplnění těchto polí v rámci PrivateData.
+Pro každý modul existují také pole metadat, které jsou s ním spojená. Aby bylo možné správně zobrazit metadata v galerii PowrShell, můžete použít aktualizace ModuleManifest k naplnění těchto polí v rámci PrivateData.
 ```powershell
 Update-ModuleManifest -Path "C:\Temp\PSGTEST-TestPackageMetadata\2.5\PSGTEST-TestPackageMetadata.psd1" -Tags "Tag1" -LicenseUri "http://license.com" -ProjectUri "http://project.com" -IconUri "http://icon.com" -ReleaseNotes "Test module"
 ```
-Zatřiďovací tabulky PrivateData ze souboru manifestu šablony má následující vlastnosti:
+Zatřiďovací tabulka PrivateData ze souboru manifestu šablony má následující vlastnosti:
 ```powershell
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
@@ -286,4 +286,4 @@ PrivateData = @{
     } # End of PSData hashtable
 } # End of PrivateData hashtable
 ```
-***Poznámka:*** DscResourcesToExport je podporován pouze na nejnovější rozhraní PowerShell verze 5.0. Jsme nebude možné aktualizovat pole, pokud běží na předchozí verze prostředí PowerShell.
+***Poznámka:*** DscResourcesToExport je podporována pouze na nejnovější PowerShell verze 5.0. Společnost Microsoft nebude možné aktualizovat pole, pokud používáte předchozí verzi prostředí PowerShell.

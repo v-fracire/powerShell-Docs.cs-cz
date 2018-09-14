@@ -1,42 +1,35 @@
 ---
-ms.date: 06/12/2017
+ms.date: 09/11/2018
 contributor: JKeithB
-keywords: Galerie prostředí powershell, rutiny, psgallery
-title: Vytvoření účtu Galerie prostředí PowerShell
-ms.openlocfilehash: 4a44b51967ea8acdd331f6b3c682fc5884bd2f54
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: Galerie prostředí powershell, rutina, psgallery
+title: Vytváří se účet Galerie prostředí PowerShell
+ms.openlocfilehash: 08d18310d9e18b00bd9e22efcc552dfd29f8982c
+ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219561"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45522822"
 ---
-## <a name="creating-a-powershell-gallery-account"></a>Vytvoření účtu Galerie prostředí PowerShell
+# <a name="creating-a-powershell-gallery-account"></a>Vytváří se účet Galerie prostředí PowerShell
 
-Před publikováním nic do Galerie prostředí PowerShell, je nutné vytvořit účet Galerie prostředí PowerShell.
-Galerie prostředí PowerShell účty musí být propojena s povoleným e-mailu účtu Azure Active Directory nebo e-mailový účet Microsoft (s doménou outlook.com, hotmail.com, atd.)
+Před publikováním nic v galerii prostředí PowerShell, musíte vytvořit účet Galerie prostředí PowerShell.
+Galerie prostředí PowerShell účty musí být propojený s účtem přihlášení povolený e-mail. Tento účet může být účet služby Azure Active Directory nebo Microsoft ID, jako jsou e-mailového účtu outlook.com nebo hotmail.com.
 
-Chcete-li vytvořit účet Galerie prostředí PowerShell, přejděte na https://PowerShellGallery.com a klikněte na "Register" (viz následující obrázek).
+Pokud chcete vytvořit účet Galerie prostředí PowerShell, přejděte na [ https://PowerShellGallery.com ](https://PowerShellGallery.com) a klikněte na **přihlášení** jak je znázorněno na následujícím obrázku.
 
-![Zaregistrovat nový účet](../../Images/CreatingAccount-Register.png)
+![Zaregistrujte nový účet](../../Images/CreateAccount-Register.png)
 
-Na další stránce Pokud chcete používat účet služby Azure Active Directory, vyberte "Pracovní nebo školní účet" a přihlaste se pomocí účtu.
-Použít účet Microsoft - například ten, který v doméně Hotmail.com nebo Outlook.com – zvolte "Osobní účet" a přihlaste se.
+Chcete-li použít účet služby Azure Active Directory, vyberte **pracovního nebo školního účtu**a přihlaste se pomocí svého účtu. Pokud chcete používat Microsoft ID, zvolte **osobní účet** a přihlaste se.
 
-Jakmile jste přihlášení, vyzve k vytvoření uživatelské jméno pro galerii prostředí PowerShell.
-Přečtěte si podmínky použití a zásady ochrany osobních údajů, které jsou propojeny v, zadejte uživatelské jméno a potom kliknutím na tlačítko Registrovat.
+V dalším kroku se výzva k vytvoření uživatelského jména v galerii prostředí PowerShell. Seznamte se s podmínkami použití a zásadami ochrany osobních údajů, zadejte uživatelské jméno a potom klikněte na tlačítko **zaregistrovat**.
 
-Poznámka: Tento název účtu nelze změnit po vytvoření.
-V tématu [Správa vlastníků položky](https://msdn.microsoft.com/powershell/gallery/psgallery/managing-item-owners) další podrobnosti týkající se to.
+> [!NOTE]
+> Po vytvoření nelze změnit název účtu. Další informace najdete v tématu [Správa vlastníků položek](managing-item-owners.md).
 
 ## <a name="recommended-practices-for-powershell-gallery-accounts"></a>Doporučené postupy pro účty Galerie prostředí PowerShell
 
-Je důležité, aby e-mailový účet, který používá s vaším účtem Galerie prostředí PowerShell aktivně sledovat.
-Všechny communiction s vlastníci položky galerie prostředí PowerShell je e-mailem na adresu spojenou s vaším účtem Galerie prostředí PowerShell.
-Pokud jsme nelze kontaktovat vlastníka položek, může být provozní tým nutné odstranit položku za určitých okolností.
+Je důležité, abyste aktivně monitorovat e-mailový účet, používat s vaším účtem Galerie prostředí PowerShell. Veškerá komunikace s vlastníky položky galerie prostředí PowerShell je prostřednictvím této e-mailovou adresu. Pokud provozní Galerie prostředí PowerShell tým nemůže kontaktovat vlastníka položky, nám může být nutné odstranit položku.
 
-Organizace, které často publikovat do Galerie prostředí PowerShell vytvořit jedinečný účet pro tento účel v Outlook.com nebo jiné domény, účet Microsoft.
-V mnoha případech není pravidelně sledovat tento účet.
-Osvědčeným postupem je v takovém případě používat předávání Outlook k odesílání e-mailu na jiný účet, obvykle jednu v rámci organizace, které se budou monitorovat pomocí položky vlastníka/vlastníků.
+Organizace, které často publikují v galerii prostředí PowerShell vytvořit jedinečný účet externích pro tento účel. Doporučujeme, abyste že použití předávání e-mailu přeposílat oznámení na adresu v rámci vaší organizace.
 
-Pokud existují více vlastníky přidružený k položce, bude veškerá komunikace, které pocházejí z Galerie Powershellu přejděte na všechny vlastníky.
-V tématu [Správa vlastníků položky](https://msdn.microsoft.com/powershell/gallery/psgallery/managing-item-owners) další podrobnosti o přidání vlastníky k položce.
+Když více vlastníkům jsou spojeny s položkou, se všechny Galerie prostředí PowerShell oznámení odesílat pro všechny vlastníky. Další informace najdete v tématu [Správa vlastníků položek](managing-item-owners.md).

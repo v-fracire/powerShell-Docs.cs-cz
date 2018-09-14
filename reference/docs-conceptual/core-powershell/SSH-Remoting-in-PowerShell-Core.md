@@ -2,12 +2,12 @@
 title: Vzdálená komunikace PowerShellu přes SSH
 description: Vzdálená komunikace v prostředí PowerShell Core pomocí protokolu SSH
 ms.date: 08/14/2018
-ms.openlocfilehash: 1de034d667aa9a377e5460e7eb474402c690cb42
-ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
+ms.openlocfilehash: 0605e2400ab23a5ca97910621a59a64d19a80bde
+ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "43133881"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45557103"
 ---
 # <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace PowerShellu přes SSH
 
@@ -167,6 +167,30 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
    sudo launchctl stop com.openssh.sshd
    sudo launchctl start com.openssh.sshd
    ```
+
+## <a name="authentication"></a>Ověřování
+
+Vzdálená komunikace Powershellu přes SSH využívá exchange ověřování mezi klientem SSH a službu SSH a neimplementuje žádné ověřovací schémata samotný.
+To znamená, že všechny schémat nakonfigurované ověřování, včetně ověřování službou Multi-Factor Authentication zařizuje služba SSH a bez ohledu na prostředí PowerShell.
+Můžete například nakonfigurovat službu SSH tak, aby vyžadovala ověření veřejného klíče, jakož i jednorázové heslo pro zvýšení zabezpečení.
+Konfigurace ověřování službou Multi-Factor Authentication je mimo rozsah této dokumentace.
+V dokumentaci pro SSH o tom, jak správně nakonfigurovat ověřování Multi-Factor Authentication a ověřit před pokusem o pomocí vzdálené komunikace Powershellu funguje mimo prostředí PowerShell.
+
+## <a name="authentication"></a>Ověřování
+
+Vzdálená komunikace Powershellu přes SSH využívá exchange ověřování mezi klientem SSH a službu SSH a neimplementuje žádné ověřovací schémata samotný.
+To znamená, že všechny schémat nakonfigurované ověřování, včetně ověřování službou Multi-Factor Authentication zařizuje služba SSH a bez ohledu na prostředí PowerShell.
+Můžete například nakonfigurovat službu SSH tak, aby vyžadovala ověření veřejného klíče, jakož i jednorázové heslo pro zvýšení zabezpečení.
+Konfigurace ověřování službou Multi-Factor Authentication je mimo rozsah této dokumentace.
+V dokumentaci pro SSH o tom, jak správně nakonfigurovat ověřování Multi-Factor Authentication a ověřit před pokusem o pomocí vzdálené komunikace Powershellu funguje mimo prostředí PowerShell.
+
+## <a name="authentication"></a>Ověřování
+
+Vzdálená komunikace Powershellu přes SSH využívá exchange ověřování mezi klientem SSH a službu SSH a neimplementuje žádné ověřovací schémata samotný.
+To znamená, že všechny schémat nakonfigurované ověřování, včetně ověřování službou Multi-Factor Authentication zařizuje služba SSH a bez ohledu na prostředí PowerShell.
+Můžete například nakonfigurovat službu SSH tak, aby vyžadovala ověření veřejného klíče, jakož i jednorázové heslo pro zvýšení zabezpečení.
+Konfigurace ověřování službou Multi-Factor Authentication je mimo rozsah této dokumentace.
+V dokumentaci pro SSH o tom, jak správně nakonfigurovat ověřování Multi-Factor Authentication a ověřit před pokusem o pomocí vzdálené komunikace Powershellu funguje mimo prostředí PowerShell.
 
 ## <a name="powershell-remoting-example"></a>Příklad vzdálené komunikace Powershellu
 

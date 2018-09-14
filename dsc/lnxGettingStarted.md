@@ -2,12 +2,12 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Začínáme s Desired State Configuration (DSC) pro Linux
-ms.openlocfilehash: d5a4a17fbcffbbbd6df3dd902dbd104769b7d17e
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: d436fc3b451efb8a12dfdc44909824934b5fcbe4
+ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893592"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45523011"
 ---
 # <a name="get-started-with-desired-state-configuration-dsc-for-linux"></a>Začínáme s Desired State Configuration (DSC) pro Linux
 
@@ -75,7 +75,7 @@ Konfigurace Windows Powershellu – klíčové slovo se používá pro vytvořen
 
 1. Naimportujte modul nx. Modul prostředí Windows PowerShell nx obsahuje schéma pro integrované prostředky pro DSC pro Linux a musí být nainstalované na místním počítači a importu v konfiguraci.
 
-   - Pokud chcete nainstalovat modul nx, zkopírujte adresář modulu nx buď `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\` nebo `$PSHOME\Modules`. DSC pro Linux instalační balíček (MSI) je součástí modulu nx. Chcete-li importovat modul nx v konfiguraci, použijte `Import-DSCResource` příkaz:
+   - Pokud chcete nainstalovat modul nx, zkopírujte adresář modulu nx buď `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\` nebo `$PSHOME\Modules`. Modul nx je součástí DSC pro Linux instalační balíček. Chcete-li importovat modul nx v konfiguraci, použijte `Import-DSCResource` příkaz:
 
    ```powershell
    Configuration ExampleConfiguration{
