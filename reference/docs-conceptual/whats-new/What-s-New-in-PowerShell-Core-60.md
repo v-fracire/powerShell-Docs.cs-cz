@@ -2,12 +2,12 @@
 title: Co je nového v Powershellu Core 6.0
 description: Nové funkce a změny vydané ve Windows Powershellu 6.0
 ms.date: 08/06/2018
-ms.openlocfilehash: f0cddad223528cd0f2b4f392faeb6e08e1050c51
-ms.sourcegitcommit: 01ac77cd0b00e4e5e964504563a9212e8002e5e0
+ms.openlocfilehash: 9bd59dc1821e2fb3ec2d30254ab1fac4089f0340
+ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39587240"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45557228"
 ---
 # <a name="whats-new-in-powershell-core-60"></a>Co je nového v Powershellu Core 6.0
 
@@ -129,7 +129,7 @@ PowerShell Core používá [.NET Standard][] 2.0 k poskytování binární kompa
 Řada modulů Powershellu závisí na tato sestavení (často časy knihovny DLL), .NET Standard umožňuje pokračovat v práci s .NET Core.
 PowerShell Core zahrnuje také heuristiku k oblast hledání známých složek – stejně jako ve kterém do globální mezipaměti sestavení se obvykle nachází na disku--najít závislosti mezi knihovnami DLL .NET Framework.
 
-Další informace o .NET Standard na [Blog k .NET][], v tomto [YouTube][] videa a to prostřednictvím [nejčastější dotazy k][] na Githubu.
+Další informace o .NET Standard na [Blog k .NET][], v tomto [YouTube][] videa a to prostřednictvím [NEJČASTĚJŠÍ DOTAZY][] na Githubu.
 
 Byly provedeny maximální úsilí a zkontrolujte, že jazyk a "integrované" modulů prostředí PowerShell (jako je `Microsoft.PowerShell.Management`, `Microsoft.PowerShell.Utility`atd) fungovat stejně jako ve Windows Powershellu.
 V mnoha případech pomoci komunity přidali jsme nové funkce a opravy chyb pro tyto rutiny.
@@ -373,14 +373,14 @@ Dál jsme také vyřešili několik chyb v rámci prostředí PowerShell Core.
   - Platforma operačního systému (`$PSVersionTable.OSDescription`)
   - přesnou verzi prostředí PowerShell (`$PSVersionTable.GitCommitId`)
 
-Pokud se chcete odhlásit tato telemetrie, jednoduše odstranit `$PSHome\DELETE_ME_TO_DISABLE_CONSOLEHOST_TELEMETRY` nebo vytvořit `POWERSHELL_TELEMETRY_OPTOUT` proměnnou prostředí s jednou z následujících hodnot: `true`, `1` nebo `yes`.
-Odstraňuje se tento soubor nebo vytváření proměnné obchází veškerou telemetrii ještě před prvním spuštění PowerShell.
+Pokud se chcete odhlásit tato telemetrie, jednoduše vytvořte `POWERSHELL_TELEMETRY_OPTOUT` proměnnou prostředí s jednou z následujících hodnot: `true`, `1` nebo `yes`.
+Vytváření proměnné je vynecháno veškerou telemetrii ještě před prvním spuštění PowerShell.
 Plánujeme také na vystavení tato telemetrická data a přehledy jsme glean z telemetrických dat v [řídicí panel komunity][community-dashboard].
 Můžete najít další informace o tom, jak jsme tato data použít v tomto [blogový příspěvek][telemetry-blog].
 
 [github]: https://github.com/PowerShell/PowerShell
 [.NET core 2.0]: https://docs.microsoft.com/dotnet/core/
-[.NET standard]: https://docs.microsoft.com/en-us/dotnet/standard/net-standard
+[.NET standard]: https://docs.microsoft.com/dotnet/standard/net-standard
 [os_log]: https://developer.apple.com/documentation/os/logging
 [Syslog]: https://en.wikipedia.org/wiki/Syslog
 [ssh-remoting]: ../core-powershell/SSH-Remoting-in-PowerShell-Core.md
@@ -391,7 +391,7 @@ Můžete najít další informace o tom, jak jsme tato data použít v tomto [bl
 [.NET standard]: https://docs.microsoft.com/dotnet/standard/net-standard
 [Blog k .NET]: https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard
 [YouTube]: https://www.youtube.com/watch?v=YI4MurjfMn8&list=PLRAdsfhKI4OWx321A_pr-7HhRNk7wOLLY
-[nejčastější dotazy k]: https://github.com/dotnet/standard/blob/master/docs/faq.md
+[NEJČASTĚJŠÍ DOTAZY]: https://github.com/dotnet/standard/blob/master/docs/faq.md
 [CDXML]: https://msdn.microsoft.com/library/jj542525(v=vs.85).aspx
 [docker-hub]: https://hub.docker.com/r/microsoft/powershell/
 [Docker]: https://github.com/PowerShell/PowerShell/tree/master/docker

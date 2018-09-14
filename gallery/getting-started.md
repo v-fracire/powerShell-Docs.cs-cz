@@ -1,24 +1,28 @@
 ---
 ms.date: 06/12/2017
 contributor: JKeithB
-keywords: Galerie prostředí powershell, rutiny, psgallery
+keywords: Galerie prostředí powershell, rutina, psgallery
 title: Začínáme s Galerie prostředí PowerShell
-ms.openlocfilehash: 83974698152e75efac66ea725a9c220486676d6f
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 39998df1a2bf9363dd008dc96a802157c8d691d7
+ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34190158"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45523025"
 ---
 # <a name="get-started-with-the-powershell-gallery"></a>Začínáme s Galerie prostředí PowerShell
 
-Stahování položky z Galerie prostředí PowerShell k vašemu systému vyžaduje [PowerShellGet](/powershell/module/powershellget) modulu. Modul PowerShellGet najdete v některém z následujících akcí. Není nutné se přihlásit ke stažení položky z Galerie prostředí PowerShell.
+Správný způsob, jak nainstalovat položky z Galerie prostředí PowerShell je mohli používat rutiny v [PowerShellGet](/powershell/module/powershellget) modulu. Není nutné se přihlásit ke stažení položek z Galerie prostředí PowerShell.
 
-## <a name="discovering-items-from-the-powershell-gallery"></a>Zjišťování položky z Galerie Powershellu
+> [!NOTE]
+> Je možné stáhnout balíček přímo z Galerie prostředí PowerShell, ale toto není doporučený postup. Další podrobnosti najdete v tématu [ruční stažení balíčku](https://msdn.microsoft.com/en-us/powershell/gallery/psgallery/how-to/working-with-items/manual-download.md).  
 
-Položky v galerii prostředí PowerShell můžete najít pomocí **vyhledávání** ovládacího prvku na tomto webu, nebo procházením prostřednictvím stránky moduly a skripty. Můžete také získat položky z Galerie Powershellu spuštěním [najít modul][] a [najít skriptu][] rutin, v závislosti na typu položky s `-Repository PSGallery`.
 
-Filtrování výsledků z galerie lze provést pomocí následujících parametrů:
+## <a name="discovering-items-from-the-powershell-gallery"></a>Zjišťují se položky z Galerie prostředí PowerShell
+
+Položky v galerii prostředí PowerShell můžete najít pomocí **hledání** ovládacího prvku na tomto webu, nebo tak, že přejdete na stránkách moduly a skripty. Můžete také najít položky z Galerie prostředí PowerShell spuštěním [Find-Module][] a [Find-Script][] rutin, v závislosti na typu položky s `-Repository PSGallery`.
+
+Filtrování výsledků z galerie můžete provést pomocí následujících parametrů:
 
 - Název
 - AllVersions
@@ -31,70 +35,71 @@ Filtrování výsledků z galerie lze provést pomocí následujících parametr
 - Příkaz
 - Filtr
 
-Pokud byste chtěli pouze konkrétní prostředky DSC v galerii zjišťování, můžete spustit [najít DscResource] rutiny. Najít DscResource vrací data na prostředky DSC obsažené v galerii.
-Protože prostředky DSC jsou vždy dodávána jako součást modulu, potřebujete stále spustit [instalace modulu][] nainstalovat tyto prostředky DSC.
+Pokud máte zájem zjišťování konkrétní prostředky DSC v galerii, můžete spustit [Find-DscResource] rutiny. Find-DscResource vrací data na prostředky DSC obsažené v galerii.
+Protože prostředky DSC se vždy dodávají jako součást modulu, je stále potřeba spustit [Install-Module][] nainstalovat tyto prostředky DSC.
 
-## <a name="learning-about-items-in-the-powershell-gallery"></a>Získávání informací o položky v galerii prostředí PowerShell
+## <a name="learning-about-items-in-the-powershell-gallery"></a>Získání informací o položky v galerii prostředí PowerShell
 
-Jakmile jste zformulovali položky, které vás zajímají, můžete další informace o něm. To provedete tak, že prověří daná položka konkrétní stránky v galerii. Na této stránce budete moci zobrazit všechny metadat nahrán s položkou. Tato metadata položky od autora položky a není ověřen společností Microsoft. Vlastník položky je důrazně vázaný na Galerie účet použitý k publikování položku a více důvěryhodný než pole Author.
+Jakmile identifikujete položky, které vás zajímá, můžete další informace o něm. Můžete to provést tím, že kontroluje konkrétní stránka danou položku v galerii. Na této stránce budete moct Zobrazit vše se odeslaly s položku metadat. Tato metadata pro položku, kterou autorem položky, není ověřená společností Microsoft. Vlastník položky se silnou vazbu na galerii účet použitý k publikování položky a důvěryhodný více než pole Author.
 
-Pokud zjistíte, že položku, která si myslíte, že není publikována v dobré víře, klikněte na tlačítko **oznámení zneužití** na stránce této položky.
+Pokud zjistíte, že položka, která máte pocit, že není publikována v dobré víře, klikněte na tlačítko **ohlášení zneužití** na stránce danou položku.
 
-Pokud používáte [najít modul][] nebo [najít skriptu][], zobrazí se tato data v vráceného objektu PSGetModuleInfo. Například běžet `Find-Module -Name PSReadLine -Repository PSGallery |Get-Member` vrací data v modulu PSReadLine v galerii.
+Pokud používáte [Find-Module][] nebo [Find-Script][], zobrazí se tato data v vráceného objektu PSGetModuleInfo. Například systém `Find-Module -Name PSReadLine -Repository PSGallery |Get-Member`
+Vrátí data o PSReadLine modulu v galerii.
 
-## <a name="downloading-items-from-the-powershell-gallery"></a>Při stahování položky z Galerie Powershellu
+## <a name="downloading-items-from-the-powershell-gallery"></a>Stažení položek z Galerie prostředí PowerShell
 
-Při stahování položky z Galerie Powershellu doporučujeme následující proces:
+Při stažení položek z Galerie prostředí PowerShell doporučujeme následující postup:
 
 ### <a name="inspect"></a>Kontrola
 
-Ke stažení položky z Galerie pro kontrolu, spusťte [uložit modulu][] nebo [uložit skript][] rutiny, v závislosti na typu položky. To vám umožní uložit položku místně bez nutnosti její instalace a zkontrolovat obsah položky. Mějte na paměti, odstraňte uložený položku ručně.
+Stahování položky z Galerie pro kontrolu, spusťte [Save-Module][] nebo [Save-Script][] rutiny, v závislosti na typu položky. To vám umožní uložit položku místně bez nutnosti jeho instalace a zkontrolovat obsah položky. Mějte na paměti uložené položky odstraňte ručně.
 
-Některé z těchto položek vytvořené společností Microsoft a ostatní vytvořené komunitou prostředí PowerShell.
-Společnost Microsoft doporučuje zkontrolovat obsah a kód položky v této galerii před instalací.
+Některé z těchto položek jsou vytvořené microsoftem a jiné jsou vytvořené komunitou prostředí PowerShell.
+Společnost Microsoft doporučuje, abyste si obsah a kód položek v této galerii před instalací.
 
-Pokud zjistíte, že položku, která si myslíte, že není publikována v dobré víře, klikněte na tlačítko **oznámení zneužití** na stránce této položky.
+Pokud zjistíte, že položka, která máte pocit, že není publikována v dobré víře, klikněte na tlačítko **ohlášení zneužití** na stránce danou položku.
 
 ### <a name="install"></a>Install
 
-Chcete-li nainstalovat položky z Galerie pro použití, spusťte [instalace modulu][] nebo [instalační skript][] rutiny, v závislosti na typu položky.
+Pokud chcete nainstalovat položky z Galerie pro použití, spusťte [Install-Module][] nebo [Install-Script][] rutiny, v závislosti na typu položky.
 
-[instalace modulu][] nainstaluje modul pro `$env:ProgramFiles\WindowsPowerShell\Modules` ve výchozím nastavení.
-To vyžaduje účet správce. Pokud přidáte `-Scope CurrentUser` parametru, je nainstalován modul `$env:USERPROFILE\Documents\WindowsPowerShell\Modules` .
+[Install-Module][] nainstaluje modul `$env:ProgramFiles\WindowsPowerShell\Modules` ve výchozím nastavení.
+To vyžaduje účet správce. Pokud chcete přidat `-Scope CurrentUser` parametr, je nainstalován modul `$env:USERPROFILE\Documents\WindowsPowerShell\Modules` .
 
-[instalační skript][] nainstaluje skript, který chcete `$env:ProgramFiles\WindowsPowerShell\Scripts` ve výchozím nastavení.
-To vyžaduje účet správce. Pokud přidáte `-Scope CurrentUser` parametr skript je nainstalován do `$env:USERPROFILE\Documents\WindowsPowerShell\Scripts` .
+[Install-Script][] skript, který nainstaluje `$env:ProgramFiles\WindowsPowerShell\Scripts` ve výchozím nastavení.
+To vyžaduje účet správce. Pokud chcete přidat `-Scope CurrentUser` parametr, skript se nainstaluje do `$env:USERPROFILE\Documents\WindowsPowerShell\Scripts` .
 
-Ve výchozím nastavení [instalace modulu][] a [instalační skript][] nainstaluje nejnovější verzi položky.
-Chcete-li nainstalovat starší verzi položky, přidejte `-RequiredVersion` parametr.
+Ve výchozím nastavení [Install-Module][] a [Install-Script][] nainstaluje nejnovější verzi položky.
+Chcete-li nainstalovat starší verzi položky, přidejte `-RequiredVersion` parametru.
 
 ### <a name="deploy"></a>Nasazení
 
-Chcete-li nasadit položky z Galerie prostředí PowerShell pro Azure Automation, klikněte na tlačítko **nasadit do Azure Automation** na stránce podrobností položky. Budete přesměrováni na portálu Azure Management Portal, kde se přihlásíte pomocí svých přihlašovacích údajů účtu Azure. Všimněte si, že nasazení položky se závislostmi nasadí všechny závislosti pro Azure Automation. Tlačítko "nasadit do Azure Automation, lze zakázat tak, že přidáte **AzureAutomationNotSupported** značku metadata položky.
+Pokud chcete nasadit položky z Galerie prostředí PowerShell pro Azure Automation, klikněte na tlačítko **nasadit do Azure Automation** na stránce s podrobnostmi položky. Budete přesměrováni na portál pro správu Azure, ve kterém se přihlásíte pomocí přihlašovacích údajů k účtu Azure. Všimněte si, že nasazení položky se závislostmi nasadí všechny závislosti na službě Azure Automation. Tlačítko 'Nasazení do služby Azure Automation' můžete zakázat přidáním **AzureAutomationNotSupported** značka, které vaše metadata položky.
 
 Další informace o Azure Automation najdete v tématu [Azure Automation](/azure/automation) dokumentaci.
 
-## <a name="updating-items-from-the-powershell-gallery"></a>Aktualizace položky z Galerie Powershellu
+## <a name="updating-items-from-the-powershell-gallery"></a>Aktualizace položky z Galerie prostředí PowerShell
 
-Pokud chcete aktualizovat položky nainstalovat z Galerie prostředí PowerShell, spusťte buď [] – [aktualizace-Module] nebo [skript aktualizace] [] rutiny. Když se spustí bez dalších parametrů, [] – [aktualizace-Module] pokusí aktualizovat každý modul nainstalovaný spuštěním [instalace modulu][]. Chcete-li selektivně aktualizovat moduly, přidejte `-Name` parametr.
+Pokud chcete aktualizovat položky v galerii prostředí PowerShell nainstalovali, spusťte rutiny [Update-skriptu] [] nebo [[Update-Module]]. Po spuštění bez žádné další parametry []. [Update-Module] pokusí aktualizovat každý modul nainstalovat spuštěním [Install-Module][]. Pokud chcete selektivně aktualizovat moduly, přidejte `-Name` parametru.
 
-Podobně když se spustí bez dalších parametrů, [] – [skript aktualizace] také pokusí aktualizovat každý skript nainstalovaná, spuštěním [instalační skript][]. Chcete-li selektivně aktualizovat skripty, přidejte `-Name` parametr.
+Podobně při spuštění bez žádné další parametry, [[Update-skriptu]] taky automatický pokus o aktualizaci každý skript instalaci spuštěním [Install-Script][]. Pokud chcete selektivně aktualizovat skripty, přidejte `-Name` parametru.
 
-## <a name="list-items-that-you-have-installed-from-the-powershell-gallery"></a>Seznam položek, které jste nainstalovali z Galerie Powershellu
+## <a name="list-items-that-you-have-installed-from-the-powershell-gallery"></a>Seznam položek, které jste nainstalovali z Galerie prostředí PowerShell
 
 Chcete-li zjistit, které moduly, které jste nainstalovali z Galerie prostředí PowerShell, spusťte [Get-InstalledModule][] rutiny. Tento příkaz vypíše všechny moduly, které máte ve vašem systému, které byly nainstalovány přímo z Galerie prostředí PowerShell.
 
 Podobně, chcete-li zjistit, které skripty, které jste nainstalovali z Galerie prostředí PowerShell, spusťte [Get-InstalledScript][] rutiny. Tento příkaz vypíše všechny skripty, které máte ve vašem systému, které byly nainstalovány přímo z Galerie prostředí PowerShell.
 
-[najít DscResource]: /powershell/module/powershellget/Find-DscResource
-[najít modul]: /powershell/module/powershellget/Find-Module
-[najít skriptu]: /powershell/module/powershellget/Find-Script
+[Find-DscResource]: /powershell/module/powershellget/Find-DscResource
+[Find-Module]: /powershell/module/powershellget/Find-Module
+[Find-Script]: /powershell/module/powershellget/Find-Script
 [Get-InstalledModule]: /powershell/module/powershellget/Get-InstalledModule
 [Get-InstalledScript]: /powershell/module/powershellget/Get-InstalledScript
-[instalace modulu]: /powershell/module/powershellget/Install-Module
-[instalační skript]: /powershell/module/powershellget/Install-Script
+[Install-Module]: /powershell/module/powershellget/Install-Module
+[Install-Script]: /powershell/module/powershellget/Install-Script
 [Publish-Module]: /powershell/module/powershellget/Publish-Module
 [Publish-Script]: /powershell/module/powershellget/Publish-Script
 [Register-PSRepository]: /powershell/module/powershellget/Register-Repository
-[uložit modulu]: /powershell/module/powershellget/Save-Module
-[uložit skript]: /powershell/module/powershellget/Save-Script
+[Save-Module]: /powershell/module/powershellget/Save-Module
+[Save-Script]: /powershell/module/powershellget/Save-Script
