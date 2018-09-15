@@ -2,12 +2,12 @@
 title: Co je nového v Powershellu Core 6.1
 description: Nové funkce a změny v prostředí PowerShell Core 6.1
 ms.date: 09/13/2018
-ms.openlocfilehash: 27e7e846e9ba6ab34d83a084c2589b67a9d5cba9
-ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
+ms.openlocfilehash: b95b9dd504ea2a165a4689a3b28d2298644e5e68
+ms.sourcegitcommit: aa41249f153bbc6e11667ade60c878980c15abc6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45557297"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45611518"
 ---
 # <a name="whats-new-in-powershell-core-61"></a>Co je nového v Powershellu Core 6.1
 
@@ -34,6 +34,11 @@ Na Windows, dodávané týmu .NET [Windows Compatibility Pack for .NET Core](htt
 Přidali jsme Windows Compatibility Pack na verzi prostředí PowerShell Core 6.1 tak, aby všechny moduly nebo skripty, které pomocí těchto rozhraní API můžete spolehnout na nich nebudou dostupné.
 
 PowerShell Core používat umožňuje Windows Compatibility Pack **více než 1900 rutiny, které se dodávají s Windows 10. října 2018 Update a Windows Server 2019**.
+
+## <a name="support-for-application-whitelisting"></a>Podpora pro přidávání na seznam povolených aplikací
+
+PowerShell Core 6.1 má se podporuje Windows PowerShell 5.1 [Applockeru](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) a [Device Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control) seznamu povolených aplikací.
+Přidávání na seznam povolených aplikací umožňuje podrobnou kontrolu nad jaké binární soubory jsou mohou být provedeny pomocí prostředí PowerShell použít [režim omezené jazyka](https://blogs.msdn.microsoft.com/powershell/2017/11/02/powershell-constrained-language-mode/).
 
 ## <a name="performance-improvements"></a>Vylepšení výkonu
 
@@ -153,7 +158,7 @@ Manifest   1.0.0.0    NetworkSwitchManager        Desk      {Disable-NetworkSwit
 Manifest   1.0.0.0    NetworkTransition           Desk      {Add-NetIPHttpsCertBinding, Disable-NetDnsTransi...
 ```
 
-Další informace o tomto chování najdete [PowerShell RFC0025](https://github.com/PowerShell/PowerShell-RFC/blob/master/2-Draft-Accepted/RFC0025-PSCore6-and-Windows-Modules.md).
+Další informace o tomto chování najdete [PowerShell RFC0025](https://github.com/PowerShell/PowerShell-RFC/blob/master/5-Final/RFC0025-PSCore6-and-Windows-Modules.md).
 
 ## <a name="markdown-cmdlets-and-rendering"></a>Rutiny markdown a vykreslování
 
