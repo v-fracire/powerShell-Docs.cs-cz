@@ -2,12 +2,12 @@
 title: Instalace PowerShellu Core v macOS
 description: Informace o instalaci Powershellu Core v macOS
 ms.date: 08/06/2018
-ms.openlocfilehash: 50b8dbbf26f02580e4be45978c926d5337da6b63
-ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
+ms.openlocfilehash: 042c933dfa83f3ab52e315036e4f817145116d00
+ms.sourcegitcommit: aa41249f153bbc6e11667ade60c878980c15abc6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45557156"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45611483"
 ---
 # <a name="installing-powershell-core-on-macos"></a>Instalace PowerShellu Core v macOS
 
@@ -15,17 +15,46 @@ PowerShell Core podporuje macOS 10.12 a vyšší.
 Všechny balíčky jsou k dispozici na náš GitHub [uvolní][] stránky.
 Jakmile je balíček nainstalován, spustit `pwsh` z terminálu.
 
-### <a name="installation-of-latest-preview-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější verze preview verzi pomocí Homebrew v systému macOS 10.12 nebo vyšší
+## <a name="installation-of-latest-stable-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější stabilní verze pomocí Homebrew v systému macOS 10.12 nebo vyšší
+
+[Homebrew] [ brew] je správce upřednostňované balíček pro macOS.
+Pokud `brew` příkaz nebyl nalezen, je nutné nainstalovat následující Homebrew [podle pokynů v nich][brew].
+
+Nyní můžete nainstalovat prostředí PowerShell:
+
+```sh
+brew cask install powershell
+```
+
+Nakonec ověřte, že vaše instalace pracuje správně:
+
+```sh
+pwsh
+```
+
+Po vydání nové verze powershellu jsou jednoduše aktualizovat na Homebrew vzorce a upgrade prostředí PowerShell:
+
+```sh
+brew update
+brew cask upgrade powershell
+```
+
+> [!NOTE]
+> Výše uvedené příkazy mohou být volány v hostitelském prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade.
+> a aktualizujte hodnoty zobrazené v $PSVersionTable.
+
+[brew]: http://brew.sh/
+
+## <a name="installation-of-latest-preview-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější verze preview verzi pomocí Homebrew v systému macOS 10.12 nebo vyšší
 
 [Homebrew] [ brew] je správce upřednostňované balíček pro macOS.
 Pokud `brew` příkaz nebyl nalezen, je nutné nainstalovat následující Homebrew [podle pokynů v nich][brew].
 
 Po instalaci Homebrew, instalace prostředí PowerShell je snadné.
-Nejdřív nainstalujte [Homebrew Cask][cask], takže můžete nainstalovat další balíčky a instalace [Cask-verze] [cask verze], která vám umožní nainstalovat alternativní verze balíčků:
+Nejdřív nainstalujte [Cask verze] [ cask-versions] který umožňuje nainstalovat alternativní verze cask balíčků:
 
 ```sh
-brew tap caskroom/cask
-brew tap caskroom/versions
+brew tap homebrew/cask-versions
 ```
 
 Nyní můžete nainstalovat prostředí PowerShell:
@@ -51,51 +80,7 @@ brew cask upgrade powershell-preview
 > Výše uvedené příkazy mohou být volány v hostitelském prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade.
 > a aktualizujte hodnoty zobrazené v $PSVersionTable.
 
-[brew]: http://brew.sh/
-[cask]: https://caskroom.github.io/
-[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
-
-### <a name="installation-of-latest-preview-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější verze preview verzi pomocí Homebrew v systému macOS 10.12 nebo vyšší
-
-[Homebrew] [ brew] je správce upřednostňované balíček pro macOS.
-Pokud `brew` příkaz nebyl nalezen, je nutné nainstalovat následující Homebrew [podle pokynů v nich][brew].
-
-Po instalaci Homebrew, instalace prostředí PowerShell je snadné.
-Nejdřív nainstalujte [Homebrew Cask][cask], takže můžete nainstalovat další balíčky a instalace [Cask-verze] [cask verze], která vám umožní nainstalovat alternativní verze balíčků:
-
-```sh
-brew tap caskroom/cask
-brew tap caskroom/versions
-```
-
-Nyní můžete nainstalovat prostředí PowerShell:
-
-```sh
-brew cask install powershell-preview
-```
-
-Nakonec ověřte, že vaše instalace pracuje správně:
-
-```sh
-pwsh-preview
-```
-
-Po vydání nové verze powershellu jsou jednoduše aktualizovat na Homebrew vzorce a upgrade prostředí PowerShell:
-
-```sh
-brew update
-brew cask upgrade powershell-preview
-```
-
-> [!NOTE]
-> Výše uvedené příkazy mohou být volány v hostitelském prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade.
-> a aktualizujte hodnoty zobrazené v $PSVersionTable.
-
-[brew]: http://brew.sh/
-[cask]: https://caskroom.github.io/
-[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
-
-### <a name="installation-via-direct-download"></a>Instalace přes přímé stažení
+## <a name="installation-via-direct-download"></a>Instalace přes přímé stažení
 
 Stáhněte si balíček PKG `powershell-6.1.0-osx-x64.pkg`
 z [uvolní][] stránky na svém počítači s macOS.
@@ -108,7 +93,7 @@ sudo installer -pkg powershell-6.1.0-osx-x64.pkg -target /
 
 ## <a name="binary-archives"></a>Binární archivy
 
-Binární soubor prostředí PowerShell `tar.gz` archivy jsou k dispozici pro macOS a Linux platformy a povolíte pokročilé scénáře nasazení.
+Binární soubor prostředí PowerShell `tar.gz` archivy jsou k dispozici pro platformu macOS umožňující pokročilé scénáře nasazení.
 
 ### <a name="installing-binary-archives-on-macos"></a>Instalace binárních archivy v systému macOS
 
@@ -143,12 +128,10 @@ Pokud jste instalovali prostřednictvím přímé stažení prostředí PowerShe
 sudo rm -rf /usr/local/bin/pwsh /usr/local/microsoft/powershell
 ```
 
-Odebrání dalších cest prostředí PowerShell, najdete [cesty][] části v tomto dokumentu a odeberte požadovanou cesty pomocí `sudo rm`.
+Odebrání dalších cest prostředí PowerShell, najdete [cesty](#paths) části v tomto dokumentu a odeberte požadovanou cesty pomocí `sudo rm`.
 
 > [!NOTE]
 > Toto není nutné v případě, že jste nainstalovali pomocí Homebrew.
-
-[Cesty]:#paths
 
 ## <a name="paths"></a>Cesty
 
@@ -175,7 +158,8 @@ Proto `$PSHOME` je `/usr/local/microsoft/powershell/6.1.0/`, a symlink je umíst
 * [Homebrew Cask][cask]
 
 [brew]: http://brew.sh/
-[GitHub]: https://github.com/Homebrew
 [Cask]: https://github.com/Homebrew/homebrew-cask
+[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
+[GitHub]: https://github.com/Homebrew
 [uvolní]: https://github.com/PowerShell/PowerShell/releases/latest
 [xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
