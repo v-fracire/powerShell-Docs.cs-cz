@@ -2,12 +2,12 @@
 title: Co je nového v Powershellu Core 6.0
 description: Nové funkce a změny vydané ve Windows Powershellu 6.0
 ms.date: 08/06/2018
-ms.openlocfilehash: 9bd59dc1821e2fb3ec2d30254ab1fac4089f0340
-ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
+ms.openlocfilehash: 83c104d838db9d86fe1d485e92245a9c8f2d2057
+ms.sourcegitcommit: 59e568ac9fa8ba28e2c96932b7c84d4a855fed2f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45557228"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46289238"
 ---
 # <a name="whats-new-in-powershell-core-60"></a>Co je nového v Powershellu Core 6.0
 
@@ -80,7 +80,7 @@ Počet změny byly provedeny v systémech macOS a Linux pro podporu znaky pro n�
   - Historie cesta pro uložení se nachází v `~/.local/share/powershell/PSReadline/ConsoleHost_history.txt`
   - Cesta k modulu uživatele se nachází na `~/.local/share/powershell/Modules`
 - Podpora pro názvy souborů a složek obsahující znak dvojtečkou v Unixu. (#4959)
-- Podpora pro názvy ve skriptu nebo úplné cesty, které mají čárkami. (#4136) (K @TimCurwick!)
+- Podpora pro názvy ve skriptu nebo úplné cesty, které mají čárkami. (#4136) (K [ @TimCurwick ](https://github.com/TimCurwick)!)
 - Detekce `-LiteralPath` slouží k potlačení rozšíření zástupného znaku pro rutiny navigace. (#5038)
 - Aktualizovat `Get-ChildItem` fungovat jako další * nix `ls -R` a Windows `DIR /S` nativní příkazy.
   `Get-ChildItem` nyní vrací symbolické odkazy během rekurzivní hledání a neprohledává adresáře, který tyto cílové odkazy. (#3780)
@@ -118,7 +118,7 @@ Další změny v `pwsh(.exe)` z `powershell.exe`:
   Tato změna vyžaduje však, že explicitně zadat `-c` nebo `-Command` při pokusu o spuštění příkazů, jako jsou `pwsh.exe -Command Get-Command`. (#4019)
 - PowerShell Core přijímá `-i` (nebo `-Interactive`) přepínač, který určuje interaktivní prostředí. (#3558) To umožňuje prostředí PowerShell, který se použije jako výchozí prostředí na platformy Unix.
 - Odebrat parametry `-importsystemmodules` a `-psconsoleFile` z `pwsh.exe`. (#4995)
-- Změnit `pwsh -version` a integrovanou nápovědu pro `pwsh.exe` souladu s další nativních nástrojů. (#4958 & #4931) (Díky @iSazonov)
+- Změnit `pwsh -version` a integrovanou nápovědu pro `pwsh.exe` souladu s další nativních nástrojů. (#4958 & #4931) (Díky [ @iSazonov ](https://github.com/iSazonov))
 - Neplatný argument chybové zprávy pro `-File` a `-Command` a ukončovací kódy, které jsou konzistentní se systémem Unix standardy (#4573)
 - Přidání `-WindowStyle` parametru ve Windows. (#4573) Obdobně instalací balíčku aktualizací na platformách než Windows se aktualizace na místě.
 
@@ -214,21 +214,21 @@ Další informace o úloh Powershellu najdete v tématu [about_Jobs](https://msd
 
 ## <a name="semantic-versioning"></a>Sémantické správy verzí
 
-- Provedené `SemanticVersion` kompatibilní s `SemVer 2.0`. (#5037) (Díky @iSazonov!)
-- Změnit výchozí `ModuleVersion` v `New-ModuleManifest` k `0.0.1` souladu s SemVer. (#4842) (Díky @LDSpits)
-- Přidání `semver` jako typ akcelerátoru pro `System.Management.Automation.SemanticVersion`. (#4142) (K @oising!)
+- Provedené `SemanticVersion` kompatibilní s `SemVer 2.0`. (#5037) (Díky [ @iSazonov ](https://github.com/iSazonov)!)
+- Změnit výchozí `ModuleVersion` v `New-ModuleManifest` k `0.0.1` souladu s SemVer. (#4842) (Díky [ @LDSpits ](https://github.com/LDSpits))
+- Přidání `semver` jako typ akcelerátoru pro `System.Management.Automation.SemanticVersion`. (#4142) (K [ @oising ](https://github.com/oising)!)
 - Porovnání mezi povolené `SemanticVersion` instance a `Version` instance, který je vytvořen pouze s `Major` a `Minor` hodnoty verze.
 
 ## <a name="language-updates"></a>Jazyky aktualizací
 
-- Implementace řídicí Unicode analýza kódu tak, aby uživatelé můžou používat znaky Unicode jako argumenty, řetězce nebo názvy proměnných. (#3958) (K @rkeithhill!)
+- Implementace řídicí Unicode analýza kódu tak, aby uživatelé můžou používat znaky Unicode jako argumenty, řetězce nebo názvy proměnných. (#3958) (K [ @rkeithhill ](https://github.com/rkeithhill)!)
 - Přidání nové řídicí znak pro ESC: `` `e``
-- Přidali jsme podporu pro převod výčty řetězce (#4318) (Děkujeme @KirkMunro)
+- Přidali jsme podporu pro převod výčty řetězce (#4318) (Děkujeme [ @KirkMunro ](https://github.com/KirkMunro))
 - Oprava přetypování jediný prvek pole pro obecné kolekce. (#3170)
-- Přidání znak rozsah přetížení `..` operátor, takže `'a'..'z'` vrátí znaků od "a" do "z". (#5026) (Díky @IISResetMe!)
+- Přidání znak rozsah přetížení `..` operátor, takže `'a'..'z'` vrátí znaků od "a" do "z". (#5026) (Díky [ @IISResetMe ](https://github.com/IISResetMe)!)
 - Oprava přiřazení proměnné není přepsat proměnné určené jen pro čtení
 - Nabídne "DottedScopes" lokální proměnné automatických proměnných, jakmile dotting rutin skriptu (#4709)
-- Povolit použití možnosti "Singleline, Multiline" v rozdělení operátoru (#4721) (Děkujeme @iSazonov)
+- Povolit použití možnosti "Singleline, Multiline" v rozdělení operátoru (#4721) (Děkujeme [ @iSazonov ](https://github.com/iSazonov))
 
 ## <a name="engine-updates"></a>Aktualizace vyhledávacího stroje
 
@@ -240,12 +240,12 @@ Další informace o úloh Powershellu najdete v tématu [about_Jobs](https://msd
   - `Platform`: Toto je vrácený `[System.Environment]::OSVersion.Platform` je nastavený na `Win32NT` na Windows, `Unix` v systému macOS a `Unix` v Linuxu.
 - Odebrat `BuildVersion` vlastnost z `$PSVersionTable`.
   Tato vlastnost se silnou vazbu na verzi Windows sestavení.
-  Namísto toho doporučujeme použít `GitCommitId` sestavení přesnou verzi prostředí PowerShell Core. (#3877) (K @iSazonov!)
+  Namísto toho doporučujeme použít `GitCommitId` sestavení přesnou verzi prostředí PowerShell Core. (#3877) (K [ @iSazonov ](https://github.com/iSazonov)!)
 - Odebrat `ClrVersion` vlastnost z `$PSVersionTable`.
   Tato vlastnost je relevantní pro .NET Core a bylo zachováno pouze v .NET Core pro konkrétní účely starší verze, které jsou nepoužitelných do prostředí PowerShell.
 - Přidat tři nové automatické proměnné lze zjistit, zda prostředí PowerShell je spuštěn v daném operačním systémem: `$IsWindows`, `$IsMacOs`, a `$IsLinux`.
 - Přidat `GitCommitId` nápis PowerShell Core.
-  Nyní není nutné ke spuštění `$PSVersionTable` co nejdříve spustit prostředí PowerShell pro získání verze! (#3916) (K @iSazonov!)
+  Nyní není nutné ke spuštění `$PSVersionTable` co nejdříve spustit prostředí PowerShell pro získání verze! (#3916) (K [ @iSazonov ](https://github.com/iSazonov)!)
 - Přidejte konfigurační soubor JSON s názvem `powershell.config.json` v `$PSHome` k uložení některá nastavení vyžaduje před časem spuštění (například `ExecutionPolicy`).
 - Nedošlo k blokování kanálu při spuštění Windows EXE
 - Povolené výčet COM kolekcí. (#4553)
@@ -255,93 +255,93 @@ Další informace o úloh Powershellu najdete v tématu [about_Jobs](https://msd
 ### <a name="new-cmdlets"></a>Nové rutiny
 
 - Přidat `Get-Uptime` k `Microsoft.PowerShell.Utility`.
-- Přidat `Remove-Alias` příkazu. (#5143) (Díky @PowershellNinja!)
-- Přidat `Remove-Service` pro modul pro správu. (#4858) (Díky @joandrsn!)
+- Přidat `Remove-Alias` příkazu. (#5143) (Díky [ @PowershellNinja ](https://github.com/PowershellNinja)!)
+- Přidat `Remove-Service` pro modul pro správu. (#4858) (Díky [ @joandrsn ](https://github.com/joandrsn)!)
 
 ### <a name="web-cmdlets"></a>Rutiny Web
 
-- Přidání podpory ověřování certifikátů pro rutiny webových. (#4646) (Díky @markekraus)
-- Přidání podpory pro hlavičky obsahu webové rutiny. (#4494 & #4640) (Díky @markekraus)
-- Přidání více propojení záhlaví podpory webové rutiny. (#5265) (Díky @markekraus!)
+- Přidání podpory ověřování certifikátů pro rutiny webových. (#4646) (Díky [ @markekraus ](https://github.com/markekraus))
+- Přidání podpory pro hlavičky obsahu webové rutiny. (#4494 & #4640) (Díky [ @markekraus ](https://github.com/markekraus))
+- Přidání více propojení záhlaví podpory webové rutiny. (#5265) (Díky [ @markekraus ](https://github.com/markekraus)!)
 - Podporujte stránkování záhlaví odkaz v rutinách web (#3828)
   - Pro `Invoke-WebRequest`, když odpověď obsahuje záhlaví odkaz vytvoříme RelationLink vlastnost jako slovník reprezentující adresy URL a `rel` atributy a ověřte adresy URL jsou absolutní, aby bylo snazší pro vývojáře k použití.
   - Pro `Invoke-RestMethod`, když odpověď obsahuje záhlaví odkaz zveřejňujeme `-FollowRelLink` přepínač tak, aby automaticky podle `next` `rel` odkazy, dokud již neexistuje, nebo jednou jsme přístupů nepovinný `-MaximumFollowRelLink` hodnotu parametru.
-- Přidat `-CustomMethod` parametr pro rutiny webových umožňující nestandardní metody akce. (#3142) (K @Lee303!)
-- Přidat `SslProtocol` podpory pro rutiny webových. (#5329) (Díky @markekraus!)
-- Přidat Multipart podpory pro rutiny webových. (#4782) (Díky @markekraus)
-- Přidat `-NoProxy` rutinách web tak, aby ignorují systémová nastavení proxy serveru. (#3447) (K @TheFlyingCorpse!)
-- Agent uživatele rutiny webových nyní hlásí platforma operačního systému (#4937) (Děkujeme @LDSpits)
+- Přidat `-CustomMethod` parametr pro rutiny webových umožňující nestandardní metody akce. (#3142) (K [ @Lee303 ](https://github.com/Lee303)!)
+- Přidat `SslProtocol` podpory pro rutiny webových. (#5329) (Díky [ @markekraus ](https://github.com/markekraus)!)
+- Přidat Multipart podpory pro rutiny webových. (#4782) (Díky [ @markekraus ](https://github.com/markekraus))
+- Přidat `-NoProxy` rutinách web tak, aby ignorují systémová nastavení proxy serveru. (#3447) (K [ @TheFlyingCorpse ](https://github.com/TheFlyingCorpse)!)
+- Agent uživatele rutiny webových nyní hlásí platforma operačního systému (#4937) (Děkujeme [ @LDSpits ](https://github.com/LDSpits))
 - Přidat `-SkipHeaderValidation` přepnout na web rutin pro podporu přidávání záhlaví bez ověřování hodnota hlavičky. (#4085)
 - Povolte webové rutiny, které nelze ověřit certifikát HTTPS ze serveru, pokud je to nutné.
-- Přidejte do rutiny webových ověřovacími parametry. (#5052) (Díky @markekraus)
+- Přidejte do rutiny webových ověřovacími parametry. (#5052) (Díky [ @markekraus ](https://github.com/markekraus))
   - Přidat `-Authentication` , který poskytuje tři možnosti: Basic, OAuth a nosiče.
   - Přidat `-Token` k získání tokenu nosiče OAuth a nosiče možnosti.
   - Přidat `-AllowUnencryptedAuthentication` obejít ověřování, která je k dispozici pro žádné schéma přepravy než HTTPS.
-- Přidat `-ResponseHeadersVariable` k `Invoke-RestMethod` k povolení funkce capture hlaviček odpovědí. (#4888) (Díky @markekraus)
+- Přidat `-ResponseHeadersVariable` k `Invoke-RestMethod` k povolení funkce capture hlaviček odpovědí. (#4888) (Díky [ @markekraus ](https://github.com/markekraus))
 - Oprava rutiny webových zahrnovat odpovědi HTTP do výjimky, pokud kód stavu odpovědi není úspěšné. (#3201)
-- Změnit rutiny webových `UserAgent` z `WindowsPowerShell` k `PowerShell`. (#4914) (Díky @markekraus)
+- Změnit rutiny webových `UserAgent` z `WindowsPowerShell` k `PowerShell`. (#4914) (Díky [ @markekraus ](https://github.com/markekraus))
 - Přidat explicitní `ContentType` detekci `Invoke-RestMethod` (#4692)
-- Oprava rutiny webových `-SkipHeaderValidation` pro práci s nestandardní hlavičky uživatelského agenta. (#4479 & #4512) (Díky @markekraus)
+- Oprava rutiny webových `-SkipHeaderValidation` pro práci s nestandardní hlavičky uživatelského agenta. (#4479 & #4512) (Díky [ @markekraus ](https://github.com/markekraus))
 
 ### <a name="json-cmdlets"></a>Rutiny JSON
 
-- Přidat `-AsHashtable` k `ConvertFrom-Json` se vraťte `Hashtable` místo. (#5043) (Díky @bergmeister!)
+- Přidat `-AsHashtable` k `ConvertFrom-Json` se vraťte `Hashtable` místo. (#5043) (Díky [ @bergmeister ](https://github.com/bergmeister)!)
 - Použít prettier formátovací modul s `ConvertTo-Json` výstup. (#2787) (K @kittholland!)
 - Přidat `Jobject` podporu serializace `ConvertTo-Json`. (#5141)
 - Oprava `ConvertFrom-Json` pole řetězců z kanálu, které společně sestavit úplný řetězec JSON deserializovat.
   To řeší některé případy, ve kterém by vložení znaků newline přerušit parsování JSON. (#3823)
 - Odeberte `AliasProperty "Count"` definované pro `System.Array`.
-  Tato operace odebere cizí `Count` vlastnost u některých `ConvertFrom-Json` výstup. (#3231) (K @PetSerAl!)
+  Tato operace odebere cizí `Count` vlastnost u některých `ConvertFrom-Json` výstup. (#3231) (K [ @PetSerAl ](https://github.com/PetSerAl)!)
 
 ### <a name="csv-cmdlets"></a>Rutiny sdíleného svazku clusteru
 
-- Přidat `PSTypeName` podporu `Import-Csv` a `ConvertFrom-Csv`. (#5389) (Díky @markekraus!)
-- Ujistěte se, `Import-Csv` podporují `CR`, `LF`, a `CRLF` jako oddělovače řádků. (#5363) (Díky @iSazonov!)
-- Ujistěte se, `-NoTypeInformation` výchozí `Export-Csv` a `ConvertTo-Csv`. (#5164) (Díky @markekraus)
+- Přidat `PSTypeName` podporu `Import-Csv` a `ConvertFrom-Csv`. (#5389) (Díky [ @markekraus ](https://github.com/markekraus)!)
+- Ujistěte se, `Import-Csv` podporují `CR`, `LF`, a `CRLF` jako oddělovače řádků. (#5363) (Díky [ @iSazonov ](https://github.com/iSazonov)!)
+- Ujistěte se, `-NoTypeInformation` výchozí `Export-Csv` a `ConvertTo-Csv`. (#5164) (Díky [ @markekraus ](https://github.com/markekraus))
 
 ### <a name="service-cmdlets"></a>Rutiny pro
 
-- Přidání vlastností `UserName`, `Description`, `DelayedAutoStart`, `BinaryPathName`, a `StartupType` k `ServiceController` objektů vrácených podle `Get-Service`. (#4907) (Díky @joandrsn)
-- Přidání funkce nastavování přihlašovacích údajů na `Set-Service` příkazu. (#4844) (Díky @joandrsn)
+- Přidání vlastností `UserName`, `Description`, `DelayedAutoStart`, `BinaryPathName`, a `StartupType` k `ServiceController` objektů vrácených podle `Get-Service`. (#4907) (Díky [ @joandrsn ](https://github.com/joandrsn))
+- Přidání funkce nastavování přihlašovacích údajů na `Set-Service` příkazu. (#4844) (Díky [ @joandrsn ](https://github.com/joandrsn))
 
 ### <a name="other-cmdlets"></a>Další rutiny
 
 - Přidat parametr `Get-ChildItem` volá `-FollowSymlink` , který prochází skrz symbolických odkazů na vyžádání s využitím zjišťuje cykly odkazů. (#4020)
-- Aktualizace `Add-Type` pro podporu `CSharpVersion7`. (#3933) (K @iSazonov)
+- Aktualizace `Add-Type` pro podporu `CSharpVersion7`. (#3933) (K [ @iSazonov ](https://github.com/iSazonov))
 - Odeberte `Microsoft.PowerShell.LocalAccounts` modul z důvodu použití nepodporované rozhraní API, dokud nebude nalezen lepší řešení. (#4302)
 - Odeberte `*-Counter` rutiny v `Microsoft.PowerShell.Diagnostics` kvůli použití nepodporované rozhraní API, dokud nebude nalezen lepší řešení. (#4303)
 - Přidání podpory pro `Invoke-Item -Path <folder>`. (#4262)
-- Přidat `-Extension` a `-LeafBase` přepne do `Split-Path` tak, aby můžete rozdělit cesty mezi příponu názvu souboru a zbytek název souboru. (#2721) (K @powercode!)
+- Přidat `-Extension` a `-LeafBase` přepne do `Split-Path` tak, aby můžete rozdělit cesty mezi příponu názvu souboru a zbytek název souboru. (#2721) (K [ @powercode ](https://github.com/powercode)!)
 - Přidání parametrů `-Top` a `-Bottom` k `Sort-Object` pro nejvyšší či nejnižší hodnoty N řazení
-- Vystavovat nadřazený proces procesu tak, že přidáte `CodeProperty "Parent"` k `System.Diagnostics.Process`. (#2850) (K @powercode!)
+- Vystavovat nadřazený proces procesu tak, že přidáte `CodeProperty "Parent"` k `System.Diagnostics.Process`. (#2850) (K [ @powercode ](https://github.com/powercode)!)
 - Místo KB použít MB paměti sloupce `Get-Process`
-- Přidat `-NoNewLine` přepnout `Out-String`. (#5056) (Díky @raghav710)
+- Přidat `-NoNewLine` přepnout `Out-String`. (#5056) (Díky [ @raghav710 ](https://github.com/raghav710))
 - `Move-Item` rutiny respektuje `-Include`, `-Exclude`, a `-Filter` parametry. (#3878)
 - Povolit `*` použitého v cestě registru pro `Remove-Item`. (#4866)
 - Přidat `-Title` k `Get-Credential` a Sjednoťte příkazový řádek prostředí napříč platformami.
 - Přidat `-TimeOut` parametr `Test-Connection`. (#2492)
 - `Get-AuthenticodeSignature` rutiny teď můžete mít časové razítko souboru podpisu. (#4061)
 - Odeberte nepodporované `-ShowWindow` přejít z `Get-Help`. (#4903)
-- Oprava `Get-Content -Delimiter` tak, aby nezahrnovala oddělovač v prvcích pole vrácená (#3706) (Děkujeme @mklement0)
-- Přidat `Meta`, `Charset`, a `Transitional` parametry `ConvertTo-HTML` (#4184) (Děkujeme @ergo3114)
+- Oprava `Get-Content -Delimiter` tak, aby nezahrnovala oddělovač v prvcích pole vrácená (#3706) (Děkujeme [ @mklement0 ](https://github.com/mklement0))
+- Přidat `Meta`, `Charset`, a `Transitional` parametry `ConvertTo-HTML` (#4184) (Děkujeme [ @ergo3114 ](https://github.com/ergo3114))
 - Přidat `WindowsUBR` a `WindowsVersion` vlastností `Get-ComputerInfo` výsledek
 - Přidat `-Group` parametr `Get-Verb`
-- Přidat `ShouldProcess` podporu `New-FileCatalog` a `Test-FileCatalog` (opravy `-WhatIf` a `-Confirm`). (#3074) (K @iSazonov!)
-- Přidat `-WhatIf` přepnout na `Start-Process` rutiny (#4735) (Děkujeme @sarithsutha)
+- Přidat `ShouldProcess` podporu `New-FileCatalog` a `Test-FileCatalog` (opravy `-WhatIf` a `-Confirm`). (#3074) (K [ @iSazonov ](https://github.com/iSazonov)!)
+- Přidat `-WhatIf` přepnout na `Start-Process` rutiny (#4735) (Děkujeme [ @sarithsutha ](https://github.com/sarithsutha))
 - Přidat `ValidateNotNullOrEmpty` příliš mnoho existujících parametrů.
 
 ## <a name="tab-completion"></a>Dokončování pomocí tabulátoru
 
-- Vylepšené odvození typu proměnné v dokončování pomocí tabulátoru na základě hodnot proměnných runtime. (#2744) (K @powercode!) To umožňuje dokončování pomocí tabulátoru v situacích, jako jsou:
+- Vylepšené odvození typu proměnné v dokončování pomocí tabulátoru na základě hodnot proměnných runtime. (#2744) (K [ @powercode ](https://github.com/powercode)!) To umožňuje dokončování pomocí tabulátoru v situacích, jako jsou:
 
   ```powershell
   $p = Get-Process
   $p | Foreach-Object Prio<tab>
   ```
 
-- Přidání dokončování pomocí tabulátoru zatřiďovací tabulky pro `-Property` z `Select-Object`. (#3625) (K @powercode)
-- Povolit automatické dokončování argument pro `-ExcludeProperty` a `-ExpandProperty` z `Select-Object`. (#3443) (K @iSazonov!)
-- Oprava chyby v dokončování pomocí tabulátoru aby `native.exe --<tab>` volání do nativního dokončování. (#3633) (K @powercode!)
+- Přidání dokončování pomocí tabulátoru zatřiďovací tabulky pro `-Property` z `Select-Object`. (#3625) (K [ @powercode ](https://github.com/powercode))
+- Povolit automatické dokončování argument pro `-ExcludeProperty` a `-ExpandProperty` z `Select-Object`. (#3443) (K [ @iSazonov ](https://github.com/iSazonov)!)
+- Oprava chyby v dokončování pomocí tabulátoru aby `native.exe --<tab>` volání do nativního dokončování. (#3633) (K [ @powercode ](https://github.com/powercode)!)
 
 ## <a name="breaking-changes"></a>Rozbíjející změny v
 
