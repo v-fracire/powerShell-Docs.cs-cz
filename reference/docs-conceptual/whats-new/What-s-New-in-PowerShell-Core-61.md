@@ -2,12 +2,12 @@
 title: Co je nového v Powershellu Core 6.1
 description: Nové funkce a změny v prostředí PowerShell Core 6.1
 ms.date: 09/13/2018
-ms.openlocfilehash: b95b9dd504ea2a165a4689a3b28d2298644e5e68
-ms.sourcegitcommit: aa41249f153bbc6e11667ade60c878980c15abc6
+ms.openlocfilehash: 5e2fe3c819ed638b2c14d7d40e08b7c32953147f
+ms.sourcegitcommit: 59e568ac9fa8ba28e2c96932b7c84d4a855fed2f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45611518"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46289221"
 ---
 # <a name="whats-new-in-powershell-core-61"></a>Co je nového v Powershellu Core 6.1
 
@@ -91,9 +91,9 @@ Measure-Command {Get-Content .\foo.json | ConvertFrom-Json}
 | Doba (sek)   | 0.259                  | 0.577               | 0,125                  |
 | Zrychlení (%) | Neužívá se.                    | -122.8 %             | 78.3 % (51.7 % WPS) |
 
-## <a name="check-system32-for-compatible-inbox-modules-on-windows"></a>Zkontrolujte `system32` pro moduly kompatibilní doručené pošty na Windows
+## <a name="check-system32-for-compatible-in-box-modules-on-windows"></a>Zkontrolujte `system32` kompatibilní modulů integrované ve Windows
 
-V aktualizaci Windows 10 1809 a Windows Server 2019 jsme aktualizovali několik modulů Powershellu doručené pošty označit jako kompatibilní s PowerShell Core.
+V aktualizaci Windows 10 1809 a Windows Server 2019 jsme aktualizovali několik moduly Powershellu dodávané označit jako kompatibilní s PowerShell Core.
 
 Při spuštění PowerShell Core 6.1, bude automaticky obsahovat `$windir\System32` jako součást `PSModulePath` proměnné prostředí.
 Ale to zpřístupňuje pouze moduly, které `Get-Module` a `Import-Module` pokud jeho `CompatiblePSEdition` je označen jako kompatibilní se `Core`.
@@ -143,7 +143,7 @@ Get-Module Net* -ListAvailable -SkipEditionCheck
 ModuleType Version    Name                        PSEdition ExportedCommands
 ---------- -------    ----                        --------- ----------------
 Manifest   2.0.0.0    NetAdapter                  Core,Desk {Disable-NetAdapter, Disable-NetAdapterBinding, ...
-Manifest   1.0.0.0    NetConnection               Desk      {Get-NetConnectionProfile, Set-NetConnectionProf...
+Manifest   1.0.0.0    NetConnection               Core,Desk {Get-NetConnectionProfile, Set-NetConnectionProf...
 Manifest   1.0.0.0    NetDiagnostics              Desk      Get-NetView
 Manifest   1.0.0.0    NetEventPacketCapture       Core,Desk {New-NetEventSession, Remove-NetEventSession, Ge...
 Manifest   2.0.0.0    NetLbfo                     Core,Desk {Add-NetLbfoTeamMember, Add-NetLbfoTeamNic, Get-...
@@ -151,11 +151,11 @@ Manifest   1.0.0.0    NetNat                      Core,Desk {Get-NetNat, Get-Net
 Manifest   2.0.0.0    NetQos                      Core,Desk {Get-NetQosPolicy, Set-NetQosPolicy, Remove-NetQ...
 Manifest   2.0.0.0    NetSecurity                 Core,Desk {Get-DAPolicyChange, New-NetIPsecAuthProposal, N...
 Manifest   1.0.0.0    NetSwitchTeam               Core,Desk {New-NetSwitchTeam, Remove-NetSwitchTeam, Get-Ne...
-Manifest   1.0.0.0    NetTCPIP                    Desk      {Get-NetIPAddress, Get-NetIPInterface, Get-NetIP...
+Manifest   1.0.0.0    NetTCPIP                    Core,Desk {Get-NetIPAddress, Get-NetIPInterface, Get-NetIP...
 Manifest   1.0.0.0    NetWNV                      Core,Desk {Get-NetVirtualizationProviderAddress, Get-NetVi...
-Manifest   1.0.0.0    NetworkConnectivityStatus   Desk      {Get-DAConnectionStatus, Get-NCSIPolicyConfigura...
-Manifest   1.0.0.0    NetworkSwitchManager        Desk      {Disable-NetworkSwitchEthernetPort, Enable-Netwo...
-Manifest   1.0.0.0    NetworkTransition           Desk      {Add-NetIPHttpsCertBinding, Disable-NetDnsTransi...
+Manifest   1.0.0.0    NetworkConnectivityStatus   Core,Desk {Get-DAConnectionStatus, Get-NCSIPolicyConfigura...
+Manifest   1.0.0.0    NetworkSwitchManager        Core,Desk {Disable-NetworkSwitchEthernetPort, Enable-Netwo...
+Manifest   1.0.0.0    NetworkTransition           Core,Desk {Add-NetIPHttpsCertBinding, Disable-NetDnsTransi...
 ```
 
 Další informace o tomto chování najdete [PowerShell RFC0025](https://github.com/PowerShell/PowerShell-RFC/blob/master/5-Final/RFC0025-PSCore6-and-Windows-Modules.md).
@@ -186,7 +186,7 @@ Další informace o této funkci v [PowerShell RFC0029](https://github.com/Power
 
 ## <a name="web-cmdlet-improvements"></a>Vylepšení webového rutiny
 
-K @markekraus, celý slew vylepšení byly provedeny na náš web rutiny: [`Invoke-WebRequest`](/powershell/module/microsoft.powershell.utility/invoke-webrequest)
+K [ @markekraus ](https://github.com/markekraus), celý slew vylepšení byly provedeny na náš web rutiny: [`Invoke-WebRequest`](/powershell/module/microsoft.powershell.utility/invoke-webrequest)
 a [ `Invoke-RestMethod` ](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 - [Žádost o přijetí změn #6109](https://github.com/PowerShell/PowerShell/pull/6109) – výchozí kódování sady na UTF-8 pro `application-json` odpovědi
@@ -268,7 +268,7 @@ Přidání SSH jako protokol pro vzdálenou komunikaci prostředí PowerShell p�
 
 ## <a name="msi-option-to-add-explorer-shell-context-menu-on-windows"></a>Možnost Instalační služby MSI pro přidání místní nabídky prostředí Průzkumníka Windows
 
-K @bergmeister, teď můžete povolit kontextovou nabídku Windows. Nyní můžete otevřít 6.1 prostředí PowerShell pro vaši instalaci systémová z libovolné složky v Průzkumníku Windows:
+K [ @bergmeister ](https://github.com/bergmeister), teď můžete povolit kontextovou nabídku Windows. Nyní můžete otevřít 6.1 prostředí PowerShell pro vaši instalaci systémová z libovolné složky v Průzkumníku Windows:
 
 ![Místní nabídka Shell pro PowerShell 6](./images/shell_context_menu.png)
 
@@ -276,7 +276,7 @@ K @bergmeister, teď můžete povolit kontextovou nabídku Windows. Nyní může
 
 ### <a name="run-as-administrator-in-the-windows-shortcut-jump-list"></a>"Spustit jako správce" v seznamu odkazů místní Windows
 
-K @bergmeister, seznam odkazů na zástupce Powershellu Core teď obsahuje "Spustit jako správce":
+K [ @bergmeister ](https://github.com/bergmeister), seznam odkazů na zástupce Powershellu Core teď obsahuje "Spustit jako správce":
 
 ![Spustit jako správce v seznamu skok PowerShell 6](./images/jumplist.png)
 
@@ -296,11 +296,11 @@ PS /usr/bin> cd -
 PS /etc>
 ```
 
-Navíc `cd --` změny `$HOME`.
+Navíc `cd` a `cd --` změnit na `$HOME`.
 
 ### `Test-Connection`
 
-K @iSazonov, [ `Test-Connection` ](/powershell/module/microsoft.powershell.management/test-connection) rutiny má byla přenést do prostředí PowerShell Core.
+K [ @iSazonov ](https://github.com/iSazonov), [ `Test-Connection` ](/powershell/module/microsoft.powershell.management/test-connection) rutiny má byla přenést do prostředí PowerShell Core.
 
 ### <a name="update-help-as-non-admin"></a>`Update-Help` jako bez oprávnění správce.
 
@@ -309,7 +309,7 @@ Zabývajících `Update-Help` už nebude potřeba spustit jako správce.
 
 ### <a name="new-methodsproperties-on-pscustomobject"></a>Nové metody/vlastnosti `PSCustomObject`
 
-K @iSazonov, přidali jsme nové metody a vlastnosti, které chcete `PSCustomObject`.
+K [ @iSazonov ](https://github.com/iSazonov), přidali jsme nové metody a vlastnosti, které chcete `PSCustomObject`.
 `PSCustomObject` nyní zahrnuje `Count` / `Length` vlastnost, která obsahuje počet položek.
 
 Oba tyto příklady vracejí `2` jako počet `PSCustomObjects` v kolekci.
@@ -368,7 +368,7 @@ Přesun věnovat bez BOM kódování UTF-8 v Powershellu 6.0, jsme aktualizovali
 
 ### <a name="conversions-from-psmethod-to-delegate"></a>Převody z PSMethod delegáta
 
-K @powercode, teď podporujeme převodu `PSMethod` delegátovi.
+K [ @powercode ](https://github.com/powercode), teď podporujeme převodu `PSMethod` delegátovi.
 Díky tomu můžete provést třeba k předávání `PSMethod` `[M]::DoubleStrLen` jako hodnotu delegáta do `[M]::AggregateString`:
 
 ```powershell
@@ -391,7 +391,7 @@ Další informace o této změně, projděte si [žádosti o přijetí změn #52
 
 ### <a name="standard-deviation-in-measure-object"></a>Směrodatná odchylka `Measure-Object`
 
-K @CloudyDino, přidali jsme `StandardDeviation` vlastnost `Measure-Object`:
+K [ @CloudyDino ](https://github.com/CloudyDino), přidali jsme `StandardDeviation` vlastnost `Measure-Object`:
 
 ```powershell
 Get-Process | Measure-Object -Property CPU -AllStats
@@ -409,7 +409,7 @@ Property          : CPU
 
 ### `GetPfxCertificate -Password`
 
-K @maybe-hello-world, `Get-PfxCertificate` má teď `Password` parametr, který přijímá `SecureString`. To umožňuje používat neinteraktivně:
+K [ @maybe-hello-world ](https://github.com/maybe-hello-world), `Get-PfxCertificate` má teď `Password` parametr, který přijímá `SecureString`. To umožňuje používat neinteraktivně:
 
 ```powershell
 $certFile = '\\server\share\pwd-protected.pfx'
@@ -429,7 +429,7 @@ Také `help` funkce změněn, aby používal `more.com` na Windows nebo v systé
 
 Dříve, pomocí `Set-Location` nebo `cd` se vraťte do PSDrive uživatelům odesílat výchozí umístění pro tuto jednotku.
 
-K @mcbobke, uživatelům se nyní odesílají na poslední známé aktuální pracovní adresář pro danou relaci.
+K [ @mcbobke ](https://github.com/mcbobke), uživatelům se nyní odesílají na poslední známé aktuální pracovní adresář pro danou relaci.
 
 ### <a name="windows-powershell-type-accelerators"></a>Akcelerátory typ prostředí Windows PowerShell
 
@@ -451,11 +451,10 @@ Například můžete zadávat dotazy pomocí protokolu LDAP:
 [adsi]'LDAP://CN=FooUse,OU=People,DC=contoso,DC=com'
 ```
 
-Oba tyto příklady vytvoření objektu Win32_OperatingSystem CIM:
+Následující příklad vytvoří objekt Win32_OperatingSystem CIM:
 
 ```powershell
-[wmi]"win32_operatingsystem=@"
-[wmiclass]"win32_operatingsystem"
+[wmi]"Win32_OperatingSystem=@"
 ```
 
 ```Output
@@ -467,9 +466,23 @@ SerialNumber    : 12345-67890-ABCDE-F0123
 Version         : 10.0.18234
 ```
 
+V tomto příkladu vrátí objekt ManagementClass Win32_OperatingSystem třídy.
+
+```powershell
+[wmiclass]"Win32_OperatingSystem"
+```
+
+```Output
+   NameSpace: ROOT\cimv2
+
+Name                                Methods              Properties
+----                                -------              ----------
+Win32_OperatingSystem               {Reboot, Shutdown... {BootDevice, BuildNumber, BuildType, Caption...}
+```
+
 ### <a name="-lp-alias-for-all--literalpath-parameters"></a>`-lp` alias pro všechny `-LiteralPath` parametry
 
-K @kvprasoon, nyní je k dispozici alias parametru `-lp` pro všechny integrované rutiny Powershellu, které mají `-LiteralPath` parametru.
+K [ @kvprasoon ](https://github.com/kvprasoon), nyní je k dispozici alias parametru `-lp` pro všechny integrované rutiny Powershellu, které mají `-LiteralPath` parametru.
 
 ## <a name="breaking-changes"></a>Rozbíjející změny v
 

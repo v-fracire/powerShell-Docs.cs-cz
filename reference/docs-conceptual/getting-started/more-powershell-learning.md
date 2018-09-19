@@ -2,53 +2,54 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Další zdroje informací o PowerShellu
-ms.openlocfilehash: b0e17a6894468696365e5a553e6ffccfaa8eb499
-ms.sourcegitcommit: e9ad4d85fd7eb72fb5bc37f6ca3ae1282ae3c6d7
+ms.openlocfilehash: 17f96620bbb483ca580d351584d5650a6734b876
+ms.sourcegitcommit: 59e568ac9fa8ba28e2c96932b7c84d4a855fed2f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34047845"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46289204"
 ---
 # <a name="more-powershell-learning"></a>Další zdroje informací o PowerShellu
 
-Další zdroje další prostředí PowerShell
+Jiných zdrojů a informace prostředí PowerShell
 
-## <a name="resources-for-windows-powershell-users"></a>Prostředky pro uživatele, prostředí Windows PowerShell
+## <a name="resources-for-windows-powershell-users"></a>Prostředky pro uživatele Windows Powershellu
 
-Kromě v nápovědě k dispozici na příkazovém řádku následující zdroje obsahují další informace pro uživatele, kteří chtějí spusťte prostředí Windows PowerShell.
+Kromě nápovědy k dispozici na příkazovém řádku následující zdroje obsahují další informace pro uživatele, kteří chtějí provozovat prostředí Windows PowerShell.
 
-- [Blog týmu Windows PowerShell](http://blogs.msdn.com/b/powershell/). Nejlepší prostředek pro učení přímo z prostředí Windows PowerShell produktový tým.
-- [Windows PowerShell zákazníka připojení](http://Connect.Microsoft.com/PowerShell). Navrhnout zlepšení, pošlete svůj názor nebo založení záznamu o chybě pro prostředí Windows PowerShell tým. Můžete souboru kódu chyby, dokumentace chyb nebo chyby lokalizace (jazyk překladu).
-- [Hey, Scripting Guy! Blog](https://blogs.technet.microsoft.com/heyscriptingguy/) publikuje nový obsah sedm dní v týdnu a je konzistentní seřazeny v horním pět všechny blogů společnosti Microsoft. Články jsou řízené scénáře a jsou napsané poutavé a živá způsobem.
-- [Stránka informace prostředí PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/01/04/weekend-scripter-the-best-ways-to-learn-powershell/) je hub prostředí Windows PowerShell v Centru skriptů webu TechNet. Tato stránka hostuje řadu Začátečník video relací prováděné Ed Wilson Guy pro skriptování Microsoft. Obsahuje taky prostředí Windows PowerShell kvízy, odkazy na obsah, komunity a další.
-- Máte otázky o použití prostředí Windows PowerShell? Připojení se stovkami jiné osoby, které mají podobné zájmů na [oficiální skriptování nepřetržitého fórum](http://social.technet.microsoft.com/forums/itcg/threads/).
-- [Webu Microsoft Script Center](https://technet.microsoft.com/scriptcenter). Portál pro mnoho užitečné zdroje prostředí Windows PowerShell, včetně [úložiště centra skriptů](http://gallery.technet.microsoft.com/scriptcenter/). Jedním z nejlepší způsoby další skriptování je příklady v akci. Hledání v tisíce skriptů prostředí Windows PowerShell, všechny připravené k vyhodnocení a přizpůsobit podle svých potřeb.
-- Zapojení do komunity uživatelské prostředí Windows PowerShell. Najdete v článku [stránce komunity Center skriptu](https://technet.microsoft.com/scriptcenter/hh182567.aspx) pro umístění desítek prostředí Windows PowerShell skupiny uživatelů - je pravděpodobně jeden okolo vás. Také zachovat aktuální v aktivitách komunity Microsoft Scripting Guy.
+- [Blog týmu prostředí PowerShell Windows](https://blogs.msdn.microsoft.com/powershell/). Nejlepší prostředek pro učení přímo od týmu produktu Windows Powershellu.
+- [Hey, Scripting Guy! Blog](https://blogs.technet.microsoft.com/heyscriptingguy/) publikuje nový obsah sedm dní v týdnu a je konzistentní seřazené v horní části pět všechny blogy Microsoftu. Články jsou scénáře a písemné poutavé a živá způsobem.
+- [Na stránce informace prostředí PowerShell](https://blogs.technet.microsoft.com/heyscriptingguy/2015/01/04/weekend-scripter-the-best-ways-to-learn-powershell/) je Centrum prostředí Windows PowerShell na centra skriptů TechNet. Tato stránka je hostitelem série Začátečník video relace společností Ed Wilson Guy pro skriptování Microsoft. Obsahuje také prostředí Windows PowerShell kvízy, zadávání úkolů, odkazy na obsah vytvořený komunitou a další.
+- Máte dotazy týkající se použití prostředí Windows PowerShell? Připojení se stovkami ostatní uživatele, kteří mají zájem podobně jako na [fórum TechNet Powershellu](https://social.technet.microsoft.com/Forums/home?forum=winserverpowershell).
 
-## <a name="video-training"></a>Video školení
+## <a name="video-training"></a>Video od Pluralsightu
 
 ### <a name="microsoft-virtual-academy"></a>Microsoft Virtual Academy
-- [Začínáme s Powershellem 3.0 – rychlý Start](https://mva.microsoft.com/en-US/training-courses/getting-started-with-powershell-30-jump-start-8276)
-- [Pokročilé nástroje & skriptování pomocí prostředí PowerShell 3.0 rychlý Start](https://mva.microsoft.com/en-US/training-courses/advanced-tools-scripting-with-powershell-30-jump-start-8231)
 
-### <a name="script-center-learn"></a>Další informace v Centru skriptů
-#### <a name="windows-powershell-essentials-for-the-busy-admin-series"></a>Windows PowerShell Essentials zaneprázdněn řady, správce
-- [Prostředí PowerShell 'SmowerShell' – proto měli získat informace prostředí Windows PowerShell &#40;část 1&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
-- [Slyšeli prostřednictvím kanálu – postup složené příkazy prostředí Windows PowerShell pro Fun a zisku &#40;část 2&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
-- [Jedinou zprostředkovatele? Není špatně – podívejte se na Windows PowerShell zprostředkovatelé &#40;část 3&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
-- [Hlavní událost – prostředí Windows PowerShell nemá protokoly událostí &#40;součástí 4&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
-- [Více než vzdáleně možné – pomocí prostředí Windows PowerShell ke správě vzdálené plochy &#40;část 5&#41;](http://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
+- [Začínáme s prostředím PowerShell 3.0 kurz Jump Start zaměřený](https://mva.microsoft.com/en-US/training-courses/getting-started-with-powershell-30-jump-start-8276)
+- [Pokročilé nástroje a skriptování s Jump Start zaměřený na prostředí PowerShell 3.0](https://mva.microsoft.com/en-US/training-courses/advanced-tools-scripting-with-powershell-30-jump-start-8277)
 
-#### <a name="learn-it-now-before-its-an-emergency"></a>Teď další předtím, než je naléhavém
-- [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém – část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém - část 2](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481542_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém - část 3](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481548_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém - část 4](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481552_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Další informace se teď předtím, než je naléhavém - část 5](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481554_Dnl_L.wmv)
+### <a name="script-center-learn"></a>Přečtěte si centra skriptů
 
-## <a name="resources-for-windows-powershell-developers"></a>Prostředky pro vývojáře v systému Windows PowerShell
+#### <a name="windows-powershell-essentials-for-the-busy-admin-series"></a>Windows PowerShell Essentials zaneprázdněný řady správce
 
-Následující zdroje obsahují prostředky, což vývojářům vytvářet své vlastní prostředí Windows PowerShell moduly, funkce, rutiny, zprostředkovatele a hostování aplikace.
+- [Prostředí PowerShell "SmowerShell" – Proč zjistíte Windows Powershellu, část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
+- [Slyšeli prostřednictvím kanálu – jak na složené příkazy Windows Powershellu pro zábavu a zisk 2. část](http://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
+- [Jediný poskytovatel? Není téměř – podívejte se na část poskytovatelé Windows Powershellu 3](http://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
+- [Hlavní události – prostředí Windows PowerShell se 4. část protokoly událostí](http://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
+- [Více než vzdáleně možné – použití Windows Powershellu ke správě vzdálené plochy část 5](http://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
 
-- [Windows PowerShell SDK](http://go.microsoft.com/fwlink/p/?LinkID=89595). Poskytuje referenční obsah.
-- [Příručka programátora prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkID=89596). Poskytuje podrobné pokyny. Také obsahuje informace o základní koncepty prostředí Windows PowerShell.
+#### <a name="learn-it-now-before-its-an-emergency"></a>Přečtěte si ho hned teď dřív, než bude nouzovém stavu
+
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 2](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481542_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze - 3. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481548_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 4. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481552_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 5. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481554_Dnl_L.wmv)
+
+## <a name="resources-for-windows-powershell-developers"></a>Materiály pro vývojáře Windows Powershellu
+
+Následující zdroje obsahují prostředky, které usnadní vývojářům vytvářet svoje vlastní prostředí Windows PowerShell moduly, funkce, rutin, poskytovatelů a hostování aplikací.
+
+- [Sady SDK Windows Powershellu](http://go.microsoft.com/fwlink/p/?LinkID=89595). Obsahuje referenční obsah.
+- [Příručka programátora prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkID=89596). Obsahuje kurzy. Také obsahuje informace o základních pojmů Windows Powershellu.
