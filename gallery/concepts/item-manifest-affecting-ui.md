@@ -3,12 +3,12 @@ ms.date: 06/09/2017
 schema: 2.0.0
 keywords: prostředí PowerShell
 title: Manifestu hodnoty položek, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
-ms.openlocfilehash: 60415193129fe040b53d35b1f8701408cfc4989d
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: e7e9910504a665e464add0a83454cec64c1a0937
+ms.sourcegitcommit: 601609575a3214ea7086a3bcb586ae0d1df3d418
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39268173"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46532966"
 ---
 # <a name="item-manifest-values-that-impact-the-powershell-gallery-ui"></a>Manifestu hodnoty položek, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
 
@@ -44,6 +44,8 @@ Následující tabulka ukazuje prvky na stránce Galerie prostředí PowerShell 
 | **Historie verzí** | Historie verzí odráží aktualizace provedené v modulu v galerii prostředí PowerShell. Pokud verze položky, skrytá pomocí funkce odstranění se nebude zobrazovat v historii verzí s výjimkou pro vlastníky položky. | Ne | Ne |
 | **Web projektu** | Web projektu se poskytuje pro moduly v části Privatedata\PSData manifestu modulu zadáním ProjectURI. V manifestu skriptu je řídit určením. PROJECTURI. | Ano | Ano |
 | **Licence** | Licence je k dispozici odkaz pro moduly v části Privatedata\PSData manifestu modulu zadáním LicenseURI. V manifestu skriptu je řídit určením. LICENSEURI. Je důležité si uvědomit, že pokud není k dispozici licenci prostřednictvím LicenseURI nebo v rámci modulu, pak podmínky použití pro galerii prostředí PowerShell zadejte podmínky použití pro položku. Přečíst podmínky použití pro podrobnosti. | Ano | Ano |
+| **Ikona** | Ikona se dá nastavit pro libovolnou položku v galerii prostředí PowerShell zadáním příznaku IconURI v manifestu skriptu, nebo v části Privatedata PSData manifestu modulu. IconURI by měl odkazovat na 32 x 32 image s průhlednost pozadí. Identifikátor URI **musí** být adresa URL obrázku s přímým přístupem a **nesmí** přejít na webovou stránku obsahující bitovou kopii nebo souborů v balíčku Galerie prostředí PowerShell. | Ano | Ano |
+
 
 ## <a name="editing-item-details"></a>Úpravy podrobností položky
 
