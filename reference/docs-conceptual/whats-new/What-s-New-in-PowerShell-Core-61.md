@@ -2,12 +2,12 @@
 title: Co je nového v Powershellu Core 6.1
 description: Nové funkce a změny v prostředí PowerShell Core 6.1
 ms.date: 09/13/2018
-ms.openlocfilehash: 5e2fe3c819ed638b2c14d7d40e08b7c32953147f
-ms.sourcegitcommit: 59e568ac9fa8ba28e2c96932b7c84d4a855fed2f
+ms.openlocfilehash: 4e39780a0ff446993005bba6284741f3b4b02549
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46289221"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851303"
 ---
 # <a name="whats-new-in-powershell-core-61"></a>Co je nového v Powershellu Core 6.1
 
@@ -197,11 +197,11 @@ a [ `Invoke-RestMethod` ](/powershell/module/microsoft.powershell.utility/invoke
 
 ## <a name="remoting-improvements"></a>Vylepšení vzdálené komunikace
 
-### <a name="powershell-direct-tries-to-use-powershell-core-first"></a>Přímou službu PowerShell se pokusí nejprve použít PowerShell Core
+### <a name="powershell-direct-for-containers-tries-to-use-powershell-core-first"></a>Přímou službu PowerShell for Containers se pokusí nejprve použít PowerShell Core
 
-[Přímou službu PowerShell](/virtualization/hyper-v-on-windows/user-guide/powershell-direct) funkce je součástí prostředí PowerShell a technologie Hyper-V, který umožňuje připojení k virtuálnímu počítači s Hyper-V bez připojení k síti nebo jiné služby pro vzdálenou správu.
+[Přímou službu PowerShell](/virtualization/hyper-v-on-windows/user-guide/powershell-direct) funkce je součástí prostředí PowerShell a technologie Hyper-V, který umožňuje připojení k virtuálnímu počítači Hyper-V nebo kontejneru bez připojení k síti nebo jiné služby pro vzdálenou správu.
 
-V minulosti přímou službu PowerShell připojené pomocí prostředí Windows PowerShell instance doručené pošty na virtuálním počítači.
+V minulosti přímou službu PowerShell připojené pomocí prostředí Windows PowerShell instance doručené pošty v kontejneru.
 Nyní, přímou službu PowerShell se nejprve pokusí připojit pomocí všechny dostupné `pwsh.exe` na `PATH` proměnné prostředí.
 Pokud `pwsh.exe` není k dispozici, přímou službu PowerShell spadne zpět na použití `powershell.exe`.
 
@@ -310,45 +310,44 @@ Zabývajících `Update-Help` už nebude potřeba spustit jako správce.
 ### <a name="new-methodsproperties-on-pscustomobject"></a>Nové metody/vlastnosti `PSCustomObject`
 
 K [ @iSazonov ](https://github.com/iSazonov), přidali jsme nové metody a vlastnosti, které chcete `PSCustomObject`.
-`PSCustomObject` nyní zahrnuje `Count` / `Length` vlastnost, která obsahuje počet položek.
-
-Oba tyto příklady vracejí `2` jako počet `PSCustomObjects` v kolekci.
+`PSCustomObject` nyní zahrnuje `Count` / `Length` vlastnost jako u jiných objektů.
 
 ```powershell
-@(
-[pscustomobject]@{foo = '1'},
-[pscustomobject]@{bar = '2' }).Length
+$PSCustomObject = [pscustomobject]@{foo = 1}
+
+$PSCustomObject.Length
+```
+
+```Output
+1
 ```
 
 ```powershell
-@(
-[pscustomobject]@{foo = '1'},
-[pscustomobject]@{bar = '2' }).Count
+$PSCustomObject.Count
+```
+
+```Output
+1
 ```
 
 Tato práce zahrnuje také `ForEach` a `Where` metody, která umožňují jeho provoz a vyfiltrujte `PSCustomObject` položky:
 
 ```powershell
-@(
->> [pscustomobject]@{foo = 1},
->> [pscustomobject]@{foo = 2 }).ForEach({$_.foo+1})
+$PSCustomObject.ForEach({$_.foo + 1})
 ```
 
 ```Output
 2
-3
 ```
 
 ```powershell
-@(
->> [pscustomobject]@{foo = 1},
->> [pscustomobject]@{foo = 2 }).Where({$_.foo -gt 1})
+$PSCustomObject.Where({$_.foo -gt 0})
 ```
 
 ```Output
 foo
 ---
-  2
+  1
 ```
 
 ### `Where-Object -Not`
@@ -507,7 +506,7 @@ Odhlásit z této telemetrická data, nastavte proměnnou prostředí `POWERSHEL
 
 Zabránit používání nešifrované přenosy, vzdálené komunikace Powershellu na platformy Unix nyní vyžaduje použití protokolu NTLM nebo Negotiate, nebo HTTPS.
 
-Další informace o těchto změnách, přečtěte si [žádosti o přijetí změn #6799](https://github.com/PowerShell/PowerShell/pull/6799).
+Další informace o těchto změnách, přečtěte si [problém #6779](https://github.com/PowerShell/PowerShell/issues/6779).
 
 ### <a name="removed-visualbasic-as-a-supported-language-in-add-type"></a>Odebrat `VisualBasic` jako podporovaný jazyk v Add-Type
 

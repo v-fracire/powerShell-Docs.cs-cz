@@ -2,16 +2,16 @@
 ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Skriptování v prostředí PowerShell
-ms.openlocfilehash: 754805148dc815a12c5c77e4894fb598c6927f7e
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: 8a152ab338d42f861b7ff38de44d68db14262abb
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43133989"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851182"
 ---
 # <a name="powershell"></a>PowerShell
 
-PowerShell je prostředí příkazového řádku založeného na úlohách a skriptovací jazyk postaveno na rozhraní .NET Framework.
+PowerShell je prostředí příkazového řádku založeného na úlohách a skriptovací jazyk založená na rozhraní .NET.
 PowerShell umožňuje správcům systému a zkušení uživatelé mohou rychle automatizace úloh, které spravovat operační systémy (Linux, macOS a Windows) a procesy.
 
 Příkazy prostředí PowerShell umožňují spravovat počítače z příkazového řádku. Zprostředkovatelé prostředí PowerShell vám umožní přistupovat k úložištím dat, jako je například registr a úložiště certifikátů, stejně snadno, jako je přístup k systému souborů. PowerShell zahrnuje analyzátor výrazů a propracovaný skriptovací jazyk.

@@ -4,12 +4,12 @@ contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 description: Pokyny pro vydavatele
 title: Galerie prostředí PowerShell pro publikování pokyny a osvědčené postupy
-ms.openlocfilehash: 11207a312f916506f855c0e6e292752f72fc04c1
-ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
+ms.openlocfilehash: 2ddeae9fdb33a58f97bfeb66079541bb7c5791b1
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45523012"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851165"
 ---
 # <a name="powershellgallery-publishing-guidelines-and-best-practices"></a>PowerShellGallery publikování pokyny a osvědčené postupy
 
@@ -39,6 +39,7 @@ Položky, které postupujte podle těchto pokynů jsou mnohem pravděpodobnějš
 - Postupujte podle [SemVer](http://semver.org/) pokyny pro správu verzí
 - Použití běžných značek, jak je uvedeno v galerii prostředí PowerShell společné značky
 - Test publikování pomocí místního úložiště
+- Použití Správce balíčků PowerShellGet pro publikování
 
 Každý z nich je stručně v následujících částech.
 
@@ -215,6 +216,12 @@ S žádným z těchto řešení použijte k definování nové "úložiště", k
 Jeden další bod o test publikování: libovolné položky můžete publikovat v galerii prostředí PowerShell není možné odstranit bez pomoci od provozní tým, který bude tak jasné, že nic není závislá na položku, kterou chcete publikovat.
 Z tohoto důvodu jsme nepodporují Galerie prostředí PowerShell jako cíl testování a kontaktuje libovolného vydavatele, který provádí.
 
+## <a name="use-powershellget-to-publish"></a>Použití Správce balíčků PowerShellGet pro publikování
+
+Důrazně doporučujeme, aby zdroje pomocí rutiny Publish-Module a Publish-Script při práci v galerii prostředí PowerShell. Abyste se vyhnuli zapamatování důležité podrobnosti o instalaci z publikování v galerii prostředí PowerShell se vytvořil správce balíčků PowerShellGet. V některých případech vydavatelé jste se rozhodli PowerShellGet přeskočit a použít pro klienta NuGet nebo rutiny PackageManagement místo Publish-Module. Existuje několik podrobností, které jsou snadno Zmeškali, což vede k širokou škálu žádosti o podporu.
+
+Pokud je důvod, proč nelze použít Publish-Module nebo Publish-Script, prosím dejte vědět. Založte problém v úložišti Githubu PowerShellGet a uveďte podrobnosti, které můžete vybrat NuGet nebo PackageManagement způsobují. 
+
 ## <a name="recommended-workflow"></a>Doporučený pracovní postup
 
 Nejúspěšnější přístup, který jsme našli pro položky publikována do Galerie prostředí PowerShell je následující:
@@ -229,3 +236,4 @@ Nejúspěšnější přístup, který jsme našli pro položky publikována do G
 - Rozhodněte, jestli chcete kód podepsat vaši položku
 - Pokud se domníváte, že projekt je připravený k použití v produkčním prostředí, publikovat 1.0.0 verze v galerii prostředí PowerShell
 - I nadále shromažďovat zpětnou vazbu a iterovat kódu na základě uživatelského zadání
+

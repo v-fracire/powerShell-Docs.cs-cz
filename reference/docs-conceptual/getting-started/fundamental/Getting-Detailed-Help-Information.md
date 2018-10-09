@@ -3,12 +3,12 @@ ms.date: 08/27/2018
 keywords: rutiny prostředí PowerShell
 title: Získání podrobné nápovědy
 ms.assetid: 6fb4daf7-8607-4a3e-b692-f77631adc1b9
-ms.openlocfilehash: 88f0357b935a7c75df07d667e3f2f2d0e493f89d
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: d2578604ec7c01c0b2734bd180e1babaca58b153
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43134030"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851268"
 ---
 # <a name="getting-detailed-help-information"></a>Získání podrobné nápovědy
 
@@ -149,7 +149,7 @@ Zobrazení online článků nápovědy, který je jedním z nejlepších způsob
 Chcete-li získat nápovědu online, použijte **Online** parametr `Get-Help` rutiny. Všech článků nápovědy, které jsou součástí prostředí PowerShell, včetně zprostředkovatele nápovědy a koncepční (články nápovědy o) jsou k dispozici online v [Powershellu](/powershell/scripting/powershell-scripting) dokumentaci.
 
 > [!NOTE]
-> Nelze použít **Online** parametr s koncepční (about_ *) nebo zprostředkovatele články nápovědy.
+> Nelze použít **Online** parametr s koncepční (about_\*) nebo zprostředkovatele články nápovědy.
 > Online nápovědy je volitelné, takže nefunguje pro všechny rutiny, funkce nebo skriptu.
 
 Například, chcete-li získat online verzi nápovědy článku `Get-ChildItem` rutiny, typ:

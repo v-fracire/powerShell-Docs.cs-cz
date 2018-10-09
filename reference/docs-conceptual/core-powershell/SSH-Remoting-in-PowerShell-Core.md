@@ -2,12 +2,12 @@
 title: Vzdálená komunikace PowerShellu přes SSH
 description: Vzdálená komunikace v prostředí PowerShell Core pomocí protokolu SSH
 ms.date: 08/14/2018
-ms.openlocfilehash: 451a55a588381cc9bec265895b2bfad6b6f6e73c
-ms.sourcegitcommit: a652b12a0b87cdd0c8eb76381ae015467dd7b8cd
+ms.openlocfilehash: 84c3896fe28847beb03e930f933bb4a9dfad397f
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46134276"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851233"
 ---
 # <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace PowerShellu přes SSH
 
@@ -35,7 +35,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
 
 ## <a name="set-up-on-windows-machine"></a>Nastavení na počítači s Windows
 
-1. Nainstalujte nejnovější verzi [PowerShell Core pro Windows]
+1. Nainstalujte nejnovější verzi [PowerShell Core pro Windows](../setup/installing-powershell-core-on-windows.md#msi)
 
    - Poznáte, že jestli bylo Podpora vzdálené komunikace SSH zobrazením parametr nastaví pro `New-PSSession`
 
@@ -47,7 +47,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
    New-PSSession [-HostName] <string[]> [-Name <string[]>] [-UserName <string>] [-KeyFilePath <string>] [-SSHTransport] [<CommonParameters>]
    ```
 
-2. Nainstalujte nejnovější sestavení [Win32 OpenSSH] z Githubu pomocí instrukcí [instalace]
+2. Nainstalujte nejnovější [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases) sestavení z Githubu pomocí [instalace](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH) pokyny
 3. Úprava souboru sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH
 
    - Ujistěte se, že je povoleno ověřování hesla
@@ -91,8 +91,8 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
 
 ## <a name="set-up-on-linux-ubuntu-1404-machine"></a>Nastavte na počítači s Linuxem (Ubuntu 14.04)
 
-1. Nainstalujte nejnovější sestavení [PowerShell Core pro Linux] z Githubu
-2. Instalace [Ubuntu SSH] podle potřeby
+1. Nainstalujte nejnovější [PowerShell Core pro Linux](../setup/installing-powershell-core-on-linux.md#ubuntu-1404) sestavení z Githubu
+2. Nainstalujte [SSH se systémem Ubuntu](https://help.ubuntu.com/lts/serverguide/openssh-server.html) podle potřeby
 
    ```bash
    sudo apt install openssh-client
@@ -127,7 +127,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
 
 ## <a name="set-up-on-macos-machine"></a>Na počítači s MacOS
 
-1. Nainstalujte nejnovější sestavení [PowerShell Core pro MacOS]
+1. Nainstalujte nejnovější [PowerShell Core pro MacOS](../setup/installing-powershell-core-on-macos.md) sestavení
 
    - Ujistěte se, že je povolená Vzdálená SSH pomocí následujících kroků:
      - Otevřít `System Preferences`
@@ -316,7 +316,5 @@ Příkaz sudo nefunguje v relaci vzdálené k počítači s Linuxem.
 [PowerShell Core pro MacOS](../setup/installing-powershell-core-on-macos.md)
 
 [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases)
-
-[instalace](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 [SSH se systémem Ubuntu](https://help.ubuntu.com/lts/serverguide/openssh-server.html)

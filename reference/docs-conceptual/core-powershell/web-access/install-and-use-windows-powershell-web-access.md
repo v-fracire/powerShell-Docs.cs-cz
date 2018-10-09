@@ -2,12 +2,12 @@
 ms.date: 08/23/2017
 keywords: rutiny prostředí PowerShell
 title: instalace a používání windows powershell web Accessu
-ms.openlocfilehash: 8fa965ff30cd9e0b688bcc46d01d843a0f1c2e0b
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: d718d9b286a8a2189f44f10983cdc0061e41d4b9
+ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39268411"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48851320"
 ---
 # <a name="install-and-use-windows-powershell-web-access"></a>Instalace a používání Windows PowerShell Web Accessu
 
@@ -327,7 +327,7 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
    Pokud už číslo 443 používá jiný web nebo pokud máte jiné bezpečnostní důvody pro změnu čísla portu, změňte výchozí port. Pokud vybraný port používá jiný web, na kterém běží na serveru brány, když kliknete, zobrazí se upozornění **OK** v **přidat web** dialogové okno. Spuštění Windows PowerShell Web Accessu musí použití nepoužitého portu.
 
-1. Volitelně můžete v případě potřeby pro vaši organizaci, zadejte název hostitele, který dává smysl pro vaši organizaci a uživatele, jako například **www.contoso.com**. Klikněte na **OK**.
+1. Volitelně můžete v případě potřeby pro vaši organizaci, zadejte název hostitele, který dává smysl pro vaši organizaci a uživatele, jako například **`www.contoso.com`**. Klikněte na **OK**.
 
 1. Aby bylo vaše produkční prostředí ještě bezpečnější, rozhodně doporučujeme použít platný certifikát podepsaný certifikační autoritou. Je nutné zadat certifikát SSL, protože uživatelé můžou připojit jenom k Windows PowerShell Web Accessu přes web HTTPS. Zobrazit [nakonfigurovat certifikát SSL ve Správci služby IIS](#to-configure-an-ssl-certificate-in-iis-Manager) v tomto tématu pro další informace o tom, jak získat certifikát.
 
@@ -406,7 +406,7 @@ Aby bylo produkční prostředí zabezpečené, používejte vždy platný certi
    - Klikněte na tlačítko **importovat** k naimportovat stávající platný certifikát z umístění v síti.
    - Klikněte na tlačítko **vytvořit žádost o certifikát** požádat o certifikát od certifikační Autority, jako [VeriSign](http://www.verisign.com/), [Thawte](https://www.thawte.com/), nebo [GeoTrust](https://www.geotrust.com/). Běžný název certifikátu musí odpovídat hlavičce hostitele v žádosti.
 
-     Například, pokud prohlížeč klienta požaduje http://www.contoso.com/, pak musí také být běžný název http://www.contoso.com/. Toto je nejbezpečnější a doporučená možnost poskytnutí brány Windows PowerShell Web Accessu pomocí certifikátu.
+     Například, pokud prohlížeč klienta požaduje `http://www.contoso.com/`, pak musí také být běžný název `http://www.contoso.com/`. Toto je nejbezpečnější a doporučená možnost poskytnutí brány Windows PowerShell Web Accessu pomocí certifikátu.
 
    - Klikněte na tlačítko **vytvořit certifikát podepsaný svým držitelem** vytvoření certifikátu můžete použít okamžitě a mají novější podepsaný Certifikační autoritou v případě potřeby. Zadejte popisný název certifikátu podepsaného držitelem, například **Windows PowerShell Web Accessu**. Tato možnost se nepovažuje za bezpečnou a doporučuje se pouze pro privátní testovací prostředí.
 
