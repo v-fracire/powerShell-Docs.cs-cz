@@ -6,7 +6,7 @@ ms.openlocfilehash: d718d9b286a8a2189f44f10983cdc0061e41d4b9
 ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2018
+ms.lasthandoff: 10/09/2018
 ms.locfileid: "48851320"
 ---
 # <a name="install-and-use-windows-powershell-web-access"></a>Instalace a používání Windows PowerShell Web Accessu
@@ -99,7 +99,7 @@ Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kter�
    > [!NOTE]
    > Instalace Windows PowerShell Web Accessu pomocí rutin prostředí Windows PowerShell nepřidá nástroje pro správu webového serveru (IIS) ve výchozím nastavení. Pokud chcete nainstalovat nástroje pro správu na stejném serveru jako brána Windows PowerShell Web Accessu, přidejte `-IncludeManagementTools` parametr k instalačnímu příkazu (jak je uvedeno v tomto kroku). Pokud spravujete web Windows PowerShell Web Accessu ze vzdáleného počítače, nainstalujte modul snap-in Správce služby IIS nainstalováním [vzdáleného serveru pro správu Toolsfor Windows 8.1](https://www.microsoft.com/en-us/download/details.aspx?id=39296) nebo [vzdálenou správu serveru Nástroje pro systém Windows 8](https://www.microsoft.com/en-us/download/details.aspx?id=28972) na počítači, ze kterého chcete ke správě brány.
 
-   Pokud chcete nainstalovat role a funkce na offline virtuálním pevném disku, musíte přidat parametr `-ComputerName` i parametr `-VHD`. Parametr `-ComputerName` obsahuje název serveru, ke kterému se má připojit virtuální pevný disk. Parametr `-VHD` pak obsahuje cestu k souboru VHD na určeném serveru.
+   Pokud chcete nainstalovat role a funkce na offline virtuálním pevném disku, musíte přidat parametr `-ComputerName` i parametr `-VHD`. Parametr `-ComputerName` obsahuje název serveru, ke kterému chcete připojit virtuální pevný disk. Parametr `-VHD` pak obsahuje cestu k souboru VHD na určeném serveru.
 
    `Install-WindowsFeature -Name WindowsPowerShellWebAccess -VHD <path> -ComputerName <computer_name> -IncludeManagementTools -Restart`
 
