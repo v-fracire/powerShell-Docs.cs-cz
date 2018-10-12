@@ -1,223 +1,232 @@
+items:
 - name: Přehled
   href: overview.md
   items:
-    - name: Přehled platformy Desired State Configuration pro pracovníky s rozhodovací pravomocí
-      href: decisionMaker.md
-    - name: Přehled platformy Desired State Configuration pro techniky
-      href: DscForEngineers.md
-    - name: Rychlý start DSC
-      href: quickStart.md
+  - name: Přehled platformy Desired State Configuration pro pracovníky s rozhodovací pravomocí
+    href: decisionMaker.md
+  - name: Přehled platformy Desired State Configuration pro techniky
+    href: DscForEngineers.md
+  - name: Rychlý start DSC
+    href: quickStart.md
 - name: Konfigurace
   href: configurations.md
   items:
-    - name: Přijetí konfigurace
-      href: enactingConfigurations.md
-    - name: Oddělení konfiguračních dat od dat prostředí
-      href: separatingEnvData.md
-    - name: Použití různých verzí prostředků
-      href: sxsResource.md
-    - name: Použití uživatelských přihlašovacích údajů ke spuštění DSC
-      href: runAsUser.md
-    - name: Určení závislostí mezi uzly
-      href: crossNodeDependencies.md
-    - name: Konfigurační data
-      href: configData.md
-      items:
-        - name: Možnosti přihlašovacích údajů v konfiguračních datech
-          href: configDataCredentials.md
-    - name: Vnořování konfigurací
-      href: compositeConfigs.md
-    - name: Zabezpečení konfiguračního souboru MOF
-      href: secureMOF.md
-    - name: Částečné konfigurace
-      href: partialConfigs.md
-    - name: Psaní nápovědy ke konfiguracím DSC
-      href: configHelp.md
-    - name: Použití platformy DSC ke konfiguraci virtuálního počítače při prvním spuštění
-      href: bootstrapDsc.md
-      items:
-        - name: Klíč registru DSCAutomationHostEnabled
-          href: DSCAutomationHostEnabled.md
+  - name: Přijetí konfigurace
+    href: enactingConfigurations.md
+  - name: Oddělení konfiguračních dat od dat prostředí
+    href: separatingEnvData.md
+  - name: Použití různých verzí prostředků
+    href: sxsResource.md
+  - name: Použití uživatelských přihlašovacích údajů ke spuštění DSC
+    href: runAsUser.md
+  - name: Určení závislostí mezi uzly
+    href: crossNodeDependencies.md
+  - name: Konfigurační data
+    href: configData.md
+    items:
+    - name: Možnosti přihlašovacích údajů v konfiguračních datech
+      href: configDataCredentials.md
+  - name: Vnořování konfigurací
+    href: compositeConfigs.md
+  - name: Zabezpečení konfiguračního souboru MOF
+    href: secureMOF.md
+  - name: Částečné konfigurace
+    href: partialConfigs.md
+  - name: Psaní nápovědy ke konfiguracím DSC
+    href: configHelp.md
+  - name: Použití platformy DSC ke konfiguraci virtuálního počítače při prvním spuštění
+    href: bootstrapDsc.md
+    items:
+    - name: Klíč registru DSCAutomationHostEnabled
+      href: DSCAutomationHostEnabled.md
 - name: Materiály
   href: resources.md
   items:
-    - name: Integrované prostředky
-      href: builtInResource.md
+  - name: Integrované prostředky
+    href: builtInResource.md
+    items:
+    - name: Prostředek Archive
+      href: archiveResource.md
+    - name: Prostředek Environment
+      href: environmentResource.md
+    - name: Prostředek File
+      href: fileResource.md
+    - name: Prostředek Group
+      href: groupResource.md
+    - name: Prostředek GroupSet
+      href: groupSetResource.md
+    - name: Prostředek Log
+      href: logResource.md
+    - name: Prostředek Package
+      href: packageResource.md
+    - name: Prostředek ProcessSet
+      href: processSetResource.md
+    - name: Prostředek Registry
+      href: registryResource.md
+    - name: Prostředek Script
+      href: scriptResource.md
+    - name: Prostředek Service
+      href: serviceResource.md
+    - name: Prostředek ServiceSet
+      href: serviceSetResource.md
+    - name: Prostředek User
+      href: userResource.md
+    - name: Prostředek WaitForAll
+      href: waitForAllResource.md
+    - name: Prostředek WaitForAny
+      href: waitForAnyResource.md
+    - name: Prostředek WaitForSome
+      href: waitForSomeResource.md
+    - name: Prostředek WindowsFeature
+      href: windowsfeatureResource.md
+    - name: Prostředek WindowsFeatureSet
+      href: windowsFeatureSetResource.md
+    - name: Prostředek WindowsOptionalFeature
+      href: windowsOptionalFeatureResource.md
+    - name: Prostředek WindowsOptionalFeatureSet
+      href: windowsOptionalFeatureSetResource.md
+    - name: Prostředek WindowsPackageCab
+      href: windowsPackageCabResource.md
+    - name: Prostředek WindowsProcess
+      href: windowsProcessResource.md
+  - name: Vytváření vlastních prostředků
+    href: authoringResource.md
+    items:
+    - name: Vlastní prostředky založené na souboru MOF
+      href: authoringResourceMOF.md
       items:
-        - name: Prostředek Archive
-          href: archiveResource.md
-        - name: Prostředek Environment
-          href: environmentResource.md
-        - name: Prostředek File
-          href: fileResource.md
-        - name: Prostředek Group
-          href: groupResource.md
-        - name: Prostředek GroupSet
-          href: groupSetResource.md
-        - name: Prostředek Log
-          href: logResource.md
-        - name: Prostředek Package
-          href: packageResource.md
-        - name: Prostředek ProcessSet
-          href: processSetResource.md
-        - name: Prostředek Registry
-          href: registryResource.md
-        - name: Prostředek Script
-          href: scriptResource.md
-        - name: Prostředek Service
-          href: serviceResource.md
-        - name: Prostředek ServiceSet
-          href: serviceSetResource.md
-        - name: Prostředek User
-          href: userResource.md
-        - name: Prostředek WaitForAll
-          href: waitForAllResource.md
-        - name: Prostředek WaitForAny
-          href: waitForAnyResource.md
-        - name: Prostředek WaitForSome
-          href: waitForSomeResource.md
-        - name: Prostředek WindowsFeature
-          href: windowsfeatureResource.md
-        - name: Prostředek WindowsFeatureSet
-          href: windowsFeatureSetResource.md
-        - name: Prostředek WindowsOptionalFeature
-          href: windowsOptionalFeatureResource.md
-        - name: Prostředek WindowsOptionalFeatureSet
-          href: windowsOptionalFeatureSetResource.md
-        - name: Prostředek WindowsPackageCab
-          href: windowsPackageCabResource.md
-        - name: Prostředek WindowsProcess
-          href: windowsProcessResource.md
-    - name: Vytváření vlastních prostředků
-      href: authoringResource.md
-      items:
-        - name: Vlastní prostředky založené na souboru MOF
-          href: authoringResourceMOF.md
-          items:
-            - name: 'Prostředek založený na souboru MOF v C#'
-              href: authoringResourceMofCS.md
-        - name: Vlastní prostředky založené na třídě
-          href: authoringResourceClass.md
-        - name: Složené prostředky
-          href: authoringResourceComposite.md
-        - name: Psaní jednorázové instance prostředku DSC (osvědčený postup)
-          href: singleInstance.md
-        - name: Kontrolní seznam při tvorbě prostředku
-          href: resourceAuthoringChecklist.md
-    - name: Ladění prostředků DSC
-      href: debugResource.md
-    - name: Přímé volání metod prostředku DSC
-      href: directCallResource.md
+      - name: Prostředek založený na souboru MOF v C#
+        href: authoringResourceMofCS.md
+    - name: Vlastní prostředky založené na třídě
+      href: authoringResourceClass.md
+    - name: Složené prostředky
+      href: authoringResourceComposite.md
+    - name: Tvorba rozšířeného DSC pro skládání a spolupráci
+      href: authoringAdvanced.md
+    - name: Psaní jednorázové instance prostředku DSC (osvědčený postup)
+      href: singleInstance.md
+    - name: Kontrolní seznam při tvorbě prostředku
+      href: resourceAuthoringChecklist.md
+  - name: Ladění prostředků DSC
+    href: debugResource.md
+  - name: Přímé volání metod prostředku DSC
+    href: directCallResource.md
 - name: Local Configuration Manager
   items:
-    - name: Konfigurace Local Configuration Manageru (LCM)
-      href: metaConfig.md
-    - name: Konfigurace LCM v PowerShellu 4.0
-      href: metaConfig4.md
+  - name: Konfigurace Local Configuration Manageru (LCM)
+    href: metaConfig.md
+  - name: Konfigurace LCM v PowerShellu 4.0
+    href: metaConfig4.md
 - name: Načítací model platformy DSC
   items:
-    - name: Načítací služba DSC
-      href: pullServer.md
-    - name: Nastavení serveru vyžádané replikace SMB pro DSC
-      href: pullServerSMB.md
-    - name: Nastavení načítacího klienta
-      href: pullClient.md
-      items:
-        - name: Použití konfiguračních názvů k nastavení načítacího klienta
-          href: pullClientConfigNames.md
-        - name: Použití konfiguračních identifikátorů k nastavení načítacího klienta
-          href: pullClientConfigID.md
-    - name: Použití serveru sestav DSC
-      href: reportServer.md
-    - name: Osvědčené postupy serveru vyžádané replikace
-      href: secureServer.md
+  - name: Načítací služba DSC
+    href: pullServer.md
+  - name: Nastavení serveru vyžádané replikace SMB pro DSC
+    href: pullServerSMB.md
+  - name: Nastavení načítacího klienta
+    href: pullClient.md
+    items:
+    - name: Použití konfiguračních názvů k nastavení načítacího klienta
+      href: pullClientConfigNames.md
+    - name: Použití konfiguračních identifikátorů k nastavení načítacího klienta
+      href: pullClientConfigID.md
+  - name: Použití serveru sestav DSC
+    href: reportServer.md
+  - name: Osvědčené postupy serveru vyžádané replikace
+    href: secureServer.md
 - name: Příklady DSC
   href: dscExamples.md
   items:
-    - name: 'Vytvoření kanálu CI/CD prostřednictvím DSC, platformy Pester a služby Visual Studio Team Services'
-      href: dscCiCd.md
-    - name: Oddělení konfiguračních dat od dat prostředí
-      href: separatingEnvData.md
+  - name: Vytvoření kanálu CI/CD prostřednictvím DSC, platformy Pester a služby Visual Studio Team Services
+    href: dscCiCd.md
+  - name: Oddělení konfiguračních dat od dat prostředí
+    href: separatingEnvData.md
 - name: Řešení potíží s DSC
   href: troubleshooting.md
 - name: Použití platformy DSC na Nano Serveru
   href: nanoDsc.md
 - name: Platforma DSC na Linuxu
   items:
-    - name: Začínáme s DSC pro Linux
-      href: lnxGettingStarted.md
-    - name: Integrované prostředky pro Linux
-      href: lnxBuiltInResources.md
-      items:
-        - name: Prostředek nxArchive
-          href: lnxArchiveResource.md
-        - name: Prostředek nxEnvironment
-          href: lnxEnvironmentResource.md
-        - name: Prostředek nxFile
-          href: lnxFileResource.md
-        - name: Prostředek nxFileLine
-          href: lnxFileLineResource.md
-        - name: Prostředek nxGroup
-          href: lnxGroupResource.md
-        - name: Prostředek nxPackage
-          href: lnxPackageResource.md
-        - name: Prostředek nxScript
-          href: lnxScriptResource.md
-        - name: Prostředek nxService
-          href: lnxServiceResource.md
-        - name: Prostředek nxSshAuthorizedKeys
-          href: lnxSshAuthorizedKeysResource.md
-        - name: Prostředek nxUser
-          href: lnxUserResource.md
+  - name: Začínáme s DSC pro Linux
+    href: lnxGettingStarted.md
+  - name: Integrované prostředky pro Linux
+    href: lnxBuiltInResources.md
+    items:
+    - name: Prostředek nxArchive
+      href: lnxArchiveResource.md
+    - name: Prostředek nxEnvironment
+      href: lnxEnvironmentResource.md
+    - name: Prostředek nxFile
+      href: lnxFileResource.md
+    - name: Prostředek nxFileLine
+      href: lnxFileLineResource.md
+    - name: Prostředek nxGroup
+      href: lnxGroupResource.md
+    - name: Prostředek nxPackage
+      href: lnxPackageResource.md
+    - name: Prostředek nxScript
+      href: lnxScriptResource.md
+    - name: Prostředek nxService
+      href: lnxServiceResource.md
+    - name: Prostředek nxSshAuthorizedKeys
+      href: lnxSshAuthorizedKeysResource.md
+    - name: Prostředek nxUser
+      href: lnxUserResource.md
 - name: Použití platformy DSC v Microsoft Azure
   href: azureDsc.md
   items:
-    - name: Historie rozšíření platformy DSC
-      href: azureDscexthistory.md
+  - name: Historie rozšíření platformy DSC
+    href: azureDscexthistory.md
 - name: Referenční informace o formátu MOF platformy DSC
   items:
-    - name: Třída MSFT_DSCLocalConfigurationManager
-      href: msft-dsclocalconfigurationmanager.md
-      items:
-        - name: Metoda ApplyConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-applyconfiguration.md
-        - name: Metoda DisableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-disabledebugconfiguration.md
-        - name: Metoda EnableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-enabledebugconfiguration.md
-        - name: Metoda GetConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-getconfiguration.md
-        - name: Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-getconfigurationresultoutput.md
-        - name: Metoda GetConfigurationStatus třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-getconfigurationstatus.md
-        - name: Metoda GetMetaConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-getmetaconfiguration.md
-        - name: Metoda PerformRequiredConfigurationChecks třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-performrequiredconfigurationchecks.md
-        - name: Metoda RemoveConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-removeconfiguration.md
-        - name: Metoda ResourceGet třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-resourceget.md
-        - name: Metoda ResourceSet třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-resourceset.md
-        - name: Metoda ResourceTest třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-resourcetest.md
-        - name: Metoda RollBack třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-rollback.md
-        - name: Metoda SendConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-sendconfiguration.md
-        - name: Metoda SendConfigurationApply třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-sendconfigurationapply.md
-        - name: Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-sendconfigurationapplyasync.md
-        - name: Metoda SendMetaConfigurationApply třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-sendmetaconfigurationapply.md
-        - name: Metoda StopConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-stopconfiguration.md
-        - name: Metoda TestConfiguration třídy MSFT_DSCLocalConfigurationManager
-          href: msft-dsclocalconfigurationmanager-testconfiguration.md
+  - name: Třída MSFT_DSCLocalConfigurationManager
+    href: msft-dsclocalconfigurationmanager.md
+    items:
+    - name: Metoda ApplyConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-applyconfiguration.md
+    - name: Metoda DisableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-disabledebugconfiguration.md
+    - name: Metoda EnableDebugConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-enabledebugconfiguration.md
+    - name: Metoda GetConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-getconfiguration.md
+    - name: Metoda GetConfigurationResultOutput třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-getconfigurationresultoutput.md
+    - name: Metoda GetConfigurationStatus třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-getconfigurationstatus.md
+    - name: Metoda GetMetaConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-getmetaconfiguration.md
+    - name: Metoda PerformRequiredConfigurationChecks třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-performrequiredconfigurationchecks.md
+    - name: Metoda RemoveConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-removeconfiguration.md
+    - name: Metoda ResourceGet třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-resourceget.md
+    - name: Metoda ResourceSet třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-resourceset.md
+    - name: Metoda ResourceTest třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-resourcetest.md
+    - name: Metoda RollBack třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-rollback.md
+    - name: Metoda SendConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-sendconfiguration.md
+    - name: Metoda SendConfigurationApply třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-sendconfigurationapply.md
+    - name: Metoda SendConfigurationApplyAsync třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-sendconfigurationapplyasync.md
+    - name: Metoda SendMetaConfigurationApply třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-sendmetaconfigurationapply.md
+    - name: Metoda StopConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-stopconfiguration.md
+    - name: Metoda TestConfiguration třídy MSFT_DSCLocalConfigurationManager
+      href: msft-dsclocalconfigurationmanager-testconfiguration.md
 - name: Další zdroje informací
   items:
-    - name: Dokumenty white paper
-      href: whitepapers.md
+  - name: Dokumenty white paper
+    href: whitepapers.md
+ms.openlocfilehash: d8c8af17c36b543dccda07172a04f253e533abe1
+ms.sourcegitcommit: aa41249f153bbc6e11667ade60c878980c15abc6
+ms.translationtype: HT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45611501"
