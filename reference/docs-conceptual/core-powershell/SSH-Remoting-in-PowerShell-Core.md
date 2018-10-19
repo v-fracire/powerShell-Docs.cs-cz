@@ -2,12 +2,12 @@
 title: Vzdálená komunikace PowerShellu přes SSH
 description: Vzdálená komunikace v prostředí PowerShell Core pomocí protokolu SSH
 ms.date: 08/14/2018
-ms.openlocfilehash: 84c3896fe28847beb03e930f933bb4a9dfad397f
-ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
+ms.openlocfilehash: 842e67e96661bca8be54aab33cbc11aa23dbd1c0
+ms.sourcegitcommit: 47becf2823ece251a7264db2387bb503cf3abaa9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48851233"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451061"
 ---
 # <a name="powershell-remoting-over-ssh"></a>Vzdálená komunikace PowerShellu přes SSH
 
@@ -15,7 +15,7 @@ ms.locfileid: "48851233"
 
 Vzdálenou komunikaci prostředí PowerShell pro vyjednávání připojení a přenos dat obvykle používá WinRM. SSH je teď dostupná pro platformy operačních systémů Linux a Windows a umožňuje true multiplatformní vzdálenou komunikaci prostředí PowerShell.
 
-Služba WinRM poskytuje robustní model hostingu pro vzdálené relace prostředí PowerShell. které tato implementace založeného na protokolu SSH remoting není aktuálně podporují konfigurace vzdáleného koncového bodu a JEA (Just Enough Administration).
+Služba WinRM poskytuje robustní model hostingu pro vzdálené relace prostředí PowerShell. Vzdálená komunikace založeného na protokolu SSH aktuálně nepodporuje konfiguraci vzdáleného koncového bodu a JEA (Just Enough Administration).
 
 Vzdálenou komunikaci SSH umožňuje provádět základní vzdálené komunikace Powershellu relace mezi počítače s Windows a Linuxem. Vzdálenou komunikaci SSH vytvoří proces hostitele prostředí PowerShell na cílovém počítači jako podsystému SSH.
 Nakonec jsme budete implementovat obecný hostování model, podobně jako WinRM pro podporu konfigurace koncového bodu a JEA.
@@ -48,7 +48,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
    ```
 
 2. Nainstalujte nejnovější [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases) sestavení z Githubu pomocí [instalace](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH) pokyny
-3. Úprava souboru sshd_config v umístění, kam jste nainstalovali Win32 OpenSSH
+3. Upravit umístění souboru sshd_config `%ProgramData%\ssh`.
 
    - Ujistěte se, že je povoleno ověřování hesla
 
@@ -57,7 +57,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
      ```
 
      ```
-     Subsystem    powershell c:/program files/powershell/6.0.4/pwsh.exe -sshs -NoLogo -NoProfile
+     Subsystem    powershell c:/program files/powershell/6/pwsh.exe -sshs -NoLogo -NoProfile
      ```
 
      > [!NOTE]
@@ -66,7 +66,7 @@ Pro Linux instalace SSH (včetně server sshd) pro vaši platformu. Také musít
      Jedním z řešení je vytvořte symlink do instalačního adresáře prostředí Powershell, který neobsahuje mezery:
 
      ```powershell
-     mklink /D c:\pwsh "C:\Program Files\PowerShell\6.0.4"
+     mklink /D c:\pwsh "C:\Program Files\PowerShell\6"
      ```
 
      a zadejte ho v subsystému:

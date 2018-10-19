@@ -2,12 +2,12 @@
 ms.date: 05/17/2018
 keywords: prostředí PowerShell, core
 title: Známé problémy pro Powershellu 6.0
-ms.openlocfilehash: e3e718be903ff2223064d5790d3d0fe554ef04cd
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: ce40a1925e564fbd2c661e70ec36d3842d915dfe
+ms.sourcegitcommit: 47becf2823ece251a7264db2387bb503cf3abaa9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267996"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49450992"
 ---
 # <a name="known-issues-for-powershell-60"></a>Známé problémy pro Powershellu 6.0
 
@@ -90,9 +90,9 @@ Schopnost vytvářet omezené správu vzdálené komunikace (JEA) koncových bod
 
 ### <a name="sudo-exec-and-powershell"></a>`sudo`, `exec`a prostředí PowerShell
 
-Protože prostředí PowerShell spouští většinu příkazů v paměti (jako je Python nebo Ruby), nelze použít sudo přímo pomocí prostředí PowerShell předdefinované. (Můžete samozřejmě spustit `powershell` z sudo.) Pokud je potřeba spustit rutinu prostředí PowerShell z v rámci prostředí PowerShell s příkazem sudo, například `sudo `Set-datum` 8/18/2016`, pak byste udělali `sudo powershell `Set-datum` 8/18/2016`. Podobně nelze exec Powershellu integrované přímo. Místo toho je nutné provést `exec powershell item_to_exec`.
+Protože prostředí PowerShell spouští většinu příkazů v paměti (jako je Python nebo Ruby), nelze použít sudo přímo pomocí prostředí PowerShell předdefinované. (Můžete samozřejmě spustit `pwsh` z sudo.) Pokud je potřeba spustit rutinu prostředí PowerShell z v rámci prostředí PowerShell s příkazem sudo, například `sudo Set-Date 8/18/2016`, pak byste udělali `sudo pwsh Set-Date 8/18/2016`. Podobně nelze exec Powershellu integrované přímo. Místo toho je nutné provést `exec pwsh item_to_exec`.
 
-Tento problém je právě sledován jako součást #3232.
+Tento problém je právě sledován jako součást [#3232](https://github.com/PowerShell/PowerShell/issues/3232).
 
 ### <a name="missing-cmdlets"></a>Chybějící rutiny
 
