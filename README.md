@@ -1,36 +1,38 @@
-## Microsoft Open Source Code of Conduct
+# <a name="microsoft-open-source-code-of-conduct"></a>Pravidla chování pro Microsoft Open Source
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Tento projekt se řídí [Pravidly chování pro Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
+Další informace najdete na stránce s [nejčastějšími dotazy k Pravidlům chování](https://opensource.microsoft.com/codeofconduct/faq/), případně se můžete obrátit na [opencode@microsoft.com](mailto:opencode@microsoft.com), pokud máte další otázky nebo komentáře.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/onshefxnc4g4pv87/branch/staging?svg=true)](https://ci.appveyor.com/project/PowerShell/powershell-docs/branch/staging)
+[![Stav sestavení](https://ci.appveyor.com/api/projects/status/onshefxnc4g4pv87/branch/staging?svg=true)](https://ci.appveyor.com/project/PowerShell/powershell-docs/branch/staging)
 
-# PowerShell Documentation
+## <a name="powershell-documentation"></a>Dokumentace k prostředí PowerShell
 
-Welcome to the PowerShell-Docs repository, housing the official Windows PowerShell documentation. 
+Vítejte v úložišti prostředí PowerShell Docs, bydlení oficiální dokumentaci k Powershellu.
 
-## Repository Structure
-Each folder in this repo publishes to [MSDN](https://msdn.microsoft.com/en-us/powershell). The folders correspond to the following PowerShell assets:
-* [/dsc/](https://msdn.microsoft.com/en-us/powershell/dsc/) is  for the Desired State Configuration feature
-* [/gallery/](https://msdn.microsoft.com/powershell/gallery) is for the [PowerShell Gallery](https://www.powershellgallery.com/)
-* [/jea/](https://msdn.microsoft.com/powershell/jea/) is for the Just Enough Administration feature
-* [/reference/](https://msdn.microsoft.com/powershell/reference/) is for PowerShell module reference across versions 2.0, 3.0, 4.0, 5.0, 5.1, and 6.0
-  * This content will be retrieved by the `Get-Help` cmdlet in the future
-* [/scripting/](https://msdn.microsoft.com/en-us/powershell/scripting/) is general PowerShell reference content
-* [/wmf](https://msdn.microsoft.com/en-us/powershell/wmf/readme) contains release notes for the Windows Management Framework, the package used to distribute new versions of PowerShell to previous versions of Windows. 
+## <a name="repository-structure"></a>Struktura úložiště
 
+Každý z následující složky nejvyšší úrovně v tomto úložišti obsahuje sady DocSet, který je publikován do [Microsoft Docs](https://docs.microsoft.com/powershell).
 
+- [/Developer/](https://docs.microsoft.com/powershell/developer/) je budoucí Domovská stránka dokumentace ke službě SDK prostředí PowerShell
+  - Průběžně migrujeme tohoto obsahu z MSDN
+- [/DSC/](https://docs.microsoft.com/powershell/dsc/) je pro funkci Desired State Configuration
+- [/Gallery/](https://docs.microsoft.com/powershell/gallery) je [Galerie prostředí PowerShell](https://www.powershellgallery.com/)
+- [/jea/](https://docs.microsoft.com/powershell/jea/) je pro funkci Just Enough Administration
+- [/Reference/](https://docs.microsoft.com/powershell/scripting/) je pro koncepční témata prostředí PowerShell a odkaz na modul napříč verze 3.0, 4.0, 5.0, 5.1 a 6.0
+  - Tento obsah je také zdroj obsahu nápovědy načítána `Get-Help` rutiny
+- [/WMF](https://docs.microsoft.com/powershell/wmf/readme) obsahuje zprávu k vydání verze pro Windows Management Framework, balíček, který slouží k distribuci nové verze prostředí PowerShell na předchozích verzích Windows.
 
-## Contributing
+## <a name="contributing"></a>Přispívání
 
-We actively merge contributions into this repository via [pull request](https://help.github.com/articles/using-pull-requests/) into the *staging* branch. 
-Please note that before you submit a pull request you must [sign a Contribution License Agreement](https://cla.microsoft.com/) to ensure that the community is free to use your submissions.
-For more information on contributing, read our [contributions guide](CONTRIBUTING.md).
-There is a draft [style guide](./STYLE.md) to review before making contributions.
-Please use the Issue and Pull Request templates to help keep documentation consistent across versions. 
+Příspěvky do tohoto úložiště prostřednictvím sloučíme aktivně [žádosti o přijetí změn](https://help.github.com/articles/using-pull-requests/) do *pracovní* větve.
+Mějte prosím na paměti, že odešlete žádost o přijetí změn je nutné nejprve [licenční smlouvou o příspěvcích](https://cla.microsoft.com/) tak, aby byl v komunitě můžete používat vaše příspěvky.
 
-## Licenses
+Další informace o přispívání, přečtěte si naše [příručky pro přispěvatele](CONTRIBUTING.md).
+Příručky pro přispěvatele obsahuje podrobné informace o tom, jak přispívat dokumentaci, navrhované nástroje a styl a formátování požadavky.
+Použijte prosím problém a žádostí o přijetí změn šablony k udržení dokumentaci konzistentní napříč verzemi.
 
-There are two license files for this project. 
-The MIT License applies to the code contained in this repo.
-The Creative Commons license applies to the documentation. 
+## <a name="licenses"></a>Licence
+
+Existují dva soubory s licencí pro tento projekt.
+Licence MIT se vztahuje na kód obsažený v tomto úložišti.
+Licence Creative Commons license platí v dokumentaci.
