@@ -1,36 +1,38 @@
-## Microsoft Open Source Code of Conduct
+# <a name="microsoft-open-source-code-of-conduct"></a><span data-ttu-id="115c8-101">Pravidla chování pro Microsoft Open Source</span><span class="sxs-lookup"><span data-stu-id="115c8-101">Microsoft Open Source Code of Conduct</span></span>
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+<span data-ttu-id="115c8-102">Tento projekt se řídí [Pravidly chování pro Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).</span><span class="sxs-lookup"><span data-stu-id="115c8-102">This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).</span></span>
+<span data-ttu-id="115c8-103">Další informace najdete na stránce s [nejčastějšími dotazy k Pravidlům chování](https://opensource.microsoft.com/codeofconduct/faq/), případně se můžete obrátit na [opencode@microsoft.com](mailto:opencode@microsoft.com), pokud máte další otázky nebo komentáře.</span><span class="sxs-lookup"><span data-stu-id="115c8-103">For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.</span></span>
 
-[![Build status](https://ci.appveyor.com/api/projects/status/onshefxnc4g4pv87/branch/staging?svg=true)](https://ci.appveyor.com/project/PowerShell/powershell-docs/branch/staging)
+<span data-ttu-id="115c8-104">[![Stav sestavení](https://ci.appveyor.com/api/projects/status/onshefxnc4g4pv87/branch/staging?svg=true)](https://ci.appveyor.com/project/PowerShell/powershell-docs/branch/staging)</span><span class="sxs-lookup"><span data-stu-id="115c8-104">[![Build status](https://ci.appveyor.com/api/projects/status/onshefxnc4g4pv87/branch/staging?svg=true)](https://ci.appveyor.com/project/PowerShell/powershell-docs/branch/staging)</span></span>
 
-# PowerShell Documentation
+## <a name="powershell-documentation"></a><span data-ttu-id="115c8-105">Dokumentace k prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="115c8-105">PowerShell Documentation</span></span>
 
-Welcome to the PowerShell-Docs repository, housing the official Windows PowerShell documentation. 
+<span data-ttu-id="115c8-106">Vítejte v úložišti prostředí PowerShell Docs, bydlení oficiální dokumentaci k Powershellu.</span><span class="sxs-lookup"><span data-stu-id="115c8-106">Welcome to the PowerShell-Docs repository, housing the official PowerShell documentation.</span></span>
 
-## Repository Structure
-Each folder in this repo publishes to [MSDN](https://msdn.microsoft.com/en-us/powershell). The folders correspond to the following PowerShell assets:
-* [/dsc/](https://msdn.microsoft.com/en-us/powershell/dsc/) is  for the Desired State Configuration feature
-* [/gallery/](https://msdn.microsoft.com/powershell/gallery) is for the [PowerShell Gallery](https://www.powershellgallery.com/)
-* [/jea/](https://msdn.microsoft.com/powershell/jea/) is for the Just Enough Administration feature
-* [/reference/](https://msdn.microsoft.com/powershell/reference/) is for PowerShell module reference across versions 2.0, 3.0, 4.0, 5.0, 5.1, and 6.0
-  * This content will be retrieved by the `Get-Help` cmdlet in the future
-* [/scripting/](https://msdn.microsoft.com/en-us/powershell/scripting/) is general PowerShell reference content
-* [/wmf](https://msdn.microsoft.com/en-us/powershell/wmf/readme) contains release notes for the Windows Management Framework, the package used to distribute new versions of PowerShell to previous versions of Windows. 
+## <a name="repository-structure"></a><span data-ttu-id="115c8-107">Struktura úložiště</span><span class="sxs-lookup"><span data-stu-id="115c8-107">Repository Structure</span></span>
 
+<span data-ttu-id="115c8-108">Každý z následující složky nejvyšší úrovně v tomto úložišti obsahuje sady DocSet, který je publikován do [Microsoft Docs](https://docs.microsoft.com/powershell).</span><span class="sxs-lookup"><span data-stu-id="115c8-108">Each of the following top-level folders in this repo contain a DocSet that is published to [Microsoft Docs](https://docs.microsoft.com/powershell).</span></span>
 
+- <span data-ttu-id="115c8-109">[/Developer/](https://docs.microsoft.com/powershell/developer/) je budoucí Domovská stránka dokumentace ke službě SDK prostředí PowerShell</span><span class="sxs-lookup"><span data-stu-id="115c8-109">[/developer/](https://docs.microsoft.com/powershell/developer/) is the future home of the PowerShell SDK documentation</span></span>
+  - <span data-ttu-id="115c8-110">Průběžně migrujeme tohoto obsahu z MSDN</span><span class="sxs-lookup"><span data-stu-id="115c8-110">We are in the process of migrating this content from MSDN</span></span>
+- <span data-ttu-id="115c8-111">[/DSC/](https://docs.microsoft.com/powershell/dsc/) je pro funkci Desired State Configuration</span><span class="sxs-lookup"><span data-stu-id="115c8-111">[/dsc/](https://docs.microsoft.com/powershell/dsc/) is for the Desired State Configuration feature</span></span>
+- <span data-ttu-id="115c8-112">[/Gallery/](https://docs.microsoft.com/powershell/gallery) je [Galerie prostředí PowerShell](https://www.powershellgallery.com/)</span><span class="sxs-lookup"><span data-stu-id="115c8-112">[/gallery/](https://docs.microsoft.com/powershell/gallery) is for the [PowerShell Gallery](https://www.powershellgallery.com/)</span></span>
+- <span data-ttu-id="115c8-113">[/jea/](https://docs.microsoft.com/powershell/jea/) je pro funkci Just Enough Administration</span><span class="sxs-lookup"><span data-stu-id="115c8-113">[/jea/](https://docs.microsoft.com/powershell/jea/) is for the Just Enough Administration feature</span></span>
+- <span data-ttu-id="115c8-114">[/Reference/](https://docs.microsoft.com/powershell/scripting/) je pro koncepční témata prostředí PowerShell a odkaz na modul napříč verze 3.0, 4.0, 5.0, 5.1 a 6.0</span><span class="sxs-lookup"><span data-stu-id="115c8-114">[/reference/](https://docs.microsoft.com/powershell/scripting/) is for PowerShell conceptual topics and module reference across versions 3.0, 4.0, 5.0, 5.1, and 6.0</span></span>
+  - <span data-ttu-id="115c8-115">Tento obsah je také zdroj obsahu nápovědy načítána `Get-Help` rutiny</span><span class="sxs-lookup"><span data-stu-id="115c8-115">This content is also the source of help content retrieved by the `Get-Help` cmdlet</span></span>
+- <span data-ttu-id="115c8-116">[/WMF](https://docs.microsoft.com/powershell/wmf/readme) obsahuje zprávu k vydání verze pro Windows Management Framework, balíček, který slouží k distribuci nové verze prostředí PowerShell na předchozích verzích Windows.</span><span class="sxs-lookup"><span data-stu-id="115c8-116">[/wmf](https://docs.microsoft.com/powershell/wmf/readme) contains release notes for the Windows Management Framework, the package used to distribute new versions of PowerShell to previous versions of Windows.</span></span>
 
-## Contributing
+## <a name="contributing"></a><span data-ttu-id="115c8-117">Přispívání</span><span class="sxs-lookup"><span data-stu-id="115c8-117">Contributing</span></span>
 
-We actively merge contributions into this repository via [pull request](https://help.github.com/articles/using-pull-requests/) into the *staging* branch. 
-Please note that before you submit a pull request you must [sign a Contribution License Agreement](https://cla.microsoft.com/) to ensure that the community is free to use your submissions.
-For more information on contributing, read our [contributions guide](CONTRIBUTING.md).
-There is a draft [style guide](./STYLE.md) to review before making contributions.
-Please use the Issue and Pull Request templates to help keep documentation consistent across versions. 
+<span data-ttu-id="115c8-118">Příspěvky do tohoto úložiště prostřednictvím sloučíme aktivně [žádosti o přijetí změn](https://help.github.com/articles/using-pull-requests/) do *pracovní* větve.</span><span class="sxs-lookup"><span data-stu-id="115c8-118">We actively merge contributions into this repository via [pull request](https://help.github.com/articles/using-pull-requests/) into the *staging* branch.</span></span>
+<span data-ttu-id="115c8-119">Mějte prosím na paměti, že odešlete žádost o přijetí změn je nutné nejprve [licenční smlouvou o příspěvcích](https://cla.microsoft.com/) tak, aby byl v komunitě můžete používat vaše příspěvky.</span><span class="sxs-lookup"><span data-stu-id="115c8-119">Please note that before you submit a pull request you must [sign a Contribution License Agreement](https://cla.microsoft.com/) to ensure that the community is free to use your submissions.</span></span>
 
-## Licenses
+<span data-ttu-id="115c8-120">Další informace o přispívání, přečtěte si naše [příručky pro přispěvatele](CONTRIBUTING.md).</span><span class="sxs-lookup"><span data-stu-id="115c8-120">For more information on contributing, read our [contributor's guide](CONTRIBUTING.md).</span></span>
+<span data-ttu-id="115c8-121">Příručky pro přispěvatele obsahuje podrobné informace o tom, jak přispívat dokumentaci, navrhované nástroje a styl a formátování požadavky.</span><span class="sxs-lookup"><span data-stu-id="115c8-121">The contributor's guide contains detail information about how to contribute documentation, suggested tools, and style and formatting requirements.</span></span>
+<span data-ttu-id="115c8-122">Použijte prosím problém a žádostí o přijetí změn šablony k udržení dokumentaci konzistentní napříč verzemi.</span><span class="sxs-lookup"><span data-stu-id="115c8-122">Please use the Issue and Pull Request templates to help keep documentation consistent across versions.</span></span>
 
-There are two license files for this project. 
-The MIT License applies to the code contained in this repo.
-The Creative Commons license applies to the documentation. 
+## <a name="licenses"></a><span data-ttu-id="115c8-123">Licence</span><span class="sxs-lookup"><span data-stu-id="115c8-123">Licenses</span></span>
+
+<span data-ttu-id="115c8-124">Existují dva soubory s licencí pro tento projekt.</span><span class="sxs-lookup"><span data-stu-id="115c8-124">There are two license files for this project.</span></span>
+<span data-ttu-id="115c8-125">Licence MIT se vztahuje na kód obsažený v tomto úložišti.</span><span class="sxs-lookup"><span data-stu-id="115c8-125">The MIT License applies to the code contained in this repo.</span></span>
+<span data-ttu-id="115c8-126">Licence Creative Commons license platí v dokumentaci.</span><span class="sxs-lookup"><span data-stu-id="115c8-126">The Creative Commons license applies to the documentation.</span></span>
