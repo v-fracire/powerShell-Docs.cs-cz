@@ -1,6 +1,6 @@
 # <a name="readme"></a>SOUBOR README
 
-Tato složka obsahuje v dokumentaci pro galerii prostředí PowerShell.
-Ta se nakonfiguruje jako samostatné docset v úložišti dokumentace prostředí PowerShell.
+Tato složka obsahuje dokumentaci pro galerii prostředí PowerShell.
+Ta se nakonfiguruje jako samostatné sadě docset do prostředí PowerShell Docs úložiště.
 
-Informace o přispívat do tohoto docset najdete v tématu prostředí PowerShell-dokumentace [příručka přispěvatele](https://github.com/PowerShell/PowerShell-Docs/blob/staging/CONTRIBUTING.md).
+Informace o přispívání do této sady docset, najdete v dokumentaci Powershellu [Průvodce pro přispěvatele](https://github.com/PowerShell/PowerShell-Docs/blob/staging/CONTRIBUTING.md).

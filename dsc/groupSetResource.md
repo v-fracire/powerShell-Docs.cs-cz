@@ -3,16 +3,16 @@ ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 description: Poskytuje mechanismus ke správě místních skupin na cílový uzel.
 title: Prostředek Groupset DSC
-ms.openlocfilehash: 487a76ca7703b2c57b940b4c5bd176eada6c8019
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 6fa8e9637da896848e859dc60a42add12e973b34
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37892422"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50226113"
 ---
 # <a name="dsc-groupset-resource"></a>Prostředek Groupset DSC
 
-> Platí pro: Windows Windows PowerShell 5.0
+> Platí pro: Windows PowerShell 5.0
 
 **GroupSet** prostředků ve Windows Powershellu Desired State Configuration (DSC) poskytuje mechanismus ke správě místních skupin na cílový uzel. Tento prostředek je [složený prostředek](authoringResourceComposite.md) , která volá [skupině prostředků](groupResource.md) pro každou skupinu podle `GroupName` parametru.
 

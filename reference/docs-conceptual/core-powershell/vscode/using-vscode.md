@@ -2,12 +2,12 @@
 title: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 description: Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 ms.date: 08/06/2018
-ms.openlocfilehash: 8fbaba826624199d06fe4fdc785998e0135d7fe7
-ms.sourcegitcommit: 59727f71dc204785a1bcdedc02716d8340a77aeb
+ms.openlocfilehash: 9c06ce72c39d08e75fcb7e5cf9d5f92ae5dd8ed9
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43134096"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225790"
 ---
 # <a name="using-visual-studio-code-for-powershell-development"></a>Pomocí Visual Studio Code pro vývoj v prostředí PowerShell
 
@@ -124,12 +124,11 @@ Můžete například přidat konfigurace, které:
 - Spustit interaktivní relaci v ladicím programu
 - Připojit ladicí program k procesu hostitele prostředí PowerShell
 
-  Postupujte podle těchto kroků můžete vytvořit konfigurační soubor ladění:
+Postupujte podle těchto kroků můžete vytvořit konfigurační soubor ladění:
 
   1. Otevřít **ladění** zobrazit stisknutím klávesy **Ctrl + Shift + D** (**Cmd + Shift + D** na počítači Mac).
   2. Stisknutím klávesy **konfigurovat** ikonu ozubeného kolečka v panelu nástrojů.
-  3. Visual Studio Code vás vyzve, abyste **vyberte prostředí**.
-  Zvolte **Powershellu**.
+  3. Visual Studio Code vás vyzve, abyste **vyberte prostředí**. Zvolte **Powershellu**.
 
   Když toto provedete, Visual Studio Code vytvoří adresář a soubor ".vscode\launch.json" v kořenovém adresáři vašeho pracovního prostoru.
   Toto je ukládat konfiguraci ladění. Pokud jsou vaše soubory v úložišti Git, obvykle chcete potvrdit souboru launch.json.
@@ -171,9 +170,7 @@ Můžete například přidat konfigurace, které:
 
   Jakmile se naváže konfiguraci ladění, můžete vybrat konfiguraci, kterou chcete použít během relace ladění výběrem jedné z rozevíracího seznamu v konfiguraci ladění **ladění** nástrojů pro zobrazení.
 
-  Existuje několik blogy, které mohou být užitečné, které vám pomůžou začít pomocí rozšíření prostředí PowerShell pro Visual Studio Code
-
-Visual Studio Code:
+Existuje několik blogy, které mohou být užitečné, které vám pomůžou začít pomocí rozšíření prostředí PowerShell pro Visual Studio Code:
 
 - [Rozšíření prostředí PowerShell][ps-extension]
 - [Programujte a laďte Powershellových skriptů v aplikaci Visual Studio Code][debug]

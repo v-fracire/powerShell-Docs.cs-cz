@@ -1,17 +1,17 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: DSC pro Linux nxFile prostředků
-ms.openlocfilehash: f1eb98092049ae837d144ccf99a84fe5614144e0
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: DSC pro Linux prostředek nxFile
+ms.openlocfilehash: 80969ba2ea6247fcd616a301d951403a840c851d
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225705"
 ---
-# <a name="dsc-for-linux-nxfile-resource"></a>DSC pro Linux nxFile prostředků
+# <a name="dsc-for-linux-nxfile-resource"></a>DSC pro Linux prostředek nxFile
 
-**NxFile** prostředků v prostředí PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro ke správě souborů a adresářů v uzlu systému Linux.
+**NxFile** prostředků v prostředí PowerShell Desired State Configuration (DSC) poskytuje mechanismus ke správě soubory a adresáře na uzlu systému Linux.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -39,25 +39,25 @@ nxFile <string> #ResourceName
 
 |  Vlastnost |  Popis |
 |---|---|
-| Cílová_cesta| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
-| SourcePath| Určuje cestu, ze kterého chcete kopírovat prostředek souboru nebo složky. Tato cesta může být místní cesta nebo `http/https/ftp` adresy URL. Vzdálené `http/https/ftp` adresy URL jsou pouze podporovaná, až hodnotu **typ** vlastnost je soubor.|
-| Ujistěte se| Určuje, jestli se má zkontrolovat, zda soubor existuje. Nastavte tuto vlastnost k dispozici"" zajistit, že soubor existuje. Nastavte ji na "Chybí" zajistěte, aby byl že soubor neexistuje. Výchozí hodnota je "Dispozici".|
-| Typ| Určuje, zda je nakonfigurován prostředek adresář nebo soubor. Nastavením této vlastnosti "adresář" označuje, že prostředek adresáře. Nastavte tak, aby "soubor" k označení, že je prostředek soubor. Výchozí hodnota je "soubor"|
-| Obsah| Určuje obsah souboru, například konkrétní řetězec.|
-| Kontrolní součet| Definuje typ, který má použít při určování, zda dva soubory jsou stejné. Pokud **kontrolního součtu** není zadán, pro porovnání se používá pouze název souboru nebo adresáře. Hodnoty: "ctime", "mtime" nebo "md5".|
-| Recurse| Uvádí, jestli jsou zahrnuté podadresářů. Tuto vlastnost nastavit na **$true** k označení, že chcete podadresáře, které mají být zahrnuty. Výchozí hodnota je **$false**. **Poznámka:** tato vlastnost je platná pouze když **typu** je nastavena na adresář.|
-| Force| Některé operace souboru (například přepsání souboru nebo odstranění adresáře, který není prázdný) bude výsledkem chyba. Pomocí **Force** vlastnost má přednost před takové chyby. Výchozí hodnota je **$false**.|
-| Odkazy| Určuje požadované chování pro symbolické odkazy. Nastavením této vlastnosti "následovat" a postupujte podle symbolické odkazy fungují na cíli odkazy (např. Zkopírujte soubor místo odkazu). Nastavením této vlastnosti "manage" tak, aby fungoval na odkaz (například) Zkopírujte odkaz sám sebe). Nastavte tuto vlastnost "Ignorovat" Ignorovat symbolické odkazy.|
-| Skupina| Název **skupiny** udělil soubor nebo adresář.|
-| Režim| Určuje požadované oprávnění pro prostředek, notaci osmičková nebo symbolické. (například 777 nebo rwxrwxrwx). Pokud používáte symbolický zápis, neposkytují prvního znaku, který označuje adresář nebo soubor.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku blok skriptu konfigurace, který chcete spustit nejprve je **ResourceName** a její typ je **ResourceType**, pomocí této syntaxe Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
+| DestinationPath| Určuje umístění, kam chcete zajistit stavu pro soubor nebo adresář.|
+| SourcePath| Určuje cestu, ze kterého chcete kopírovat zdroje souboru nebo složky. Tento způsob může být místní cesta nebo `http/https/ftp` adresy URL. Vzdálené `http/https/ftp` adresy URL jsou pouze podporovaná, až hodnotu **typ** vlastností je soubor.|
+| Zkontrolujte| Určuje, jestli se má zkontrolovat, zda soubor existuje. Nastavte tuto vlastnost na "Obsahuje" Ujistěte se, že soubor existuje. Nastavte ho na "Chybí" Ujistěte se, že soubor neexistuje. Výchozí hodnota je "K dispozici".|
+| Typ| Určuje, zda je adresář nebo soubor prostředků, která se právě nastavuje. Nastavte tuto vlastnost na "directory" k označení, že je prostředek adresáře. Nastavte na "file" označuje, že soubor prostředku. Výchozí hodnota je "file"|
+| Obsah| Určuje obsah souboru, jako je například konkrétní řetězec.|
+| Kontrolní součet| Definuje typ, který má použít při určování, zda dva soubory jsou stejné. Pokud **kontrolního součtu** není zadán, pouze název souboru nebo složky se používá pro porovnání. Hodnoty jsou: "ctime", "mtime" nebo "md5".|
+| Recurse| Uvádí, jestli jsou zahrnuté podadresářů. Tuto vlastnost nastavte na **$true** k označení, že chcete, aby podadresářů, které mají být zahrnuty. Výchozí hodnota je **$false**. **Poznámka:** tato vlastnost je platná pouze při **typ** je nastavena na adresář.|
+| Force| Určité operace se soubory (například soubor přepsání nebo odstranění adresáře, který není prázdný) dojde chybě. Použití **platnost** vlastnost potlačuje tyto chyby. Výchozí hodnota je **$false**.|
+| Odkazy| Určuje požadované chování pro symbolické odkazy. Nastavte tuto vlastnost na "sledovat" sledovat symbolické odkazy a reagovat na cílové odkazy (např. Zkopírujte soubor místo odkazu). Nastavte tuto vlastnost na "manage" tak, aby fungoval na odkaz (např. Zkopírujte odkaz pro samotné). Nastavte tuto vlastnost na "Ignorovat" pro ignorování symbolické odkazy.|
+| Skupina| Název **skupiny** vlastnictví souboru nebo adresáře.|
+| Režim| Určuje požadované oprávnění pro prostředek, v symbolické nebo osmičkové soustavě. (například 777 nebo rwxrwxrwx). Používáte-li symbolický zápisu, se neposkytuje prvního znaku, který označuje adresář nebo soubor.|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud **ID** prostředku bloku skriptu konfigurace, který chcete spustit nejdřív ale **ResourceName** a jejím typem je **ResourceType**, syntaxe pro použití této funkce Vlastnost je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="additional-information"></a>Další informace
 
 
-Linux a Windows pomocí znaky konce řádku různých v textových souborů ve výchozím nastavení, a to může vést k neočekávaným výsledkům při konfiguraci některé soubory na počítač se systémem Linux s __nxFile__. Spravovat obsah souboru Linux při vyloučení problémů způsobených znaky konce řádku neočekávané několika způsoby:
+Operačních systémů Linux a Windows pomocí znaky konce řádku různých v textových souborech ve výchozím nastavení, a to může způsobit neočekávané výsledky při konfiguraci některé soubory na počítači s Linuxem pomocí __nxFile__. Správa obsahu Linuxový soubor při obcházení potíže způsobené službou znaky konců řádků neočekávané několika způsoby:
 
-Krok 1: Kopírování souboru ze vzdáleného zdroje (http, https nebo ftp): Vytvořte soubor v systému Linux s požadovaný obsah a příprava na web nebo ftp serveru přístupné uzly budete konfigurovat. Definování __SourcePath__ vlastnost __nxFile__ prostředek s web nebo ftp adresu URL k souboru.
+Krok 1: Zkopírujte soubor ze vzdáleného zdroje (http, https nebo ftp): Vytvořte soubor v Linuxu se požadovaný obsah a jejich přípravy na web nebo ftp server přístupné uzly, které budete konfigurovat. Definovat __SourcePath__ vlastnost __nxFile__ prostředků s adresou URL webu nebo ftp do souboru.
 
 ```
 Import-DSCResource -Module nx
@@ -76,7 +76,7 @@ nxFile resolvConf
 ```
 
 
-Krok 2: Přečtěte si obsah souboru ve skriptu prostředí PowerShell s [Get-Content](https://technet.microsoft.com/library/hh849787.aspx) po nastavení __$OFS__ vlastnost použít znak Linux konec řádku.
+Krok 2: Přečtěte si obsah souboru v skriptu prostředí PowerShell pomocí [Get-Content](https://technet.microsoft.com/library/hh849787.aspx) po nastavení __$OFS__ vlastnost pomocí znaku konce řádku Linux.
 
 
 ```
@@ -98,7 +98,7 @@ nxFile resolvConf
 ```
 
 
-Krok 3: Použití funkce prostředí PowerShell nahradit konce řádků Windows znaky konce řádku Linux.
+Krok 3: Použití funkce prostředí PowerShell k nahraďte Linux oddělených koncem řádku znaky konce řádku Windows.
 
 ```
 Function LinuxString($inputStr){
@@ -132,7 +132,7 @@ nxFile resolvConf
 
 ## <a name="example"></a>Příklad
 
-Následující příklad zajišťuje, že adresář `/opt/mydir` existuje, a zda existuje soubor s zadaný obsah tohoto adresáře.
+Následující příklad zajistí, že adresář `/opt/mydir` existuje, a jestli existuje soubor se zadaným obsah tohoto adresáře.
 
 ```
 Import-DSCResource -Module nx

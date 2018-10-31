@@ -3,21 +3,21 @@ ms.date: 09/26/2017
 contributor: keithb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Verze předběžnou verzi modulu
-ms.openlocfilehash: 9c3ddb623fbcb7f4b3453dd70cdc56a8dc2e9f6a
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: f58b5adfeba7ed06d231c76accbd52508c7d67d6
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39268615"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002765"
 ---
 # <a name="prerelease-module-versions"></a>Verze předběžnou verzi modulu
 
-Od verze 1.6.0, Správce balíčků PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování verze větší než 1.0.0 jako zkušební verze. Před tato funkce předběžné verze položky byly omezeny s tím, že verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence správy verzí bez narušení zpětnou kompatibilitu s verzí Powershellu 3 a vyšší nebo stávající verze Správce balíčků PowerShellGet. Toto téma se zaměřuje na funkce specifické pro modul. Ekvivalentní funkce pro skripty jsou [zkušební verze skriptů](script-prerelease-support.md) tématu. Pomocí těchto funkcí, vydavatelů můžete identifikovat pomocí modulu nebo skriptu jako verze 2.5.0-alpha a novější verze produkční prostředí 2.5.0, který nahrazuje tuto předprodejní verzi.
+Od verze 1.6.0, Správce balíčků PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování verze větší než 1.0.0 jako zkušební verze. Před tato funkce předběžné verze balíčků byli omezeni s tím, že verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence správy verzí bez narušení zpětnou kompatibilitu s verzí Powershellu 3 a vyšší nebo stávající verze Správce balíčků PowerShellGet. Toto téma se zaměřuje na funkce specifické pro modul. Ekvivalentní funkce pro skripty jsou [zkušební verze skriptů](script-prerelease-support.md) tématu. Pomocí těchto funkcí, vydavatelů můžete identifikovat pomocí modulu nebo skriptu jako verze 2.5.0-alpha a novější verze produkční prostředí 2.5.0, který nahrazuje tuto předprodejní verzi.
 
 Na vysoké úrovni zahrnují funkce předběžné verze modulu:
 
-- Přidání předběžné verze řetězce do části PSData manifestu modulu identifikuje jako předprodejní verze modulu. Při publikování modulu v galerii prostředí PowerShell tato data jsou extrahovány z manifestu a slouží k identifikaci předběžné verze položky.
-- Získání položky předběžné verze vyžaduje přidání `-AllowPrerelease` příznak příkazů PowerShellGet `Find-Module`, `Install-Module`, `Update-Module`, a `Save-Module`. Pokud se nezadá příznak, nezobrazí se předběžné verze položky.
+- Přidání předběžné verze řetězce do části PSData manifestu modulu identifikuje jako předprodejní verze modulu. Při publikování modulu v galerii prostředí PowerShell je tato data extrahují z manifestu a slouží k identifikaci předběžné verze balíčků.
+- Získání předběžné verze balíčků vyžaduje přidání `-AllowPrerelease` příznak příkazů PowerShellGet `Find-Module`, `Install-Module`, `Update-Module`, a `Save-Module`. Pokud se nezadá příznak, nezobrazí se předběžné verze balíčků.
 - Verze modulu zobrazený `Find-Module`, `Get-InstalledModule`a v galerii prostředí PowerShell se zobrazí jako jeden řetězec předprodejní řetězcem, který připojí jako 2.5.0-alpha.
 
 Podrobnosti o funkcích jsou uvedené níže.
@@ -51,7 +51,7 @@ Podrobné požadavky pro předběžné verze řetězce jsou:
 
 - Předběžné verze řetězce jde zadat jenom při ModuleVersion se 3 segmenty Major.Minor.Build. Ten je v souladu s SemVer v1.0.0.
 - Pomlčka je oddělovač mezi předprodejní řetězec a číslo sestavení. Pomlčka může být součástí předběžné verze řetězec jako první znak, pouze.
-- Předběžné verze řetězec může obsahovat jenom alfanumerické znaky ASCII [0-9A-Za - z-]. Je nejvhodnější začít zkušební řetězce alfanumerického znaku, jak ji bude snazší zjistit, toto je předběžná verze při kontrole seznamu položek.
+- Předběžné verze řetězec může obsahovat jenom alfanumerické znaky ASCII [0-9A-Za - z-]. Je nejvhodnější začít zkušební řetězce alfanumerického znaku, jak ji bude snazší zjistit, toto je předběžná verze při kontrole seznamu balíčků.
 - V tuto chvíli jsou podporovány pouze SemVer v1.0.0 předběžné verze řetězce. Předběžné verze řetězce **nesmí** obsahovat buď období nebo + [. +], které jsou povoleny v SemVer 2.0.
 - Příklady podporovaných předběžné verze řetězce:-alfa, - α1,-BETA, - update20171020
 
@@ -61,9 +61,9 @@ Pořadí řazení se změní při používání předběžné verze, což je dů
 
 Při publikování do Galerie prostředí PowerShell, ve výchozím nastavení verze modulu zveřejněná musí mít s vyšší verzí, než všechny dříve publikované verzi, která je v galerii prostředí PowerShell.
 
-## <a name="finding-and-acquiring-prerelease-items-using-powershellget-commands"></a>Hledání a získávání předběžnou verzi položky pomocí příkazů PowerShellGet
+## <a name="finding-and-acquiring-prerelease-packages-using-powershellget-commands"></a>Hledání a získávání předběžné verze balíčků pomocí příkazů PowerShellGet
 
-Práce s předběžnou verzi položek pomocí modulu – najděte – modulu PowerShellGet, Install-Module, aktualizace, a příkazy Save-Module vyžaduje přidání příznaku - AllowPrerelease. Pokud - AllowPrerelease není zadána, předběžné verze položky budou zahrnuty v případě, že jsou k dispozici. Pokud se nezadá příznak - AllowPrerelease, nezobrazí se předběžné verze položky.
+Práce s předběžné verze balíčků pomocí Update najděte – modulu PowerShellGet, Install-Module-Module, a příkazy Save-Module vyžaduje přidání příznaku - AllowPrerelease. Pokud je zadán - AllowPrerelease, předběžné verze balíčků budou zahrnuty v případě, že jsou k dispozici. Pokud se nezadá příznak - AllowPrerelease, nezobrazí se předběžné verze balíčků.
 
 Jedinou výjimkou tohoto v příkazech modulu PowerShellGet jsou Get-InstalledModule a někdy se odinstalace modulu.
 

@@ -2,19 +2,19 @@
 ms.date: 06/12/2017
 keywords: jea, powershell, zabezpečení
 title: Konfigurace registrace funkce JEA
-ms.openlocfilehash: 2c4a8f64c966903a6eb8fcabe4cd25ae7f98b2c4
-ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
+ms.openlocfilehash: 160aa95283da57a10aad5fdd4043adb1354a5db5
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45522845"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002902"
 ---
 # <a name="registering-jea-configurations"></a>Konfigurace registrace funkce JEA
 
 > Platí pro: Windows PowerShell 5.0
 
-Poslední krok před použitím JEA až budete mít vaše [funkce rolí](role-capabilities.md) a [relace konfigurační soubor](session-configurations.md) vytvořili, je registrace koncového bodu JEA.
-Tento proces informace o konfiguraci relace se vztahuje na systém a zpřístupňuje koncový bod pro uživatele a moduly služby automation.
+Jakmile budete mít vaše [funkce rolí](role-capabilities.md) a [relace konfigurační soubor](session-configurations.md) vytvořený, poslední krok, abyste mohli používat JEA je registrace koncového bodu JEA.
+Registrace koncového bodu JEA systémem zpřístupňuje koncový bod pro uživatele a moduly služby automation.
 
 ## <a name="single-machine-configuration"></a>Konfigurace jednoho počítače
 
@@ -25,8 +25,8 @@ Než začnete, ujistěte se, že jsou splněné následující požadavky:
 - Soubor konfigurace relace byla vytvořena a testování.
 - Uživatel registruje JEA konfigurace má práva správce na systémy.
 
-Bude také nutné vybrat název vašeho koncového bodu JEA.
-Název koncového bodu JEA bude vyžadovat, když uživatelé se chcete připojit k systému použití funkce JEA.
+Musíte také zvolit název vašeho koncového bodu JEA.
+Název koncového bodu JEA je povinný, pokud uživatelé chtějí pro připojení k systému prostřednictvím JEA.
 Můžete použít [Get-PSSessionConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/get-pssessionconfiguration) rutiny zkontrolovat názvy stávající koncové body v systému.
 Koncové body, které začínají znakem "microsoft" je obvykle součástí Windows.
 Koncový bod 'microsoft.powershell' je použit při připojování ke koncovému bodu vzdáleného prostředí PowerShell výchozí koncový bod.
@@ -48,26 +48,26 @@ Register-PSSessionConfiguration -Path .\MyJEAConfig.pssc -Name 'JEAMaintenance' 
 ```
 
 > [!WARNING]
-> Výše uvedený příkaz restartuje službu WinRM v systému.
+> Výše uvedený příkaz, restartuje službu WinRM v systému.
 > To se ukončí všechny relace vzdálené komunikace prostředí PowerShell, jakož i všechny probíhající konfigurace DSC.
 > Doporučuje se provést jakékoli produkčního počítače do offline režimu před spuštěním příkazu, aby se zabránilo přerušení provozu firmy.
 
-Pokud byla registrace úspěšná, budete chtít [použít JEA](using-jea.md).
-Kdykoli; může odstranit soubor konfigurace relace Po registraci není použit.
+Pokud je úspěšné registrace, budete chtít [použít JEA](using-jea.md).
+Kdykoli; může odstranit soubor konfigurace relace Po registraci koncového bodu není použit.
 
 ## <a name="multi-machine-configuration-with-dsc"></a>Konfiguraci více počítačů s DSC
 
 Pokud nasazujete JEA ve více počítačích, je nejjednodušší model nasazení použít JEA [Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) prostředek, který se rychle a konzistentně nasazujte JEA na každém počítači.
 
-Pokud chcete nasadit JEA s DSC, je potřeba zajistit, že jsou splněné následující požadavky:
+Nasazení funkce JEA s DSC, je potřeba zajistit, že jsou splněné následující požadavky:
 - Jeden nebo více funkcí role byly vytvořené a přidali na platný modul prostředí PowerShell.
 - Modul prostředí PowerShell, který obsahuje role se ukládá ve sdílené složce souboru (jen pro čtení), která je přístupná pomocí každý počítač.
 - Nastavení pro konfiguraci relace byla určena. Není nutné k vytvoření souboru konfigurace relace, při použití DSC JEA prostředků.
-- Máte přihlašovací údaje, které umožňují provádět akce správy na každém počítači, nebo mají přístup k serveru vyžádané replikace DSC používá ke správě počítačů.
+- Mít přihlašovací údaje, které umožňují provádět akce správy na každém počítači, nebo mají přístup k serveru vyžádané replikace DSC používá ke správě počítačů.
 - Jste si stáhli [prostředků DSC JEA](https://github.com/PowerShell/JEA/tree/master/DSC%20Resource)
 
 Do cílového počítače (nebo serveru vyžádané replikace, pokud použijete jeden) vytvořte konfiguraci DSC pro vašeho koncového bodu JEA.
-V této konfiguraci bude používat prostředek DSC JustEnoughAdministration k nastavení relace konfigurační soubor a soubor prostředek, který chcete zkopírovat role funkce ze sdílené složky.
+V této konfiguraci používáte prostředků DSC JustEnoughAdministration k nastavení relace konfigurační soubor a soubor prostředek, který chcete zkopírovat role funkce ze sdílené složky.
 
 Následující vlastnosti lze konfigurovat pomocí prostředků DSC:
 - Definice rolí
@@ -113,12 +113,12 @@ Configuration JEAMaintenance
 Potom tuto konfiguraci můžete použít v systému podle [přímo vyvoláním Local Configuration Manageru](https://msdn.microsoft.com/powershell/dsc/metaconfig) nebo aktualizaci [o přijetí změn konfigurace serveru](https://msdn.microsoft.com/powershell/dsc/pullserver).
 
 Prostředek DSC také umožňuje nahradit výchozí koncový bod vzdálené komunikace Microsoft.PowerShell.
-Pokud to uděláte, prostředek se automaticky zaregistrují koncový bod unconstrainted zálohování s názvem "Microsoft.PowerShell.Restricted", který má výchozí seznam ACL WinRM (povoluje Remote Management Users a místní správci členy skupiny pro přístup k ní).
+Pokud to uděláte, prostředek automaticky zaregistruje koncový bod unconstrainted zálohování s názvem "Microsoft.PowerShell.Restricted", který má výchozí seznam ACL WinRM (povoluje Remote Management Users a místní správci členy skupiny pro přístup k ní).
 
 ## <a name="unregistering-jea-configurations"></a>Ruší se registrace funkce JEA konfigurace
 
 Chcete-li odebrat koncový bod JEA v systému, použijte [Unregister-PSSessionConfiguration](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/Unregister-PSSessionConfiguration) rutiny.
-Zrušení registrace koncového bodu JEA zabrání novým uživatelům vytvoření nových JEA relací v systému.
+Zrušení registrace koncového bodu JEA zabrání novým uživatelům vytváření nových relací JEA v systému.
 Také vám umožňuje aktualizovat tak, že znovu zaregistrujete soubor konfigurace relace aktualizované pomocí stejného názvu koncového bodu JEA konfigurace.
 
 ```powershell
@@ -128,7 +128,7 @@ Unregister-PSSessionConfiguration -Name 'ContosoMaintenance' -Force
 
 > [!WARNING]
 > Odregistrace JEA koncový bod způsobí, že Služba WinRM k restartování.
-> Tímto se přeruší nejvíce vzdálené správy operace probíhá, včetně jiných relacích Powershellu, rozhraní WMI volání a některé nástroje pro správu.
+> Přeruší se nejvíce vzdálené správy operace probíhá, včetně jiných relacích Powershellu, rozhraní WMI volání a některé nástroje pro správu.
 > Pouze zrušte registraci prostředí PowerShell koncové body během plánované údržby windows.
 
 ## <a name="next-steps"></a>Další kroky

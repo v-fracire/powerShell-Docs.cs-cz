@@ -2,15 +2,15 @@
 ms.date: 09/05/2018
 contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
-title: Nastavení účtu Galerie prostředí PowerShell
-ms.openlocfilehash: dd7b8b3a99b5b7fbfec5d7f82b81dd6d5cfb906c
-ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
+title: Nastavení účtu galerie PowerShellu
+ms.openlocfilehash: ebe784ec5aae5ff3a4d444d12a168ef38aaef65f
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45523308"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002782"
 ---
-# <a name="powershell-gallery-account-settings"></a>Nastavení účtu Galerie prostředí PowerShell
+# <a name="powershell-gallery-account-settings"></a>Nastavení účtu galerie PowerShellu
 
 Váš účet Galerie prostředí PowerShell je veřejně viditelný název, který je propojený s identitou. Tato identita je buď Microsoft ID, jako je třeba `user@hotmail.com` nebo `user@outlook.com`, nebo účet Azure Active Directory (AAD).
 
@@ -34,7 +34,7 @@ Po zadání nové e-mailová adresa se v galerii prostředí PowerShell odešle 
 Galerie prostředí PowerShell poskytuje následující možnosti oznámení:
 
 - Uživatelé mě mohli kontaktovat v galerii prostředí PowerShell
-- Upozornit, když se položka převede do Galerie prostředí PowerShell pomocí svého účtu
+- Upozornit, když se balíček převede v galerii prostředí PowerShell pomocí svého účtu
 
 ![Změna e-mailovou adresu](../../Images/PSGallery_AccountEmailOptions.png)
 

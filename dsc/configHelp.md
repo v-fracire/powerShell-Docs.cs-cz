@@ -1,21 +1,21 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
+keywords: DSC, powershell, konfigurace, instalační program
 title: Psaní nápovědy ke konfiguracím DSC
-ms.openlocfilehash: 316fd69ab1eae66ebe141b2575a05b502fc261ea
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: a4b5e688744b9a4519ce06d920ad8f11efeb99ad
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34222659"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225688"
 ---
 # <a name="writing-help-for-dsc-configurations"></a>Psaní nápovědy ke konfiguracím DSC
 
->Platí pro: Windows prostředí Windows PowerShell 5.0
+>Platí pro: Windows PowerShell 5.0
 
-Nápověda založená na komentáře můžete použít v konfiguracích DSC. Mohou uživatelé v nápovědě voláním funkce konfigurace se `-?`, nebo pomocí [Get-Help](https://technet.microsoft.com/library/hh849696.aspx) rutiny. Další informace o Nápověda založená na komentářích prostředí PowerShell najdete v tématu [about_Comment_Based_Help](https://technet.microsoft.com/library/hh847834.aspx).
+Nápověda založená na komentáře můžete v konfiguracích DSC. Uživatelé můžou používat v nápovědě tak volání funkce Konfigurace s `-?`, nebo pomocí [Get-Help](https://technet.microsoft.com/library/hh849696.aspx) rutiny. Další informace o Nápověda založená na komentářích prostředí PowerShell najdete v tématu [about_Comment_Based_Help](https://technet.microsoft.com/library/hh847834.aspx).
 
-Následující příklad ukazuje skript, který obsahuje konfiguraci a založená na komentářích nápovědy pro ni:
+Následující příklad ukazuje skript, který obsahuje konfiguraci a založená na komentářích nápovědy pro něj:
 
 ```powershell
 <#
@@ -50,18 +50,18 @@ This example will be labeled "EXAMPLE 2" when help is displayed to the user.
 
 configuration HelpSample1
 {
-    param([string]$ComputerName,[string]$FilePath)
-    File f
-    {
+    param([string]$ComputerName,[string]$FilePath)
+    File f
+    {
         Contents="Hello World"
-        DestinationPath = "c:\Destination.txt"
-    }
+        DestinationPath = "c:\Destination.txt"
+    }
 }
 ```
 
-## <a name="viewing-configuration-help"></a>Nápověda k nástroji Konfigurace zobrazení
+## <a name="viewing-configuration-help"></a>Zobrazení konfigurace nápovědy
 
-Chcete-li zobrazit nápovědu pro konfiguraci, použijte **Get-Help** rutiny s název funkce nebo typ následuje název funkce `-?`. Následuje výstup předchozí funkce když předána **Get-Help**:
+Chcete-li zobrazit nápovědu pro konfiguraci, použijte **Get-Help** rutinu s názvem funkce nebo zadejte název funkce následovaný `-?`. Následuje výstupu předchozí funkci předán **Get-Help**:
 
 ```powershell
 PS C:\> Get-Help HelpSample1

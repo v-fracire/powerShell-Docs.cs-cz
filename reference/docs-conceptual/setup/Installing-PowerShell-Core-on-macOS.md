@@ -2,12 +2,12 @@
 title: Instalace PowerShellu Core v macOS
 description: Informace o instalaci Powershellu Core v macOS
 ms.date: 08/06/2018
-ms.openlocfilehash: 042c933dfa83f3ab52e315036e4f817145116d00
-ms.sourcegitcommit: aa41249f153bbc6e11667ade60c878980c15abc6
+ms.openlocfilehash: e226cd64f8788ae74dc72fdc0cd219923b7a2cd6
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45611483"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002355"
 ---
 # <a name="installing-powershell-core-on-macos"></a>Instalace PowerShellu Core v macOS
 
@@ -40,8 +40,7 @@ brew cask upgrade powershell
 ```
 
 > [!NOTE]
-> Výše uvedené příkazy mohou být volány v hostitelském prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat a dokončit upgrade.
-> a aktualizujte hodnoty zobrazené v $PSVersionTable.
+> Výše uvedené příkazy mohou být volány v hostitelském prostředí PowerShell (pwsh), ale pak musí být prostředí PowerShell byl ukončen a restartovat, aby upgrade dokončil a aktualizujte hodnoty zobrazené v $PSVersionTable.
 
 [brew]: http://brew.sh/
 

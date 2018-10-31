@@ -3,18 +3,18 @@ ms.date: 06/09/2017
 schema: 2.0.0
 keywords: prostředí PowerShell
 title: Moduly vyžadující přijetí licence
-ms.openlocfilehash: 93f92f6e83bcf18a40c3d89eb39a154e16ca5063
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: 369e32d5278a2e1bf1d3f2ae67f670c524b9f878
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37893106"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002663"
 ---
 # <a name="modules-requiring-license-acceptance"></a>Moduly vyžadující přijetí licence
 
 ## <a name="synopsis"></a>SOUHRN
 
-Právní oddělení pro některé zdroje modulu vyžadují, aby zákazníci musí explicitně přijměte licenci před instalací jejich modul z Galerie prostředí PowerShell. Pokud uživatel nainstaluje, aktualizuje nebo uloží modul použití modulu PowerShellGet, ať už přímo, nebo jako závislost pro jinou položku, a tento modul vyžaduje, aby uživatel vyjádření souhlasu s licencí, uživatel musí uvádět, přijměte licenci nebo se operace nezdaří.
+Právní oddělení pro některé zdroje modulu vyžadují, aby zákazníci musí explicitně přijměte licenci před instalací jejich modul z Galerie prostředí PowerShell. Pokud uživatel nainstaluje, aktualizuje nebo uloží modul použití modulu PowerShellGet, ať už přímo, nebo jako závislost jinému balíčku, a tento modul vyžaduje, aby uživatel vyjádření souhlasu s licencí, uživatel musí uvádět, přijměte licenci nebo se operace nezdaří.
 
 ## <a name="publish-requirements-for-modules"></a>Publikování požadavky pro moduly
 
@@ -43,7 +43,7 @@ Moduly, které chcete vyžadovat, aby uživatelé přijměte licenci na by měl 
 
 - Během instalace/Save/aktualizace se bude vyžadovat operace, pokud modul závisí (něco jiného závisí na modul) vyžaduje souhlas s podmínkami licence, pak chování přijetí licence (viz výše).
 - Pokud verze modulu je již uveden v místního katalogu jako nainstalované v systému, jsme by obejít kontrolu licence.
-- Během instalace/uložit nebo aktualizovat Pokud závislé modul musí mít licenci, a nedojde k přijetí licence, operace se nezdaří a postupujte podle běžných procesů pro položku se nepodařilo nainstalovat nebo uložit nebo aktualizovat.
+- Během instalace/uložit nebo aktualizovat Pokud závislé modul musí mít licenci, a nedojde k přijetí licence, operace se nezdaří a postupujte podle běžných procesů pro balíček se nepodařilo nainstalovat nebo uložit nebo aktualizovat.
 
 ## <a name="impact-on--force"></a>Dopad na - Force
 
@@ -219,6 +219,6 @@ Modul se aktualizuje bez jakékoli výzvy přijměte licenci.
 
 [Vyžadování přijetí licence u skriptů](./script-license-acceptance.md)
 
-[Vyžadovat přijetí licence podpory na PowerShellGallery](../how-to/working-with-items/items-that-require-license-acceptance.md)
+[Vyžadovat přijetí licence podpory na PowerShellGallery](../how-to/working-with-packages/packages-that-require-license-acceptance.md)
 
-[Vyžadování přijetí licence při nasazení ve službě Azure Automation](../how-to/working-with-items/deploy-to-azure-automation.md)
+[Vyžadování přijetí licence při nasazení ve službě Azure Automation](../how-to/working-with-packages/deploy-to-azure-automation.md)

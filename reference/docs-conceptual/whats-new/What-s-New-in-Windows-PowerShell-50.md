@@ -1,227 +1,227 @@
 ---
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
-title: Co je nového v prostředí Windows PowerShell 5.0
-ms.openlocfilehash: f5a27c0541e21b379f88b318cbe09a0344c1b372
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+title: Co je nového ve Windows Powershellu 5.0
+ms.openlocfilehash: 7a2ef581f2cd867b35533597d4942fd5bfc94570
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34483181"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225807"
 ---
-# <a name="whats-new-in-windows-powershell-50"></a>Co je nového v prostředí Windows PowerShell 5.0
-Prostředí Windows PowerShell 5.0 obsahuje důležité nové funkce, které rozšiřují jeho použití, zlepšují použitelnost a umožňují řídit a spravovat prostředí ve Windows snadněji a komplexněji.
+# <a name="whats-new-in-windows-powershell-50"></a>Co je nového ve Windows Powershellu 5.0
+Windows PowerShell 5.0 obsahuje důležité nové funkce, které rozšiřují jeho použití, lepší použitelnost a umožňují řídit a spravovat prostředí Windows snadněji a komplexněji.
 
-Prostředí Windows PowerShell 5.0 je zpětně kompatibilní. Rutiny, zprostředkovatelé, moduly, moduly snap in, skripty, funkce a profily, které byly navrženy pro prostředí Windows PowerShell 4.0, prostředí Windows PowerShell 3.0 a prostředí Windows PowerShell 2.0 obecně fungovat bez změny v prostředí Windows PowerShell 5.0.
+Windows PowerShell 5.0 je zpětně kompatibilní. Rutiny, poskytovatelů, moduly, moduly snap in, skripty, funkce a profily, které byly navrženy pro Windows PowerShell 4.0, Windows PowerShell 3.0 a Windows PowerShell 2.0 obecně fungovat bez nutnosti změn ve Windows Powershellu 5.0.
 
 # <a name="installing-windows-powershell"></a>Instalace Windows PowerShellu
-Prostředí Windows PowerShell 5.0 je nainstalována ve výchozím nastavení v systému Windows Server 2016 Technical Preview a Windows 10.
+Ve výchozím nastavení v systému Windows Server 2016 Technical Preview a Windows 10 je nainstalovaný Windows PowerShell 5.0.
 
-Chcete-li nainstalovat prostředí Windows PowerShell 5.0 na Windows Server 2012 R2, Windows 8.1 Enterprise nebo Windows 8.1 Pro, stáhněte a nainstalujte [Windows Management Framework 5.0](http://aka.ms/wmf5download). Nezapomeňte přečíst podrobnosti o stažení a před instalací Windows Management Framework 5.0 splňují všechny požadavky na systém.
+Pokud chcete nainstalovat Windows PowerShell 5.0 na Windows Server 2012 R2, Windows 8.1 Enterprise nebo Windows 8.1 Pro, stáhněte a nainstalujte [Windows Management Framework 5.0](http://aka.ms/wmf5download). Nezapomeňte si přečíst podrobnosti o stahování a splňovat všechny požadavky na systém, před instalací Windows Management Framework 5.0.
 
 ## <a name="in-this-topic"></a>V tomto tématu
 
-- [Aktualizace Windows PowerShell 4.0 DSC v KB 3000850](#windows-powershell-40-updates-in-november-2014-update-rollup-kb-3000850)
-- [Nové funkce v prostředí Windows PowerShell 5.0](#new-features-in-windows-powershell-50)
-- [Nové funkce v prostředí Windows PowerShell 4.0](#new-features-in-windows-powershell-40)
-- [Nové funkce v prostředí Windows PowerShell 3.0](#new-features-in-windows-powershell-30)
+- [Windows PowerShell 4.0 DSC aktualizace KB 3000850](#windows-powershell-40-updates-in-november-2014-update-rollup-kb-3000850)
+- [Nové funkce ve Windows Powershellu 5.0](#new-features-in-windows-powershell-50)
+- [Nové funkce ve Windows Powershellu 4.0](#new-features-in-windows-powershell-40)
+- [Nové funkce ve Windows Powershellu 3.0](#new-features-in-windows-powershell-30)
 
-## <a name="windows-powershell-40-updates-in-november-2014-update-rollup-kb-3000850"></a>Prostředí Windows PowerShell 4.0 aktualizace v listopadu 2014 kumulativní (KB 3000850)
-Mnoho aktualizací a vylepšení pro Windows PowerShell požadovaného stavu konfigurace (DSC) v prostředí Windows PowerShell 4.0 je k dispozici v [kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 z listopadu 2014](https://support.microsoft.com/kb/3000850/) (KB 3000850 ). Můžete určit, zda KB 3000850 je nainstalován v systému spuštěním `Get-Hotfix -Id KB3000850` v prostředí Windows PowerShell.
+## <a name="windows-powershell-40-updates-in-november-2014-update-rollup-kb-3000850"></a>Windows PowerShell 4.0 aktualizace z listopadu 2014 kumulativní (KB 3000850)
+Jsou k dispozici v mnoha aktualizace a vylepšení pro Windows PowerShell Desired State Configuration (DSC) ve Windows PowerShell 4.0 [kumulativní aktualizace z listopadu 2014 pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2](https://support.microsoft.com/kb/3000850/) (KB 3000850 ). Můžete určit, pokud je KB 3000850 nainstalovaný ve vašem systému spuštěním `Get-Hotfix -Id KB3000850` v prostředí Windows PowerShell.
 
-- Aktualizace stávající rutiny ve [PSDesiredStateConfiguration](https://technet.microsoft.com/library/dn391651(v=wps.640).aspx) modulu
+- Aktualizace stávající rutiny v [PSDesiredStateConfiguration](https://technet.microsoft.com/library/dn391651(v=wps.640).aspx) modulu
 
-    -   [Get-DscResource](http://technet.microsoft.com/library/dn521625.aspx) je rychlejší (zejména v ISE).
+    -   [Get-DscResource](http://technet.microsoft.com/library/dn521625.aspx) je rychlejší (zejména v prostředí ISE).
 
-    -   [Spuštění DscConfiguration](http://technet.microsoft.com/library/dn521623.aspx) má nový parametr - UseExisting, který znovu použije poslední použité konfigurace.
+    -   [Start-DscConfiguration](http://technet.microsoft.com/library/dn521623.aspx) má nový parametr - UseExisting, která znovu použije poslední použité konfigurace.
 
-    -   [Spuštění DscConfiguration](http://technet.microsoft.com/library/dn521623.aspx) -Force byl opraven.
+    -   [Start-DscConfiguration](http://technet.microsoft.com/library/dn521623.aspx) – platnost byla opravena.
 
-    -   [Get-DscLocalConfigurationManager](http://technet.microsoft.com/library/dn407378.aspx) zobrazí další užitečné informace o stav modulu.
+    -   [Get-DscLocalConfigurationManager](http://technet.microsoft.com/library/dn407378.aspx) zobrazí další užitečné informace o stavu modulu.
 
-    -   [Test DscConfiguration](http://technet.microsoft.com/library/dn407382.aspx) nyní vrátí název počítače společně s hodnotu True nebo False.
+    -   [Test-DscConfiguration](http://technet.microsoft.com/library/dn407382.aspx) nyní vrátí název počítače společně s hodnotu True nebo False.
 
     -   [Nové DscChecksum](http://technet.microsoft.com/library/dn521622.aspx) teď podporuje cesty UNC.
 
 - Nové rutiny v [PSDesiredStateConfiguration](http://technet.microsoft.com/library/dn391651(v=wps.640).aspx) modulu
 
-    -   [Aktualizace DscConfiguration](http://technet.microsoft.com/library/mt143541(v=wps.630).aspx): server zkontroluje vyžádání obsahu na vyžádání.
+    -   [Update-DscConfiguration](http://technet.microsoft.com/library/mt143541(v=wps.630).aspx): kontroluje server na vyžádání.
 
-    -   [Stop-DscConfiguration](http://technet.microsoft.com/library/mt143542(v=wps.630).aspx): zastaví konfigurace, která je již spuštěna.
+    -   [Stop-DscConfiguration](http://technet.microsoft.com/library/mt143542(v=wps.630).aspx): ukončí konfiguraci, která je již spuštěna.
 
-    -   [Odebrat DscConfigurationDocument](http://technet.microsoft.com/library/mt143544(v=wps.630).aspx): vám umožní odebrat konfiguraci dokumenty v různých fázích (čekající na vyřízení, předchozí nebo aktuální).
+    -   [Odebrat DscConfigurationDocument](http://technet.microsoft.com/library/mt143544(v=wps.630).aspx): umožňuje odebrání konfigurace dokumentů v různých fázích (čekající na vyřízení, předchozí nebo aktuální).
 
-- Vylepšení jazyk
+- Vylepšení jazyka
 
     -   DependsOn teď podporuje složené prostředky.
 
-    -   DependsOn teď podporuje čísla v názvech zdrojů instance.
+    -   DependsOn teď podporuje čísla v instanci názvy prostředků.
 
-    -   Uzel výrazy, které už vyhodnoceny na prázdnou throw chyby.
+    -   Uzel výrazy, které už vyhodnocena jako prázdná vyvolat chyby.
 
-    -   Byl opraven chybu, ke kterému dochází, pokud uzel výraz vyhodnocen jako prázdný.
+    -   Opravili jsme chybu, která nastane, pokud uzel výraz vyhodnocen jako prázdný.
 
-    -   Konfigurace volání konfigurace nyní fungovat v konzole Windows PowerShell.
+    -   Konfigurace volání konfigurace nyní pracují v konzole Windows Powershellu.
 
-- Vylepšení režimu pro vyžádání obsahu
+- Vylepšení režimu o přijetí změn
 
-    -   Režim přijetí změn teď podporuje všechny soubory ZIP.
+    -   Režim o přijetí změn teď podporuje všechny soubory ZIP.
 
-    -   **AllowModuleOverwrite** nyní pracuje správně.
+    -   **AllowModuleOverwrite** teď funguje správně.
 
-- Vylepšení odolnost proti chybám
+- Vylepšení odolnosti proti chybám
 
-    -   Nové **režim DebugMode** umožňuje znovu načíst moduly prostředků.
+    -   Nové **režim DebugMode** umožňuje znovu načíst prostředek moduly.
 
-    -   Pokud dojde k selhání konfigurace, není soubor pending.mof odstraněn.
+    -   Pokud dojde k selhání konfigurace, soubor pending.mof není odstraněn.
 
-    -   Místní Configuration Manager (LCM) je nyní pružnější při nastavení metakonfiguraci mohlo dojít k poškození.
+    -   Místní Configuration Manageru (LCM) je nyní odolnější, při nastavení metaconfiguration byly poškozeny.
 
 - Vylepšení diagnostiky
 
-    -   Když LCM nastaví časovač na různá nastavení, než jste zadali, zobrazí se upozornění.
+    -   Zobrazí se upozornění, když časovač LCM nastaví na různá nastavení, než jste zadali.
 
-    -   Soubory protokolu chyb nyní obsahují zásobníku volání pro prostředí Windows PowerShell prostředky.
+    -   Soubory protokolů chyb teď obsahují zásobník volání pro prostředky v prostředí Windows PowerShell.
 
 - Vylepšení flexibilitu
 
-    -   Prostředek LocalConfigurationManager má novou vlastnost **ActionAfterReboot**.
+    -   Prostředek LocalConfigurationManager má nové vlastnosti **ActionAfterReboot**.
 
-        -   ContinueConfiguration (výchozí hodnota): automaticky obnoví konfiguraci po restartování cílový uzel.
+        -   ContinueConfiguration (výchozí hodnota): automaticky obnoví konfiguraci po restartování cílového uzlu.
 
-        -   StopConfiguration: Pokračovat automaticky konfigurace po restartování uzlu.
+        -   StopConfiguration: Není automaticky pokračovat na konfiguraci po restartování uzlu.
 
-    -   Konzistence spustit nyní dochází častěji, než na operaci PULL nebo naopak.
+    -   Spustit konzistence můžete nyní častěji než operace přijetí změn, nebo naopak.
 
-    -   Podpora správy verzí: DSC teď rozpoznat dokumentu, který byl vytvořen v novější klient (součástí [WMF 5.0](http://aka.ms/wmf5download)).
+    -   Podpora správy verzí: DSC na novější klient teď poznáte dokument, který byl vygenerován (je součástí [WMF 5.0](http://aka.ms/wmf5download)).
 
-- Vylepšení prevence chyb
+- Chyba vylepšení ochrany před únikem informací
 
-    -   Verze modulu teď se vynucuje před použitím konfigurace.
+    -   Verze modulu je nyní vynucena služba před použitím konfigurace.
 
-    -   **DebugPreference** je teď nastavená správně pro Get - Set- a testovací TargetResource volání.
+    -   **DebugPreference** jsou správně nastavena teď pro Get-, Set- nebo TargetResource testovací volání.
 
-- Zpracování vylepšení přihlašovacích údajů
+- Zlepšení zpracování přihlašovacích údajů
 
-    -   Certifikát se teď používá, pokud obě **certifikát** a **PSDscAllowPlainTextPassword** nejsou zadány.
+    -   Certifikát se teď používá, pokud mají oba **certifikát** a **PSDscAllowPlainTextPassword** jsou uvedeny.
 
-    -   Přihlašovací údaje jsou dešifrovat i pro Get-TargetResource.
+    -   Přihlašovací údaje se dešifrují i pro Get-TargetResource.
 
-    -   Metakonfiguraci přihlašovací údaje jsou šifrované a dešifrovat.
+    -   Metaconfiguration přihlašovací údaje jsou zašifrované a dešifrovat.
 
     -   PSCredentials jsou nyní dešifrovat, pokud se nachází ve vložený objekt.
 
-- Vylepšení předdefinované prostředků
+- Vylepšení integrované prostředků
 
-    -   Balíček prostředků
+    -   Prostředek Package
 
-        -   Už nainstaluje balíček nesprávný (buď z místní nebo webové zdroje).
+        -   Už nainstaluje balíček nesprávné (buď z místní nebo webového zdroje).
 
         -   Teď podporuje protokol HTTPS.
 
-    -   Je teď podporují řešení pro protokol HTTPS v [balíček prostředků](http://technet.microsoft.com/library/dn282132.aspx).
+    -   Byla přidána podpora pro protokol HTTPS v [balíček prostředků](http://technet.microsoft.com/library/dn282132.aspx).
 
     -   [Archivovat prostředků](http://technet.microsoft.com/library/dn249917.aspx) nyní podporuje přihlašovací údaje.
 
-## <a name="new-features-in-windows-powershell-50"></a>Nové funkce v prostředí Windows PowerShell 5.0
+## <a name="new-features-in-windows-powershell-50"></a>Nové funkce ve Windows Powershellu 5.0
 
 - [Nové funkce v prostředí Windows PowerShell](#new-features-in-windows-powershell)
-- [Nové funkce v Konfigurace požadovaného stavu aplikace Windows PowerShell](#new-features-in-windows-powershell-desired-state-configuration)
-- [Nové funkce v systému Windows PowerShell ISE](#new-features-in-windows-powershell-ise)
-- [Nové funkce v systému Windows PowerShell webové služby](#new-features-in-windows-powershell-web-services-management-odata-iis-extension)
-- [Významné opravy chyb v prostředí Windows PowerShell 5.0](#notable-bug-fixes-in-windows-powershell-50)
+- [Nové funkce ve Windows Powershellu Desired State Configuration](#new-features-in-windows-powershell-desired-state-configuration)
+- [Nové funkce v prostředí Windows PowerShell ISE](#new-features-in-windows-powershell-ise)
+- [Nové funkce ve Windows Powershellu webové služby](#new-features-in-windows-powershell-web-services-management-odata-iis-extension)
+- [Důležité opravy chyb ve Windows Powershellu 5.0](#notable-bug-fixes-in-windows-powershell-50)
 
 ### <a name="new-features-in-windows-powershell"></a>Nové funkce v prostředí Windows PowerShell
 
-- Spouštění v prostředí Windows PowerShell 5.0, můžete vyvíjet pomocí třídy, pomocí formální syntaxe a sémantikou, které jsou podobné jinými objektově orientované programovací jazyky. **Třída**, **výčtu**, a žádná jiná klíčová slova jsou přidané do jazyka prostředí Windows PowerShell, který má podpory nové funkce. Další informace o práci s třídami, najdete v tématu about_Classes.
+- Od verze Windows Powershellu 5.0, můžete vyvíjet s použitím tříd, s použitím formální syntaxi a sémantiku, která se podobně jako jiné objektově orientované programovací jazyky. **Třída**, **výčtu**, a dalších klíčových slovech byly přidány do prostředí Windows PowerShell jazyk o podporu nové funkce. Další informace o práci s třídami naleznete v tématu about_Classes.
 
-- Prostředí Windows PowerShell 5.0 zavádí nové, strukturovaných informace datový proud, který můžete použít k přenosu strukturovaných dat mezi skript a jeho volající (nebo hostitelské prostředí). Nyní můžete Write-Host pro vydávání výstup do datového proudu informace. Datové proudy informace také fungovat pro PowerShell.Streams, úlohy, naplánované úlohy a pracovních postupů. Tyto funkce podporují informace datového proudu.
+- Windows PowerShell 5.0 zavádí nové, strukturované informace datového proudu, který vám umožní přenést strukturovaná data mezi skriptu a jeho volající (nebo hostitelské prostředí). Write-Host teď můžete generovat výstup do datového proudu informace. Informace o datových proudů fungovat i pro PowerShell.Streams, úlohy, naplánované úlohy a pracovních postupů. Tyto funkce podporují informační stream.
 
-    -   Nový zápis informace rutinu, která umožňuje určit, jak Windows PowerShell zpracovává data datového proudu informace pro příkaz. Zápis hostitel je obálka pro zápis informace. Zápis informace jsou také aktivit podporované pracovního postupu.
+    -   Nová rutina Write-informace, které umožňuje určit způsob, jakým zpracovává data datového proudu informace pro příkaz prostředí Windows PowerShell. Write-Host tvoří obálku pro zápis informace. Zápis informace jsou také aktivita podporované pracovního postupu.
 
-    -   Dva nové společné parametry, InformationVariable a InformationAction, umožňují určit, jak se zobrazují informace o datových proudů v příkazu. Platné hodnoty pro InformationAction jsou SilentlyContinue, zastavení, pokračovat, Inquire, ignorovat nebo pozastavit s SilentlyContinue se výchozí hodnota. InformationVariable Určuje řetězec jako název proměnné, do kterého chcete data Write-Host z příkazu Uložit.
+    -   Dvě nové společné parametry, InformationVariable a InformationAction, umožňují určit, jak se zobrazují informace o datových proudů z příkazu. Platné hodnoty pro InformationAction jsou SilentlyContinue, zastavení, pokračovat, Inquire, ignorovat nebo pozastavit s SilentlyContinue je výchozí hodnota. InformationVariable Určuje řetězec jako název proměnné, do kterého chcete data Write-Host z příkazu Uložit.
 
-    -   Nové proměnné předvoleb, InformationPreference, určuje zúčastníte výchozí datový proud informace v relaci prostředí Windows PowerShell. Výchozí hodnota je SilentlyContinue.
+    -   Nové proměnné předvoleb InformationPreference, určuje vaše výchozí prioritu pro informace o streamování dat v relaci Windows Powershellu. Výchozí hodnota je SilentlyContinue.
 
-    -   Dva nové společné parametry pracovního postupu, PSInformation a InformationAction, byly přidány.
+    -   Přidali jsme dvě nové společné parametry pracovního postupu, PSInformation a InformationAction.
 
-    -   Při použití příkazu Format-Table sloupců tabulky jsou nyní automaticky formátovaná vyhodnocením první 300ms dat, která předá prostřednictvím datového proudu.
+    -   Při použití příkazu Format-Table sloupců tabulky jsou nyní automaticky naformátovat vyhodnocením první 300ms data, která se předá prostřednictvím datového proudu.
 
-- Ve spolupráci s [Microsoft Research](http://research.microsoft.com/), byla přidána nové rutiny, ConvertFrom-řetězec. Řetězec ConvertFrom umožňuje extrahovat a analyzovat strukturovaných objekty z obsahu textového řetězce. Další informace najdete v tématu ConvertFrom řetězec.
+- Ve spolupráci s [Microsoft Research](http://research.microsoft.com/), byla přidána nová rutina ConvertFrom-řetězec. ConvertFrom-String umožňuje extrakce a analýza strukturovaných objektů z obsahu textového řetězce. Další informace najdete v tématu ConvertFrom-řetězec.
 
-- Novou rutinu převést řetězec automaticky formátovat text podle příklad, který je zadat parametr - příklad.
+- Nová rutina převést řetězec automaticky formátuje text založené na příklad, který zadáte parametr – příklad.
 
-- Nový modul, Microsoft.PowerShell.Archive, zahrnuje rutiny, které umožňují komprimujte soubory a složky v souborech archivu (také označované jako ZIP), extrahujte soubory z existujících souborů ZIP a aktualizovat soubory ZIP s novější verzí souborů komprimované v nich.
+- Nový modul Microsoft.PowerShell.Archive, zahrnuje rutiny, které umožňují komprimovat soubory a složky v souborech archivu (označované také jako soubor ZIP), extrahujte soubory z existujících souborů ZIP a aktualizovat soubory ZIP s novějšími verzemi soubory zkomprimované v nich.
 
-- Nový modul, PackageManagement, umožňuje zjišťovat a instalovat balíčky softwaru na Internetu. Modul PackageManagement (dříve označované jako OneGet) je k sjednocení správy balíčků systému Windows pomocí jediného rozhraní prostředí Windows PowerShell a správce nebo multiplexor existující balíček správce (také nazývané poskytovatelé balíčku).
+- Nový modul PackageManagement, umožňuje zjišťovat a instalovat softwarové balíčky v síti Internet. Modulu PackageManagement (dříve označované jako OneGet) je správce nebo multiplexor z existujícího Správce balíčků (také nazývané poskytovatelé balíčku) umožní sjednotit správu balíčků Windows pomocí jednoho rozhraní prostředí Windows PowerShell.
 
-- Nový modul, PowerShellGet, umožňuje najít, nainstalovat, publikovat a aktualizovat moduly a prostředků DSC na [Galerie prostředí PowerShell](http://www.powershellgallery.com/), nebo na úložiště interní modul, který můžete nastavit tak, že spustíte rutinu Register-PSRepository.
+- Nový modul PowerShellGet, umožňuje hledat, instalovat, publikovat a aktualizovat moduly a prostředky DSC na [Galerie prostředí PowerShell](http://www.powershellgallery.com/), nebo na interní modul úložiště, která můžete nastavit tak, spustíte rutinu Register-PSRepository.
 
-- Nové klíčové slovo jazyka, **Hidden**, byla přidána k určení, zda ve výchozím nastavení ve výsledcích Get-člen není zobrazen člena (vlastnost nebo metodu) (Pokud přidáte parametr - Force). Vlastnosti nebo metody, které byly označeny jako skrytá také se nezobrazí ve výsledcích IntelliSense, pokud si nejste v kontextu, kde má být zobrazena; člena například automatické proměnné $to by měl zobrazit skryté členy v metodu třídy.
+- Nové klíčové slovo jazyka, **skryté**, byla přidána k určení, že člena (vlastnost nebo metodu) nezobrazuje ve výchozím nastavení ve výsledcích Get-Member (Pokud nepřidáte parametr - Force). Vlastnosti nebo metody, které byly označeny jako skryté také nezobrazí ve výsledcích technologie IntelliSense, pokud jsou v kontextu, kde by mělo být člen viditelný. například na automatické proměnné $, které by se zobrazit skryté členy v metodu třídy.
 
-- Nová položka, odeberte položku a Get-ChildItem vylepšily podporují vytváření a správu [symbolické odkazy](http://en.wikipedia.org/wiki/Symbolic_link). **- ItemType** parametr nové položky přijímá nová hodnota **SymbolicLink**. Nyní můžete vytvořit symbolické odkazy na jediném řádku spuštěním rutiny New-položky.
+- Nová položka, odeberte položku a Get-ChildItem vylepšené a podporují vytváření a správu [symbolické odkazy](http://en.wikipedia.org/wiki/Symbolic_link). **- ItemType** přijímá nová hodnota parametru pro New-Item **SymbolicLink**. Nyní můžete vytvořit symbolické odkazy na jednom řádku, spuštěním rutiny New-Item.
 
-- Get-ChildItem má také novou - hloubka parametr, který používáte s parametrem - Recurse omezit rekurze. Například Get-ChildItem-Recurse - 2 hloubka vrátí výsledky v aktuální složce všechny podřízené složky v aktuální složce a všechny složky v rámci podřízené složky.
+- Rutina Get-ChildItem má také nové - Depth parametr, který používáte s parametrem - Recurse omezit rekurze. Například Get-ChildItem-Recurse - 2 hloubky vrátí výsledky z aktuální složky, všechny podřízené složky do aktuální složky a všechny složky v rámci podřízené složky.
 
-- Teď umožňuje můžete kopírovat soubory nebo složky z jednu relaci prostředí Windows PowerShell do jiného, což znamená, že můžete zkopírovat soubory do relací, které jsou připojené ke vzdáleným počítačům copy-Item (včetně počítačů, na kterých běží [Nano Server](http://blogs.technet.com/b/windowsserver/archive/2015/04/08/microsoft-announces-nano-server-for-modern-apps-and-cloud.aspx), a proto mít žádné další rozhraní). Kopírování souborů, zadejte jako hodnotu nové parametry - FromSession a - ToSession PSSession ID a přidat - cestu a - cílové k určení cesty ke zdroji a cíl, v uvedeném pořadí. Například Copy-Item-cesta c:\\myFile.txt - ToSession $s – d: cílové\\můžete.
+- Teď umožňuje zkopírujete soubory nebo složky z jedné relace prostředí Windows PowerShell do druhého, což znamená, že můžete zkopírovat soubory do relací, které jsou připojené ke vzdáleným počítačům copy-Item (včetně počítačů, na kterých běží [Nano Server](http://blogs.technet.com/b/windowsserver/archive/2015/04/08/microsoft-announces-nano-server-for-modern-apps-and-cloud.aspx), a tedy mít žádné rozhraní). Kopírování souborů, zadejte jako hodnotu nové parametry - FromSession a - ToSession ID relace PSSession a přidejte - cestu a - cíl a zadejte cestu ke zdroji a určení, v uvedeném pořadí. Například Copy-Item-c: cesta\\myFile.txt - ToSession $s – určení d:\\můžete.
 
-- Vylepšili jsme prostředí Windows PowerShell přepis použít na všechny hostování aplikace (například systému Windows PowerShell ISE) kromě hostitele konzoly (**powershell.exe**). Přepis možnosti (včetně povolení systémové přepis) se dá nakonfigurovat povolení **zapnout prostředí PowerShell přepis** nastavení zásad skupiny, najít v správce součástí šablony/Windows/Windows Prostředí PowerShell.
+- Vylepšili jsme prostředí Windows PowerShell určené k transkripci má použít pro všechny hostitelské aplikace (jako je Windows PowerShell ISE) kromě hostitel konzoly (**powershell.exe**). Možnosti přepisu (včetně povolení systémová přepisu) můžete nakonfigurovat tím, že **zapnout prostředí PowerShell určené k transkripci** nastavení zásad skupiny, nalezen v správu součásti šablony/Windows/Windows Prostředí PowerShell.
 
-- Nová funkce trasování podrobné skriptu umožňuje povolit podrobné sledování a analýza skriptování použití prostředí Windows PowerShell v systému. Po povolení trasování podrobné skriptu prostředí Windows PowerShell zaznamená do protokolu událostí události trasování událostí pro Windows (ETW), všechny bloky skriptu **Microsoft-Windows-PowerShell/Operational**.
+- Nová funkce skriptu podrobné trasování umožňuje povolit podrobné sledování a analýza použití skriptu prostředí Windows PowerShell v systému. Po povolení trasování podrobné skript prostředí Windows PowerShell zaznamená do protokolu událost Event Tracing for Windows (ETW), všechny bloky skriptu **Microsoft-Windows-PowerShell/Operational**.
 
-- Spouštění v prostředí Windows PowerShell 5.0, nové rutiny Cryptographic Message Syntax podporu pro šifrování a dešifrování obsahu pomocí formátu standard sdružení IETF pro kryptograficky ochranu zprávy, jak je uvedeno ve [RFC5652](http://tools.ietf.org/html/rfc5652). Rutiny Get-CmsMessage CmsMessage chránit a Unprotect-CmsMessage byly přidány do [Microsoft.PowerShell.Security](http://technet.microsoft.com/library/hh849807.aspx) modulu.
+- Od verze Windows Powershellu 5.0, nové rutiny Cryptographic Message Syntax podporují šifrování a dešifrování obsahu s využitím standardního formátu IETF kryptograficky ochrany zprávy podle ní správný [RFC5652](http://tools.ietf.org/html/rfc5652). Rutiny Get-CmsMessage CmsMessage chránit a Unprotect-CmsMessage byly přidány do [Microsoft.PowerShell.Security](http://technet.microsoft.com/library/hh849807.aspx) modulu.
 
-- Nové rutiny v [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu, Get-prostředí Runspace, ladění Runspace, Get-RunspaceDebug, RunspaceDebug povolit a zakázat-RunspaceDebug, umožňují nastavit možnosti ladění na prostředí runspace a zahájení a ukončení ladění na prostředí runspace. Pro ladění libovolný prostředí runspace "tedy prostředí runspace, které nejsou pro prostředí Windows PowerShell konzoly nebo Windows PowerShell ISE relace prostředí runspace výchozí '"prostředí Windows PowerShell umožňuje nastavit zarážky ve skriptu a přidali zarážky zastavit z spuštění, dokud se můžete připojit ladicí program k ladění skriptu prostředí runspace. Ladicí program skriptu prostředí Windows PowerShell pro prostředí runspace přidala podporu vnořené ladění pro libovolný prostředí runspace.
+- Nové rutiny v [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu, Get-prostředí Runspace, ladicí prostředí Runspace, Get-RunspaceDebug, RunspaceDebug povolit a zakázat RunspaceDebug, můžete tak nastavit možnosti ladění na prostředí runspace a spouštění a zastavování ladění na prostředí runspace. Pro ladění libovolného prostředí runspace "tedy prostředí runspace, které nejsou v konzole Windows Powershellu nebo Windows PowerShell ISE relace prostředí runspace výchozí" "prostředí Windows PowerShell vám umožní nastavit zarážky ve skriptu a přidali zarážky zastavit z spuštění, dokud se můžete připojit ladicí program k ladění skriptu prostředí runspace. Vnořené podporu ladění pro libovolné prostředí runspace byla přidána k ladicímu prostředku skriptů prostředí Windows PowerShell pro prostředí runspace.
 
-- Nové rutiny formátu šestnáctkový byl přidán do [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu. Formát šestnáctkový umožňuje zobrazit textu nebo binárních dat v šestnáctkovém formátu.
+- Přibyla nová rutina formátu Hex [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu. Formát Hex umožňuje zobrazit text nebo binární data v šestnáctkovém formátu.
 
-- Rutiny Get-schránky a schránky sadu byly přidány do [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu; jejich usnadňují přenos obsahu do a z relace prostředí Windows PowerShell. Rutiny schránky podporovat bitové kopie, zvukové soubory, seznamy souborů a text.
+- Byly přidány do rutiny Get-schránky a schránky sadu [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modul; usnadňují jejich přenos obsahu do a z relace prostředí Windows PowerShell. Rutiny schránky podporují obrázky, zvukové soubory, seznamy souborů a text.
 
-- Nové rutiny, Clear-odpadkový koš, byl přidán do [Microsoft.PowerShell.Management](http://technet.microsoft.com/library/hh849827(v=wps.640).aspx) modulu; tato rutina prázdné Bin recyklování pro pevnou jednotku, která zahrnuje externích jednotek. Ve výchozím nastavení se výzva k potvrzení příkazu Clear-odpadkový koš, protože vlastnost ConfirmImpact rutiny je nastavena na ConfirmImpact.High.
+- Nová rutina Clear-odpadkový koš, byl přidán do [Microsoft.PowerShell.Management](http://technet.microsoft.com/library/hh849827(v=wps.640).aspx) modulu; tato rutina prázdné recyklace Bin pro pevnou jednotku, která zahrnuje externích jednotek. Ve výchozím nastavení se výzva k potvrzení příkazu vymazat odpadkový koš, protože vlastnost ConfirmImpact rutiny je nastavena na ConfirmImpact.High.
 
-- Novou rutinu New-TemporaryFile, můžete vytvořit dočasný soubor v rámci skriptování. Ve výchozím nastavení, je vytvořen nový dočasný soubor v ```C:\Users\<user name>\AppData\Local\Temp```.
+- Nová rutina New-TemporaryFile umožňuje vytvořit dočasný soubor jako součást skriptování. Ve výchozím nastavení, je vytvořen nový dočasný soubor v ```C:\Users\<user name>\AppData\Local\Temp```.
 
-- Out-File, přidat obsahu a rutiny Set-obsahu teď mají nový parametr - NoNewline vynechá nový řádek po výstup.
+- Out-File, přidat obsah a rutiny Set-obsahu teď mají nový parametr - NoNewline vynechá nový řádek za výstupem.
 
-- Rutinu New-Guid využívá třídy pro rozhraní .NET Framework Guid generovat identifikátor GUID je užitečné, pokud píšete skripty nebo prostředky DSC.
+- Rutina New-Guid využívá rozhraní .NET Framework Guid třídu pro generování identifikátoru GUID, užitečné při psaní skriptů nebo prostředky DSC.
 
-- Protože informací o verzi souboru může být zavádějící, zejména po souboru je opravit, jsou k dispozici pro objekty FileInfo vlastnosti nového FileVersionRaw a ProductVersionRaw skriptu. Například můžete spustit následující příkaz k zobrazení hodnot z těchto vlastností pro powershell.exe, kde $pid obsahuje ID procesu pro spuštěné relaci prostředí Windows PowerShell:  ```Get-Process -Id $pid -FileVersionInfo | Format-List *version* -Force```
+- Vzhledem k tomu, že informace o verzi souboru může být matoucí, zejména po opravit soubor, jsou k dispozici pro objekty FileInfo nové vlastnosti skriptu FileVersionRaw a ProductVersionRaw. Můžete například spustit následující příkaz, který zobrazí hodnoty těchto vlastností pro powershell.exe, kde $pid obsahuje ID procesu pro spuštěné relaci Windows powershellu:  ```Get-Process -Id $pid -FileVersionInfo | Format-List *version* -Force```
 
-- Nové rutiny Enter PSHostProcess a ukončení PSHostProcess umožňuje ladění skriptů prostředí Windows PowerShell v procesy, které jsou oddělené od aktuální proces, který běží v konzole Windows PowerShell. Spusťte Enter PSHostProcess zadejte, nebo připojení k konkrétní proces s ID a pak spusťte Get-prostředí Runspace vrátit active prostředí runspace v rámci procesu. Spusťte ukončení PSHostProcess odpojit z procesu po dokončení ladění skriptu v rámci procesu.
+- Nové rutiny Enter PSHostProcess a ukončení PSHostProcess umožňují ladění skriptů prostředí Windows PowerShell v procesy nezávisle na aktuální proces, na kterém běží v konzole Windows Powershellu. Spusťte Enter PSHostProcess nebo připojit k ID procesů a pak spusťte Get-prostředí Runspace se vraťte aktivní prostředí runspace v rámci procesu. Spusťte ukončovací PSHostProcess se odpojit od procesu po dokončení ladění skriptu v rámci procesu.
 
-- Nové rutiny čekání-ladicí program byl přidán do [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu. Můžete spustit čekání-ladicí program k zastavení skript v ladicím programu před spuštěním další příkaz ve skriptu.
+- Přibyla nová rutina čekání ladicího programu [Microsoft.PowerShell.Utility](http://technet.microsoft.com/library/hh849958.aspx) modulu. Můžete spustit čekání – ladicí program zastaví skript v ladicím programu před spuštěním dalšího příkazu do skriptu.
 
-- Ladicí program pracovního postupu prostředí Windows PowerShell teď podporuje příkaz nebo kartě dokončení, a můžete ladit funkce vnořený pracovní postup. Nyní můžete stisknout **Ctrl + Break** k zadání ladicího programu spouštění skriptu, místní a vzdálené relace a skript pracovního postupu.
+- Ladicí program pracovní postup prostředí Windows PowerShell teď podporuje dokončení příkazu nebo kartu a vnořený pracovní postup funkce můžete ladit. Nyní můžete stisknout **Ctrl + Break** zadat ladicí program spouští skript, místních i vzdálených relací a pracovního postupu skriptu.
 
-- Rutiny ladění-Job byl přidán do [Microsoft.PowerShell.Core](http://technet.microsoft.com/library/hh849695.aspx) modulu k ladění skriptů spuštěné úlohy pracovního postupu prostředí Windows PowerShell, pozadí a úlohy spuštěné v vzdálené relace.
+- Rutiny ladění úlohy byl přidán do [Microsoft.PowerShell.Core](http://technet.microsoft.com/library/hh849695.aspx) modul ladění skriptů spuštěných úloh pro pracovní postup prostředí Windows PowerShell, pozadí a úlohy spuštěné v vzdálené relace.
 
-- Nový stav, AtBreakpoint, přidala pro prostředí Windows PowerShell úlohy. Stav AtBreakpoint platí, pokud úloha spuštěna skript, který obsahuje nastavit zarážky a skript narazil na zarážky. Po zastavení úlohy u ladicí zarážky musíte ladit úlohy po spuštění rutiny ladění úlohy.
+- Byl přidán nový stav AtBreakpoint, pro úlohy Windows Powershellu. Stav AtBreakpoint platí, pokud úlohy běží skript, který obsahuje nastavení zarážek a skript dosáhne zarážky. Úlohy zastavení na zarážce ladění, musí ladění úlohy po spuštění rutiny ladění úlohy.
 
-- Prostředí Windows PowerShell 5.0 implementuje podporu pro více verzí jeden modul prostředí Windows PowerShell ve stejné složce v $PSModulePath. Vlastnost RequiredVersion přidaná do třídy ModuleSpecification pomohou že získat požadovanou verzi modulu; Tato vlastnost je vzájemně se vylučuje s vlastnost verze modulu. RequiredVersion se teď podporuje v rámci hodnoty parametru položka FullyQualifiedName Get-Module, Import-Module a rutiny Remove-modulu.
+- Windows PowerShell 5.0 implementuje podporu více verzí jeden modul prostředí Windows PowerShell ve stejné složce v $PSModulePath. Vlastnost RequiredVersion přidaná do třídy ModuleSpecification umožňující že získat požadovaná verze modulu; Tato vlastnost je vzájemně se vylučuje s vlastnost verze modulu. RequiredVersion je teď podporovaná jako část hodnoty parametru FullyQualifiedName příkazu Get-Module, Import-Module a rutiny Remove-Module.
 
-- Teď můžete dělat ověření verze modulu spuštěním rutiny Test-ModuleManifest.
+- Po spuštění rutiny Test-ModuleManifest můžete nyní provést ověření verze modulu.
 
-- Výsledky rutiny Get-Command teď měla zobrazovat sloupec verze; nové verze vlastnost byla přidána k třídě CommandInfo. Get-Command zobrazuje příkazy z více verzí stejného modulu. Vlastnost verze je také součástí odvozené třídy CmdletInfo: CmdletInfo a ApplicationInfo.
+- Výsledky rutiny Get-Command teď zobrazí sloupec verze. do třídy CommandInfo byla přidána nová vlastnost verze. Get-Command ukazuje příkazy z více verzí stejného modulu. Vlastnost verze je také součástí odvozené třídy CmdletInfo: CmdletInfo a ApplicationInfo.
 
-- Get-Command má nový parametr - ShowCommandInfo, který vrací ShowCommand informace jako PSObjects. To je obzvláště užitečná funkce pro při spuštění zobrazit příkaz v systému Windows PowerShell ISE pomocí vzdálenou komunikaci prostředí Windows PowerShell. Parametr - ShowCommandInfo nahrazuje stávající funkci Get-SerializedCommand v modulu Microsoft.PowerShell.Utility, ale skript Get-SerializedCommand je stále k dispozici pro podporu skriptování nižší úrovně.
+- Get-Command má nový parametr - ShowCommandInfo, který vrací informace ShowCommand jako PSObjects. Toto je obzvláště užitečná funkce pro při spuštění zobrazit příkaz v prostředí Windows PowerShell ISE pomocí vzdálené komunikace Windows Powershellu. Parametr - ShowCommandInfo nahrazuje stávající funkci Get-SerializedCommand v modulu Microsoft.PowerShell.Utility Get-SerializedCommand skriptu je však stále k dispozici a podporují skriptování nižší úrovně.
 
-- Novou rutinu Get-ItemPropertyValue umožňuje získat hodnotu vlastnosti, bez použití zápisu s tečkou. Například můžete starší verze prostředí Windows PowerShell, spusťte následující příkaz k získání hodnoty vlastnosti základ cesty aplikace PowerShellEngine klíče registru: **(Get-ItemProperty-HKLM cesta:\\softwaru\\ Microsoft\\prostředí PowerShell\\3\\PowerShellEngine-název ApplicationBase). ApplicationBase**. Spouštění v prostředí Windows PowerShell 5.0, můžete spustit **Get ItemPropertyValue-HKLM cesta:\\softwaru\\Microsoft\\prostředí PowerShell\\3\\PowerShellEngine-ApplicationBase název** .
+- Nová Rutina Get-ItemPropertyValue umožňuje získat hodnotu vlastnosti bez použití zápisu s tečkou. Například ve starších verzích Windows Powershellu spustíte následující příkaz k získání hodnoty vlastnosti základ cesty aplikace PowerShellEngine klíče registru: **(Get-ItemProperty-cesta HKLM:\\softwaru\\ Microsoft\\PowerShell\\3\\PowerShellEngine – název ApplicationBase). ApplicationBase**. Od verze Windows Powershellu 5.0, můžete spustit **Get ItemPropertyValue-cesta HKLM:\\softwaru\\Microsoft\\PowerShell\\3\\PowerShellEngine – název ApplicationBase** .
 
-- Konzolu prostředí Windows PowerShell teď používá jako v případě systému Windows PowerShell ISE zvýrazňování syntaxe.
+- Konzoly Windows Powershellu teď používá syntaxi barevné zvýrazňování, stejně jako u Windows PowerShell ISE.
 
-- Nový modul NetworkSwitch obsahuje rutiny, které vám umožní použít přepínač virtuální sítě LAN (VLAN) a základní konfigurací portu síťového přepínače vrstvy 2 na Windows Server 2012 R2 logo certified síťové přepínače.
+- Nový modul NetworkSwitch obsahuje rutiny, které vám umožní použít přepínač virtuální sítě LAN (VLAN) a základní konfigurací portu síťového přepínače vrstvy 2 pro systém Windows Server 2012 R2 měly certifikované logo síťové přepínače.
 
-- Položka FullyQualifiedName parametr přidala do rutiny Import-Module a Remove-Module, k podpoře ukládání více verzí jeden modul.
+- Parametr FullyQualifiedName se přidala do rutiny Import-Module a Remove-Module pro podporu ukládání více verzí modulu single.
 
-- Nový parametr, FullyQualifiedModule typu ModuleSpecification mají Save-Help, Update-Help, Import PSSession, Export-PSSession a Get-Command. Přidejte tento parametr k určení plně kvalifikovaným názvem modulu.
+- Nový parametr FullyQualifiedModule typu ModuleSpecification mít Save-Help, Update-Help, Import-PSSession, Export-PSSession a Get-Command. Přidejte tento parametr k určení modul pomocí jeho plně kvalifikovaného názvu.
 
-- Hodnota **$PSVersionTable.PSVersion** byl aktualizovaný, aby 5.0.
+- Hodnota **$PSVersionTable.PSVersion** byl aktualizován na 5.0.
 
-### <a name="new-features-in-windows-powershell-desired-state-configuration"></a>Nové funkce v Konfigurace požadovaného stavu aplikace Windows PowerShell
+### <a name="new-features-in-windows-powershell-desired-state-configuration"></a>Nové funkce ve Windows Powershellu Desired State Configuration
 
-- Vylepšení jazyk prostředí Windows PowerShell umožňují definovat požadovaného stavu aplikace Windows PowerShell (DSC) prostředky pomocí třídy. DscResource importu je nyní true dynamické klíčové slovo; Analyzuje zadaný modul prostředí Windows PowerShell se™ s kořenové modulu, hledání tříd, které obsahují DscResource atribut. Nyní můžete třídy k definování prostředků DSC, při jejichž je požadovaný soubor MOF ani DSCResource podsložky ve složce modulu. Soubor modulu prostředí Windows PowerShell může obsahovat několik tříd prostředků DSC.
+- Vylepšení jazyka prostředí Windows PowerShell vám umožní definovat prostředky Windows PowerShell Desired State Configuration (DSC) pomocí tříd. Import-DscResource je nyní true dynamické klíčové slovo; Analyzuje zadaný modul prostředí Windows PowerShell "™ s kořenový modul, hledání třídy, které obsahují atribut DscResource. Nyní můžete tříd k definování prostředků DSC, které ani souboru MOF ani DSCResource podsložky ve složce modulu není povinné. Soubor modulu Windows PowerShell může obsahovat více tříd prostředků DSC.
 
-- Byl přidán nový parametr, ThrottleLimit, na následující rutiny v modulu PSDesiredStateConfiguration. Přidejte parametr ThrottleLimit určuje počet cílových počítačů nebo zařízení, na kterých se má příkaz pro práci ve stejnou dobu.
+- Nový parametr ThrottleLimit, byla přidána do následujících rutin v modulu PSDesiredStateConfiguration. Přidáte parametr ThrottleLimit můžete určit počet cílových počítačů nebo zařízení, na kterých se má příkaz pracovat ve stejnou dobu.
 
     -   Get-DscConfiguration
 
@@ -229,9 +229,9 @@ Mnoho aktualizací a vylepšení pro Windows PowerShell požadovaného stavu kon
 
     -   Get-DscLocalConfigurationManager
 
-    -   Obnovení DscConfiguration
+    -   Restore-DscConfiguration
 
-    -   Test DscConfiguration
+    -   Test-DscConfiguration
 
     -   Porovnání DscConfiguration
 
@@ -239,477 +239,477 @@ Mnoho aktualizací a vylepšení pro Windows PowerShell požadovaného stavu kon
 
     -   Set-DscLocalConfigurationManager
 
-    -   Počáteční DscConfiguration
+    -   Start-DscConfiguration
 
-    -   Aktualizace DscConfiguration
+    -   Update-DscConfiguration
 
-- S centralizovanou DSC zpráv o chybách, bohaté zaznamenána informace o chybě není pouze v případě, že protokolu, ale lze odeslat buď do centrálního umístění pro pozdější analýzu. Tento centrální umístění můžete použít k ukládání chyby konfigurace DSC, které se vyskytly pro všechny servery ve svém prostředí. Po server sestav je definována v konfiguraci meta, všechny chyby odeslána na server sestav a pak uloženy v databázi. Tato funkce bez ohledu na to, jestli je nakonfigurovaná cílový uzel můžete nastavit načítat konfigurace z načítacího serveru.
+- S centralizovanou DSC hlášení chyb, se bohaté chybové informace neprotokolují pouze v případě, že protokolu, ale je odeslat do centrálního umístění pro pozdější analýzu. Můžete použít tento centrální umístění pro uložení chyby konfigurace DSC, ke kterým došlo u libovolného serveru v jejich prostředí. Po server sestav je definované v meta konfiguraci, všechny chyby odeslání na server sestav a pak uloženy v databázi. Tato funkce bez ohledu na to, jestli je nakonfigurovaná cílový uzel můžete nastavit na o přijetí změn konfigurace ze serveru vyžádané replikace.
 
-- Vylepšení systému Windows PowerShell ISE usnadňují vytváření prostředků DSC. Nyní můžete provést následující.
+- Vylepšení pro Windows PowerShell ISE usnadňují vytváření prostředků DSC. Nyní můžete provést následující.
 
-    -   Všechny prostředky DSC v seznamu **konfigurace** nebo **uzlu** blok zadáním **Ctrl + mezerník** na prázdný řádek uvnitř bloku.
+    -   Všechny prostředky DSC v seznamu **konfigurace** nebo **uzel** bloku tak, že zadáte **kombinace kláves Ctrl + mezerník** na prázdný řádek v rámci bloku.
 
-    -   Automatické dokončování na vlastnosti prostředku **výčtu** typu.
+    -   Automatické dokončování ve vlastnosti prostředku **výčet** typu.
 
-    -   Automatické dokončování na **DependsOn** vlastnost prostředky DSC, v závislosti na dalších prostředků instancí v konfiguraci.
+    -   Automatické dokončení **DependsOn** vlastnost prostředků DSC, podle instance jiných prostředků v konfiguraci.
 
-    -   Dokončování pomocí tabulátorů vylepšené hodnot vlastností prostředku.
+    -   Vylepšené tab k dokončování příkazů hodnot vlastností prostředku.
 
-- Uživatele můžete nyní spustit prostředek pod zadanou sadu přihlašovacích údajů přidáním **PSDscRunAsCredential** atribut blok uzlu. Například PSDscRunAsCredential = Get-Credential Contoso\\DscUser. Tato funkce je užitečná pro vytvoření konfigurace, které spuštění Instalační služby systému Windows a spustitelný instalační programy, přístup k podregistru jednotlivé uživatele nebo provádět další úlohy mimo aktuální uživatelský kontext.
+- Uživatel teď můžete prostředek pod zadanou sadu přihlašovacích údajů spustit tak, že přidáte **PSDscRunAsCredential** atribut uzlu bloku. Například PSDscRunAsCredential = Get-Credential Contoso\\DscUser. Tato funkce je užitečná pro vytvoření konfigurace, které spuštění Instalační služby systému Windows a spustitelný instalační programy, přístup k podregistru na uživatele nebo provádět jiné úlohy mimo aktuální uživatelský kontext.
 
-- byla přidána podpora (x86 na základě) 32-bit **konfigurace** – klíčové slovo.
+- byla přidána podpora (založený na x86) 32-bit pro **konfigurace** – klíčové slovo.
 
-- Prostředí Windows PowerShell teď zahrnuje podporu pro vlastní Nápověda pro konfigurace DSC, definované přidáním \[CmdletBinding()] funkce generované konfigurace.
+- Prostředí Windows PowerShell teď zahrnuje podporu pro vlastní nápovědy ke konfiguracím DSC, definována tak, že přidáte \[CmdletBinding()] funkce vygenerovanou konfiguraci.
 
-- Nový **DscLocalConfigurationManager** atribut určuje blok konfigurace jako meta konfigurace, které slouží ke konfiguraci správce místní konfigurace DSC. Tento atribut omezuje konfiguraci, kterou chcete obsahující pouze položky, které nakonfigurovat správce místní konfigurace DSC. Během zpracování, tato konfigurace generuje \*. meta.mof souboru, který je poté odeslán do příslušné cílové uzly spuštěním rutiny Set-DscLocalConfigurationManager.
+- Nový **DscLocalConfigurationManager** atribut označí blok konfigurace jako meta konfigurace, který se používá ke konfiguraci DSC Local Configuration Manageru. Tento atribut omezuje konfiguraci, kterou chcete obsahující jenom položky, které konfigurace DSC Local Configuration Manageru. Během zpracování, tato konfigurace generuje \*. meta.mof soubor, který se pak posílají do příslušné cílové uzly spuštěním rutiny Set-DscLocalConfigurationManager.
 
-- V prostředí Windows PowerShell 5.0 jsou nyní povolené částečné konfigurace. Dokumenty konfigurace dokáže zajistit do uzlu v fragmenty. Pro uzel pro příjem více fragmentů dokumentem konfigurace uzlu se™ s správce místní konfigurace musíte nejprve nastavit k určení očekávaných fragmenty
+- Částečné konfigurace jsou teď povolené ve Windows Powershellu 5.0. Konfigurace dokumentů můžete doručovat do uzlu ve fragmentech. U uzlu přijímat více fragmentů dokumentu konfigurace uzlu '™ s Local Configuration Manageru musíte nejprve nastavit k určení očekávaných fragmenty
 
-- Synchronizace mezi počítači je nového v DSC v prostředí Windows PowerShell 5.0. Pomocí předdefinovaných WaitFor\* prostředky (**WaitForAll**, **WaitForAny**, a **WaitForSome**), teď můžete zadat závislosti mezi počítači Během konfigurace běží bez externí orchestrations. Tyto zdroje poskytují pomocí CIM připojení přes protokol WS-Man synchronizace mezi uzly. Konfiguraci můžete čekat na jiném počítači,™ chcete změnit stav s konkrétní prostředek.
+- Synchronizace mezi počítači je novinkou ve Windows Powershellu 5.0 DSC. Pomocí předdefinovaných WaitFor\* prostředky (**WaitForAll**, **WaitForAny**, a **WaitForSome**), můžete nyní určení závislostí mezi počítači Během konfigurace spuštění bez externí Orchestrace. Tyto zdroje poskytují s použitím modelu CIM připojení přes protokol WS-Man synchronizace mezi uzly. Konfigurace může čekat na jiný počítač "™ chcete změnit stav s konkrétní prostředek.
 
-- Stačí dostatečně správy (JEA), nové funkce zabezpečení delegování, využívá DSC a prostředí Windows PowerShell omezené prostředí runspace pomohou zabezpečené podniky před ztrátou dat nebo ohrožení zabezpečení zaměstnanci, ať už úmyslně nebo neúmyslně se překrývající. Další informace o sadě nástrojů JEA včetně, kde si můžete stáhnout prostředků xJEA DSC, najdete v části [právě dostatečně správy, krok za krokem](http://blogs.technet.com/b/privatecloud/archive/2014/05/14/just-enough-administration-step-by-step.aspx).
+- Právě Enough Administration (JEA), nová funkce zabezpečení delegování, využívá DSC a prostředí Windows PowerShell omezené prostředí runspace pomáhá zabezpečené podnikům proti ztrátě dat nebo ohrožení zaměstnanci, zda úmyslnému i neúmyslnému. Další informace o JEA, včetně, kde si můžete stáhnout prostředek xJEA DSC, naleznete v tématu [Just Enough Administration, krok za krokem](http://blogs.technet.com/b/privatecloud/archive/2014/05/14/just-enough-administration-step-by-step.aspx).
 
-- Byly přidány následující nové rutiny v modulu PSDesiredStateConfiguration.
+- Byly přidány následující nové rutiny modulu PSDesiredStateConfiguration.
 
-    -   Novou rutinu Get-DscConfigurationStatus získá souhrnné informace o konfiguraci stavu z cílového uzlu. Můžete získat stav posledního, nebo všechny konfigurace.
+    -   Nová Rutina Get-DscConfigurationStatus získá základní informace o konfiguraci stavu z cílového uzlu. Můžete získat stav posledního, nebo všechny konfigurace.
 
-    -   Novou rutinu porovnání DscConfiguration porovnává zadanou konfigurací se skutečným stavem nejméně jeden cílový uzel.
+    -   Nová rutina Compare-DscConfiguration porovnává zadanou konfiguraci se skutečným stavem jeden nebo více cílových uzlů.
 
-    -   Novou rutinu Publish-DscConfiguration zkopíruje na cílový uzel konfigurační soubor MOF, ale nevztahuje konfigurace. Konfigurace se použije během průchodu další konzistence, nebo když spustíte rutinu Update-DscConfiguration.
+    -   Nové rutiny Publish-DscConfiguration zkopíruje na cílový uzel konfiguračního souboru MOF, ale v konfiguraci se nevztahuje. Tato konfigurace používá další průchodu konzistence, nebo při spuštění rutiny Update-DscConfiguration.
 
-    -   Nové rutiny Test-DscConfiguration umožňuje ověřit, jestli odpovídá Výsledná konfigurace požadované konfigurace, vrátí hodnotu PRAVDA, pokud konfigurace odpovídá požadované konfigurace, nebo hodnotu NEPRAVDA, pokud skutečné konfigurace neodpovídá požadované konfigurace.
+    -   Nová rutina Test-DscConfiguration slouží k ověření, že výsledný konfigurace odpovídá požadované konfigurace, vrátí hodnotu True, pokud konfigurace odpovídá požadované konfigurace, nebo hodnotu NEPRAVDA, pokud skutečnou konfiguraci neodpovídá požadované konfigurace.
 
-    -   Novou rutinu Update-DscConfiguration vynutí konfiguraci, kterou chcete zpracovat. Pokud správce místní konfigurace je v režimu vyžádání obsahu, rutina získá konfigurace z načítacího serveru před každým jejím použitím.
+    -   Nová rutina Update-DscConfiguration vynutí konfiguraci, kterou chcete zpracovat. Pokud Local Configuration Manageru je v režimu o přijetí změn, rutina před každým jejím použitím získá konfiguraci ze serveru vyžádané replikace.
 
-### <a name="new-features-in-windows-powershell-ise"></a>Nové funkce v systému Windows PowerShell ISE
+### <a name="new-features-in-windows-powershell-ise"></a>Nové funkce v prostředí Windows PowerShell ISE
 
-- Nyní můžete upravovat vzdálené skriptů prostředí Windows PowerShell a souborů v místní kopii systému Windows PowerShell ISE spuštěním Enter-PSSession spouští vzdálenou relaci v počítači, se™ s ukládání souborů, které chcete upravit a pak spuštěna **PSEdit <path and file name on the remote computer>**. Tato funkce usnadňuje úpravy soubory prostředí Windows PowerShell, které jsou uložené na možnost instalace jádra serveru systému Windows Server, kde nelze spustit Windows PowerShell ISE.
+- Teď můžete upravit vzdáleného prostředí Windows PowerShell skriptů a souborů v místní kopii Windows PowerShell ISE spuštěním Enter-PSSession spouští vzdálenou relaci v počítači, který "™ s ukládání souborů, které chcete upravit a následné spuštění **PSEdit <path and file name on the remote computer>**. Tato funkce usnadňuje úpravy souborů Windows Powershellu, které jsou uložené na instalaci jádra serveru systému Windows Server, ve kterém nelze spustit Windows PowerShell ISE.
 
-- Rutina Start-přepis se teď podporuje v systému Windows PowerShell ISE.
+- Rutina Start-přepisu se teď podporuje v prostředí Windows PowerShell ISE.
 
-- Nyní můžete ladit vzdálené skriptů v systému Windows PowerShell ISE.
+- Teď můžete ladit vzdálenou skriptů v prostředí Windows PowerShell ISE.
 
-- Nový příkaz nabídky, **přerušení všech** (Ctrl + B), ladicímu pro místní i vzdálené spouštění skriptů.
+- Nový příkaz nabídky **příkaz Pozastavit vše** (Ctrl + B) rozdělí do ladicího programu pro místní a vzdálené spuštění skriptů.
 
-### <a name="new-features-in-windows-powershell-web-services-management-odata-iis-extension"></a>Nové funkce v systému Windows PowerShell webové služby (IIS rozšíření Správa OData)
+### <a name="new-features-in-windows-powershell-web-services-management-odata-iis-extension"></a>Nové funkce ve Windows Powershellu webové služby (IIS rozšíření správy OData)
 
-- Spouštění v prostředí Windows PowerShell 5.0, můžete vygenerovat sadu rutin prostředí Windows PowerShell podle funkce vystavené dané koncový bod OData, spuštěním rutiny Export-ODataEndpointProxy, najít v novém [ Microsoft.PowerShell.OdataUtils](http://technet.microsoft.com/library/dn818507(v=wps.640).aspx) modulu.
+- Od verze Windows Powershellu 5.0, můžete vygenerovat sadu rutin Windows Powershellu závislosti na funkcích vystavené daný koncový bod OData, spuštěním rutiny Export-ODataEndpointProxy, nalezen v novém [ Microsoft.PowerShell.OdataUtils](http://technet.microsoft.com/library/dn818507(v=wps.640).aspx) modulu.
 
-### <a name="notable-bug-fixes-in-windows-powershell-50"></a>Významné opravy chyb v prostředí Windows PowerShell 5.0
+### <a name="notable-bug-fixes-in-windows-powershell-50"></a>Důležité opravy chyb ve Windows Powershellu 5.0
 
-- Prostředí Windows PowerShell 5.0 obsahuje nové implementace modelu COM, který nabízí výrazné vylepšení výkonu při práci s objekty COM. Videoukázka účinek, najdete v části [Com_Perf_Improvements](http://1drv.ms/1qu3UPZ).
+- Windows PowerShell 5.0 obsahuje novou implementaci modelu COM, která nabízí výrazné zlepšení výkonu při práci s objekty COM. Video ukázku účinek, najdete v části [Com_Perf_Improvements](http://1drv.ms/1qu3UPZ).
 
-- Významné zlepšení výkonu byly provedeny na první kartě dokončení v relaci prostředí Windows PowerShell, zkrátit čas dokončení karta podle téměř 500 ms.
+- Výrazné zlepšení výkonu byly provedeny na první kartě dokončení v relaci Windows Powershellu zkrácení času dokončení kartu podle téměř 500 ms.
 
-## <a name="new-features-in-windows-powershell-40"></a>Nové funkce v prostředí Windows PowerShell 4.0
-Prostředí Windows PowerShell 4.0 je zpětně kompatibilní. Rutiny, zprostředkovatelé, moduly, moduly snap in, skripty, funkce a profily, které byly navrženy pro prostředí Windows PowerShell 3.0 a prostředí Windows PowerShell 2.0 fungují v prostředí Windows PowerShell 4.0 beze změn.
+## <a name="new-features-in-windows-powershell-40"></a>Nové funkce ve Windows Powershellu 4.0
+Windows PowerShell 4.0 je zpětně kompatibilní. Rutiny, poskytovatelů, moduly, moduly snap in, skripty, funkce a profily, které byly navrženy pro Windows PowerShell 3.0 a Windows PowerShell 2.0 fungovat bez nutnosti změn ve Windows Powershellu 4.0.
 
-Prostředí Windows PowerShell 4.0 je nainstalována ve výchozím nastavení systému Windows 8.1 a Windows Server 2012 R2. Chcete-li nainstalovat prostředí Windows PowerShell 4.0 na systému Windows 7 s aktualizací SP1 nebo Windows Server 2008 R2, stáhněte a nainstalujte [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855). Nezapomeňte přečíst podrobnosti o stažení a splňovat všechny požadavky na systém, před instalací Windows Management Framework 4.0.
+Windows PowerShell 4.0 se instaluje standardně na Windows 8.1 a Windows Server 2012 R2. Pokud chcete nainstalovat Windows PowerShell 4.0 na Windows 7 s aktualizací SP1 nebo Windows Server 2008 R2, stáhněte a nainstalujte [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855). Nezapomeňte si přečíst podrobnosti o stahování a splňovat všechny požadavky na systém, před instalací Windows Management Framework 4.0.
 
 - [Nové funkce v prostředí Windows PowerShell](#new-features-in-windows-powershell-1)
-- [Nové funkce v systému Windows PowerShell Integrované skriptovací prostředí (ISE)](#new-features-in-windows-powershell-integrated-scripting-environment-ise)
-- [Nové funkce v pracovním postupu Windows PowerShell](#new-features-in-windows-powershell-workflow)
-- [Nové funkce v systému Windows PowerShell webové služby](#new-features-in-windows-powershell-web-services)
-- [Nové funkce v systému Windows PowerShell Web Access](#new-features-in-windows-powershell-web-access)
-- [Významné opravy chyb v prostředí Windows PowerShell 4.0](#notable-bug-fixes-in-windows-powershell-40)
+- [Nové funkce ve Windows Powershellu integrovaném skriptovacím prostředí (ISE)](#new-features-in-windows-powershell-integrated-scripting-environment-ise)
+- [Nové funkce v pracovním postupu Windows Powershellu](#new-features-in-windows-powershell-workflow)
+- [Nové funkce ve Windows Powershellu webové služby](#new-features-in-windows-powershell-web-services)
+- [Nové funkce ve Windows PowerShell Web Accessu](#new-features-in-windows-powershell-web-access)
+- [Důležité opravy chyb ve Windows Powershellu 4.0](#notable-bug-fixes-in-windows-powershell-40)
 
-Prostředí Windows PowerShell 4.0 obsahuje následující nové funkce.
+Windows PowerShell 4.0 obsahuje následující nové funkce.
 
 ### <a name="new-features-in-windows-powershell"></a>Nové funkce v prostředí Windows PowerShell
 
-- **Konfigurace požadovaného stavu aplikace Windows PowerShell** (DSC) je nový systém správy v prostředí Windows PowerShell 4.0 umožňující nasazení a správa konfiguračních dat pro služby softwaru a prostředí, ve kterém se tyto služby spuštěny. Další informace o DSC najdete v tématu [začít pracovat s konfigurace požadovaného stavu aplikace Windows PowerShell](https://technet.microsoft.com/library/c134aa32-b085-4656-9a89-955d8ff768d0).
+- **Windows PowerShell Desired State Configuration** (DSC) je nový systém pro správu ve Windows PowerShell 4.0, která umožňuje nasazení a správu konfigurační data pro softwarových služeb a prostředí, ve kterém je spuštěný těchto služeb. Další informace o DSC najdete v tématu [začít pracovat s Windows PowerShell Desired State Configuration](https://technet.microsoft.com/library/c134aa32-b085-4656-9a89-955d8ff768d0).
 
-- **Save-Help** teď umožňuje uložit nápovědy pro moduly, které jsou nainstalovány na vzdálených počítačích. Save-Help vám pomůže stáhnout modul nápovědy z klienta připojeného k Internetu (na kterém není všechny moduly, pro které chcete zobrazit nápovědu nutně nainstalovaných) a poté zkopírujte uložené nápovědy na vzdálené sdílené složce nebo ve vzdáleném počítači, který nemá Internet přístup.
+- **Save-Help** teď umožňuje uložit nápovědy pro moduly, které jsou nainstalovány na vzdálených počítačích. Save-Help můžete použít ke stažení modulu nápovědy z klienta připojeného k Internetu (na kterém všechny moduly, pro které chcete zobrazit nápovědu je nutně nainstalováno) a potom zkopírujte uložené nápovědy k vzdálené sdílené složky nebo vzdáleném počítači, který nemá Internet přístup.
 
-- Ladicí program prostředí Windows PowerShell je vylepšená povolit ladění pracovních postupů prostředí Windows PowerShell, jakož i skripty, které běží na vzdálených počítačích. Pracovní postupy prostředí Windows PowerShell můžete ladit nyní na úrovni skriptu z příkazového řádku prostředí Windows PowerShell nebo Windows PowerShell ISE. Skripty prostředí Windows PowerShell, včetně pracovními postupy skriptů, můžete nyní ladit prostřednictvím vzdálené relace. Vzdálené ladění relace se zachovají přes vzdálené relací prostředí Windows PowerShell, které jsou odpojen a pak znovu později.
+- Vylepšili jsme prostředí Windows PowerShell ladicí program pro povolení ladění pracovních postupů prostředí Windows PowerShell, jakož i skripty, které jsou spuštěny na vzdálených počítačích. Pracovní postupy prostředí Windows PowerShell se teď dají ladit na úrovni skriptu z příkazového řádku prostředí Windows PowerShell nebo Windows PowerShell ISE. Skripty prostředí Windows PowerShell, včetně skriptových pracovních postupech, se teď dají ladit přes vzdálené relace. Vzdálené ladění relace jsou zachovány prostřednictvím vzdálené relace prostředí Windows PowerShell, odpojí a znovu připojena později.
 
-- A **RunNow** parametr pro **Register-ScheduledJob** a **Set-ScheduledJob** se eliminuje potřeba nastavit okamžité počáteční datum a čas pro úlohy pomocí **Aktivační událost** parametr.
+- A **RunNow** parametr pro **Register-ScheduledJob** a **Set-ScheduledJob** eliminuje nutnost nastavit okamžitou počáteční datum a čas pro úlohy s použitím **Aktivační událost** parametru.
 
-- **Invoke-RestMethod** a **Invoke-WebRequest** teď umožňují nastavit všechny hlavičky pomocí parametru hlavičky. I když tento parametr má vždy existovalo, bylo několik parametrů pro webové rutiny, jejichž výsledkem výjimky nebo chyby.
+- **Invoke-RestMethod** a **Invoke-WebRequest** teď můžete tak nastavit všechny hlavičky pomocí parametru záhlaví. I když tento parametr má vždy existoval, byl jeden z několika parametrů pro rutiny webových, jejímž výsledkem výjimek nebo chyby.
 
-- **Get-Module** má parametr nového **položka FullyQualifiedName**, typu **ModuleSpecification\[]**. **Položka FullyQualifiedName** parametr Get-Module teď umožňuje zadat modul pomocí modulu název, verzi a volitelně její identifikátor GUID.
+- **Get-Module** má nový parametr **FullyQualifiedName**, typu **ModuleSpecification\[]**. **FullyQualifiedName** parametr Get-Module teď umožňuje určit modulu s použitím modulů název, verzi a volitelně její identifikátor GUID.
 
-- Výchozí nastavení zásady spouštění v systému Windows Server 2012 R2 je **RemoteSigned**. Na Windows 8.1 nedojde ke změně ve výchozím nastavení.
+- Výchozí nastavení zásady spouštění v systému Windows Server 2012 R2 je **RemoteSigned**. Na Windows 8.1 není žádná změna ve výchozím nastavení.
 
-- Spouštění v prostředí Windows PowerShell 4.0, je volání metody pomocí názvů dynamické metoda podporována. Můžete použít proměnnou pro uložení název metody a dynamicky vyvolání metody při volání proměnné.
+- Od verze Windows PowerShell 4.0, volání metody pomocí názvů dynamickou metodu, je podporována. Můžete použít proměnnou pro uložení názvu metody a dynamické vyvolání metody při volání proměnné.
 
-- Asynchronní pracovní postup úlohy jsou již odstraněny při časovém limitu, který je uveden ve **PSElapsedTimeoutSec** uplynul společný parametr pracovního postupu.
+- Úlohy asynchronního pracovního postupu se už smaže časový limit, která je určená **PSElapsedTimeoutSec** společný parametr pracovního postupu vypršel.
 
-- Nový parametr **RepeatIndefinitely**, byl přidán do **New-JobTrigger** a **Set-JobTrigger** rutiny. Tím se eliminuje nutnost zadávání **TimeSpan.MaxValue, což** hodnota **RepetitionDuration** parametru opakovaně spouštět naplánované úlohy na dobu neurčitou.
+- Nový parametr **RepeatIndefinitely**, byl přidán do **New-JobTrigger** a **Set-JobTrigger** rutiny. Tím se eliminuje nutnost zadávání **hodnotu TimeSpan.MaxValue** hodnota **RepetitionDuration** parametr opakovaně spouštět plánované úlohy na dobu neurčitou.
 
-- A **Passthru** parametr byl přidán do **Enable-JobTrigger** a **Disable-JobTrigger** rutiny. Parametr Passthru zobrazí objekty, které jsou vytvořit nebo změnit pomocí příkazu.
+- A **Passthru** parametr byl přidán do **Enable-JobTrigger** a **Disable-JobTrigger** rutiny. Parametr Passthru zobrazí všechny objekty, které jsou vytvořené nebo změněné ve svých rukou.
 
-- Názvy parametrů pro zadání v pracovní skupině **Add-Computer** a **Remove-Computer** rutiny jsou konzistentní. Obě rutiny teď použít parametr **Název_pracovní_skupiny**.
+- Názvy parametrů pro zadání v pracovní skupině **Add-Computer** a **Remove-Computer** rutiny jsou konzistentní vzhledem k aplikacím. Obě rutiny teď použít parametr **Název_pracovní_skupiny**.
 
-- Nové společný parametr **PipelineVariable**, byla přidána. PipelineVariable umožňuje výsledky vytvoření kanálu příkazu (nebo součást vytvoření kanálu příkazu) uložit jako proměnnou a tu lze předat ve zbývající části kanálu.
+- Nové společný parametr **PipelineVariable**, byl přidán. PipelineVariable umožňuje uložit výsledky potrubím příkazu (nebo část potrubím příkaz) jako proměnnou, která mohou být předány až do kanálu.
 
-- Kolekce filtrování pomocí syntaxe využívající metody se teď podporuje. To znamená, že teď můžete filtrovat na kolekci objektů pomocí zjednodušenou syntaxi, které je podobné pro Where() nebo Where-Object formátu volání metody. Následuje příklad: (Get-Process) .where ({$_. Název - shodovat s "powershell"})
+- Filtrování pomocí syntaxe metody kolekce se teď podporuje. To znamená, že teď můžete filtrovat kolekce objektů s použitím zjednodušenou syntaxi, podobný tomu Where() nebo Where-Object, formátovaný jako volání metody. Tady je příklad: (Get-Process) .where ({$_. Název - odpovídají "powershell"})
 
-- **Get-Process** rutina má parametr nového přepínače **IncludeUserName**.
+- **Get-Process** rutina má nového přepínacího parametru **IncludeUserName**.
 
-- Nové rutiny **Get-FileHash**, která vrátí hodnotu hash souboru v některém z formátů pro určitý název souboru, byla přidána.
+- Nová rutina **Get-FileHash**, který vrátí hodnotu hash souboru v jednom z několika formátů pro zadaný soubor, byl přidán.
 
-- V prostředí Windows PowerShell 4.0, pokud modul používá **DefaultCommandPrefix** klíče v manifestu, nebo pokud uživatel importuje modul s **předpony** parametr **ExportedCommands**vlastnost modulu zobrazuje příkazy v modulu s předponou. Při spouštění příkazů pomocí syntaxe modulu kvalifikovaný název modulu\\CommandName, názvy příkazů musí obsahovat předponu.
+- Ve Windows Powershellu 4.0, pokud modul používá **DefaultCommandPrefix** klíče v jeho manifestu, nebo pokud uživatel importuje modul s **předpony** parametr, **ExportedCommands**vlastnost modulu ukazuje příkazy v modulu s předponou. Při spuštění příkazu pomocí syntaxe kvalifikací modulu ModuleName\\CommandName, názvy příkazů musí obsahovat předponu.
 
-- Hodnota **$PSVersionTable.PSVersion** byl aktualizovaný, aby 4.0.
+- Hodnota **$PSVersionTable.PSVersion** byl aktualizován na 4.0.
 
-- **WHERE()** operátor chování změnilo. `Collection.Where('property -match name')` přijetí řetězcového výrazu ve formátu `"Property -CompareOperator Value"` již není podporována. Ale **Where()** operátor přijímá výrazy řetězec ve formátu scriptblock; to je podporováno.
+- **Metody WHERE()** operátor chování změnilo. `Collection.Where('property -match name')` přijímá řetězcového výrazu ve formátu `"Property -CompareOperator Value"` už není podporovaná. Ale **Where()** operátor přijímá výrazy řetězec ve formátu scriptblock; to je podporováno.
 
-### <a name="new-features-in-windows-powershell-integrated-scripting-environment-ise"></a>Nové funkce v systému Windows PowerShell Integrované skriptovací prostředí (ISE)
+### <a name="new-features-in-windows-powershell-integrated-scripting-environment-ise"></a>Nové funkce ve Windows Powershellu integrovaném skriptovacím prostředí (ISE)
 
-- Windows PowerShell ISE podporuje pracovního postupu prostředí Windows PowerShell ladění i ladění vzdáleného skriptu.
+- Windows PowerShell ISE podporuje ladění pracovního postupu prostředí Windows PowerShell i skript vzdáleného ladění.
 
-- Byla přidána podpora technologie IntelliSense pro zprostředkovatele konfigurace požadovaného stavu aplikace Windows PowerShell a konfigurace.
+- Byla přidána podpora technologie IntelliSense pro poskytovatele Windows PowerShell Desired State Configuration a konfigurace.
 
-### <a name="new-features-in-windows-powershell-workflow"></a>Nové funkce v pracovním postupu Windows PowerShell
+### <a name="new-features-in-windows-powershell-workflow"></a>Nové funkce v pracovním postupu Windows Powershellu
 
-- Byla přidána podpora pro novou **PipelineVariable** společný parametr v kontextu iterativní kanálů, jako jsou ty používané System Center Orchestrator; to znamená, který spustí příkazy jednoduše zleva doprava, naproti tomu kanálů spolu s pomocí vysílání datového proudu.
+- Byla přidána podpora pro nový **PipelineVariable** společný parametr v kontextu iterativní kanály, jako jsou ty používané nástroje System Center Orchestrator; to znamená, kanály, která spustí příkazy, jednoduše zleva doprava, nikoli spolu s pomocí vysílání datového proudu.
 
-- Vazby parametru je výrazně Vylepšená pro práci mimo karta dokončení scénáře, jako třeba s příkazy, které nejsou k dispozici v aktuální prostředí runspace.
+- Vazby parametru je výrazně Vylepšená pracovat mimo kartu dokončení scénáře, jako například příkazy, které neexistují v aktuálním prostředí runspace.
 
-- Byla přidána podpora pro vlastní kontejner aktivity do pracovního postupu prostředí Windows PowerShell. Pokud je parametrem aktivity typy **aktivity**, **aktivity\[]**' ", nebo je obecný kolekce aktivit" a uživatel má zadaný blok skriptu jako argument, pak Windows Prostředí PowerShell Workflow převádí blok skriptu do jazyka XAML, stejně jako u normálních kompilace skript do pracovního postupu prostředí Windows PowerShell.
+- Byla přidána podpora pro vlastní kontejner aktivity do pracovního postupu prostředí Windows PowerShell. Pokud je parametr aktivity typů **aktivity**, **aktivity\[]**""nebo je obecná kolekce aktivity "a uživatel dodal blok skriptu jako argument, pak Windows Prostředí PowerShell Workflow převádí bloku skriptu pro XAML, stejně jako normální kompilace skriptu do pracovního postupu prostředí Windows PowerShell.
 
-- Po chybě pracovní postup prostředí Windows PowerShell automaticky znovu připojí ke spravovaným uzlům.
+- Po selhání pracovní postup prostředí Windows PowerShell automaticky znovu připojí ke spravovaným uzlům.
 
-- Teď můžete omezit **Foreach-Parallel** příkazy aktivity pomocí **ThrottleLimit** vlastnost.
+- Teď můžete omezit **Foreach-Parallel** aktivity příkazy pomocí **ThrottleLimit** vlastnost.
 
-- **ErrorAction** společný parametr má novou platnou hodnotu **pozastavit**, která je výhradně pro pracovní postupy.
+- **ErrorAction** má novou platnou hodnotu společného parametru **pozastavit**, která je určená výhradně pro pracovní postupy.
 
-- Koncový bod pracovního postupu nyní automaticky zavře, pokud nejsou žádné aktivní relace, žádné probíhající úlohy a žádné úlohy čekající na vyřízení. Tato funkce šetří prostředky na počítači, který funguje jako server pracovního postupu při splnění podmínek automatické uzavření.
+- Koncový bod pracovního postupu teď automaticky zavře, pokud neexistují žádná aktivní relace, žádné probíhající úlohy a žádné čekající úlohy. Tato funkce šetří prostředky na počítači, který funguje jako server pracovního postupu při splnění podmínek pro automatické ukončení.
 
-### <a name="new-features-in-windows-powershell-web-services"></a>Nové funkce v systému Windows PowerShell webové služby
+### <a name="new-features-in-windows-powershell-web-services"></a>Nové funkce ve Windows Powershellu webové služby
 
-- Když dojde k chybě v systému Windows PowerShell webové služby (PSWS, také zavolat OData IIS rozšíření Management), při použití rutiny běží, více podrobné chybové zprávy jsou vrácena volajícímu. Kromě toho postupujte podle kódů chyb [pokyny kódu chyby REST API služby Windows Azure](http://msdn.microsoft.com/library/windowsazure/dd179357.aspx).
+- Při výskytu chyby ve Windows Powershellu webové služby (PSWS, také nazývané OData IIS rozšíření pro správu), při spuštění je rutina, podrobné chybové zprávy jsou vráceny volajícímu. Kromě toho postupujte podle kódů chyb [pokyny pro REST API služby Windows Azure chyba kódu](http://msdn.microsoft.com/library/windowsazure/dd179357.aspx).
 
-- Koncový bod můžete nyní definovat verze rozhraní API, a také vynutit použití na konkrétní verzi rozhraní API. Vždy, když dojde k verze neshody mezi klientem a serverem, se zobrazí chyby na klientovi i na serveru.
+- Koncový bod lze nyní definovat verze rozhraní API, jakož i vynutit použití konkrétní verzi rozhraní API. Pokaždé, když se neshoduje verze, ke kterým dochází mezi klientem a serverem, se zobrazí chyby klienta i serveru.
 
-- Správa schématu odesílání je jednodušší pomocí automatického generování hodnoty pro všechna pole chybí ve schématu. Generování dojde k užitečné počáteční bod, i když odesílání schéma neexistuje.
+- Správa schématu odeslání zjednodušenou topologickou pomocí automatického generování hodnoty pro všechny chybějící pole ve schématu. Generování dojde k jako počáteční bod užitečné i v případě, že schéma odeslání neexistuje.
 
-- Vylepšili jsme zpracování v PSWS typu pro podporu typů, které používají jiný konstruktor než výchozí konstruktor podle chovají podobně jako **PSTypeConverter** v prostředí Windows PowerShell. To umožňuje využívat komplexní typy s PSWS.
+- Vylepšili jsme zpracování v PSWS typ pro podporu typů, které používají jiný konstruktor než výchozí konstruktor, tímto chová podobně jako **PSTypeConverter** v prostředí Windows PowerShell. To vám umožní používat komplexní typy s PSWS.
 
-- PSWS teď umožňuje rozšíření přidruženou instanci při spuštění dotazu. Pro větší binární obsah (například obrázky, zvuk nebo video) náklady na přenos je důležité, a je lepší pro přenos binární data bez kódování. PSWS používá k přenosu bez kódování datových proudů s názvem prostředku. Datový proud s názvem prostředku je vlastností entitu **Edm.Stream** typu. Každý datový proud prostředku s názvem má samostatnou identifikátor URI pro operace GET nebo aktualizace.
+- PSWS teď umožňuje rozbalením přidruženou instanci při spuštění dotazu. Pro větší binární obsah (jako jsou obrázky, zvuk nebo video) náklady na přenos je důležité a je vhodnější převést binární data bez kódování. PSWS používá datové proudy pojmenovaný prostředek pro přenos bez kódování. Datový proud s názvem prostředku je vlastností entity **Edm.Stream** typu. Každý datový proud prostředku s názvem má samostatné identifikátor URI pro operace GET nebo UPDATE.
 
-- Akce OData nyní poskytují mechanismus pro volání metod (vytvoření, čtení, aktualizaci a odstraňování) bez CRUD na prostředku. Akce můžete vyvolat odesláním požadavku HTTP POST na identifikátor URI, která je definována pro akci. Parametry pro akce jsou definovány v textu požadavku POST.
+- Akce OData teď poskytují mechanismus pro volání metod bez CRUD (vytváření, čtení, aktualizace a odstraňování) na prostředek. Vyvolat akci odesláním požadavku HTTP POST na identifikátor URI, který je definován pro akci. Parametry pro akce jsou definovány v textu požadavku POST.
 
-- Chcete-li být v souladu s pokyny pro Windows Azure, je třeba zjednodušit všechny adresy URL. Změna součástí **klíč jako Segment** umožňuje jednoho klíče na být reprezentován jako segmenty. Všimněte si, odkazy, které používají více hodnot klíčů vyžadují, aby se s hodnotami oddělenými čárkami shod notaci jako předtím.
+- Pro zajištění konzistence s pokyny pro Windows Azure, je třeba zjednodušit všechny adresy URL. Změna součástí **klíč jako segmentu** umožňuje jednoho klíče je reprezentovaná jako segmenty. Všimněte si, že odkazy, které používají více hodnot klíče vyžadovat hodnot oddělených čárkami v kulatých závorek zápisu, stejně jako předtím.
 
-- Než tato verze PSWS pouze způsob, jak provést vytvoření, aktualizace nebo odstranění operace byla k vyvolání Post, Put, nebo odstranění na nejvyšší úrovni prostředku. Nové v této verzi PSWS operations obsažených prostředků uživatelům umožňují dosáhnout stejné výsledky při dosažení stejného zdroje méně přímo blíží, jako kdyby byly obsaženy tyto prostředky.
+- Než tato verze PSWS jen pro až po provedení vytvoření, aktualizace nebo odstranění operace byla k vyvolání Post, Put nebo odstranění prostředku nejvyšší úrovně. Nový v této verzi PSWS operace obsažených prostředků uživatelům umožňují dosáhnete stejných výsledků při dosažení stejného prostředku méně přímo blíží jakoby byly obsažené tyto prostředky.
 
-### <a name="new-features-in-windows-powershell-web-access"></a>Nové funkce v systému Windows PowerShell Web Access
+### <a name="new-features-in-windows-powershell-web-access"></a>Nové funkce ve Windows PowerShell Web Accessu
 
-- Můžete odpojit od a znovu připojit k existující relací ve webové konzole Windows PowerShell Web Access. A **Uložit** tlačítka ve webové konzole umožňuje odpojení z relace bez odstranění ji a znovu připojit k relaci jiného čas.
+- Můžete odpojit a znovu připojit k existující relace ve webové konzole Windows PowerShell Web Accessu. A **Uložit** tlačítka ve webové konzole umožňuje odpojení z relace, ale neodstraní ho a znovu připojit k relaci jiný čas.
 
-- Výchozí parametry lze zobrazit na stránce přihlášení. Pokud chcete zobrazit výchozí parametry, konfigurovat hodnoty pro všechna nastavení, zobrazí v **volitelná nastavení připojení** oblast přihlašovací stránky v souboru s názvem **web.config**. Můžete použít **web.config** souboru ke konfiguraci všech volitelná nastavení připojení s výjimkou sekundu nebo alternativní sadu pověření.
+- Výchozí parametry lze zobrazit na přihlašovací stránku. Pokud chcete zobrazit výchozí parametry, nakonfigurujte hodnoty pro všechna nastavení, zobrazí v **volitelná nastavení připojení** oblasti přihlašovací stránky v souboru s názvem **web.config**. Můžete použít **web.config** souboru nakonfigurujte všechny volitelná nastavení připojení s výjimkou druhý nebo alternativní sadu pověření.
 
-- Ve Windows serveru 2012 R2 můžete vzdáleně spravovat autorizační pravidla pro Windows PowerShell Web Access. **Add-PswaAuthorizationRule** a **Test-PswaAuthorizationRule** rutiny nyní obsahují parametr Credential, který umožňuje správcům spravovat autorizační pravidla ze vzdáleného počítače nebo v Windows PowerShell Web Access relace.
+- Ve Windows serveru 2012 R2 můžete vzdáleně spravovat autorizačních pravidel pro Windows PowerShell Web Accessu. **Add-PswaAuthorizationRule** a **Test-PswaAuthorizationRule** rutiny teď obsahují parametr Credential, který umožňuje správcům spravovat autorizační pravidla ze vzdáleného počítače nebo do Windows PowerShell Web Accessu relace.
 
-- Nyní můžete mít více relací Windows PowerShell Web Access v jedné relace prohlížeče pomocí novou kartu prohlížeče pro každou relaci. Již nepotřebujete otevřete novou relaci prohlížeče připojení k nové relaci ve webové konzole Windows PowerShell.
+- Nyní je možné mít více relací Windows PowerShell Web Access v jedné relace prohlížeče pomocí na nové kartě prohlížeče pro každou relaci. Už nemusíte otevřete novou relaci prohlížeče připojení k nové relaci ve webové konzole Windows Powershellu.
 
-### <a name="notable-bug-fixes-in-windows-powershell-40"></a>Významné opravy chyb v prostředí Windows PowerShell 4.0
+### <a name="notable-bug-fixes-in-windows-powershell-40"></a>Důležité opravy chyb ve Windows Powershellu 4.0
 
-- **Get-Counter** teď vrátit čítače, které obsahují znak apostrofu ve francouzštině edicích systému Windows.
+- **Get-Counter** můžete nyní vracet čítače, které obsahují znak apostrofu ve francouzské verzi Windows.
 
-- Teď si můžete zobrazit **GetType** metodu deserializovat objekty.
+- Teď si můžete zobrazit **GetType** metodu na objekty deserializovat.
 
-- **#Requires** příkazy teď uživatelům umožňují vyžadovat oprávnění správce, v případě potřeby.
+- **#Requires** příkazy teď uživatelům umožňují požadovat přístupová práva správce v případě potřeby.
 
-- **Import Csv** rutiny teď ignoruje prázdné řádky.
+- **Import Csv** rutina nyní ignoruje prázdné řádky.
 
-- Problém, kde Windows PowerShell ISE využívá příliš mnoho paměti při spuštění **Invoke-WebRequest** příkaz byl opraven.
+- Problém, kdy používá Windows PowerShell ISE příliš mnoho paměti při spouštění **Invoke-WebRequest** příkazu byl opraven.
 
-- **Get-Module** teď zobrazuje verze modulu v **verze** sloupce.
+- **Get-Module** verze modulu v se teď zobrazují **verze** sloupce.
 
-- Remove-Item - Recurse teď odebere položky z podsložky podle očekávání.
+- Remove-Item - Recurse nyní odebere položky z podsložky podle očekávání.
 
-- A **uživatelské jméno** vlastnost byla přidána do **Get-Process** výstup objektů.
+- A **uživatelské jméno** byla přidána vlastnost **Get-Process** výstup objektů.
 
-- **Invoke-RestMethod** rutiny teď vrací všechny výsledky k dispozici.
+- **Invoke-RestMethod** rutina nyní vrátí všechny dostupné výsledky.
 
-- **Přidat člena** teď se projeví na zatřiďovací tabulky, i když zatřiďovacích tabulkách nebyly dosud přístup.
+- **Přidat člena** nyní se projeví na zatřiďovací tabulky, i v případě, zatřiďovacích tabulkách dosud nebyly použity.
 
-- **Select-Object - rozbalte** už selže nebo vygeneruje výjimku, pokud je hodnota vlastnosti null nebo prázdný.
+- **Select-Object - rozbalte** už selže nebo vygeneruje výjimku, pokud hodnota vlastnosti je null nebo prázdný.
 
-- **Get-Process** může být použit v kanálu s jinými příkazy, které získají **ComputerName** vlastnost z objektů.
+- **Get-Process** je teď možné v rámci kanálu s jinými příkazy, které **ComputerName** vlastnost z objektů.
 
-- **ConvertTo-Json** a **ConvertFrom Json** teď může přijmout podmínky v rámci dvojité uvozovky, a jeho chybové zprávy jsou teď možnosti lokalizace.
+- **ConvertTo-Json** a **ConvertFrom-Json** teď může přijmout podmínky v rámci dvojité uvozovky a jeho chybové zprávy jsou nyní lokalizovatelné.
 
-- **Get-Job** nyní vrátí všechny dokončit naplánované úlohy, i v jiných relacích.
+- **Get-Job** nyní vrátí všechny dokončit plánované úlohy, dokonce i v nové relace.
 
-- Problémy s připojení a odpojení bitové virtuálních pevných disků pomocí **FileSystem** zprostředkovatele v prostředí Windows PowerShell 4.0 byly opraveny. Prostředí Windows PowerShell je teď dokáže detekovat nové jednotky, pokud jsou připojené ve stejné relaci.
+- Problémy s připojením a odpojení virtuální pevné disky s použitím **systému souborů** zprostředkovatele ve Windows PowerShell 4.0 byly vyřešeny. Je teď možné rozpoznat nové jednotky, kdy jsou připojené ve stejné relaci prostředí Windows PowerShell.
 
-- Už nemusíte explicitně načíst **ScheduledJob** nebo **pracovního postupu** moduly pro práci s jejich typy úloh.
+- Už nemusíte explicitně načítat **ScheduledJob** nebo **pracovního postupu** moduly pro práci s jejich typy úloh.
 
-- Vylepšení výkonu byly provedeny importu pracovní postupy, které definují vnořené pracovní postupy; Tento proces je rychlejší.
+- Vylepšení výkonu se provedly importu pracovních postupů, které definují vnořené pracovní postupy; Tento proces je nyní rychlejší.
 
-## <a name="new-features-in-windows-powershell-30"></a>Nové funkce v prostředí Windows PowerShell 3.0
-Prostředí Windows PowerShell 3.0 obsahuje následující nové funkce.
+## <a name="new-features-in-windows-powershell-30"></a>Nové funkce ve Windows Powershellu 3.0
+Windows PowerShell 3.0 obsahuje následující nové funkce.
 
 - [Pracovní postup prostředí Windows PowerShell](#windows-powershell-workflow)
 - [Windows PowerShell Web Accessu](#windows-powershell-web-access)
-- [Nové funkce systému Windows PowerShell ISE](#new-windows-powershell-ise-features)
-- [Podpora pro rozhraní Microsoft .NET Framework 4.0](#support-for-microsoft-net-framework-4)
-- [Podpora pro prostředí předinstalace systému Windows](#support-for-windows-preinstallation-environment)
+- [Nové funkce Windows PowerShell ISE](#new-windows-powershell-ise-features)
+- [Podpora rozhraní Microsoft .NET Framework 4.0](#support-for-microsoft-net-framework-4)
+- [Podpora pro prostředí Windows Preinstallation Environment](#support-for-windows-preinstallation-environment)
 - [Odpojené relace](#disconnected-sessions)
 - [Robustní relace připojení](#robust-session-connectivity)
-- [Systém aktualizovatelné nápovědy](#updatable-help-system)
-- [Rozšířené Online nápovědy](#enhanced-online-help)
+- [Aktualizovatelné nápovědy systému](#updatable-help-system)
+- [Vylepšené Online nápovědy](#enhanced-online-help)
 - [Integrace CIM](#cim-integration)
-- [Relace konfigurační soubory](#session-configuration-files)
+- [Relace konfiguračních souborů](#session-configuration-files)
 - [Naplánované úlohy a integrace Plánovač úloh](#scheduled-jobs-and-task-scheduler-integration)
-- [Vylepšení jazyk prostředí PowerShell systému Windows](#windows-powershell-language-enhancements)
-- [Nové rutiny jádra](#new-core-cmdlets)
-- [Vylepšení existující základní rutiny a zprostředkovatelé](#improvements-to-existing-core-cmdlets-and-providers)
-- [Modul vzdáleného importu a zjišťování](#remote-module-import-and-discovery)
-- [Dokončování pomocí tabulátorů rozšířené](#enhanced-tab-completion)
-- [Automatické načítání modulu](#module-auto-loading)
-- [Vylepšení prostředí modulu](#module-experience-improvements)
-- [Zjednodušená příkaz zjišťování](#simplified-command-discovery)
-- [Vylepšené protokolování diagnostiky a podpora zásad skupiny](#improved-logging-diagnostics-and-group-policy-support)
-- [Formátování a vylepšení výstup](#formatting-and-output-improvements)
-- [Prostředí hostitele rozšířené konzoly](#enhanced-console-host-experience)
-- [Nové rutiny a hostování rozhraní API](#new-cmdlet-and-hosting-apis)
+- [Vylepšení Powershellu jazyka Windows](#windows-powershell-language-enhancements)
+- [Nové rutiny Core](#new-core-cmdlets)
+- [Vylepšení pro existující základních rutin a poskytovatele](#improvements-to-existing-core-cmdlets-and-providers)
+- [Import modulu vzdálené a zjišťování](#remote-module-import-and-discovery)
+- [Vylepšené Tab k dokončování příkazů](#enhanced-tab-completion)
+- [Automatické načítání modulů](#module-auto-loading)
+- [Vylepšení uživatelského prostředí modulu](#module-experience-improvements)
+- [Zjednodušené příkaz zjišťování](#simplified-command-discovery)
+- [Zdokonalené funkce protokolování diagnostiky a podpora zásad skupiny](#improved-logging-diagnostics-and-group-policy-support)
+- [Formátování a vylepšení výstupu](#formatting-and-output-improvements)
+- [Rozšířené konzole hostitele zkušenost](#enhanced-console-host-experience)
+- [Nová rutina a rozhraní API pro hostování](#new-cmdlet-and-hosting-apis)
 - [Vylepšení výkonu](#performance-improvements)
-- [RunAs a podpory sdílené hostitelů](#runas-and-shared-host-support)
-- [Vylepšení zpracování speciální znak](#special-character-handling-improvements)
+- [Spustit jako a podporu sdílené hostitele](#runas-and-shared-host-support)
+- [Zlepšení zpracování speciální znak](#special-character-handling-improvements)
 
 ### <a name="windows-powershell-workflow"></a>Pracovní postup prostředí Windows PowerShell
-Pracovní postup prostředí Windows PowerShell přináší výkon modelu Windows Workflow Foundation pro prostředí Windows PowerShell. Můžete napsat pracovních postupů v jazyce XAML, nebo v jazyce prostředí Windows PowerShell a spustit je stejně, jako by spustit rutinu. [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutiny získá workflw příkazy a [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) rutiny získá nápovědy pro pracovní postupy.
+Pracovní postup prostředí Windows PowerShell přináší výkon Windows Workflow Foundation do prostředí Windows PowerShell. Můžete napsat pracovních postupů v XAML nebo v jazyce prostředí Windows PowerShell a spusťte je stejně, jako by spuštění rutiny. [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutina načte workflw příkazy a [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) rutiny vyvolání nápovědy pro pracovní postupy.
 
-Pracovní postupy jsou pořadí multicomputer správy aktivit, které jsou dlouho běžící, opakovatelných, časté, paralelní, přerušitelné, suspendable a nabízet možnost restartování. Pracovní postupy lze obnovit z úmyslnému nebo náhodnému přerušení, jako je výpadek sítě, restartování systému Windows nebo výpadku napájení.
+Pracovní postupy jsou sekvence multicomputer správy aktivit, které jsou dlouhotrvající, opakovatelných, časté, paralelizovat, přerušitelné, suspendable a dá se restartovat. Pracovní postupy lze obnovit z úmyslnému i náhodnému přerušení, jako je výpadek sítě, restartování Windows nebo přerušení napájení.
 
-Pracovní postupy jsou také přenosné; může být exportovány jako nebo naimportovaná ze souborů XAML. Můžete napsat vlastní relaci konfigurace, které umožňují pracovní postupy nebo aktivity v pracovním postupu ke spuštění delegovaný nebo podřízené uživatelů.
+Pracovní postupy jsou také přenositelné; může být exportovat jako nebo importovat ze souborů XAML. Můžete napsat vlastních konfigurací relací, které umožňují pracovní postupy nebo aktivity v pracovním postupu spustit delegovanou nebo podřízené uživatelé.
 
-Následující seznam uvádí výhody pracovního postupu prostředí Windows PowerShell
+Následují výhody pracovního postupu prostředí Windows PowerShell
 
 - Automatizace sekvencované, dlouhotrvajících úloh.
 
-- **Vzdálené monitorování dlouhotrvající úlohy**. Stav a průběh činností jsou viditelné kdykoli.
+- **Vzdálené sledování dlouho běžících úloh**. Stav a průběh činností jsou viditelné v každém okamžiku.
 
-- **Multicomputer správy.** Současně spouštět úlohy jako pracovních postupů na stovky spravovaných uzlů. Pracovního postupu prostředí Windows PowerShell obsahuje integrovanou knihovnu společné parametry správy, například **PSComputerName**, který povolení scénářů správy více počítači.
+- **Multicomputer správy.** Souběžně spouštět úlohy jako pracovní postupy na stovky spravovaných uzlů. Pracovní postup prostředí Windows PowerShell obsahuje integrované knihovnu společné parametry správy, například **PSComputerName**, která umožňuje takové scénáře správy více počítačů.
 
-- **Jediná úloha provádění komplexní procesy.** Související skripty, které implementují celém scénáři začátku do konce do jednoho pracovního postupu můžete kombinovat.
+- **Provedení jednoho úkolu komplexní procesy.** Můžete kombinovat související skripty, které implementují celý scénář začátku do konce do jednoho pracovního postupu.
 
-- **Trvalost.** : pracovní postup je uložit (nebo zkontrolujte odkazoval) v určitých bodech definovaný autorem, můžete obnovit od posledního trvalého úlohu (nebo kontrolního bodu), nemuseli ho od začátku.
+- **Trvalost.** : pracovní postup je uložit (nebo kontrola ukazuje) v určitých bodech, které jsou definované autorem tak můžete obnovit od posledního trvalého úlohu (nebo kontrolního bodu), místo restartování pracovní postup od začátku.
 
-- **Robustnost.** Automatizované zotavení po chybě. Pracovní postupy fungují po plánovaných a neplánovaných restartování. Můžete pozastavit provádění pracovního postupu a poté obnovit od vytvoření posledního bodu trvalost. Autoři pracovního postupu můžete určit konkrétní aktivity potřeba znovu spustit v případě selhání na jeden nebo více spravovaných uzlů.
+- **Odolnosti.** Automatizované zotavení po chybě. Pracovní postupy fungují po plánované a neplánované restartování. Můžete pozastavit provádění pracovního postupu a potom obnovit od posledního trvalého bodu. Autoři pracovního postupu můžete určit konkrétní aktivity k opětovné použití v případě selhání na jeden nebo víc spravovaných uzlech.
 
-- **Možnost odpojit, znovu připojit a spusťte v odpojených relací.** Uživatelé můžou připojit a odpojit od server pracovního postupu, ale pracovní postup běží nepřetržitě. Můžete odhlásit, klientský počítač nebo restartujte klientský počítač a monitorovat spuštění pracovního postupu z jiného počítače bez přerušení pracovního postupu.
+- **Možnost odpojit, znovu připojit a spusťte v odpojeném relace.** Uživatelé se můžete připojit a odpojit od serveru pracovního postupu, ale pracovní postup běží nepřetržitě. Můžete odhlaste se z klientského počítače nebo restartujte klientský počítač a sledujte provádění pracovního postupu z jiného počítače bez přerušení pracovního postupu.
 
-- **Plánování.** Úkoly pracovního postupu může být naplánována jako všechny rutiny prostředí Windows PowerShell nebo skriptu.
+- **Plánování.** Úkoly pracovního postupu můžete naplánovat stejně jako všechny rutiny prostředí Windows PowerShell nebo skriptu.
 
-- **Pracovní postup a omezení připojení.** Spuštění pracovního postupu a připojení k uzlům, můžete omezena, a tak umožňuje scénáře škálovatelnost a vysokou dostupností.
+- **Pracovní postup a omezení připojení.** Spuštění pracovního postupu a připojení k uzlům, můžu omezit, což umožní scénáře škálovatelnost a vysokou dostupnost.
 
 ### <a name="windows-powershell-web-access"></a>Windows PowerShell Web Access
-Windows PowerShell Web Access je funkce systému Windows Server 2012, která umožňuje uživatelům spustit příkazy prostředí Windows PowerShell a skriptů ve webové konzole. Zařízení, která používají webové konzoly nevyžadují prostředí Windows PowerShell, software pro vzdálenou správu nebo instalace modulu plug-in prohlížeče. Je vyžadováno je správně nakonfigurovaná brána Windows PowerShell Web Access a prohlížeč v klientském zařízení, která podporuje JavaScript a přijímá soubory cookie.
+Windows PowerShell Web Accessu je funkce systému Windows Server 2012, která umožňuje uživatelům spouštět příkazy prostředí Windows PowerShell a skriptů ve webové konzole. Zařízení, která používají webové konzoly, aby prostředí Windows PowerShell, software pro vzdálenou správu nebo instalace modulu plug-in prohlížeče. Vyžaduje se Windows PowerShell Web Accessu brána správně nakonfigurovaná a prohlížeč v klientském zařízení, která podporuje JavaScript a přijímá soubory cookie.
 
-Další informace najdete v tématu [nasazení Windows PowerShell Web Access](http://go.microsoft.com/fwlink/p/?LinkID=221050).
+Další informace najdete v tématu [nasadit Windows PowerShell Web Accessu](http://go.microsoft.com/fwlink/p/?LinkID=221050).
 
-### <a name="new-windows-powershell-ise-features"></a>Nové funkce systému Windows PowerShell ISE
-Pro prostředí Windows PowerShell 3.0, Windows PowerShell Integrované skriptovací prostředí (ISE) má mnoho nových funkcí, technologii IntelliSense, zobrazit příkazové okno, včetně jednotná podokna konzoly, fragmenty, odpovídající složené závorce, rozbalení a sbalení části, automatické ukládání, poslední položky seznam, bohaté kopírování, kopie bloku a plnou podporu pro zápis pracovní postupy skriptů prostředí Windows PowerShell. Další informace najdete v tématu [about_Windows_PowerShell_ISE [verze 3]](https://technet.microsoft.com/library/dfa54d47-60c6-4fff-8197-c747e8d411bb).
+### <a name="new-windows-powershell-ise-features"></a>Nové funkce Windows PowerShell ISE
+Pro Windows PowerShell 3.0, Windows PowerShell integrovaném skriptovacím prostředí (ISE) má mnoho nových funkcí, včetně IntelliSense, zobrazit příkazové okno, jednotné podokně konzoly, fragmenty kódu, závorky, Rozbalit / sbalit oddíly, automatické ukládání, nedávné položky seznam, bohaté možnosti kopírovat, blokovat kopírování a plná podpora pro psaní pracovní postupy skriptů prostředí Windows PowerShell. Další informace najdete v tématu [about_Windows_PowerShell_ISE [verze 3]](https://technet.microsoft.com/library/dfa54d47-60c6-4fff-8197-c747e8d411bb).
 
-### <a name="support-for-microsoft-net-framework-4"></a>Podpora pro rozhraní Microsoft .NET Framework 4
-Prostředí Windows PowerShell je založený na běžné 4.0 Runtime jazyka. Rutiny, skript a autoři pracovního postupu můžete použít nové třídy rozhraní Microsoft .NET Framework 4 v prostředí Windows PowerShell s funkcemi, které zahrnují kompatibilita aplikací a nasazení, spravované rozhraní rozšiřitelnosti, paralelní výpočty, sítě, Windows Communication Foundation a modelu Windows Workflow Foundation.
+### <a name="support-for-microsoft-net-framework-4"></a>Podpora rozhraní Microsoft .NET Framework 4
+Prostředí Windows PowerShell je sestaveno s Common 4.0 modulu Runtime jazyka. Rutiny, skripty a autoři pracovního postupu můžete použít nové třídy rozhraní Microsoft .NET Framework 4 v prostředí Windows PowerShell s funkcemi, které patří kompatibilitě aplikací a nasazení, Managed Extensibility Framework, paralelní výpočty, sítě, Windows Communication Foundation a Windows Workflow Foundation.
 
-### <a name="support-for-windows-preinstallation-environment"></a>Podpora pro prostředí předinstalace systému Windows
-Prostředí Windows PowerShell 3.0 je volitelná součást Windows Preinstallation Environment (Windows PE) 4.0, pro systém Windows 8. Prostředí Windows PE je minimální operační systém, který spustí počítač, který nemá žádný operační systém a připraví je k instalaci systému Windows. Prostředí Windows PE můžete použít k oddílu a formátování pevných disků, zkopírujte bitových kopií disku do počítače a zahájení instalace systému Windows ze síťové sdílené složky. Prostředí Windows PowerShell 3.0 lze použít v prostředí Windows PE ke správě nasazení, diagnostiky a obnovení scénáře.
+### <a name="support-for-windows-preinstallation-environment"></a>Podpora pro prostředí Windows Preinstallation Environment
+Windows PowerShell 3.0 je volitelná součást Windows Preinstallation Environment (Windows PE) 4.0, Windows 8. Prostředí Windows PE je minimální operační systém, který se spustí počítač, který nemá žádný operační systém a připraví ho k instalaci Windows. Prostředí Windows PE můžete použít k oddílu a formátování pevných disků, zkopírujte imagí disků do počítače a zahájení instalace Windows ze síťové sdílené složky. Windows PowerShell 3.0 je možné v prostředí Windows PE pro správu nasazení, Diagnostika a scénáře obnovení.
 
 ### <a name="disconnected-sessions"></a>Odpojené relace
-Počínaje Windows PowerShell 3.0 je trvalé spravovaná uživatelem relací ("PSSessions"), které vytvoříte pomocí rutiny New-PSSession ukládají na vzdáleném počítači. Již nejsou závislé na relace, ve kterém byly vytvořeny.
+Počínaje Windows PowerShell 3.0, trvalé spravovaného uživatele relací ("PSSessions"), které vytvoříte pomocí rutiny New-PSSession se uloží ve vzdáleném počítači. Už nejsou závislé na relace, ve kterém byly vytvořeny.
 
-Teď můžete odpojit z relace, a to bez přerušení příkazy, které jsou spuštěné v relaci. Můžete zavřít relace a vypnout počítač. Později se můžete připojit k relaci z jiné relace na stejné nebo na jiném počítači.
+Teď v relaci můžete odpojit bez narušení běžného příkazy, které jsou spuštěny v relaci. Můžete zavřít relaci a vypnout počítač. Později se můžete připojit k relaci z jiné relaci na stejném nebo na jiném počítači.
 
-**ComputerName** parametr [Get-PSSession](https://technet.microsoft.com/library/b2b10531-d0df-4746-b877-e75c09955cb6) rutiny nyní získá všechny uživatele relací, které se připojují k počítači, i v případě, že byly spuštěny v jiné relaci v jiném počítači. Můžete připojit k relací, získat výsledky příkazy, spusťte nové příkazy a pak odpojení z relace.
+**ComputerName** parametr [Get-PSSession](https://technet.microsoft.com/library/b2b10531-d0df-4746-b877-e75c09955cb6) rutina nyní získá všech relací uživatele, které připojení k počítači, i v případě, že byly spuštěny v jiné relaci v jiném počítači. Můžete připojit na relace, získat výsledky příkazů, spusťte nové příkazy a pak odpojení z relace.
 
-Byly přidané nové rutiny pro podporu funkce odpojí relace, včetně [Disconnect-PSSession](https://technet.microsoft.com/library/f8f95111-612f-4cba-9098-77904b0473d8), [Connect-PSSession](https://technet.microsoft.com/library/b803dd29-f208-4079-80d4-db04d778f060), a Receive-PSSession a nové parametry byly přidány do rutiny, které spravovat PSSessions, například **InDisconnectedSession** parametr [Invoke-Command](https://technet.microsoft.com/library/906b4b41-7da8-4330-9363-e7164e5e6970) rutiny.
+Byly přidány nové rutiny pro podporu funkcí odpojí relace včetně [Disconnect-PSSession](https://technet.microsoft.com/library/f8f95111-612f-4cba-9098-77904b0473d8), [Connect-PSSession](https://technet.microsoft.com/library/b803dd29-f208-4079-80d4-db04d778f060), a Receive-PSSession a nové parametry byly přidány do rutiny, které Správa PSSessions, například **InDisconnectedSession** parametr [Invoke-Command](https://technet.microsoft.com/library/906b4b41-7da8-4330-9363-e7164e5e6970) rutiny.
 
-Odpojení relace funkce je podporována pouze v případě, že počítače v obou pocházející ("client") a ukončení ("server") konců připojení je spuštěné prostředí Windows PowerShell 3.0.
+Funkce odpojí relace je podporována pouze v případě, že počítače v obou pocházející ("client") a ukončení ("server") koncích připojení se systémem Windows PowerShell 3.0.
 
 ### <a name="robust-session-connectivity"></a>Robustní relace připojení
-Prostředí Windows PowerShell 3.0 zjistí neočekávané ztráty připojení mezi klientem a serverem a pokusí se znovu vytvořit připojení a pokračovat v provádění automaticky. Pokud v přiděleném čase nelze znovu navázat připojení klient server, je uživateli upozornění, že a se odpojí relace. Při pokusu o připojení prostředí Windows PowerShell poskytuje neustálé zpětné vazby pro uživatele.
+Windows PowerShell 3.0 zjistí neočekávané ztráty připojení mezi klientem a serverem a pokusí se znovu vytvořit připojení a spuštění automaticky pokračovat. Pokud v přiděleném čase nelze znovu navázat připojení klient server, bude informován uživatel a relace se odpojí. Při pokusu o opakované připojení k prostředí Windows PowerShell poskytuje nepřetržitou zpětnou vazbu pro uživatele.
 
-Pokud odpojené relaci byl spuštěn s použitím invokecommand –, prostředí Windows PowerShell vytvoří úlohu pro odpojené relaci, aby bylo snazší nové připojení a pokračovat v provádění.
+Pokud odpojené relaci byl spuštěn s použitím invokecommand –, prostředí Windows PowerShell vytvoří úlohu pro odpojené relaci, aby bylo snazší znovu připojit a pokračovat v provádění.
 
-Tyto funkce poskytuje vzdálenou komunikaci prostředí spolehlivější a obnovitelných a umožňují uživatelům provádět dlouhotrvající úlohy, které vyžadují robustní relace, jako jsou pracovní postupy.
+Tyto funkce poskytují spolehlivé a obnovitelnost dokonalejší prostředí a umožňují uživatelům provádět dlouho běžících úloh, které vyžadují robustní relace, jako jsou pracovní postupy.
 
-### <a name="updatable-help-system"></a>Systém aktualizovatelné nápovědy
-Teď si můžete stáhnout soubory aktualizované nápovědy k rutinám v modulech. [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny identifikuje nejnovější soubory nápovědy, je stáhne z Internetu, je rozbalí, ověřuje je a nainstaluje je ve správném adresáři konkrétní jazyk pro modul.
+### <a name="updatable-help-system"></a>Aktualizovatelné nápovědy systému
+Teď si můžete stáhnout soubory aktualizace nápovědy pro rutiny v modulech. [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny identifikuje nejnovější soubory nápovědy, stáhne z Internetu, rozbalí je, ověřuje je a nainstaluje je do správného adresáře konkrétní jazyk pro modul.
 
-Pokud chcete použít soubory aktualizované nápovědy, stačí zadat `Get-Help`. Není nutné restartování systému Windows nebo prostředí Windows PowerShell. Abyste mohli aktualizovat nápovědu pro moduly v adresáři $pshome, spusťte prostředí Windows PowerShell pomocí možnosti "Spustit jako správce".
+Pokud chcete použít soubory aktualizované nápovědy, stačí zadat `Get-Help`. Není nutné restartovat Windows nebo prostředí Windows PowerShell. Abyste mohli aktualizovat nápovědu pro moduly v adresáři $pshome, spusťte prostředí Windows PowerShell pomocí možnosti "Spustit jako správce".
 
-Pro podporu uživatelů, kteří nemají přístup k Internetu a uživatelů za branami firewall, nové [Save-Help](https://technet.microsoft.com/library/aed94f90-b73f-4e25-a25d-7c18d9f161fa) rutiny stáhne soubory nápovědy k adresáři systému souborů, například do sdílené složky. Uživatelé pak můžou použít [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny soubory aktualizované nápovědy ze sdílené složky.
+Pro podporu uživatelů, kteří nemají přístup k Internetu a uživatelů za firewally, nové [Save-Help](https://technet.microsoft.com/library/aed94f90-b73f-4e25-a25d-7c18d9f161fa) rutiny stáhne soubory nápovědy na adresář systému souborů, jako jsou sdílené složky. Uživatelé pak můžou použít [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny pro získání nápovědy aktualizované soubory ze sdílené složky.
 
-Můžete použít [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) soubory rutiny, abyste mohli aktualizovat nápovědu pro všechny nebo konkrétní modulů ve všech podporována uživatelského rozhraní jazykové verze. Můžete vložit i [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) příkazu ve vašem profilu prostředí Windows PowerShell. Ve výchozím nastavení prostředí Windows PowerShell stáhne soubory nápovědy pro modul více než jednou denně.
+Můžete použít [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny, abyste mohli aktualizovat nápovědu soubory pro všechny nebo uživatelské rozhraní nepodporuje konkrétní moduly ve všech jazykových verzí. Dokonce můžete umístit [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) příkaz ve vašem profilu Windows Powershellu. Ve výchozím nastavení prostředí Windows PowerShell stáhne soubory nápovědy pro modul více než jednou denně.
 
-Windows 8 a Windows Server 2012 moduly neobsahují soubory nápovědy. Chcete-li stáhnout nejnovější soubory nápovědy, zadejte `Update-Help`. Další informace získáte zadáním `Get-Help` (bez parametrů) nebo najdete [about_Updatable_Help](https://technet.microsoft.com/library/10bba75c-f4ac-4ca1-bbf3-8f34dd521ffe).
+Moduly Windows 8 a Windows Server 2012 neobsahují soubory nápovědy. Chcete-li stáhnout nejnovější soubory nápovědy, zadejte `Update-Help`. Další informace získáte zadáním `Get-Help` (bez parametrů) nebo se podívejte [about_Updatable_Help](https://technet.microsoft.com/library/10bba75c-f4ac-4ca1-bbf3-8f34dd521ffe).
 
-Pokud nejsou instalovány soubory nápovědy pro rutinu v počítači, [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) rutiny teď zobrazuje automaticky generovaný nápovědy. Nápověda automaticky generovaný obsahuje syntaxi příkazu a pokyny pro použití [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutiny stáhnout soubory nápovědy.
+Pokud soubory nápovědy pro rutinu nejsou nainstalovaní v počítači, [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) rutina nyní zobrazí automaticky generované nápovědy. Automaticky generované Nápověda obsahuje syntaxi příkazů a pokyny k používání [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) rutina ke stahování souborů nápovědy.
 
-Všechny Autor modulu může podporovat aktualizovatelné nápovědy pro jejich modulu. Můžete zahrnout soubory nápovědy v modulu a pomocí aktualizovatelné nápovědy je aktualizovat nebo vynechejte soubory nápovědy a k jejich instalaci použít aktualizovatelné nápovědy. Další informace o podpoře aktualizovatelné nápovědy najdete v tématu [podpora aktualizovatelné nápovědy](http://go.microsoft.com/FWLink/?LinkID=242129) na webu MSDN.
+Žádné Autor modulu může podporovat aktualizovatelné nápovědy pro jejich modulu. Můžete zahrnout soubory nápovědy v modulu a pomocí aktualizovatelné nápovědy je aktualizovat nebo přitom vynechat ty soubory nápovědy a používat aktualizovatelné nápovědy k instalaci. Další informace o podpoře aktualizovatelné nápovědy najdete v tématu [podpora aktualizovatelné nápovědy](http://go.microsoft.com/FWLink/?LinkID=242129) na webu MSDN.
 
-### <a name="enhanced-online-help"></a>Rozšířené Online nápovědy
-Online nápověda prostředí Windows PowerShell je cenné prostředků pro všechny uživatele, ale je obzvláště důležité pro uživatele, kteří nepodporují nebo nelze nainstalovat soubory aktualizované nápovědy.
+### <a name="enhanced-online-help"></a>Vylepšené Online nápovědy
+Online nápověda prostředí Windows PowerShell je cenný materiál pro všechny uživatele, ale je obzvláště důležité pro uživatele, kteří nepodporují nebo nelze nainstalovat soubory aktualizace nápovědy.
 
-Chcete-li získat online nápovědu pro všechny rutiny prostředí Windows PowerShell, zadejte:
+Pokud chcete získat online nápovědu pro všechny rutiny prostředí Windows PowerShell, zadejte:
 
 ```
 Get-Help <cmdlet-name> -Online
 ```
 
-Prostředí Windows PowerShell se otevře online verzi tématu nápovědy v výchozí prohlížeč Internetu.
+Prostředí Windows PowerShell se online verzi tématu nápovědy otevře ve výchozím internetovém prohlížeči.
 
-**Get-Help-Online** funkce v prostředí Windows PowerShell 3.0 je ještě účinnější nyní, protože funguje i, pokud nejsou soubory nápovědy pro rutinu nainstalovány v počítači. **Get-Help-Online** funkce získá identifikátor URI pro online téma nápovědy z vlastnosti HelpUri rutin a pokročilé funkce.
+**Get-Help-Online** funkce ve Windows Powershellu 3.0 je teď ještě výkonnější vzhledem k tomu, že to funguje, i když soubory nápovědy pro rutinu nejsou v počítači nainstalována. **Get-Help-Online** funkce získá identifikátor URI pro online téma nápovědy z vlastnosti HelpUri rutiny a pokročilých funkcí.
 
 ```
 PS C:\>(Get-Command Get-ScheduledJob).HelpUri
 http://go.microsoft.com/fwlink/?LinkID=223923
 ```
 
-Od verze prostředí Windows PowerShell 3.0, může vyplnit autoři rutin C# **HelpUri** vlastnost tak, že vytvoříte **HelpUri** atribut k třídě rutiny. Autoři pokročilé funkce můžete definovat **HelpUri** vlastnost **CmdletBinding** atribut. Hodnota **HelpUri** vlastnost musí začínat řetězcem "http" nebo "https".
+Počínaje Windows Powershellu 3.0 se autoři C# rutiny můžete naplnit **HelpUri** vlastnost tak, že vytvoříte **HelpUri** atribut ve třídě rutiny. Můžete definovat autoři pokročilé funkce **HelpUri** vlastnost **CmdletBinding** atribut. Hodnota **HelpUri** vlastnosti musí začínat řetězcem "http" nebo "https".
 
-Můžete použít také **HelpUri** hodnota v první odkaz související souboru nápovědy rutiny založené na XML nebo. Odkaz – direktiva založená na komentářích nápovědy ve funkci.
+Můžete použít také **HelpUri** hodnoty v první související odkaz k souboru nápovědy rutiny založené na XML nebo. Direktiva odkazu založená na komentářích nápovědy ve funkci.
 
 Další informace o podpoře online nápovědy najdete v tématu [podpora Online nápovědy](http://go.microsoft.com/fwlink/?LinkId=242132) na webu MSDN.
 
 ### <a name="cim-integration"></a>Integrace CIM
-Prostředí Windows PowerShell 3.0 zahrnuje podporu pro informace modelu CIM (Common), která poskytuje společné definice informace pro správu pro systémy, sítě, aplikace a služby, což jim exchange management informací mezi heterogenní systémy. Podpora pro CIM v prostředí Windows PowerShell 3.0, včetně schopnosti vytváření rutin prostředí Windows PowerShell, které jsou založené na nový nebo existující třídy modelu CIM, příkazy založený na definici rutiny soubory XML, podporu pro rozhraní .NET Framework CIM. Rozhraní API správy rutin modelu CIM a zprostředkovatelé rozhraní WMI 2.0.
+Windows PowerShell 3.0 obsahuje podporu pro CIM Common Information Model (), který poskytuje společné definice spravovaných informací pro systémy, sítě, aplikace a služby, povolením výměny informací správy mezi heterogenní systémy. Podpora pro CIM ve Windows Powershellu 3.0, včetně schopnosti vytváření rutiny Windows Powershellu založené na nové nebo existující třídy modelu CIM, příkazy na základě rutiny definice soubory XML, podporu pro rozhraní .NET Framework CIM. Rozhraní API, rutin modelu CIM správy a poskytovatele služby WMI 2.0.
 
-### <a name="session-configuration-files"></a>Relace konfigurační soubory
-Od verze prostředí Windows PowerShell 3.0, můžete navrhnout vlastní konfiguraci relace pomocí souboru. Konfigurační soubor novou relaci vám umožní určit prostředí relace, které používají konfiguraci relace, které moduly, skripty, včetně a soubory ve formátu jsou načtena do relací, kteří uživatelé elementy rutiny a jazyk, můžete použít, které moduly a skripty můžete spustit, a které proměnné uvidí.
+### <a name="session-configuration-files"></a>Relace konfiguračních souborů
+Počínaje Windows PowerShell 3.0, můžete navrhnout vlastní konfiguraci relace s použitím souboru. Konfigurační soubor nová relace vám umožní určit prostředí relace, které používají konfiguraci relace, které moduly skriptů, včetně a soubory ve formátu se načtou do relací, kteří uživatelé rutiny a jazykové prvky můžete použít, které moduly a skripty můžete spustit a které proměnné můžete zobrazit.
 
-Můžete navrhnout relace, ve kterém uživatelé mohou pouze spouštět rutiny z jednoho konkrétního modulu nebo relace, ve kterém uživatelé mají úplným jazykovým, přístup k všechny moduly a přístup k skripty, které provádět pokročilé úlohy.
+Můžete navrhnout relace, ve které uživatelé můžou jenom spouštět rutiny z jednoho konkrétního modulu nebo relace, ve kterém uživatelé mají úplný jazyk, přístup k všechny moduly a přístup k skripty, které provádět pokročilé úlohy.
 
-V předchozích verzích Windows PowerShell byl k dispozici jenom pro ty, kteří mohou zapsat programu v C# nebo komplexní spuštění skriptu ovládacího prvku na této úrovni. Každý člen skupiny Administrators v počítači teď můžete přizpůsobit konfiguraci relace pomocí konfiguračního souboru.
+V předchozích verzích Windows Powershellu, byl k dispozici pouze pro ty, kteří mohou zapsat ovládací prvek na této úrovni C# komplexní objem požadovaný při spuštění skriptu nebo programu. Každý člen skupiny Administrators na počítači, můžete přizpůsobit konfiguraci relace pomocí konfiguračního souboru.
 
-Chcete-li vytvořit konfigurační soubor relace, použijte [New-PSSessionConfigurationFile](https://technet.microsoft.com/library/5f3e3633-6e90-479c-aea9-ba45a1954866) rutiny. Pro použití konfiguračního souboru relace ke konfiguraci relace, použijte [Register-PSSessionConfiguration](https://technet.microsoft.com/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) nebo [Set-PSSessionConfiguration](https://technet.microsoft.com/library/b21fbad3-1759-4260-b206-dcb8431cd6ea) rutiny.
+Chcete-li vytvořit soubor konfigurace relace, použijte [New-PSSessionConfigurationFile](https://technet.microsoft.com/library/5f3e3633-6e90-479c-aea9-ba45a1954866) rutiny. Chcete-li použít konfigurační soubor pro relaci ke konfiguraci relace, použijte [Register-PSSessionConfiguration](https://technet.microsoft.com/library/e9152ae2-bd6d-4056-9bc7-dc1893aa29ea) nebo [Set-PSSessionConfiguration](https://technet.microsoft.com/library/b21fbad3-1759-4260-b206-dcb8431cd6ea) rutiny.
 
-Další informace najdete v tématu [about_Session_Configuration_Files](https://technet.microsoft.com/library/c7217447-1ebf-477b-a8ef-4dbe9a1473b8) a [New-PSSessionConfigurationFile](https://technet.microsoft.com/library/5f3e3633-6e90-479c-aea9-ba45a1954866).
+Další informace najdete v tématu [about_Session_Configuration_Files](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_session_configuration_files?view=powershell-5.0) a [New-PSSessionConfigurationFile](https://technet.microsoft.com/library/5f3e3633-6e90-479c-aea9-ba45a1954866).
 
 ### <a name="scheduled-jobs-and-task-scheduler-integration"></a>Naplánované úlohy a integrace Plánovač úloh
 Teď můžete naplánovat úlohy na pozadí prostředí Windows PowerShell a spravovat je v prostředí Windows PowerShell a v Plánovači úloh.
 
 Prostředí Windows PowerShell naplánované úlohy jsou užitečné hybridní úlohy na pozadí prostředí Windows PowerShell a úkolů plánovače úloh.
 
-Jako úlohy na pozadí prostředí Windows PowerShell spusťte naplánované úlohy asynchronně na pozadí. Instance naplánované úlohy, které byly dokončeny lze spravovat pomocí rutin úlohy, jako například [Start-Job](https://technet.microsoft.com/library/2bc04935-0deb-4ec0-b856-d7290cca6442) a [Get-Job](https://technet.microsoft.com/library/1352c534-7193-46ca-9ab1-0c5219a661ad).
+Stejně jako úlohy na pozadí prostředí Windows PowerShell naplánované úlohy asynchronně spustí na pozadí. Instance plánované úlohy, které byly dokončeny lze spravovat pomocí rutin úlohy, jako například [Start-Job](https://technet.microsoft.com/library/2bc04935-0deb-4ec0-b856-d7290cca6442) a [Get-Job](https://technet.microsoft.com/library/1352c534-7193-46ca-9ab1-0c5219a661ad).
 
-Jako úkolů plánovače úloh můžete spustit naplánované úlohy podle plánu jednorázové nebo opakující nebo v reakci na akci nebo událostí. Můžete zobrazit a spravovat naplánované úlohy v Plánovači úloh, povolit nebo zakázat, je podle potřeby, je spustit nebo používat jako šablony a nastavit podmínky, za kterých se zahájením úloh.
+Stejně jako úkoly plánovače úloh můžete spustit plánované úlohy podle plánu jednorázové nebo opakované nebo v reakci na akce nebo události. Můžete zobrazit a spravovat plánovaných úloh v Plánovači úloh, povolit a zakázat podle potřeby, spouštět nebo použít jako šablony a nastavit podmínky, za kterých se zahájením úloh.
 
-Kromě toho naplánované úlohy se dodávají s vlastní sadu rutin pro jejich správu. Rutiny umožňují vytvářet, upravovat, spravovat, zakázat a znovu povolte naplánované úlohy, vytvořte naplánovanou úlohu aktivační události a nastavit možnosti naplánovanou úlohu.
+Naplánované úlohy navíc obsahuje vlastní sadu rutin pro jejich správu. Rutiny umožňují vytvářet, upravovat, spravovat, zakázat a znovu povolit naplánované úlohy, vytvoření naplánované úlohy aktivačních událostí a nastavit možnosti naplánované úlohy.
 
-Další informace o naplánované úlohy najdete v tématu [about_Scheduled_Jobs](https://technet.microsoft.com/library/3b546629-703c-4939-b44f-52dd567bce92).
+Další informace o plánovaných úlohách najdete v tématu [about_Scheduled_Jobs](https://technet.microsoft.com/library/3b546629-703c-4939-b44f-52dd567bce92).
 
-### <a name="windows-powershell-language-enhancements"></a>Vylepšení jazyk prostředí PowerShell systému Windows
-Prostředí Windows PowerShell 3.0 obsahuje řadu funkcí, které jsou navržené tak, aby jeho jazyk jednodušší, snazší použít a vyhnout se běžných chyb. Mezi vylepšení patří vlastnost výčtu, počet a délku vlastnosti na skalární objekty, nových operátorů přesměrování, modifikátor oboru $Using, PSItem automatické proměnnou, flexibilní skriptu formátování, atributy proměnných, zjednodušené atribut argumenty, názvy číselné příkazů, analýza Stop operátor, vylepšené pole splatting, nové operátory bitového, seřazené slovník, PSCustomObject přetypování a vylepšené Nápověda založená na komentář.
+### <a name="windows-powershell-language-enhancements"></a>Vylepšení Powershellu jazyka Windows
+Windows PowerShell 3.0 obsahuje řadu funkcí, které jsou navržené tak, aby jeho jazyk jednodušší, snazší používat a vyhnout se běžných chyb. Mezi vylepšení patří vlastnosti, výčtu, počet a délku vlastnosti na skalární objekty, nové operátory přesměrování, modifikátor oboru $Using, formátování PSItem automatické proměnné a flexibilní skriptu, atributy proměnných, zjednodušené atribut argumenty, názvů číselné příkazů, Stop analýza operátor, vylepšené pole seskupování, nové bitové operátory, seřazený slovníky, PSCustomObject přetypování a vylepšené Nápověda založená na komentářích.
 
-### <a name="new-core-cmdlets"></a>Nové rutiny jádra
-Byly přidané nové rutiny na instalaci jádro systému Windows PowerShell, včetně rutin určených ke správě naplánované úlohy, odpojené relace, integrace CIM a v aktualizovatelné systému nápovědy.
+### <a name="new-core-cmdlets"></a>Nové rutiny Core
+Nové rutiny byly přidány do instalace jádra Windows Powershellu, včetně rutiny pro správu naplánované úlohy, odpojené relaci, integrace CIM a aktualizovatelné nápovědy.
 
 |||
 |-|-|
 |Přidat JobTrigger|Nový JobTrigger|
 |Connect-PSSession|Nové PSSessionConfigurationFile|
-|ConvertFrom Json|New-PSTransportOption|
+|ConvertFrom-Json|New-PSTransportOption|
 |ConvertTo-Json|Nové PSWorkflowExecutionOption|
 |Disable-JobTrigger|Nové PSWorkflowSession|
 |Disable-ScheduledJob|Nové ScheduledJobOption|
-|Odpojení PSSession|Nový WinEvent.|
-|Povolit JobTrigger|Zobrazí PSSession|
-|Povolit ScheduledJob|Registrace CimIndicationEvent|
+|Odpojit relace PSSession|Nový WinEvent|
+|Enable-JobTrigger|Zobrazí PSSession|
+|Enable-ScheduledJob|Register-CimIndicationEvent|
 |Get-CimAssociatedInstance|Register-ScheduledJob|
-|Get-CimClass|Odebrat CimInstance|
+|Get-CimClass|Remove-CimInstance|
 |Get-CimInstance|Remove-CimSession|
 |Get-CimSession|Odebrat TypeData|
-|Get-ControlPanelItem|Přejmenování počítače|
+|Get-ControlPanelItem|Rename-Computer|
 |Get-IseSnippet|Resume-Job|
 |Get-JobTrigger|Save-Help|
 |Get-ScheduledJob|Set-CimInstance|
 |Get-ScheduledJobOption|Set-JobTrigger|
 |Get-TypeData|Set-ScheduledJob|
 |Import IseSnippet|Set-ScheduledJobOption|
-|Vyvolání AsWorkflow|Zobrazit – příkaz|
-|Vyvolání CimMethod|Zobrazit ControlPanelItem|
-|Vyvolání RestMethod|Pozastavení úlohy|
-|Vyvolání WebRequest|Test PSSessionConfigurationFile|
-|Nové CimInstance|Zrušení blokování souborů|
+|Vyvolání AsWorkflow|Show-– příkaz|
+|Invoke CimMethod|Show ControlPanelItem|
+|Vyvolání RestMethod|Pozastavit úlohu|
+|Invoke-WebRequest|Test-PSSessionConfigurationFile|
+|Nový CimInstance|Blokování souborů|
 |Nový CimSession|Unregister-ScheduledJob|
 |Nové CimSessionOption|Update-Help|
 |Nové IseSnippet||
 
-### <a name="improvements-to-existing-core-cmdlets-and-providers"></a>Vylepšení existující základní rutiny a zprostředkovatelé
-Prostředí Windows PowerShell 3.0 obsahuje nové funkce pro existující rutiny včetně zjednodušenou syntaxi a nové parametry pro následující rutiny: rutiny počítače, CSV rutiny Get-ChildItem Get-Command, Get-obsah, Get-historie, objekt míry zabezpečení rutiny Select-Object, vyberte řetězec, rozdělení-Path, spuštění procesu, typu t-Object, Test-Connection, přidat člena a rutin rozhraní WMI.
+### <a name="improvements-to-existing-core-cmdlets-and-providers"></a>Vylepšení pro existující základních rutin a poskytovatele
+Windows PowerShell 3.0 obsahuje nové funkce pro existující rutiny včetně zjednodušenou syntaxi a nové parametry pro následující rutiny: rutiny počítače, CSV rutin Get-ChildItem Get-Command, Get-obsah, Get-historie, míru – objekt zabezpečení rutiny, Select-Object, String vyberte, Split-Path, spustit proces Tee-Object, Test-Connection, přidat člena a rutiny WMI.
 
-Zprostředkovatelé prostředí Windows PowerShell byly také výrazně zlepšila, včetně podpory zprostředkovatele certifikát ke správě certifikátů vrstvy SSL (Secure Socket) pro hostování webů, podporu pro přihlašovací údaje, trvalé síťové jednotky a alternativní datové proudy v jednotky systému souborů.
+Poskytovatelé Windows Powershellu se také k významnému vylepšení včetně podpory poskytovatel certifikátu pro správu certifikátů vrstvy SSL (Secure Socket) pro hostování webů, credential nebo trvalé síťové jednotky a alternativní datové proudy v jednotky systému souborů.
 
-### <a name="remote-module-import-and-discovery"></a>Modul vzdáleného importu a zjišťování
-Prostředí Windows PowerShell 3.0 rozšiřuje modul zjišťování, import a možnosti implicitní Vzdálená komunikace na vzdálených počítačích. Rutiny modulu získání modulů na vzdálených počítačích a naimportujte moduly do vzdáleného nebo místního počítače pomocí vzdálené komunikace Windows Powershellu. Nová podpora relace CIM umožňuje používat CIM a WMI ke správě počítačů jiný systém než Windows importováním příkazy do místního počítače, který implicitně spustit na vzdáleném počítači.
+### <a name="remote-module-import-and-discovery"></a>Import modulu vzdálené a zjišťování
+Windows PowerShell 3.0 rozšiřuje modulu zjišťování, importování a možnosti implicitní vzdálené komunikace na vzdálených počítačích. Rutiny modulu získání modulů na vzdálených počítačích a naimportujte moduly do vzdáleného nebo místního počítače pomocí vzdálené komunikace Windows Powershellu. Nová podpora relaci CIM můžete použít model CIM a WMI ke správě počítačů bez Windows importováním příkazy do místního počítače, která implicitně spustí ve vzdáleném počítači.
 
 Další informace najdete v tématech nápovědy pro [Get-Module](https://technet.microsoft.com/library/2cccd4c4-9a21-4c77-b691-984ee57242e1) a [Import-Module](https://technet.microsoft.com/library/af616c24-e122-4098-930e-1e3ea2080ade) rutiny.
 
-### <a name="enhanced-tab-completion"></a>Dokončování pomocí tabulátorů rozšířené
-Dokončování pomocí tabulátorů v konzole Windows PowerShell teď dokončení názvy rutin, parametry, hodnoty parametrů, výčty, rozhraní .NET Framework typů, COM objekty, skrytých složek a další. Funkci doplňování karta je kompletně přepsaná, na základě nový analyzátor a abstraktního syntaktického stromu pro podporu více scénářů, včetně analýzy stromové struktury v paměti a dokončování pomocí tabulátorů středovou.
+### <a name="enhanced-tab-completion"></a>Vylepšené Tab k dokončování příkazů
+Dokončování pomocí tabulátoru v konzole Windows Powershellu teď dokončí názvy rutin, parametry, hodnoty parametrů, výčtů, rozhraní .NET Framework typy, COM objekty, skrytých složek a informace. Funkci doplňování karta je kompletně přepsaná založené na strom abstraktní syntaxe pro podporu více scénářů, včetně stromů analýzy v paměti a středovou tab k dokončování příkazů a nový analyzátor.
 
-### <a name="module-auto-loading"></a>Automatické načítání modulu
-[Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutiny nyní získá všechny rutiny a funkce z všechny moduly, které jsou nainstalovány v počítači, i když není modul naimportovat do aktuální relace.
+### <a name="module-auto-loading"></a>Automatické načítání modulů
+[Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutina nyní získá všechny rutiny a funkce ze všech modulů, které jsou nainstalovány v počítači, i když v modulu není importován do aktuální relace.
 
-Když získáte rutiny, které potřebujete, můžete ji okamžitě bez import všech modulů. Moduly prostředí Windows PowerShell jsou nyní automaticky importován při použití jakékoli rutině v modulu. Již nepotřebujete vyhledejte modul a importovat ho na použití jeho rutinu.
+Když se zobrazí rutiny, které potřebujete, můžete ho okamžitě bez importu všech modulů. Moduly Windows Powershellu jsou nyní automaticky importován při použít všechny rutiny v modulu. Už nepotřebujete a vyhledejte modul a importovat, a použít jeho rutinu.
 
-Automatické importu modulů se aktivuje při spuštění pomocí rutiny v příkazu, **Get-Command** pro rutinu bez zástupných znaků nebo spuštění [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) pro rutinu bez zástupných znaků.
+Automatické import modulů se aktivuje pomocí rutiny v příkazu, spuštěná **Get-Command** pro rutinu bez zástupných znaků nebo spuštění [Get-Help](https://technet.microsoft.com/library/1f46eeb4-49d7-4bec-bb29-395d9b42f54a) pro rutinu bez zástupných znaků.
 
-Můžete povolit, zakázat a nakonfigurovat automatické importu modulů pomocí **$PSModuleAutoLoadingPreference** preferenční proměnné.
+Můžete povolit, zakázat a nakonfigurovat automatické import modulů pomocí **$PSModuleAutoLoadingPreference** preferenční proměnné.
 
-Další informace najdete v tématu [týkajícím se modulů [verze 4]](https://technet.microsoft.com/library/94f57429-a539-4aee-bb0d-205cd7e801f9), [about_Preference_Variables [v4]](https://technet.microsoft.com/library/31344314-be29-4286-b039-afa5460cbe8b)a témata nápovědy [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) a [Import-Module ](https://technet.microsoft.com/library/af616c24-e122-4098-930e-1e3ea2080ade) rutiny.
+Další informace najdete v tématu [týkajícím se modulů](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-5.0), [about_Preference_Variables [v4]](https://technet.microsoft.com/library/31344314-be29-4286-b039-afa5460cbe8b)a témata nápovědy [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) a [Import-Module](https://technet.microsoft.com/library/af616c24-e122-4098-930e-1e3ea2080ade) rutiny.
 
-### <a name="module-experience-improvements"></a>Vylepšení prostředí modulu
-Prostředí Windows PowerShell 3.0 přináší podporu pokročilých funkcí pro moduly, včetně následující nové funkce.
+### <a name="module-experience-improvements"></a>Vylepšení uživatelského prostředí modulu
+Windows PowerShell 3.0 přináší podporu pokročilých funkcí pro moduly, včetně následující nové funkce.
 
-1. Modul protokolování pro jednotlivé moduly (LogPipelineExecutionDetails) a nové nastavení zásad skupiny "Zapnout na modulu protokolování"
+1. Modul protokolování pro jednotlivé moduly (LogPipelineExecutionDetails) a nové nastavení zásad skupiny "Zapnout na modul protokolování"
 
-2. Rozšířených objektů modulu, které zveřejňují hodnoty z manifestu modulu
+2. Rozšířených objektů modulu, které vystavují hodnoty z manifestu modulu
 
-3. Nové **ExportedCommands** vlastnost modulů, včetně vnořené moduly, které kombinuje příkazy všech typů
+3. Nové **ExportedCommands** vnořené vlastnosti modulů, včetně modulů, které kombinuje příkazy všech typů
 
-4. Vylepšené zjišťování k dispozici (zrušení importovaných) modulů, včetně, což **cesta** a **ListAvailable** parametry v jednom příkazu
+4. Vylepšené zjišťování modulů k dispozici (zrušení importovaných), včetně, což **cesta** a **ListAvailable** parametry v jednom příkazu
 
-5. Nové **DefaultCommandPrefix** klíče v manifesty modulů, které zabraňuje konfliktu názvů beze změny kódu modulu.
+5. Nové **DefaultCommandPrefix** klíče v modulu manifestů, které zabrání konfliktům název beze změny kódu modulu.
 
-6. Vylepšené modulu požadavky, včetně plně kvalifikovaný požadované moduly s verzí a identifikátor GUID a automatického importu požadované moduly
+6. Vylepšené modulu požadavky, včetně plně kvalifikovaný požadované moduly s verzí a identifikátor GUID a automatického importu požadované moduly.
 
-7. Tišším, možnosti efektivní fungování [New-ModuleManifest](https://technet.microsoft.com/library/512adced-f42f-4e88-ba7c-834fc9e5d047) rutiny.
+7. Náročném, efektivní fungování [New-ModuleManifest](https://technet.microsoft.com/library/512adced-f42f-4e88-ba7c-834fc9e5d047) rutiny.
 
 8. Nové **modulu** parametr pro #Requires
 
 9. Vylepšené [Import-Module](https://technet.microsoft.com/library/af616c24-e122-4098-930e-1e3ea2080ade) rutiny s oběma **MinimumVersion** a **RequiredVersion** parametry.
 
-### <a name="simplified-command-discovery"></a>Zjednodušená příkaz zjišťování
-Už je nutné importovat všechny moduly, které chcete zjistit, příkazy, které jsou k dispozici do relace. V prostředí Windows PowerShell 3.0 [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutiny získá všechny příkazy z všechny nainstalované moduly. A pokud chcete použít příkaz, je automaticky importují do relace modul, který exportuje příkaz.
+### <a name="simplified-command-discovery"></a>Zjednodušené příkaz zjišťování
+Už nepotřebujete naimportujte všechny moduly ke zjištění příkazy, které jsou k dispozici do relace. Ve Windows Powershellu 3.0 [Get-Command](https://technet.microsoft.com/library/59c6d302-6e8c-48b7-a6f6-f0172df936ad) rutina načte všechny příkazy ze všech nainstalovaných modulů. A pokud použijete příkaz, je automaticky naimportován do relace modul, který exportuje příkazu.
 
-Nové [zobrazit příkaz](https://technet.microsoft.com/library/65bba50b-91a8-49d5-80a2-a30fc684ba41) rutiny je určený pro začátečníky. Můžete vyhledat příkazů v okně. Můžete zobrazit všechny příkazy nebo filtrovat podle modulu, importovat modul klepnutím na tlačítko, použijte textová pole a rozevírací seznamy vytvořit platný příkaz a poté zkopírujte nebo spuštěním příkazu, aniž byste opustili okna.
+Nové [zobrazit příkaz](https://technet.microsoft.com/library/65bba50b-91a8-49d5-80a2-a30fc684ba41) rutiny určené speciálně pro začátečníky. Můžete hledat příkazy v okně. Můžete zobrazit všechny příkazy nebo filtrovat podle modulu, importovat modul klepnutím na tlačítko, textová pole a rozevírací seznamy můžete vytvořit platný příkaz a potom zkopírujte nebo spusťte příkaz bez opuštění okna.
 
-### <a name="improved-logging-diagnostics-and-group-policy-support"></a>Vylepšené protokolování diagnostiky a podpora zásad skupiny
-Prostředí Windows PowerShell 3.0 zlepšuje protokolování a trasování podporu pro příkazy a moduly s podporou pro trasování událostí v protokolech systému Windows (ETW), upravitelné **LogPipelineExecutionDetails** vlastnost modulů a "zapnout v modulu Protokolování"skupina nastavení zásad. Nyní můžete z podrobnosti protokolu zobrazením vlastností protokolu získat hodnoty parametrů.
+### <a name="improved-logging-diagnostics-and-group-policy-support"></a>Zdokonalené funkce protokolování diagnostiky a podpora zásad skupiny
+Windows PowerShell 3.0 zlepšuje protokolování a trasování podpory pro příkazy a modulů s podporou pro trasování událostí v protokolech trasování událostí pro Windows (Windows), upravitelné **LogPipelineExecutionDetails** vlastnost modulů a "zapnout v modulu Skupina položky protokolování"nastavení zásad. Nyní můžete z protokolu podrobnosti zobrazením vlastností protokolu získat hodnoty parametrů.
 
-### <a name="formatting-and-output-improvements"></a>Formátování a vylepšení výstup
-Nové formátování a výstup vylepšení zlepšit efektivitu všichni uživatelé v prostředí Windows PowerShell. Mezi vylepšení patří výstupní přesměrování pro všechny datové proudy, rozšířené rutiny typ aktualizace, která přidává typy dynamicky bez Format.ps1xml souborů, zalamování řádků ve výstupu, výchozí formátování vlastnosti vlastní objekty, **PSCustomObject** typu, vylepšené formátování pro objekty rozhraní WMI a heterogenní objekty a podporu pro zjišťování přetížení metody.
+### <a name="formatting-and-output-improvements"></a>Formátování a vylepšení výstupu
+Nové formátování a výstup vylepšení zvýšit efektivitu všech uživatelů, prostředí Windows PowerShell. Mezi vylepšení patří výstupní přesměrování pro všechny datové proudy, rozšířené rutiny Update-Type, která přidá typy dynamicky bez Format.ps1xml souborů, zalamování řádků ve výstupu, výchozí vlastnosti formátování vlastních objektů, **PSCustomObject** text, vylepšené formátování objektů WMI heterogenní objekty a podporu pro zjišťování přetížení metody.
 
-### <a name="enhanced-console-host-experience"></a>Prostředí hostitele rozšířené konzoly
-Program hostitele konzoly prostředí Windows PowerShell obsahuje nové funkce v prostředí Windows PowerShell 3.0 ve výchozím nastavení včetně jeden model typu apartment. Nové možnosti "Spustit s PowerShell" v Průzkumníku souborů umožňuje spouštět skripty v relaci neomezený právě kliknutím pravým tlačítkem myši. Nové konzoly hostitele spuštění logiku rychleji spustí prostředí Windows PowerShell a nová písma umožňují přizpůsobit okno prostředí známé konzoly.
+### <a name="enhanced-console-host-experience"></a>Rozšířené konzole hostitele zkušenost
+Hostitelského programu konzoly prostředí Windows PowerShell obsahuje nové funkce ve Windows Powershellu 3.0 včetně jednovláknový objekt apartment ve výchozím nastavení. Nová možnost "Spustit s PowerShell" v Průzkumníku souborů umožňuje spouštět skripty v relaci neomezený právě kliknutím pravým tlačítkem myši. Nové konzoly hostitele spuštění logiky spouští rychleji prostředí Windows PowerShell a nová písma umožňují přizpůsobit okno prostředí známých konzoly.
 
 Další informace najdete v tématu [about_Run_With_PowerShell](https://technet.microsoft.com/library/c9d9ca5f-eff9-4409-be9d-e43b5b4087eb).
 
-### <a name="new-cmdlet-and-hosting-apis"></a>Nové rutiny a hostování rozhraní API
-Nové rutiny API a hostování rozhraní API obsahují veřejné rozšířené syntaxe stromu (AST) rozhraní API a rozhraní API pro kanálu stránkování, vnořené kanály, dokončování pomocí tabulátorů fondy prostředí runspace, Windows RT, atribut zastaralé rutiny a operaci a podstatné jméno vlastnosti objektu FunctionInfo.
+### <a name="new-cmdlet-and-hosting-apis"></a>Nová rutina a rozhraní API pro hostování
+Nové rutiny API a rozhraní API hostování zahrnují strom veřejné pokročilé syntaxe (AST) rozhraní API a rozhraní API pro kanál stránkování, vnořené kanály, prostředí runspace fondy tab k dokončování příkazů, Windows RT, atribut zastaralé rutiny a sloveso a podstatné jméno vlastnosti objektu FunctionInfo.
 
 ### <a name="performance-improvements"></a>Vylepšení výkonu
-Výrazné vylepšení výkonu v prostředí Windows PowerShell pochází z nové analyzátor jazyka, který je založený na modulu Runtime DLR (Dynamic Language) v rozhraní .NET Framework 4., společně s kompilace skriptu runtime, modul vylepšení spolehlivosti a změny algoritmus [Get-ChildItem](https://technet.microsoft.com/library/75cf79bb-4db6-4a67-8c36-3d20754e2190) , zvýšit jeho výkon, zejména v případě, že hledání síťové sdílené složky.
+Výrazné zlepšení výkonu ve Windows Powershellu pocházejí z nový analyzátor jazyka, které je postavené na dynamický modul Runtime jazyka (DLR) v rozhraní .NET Framework 4. společně s runtime kompilace skriptu, vylepšení spolehlivosti modulu a změny algoritmus [Get-ChildItem](https://technet.microsoft.com/library/75cf79bb-4db6-4a67-8c36-3d20754e2190) , který vylepšit výkon, zejména v případě, že hledání síťové sdílené složky.
 
-### <a name="runas-and-shared-host-support"></a>RunAs a podpory sdílené hostitelů
-Prostředí Windows PowerShell 3.0 zahrnuje podporu pro funkce RunAs a sdílené hostitele.
+### <a name="runas-and-shared-host-support"></a>Spustit jako a podporu sdílené hostitele
+Windows PowerShell 3.0 obsahuje podporu pro funkce RunAs a sdílené hostitele.
 
-*RunAs* funkce, které jsou určené pro pracovní postup prostředí Windows PowerShell, umožňuje uživatelům konfiguraci relace, vytváření relací, které spustit s oprávněním sdíleného uživatelského účtu. To umožňuje méně privilegovaní uživatelé spouštět určité příkazy a skripty s oprávněním správce a snižuje potřebu přidává menší senior uživatele do skupiny Administrators.
+*RunAs* funkce, navržená pro pracovního postupu Windows Powershellu, umožňuje uživatelům konfiguraci relace, vytváření relací, které běží s oprávněním sdíleného uživatelského účtu. Díky tomu méně privilegovaným uživatelům spouštět určité příkazy a skripty s oprávněními správce a snižuje nutnost přidávání méně vedoucí uživatelů do skupiny Administrators.
 
-**SharedHost** funkce umožňuje více uživatelům na několika počítačích pro připojení k relaci workflowu souběžně a sledovat průběh pracovního postupu. Uživatelé mohou spustit pracovní postup na jednom počítači a potom se připojte k relaci workflowu na jiném počítači bez odpojení relace z původního počítače. Uživatelé musí mít stejná oprávnění a používat stejné konfiguraci relace. Další informace najdete v tématu "Spuštěna pracovním postupu Windows PowerShell" v části Začínáme s pracovním postupem prostředí Windows PowerShell.
+**SharedHost** funkce umožňuje více uživatelům ve více počítačích pro připojení k relaci workflowu souběžně a sledovat průběh pracovního postupu. Uživatelé můžou spouštět pracovní postup na jednom počítači a připojte se k relaci workflowu na jiném počítači bez odpojení relace z původního počítače. Uživatelé musí mít stejná oprávnění a používat stejné konfiguraci relace. Další informace najdete v tématu "Spuštěná Windows pracovního postupu Powershellu" v části Začínáme s pracovním postupem prostředí Windows PowerShell.
 
-### <a name="special-character-handling-improvements"></a>Vylepšení zpracování speciální znak
-Pro zlepšení schopnost prostředí Windows PowerShell 3.0 jak interpretovat a pracuje správně speciální znaky, **LiteralPath** parametr, který zpracovává speciální znaky v cestách, je platný na téměř všechny rutiny, které mají  **Cesta** parametr, včetně nové [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) a [Save-Help](https://technet.microsoft.com/library/aed94f90-b73f-4e25-a25d-7c18d9f161fa) rutiny. Analyzátor také obsahuje speciální logiku ke zlepšení zpracování znaku backtick (\`) a hranaté závorky v názvů a cest souborů.
+### <a name="special-character-handling-improvements"></a>Zlepšení zpracování speciální znak
+Zlepšit schopnost Windows PowerShell 3.0, jak interpretovat a zpracovat správně speciální znaky, **LiteralPath** parametr, který zpracovává speciální znaky v cestách, je platný pro téměř všechny rutiny, které mají  **Cesta** parametr, včetně nového [Update-Help](https://technet.microsoft.com/library/93e1d870-ace6-432b-8778-8920291d7545) a [Save-Help](https://technet.microsoft.com/library/aed94f90-b73f-4e25-a25d-7c18d9f161fa) rutiny. Analyzátor také zahrnuje zvláštní logiku ke zlepšení zpracování prvními znaku (\`) a hranaté závorky v názvech souborů a cesty.
 
 ## <a name="see-also"></a>Viz také
 - [about_Windows_PowerShell_5.0](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_windows_powershell_5.0?view=powershell-5.0)

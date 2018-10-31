@@ -2,12 +2,12 @@
 ms.date: 04/11/2018
 keywords: DSC, powershell, konfigurace, instalační program
 title: Nastavení serveru vyžádané replikace SMB pro DSC
-ms.openlocfilehash: 1eac6c51aeca3ed573ba8fa27188103436004920
-ms.sourcegitcommit: 8b076ebde7ef971d7465bab834a3c2a32471ef6f
+ms.openlocfilehash: ebf9ac7923a7c226bc01014d890d993d452af578
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37892861"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225858"
 ---
 # <a name="setting-up-a-dsc-smb-pull-server"></a>Nastavení serveru vyžádané replikace SMB pro DSC
 
@@ -132,7 +132,7 @@ Musí mít název konfiguračního souboru MOF *ConfigurationID*.mof, kde *Confi
 > [!NOTE]
 > Pokud používáte serveru vyžádané replikace SMB je nutné použít ID konfigurace. Názvy konfigurace nejsou podporovány pro protokolu SMB.
 
-Každý modul prostředků musí být metoda ZIP a s názvem podle následující vzor `{Module Name}_{Module Version}.zip`. Například modul s názvem xWebAdminstration s verzí modulu 3.1.2.0 by se pojmenoval "xWebAdministration_3.2.1.0.zip". Každá verze modulu musí být součástí jedné zip soubor. Vzhledem k tomu, že existuje pouze jedna verze prostředku v každém souboru zip formát modulu přidáno ve WMF 5.0 s více verzí modulu v jednom adresáři není podporované. To znamená, že před zabalení moduly prostředků DSC pro použití se serverem o přijetí změn je potřeba proveďte malou změnu do struktury adresářů. Je výchozí formát pro moduly obsahující prostředek DSC ve WMF 5.0 `{Module Folder}\{Module Version}\DscResources\{DSC Resource Folder}\`. Před balení do serveru vyžádané replikace jednoduše odebrat `{Module version}` složku, cesta bude `{Module Folder}\DscResources\{DSC Resource Folder}\`. Díky této změně složky zip, jak je popsáno výše a umístí tyto souboru zip do sdílené složky SMB.
+Každý modul prostředků musí být metoda ZIP a s názvem podle následujícího vzoru `{Module Name}_{Module Version}.zip`. Například modul s názvem xWebAdminstration s verzí modulu 3.1.2.0 by se pojmenoval "xWebAdministration_3.2.1.0.zip". Každá verze modulu musí být součástí jedné zip soubor. Vzhledem k tomu, že existuje pouze jedna verze prostředku v každém souboru zip formát modulu přidáno ve WMF 5.0 s více verzí modulu v jednom adresáři není podporované. To znamená, že před zabalení moduly prostředků DSC pro použití se serverem o přijetí změn je potřeba proveďte malou změnu do struktury adresářů. Je výchozí formát pro moduly obsahující prostředek DSC ve WMF 5.0 `{Module Folder}\{Module Version}\DscResources\{DSC Resource Folder}\`. Před balení do serveru vyžádané replikace jednoduše odebrat `{Module version}` složku, cesta bude `{Module Folder}\DscResources\{DSC Resource Folder}\`. Díky této změně složky zip, jak je popsáno výše a umístí tyto souboru zip do sdílené složky SMB.
 
 ## <a name="creating-the-mof-checksum"></a>Vytváří se kontrolní součet MOF
 

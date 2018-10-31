@@ -1,31 +1,31 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
-ms.openlocfilehash: f2500bfb41302cbeaf3cb9d23b843f26f01c1d5b
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: Psaní vlastních prostředků DSC pomocí tříd Powershellu
+ms.openlocfilehash: a8f08323f2cced8a17de4224bea94a54ba5ef0cd
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34189461"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50226079"
 ---
-# <a name="writing-a-custom-dsc-resource-with-powershell-classes"></a>Psaní vlastních prostředků DSC s třídami, prostředí PowerShell
+# <a name="writing-a-custom-dsc-resource-with-powershell-classes"></a>Psaní vlastních prostředků DSC pomocí tříd Powershellu
 
-> Platí pro: Windows prostředí Windows PowerShell 5.0
+> Platí pro: Windows PowerShell 5.0
 
-Se zavedením prostředí PowerShell tříd v prostředí Windows PowerShell 5.0 můžete teď určit prostředek DSC vytvořením třídy. Třída definuje schéma a provádění prostředku, takže není nutné vytvořit samostatný soubor MOF. Struktura složek na základě třídy prostředku je také jednodušší, protože **DSCResources** složka není nezbytné.
+Se zavedením tříd Powershellu ve Windows Powershellu 5.0 je možnost definovat prostředek DSC tak, že vytvoříte třídu. Třída definuje schéma a provádění prostředku, takže není nutné vytvořit samostatný soubor MOF. Struktura složek pro prostředek založené na třídě je také jednodušší, protože **DSCResources** složka není nezbytné.
 
-V prostředek DSC založené na třídě schématu je definován jako vlastnosti třídy, které lze upravit atributy pro určení typu vlastnost... Prostředek je implementováno modulem **Get()**, **Set()**, a **Test()** metody (ekvivalentní **Get-TargetResource**, **Set-TargetResource**, a **Test TargetResource** funkcí v zdroje skriptu.
+V založené na třídě prostředků DSC schéma je definován jako vlastnosti třídy, která se dají upravovat pomocí atributů k určení typu vlastnosti... Prostředek je implementováno **Get()**, **Set()**, a **Test()** metody (odpovídá **Get-TargetResource**, **Set-TargetResource**, a **testovací TargetResource** funkcí ve skriptu prostředků.
 
-V tomto tématu, vytvoříme jednoduchý prostředek s názvem **FileResource** , spravuje soubor v zadané cestě.
+V tomto tématu vytvoříme jednoduchou prostředek s názvem **FileResource** , který spravuje souboru v zadané cestě.
 
-Další informace o prostředcích DSC najdete v tématu [sestavení vlastní Windows PowerShell požadovaného stavu konfigurace prostředků](authoringResource.md)
+Další informace o prostředcích DSC najdete v tématu [vytvářet vlastní Windows PowerShell Desired State Configuration prostředky](authoringResource.md)
 
->**Poznámka:** obecné kolekce nepodporuje prostředky založené na třídě.
+>**Poznámka:** nejsou podporovány obecné kolekce v založené na třídě prostředků.
 
-## <a name="folder-structure-for-a-class-resource"></a>Struktura složek pro prostředek – třída
+## <a name="folder-structure-for-a-class-resource"></a>Struktura složek pro prostředek třídy
 
-Chcete-li implementovat vlastní prostředek DSC s třídou prostředí PowerShell, vytvořte následující strukturu složek. Je třída definovaná v **MyDscResource.psm1** a manifestu modulu je definována v **MyDscResource.psd1**.
+K implementaci vlastní prostředek DSC Powershellu Class, vytvořte následující strukturu složek. Je třída definovaná v **MyDscResource.psm1** a manifest modul je definované v **MyDscResource.psd1**.
 
 ```
 $env:ProgramFiles\WindowsPowerShell\Modules (folder)
@@ -36,7 +36,7 @@ $env:ProgramFiles\WindowsPowerShell\Modules (folder)
 
 ## <a name="create-the-class"></a>Vytvoření třídy
 
-Class – klíčové slovo použijete pro vytvoření třídy prostředí PowerShell. Chcete-li určit, že třída je prostředek DSC, použijte **DscResource()** atribut. Název třídy je název prostředek DSC.
+Class – klíčové slovo použijete k vytvoření třídy prostředí PowerShell. Chcete-li určit, že třída je prostředek DSC, použijte **DscResource()** atribut. Název třídy je název prostředku DSC.
 
 ```powershell
 [DscResource()]
@@ -44,9 +44,9 @@ class FileResource {
 }
 ```
 
-### <a name="declare-properties"></a>Deklarování vlastností
+### <a name="declare-properties"></a>Deklarace vlastnosti
 
-Schéma prostředků DSC je definován jako vlastnosti třídy. Jsme deklarovat tři vlastnosti následujícím způsobem.
+Schéma prostředků DSC je definován jako vlastnosti třídy. Můžeme deklarovat tři vlastnosti následujícím způsobem.
 
 ```powershell
 [DscProperty(Key)]
@@ -62,14 +62,14 @@ Schéma prostředků DSC je definován jako vlastnosti třídy. Jsme deklarovat 
 [Nullable[datetime]] $CreationTime
 ```
 
-Všimněte si, že jsou upraveny vlastnosti podle atributů. Význam atributy vypadá takto:
+Všimněte si, že jsou upraveny vlastnosti Description atributy. Význam atributy vypadá takto:
 
-- **DscProperty(Key)**: vlastnost se vyžaduje. Vlastnost je klíč. Hodnoty všech vlastností označené jako klíče musí zkombinovat k jednoznačné identifikaci instance prostředku v rámci konfigurace.
-- **DscProperty(Mandatory)**: vlastnost se vyžaduje.
-- **DscProperty(NotConfigurable)**: vlastnost je jen pro čtení. Vlastnosti, které jsou označené jako tento atribut nelze nastavit konfigurace, ale jsou nenaplnil **Get()** metoda, pokud jsou k dispozici.
+- **DscProperty(Key)**: vlastnost je povinný. Vlastnost je klíč. Hodnoty všech vlastností označený jako obsahující kombinaci kláves k jednoznačné identifikaci instance prostředku v rámci konfigurace.
+- **DscProperty(Mandatory)**: vlastnost je povinný.
+- **DscProperty(NotConfigurable)**: vlastnost je jen pro čtení. Vlastnosti označené tento atribut nemůže nastavit konfiguraci, ale jsou vyplněn **Get()** metodu, pokud je k dispozici.
 - **DscProperty()**: vlastnost je možné konfigurovat, ale není nutné.
 
-**$Path** a **$SourcePath** vlastnosti jsou oba řetězce. **$CreationTime** je [data a času](https://technet.microsoft.com/library/system.datetime.aspx) vlastnost. **$Ensure** vlastnost je typ výčtu definované následujícím způsobem.
+**$Path** a **$SourcePath** vlastnosti jsou obou řetězců. **$CreationTime** je [data a času](https://technet.microsoft.com/library/system.datetime.aspx) vlastnost. **$Ensure** vlastnost je typ výčtu, definovaná následujícím způsobem.
 
 ```powershell
 enum Ensure
@@ -81,9 +81,9 @@ enum Ensure
 
 ### <a name="implementing-the-methods"></a>Implementace metody
 
-**Get()**, **Set()**, a **Test()** metody jsou obdobou **Get-TargetResource**, **Set-TargetResource** , a **Test TargetResource** funkcí v zdroje skriptu.
+**Get()**, **Set()**, a **Test()** metody jsou obdobou **Get-TargetResource**, **Set TargetResource** , a **testovací TargetResource** funkcí ve skriptu prostředků.
 
-Tento kód také obsahuje funkci CopyFile() pomocné funkce, která zkopíruje soubor z **$SourcePath** k **$Path**.
+Tento kód také zahrnuje funkci CopyFile() pomocná funkce, která zkopíruje soubor z **$SourcePath** k **$Path**.
 
 ```powershell
 
@@ -216,8 +216,8 @@ Tento kód také obsahuje funkci CopyFile() pomocné funkce, která zkopíruje s
     }
 ```
 
-### <a name="the-complete-file"></a>Dokončení souboru
-Dokončení třídy soubor odpovídá.
+### <a name="the-complete-file"></a>Celý
+Následující soubor úplné třídy.
 
 ```powershell
 enum Ensure
@@ -417,7 +417,7 @@ class FileResource
 
 ## <a name="create-a-manifest"></a>Vytvoření manifestu
 
-Pokud chcete zpřístupnit prostředek založené na třídě modul DSC, je nutné zahrnout **DscResourcesToExport** příkaz v souboru manifestu, který se dá pokyn modulu exportovat prostředku. Naše manifest vypadá takto:
+Chcete-li zpřístupnit prostředek založené na třídě modulu DSC, musíte zahrnout **DscResourcesToExport** prohlášení v souboru manifestu, který dává pokyn modul k exportu prostředku. Naše manifestu vypadá takto:
 
 ```powershell
 @{
@@ -453,9 +453,9 @@ PowerShellVersion = '5.0'
 }
 ```
 
-## <a name="test-the-resource"></a>Testování prostředku
+## <a name="test-the-resource"></a>Testovací prostředek
 
-Po uložení třídy a souborů manifestu ve struktuře složky, jak bylo popsáno dříve, můžete vytvořit konfigurace, které používá nový prostředek. Informace o tom, jak spustit konfigurace DSC najdete v tématu [přijetí konfigurace](enactingConfigurations.md). Následující konfigurace bude zkontrolujte, jestli soubor v `c:\test\test.txt` existuje a pokud ne, zkopíruje soubor z `c:\test.txt` (byste měli vytvořit `c:\test.txt` před spuštěním konfigurace).
+Po uložení třídy a soubory manifestu ve struktuře složek, jak je popsáno výše, můžete vytvořit konfiguraci, která využívá nový prostředek. Informace o tom, jak spustit konfiguraci DSC, naleznete v tématu [přijetí konfigurace](enactingConfigurations.md). Následující konfigurace zkontroluje, jestli soubor v `c:\test\test.txt` existuje a pokud ne, zkopíruje soubor z `c:\test.txt` (byste měli vytvořit `c:\test.txt` předtím, než spustíte konfiguraci).
 
 ```powershell
 Configuration Test
@@ -474,22 +474,22 @@ Start-DscConfiguration -Wait -Force Test
 
 ## <a name="supporting-psdscrunascredential"></a>Podpora PsDscRunAsCredential
 
->**Poznámka:** **PsDscRunAsCredential** je podporována v prostředí PowerShell 5.0 nebo novější.
+>**Poznámka:** **PsDscRunAsCredential** je podporován v Powershellu 5.0 a novějším.
 
-**PsDscRunAsCredential** vlastnost lze použít v [konfigurace DSC](configurations.md) prostředků bloku určí prostředek by měl být spuštění pod zadanou sadu přihlašovacích údajů.
+**PsDscRunAsCredential** vlastnost lze použít v [konfigurací DSC](configurations.md) prostředků bloku k určení, prostředku by měl být spuštěny pod zadanou sadu přihlašovacích údajů.
 Další informace najdete v tématu [DSC spuštěná s pověřeními uživatele](runAsUser.md).
 
-### <a name="require-or-disallow-psdscrunascredential-for-your-resource"></a>Povolení nebo zakázání PsDscRunAsCredential prostředku
+### <a name="require-or-disallow-psdscrunascredential-for-your-resource"></a>Povolení nebo zakázání PsDscRunAsCredential pro prostředek
 
 **DscResource()** atribut přebírá volitelný parametr **RunAsCredential**.
 Tento parametr má jednu ze tří hodnot:
 
-- `Optional` **PsDscRunAsCredential** pro konfigurace, které volají tento prostředek je volitelný. Tato hodnota je výchozí.
-- `Mandatory` **PsDscRunAsCredential** musí používat pro všechny konfigurace, který volá tento prostředek.
-- `NotSupported` Konfigurace, které volají tento prostředek nelze použít **PsDscRunAsCredential**.
+- `Optional` **PsDscRunAsCredential** je volitelné konfigurace, které volají tento prostředek. Tato hodnota je výchozí.
+- `Mandatory` **PsDscRunAsCredential** musí být použito pro všechny konfigurace, který volá tento prostředek.
+- `NotSupported` Nelze použít konfigurace, které volají tento prostředek **PsDscRunAsCredential**.
 - `Default` Stejné jako `Optional`.
 
-Například následující atribut použít k určení, že vlastní prostředek nepodporuje použití **PsDscRunAsCredential**:
+Například následující atribut můžete zadat vlastní prostředek nepodporuje použití **PsDscRunAsCredential**:
 
 ```powershell
 [DscResource(RunAsCredential=NotSupported)]
@@ -497,11 +497,11 @@ class FileResource {
 }
 ```
 
-### <a name="access-the-user-context"></a>Přístup k kontext uživatele
+### <a name="access-the-user-context"></a>Přístup k kontextu uživatele
 
-Pro přístup k kontext uživatele z v rámci vlastní prostředek, můžete použít automatické proměnné `$global:PsDscContext`.
+Pro přístup k uživatelský kontext z v rámci vlastní prostředek, můžete použít automatické proměnné `$global:PsDscContext`.
 
-Například následující kód zapíše kontextu uživatele, pod kterým běží prostředku do datového proudu podrobný výstup:
+Například následující kód by zápisu uživatelský kontext, ve kterém prostředek běží podrobné výstupního datového proudu:
 
 ```powershell
 if (PsDscContext.RunAsUser) {
@@ -511,4 +511,4 @@ if (PsDscContext.RunAsUser) {
 
 ## <a name="see-also"></a>Viz také
 ### <a name="concepts"></a>Koncepty
-[Sestavení vlastní Windows PowerShell Desired State Configuration prostředky](authoringResource.md)
+[Vlastní Windows PowerShell Desired State Configuration prostředky sestavení](authoringResource.md)

@@ -3,21 +3,21 @@ ms.date: 10/17/2017
 contributor: keithb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Předběžné verze skriptů
-ms.openlocfilehash: 14ae1968e5ee73260b6eae05b11185069d047e93
-ms.sourcegitcommit: c3f1a83b59484651119630f3089aa51b6e7d4c3c
+ms.openlocfilehash: 4e7eab682008ed57163c51fe3a61a744b347bef2
+ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39268462"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50002731"
 ---
 # <a name="prerelease-versions-of-scripts"></a>Předběžné verze skriptů
 
-Od verze 1.6.0, Správce balíčků PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování verze větší než 1.0.0 jako zkušební verze. Před tato funkce předběžné verze položky byly omezeny s tím, že verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence správy verzí bez narušení zpětnou kompatibilitu s verzí Powershellu 3 a vyšší nebo stávající verze Správce balíčků PowerShellGet. Toto téma se zaměřuje na funkce specifické pro skript. Ekvivalentní funkce pro moduly jsou [zkušební verze modulu](module-prerelease-support.md) tématu. Pomocí těchto funkcí, vydavatele můžete identifikovat skript jako verze 2.5.0-alpha a novější verze produkční prostředí 2.5.0, který nahrazuje tuto předprodejní verzi.
+Od verze 1.6.0, Správce balíčků PowerShellGet a Galerie prostředí PowerShell poskytuje podporu pro označování verze větší než 1.0.0 jako zkušební verze. Před tato funkce předběžné verze balíčků byli omezeni s tím, že verze počínaje 0. Cílem těchto funkcí je poskytují větší podporu pro [SemVer v1.0.0](http://semver.org/spec/v1.0.0.html) konvence správy verzí bez narušení zpětnou kompatibilitu s verzí Powershellu 3 a vyšší nebo stávající verze Správce balíčků PowerShellGet. Toto téma se zaměřuje na funkce specifické pro skript. Ekvivalentní funkce pro moduly jsou [zkušební verze modulu](module-prerelease-support.md) tématu. Pomocí těchto funkcí, vydavatele můžete identifikovat skript jako verze 2.5.0-alpha a novější verze produkční prostředí 2.5.0, který nahrazuje tuto předprodejní verzi.
 
 Na vysoké úrovni funkce předběžné verze skriptu patří:
 
-- Přidání přípony PrereleaseString řetězec verze v manifestu skriptu. Při publikování skripty v galerii prostředí PowerShell tato data jsou extrahovány z manifestu a slouží k identifikaci předběžné verze položky.
-- Získání položky předběžné verze vyžaduje přidání příznak - AllowPrerelease do příkazů PowerShellGet Find-Script instalační skript, skript pro aktualizaci a Save-Script. Pokud se nezadá příznak, nezobrazí se předběžné verze položky.
+- Přidání přípony PrereleaseString řetězec verze v manifestu skriptu. Při publikování skripty v galerii prostředí PowerShell je tato data extrahují z manifestu a slouží k identifikaci předběžné verze balíčků.
+- Získání předběžné verze balíčků vyžaduje přidání příznak - AllowPrerelease do příkazů PowerShellGet Find-Script instalační skript, skript pro aktualizaci a Save-Script. Pokud se nezadá příznak, nezobrazí se předběžné verze balíčků.
 - Verze skriptu zobrazí Find-Script, Get-InstalledScript a v galerii prostředí PowerShell se zobrazí s PrereleaseString, stejně jako v 2.5.0-alpha.
 
 Podrobnosti o funkcích jsou uvedené níže.
@@ -54,9 +54,9 @@ Pořadí řazení se změní při používání předběžné verze, což je dů
 
 Při publikování do Galerie prostředí PowerShell, ve výchozím nastavení verzi publikován skriptu musí mít s vyšší verzí, než všechny dříve publikované verzi, která je v galerii prostředí PowerShell. Vydavatel může aktualizovat verzi 2.5.0-alpha 2.5.0-beta nebo s 2.5.0 (s příponou žádné předběžné verze).
 
-## <a name="finding-and-acquiring-prerelease-items-using-powershellget-commands"></a>Hledání a získávání předběžnou verzi položky pomocí příkazů PowerShellGet
+## <a name="finding-and-acquiring-prerelease-packages-using-powershellget-commands"></a>Hledání a získávání předběžné verze balíčků pomocí příkazů PowerShellGet
 
-Práce s předběžnou verzi položky pomocí Správce balíčků PowerShellGet Find-Script, Install-Script aktualizace skriptu, a příkazy Save-Script vyžaduje přidání příznaku - AllowPrerelease. Pokud - AllowPrerelease není zadána, předběžné verze položky budou zahrnuty v případě, že jsou k dispozici. Pokud se nezadá příznak - AllowPrerelease, nezobrazí se předběžné verze položky.
+Práce s předběžné verze balíčků pomocí Správce balíčků PowerShellGet Find-Script, instalační skript, Update-skriptu, a příkazy Save-Script vyžaduje přidání příznaku - AllowPrerelease. Pokud je zadán - AllowPrerelease, předběžné verze balíčků budou zahrnuty v případě, že jsou k dispozici. Pokud se nezadá příznak - AllowPrerelease, nezobrazí se předběžné verze balíčků.
 
 Jedinou výjimkou tohoto v příkazy skriptu PowerShellGet jsou Get-InstalledScript a někdy se skript pro odinstalaci.
 

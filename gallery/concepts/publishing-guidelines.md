@@ -4,29 +4,29 @@ contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 description: Pokyny pro vydavatele
 title: Galerie prostředí PowerShell pro publikování pokyny a osvědčené postupy
-ms.openlocfilehash: 2ddeae9fdb33a58f97bfeb66079541bb7c5791b1
-ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
+ms.openlocfilehash: 7e9eca8d3372ddf0b94ab42e125991b857456551
+ms.sourcegitcommit: aa1129cc2b0ae6e18918b2b0ea70c74915ed019b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48851165"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50235401"
 ---
 # <a name="powershellgallery-publishing-guidelines-and-best-practices"></a>PowerShellGallery publikování pokyny a osvědčené postupy
 
-Toto téma popisuje doporučené kroky, které Microsoft teams používají k zajištění položky publikována do Galerie prostředí PowerShell se široce přijat a poskytují vysokou hodnotu pro uživatele, založené na zpracování manifestu dat v galerii prostředí PowerShell a na zpětnou vazbu z velkého Galerie prostředí PowerShell uživatelů.
-Položky, které jsou publikovány držet těchto pokynů bude větší pravděpodobnost nainstalované, důvěryhodný a přilákat více uživatelů.
+Toto téma popisuje doporučené kroky, které Microsoft teams používají k zajištění balíčky publikována do Galerie prostředí PowerShell se široce přijat a poskytovat vysokou hodnotu pro uživatele, založené na zpracování manifestu dat v galerii prostředí PowerShell a na zpětnou vazbu z velké počet uživatelů Galerie prostředí PowerShell.
+Balíčky, které jsou publikovány držet těchto pokynů bude větší pravděpodobnost nainstalované, důvěryhodný a přilákat více uživatelů.
 
-Níže jsou pokyny pro kvůli tomu dobrý položky galerie prostředí PowerShell, jaká nastavení volitelné manifestu jsou nejdůležitější, vylepšení kódu zpětnou vazbu z počáteční revidující a [analyzátoru skriptu prostředí Powershell](https://aka.ms/psscriptanalyzer), Správa verzí váš modul, dokumentaci, testy a příklady pro použití, co jste sdíleli.
+Uvedeném níž jsou pokyny, co je dobré balíčku Galerie prostředí PowerShell, jaké volitelná nastavení manifestu jsou nejdůležitější, vylepšení kódu zpětnou vazbu z počáteční revidující a [analyzátoru skriptu prostředí Powershell](https://aka.ms/psscriptanalyzer), Správa verzí modulu, dokumentaci, testy a příklady pro použití, co jste sdíleli.
 Velká část této dokumentace se řídí pokyny pro publikování [vysokou kvalitu DSC prostředků moduly](https://github.com/PowerShell/DscResources/blob/master/HighQualityModuleGuidelines.md).
 
-Mechanismus publikování položky v galerii prostředí PowerShell najdete v části [vytváření a publikování položky](https://msdn.microsoft.com/powershell/gallery/psgallery/creating-and-publishing-an-item).
+Mechanismus publikování balíčku v galerii prostředí PowerShell najdete v části [vytváření a publikování balíčku](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
-Názor na tyto pokyny je vítány. Pokud máte zpětnou vazbu, otevřete prosím problémy v našich [dokumentace k úložišti Github](https://github.com/powershell/powershell-docs/).
+Názor na tyto pokyny je vítány. Pokud máte zpětnou vazbu, otevřete prosím problémy v našich [dokumentace k úložišti Github](https://github.com/powershell/powershell-docs/issues).
 
-## <a name="best-practices-for-publishing-items"></a>Osvědčené postupy pro publikování položek
+## <a name="best-practices-for-publishing-packages"></a>Osvědčené postupy pro publikování balíčků
 
 Následující osvědčené postupy se, co uživatelé položky galerie prostředí PowerShell Řekněme, že je důležité a jsou uvedeny v pořadí podle priority nominální.
-Položky, které postupujte podle těchto pokynů jsou mnohem pravděpodobnější ke stažení a jiné společnosti.
+Balíčky, které postupujte podle následujících pokynů je mnohem pravděpodobnější ke stažení a ostatní společnosti.
 
 - Použití PSScriptAnalyzer
 - Zahrnout dokumentaci a příklady
@@ -48,7 +48,7 @@ Každý z nich je stručně v následujících částech.
 [PSScriptAnalyzer](https://www.powershellgallery.com/packages/PSScriptAnalyzer) je nástroj pro analýzu statického kódu zdarma, která funguje na kód Powershellu.
 PSScriptAnalyzer rozpoznají nejběžnějších problémů v kódu Powershellu a často doporučení, jak tento problém vyřešit.
 Tento nástroj se snadno používá a slouží ke kategorizaci problémy jako chyby (závažnost, je potřeba řešit), varování (musí být zkontrolovány a mělo by se řešit) a informace (které stojí za to, rezervace osvědčených postupech pro).
-Všechny položky položky publikována do Galerie prostředí PowerShell prohledá pomocí PSScriptAnalyzer a všechny chyby se předá zpátky na vlastníka, musí řešit.
+Všechny balíčky, které jsou publikované v galerii prostředí PowerShell prohledá pomocí PSScriptAnalyzer a všechny chyby se předá zpátky na vlastníka, musí řešit.
 
 Osvědčeným postupem je spuštění `Invoke-ScriptAnalyzer` s `-Recurse` a `-Severity` upozornění.
 
@@ -57,27 +57,27 @@ Zkontrolujte výsledky a ověřte, že:
 - Všechny chyby jsou opraven nebo zákazníky a vyřešené v dokumentaci k sadě
 - Všechna upozornění jsou zkontrolovány a řešit, kde je to možné
 
-Uživatelé, kteří získají položky z Galerie prostředí PowerShell se důrazně doporučujeme spustit PSScriptAnalyzer a vyhodnotit všechny chyby a upozornění.
-Uživatelé budou velmi pravděpodobně kontaktování vlastníků položky, pokud vidí, že je Chyba hlášená PSScriptAnalyzer.
-Pokud neexistuje závažný důvod pro vaši položku zachovat kód, který je označený jako chybu, přidejte tyto informace k dokumentaci, abyste se vyhnuli nutnosti odpověď na stejnou otázku v mnoha případech.
+Uživatelé, kteří získají balíčků z Galerie prostředí PowerShell se důrazně doporučujeme spustit PSScriptAnalyzer a vyhodnotit všechny chyby a upozornění.
+Uživatelé budou velmi pravděpodobně Pokud vidí, že je Chyba hlášená PSScriptAnalyzer obraťte se na vlastníky balíčku.
+Pokud neexistuje závažný důvod pro váš balíček zachovat kód, který je označený jako chybu, přidejte tyto informace k dokumentaci, abyste se vyhnuli nutnosti odpověď na stejnou otázku v mnoha případech.
 
 ## <a name="include-documentation-and-examples"></a>Zahrnout dokumentaci a příklady
 
 Dokumentaci a příklady jsou nejlepší způsob, jak zajistit, že uživatelé mohou využít výhod žádný sdílený kód.
 
-Dokumentace je nejužitečnější věc, kterou chcete zahrnout položky publikována do Galerie prostředí PowerShell.
-Uživatelé budou obecně obejít položky bez dokumentaci, jak alternativou je načíst kód pochopit, co je položka a způsobu jeho použití.
-Nejsou k dispozici na webu MSDN pro poskytnutí dokumentace k položkám Powershellu, včetně několika článcích:
+Dokumentace je nejužitečnější věc, kterou chcete zahrnout do balíčků, které jsou publikované v galerii prostředí PowerShell.
+Uživatelé budou obecně obejít balíčky bez dokumentaci, jak alternativou je načíst kód pochopit, co je balíček a jeho použití.
+K dispozici několik článků o tom, jak poskytnout dokumentace ke službě pomocí prostředí PowerShell balíčků, včetně:
 
 - Pokyny pro poskytnutí nápovědy jsou ve [jak nápovědě k rutině zápisu](https://go.microsoft.com/fwlink/?LinkID=123415)
 - Vytváření nápovědy k rutinám, což je nejlepším řešením u skriptu, funkce nebo rutiny prostředí PowerShell.
-  Informace o tom, jak vytvořit nápovědy k rutinám, začněte s [jak napsat nápovědě k rutině](https://go.microsoft.com/fwlink/?LinkID=123415) v knihovně MSDN.
-  Přidání nápovědy v rámci skriptu naleznete v tématu [komentář na základě nápovědy](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_comment_based_help).
+  Informace o tom, jak vytvořit nápovědy k rutinám, začněte s [jak napsat nápovědě k rutině](https://go.microsoft.com/fwlink/?LinkID=123415).
+  Přidání nápovědy v rámci skriptu naleznete v tématu [komentář na základě nápovědy](/powershell/module/microsoft.powershell.core/about/about_comment_based_help).
 - Mnoho modulů také zahrnout dokumentace v textovém formátu, jako jsou soubory Markdownu.
   To může být zvláště užitečné, když je web projektu na Githubu, kde je vytížený formátu Markdown.
   Osvědčeným postupem je použití [– Github-flavored Markdown](https://help.github.com/categories/writing-on-github/)
 
-Příklady zobrazit uživatele, jak položka je určena pro použití.
+Příklady zobrazit uživatele, jak balíček je určena pro použití.
 Mnoho vývojářů se dozvíte, že se podívejte se na příklady před dokumentaci, která pochopit, jak použít něco.
 Nejlepší typ příklady zobrazit základní použití, a navíc případu použití s Simulovaná reálné a kód je dobře komentářem.
 Příklady pro moduly, které jsou publikované v galerii prostředí PowerShell by měl být ve složce Příklady v kořenovém adresáři modulu.
@@ -87,16 +87,16 @@ Existují čtyři ukázkové případy použití s stručný popis v horní čá
 
 ## <a name="respond-to-feedback"></a>Reakce na zpětnou vazbu
 
-Položka vlastníky, kteří správně reagovat na zpětnou vazbu jsou vysoce s hodnotou komunity.
-Uživatelé, kteří poskytovat konstruktivní zpětnou vazbu jsou důležité pro reagovat, jako je zajímají dostatečně položka se pokouší Pomozte nám ji vylepšit.
+Balíček vlastníky, kteří správně reagovat na zpětnou vazbu jsou vysoce s hodnotou komunity.
+Uživatelé, kteří poskytovat konstruktivní zpětnou vazbu jsou důležité pro reagovat, jako je zajímají dostatečně balíčku se pokouší Pomozte nám ji vylepšit.
 
 V galerii prostředí PowerShell jsou k dispozici dvě metody zpětnou vazbu:
 
-- Požádejte vlastníka: Umožňuje uživateli pošlete e-mail na počet vlastníků položky. Jako vlastníka položky je důležité monitorovat e-mailová adresa použitá pro položky galerie prostředí PowerShell a reagovat na problémy, které jsou vyvolány. Jednou nevýhodou této metodě se, že pouze uživatele a vlastník někdy zobrazí komunikace, takže vlastník může být nutné odpovědět na otázku, stejné v mnoha případech.
-- Poznámka: V dolní části na stránce položka je pole komentář.
+- Požádejte vlastníka: Umožňuje uživateli pošlete e-mail na počet vlastníků balíčku. Jako vlastníka balíčku je důležité monitorovat e-mailovou adresu používat s balíčky Galerie prostředí PowerShell a reagovat na problémy, které jsou vyvolány. Jednou nevýhodou této metodě se, že pouze uživatele a vlastník někdy zobrazí komunikace, takže vlastník může být nutné odpovědět na otázku, stejné v mnoha případech.
+- Poznámka: V dolní části stránky balíčku je pole komentář.
   Výhodou tohoto systému je, že další viděli komentáře a odpovědi, což snižuje počet pokusů, které se musí se odpovědět na každou otázku jeden.
-  Jako vlastníka položky důrazně doporučujeme, abyste postupovali podle připomínky pro každou položku.
-Zobrazit [poskytování zpětné vazby na sociálních sítích a v komentářích](../how-to/working-with-items/social-media-feedback.md) podrobnosti o tom, jak to udělat.
+  Jako vlastník balíčku důrazně doporučujeme, abyste postupovali podle připomínky pro každý balíček.
+Zobrazit [poskytování zpětné vazby na sociálních sítích a v komentářích](../how-to/working-with-packages/social-media-feedback.md) podrobnosti o tom, jak to udělat.
 
 Vlastníci, kteří konstruktivně reagovat na zpětnou vazbu jsou si vážíme komunitou.
 Pomocí příležitosti v sestavě můžete požádat o další informace v případě potřeby, poskytují alternativní řešení a určit, jestli aktualizace opravuje problém.
@@ -109,7 +109,7 @@ Skript pro sdílení obsahu s ostatními uživateli se skvěle hodí a poskytuje
 Tento problém je, že skripty v galerii prostředí PowerShell jsou jednotlivé soubory bez speciální dokumentace, ukázky a testy.
 
 Moduly Powershellu mít strukturu složek, která umožňuje více složek a souborů, které mají být zahrnuty s balíčkem.
-Struktura modulu umožňuje včetně ostatní položky seznamu jako nejlepší postupy: rutiny a dokumentaci, příklady a testy.
+Struktura modulu povolí, včetně dalších balíčků v seznamu osvědčených postupů: rutiny a dokumentaci, příklady a testy.
 Největší nevýhodou je, že skript uvnitř modulu musí být vystavené a použít jako funkce.
 Informace o tom, jak vytvořit modul najdete v tématu [zápis modulu prostředí Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=144916).
 
@@ -123,9 +123,9 @@ Poskytující založená na komentářích dokumentaci a odkaz na web projektu s
 
 ## <a name="provide-a-link-to-a-project-site"></a>Zadejte odkaz na web projektu
 
-Web projektu je, kde můžete vydavatel pracovat přímo s uživateli svých položky galerie prostředí PowerShell.
-Uživatelé dávají přednost položky, které poskytují, protože povoluje, abyste získali informace o položce snadněji.
-Mnoho položek v galerii prostředí PowerShell jsou vyvíjeny v Githubu, ostatní jsou k dispozici organizacemi s vyhrazenou webová služba.
+Web projektu je, kde můžete vydavatel pracovat přímo s uživateli své balíčky Galerie prostředí PowerShell.
+Uživatelé dávají přednost balíčky, které to umožňují, protože povoluje, abyste získali informace o balíčku snadněji.
+Řada balíčků v galerii prostředí PowerShell jsou vyvíjeny v Githubu, ostatní jsou k dispozici organizacemi s vyhrazenou webová služba.
 Každá z těchto lze považovat za web projektu.
 
 Přidání propojení se provádí zahrnutím ProjectURI v části PSData manifestu:
@@ -133,7 +133,7 @@ Přidání propojení se provádí zahrnutím ProjectURI v části PSData manife
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/powershell/powershell'
 
-Pokud je k dispozici ProjectURI, galerie prostředí PowerShell bude obsahovat odkaz na web projektu na levé straně stránky položky.
+Pokud je k dispozici ProjectURI, galerie prostředí PowerShell bude obsahovat odkaz na web projektu na levé straně stránky balíčku.
 
 ## <a name="include-tests"></a>Zahrnout testy
 
@@ -148,7 +148,7 @@ Cíle pro pokrytí testu jsou uvedeny v [dokumentaci vysoké kvality prostředk�
 
 ## <a name="include-andor-link-to-license-terms"></a>Zahrnout a/nebo propojit s licenčními podmínkami
 
-Všechny položky, které jsou publikované v galerii prostředí PowerShell musíte zadat licenční podmínky, anebo byla vázaná podle licence, které jsou součástí [Terms of Use](https://www.powershellgallery.com/policies/Terms) v části "Dodatku A".
+Všechny balíčky, které jsou publikované v galerii prostředí PowerShell musíte zadat licenční podmínky, anebo byla vázaná podle licence, které jsou součástí [Terms of Use](https://www.powershellgallery.com/policies/Terms) v části "Dodatku A".
 Nejlepší metodou k určení jiné licenční je poskytnout odkaz LicenseURI v PSData licenci.
 Příklad najdete v tématu Doporučené Manifest pole.
 
@@ -165,7 +165,7 @@ PrivateData = @{
 
 ## <a name="sign-your-code"></a>Podepisování kódu
 
-Podepisování kódu poskytuje uživatelům záruky pro vydavatele položky na nejvyšší úrovni. proto, že kopie kódu získají je přesně to, co vydavatele všeobecně dostupné.
+Podepisování kódu poskytuje uživatelům záruky pro vydavatele balíček na nejvyšší úrovni a, že kopie kódu získají je přesně to, co vydavatele všeobecně dostupné.
 Další informace o obecně pro podepisování kódu, naleznete v tématu [Úvod k podepisování kódu](http://go.microsoft.com/fwlink/?LinkId=106296).
 PowerShell podporuje ověřování prostřednictvím dvou přístupů primární pro podepisování kódu:
 
@@ -173,24 +173,24 @@ PowerShell podporuje ověřování prostřednictvím dvou přístupů primární
 - Katalog podepisování modulu
 
 Podepisování souborů Powershellu je dobře zavedený přístup k zajištění toho, který se vytvořil parametrem spolehlivý zdroj prováděný kód a nebyl změněn.
-Podrobnosti o tom, jak podepsat soubory skriptů prostředí PowerShell najdete v [o podepisování](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_signing) tématu.
+Podrobnosti o tom, jak podepsat soubory skriptů prostředí PowerShell najdete v [o podepisování](/powershell/module/microsoft.powershell.core/about/about_signing) tématu.
 V přehledu lze přidat podpis na žádné. Souboru PS1, která ověřuje Powershellu při načítání skriptu.
-Prostředí PowerShell může být omezena pomocí [zásady spouštění](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_execution_policies) rutiny k zajištění využití podepsané skripty.
+Prostředí PowerShell může být omezena pomocí [zásady spouštění](/powershell/module/microsoft.powershell.core/about/about_execution_policies) rutiny k zajištění využití podepsané skripty.
 
 Podepisování moduly katalogu je funkce byly přidány do prostředí PowerShell ve verzi 5.1.
-Jak zaregistrovat modul je obsažen v [katalogu rutiny](https://msdn.microsoft.com/powershell/wmf/5.1/catalog-cmdlets) tématu.
+Jak zaregistrovat modul je obsažen v [katalogu rutiny](/powershell/wmf/5.1/catalog-cmdlets) tématu.
 V přehledu podepisování katalogu se provádí vytváření soubor katalogu, který obsahuje hodnotu hash pro každý soubor v modulu, a pak podepíše soubor.
-Publish-module PowerShellGet, install-module, save modulu a rutiny update-module se při kontrole podpisu zajistit, že je platný a potom potvrďte, že hodnota hash pro každou položku shoduje, co je v katalogu.
+Publish-module PowerShellGet, install-module, save modulu a rutiny update-module se při kontrole podpisu zajistit, že je platný a potom potvrďte, že odpovídá hodnota hash pro každý balíček, co je v katalogu.
 Pokud v systému je nainstalována předchozí verze modulu, install-module potvrdí, zda podpisový orgán pro novou verzi odpovídá dříve nainstalovali.
 Podepisování katalogu funguje s, ale metoda nenahrazuje podepisování souborů skriptu. Prostředí PowerShell neověřuje katalog podpisů v okamžiku načtení modulu.
 
 ## <a name="follow-semver-guidelines-for-versioning"></a>Postupujte podle pokynů SemVer pro správu verzí
 
 [SemVer](http://semver.org/) je veřejné konvence, která popisuje, jak strukturovat a změnit verzi umožňuje snadno výklad změny.
-Verze pro vaši položku musí být součástí manifestu data.
+Verze balíčku musí být součástí manifestu data.
 
 - Verze by měla být strukturovaná jako 3 číselné bloky, které jsou odděleny tečkami, stejně jako v 0.1.1 nebo 4.11.192
-- Verze začíná "0" označuje, že položka ještě není připravená pro výrobu a první číslo by měl pouze začínat "0" Pokud se jedná o jediný číslo použít
+- Verze začíná "0" označuje, že balíček ještě není připravená pro výrobu a první číslo by měl pouze začínat "0" Pokud se jedná o jediný číslo použít
 - Změny v první číslo (1.9.9999 na 2.0.0) označují hlavní a blokuje změny mezi verzí
 - Změny v druhé číslo (1.01 k 1.02) označení změn na úrovni funkcí, jako je například přidávání nových rutin v modulu
 - Změny třetí číslo označuje nevýznamných změn, jako jsou nové parametry, ukázky aktualizované nebo nové testy
@@ -213,18 +213,22 @@ To můžete udělat několika způsoby, včetně:
 
 S žádným z těchto řešení použijte k definování nové "úložiště", který používáte pro Publish-Module-vlastnosti úložiště Register-PSRepository.
 
-Jeden další bod o test publikování: libovolné položky můžete publikovat v galerii prostředí PowerShell není možné odstranit bez pomoci od provozní tým, který bude tak jasné, že nic není závislá na položku, kterou chcete publikovat.
+Jeden další bod o test publikování: všechny balíčky můžete publikovat v galerii prostředí PowerShell není možné odstranit bez pomoci od provozní tým, který bude tak jasné, že nic není závislá na balíčku, kterou chcete publikovat.
 Z tohoto důvodu jsme nepodporují Galerie prostředí PowerShell jako cíl testování a kontaktuje libovolného vydavatele, který provádí.
 
 ## <a name="use-powershellget-to-publish"></a>Použití Správce balíčků PowerShellGet pro publikování
 
-Důrazně doporučujeme, aby zdroje pomocí rutiny Publish-Module a Publish-Script při práci v galerii prostředí PowerShell. Abyste se vyhnuli zapamatování důležité podrobnosti o instalaci z publikování v galerii prostředí PowerShell se vytvořil správce balíčků PowerShellGet. V některých případech vydavatelé jste se rozhodli PowerShellGet přeskočit a použít pro klienta NuGet nebo rutiny PackageManagement místo Publish-Module. Existuje několik podrobností, které jsou snadno Zmeškali, což vede k širokou škálu žádosti o podporu.
+Důrazně doporučujeme, aby zdroje pomocí rutiny Publish-Module a Publish-Script při práci v galerii prostředí PowerShell.
+Abyste se vyhnuli zapamatování důležité podrobnosti o instalaci z a publikování v galerii prostředí PowerShell se vytvořil správce balíčků PowerShellGet.
+V některých případech vydavatelé jste se rozhodli PowerShellGet přeskočit a použít pro klienta NuGet nebo rutiny PackageManagement místo Publish-Module.
+Existuje několik podrobností, které jsou snadno Zmeškali, což vede k širokou škálu žádosti o podporu.
 
-Pokud je důvod, proč nelze použít Publish-Module nebo Publish-Script, prosím dejte vědět. Založte problém v úložišti Githubu PowerShellGet a uveďte podrobnosti, které můžete vybrat NuGet nebo PackageManagement způsobují. 
+Pokud je důvod, proč nelze použít Publish-Module nebo Publish-Script, prosím dejte vědět.
+Založte problém v úložišti Githubu PowerShellGet a uveďte podrobnosti, které můžete vybrat NuGet nebo PackageManagement způsobují.
 
 ## <a name="recommended-workflow"></a>Doporučený pracovní postup
 
-Nejúspěšnější přístup, který jsme našli pro položky publikována do Galerie prostředí PowerShell je následující:
+Nejúspěšnější přístup, který jsme našli pro balíčky, které jsou publikované v galerii prostředí PowerShell je následující:
 
 - Počáteční vývoj v serveru projektu open source. Prostředí PowerShell tým používá Githubu.
 - Použít zpětnou vazbu od recenzentů a [analyzátoru skriptu prostředí Powershell](https://aka.ms/psscriptanalyzer) získat kód do stavu stabilní
@@ -233,7 +237,7 @@ Nejúspěšnější přístup, který jsme našli pro položky publikována do G
 - Publikovat stabilní nebo alfa verze v galerii prostředí PowerShell, nezapomeňte použít dokumentaci a odkaz na vašem webu projectu
 - Shromažďování zpětné vazby a iterovat kódu ve vašem webu projectu a potom publikovat stabilní aktualizace v galerii prostředí PowerShell
 - Přidat příklady a Pester testů v projektu a modul
-- Rozhodněte, jestli chcete kód podepsat vaši položku
+- Rozhodněte, jestli chcete kód podepsání vašeho balíčku
 - Pokud se domníváte, že projekt je připravený k použití v produkčním prostředí, publikovat 1.0.0 verze v galerii prostředí PowerShell
 - I nadále shromažďovat zpětnou vazbu a iterovat kódu na základě uživatelského zadání
 

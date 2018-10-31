@@ -1,17 +1,17 @@
 ---
 ms.date: 06/12/2017
-keywords: DSC prostředí powershell, konfiguraci, instalační program
-title: DSC pro Linux nxUser prostředků
-ms.openlocfilehash: ca77bcd1f23a78ddb9e2ac988e4aadfec504bbbe
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+keywords: DSC, powershell, konfigurace, instalační program
+title: DSC pro Linux prostředek nxUser
+ms.openlocfilehash: 1b02be1559957585a2a1733630cb93440e8182f9
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34218922"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50226028"
 ---
-# <a name="dsc-for-linux-nxuser-resource"></a>DSC pro Linux nxUser prostředků
+# <a name="dsc-for-linux-nxuser-resource"></a>DSC pro Linux prostředek nxUser
 
-**NxUser** prostředků v prostředí PowerShell požadovaného stavu konfigurace (DSC) poskytuje mechanismus pro ke správě místních uživatelů na uzlu Linux.
+**NxUser** prostředků v prostředí PowerShell Desired State Configuration (DSC) poskytuje mechanismus ke správě místních uživatelů na uzlu systému Linux.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,16 +36,16 @@ nxUser <string> #ResourceName
 
 |  Vlastnost |  Určuje název účtu, pro které chcete zajistit určitý stav. |
 |---|---|
-| UserName| Určuje umístění, kde chcete zajistit stav pro soubor nebo adresář.|
-| Ujistěte se| Určuje, jestli účet existuje. Nastavením této vlastnosti "Přítomen" zajistit, že existuje účet a nastavte ji na "Chybí" zajistit, že účet neexistuje.|
-| Úplný název| Řetězec, který obsahuje úplný název pro uživatelský účet.|
+| UserName| Určuje umístění, kam chcete zajistit stavu pro soubor nebo adresář.|
+| Zkontrolujte| Určuje, jestli účet existuje. Nastavte tuto vlastnost na "Obsahuje" Ujistěte se, že existuje účet a nastavte ho na "Chybí" Ujistěte se, že účet neexistuje.|
+| Jméno a příjmení| Řetězec obsahující úplný název pro uživatelský účet.|
 | Popis| Popis pro uživatelský účet.|
-| Heslo| Hodnota hash hesla uživatele v příslušný formulář pro počítače se systémem Linux. Obvykle je to solené SHA-256, nebo hodnotu hash SHA-512. Na Debian a Ubuntu Linux tato hodnota může být generována pomocí příkazu mkpasswd. Pro ostatní distribucích systému Linux metodu crypt knihovny jazyka Python Crypt slouží ke generování hodnoty hash.|
-| Zakázáno| Určuje, zda je povolen. Tuto vlastnost nastavit na **$true** zajistit, že tento účet je zakázané a nastavte ji na **$false** zajistit, že je povolena.|
-| PasswordChangeRequired| Určuje, zda může uživatel změnit heslo. Tuto vlastnost nastavit na **$true** zajistit, že uživatel nemůže změnit heslo a nastavte ji na **$false** umožňuje uživatelům změnit heslo. Výchozí hodnota je **$false**. Tato vlastnost je Vyhodnocená jenom Pokud uživatelský účet dříve neexistoval a je vytvářena.|
+| Heslo| Hodnota hash hesla uživatele ve formuláři vhodná pro počítače s Linuxem. Obvykle je to solené SHA-256 nebo hodnoty hash SHA-512. Debian a Ubuntu Linux tato hodnota dá vygenerovat pomocí příkazu mkpasswd. Pro jiné distribuce Linuxu metoda crypt Crypt knihovny pro Python slouží ke generování hodnoty hash.|
+| Zakázáno| Určuje, zda je účet povolený. Tuto vlastnost nastavte na **$true** zajistit, že tento účet je zakázaný a nastavte ho na **$false** ujistěte, že je povolena.|
+| PasswordChangeRequired| Určuje, jestli uživatel může změnit heslo. Tuto vlastnost nastavte na **$true** zajistit, že uživatel nemůže změnit heslo a nastavte ho na **$false** aby uživatel mohl změnit heslo. Výchozí hodnota je **$false**. Tato vlastnost je vyhodnocen pouze pokud uživatelský účet dříve neexistoval a se vytváří.|
 | Domovský_adresář| Domovský adresář pro uživatele.|
-| GroupID| Identifikátor primární skupiny uživatele.|
-| dependsOn | Určuje, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud ID bloku skriptu konfigurace prostředků, který chcete spustit nejprve je "ResourceName" a "Typ prostředku" je její typ, syntaxe pro používání této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
+| ID skupiny| ID primární skupiny uživatele.|
+| DependsOn | Udává, že konfigurace jiný prostředek musí spouštět předtím, než je tento prostředek nakonfigurován. Například pokud je ID bloku skriptu konfigurace prostředků, kterou chcete spustit nejprve "ResourceName" a její typ je "ResourceType", syntaxe pro použití této vlastnosti je `DependsOn = "[ResourceType]ResourceName"`.|
 
 ## <a name="example"></a>Příklad
 
