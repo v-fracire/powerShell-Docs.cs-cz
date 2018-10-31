@@ -181,14 +181,10 @@ items:
     href: getting-started/cookbooks/changing-computer-state.md
   - name: Shromažďování informací o počítačích
     href: getting-started/cookbooks/collecting-information-about-computers.md
-  - name: Vytváření objektů .NET a COM – New-Object
-    href: getting-started/cookbooks/creating-.net-and-com-objects--new-object-.md
   - name: Vytvoření vlastního vstupního pole
     href: getting-started/cookbooks/creating-a-custom-input-box.md
   - name: Vytvoření grafického ovládacího prvku pro výběr data
     href: getting-started/cookbooks/creating-a-graphical-date-picker.md
-  - name: Získávání objektů WMI – Get-WmiObject
-    href: getting-started/cookbooks/getting-wmi-objects--get-wmiobject-.md
   - name: Správa aktuálního umístění
     href: getting-started/cookbooks/managing-current-location.md
   - name: Správa procesů procesními rutinami
@@ -207,20 +203,10 @@ items:
     href: getting-started/cookbooks/performing-networking-tasks.md
   - name: Přesměrování dat rutinami Out
     href: getting-started/cookbooks/redirecting-data-with-out---cmdlets.md
-  - name: Odebrání objektů z kanálu – Where-Object
-    href: getting-started/cookbooks/removing-objects-from-the-pipeline--where-object-.md
-  - name: Opakování úlohy pro více objektů – ForEach-Object
-    href: getting-started/cookbooks/repeating-a-task-for-multiple-objects--foreach-object-.md
   - name: Výběr položek ze seznamu
     href: getting-started/cookbooks/selecting-items-from-a-list-box.md
-  - name: Výběr částí objektů – Select-Object
-    href: getting-started/cookbooks/selecting-parts-of-objects--select-object-.md
-  - name: Řazení objektů
-    href: getting-started/cookbooks/sorting-objects.md
   - name: Použití formátovacích příkazů ke změně zobrazení výstupů
     href: getting-started/cookbooks/using-format-commands-to-change-output-view.md
-  - name: Použití statických tříd a metod
-    href: getting-started/cookbooks/using-static-classes-and-methods.md
   - name: Zobrazení struktury objektu – Get-Member
     href: getting-started/cookbooks/viewing-object-structure--get-member-.md
   - name: Práce se soubory a složkami
@@ -229,6 +215,21 @@ items:
     href: getting-started/cookbooks/working-with-files-folders-and-registry-keys.md
   - name: Práce s objekty
     href: getting-started/cookbooks/working-with-objects.md
+    items:
+    - name: Získávání objektů WMI – Get-WmiObject
+      href: getting-started/cookbooks/getting-wmi-objects--get-wmiobject-.md
+    - name: Vytváření objektů .NET a COM – New-Object
+      href: getting-started/cookbooks/creating-.net-and-com-objects--new-object-.md
+    - name: Odebrání objektů z kanálu – Where-Object
+      href: getting-started/cookbooks/removing-objects-from-the-pipeline--where-object-.md
+    - name: Výběr částí objektů – Select-Object
+      href: getting-started/cookbooks/selecting-parts-of-objects--select-object-.md
+    - name: Řazení objektů
+      href: getting-started/cookbooks/sorting-objects.md
+    - name: Opakování úlohy pro více objektů – ForEach-Object
+      href: getting-started/cookbooks/repeating-a-task-for-multiple-objects--foreach-object-.md
+    - name: Použití statických tříd a metod
+      href: getting-started/cookbooks/using-static-classes-and-methods.md
   - name: Práce s tiskárnami
     href: getting-started/cookbooks/working-with-printers.md
   - name: Práce s položkami registru
@@ -241,9 +242,9 @@ items:
     href: getting-started/cookbooks/appendix-1---compatibility-aliases.md
   - name: 'Příloha 2: Vytvoření vlastního zástupce PowerShellu'
     href: getting-started/cookbooks/appendix-2---creating-a-custom-powershell-shortcut.md
-ms.openlocfilehash: 426f1336debdcd8b74b9e1954cebe49bfa7c82ea
-ms.sourcegitcommit: b235c58b34d23317076540631f5cf83f1f309c0d
+ms.openlocfilehash: e1cc2802354cbb58a8d4cc19903a62339aa333b5
+ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45557139"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50225739"
