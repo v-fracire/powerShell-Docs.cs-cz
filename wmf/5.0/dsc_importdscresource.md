@@ -1,29 +1,29 @@
 ---
 ms.date: 06/12/2017
 keywords: wmf,powershell,setup
-ms.openlocfilehash: ce5afc2f90f78433b64bf5b41946fc7506c43504
-ms.sourcegitcommit: 54534635eedacf531d8d6344019dc16a50b8b441
+ms.openlocfilehash: 46a278b83edb9d8e3d75b0874603710d416be3b5
+ms.sourcegitcommit: f4247d3f91d06ec392c4cd66921ce7d0456a2bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34219646"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50998516"
 ---
-# <a name="import-dscresource-keyword-supports--moduleversion-parameter"></a>Parametr - ModuleVersion podporuje import DscResource – klíčové slovo
+# <a name="import-dscresource-keyword-supports--moduleversion-parameter"></a>Klíčové slovo import-DscResource podporuje parametr - ModuleVersion
 
-Jsme přidali nový parametr, který se `Import-DscResource` dynamické – klíčové slovo dostupné při vytváření konfigurace DSC. Autoři konfigurace nyní můžete určit přesně verze načíst prostředky DSC z které modulu. Nové syntaxe klíčového slova je:
+Přidali jsme nový parametr pro `Import-DscResource` dynamické klíčové slovo dostupné při vytváření konfigurace DSC. Konfigurace autoři teď můžete zadat přesně verze modulu se načíst prostředky DSC od. Nová syntaxe klíčového slova je následující:
 
 ```powershell
 Import-DscResource [-Name <ResourceName(s)>] [-ModuleName <ModuleName(s)>] [-ModuleVersion <ModuleVersion>]
 ```
 
-* **Název**: názvy jeden nebo více prostředků pro import.
-* **Název modulu**: názvy modulů nebo ModuleSpecification objekty jeden nebo více modulů pro import.
-* **Verze modulu**: verzi importu typ objektu modulu. Pokud se používá, název modulu musí představovat pouze jeden modul podle názvu.
+* **Název**: názvy jeden nebo více prostředků k importu.
+* **Název modulu**: názvy modulů nebo ModuleSpecification objekty jeden nebo více modulů k importu.
+* **ModuleVersion**: verze modulu k importu. Pokud použijete, musí představovat název modulu pouze jeden modul podle názvu.
 
-V systému Windows PowerShell ISE se zobrazí s IntelliSense:
+V prostředí Windows PowerShell ISE zobrazí se s technologií IntelliSense:
 
 ![](../images/Import-DscResource-Modversion.jpg)
 
-**Poznámka:**: `–ModuleVersion` parametr lze použít pouze v kombinaci s `–ModuleName` parametr. Nedá se použít s názvy prostředků pomocí pouze `–Name` parametr.
+**Poznámka:**: `–ModuleVersion` parametr lze použít pouze v kombinaci s `–ModuleName` parametru. Nelze zadat s použitím pouze názvy prostředků `–Name` parametru.
 
-Před tím jediný způsob, jak při načítání prostředků DSC určit verze modulu byl pomocí specifikace objektu modulu. například: `–ModuleName @{ModuleName="UserConfigProvider";ModuleVersion="3.0"}`
+Před tím jediný způsob, jak určit verzi modulu při načítání prostředků DSC byla například pomocí specifikace objekt Module: `–ModuleName @{ModuleName="UserConfigProvider";ModuleVersion="3.0"}`

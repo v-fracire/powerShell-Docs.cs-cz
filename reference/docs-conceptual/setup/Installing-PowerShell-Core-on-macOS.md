@@ -1,13 +1,13 @@
 ---
 title: Instalace PowerShellu Core v macOS
 description: Informace o instalaci Powershellu Core v macOS
-ms.date: 08/06/2018
-ms.openlocfilehash: e226cd64f8788ae74dc72fdc0cd219923b7a2cd6
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.date: 11/02/2018
+ms.openlocfilehash: 162e841bf71d708e9db84ea1bb2dbef13924783b
+ms.sourcegitcommit: f4247d3f91d06ec392c4cd66921ce7d0456a2bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50002355"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50998499"
 ---
 # <a name="installing-powershell-core-on-macos"></a>Instalace PowerShellu Core v macOS
 
@@ -15,10 +15,14 @@ PowerShell Core podporuje macOS 10.12 a vyšší.
 Všechny balíčky jsou k dispozici na náš GitHub [uvolní][] stránky.
 Jakmile je balíček nainstalován, spustit `pwsh` z terminálu.
 
-## <a name="installation-of-latest-stable-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější stabilní verze pomocí Homebrew v systému macOS 10.12 nebo vyšší
+## <a name="about-brew"></a>O Brew
 
 [Homebrew] [ brew] je správce upřednostňované balíček pro macOS.
 Pokud `brew` příkaz nebyl nalezen, je nutné nainstalovat následující Homebrew [podle pokynů v nich][brew].
+
+## <a name="installation-of-latest-stable-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější stabilní verze pomocí Homebrew v systému macOS 10.12 nebo vyšší
+
+Zobrazit [o Brew](#about-brew) informace o Brew.
 
 Nyní můžete nainstalovat prostředí PowerShell:
 
@@ -46,8 +50,7 @@ brew cask upgrade powershell
 
 ## <a name="installation-of-latest-preview-release-via-homebrew-on-macos-1012-or-higher"></a>Instalace nejnovější verze preview verzi pomocí Homebrew v systému macOS 10.12 nebo vyšší
 
-[Homebrew] [ brew] je správce upřednostňované balíček pro macOS.
-Pokud `brew` příkaz nebyl nalezen, je nutné nainstalovat následující Homebrew [podle pokynů v nich][brew].
+Zobrazit [o Brew](#about-brew) informace o Brew.
 
 Po instalaci Homebrew, instalace prostředí PowerShell je snadné.
 Nejdřív nainstalujte [Cask verze] [ cask-versions] který umožňuje nainstalovat alternativní verze cask balíčků:
@@ -90,6 +93,8 @@ Poklikejte na soubor a postupujte podle pokynů nebo ji nainstalovat z terminál
 sudo installer -pkg powershell-6.1.0-osx-x64.pkg -target /
 ```
 
+Nainstalujte [OpenSSL](#install-openssl) jako to je potřeba pro vzdálenou komunikaci prostředí PowerShell a operace CIM.
+
 ## <a name="binary-archives"></a>Binární archivy
 
 Binární soubor prostředí PowerShell `tar.gz` archivy jsou k dispozici pro platformu macOS umožňující pokročilé scénáře nasazení.
@@ -111,6 +116,41 @@ sudo chmod +x /usr/local/microsoft/powershell/6.1.0/pwsh
 
 # Create the symbolic link that points to pwsh
 sudo ln -s /usr/local/microsoft/powershell/6.1.0/pwsh /usr/local/bin/pwsh
+```
+
+Nainstalujte [OpenSSL](#install-openssl) jako to je potřeba pro vzdálenou komunikaci prostředí PowerShell a operace CIM.
+
+## <a name="installing-dependencies"></a>Instalování závislostí
+
+### <a name="install-xcode-command-line-tools"></a>Instalace nástrojů příkazového řádku pro XCode
+
+```shell
+xcode-select -install
+```
+
+### <a name="install-openssl"></a>Nainstalujte OpenSSL
+
+Pro operace CIM a vzdálené komunikace Powershellu je požadován OpenSSL.  Můžete nainstalovat prostřednictvím MacPorts nebo Brew.
+
+#### <a name="install-openssl-via-brew"></a>Nainstalujte OpenSSL prostřednictvím Brew
+
+Zobrazit [o Brew](#about-brew) informace o Brew.
+
+Spustit `brew install openssl` nainstalovat OpenSSL.
+
+#### <a name="install-openssl-via-macports"></a>Nainstalujte OpenSSL prostřednictvím MacPorts
+
+1. Instalovat [příkazového řádku nástroje XCode](#install-xcode-command-line-tools)
+1. Nainstalujte MacPorts.
+   Zobrazit [Průvodce instalací](https://guide.macports.org/chunked/installing.macports.html) Pokud potřebujete pokyny.
+1. Aktualizovat MacPorts spuštěním `sudo port selfupdate`
+1. Balíčky s upgradem MacPorts spuštěním `sudo port upgrade outdated`
+1. Nainstalujte OpenSSL spuštěním spuštěním `sudo port instal openssl`
+1. Odkaz na knihovny tak, aby ho může použít PowerShell.
+
+```shell
+sudo mkdir -p /usr/local/opt/openssl
+sudo ln -s /opt/local/lib /usr/local/opt/openssl/lib
 ```
 
 ## <a name="uninstalling-powershell-core"></a>Odinstalace Powershellu Core
@@ -148,7 +188,7 @@ Proto výchozí profily hostitelů konkrétní existuje v `Microsoft.PowerShell_
 Respektuje prostředí PowerShell [XDG Base adresářovou specifikaci] [ xdg-bds] v systému macOS.
 
 Protože je odvozený od BSD, předpona macOS `/usr/local` se použije namísto `/opt`.
-Proto `$PSHOME` je `/usr/local/microsoft/powershell/6.1.0/`, a symlink je umístěn na `/usr/local/bin/pwsh`.
+Proto `$PSHOME` je `/usr/local/microsoft/powershell/6.1.0/`, a symbolický odkaz je umístěn na `/usr/local/bin/pwsh`.
 
 ## <a name="additional-resources"></a>Další zdroje informací
 
