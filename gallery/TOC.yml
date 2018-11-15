@@ -7,9 +7,9 @@ items:
   href: getting-started.md
 - name: Postupy
   items:
-  - name: Nalezení položek v galerii
+  - name: Nalezení balíčků v galerii
     items:
-    - name: Hledání položek
+    - name: Hledání balíčků
       href: how-to/finding-packages/search-syntax.md
     - name: Hledání podle PSEdition
       href: how-to/finding-packages/searching-by-psedition.md
@@ -17,17 +17,17 @@ items:
       href: how-to/finding-packages/filtering-packages.md
   - name: Publikování do galerie
     items:
-    - name: Vytvoření a publikování položek
+    - name: Vytvoření a publikování balíčků
       href: how-to/publishing-packages/publishing-a-package.md
     - name: Vytvoření účtu PowerShellGallery
       href: how-to/publishing-packages/creating-an-account.md
-    - name: Vynětí položek ze seznamu
+    - name: Vynětí balíčků z galerie
       href: how-to/publishing-packages/unlisting-packages.md
-    - name: Odstranění položek
+    - name: Odstranění balíčků
       href: how-to/publishing-packages/deleting-packages.md
-    - name: Správa vlastníků položek
+    - name: Správa vlastníků balíčků
       href: how-to/publishing-packages/managing-package-owners.md
-  - name: Práce s položkami
+  - name: Práce s balíčky
     items:
     - name: Zobrazení FileList
       href: how-to/working-with-packages/filelist-view.md
@@ -35,9 +35,9 @@ items:
       href: how-to/working-with-packages/deploy-to-azure-automation.md
     - name: Ruční stažení balíčku
       href: how-to/working-with-packages/manual-download.md
-    - name: Položky, které vyžadují přijetí licence
+    - name: Balíčky, které vyžadují přijetí licence
       href: how-to/working-with-packages/packages-that-require-license-acceptance.md
-    - name: Kontaktování vlastníků položky
+    - name: Kontaktování vlastníků balíčků
       href: how-to/working-with-packages/contacting-package-owners.md
     - name: Poskytování zpětné vazby na sociálních sítích a v komentářích
       href: how-to/working-with-packages/social-media-feedback.md
@@ -47,11 +47,13 @@ items:
       href: how-to/managing-profile/managing-account.md
     - name: Správa klíčů rozhraní API
       href: how-to/managing-profile/creating-apikeys.md
+  - name: Práce s místními úložišti PowerShellGet
+    href: how-to/working-with-local-psrepositories.md
 - name: Koncepty
   items:
   - name: Pokyny a osvědčené postupy k publikování
     href: concepts/publishing-guidelines.md
-  - name: Manifest položky a uživatelské rozhraní Galerie
+  - name: Manifest balíčků a uživatelské rozhraní Galerie
     href: concepts/package-manifest-affecting-ui.md
   - name: Vyžadování konkrétních PSEditions
     items:
@@ -65,7 +67,7 @@ items:
       href: concepts/script-license-acceptance.md
     - name: Vyžadování přijetí licence u modulů
       href: concepts/module-license-acceptance.md
-  - name: Definování položek jako předběžné verze
+  - name: Definování balíčků jako předběžné verze
     items:
     - name: Definování modulu jako předběžné verze
       href: concepts/module-prerelease-support.md
@@ -91,9 +93,9 @@ items:
   href: faqs.md
 - name: Rutiny modulu PowerShellGet
   href: https://docs.microsoft.com/powershell/module/powershellget/
-ms.openlocfilehash: 386e86b4a27ea840cc688b47f597e845f041af60
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.openlocfilehash: 123607d3ce1139511ee0006b9ec6ed2e9ae99010
+ms.sourcegitcommit: 91786b03704fbd2d185f674df0bc67faddfb6288
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50002321"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51619122"
