@@ -3,12 +3,12 @@ ms.date: 08/14/2018
 keywords: rutiny prostředí PowerShell
 title: Nápověda k příkazovém řádku programu PowerShell.exe
 ms.assetid: 1ab7b93b-6785-42c6-a1c9-35ff686a958f
-ms.openlocfilehash: c7f35511e876e8e5189d8a2b949555603d43f731
-ms.sourcegitcommit: 56b9be8503a5a1342c0b85b36f5ba6f57c281b63
+ms.openlocfilehash: 0a11ebb11d29adf5853c232b3aa10bc72f92bf0c
+ms.sourcegitcommit: 03c7672ee72698fe88a73e99702ceaadf87e702f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "43133873"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51691826"
 ---
 # <a name="powershellexe-command-line-help"></a>Nápověda k příkazovému řádku PowerShell.exe
 
@@ -51,7 +51,10 @@ Nastaví výchozí zásadu spouštění pro aktuální relaci a uloží ji $env:
 
 Spustí zadaný skript v místním oboru ("dot opensourcového vizualizačního"), tak, že funkce a proměnné, které skript vytvoří jsou k dispozici v aktuální relaci. Zadejte cestu k souboru skriptu a parametry. **Soubor** musí být poslední parametr v příkazu. Všechny hodnoty zadané po **– soubor** parametr je interpretován jako skript cesta k souboru a parametry předány do skriptu.
 
-Parametry předané do skriptu jsou předány jako literál řetězce (po vyhodnocení aktuálního prostředí). Například, pokud jsou v cmd.exe a chcete k předání hodnot proměnných prostředí, můžete využít cmd.exe syntaxe: `powershell -File .\test.ps1 -Sample %windir%` skript v tomto příkladu přijímá řetězcový literál `$env:windir` a nikoli hodnotu této proměnné prostředí: `powershell -File .\test.ps1 -Sample $env:windir`
+Parametry předané do skriptu jsou předány jako literál řetězce po vyhodnocení aktuálního prostředí. Například pokud jsou v cmd.exe a chcete k předání hodnot proměnných prostředí, můžete využít cmd.exe syntaxe: `powershell.exe -File .\test.ps1 -TestParam %windir%`
+
+Naproti tomu systémem `powershell.exe -File .\test.ps1 -TestParam $env:windir` ve výsledcích cmd.exe ve skriptu, který přijímá řetězcový literál `$env:windir` protože nemá žádný speciální význam aktuální prostředí cmd.exe.
+`$env:windir` Styl odkaz na proměnnou prostředí _můžete_ použít uvnitř `-Command` parametr, vzhledem k tomu, že se bude interpretovat jako kód Powershellu.
 
 ### <a name="-inputformat-text--xml"></a>\-InputFormat {Text | XML}
 
@@ -103,22 +106,31 @@ Nastaví styl okna pro relaci. Platné hodnoty jsou Normal, Minimized, Maximized
 
 ### <a name="-command"></a>-– Příkaz
 
-Provede zadané příkazy (s žádné parametry), jakoby byly zadány v příkazovém řádku prostředí PowerShell. Po spuštění, prostředí PowerShell ukončí, pokud `-NoExit` je zadán parametr.
-Žádný text po `-Command` se odešle jako jeden příkazový řádek powershellu. Tím se liší od stlaní `-File` zpracovává parametry předány skriptu.
+Provede zadané příkazy (s žádné parametry), jakoby byly zadány v příkazovém řádku prostředí PowerShell.
+Po spuštění, prostředí PowerShell ukončí, pokud **NoExit** je zadán parametr.
+Žádný text po `-Command` se odešle jako jeden příkazový řádek powershellu.
+Tím se liší od stlaní `-File` zpracovává parametry předány skriptu.
 
-Hodnota příkazu může být "-", řetězec. nebo blok skriptu. Pokud je hodnota příkazu "-", text příkazu je pro čtení ze standardního vstupu.
+Hodnota `-Command` může být "-", řetězec nebo blok skriptu.
+Výsledky příkazu se vrátí do nadřazené prostředí jako deserializovaný objekty jazyka XML, ne živé objekty.
 
-Bloky skriptu musí být uzavřen ve složených závorkách ({}). Blok skriptu můžete zadat, pouze při spuštění PowerShell.exe v prostředí PowerShell. Výsledky skriptu se vrátí do nadřazené prostředí jako deserializovaný objekty jazyka XML, ne živé objekty.
+Pokud hodnota `-Command` je "-", text příkazu je pro čtení ze standardního vstupu.
 
-Pokud je řetězec, hodnota příkazu **příkaz** musí být poslední parametr v příkazu, protože žádné znaky zadali po příkazu jsou interpretovány jako argumenty příkazu.
+Pokud hodnota `-Command` je řetězec, **příkaz** _musí_ být poslední parametr zadán, protože žádné znaky zadali po příkazu jsou interpretovány jako argumenty příkazu.
 
-Pokud chcete zapsat řetězec, který se spustí příkaz prostředí PowerShell, použijte formát:
+**Příkaz** parametr lze zadat pouze blok skriptu pro spuštění při poznáte hodnotu předanou `-Command` jako typ vlastnost ScriptBlock.
+Toto je _pouze_ možné při spuštění PowerShell.exe z jiného hostitele prostředí PowerShell.
+Hostování ScriptBlock typu mohou být obsaženy v existujícím proměnné, vrácený z výrazu nebo analyzovaný pomocí prostředí PowerShell jako blok skriptu literálů ve složených závorkách `{}`, před předáním PowerShell.exe.
 
-```powershell
+Na cmd.exe, není i bloku skriptu (nebo ScriptBlock typu), takže hodnota předaná **příkaz** bude _vždy_ bude řetězec.
+Můžete napsat jenom blok skriptu do řetězce, ale místo prováděný se budou chovat přesně jako by jste ji zadali typické řádku prostředí PowerShell, tisk obsahu skript blokování zpět vám.
+
+Předán řetězec `-Command` stále se spustí jako PowerShell, takže složených závorek bloku skriptu se často nevyžadují na prvním místě při spuštění z cmd.exe.
+K provedení bloku skriptu vložené definované uvnitř řetězce, [operátor volání](/powershell/module/microsoft.powershell.core/about/about_operators#call-operator-) `&` lze použít:
+
+```console
 "& {<command>}"
 ```
-
-Uvozovky značí řetězce a vyvolat – operátor (&) způsobí, že příkaz má být proveden.
 
 ### <a name="-help---"></a>-Help,-?, /?
 
