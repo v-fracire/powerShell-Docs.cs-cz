@@ -1,72 +1,72 @@
 ---
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
-title: Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell
+title: Integrované skriptovací prostředí ISE Windows Powershellu
 ms.assetid: f156b92d-0203-46d2-89c7-b4989d32e3d2
-ms.openlocfilehash: d116ec107c2d07e9fd55ee974008b3636b4ab049
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: a5fcc8c813349d0b85cc3af29047424fe787d168
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30952065"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320512"
 ---
 # <a name="windows-powershell-integrated-scripting-environment-ise"></a>Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell
 
-Systému Windows PowerShell Integrované skriptovací prostředí (ISE) je jedním ze dvou hostitelů pro modul prostředí Windows PowerShell a jazyk. S ním můžete napsat, spuštění a testování skriptů způsoby, které nejsou k dispozici v konzole Windows PowerShell. ISE přidá barevné zvýrazňování syntaxe, dokončování pomocí tabulátorů, IntelliSense, ladění visual a kontextovou nápovědu.
+Windows Powershellu integrovaném skriptovacím prostředí (ISE) je mezi dvěma hostiteli pro modul prostředí Windows PowerShell a jazyk. S ní můžete zapisovat, spouštět a testovat skripty způsoby, které nejsou k dispozici v konzole Windows Powershellu. ISE přidá barevné zvýrazňování syntaxe, dokončování pomocí tabulátoru, technologie IntelliSense, ladění visual a kontextové nápovědy.
 
-ISE umožňuje spouštět příkazy v podokně konzoly, ale také podporuje podokny, která vám pomůže současně zobrazit zdrojový kód vašeho skriptu a jiných nástrojů, které lze zařadit do ISE. I více skriptu Windows můžete otevřít ve stejnou dobu, která je zvlášť užitečné, pokud ladíte skript, který používá funkce definované v další skripty či moduly.
+ISE umožňuje spouštění příkazů v podokně konzoly, ale také podporuje podoken, které můžete použít současně zobrazit zdrojový kód skriptu a dalších nástrojů, které se můžete zapojit do ISE. Ve stejnou dobu, což je zvláště užitečné při ladění skriptu, který používá funkce definované v jiné skripty a moduly můžete otevřít i více skriptů windows.
 
 ## <a name="whats-new"></a>Co je nového
 
-Zde jsou některé funkce, které jsou přidané do ISE nejnovější verze prostředí PowerShell.
+Tady jsou některé funkce, které byly přidány do nejnovější verze prostředí PowerShell ISE.
 
-### <a name="added-in-powershell-30-windows-server-2012-windows-8"></a>Přidat v prostředí PowerShell 3.0 (Windows Server 2012, Windows 8)
+### <a name="added-in-powershell-30-windows-server-2012-windows-8"></a>Přidáno v prostředí PowerShell 3.0 (Windows Server 2012, Windows 8)
 
-**IntelliSense** zobrazením nabídky odpovídající rutiny, parametry, hodnoty parametrů, soubory nebo složky při psaní automaticky dokončení příkazech.
+**Technologie IntelliSense** zobrazením nabídky odpovídající rutiny, parametry, hodnoty parametrů, soubory nebo složky při psaní automaticky dokončí příkazům.
 
-**Fragmenty kódu** krátké části kódu, který lze snadno vložit do skriptů vaší zápisu. Kolekce užitečné fragmenty kódu je součástí pole a více můžete pomocí **New-fragment** rutiny.
+**Fragmenty kódu** jsou krátké části kódu, můžete jednoduše vložit do skriptů vaše zápisu. Kolekce užitečné fragmentů kódu je součástí pole a je možné pomocí více **New-fragment** rutiny.
 
-**Rozšíření nástrojů** přidá funkce, které mají ISE lze vytvořit pomocí psaní kódu, který komunikuje s [systému Windows PowerShell ISE skriptování objektový Model](../../core-powershell/ise/The-ISE-Object-Model-Hierarchy.md).
+**Doplňkové nástroje** přidá funkce, které chcete ISE mohou vytvořit psaní kódu, který komunikuje s [The Windows Powershellu objektový Model skriptování ISE](../../core-powershell/ise/The-ISE-Object-Model-Hierarchy.md).
 
-Tyto nástroje můžete zobrazit ovládací prvky v podokně s kartami nebo pracovat tedy bez zásahu uživatele na pozadí. **Příkazy** rozšíření je dobrým příkladem je součástí verze 3.0 a novější, který zobrazí seznam dostupných příkazů a jejich nápovědy.
+Tyto nástroje můžete zobrazit ovládací prvky v podokně s kartami nebo transparentně pracovat na pozadí. **Příkazy** doplněk je typickým příkladem a je součástí verze 3.0 a novější, který zobrazí seznam dostupných příkazů a jejich nápovědy.
 
-**Restartujte Manager a automatického ukládání** automaticky uloží skripty každé dvě minuty, abyste nedošlo ke ztrátě práce v případě havárie nebo neočekávaně restartován.
+**Restartovat správce a automatického ukládání** automaticky uloží vaše skripty každé dvě minuty abyste se vyhnuli ztrátě práce v případě chyb nebo neočekávaného restartování.
 
-**Seznam nejčastěji nedávno použité** je teď součástí soubor otevřete nabídku usnadňují získání k souborům nejčastěji.
+**Seznam naposledy použitých nejčastěji** je teď součástí souboru otevřít nabídku, aby bylo snazší získat soubory, které použijete nejčastěji.
 
-**Sloučené podokna konzoly**. V předchozích verzích ISE byly samostatný příkaz a výstup podokna. Jsou nyní zkombinovány do jediné podokno, více přímo napodobuje co se zobrazí v konzole Windows Powershell.
+**Sloučené podokně konzoly**. V předchozích verzích ISE byly samostatný příkaz a výstupní podokna. Jsou nyní zkombinovány do jediného, že informace přímo napodobuje uvidíte v konzole Windows Powershellu.
 
-**Přepínače příkazového řádku**. Několik nového přepínače příkazového řádku získáte tak větší kontrolu nad způsobu práce ISE. -NoProfile spustí ISE bez spuštění skriptu profilu. -Help otevře okno nápovědy s ISE. -mta spustí ISE v "režimu Vícevláknová apartment". Výchozí hodnota je jedním podprocesem.
+**Přepínače příkazového řádku**. Několik nových přepínače příkazového řádku získáte větší kontrolu nad tím, jak funguje ISE. -NoProfile spustí ISE bez spuštění skriptu profilu. -Help otevře se okno nápovědy s ISE. -mta spustí ISE v "režimu vícevláknového objektu apartment". Výchozí hodnota je s jedním vláknem.
 
-**Nové funkce editor** usnadňují vytváření a čtení kódu:
+**Nové funkce editoru** bylo snazší vytvářet a číst váš kód:
 
-- **Barevné zvýrazňování syntaxe XML**. Syntaxe jazyka XML ISE editor teď barvy stejným způsobem, jak ho barvy syntaxe kódu prostředí Windows PowerShell.
+- **Barevné zvýrazňování syntaxe XML**. Syntaxe jazyka XML ISE editor teď barvy stejným způsobem, jak barvy syntaxe kódu v prostředí Windows PowerShell.
 
-- **Odpovídající složené závorce**. ISEWindows PowerShell ISE označuje odpovídající složené závorky vám pomohou zajistit máte správný počet pravými tak, aby odpovídaly vaší otevírání těch, které jsou. Pomocí kombinace kláves CTRL -\[ najít pravé složené závorce, který odpovídá závorka, která se nachází kurzor na.
+- **Párování závorek**. Prostředí PowerShell ISE ISEWindows zvýrazní odpovídající složené závorky vám pomohou zajistit máte správný počet pravé složené závorky tak, aby odpovídaly úvodním těch, které jsou. Pomocí CTRL -\[ najít odpovídající levou složenou závorku, které se kurzor nachází na pravé složené závorce.
 
-- **Zobrazení osnovy**. Můžete sbalit nebo rozšířit části kódu, kliknutím na znaménko plus a minus na levém okraji. Díky tomu je snazší najít kód, který hledáte ve dlouho skriptu.
+- **Zobrazení osnovy**. Můžete sbalit nebo rozbalit oddíly kódu kliknutím na tlačítko plus a minus na levém okraji. Díky tomu je snazší najít kód, který hledáte dlouhé skriptu.
 
-- **Přetáhnout myší úpravy textu**. Můžete vybrat blok textu a přetáhněte ji do jiného umístění přesunout ho. Pokud podržíte stisknutou klávesu Ctrl a přetáhněte vybraný text, který je zkopírovat místo přesunete.
+- **Přetáhnout myší úpravy textu**. Můžete vybrat blok textu a přetáhněte ji do jiného umístění ji přesunout. Pokud podržíte stisknutou klávesu Ctrl při přetahování vybraný text, který je zkopírovat místo přesuňte.
 
-- **Analýza chybových zpráv**. Prostředí Windows PowerShell prověří váš skript během psaní. Pokud zjistí chybu, zobrazuje červenou vlnovkou pod problematické kódu. Po přesunutí ukazatele myši uvedené chyby, popisek znázorňuje problém, který nebyl nalezen.
+- **Analýza chybových**. Prostředí Windows PowerShell prozkoumá váš skript při psaní. Pokud zjistí chybu, zobrazí červená vlnovka pod problematický kód. Když najedete myší uvedené chyby, popisek se dozvíte, problému, který nebyl nalezen.
 
-- **Zvětšení**. Můžete přiblížit na vaše textu, aby bylo snazší pro čtení nebo oddálit a získat lepší náhled pomocí posuvníku v pravém dolním rohu okna ISE.
+- **Přiblížení**. Můžete přiblížit na vaše textu, aby bylo snazší pro čtení nebo oddálit, a prohlížení ve velkém s využitím posuvník v pravém dolním rohu okno integrovaného skriptovacího prostředí.
 
-- **Rich text zkopírovat a vložit**. Když zkopírujete z ISE do schránky, písma, velikosti a barvy informace vybraného textu je zahrnuta.
+- **Formátovaný text zkopírovat a vložit**. Při kopírování z ISE do schránky, písmo, velikost a informace o barvě vybraného textu je v ceně.
 
-- **Blokovat výběr**. Můžete vybrat bloku dat ve tvaru bloku textu, podržte stisknutou klávesu ALT a výběr textu v podokně skriptu s myší nebo stisknutím klávesy **Alt + Shift + šipka**.
+- **Běr bloku**. Můžete vybrat blok textu ve tvaru bloku tím, že podržíte stisknutou klávesu ALT při výběru text z podokna skriptu pomocí myši nebo stisknutím klávesy **Alt + Shift + šipka**.
 
-### <a name="added-in-powershell-20-windows-server-2008-r2-windows-7"></a>Přidat v prostředí PowerShell 2.0 (Windows Server 2008 R2, Windows 7)
+### <a name="added-in-powershell-20-windows-server-2008-r2-windows-7"></a>Přidáno v prostředí PowerShell 2.0 (Windows Server 2008 R2, Windows 7)
 
-ISE byla zavedena v systému verze prostředí PowerShell 2.0.
+ISE byla zavedená s Powershellem v2.0.
 
 ## <a name="requirements-for-running-the-windows-powershell-ise"></a>Požadavky na spuštění Windows PowerShell ISE
 
-ISE je k dispozici na libovolném počítači Windows, která se může spustit prostředí Windows PowerShell verze 2.0 nebo novější. Každou verzi Windows a Windows Server obsahuje verzi prostředí Windows PowerShell a ISE, ale můžete upgradovat na nejnovější verzi dostupnou instalací Windows Management Framework (WMF). Najdete v článku [WMF](/powershell/wmf/readme) Další informace naleznete v dokumentaci.
+ISE je dostupná na libovolném počítači Windows, který můžete spustit prostředí Windows PowerShell verze 2.0 nebo novější. Zahrnuje každá verze Windows a Windows Server na verzi prostředí Windows PowerShell ISE, ale můžete upgradovat na nejnovější verzi dostupnou instalací Windows Management Frameworku (WMF). Zobrazit [WMF](/powershell/wmf) Další informace naleznete v dokumentaci.
 
 > [!NOTE]
-> Protože Windows PowerShell ISE vyžaduje grafické uživatelské rozhraní, nelze jej spustit v jádra serveru systému Windows Server.
+> Protože Windows PowerShell ISE vyžaduje grafické uživatelské rozhraní, nelze ji spustit v jádra serveru systému Windows Server.
 
 ## <a name="see-also"></a>Viz taky
 
-[Účelem ise windows power shell skriptování objektový model](../../core-powershell/ise/Purpose-of-the-Windows-PowerShell-ISE-Scripting-Object-Model.md)
+[Účel skriptovacího objektového modelu windows power shell ise](../../core-powershell/ise/Purpose-of-the-Windows-PowerShell-ISE-Scripting-Object-Model.md)

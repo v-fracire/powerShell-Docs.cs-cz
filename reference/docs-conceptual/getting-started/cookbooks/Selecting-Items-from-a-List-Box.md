@@ -3,20 +3,20 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Výběr položek ze seznamu
 ms.assetid: 327c7cc5-21d0-4ace-b151-aa1491d1d3c2
-ms.openlocfilehash: 6ff6bff8f6ce4e9236d7877c4cca24a10932cbe0
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: e3d52839409a2fd58fbdc924a2b92d96fbecee53
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30951677"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320818"
 ---
 # <a name="selecting-items-from-a-list-box"></a>Výběr položek ze seznamu
 
-K vytvoření dialogu, který umožňuje uživatelům výběru položek z ovládací prvek seznamu, použijte prostředí Windows PowerShell 3.0 a novějších verzí.
+Pomocí Windows Powershellu 3.0 a novějších verzí můžete vytvořit dialogové okno, které umožňuje uživateli vybrat položky z ovládacího prvku seznamu pole.
 
 ## <a name="create-a-list-box-control-and-select-items-from-it"></a>Vytvořte ovládací prvek seznamu a vyberte položky z něj
 
-Zkopírujte a vložte následující do systému Windows PowerShell ISE a pak ho uložte jako skript prostředí Windows PowerShell (.ps1).
+Zkopírujte a vložte následující do Windows PowerShell ISE a pak ho uložte jako skript Windows Powershellu (.ps1).
 
 ```powershell
 Add-Type -AssemblyName System.Windows.Forms
@@ -75,20 +75,20 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 }
 ```
 
-Zahájí skript načtením dvě třídy rozhraní .NET Framework: **System.Drawing** a **System.Windows.Forms**. Spusťte novou instanci třídy rozhraní .NET Framework **formuláře System.Windows.Forms.Form**; který poskytuje prázdného formuláře nebo okna, do kterého můžete začít přidávat ovládací prvky.
+Spustí skript načtením dvou tříd rozhraní .NET Framework: **System.Drawing** a **System.Windows.Forms**. Spusťte novou instanci třídy rozhraní .NET Framework **formuláře System.Windows.Forms.Form**; který obsahuje prázdný formulář nebo ovládací prvky okna, do kterého můžete začít přidávat.
 
 ```powershell
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 ```
 
-Po vytvoření instance třídy formuláře, hodnoty přiřadíte tři vlastnosti této třídy.
+Po vytvoření instance třídy formuláře přiřadíte hodnoty třem vlastnostem této třídy.
 
-- **Text.** To všechno bude v záhlaví okna.
+- **Text.** Tím se změní záhlaví okna.
 
-- **Velikost.** Toto je velikost formuláře v pixelech. Předchozí skript vytvoří formulář, který je 300 × široké 200 pixelů vysoký.
+- **Velikost.** Toto je velikost formuláře v pixelech. Předchozí skript vytvoří formulář, který je 300 pixelů na šířku a 200 pixelů na výšku.
 
-- **StartingPosition.** Tato volitelná vlastnost nastavena na **CenterScreen** v předchozí skript. Pokud přidáte nemusíte tuto vlastnost, systém Windows vybere umístění při otevření formuláře. Nastavením **StartingPosition** k **CenterScreen**, automaticky zobrazujete formuláře uprostřed obrazovky pokaždé, když ho načte.
+- **Počáteční pozice.** Tato volitelná vlastnost nastavena na **CenterScreen** v předchozím skriptu. Pokud tuto vlastnost nepřidáte, vybere Windows umístění při otevření formuláře. Tím, že nastavíte **počáteční pozice** k **CenterScreen**, automaticky zobrazená formuláři uprostřed obrazovky pokaždé, když ho načte.
 
 ```powershell
 $form.Text = 'Select a Computer'
@@ -96,7 +96,7 @@ $form.Size = New-Object System.Drawing.Size(300,200)
 $form.StartPosition = 'CenterScreen'
 ```
 
-Dále vytvořte **OK** tlačítko pro daný formulář. Zadejte velikost a chování **OK** tlačítko. V tomto příkladu je pozice tlačítko 120 pixelů od horního okraje formuláře a 75 pixelů od levého okraje. Výška tlačítko je 23 pixelů, zatímco tlačítko délka je 75 pixelů. Skript používá předdefinovaných typů Windows Forms k určení chování tlačítko.
+Dále vytvořte **OK** tlačítko pro daný formulář. Zadejte velikost a chování **OK** tlačítko. V tomto příkladu je pozice tlačítko 120 pixelů od horního okraje formuláře a 75 pixelů od levého okraje. Výška tlačítka je 23 pixelů, zatímco tlačítko délka je 75 pixelů. Tento skript využívá k určení chování tlačítka předdefinovaných typů formulářů Windows.
 
 ```powershell
 $OKButton = New-Object System.Windows.Forms.Button
@@ -108,7 +108,7 @@ $form.AcceptButton = $OKButton
 $form.Controls.Add($OKButton)
 ```
 
-Podobně můžete vytvořit **zrušit** tlačítko. **Zrušit** tlačítko je 120 pixelů z horní části, ale 150 pixelů od levého okraje okna.
+Podobně můžete vytvořit **zrušit** tlačítko. **Zrušit** tlačítko je 120 pixelů od horního, ale 150 pixelů od levého okraje okna.
 
 ```powershell
 $CancelButton = New-Object System.Windows.Forms.Button
@@ -120,7 +120,7 @@ $form.CancelButton = $CancelButton
 $form.Controls.Add($CancelButton)
 ```
 
-Potom zadejte text popisku na vaše okno, které popisuje informace, které chcete, aby uživatelé zadali. V takovém případě budete chtít uživatelům vyberte počítač.
+Pak zadejte popisek v okně, který popisuje informace, na kterých chcete, aby uživatelé zadali. V tomto případě chcete uživatelům vyberte počítač.
 
 ```powershell
 $label = New-Object System.Windows.Forms.Label
@@ -130,7 +130,7 @@ $label.Text = 'Please select a computer:'
 $form.Controls.Add($label)
 ```
 
-Přidání ovládacího prvku (v tomto případě pole se seznamem), která umožňuje uživatelům poskytnout informace, které jste popsaných v textu popisku. Existuje mnoho dalších ovládacích prvků, které můžete použít kromě seznamy; pro další ovládací prvky, najdete v části [System.Windows.Forms Namespace](http://msdn.microsoft.com/library/k50ex0x9(v=vs.110).aspx) na webu MSDN.
+Přidejte ovládací prvek (v tomto případě seznamu), která umožňuje uživatelům poskytnout informace, které jste je popsáno v textu popisku. Existuje mnoho dalších ovládacích prvků, platí kromě pole se seznamem; pro větší počet kontrolních mechanismů, naleznete v tématu [System.Windows.Forms Namespace](https://msdn.microsoft.com/library/k50ex0x9(v=vs.110).aspx) na webové stránce MSDN.
 
 ```powershell
 $listBox = New-Object System.Windows.Forms.ListBox
@@ -139,10 +139,10 @@ $listBox.Size = New-Object System.Drawing.Size(260,20)
 $listBox.Height = 80
 ```
 
-V další části zadejte hodnoty, které chcete zobrazit uživatelům v rozevíracím seznamu.
+V další části zadejte hodnoty, které chcete uživatelům zobrazit v rozevíracím seznamu.
 
 > [!NOTE]
-> Pole se seznamem tento skript vytvořený umožňuje pouze jeden výběr. Pokud chcete vytvořit rozevírací seznam, který umožňuje více výběrů, zadejte hodnotu pro **SelectionMode** vlastnost, podobně jako následující: `$listBox.SelectionMode = 'MultiExtended'`. Další informace najdete v tématu [vícenásobného výběru seznamy](Multiple-selection-List-Boxes.md).
+> Pole se seznamem vytvořená tímto skriptem umožňuje pouze jeden výběr. Chcete-li vytvořit ovládací prvek seznamu, který umožňuje více výběrů, zadejte hodnotu **SelectionMode** vlastnost, podobně jako na následující: `$listBox.SelectionMode = 'MultiExtended'`. Další informace najdete v tématu [pole se seznamem vícenásobný výběr](Multiple-selection-List-Boxes.md).
 
 ```powershell
 [void] $listBox.Items.Add('atl-dc-001')
@@ -154,31 +154,31 @@ V další části zadejte hodnoty, které chcete zobrazit uživatelům v rozeví
 [void] $listBox.Items.Add('atl-dc-007')
 ```
 
-Přidejte do svého formuláře ovládací prvek seznam a Vyzvěte Windows otevřete formulář na jiné windows a dialogových oken při otevření.
+Přidejte do svého formuláře ovládací prvek seznamu a dáte pokyn, aby Windows otevřete formulář imitovaná další windows a dialogových oknech při otevření.
 
 ```powershell
 $form.Controls.Add($listBox)
 $form.Topmost = $true
 ```
 
-Přidejte následující řádek kódu k zobrazení formuláře v systému Windows.
+Přidejte následující řádek kódu k zobrazení formuláře ve Windows.
 
 ```powershell
 $result = $form.ShowDialog()
 ```
 
-Nakonec se kód uvnitř **Pokud** bloku dá pokyn Windows co dělat s formulářem po uživatelů vyberte možnost ze seznamu a pak klikněte na tlačítko **OK** tlačítko nebo klikněte na tlačítko **Enter**klíč.
+Nakonec se kód uvnitř **Pokud** bloku instruuje Windows, co dělat s formuláři uživatele vyberte možnost ze seznamu a potom klikněte na **OK** tlačítko nebo stisknutím klávesy **Enter**klíč.
 
 ```powershell
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 {
-    $x = $listBox.SelectedItem
-    $x
+    $x = $listBox.SelectedItem
+    $x
 }
 ```
 
 ## <a name="see-also"></a>Viz také
 
-- [Hey Scripting Guy: Proč se nepodporují tyto příklady prostředí PowerShell grafického uživatelského rozhraní?](http://go.microsoft.com/fwlink/?LinkId=506644)
-- [Githubu: WinFormsExampleUpdates Dave Wyatt](https://github.com/dlwyatt/WinFormsExampleUpdates)
-- [Windows PowerShell Tip v týdnu: výběr položek ze seznamu](http://technet.microsoft.com/library/ff730949.aspx)
+- [Hey Scripting Guy: Proč nefungují tyto příklady prostředí PowerShell grafického uživatelského rozhraní?](https://go.microsoft.com/fwlink/?LinkId=506644)
+- [Githubu: Dave Wyatt WinFormsExampleUpdates](https://github.com/dlwyatt/WinFormsExampleUpdates)
+- [Windows PowerShell tipu týdne přišel: výběr položek ze seznamu](https://technet.microsoft.com/library/ff730949.aspx)

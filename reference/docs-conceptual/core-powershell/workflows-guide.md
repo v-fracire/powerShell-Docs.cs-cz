@@ -1,21 +1,21 @@
 ---
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
-title: Průvodce pracovních postupů
-ms.openlocfilehash: 7c4cbcb03bf5abaeba65563156acd588f7671d93
-ms.sourcegitcommit: 01d6985ed190a222e9da1da41596f524f607a5bc
+title: Příručka pracovních postupů
+ms.openlocfilehash: e2c91299f064a10fd27ab195d0309a9bef6a7ded
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34482790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320376"
 ---
-# <a name="psworkflow-module"></a>Modul PSWorkflow
+# <a name="psworkflow-module"></a>PSWorkflow modulu
 
-Tato část obsahuje témata nápovědy **PSWorkflow** modul, který obsahuje rutiny, které podporují funkci pracovního postupu prostředí Windows PowerShell. **PSWorkflow** instalaci modulu pomocí prostředí Windows PowerShell.
+Tento oddíl obsahuje témata nápovědy **PSWorkflow** modul, který zahrnuje rutiny, které podporují funkci pracovního postupu prostředí Windows PowerShell. **PSWorkflow** instalaci modulu pomocí prostředí Windows PowerShell.
 
 ## <a name="help-topics"></a>Témata nápovědy
 
-[Rutiny pracovního postupu](http://go.microsoft.com/fwlink/?LinkID=245865)
+[Rutiny pracovního postupu](https://go.microsoft.com/fwlink/?LinkID=245865)
 
 [about_Workflows](https://technet.microsoft.com/library/f2897bdd-1b9d-4679-8b19-09840bd40a22)
 
@@ -33,6 +33,6 @@ Tato část obsahuje témata nápovědy **PSWorkflow** modul, který obsahuje ru
 
 [about_Sequence](https://technet.microsoft.com/library/bda3f81a-be8a-43be-b0df-12bb7e193b9b)
 
-[about_Suspend-Workflow](https://technet.microsoft.com/library/be2ded75-1eca-493e-96c1-758f92b5f199)
+[about_Suspend pracovního postupu](https://technet.microsoft.com/library/be2ded75-1eca-493e-96c1-758f92b5f199)
 
-[Nástroj rutiny prostředí PowerShell Workflow](https://technet.microsoft.com/library/a5a32019-0d68-4041-935f-1b1cacaf6d3d)
+[Rutiny nástroje pracovního postupu Powershellu](https://technet.microsoft.com/library/a5a32019-0d68-4041-935f-1b1cacaf6d3d)

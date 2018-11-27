@@ -2,12 +2,12 @@
 ms.date: 06/27/2017
 keywords: rutiny prostředí PowerShell
 title: Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
-ms.openlocfilehash: e9bed3900263a51b1b8236a3c3430154a5d11886
-ms.sourcegitcommit: 31a221d982305c7f999b1afeb15e3629e9620de8
+ms.openlocfilehash: 95c61d3a0431cda9dee738d1c9f5ec843c1209f3
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "43133851"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52321073"
 ---
 # <a name="authorization-rules-and-security-features-of-windows-powershell-web-access"></a>Autorizační pravidla a funkce zabezpečení Windows PowerShell Web Accessu
 
@@ -20,19 +20,19 @@ Windows PowerShell Web Access v systému Windows Server 2012 R2 a Windows Server
 ## <a name="configuring-authorization-rules-and-site-security"></a>Konfigurace autorizačních pravidel a zabezpečení lokality
 
 Po nainstalování Windows PowerShell Web Accessu a je brána nakonfigurovaná, uživatelé mohou otevřít přihlašovací stránku v prohlížeči, ale nemůže přihlásit do správce Windows PowerShell Web Accessu explicitně neudělí přístup. Řízení přístupu: Windows PowerShell Web Access"se spravuje pomocí sady rutin Windows Powershellu jsou popsané v následující tabulce. Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel.
-Zobrazit [Windows PowerShell Web Access rutiny](cmdlets/web-access-cmdlets.md).
+Zobrazit [Windows PowerShell Web Access rutiny](/powershell/module/powershellwebaccess/?view=winserver2012r2-ps).
 
 Správci můžou určit `{0-n}` pravidla ověřování pro Windows PowerShell Web Accessu. Výchozí zabezpečení je víc omezující než povolující, nulový počet ověřovacích pravidel znamená, že uživatelé nemají k ničemu přístup.
 
-[Add-PswaAuthorizationRule](cmdlets/add-pswaauthorizationrule.md) a [Test-PswaAuthorizationRule](cmdlets/test-pswaauthorizationrule.md) ve Windows serveru 2012 R2 obsahují parametr Credential, který umožňuje přidat a otestovat autorizační pravidla Windows PowerShell Web Accessu ze vzdálené počítače, nebo z v rámci aktivní relaci Windows PowerShell Web Accessu. Jako s jinými rutinami prostředí Windows PowerShell, které mají parametr Credential, můžete zadat objekt PSCredential jako hodnotu parametru. Chcete-li vytvořit objekt PSCredential obsahující přihlašovací údaje, které chcete předat do vzdáleného počítače, spusťte [Get-Credential](/powershell/module/microsoft.powershell.security/Get-Credential) rutiny.
+[Add-PswaAuthorizationRule](/powershell/module/powershellwebaccess/add-pswaauthorizationrule?view=winserver2012r2-ps) a [Test-PswaAuthorizationRule](/powershell/module/powershellwebaccess/test-pswaauthorizationrule?view=winserver2012r2-ps) ve Windows serveru 2012 R2 obsahují parametr Credential, který umožňuje přidat a otestovat autorizační pravidla Windows PowerShell Web Accessu ze vzdálené počítače, nebo z v rámci aktivní relaci Windows PowerShell Web Accessu. Jako s jinými rutinami prostředí Windows PowerShell, které mají parametr Credential, můžete zadat objekt PSCredential jako hodnotu parametru. Chcete-li vytvořit objekt PSCredential obsahující přihlašovací údaje, které chcete předat do vzdáleného počítače, spusťte [Get-Credential](/powershell/module/microsoft.powershell.security/Get-Credential) rutiny.
 
-Pravidla ověřování Windows PowerShell Web Accessu jsou povolená pravidla. Každé pravidlo je definicí povolených připojení mezi uživateli, cílové počítače a konkrétní PowerShellÂ Windows [konfiguracím relací](/powershell/reference/5.1/microsoft.powershell.core/about/about_session_configurations) (také označuje jako koncové body nebo _prostředí runspace_) na zadaných cílových počítačích.
+Pravidla ověřování Windows PowerShell Web Accessu jsou povolená pravidla. Každé pravidlo je definicí povolených připojení mezi uživateli, cílové počítače a konkrétní prostředí Windows PowerShell [konfiguracím relací](/powershell/module/microsoft.powershell.core/about/about_session_configurations?view=powershell-5.1) (také označuje jako koncové body nebo _prostředí runspace_) na zadaných cílových počítačích.
 Vysvětlení na **prostředí runspace** naleznete v tématu [začátek pomocí prostředí PowerShell prostředí runspace](https://blogs.technet.microsoft.com/heyscriptingguy/2015/11/26/beginning-use-of-powershell-runspaces-part-1/)
 
 > [!IMPORTANT]
 > Aby uživatel získal přístup, stačí, aby platilo jedno pravidlo. Pokud má uživatel přístup k jednomu počítači s úplným jazykovým přístupem nebo přístup jenom k rutinám vzdálené správy Windows Powershellu z webové konzoly, uživatel může přihlásit (nebo směrování) do jiných počítačů, které jsou připojené k prvnímu cílovému počítači. Nejbezpečnější způsob konfigurace Windows PowerShell Web Accessu je povolit uživatelům přístup jenom k omezeným konfiguracím relací, které jim umožní splnit konkrétní úlohy, které obvykle musí provádět vzdáleně.
 
-Rutiny odkazuje [rutiny Windows Powershellu webového přístupu](cmdlets/web-access-cmdlets.md) umožňují vytvořit pravidla přístupu, které se používají k autorizaci uživatele v bráně Windows PowerShell Web Accessu. Pravidla se liší od seznamů ACL v cílovém počítači a poskytují další vrstvu zabezpečení webového přístupu. Další informace o zabezpečení jsou popsané v následující části.
+Rutiny odkazuje [rutiny Windows Powershellu webového přístupu](/powershell/module/powershellwebaccess/?view=winserver2012r2-ps) umožňují vytvořit pravidla přístupu, které se používají k autorizaci uživatele v bráně Windows PowerShell Web Accessu. Pravidla se liší od seznamů ACL v cílovém počítači a poskytují další vrstvu zabezpečení webového přístupu. Další informace o zabezpečení jsou popsané v následující části.
 
 Pokud uživatelé nemůžou projít žádnou z předchozích vrstev, dostanou obecný "přístup byl odepřen' zpráva v okně prohlížeče. I když se podrobnosti zabezpečení protokolují na serveru brány, koncoví uživatelé nevidí informace o tom, kolika vrstvami zabezpečení prošli a ve které vrstvě došlo k chybě přihlášení nebo ověření.
 
@@ -229,4 +229,4 @@ Pokud server brány se systémem Windows Server 2012 R2, Windows PowerShell Web 
 
 [about_Session_Configurations](https://technet.microsoft.com/library/dd819508.aspx)
 
-[Windows PowerShell Web Access rutiny](cmdlets/web-access-cmdlets.md)
+[Windows PowerShell Web Access rutiny](/powershell/module/powershellwebaccess/?view=winserver2012r2-ps)

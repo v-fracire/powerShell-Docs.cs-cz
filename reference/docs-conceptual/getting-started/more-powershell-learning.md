@@ -2,12 +2,12 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Další zdroje informací o PowerShellu
-ms.openlocfilehash: 17f96620bbb483ca580d351584d5650a6734b876
-ms.sourcegitcommit: 59e568ac9fa8ba28e2c96932b7c84d4a855fed2f
+ms.openlocfilehash: da9dfeca3d2d2cfadf6ace0aa98007d16a548aae
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46289204"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320410"
 ---
 # <a name="more-powershell-learning"></a>Další zdroje informací o PowerShellu
 
@@ -33,23 +33,23 @@ Kromě nápovědy k dispozici na příkazovém řádku následující zdroje obs
 
 #### <a name="windows-powershell-essentials-for-the-busy-admin-series"></a>Windows PowerShell Essentials zaneprázdněný řady správce
 
-- [Prostředí PowerShell "SmowerShell" – Proč zjistíte Windows Powershellu, část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
-- [Slyšeli prostřednictvím kanálu – jak na složené příkazy Windows Powershellu pro zábavu a zisk 2. část](http://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
-- [Jediný poskytovatel? Není téměř – podívejte se na část poskytovatelé Windows Powershellu 3](http://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
-- [Hlavní události – prostředí Windows PowerShell se 4. část protokoly událostí](http://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
-- [Více než vzdáleně možné – použití Windows Powershellu ke správě vzdálené plochy část 5](http://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
+- [Prostředí PowerShell "SmowerShell" – Proč zjistíte Windows Powershellu, část 1](https://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
+- [Slyšeli prostřednictvím kanálu – jak na složené příkazy Windows Powershellu pro zábavu a zisk 2. část](https://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
+- [Jediný poskytovatel? Není téměř – podívejte se na část poskytovatelé Windows Powershellu 3](https://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
+- [Hlavní události – prostředí Windows PowerShell se 4. část protokoly událostí](https://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
+- [Více než vzdáleně možné – použití Windows Powershellu ke správě vzdálené plochy část 5](https://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
 
 #### <a name="learn-it-now-before-its-an-emergency"></a>Přečtěte si ho hned teď dřív, než bude nouzovém stavu
 
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 1](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 2](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481542_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze - 3. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481548_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 4. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481552_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 5. část](http://dlbmodigital.microsoft.com/webcasts/wmv/1032481554_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 1](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 2](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481542_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze - 3. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481548_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 4. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481552_Dnl_L.wmv)
+- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 5. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481554_Dnl_L.wmv)
 
 ## <a name="resources-for-windows-powershell-developers"></a>Materiály pro vývojáře Windows Powershellu
 
 Následující zdroje obsahují prostředky, které usnadní vývojářům vytvářet svoje vlastní prostředí Windows PowerShell moduly, funkce, rutin, poskytovatelů a hostování aplikací.
 
-- [Sady SDK Windows Powershellu](http://go.microsoft.com/fwlink/p/?LinkID=89595). Obsahuje referenční obsah.
-- [Příručka programátora prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkID=89596). Obsahuje kurzy. Také obsahuje informace o základních pojmů Windows Powershellu.
+- [Sady SDK Windows Powershellu](https://go.microsoft.com/fwlink/p/?LinkID=89595). Obsahuje referenční obsah.
+- [Příručka programátora prostředí Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkID=89596). Obsahuje kurzy. Také obsahuje informace o základních pojmů Windows Powershellu.

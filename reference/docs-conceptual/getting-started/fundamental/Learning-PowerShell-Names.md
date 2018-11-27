@@ -3,16 +3,16 @@ ms.date: 08/24/2018
 keywords: rutiny prostředí PowerShell
 title: Učení powershellových názvů
 ms.assetid: b4d0fd22-8298-4ee6-82ae-9b6f2907c986
-ms.openlocfilehash: a4f7e12c2b30e8ae6d1cf5a125d613d2d7558c34
-ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
+ms.openlocfilehash: 6ed1f99513f00c174147876e1982c0d12869cacb
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48851251"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320478"
 ---
 # <a name="learning-powershell-names"></a>Učení powershellových názvů
 
-Učení názvů příkazů a parametry vyžaduje spoustu času investici se většina rozhraní příkazového řádku. Problém je, že existuje několik vzorových postupů. Zapamatování je pouze způsob, jak další příkazy a parametry, které je třeba použít v pravidelných intervalech.
+Učení názvů příkazů a parametry vyžaduje spoustu času investici se většina rozhraní příkazového řádku. Problém je, že existuje několik vzorových postupů. Zapamatování je jediný způsob, jak další příkazy a parametry, které je třeba použít v pravidelných intervalech.
 
 Při práci s nový příkaz nebo parametr vždy nelze použít, co už znáte. Je nutné najít a zjistěte, nový název. Rozhraní příkazového řádku tradičně, začněte s malou sadu nástrojů a růst s přírůstkové doplňky. Je snadno zjistit proto neexistuje žádný standardní struktury.
 Vypadá to, že logické pro názvy příkazů vzhledem k tomu, že každý příkaz je samostatný nástroj. Prostředí PowerShell má lepší způsob, jak zpracovat názvy příkazů.

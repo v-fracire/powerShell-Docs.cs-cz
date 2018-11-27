@@ -3,20 +3,20 @@ ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Vytvoření grafického ovládacího prvku pro výběr data
 ms.assetid: c1cb722c-41e9-4baa-be83-59b4653222e9
-ms.openlocfilehash: 3727c90c314a6fc1b3a338ec60e44259f153d954
-ms.sourcegitcommit: cf195b090b3223fa4917206dfec7f0b603873cdf
+ms.openlocfilehash: 6dd43a3b1f4c67633ad1755de3db88eb8c6772c8
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30954836"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320325"
 ---
 # <a name="creating-a-graphical-date-picker"></a>Vytvoření grafického ovládacího prvku pro výběr data
 
-Pomocí prostředí Windows PowerShell 3.0 a novějších verzí vytvořit formulář s grafickým rozhraním, styl kalendáře ovládací prvek, který umožňuje uživateli vybrat den v měsíci.
+Vytvořit formulář s grafické, kalendář – vizuální styl ovládacího prvku, který umožňuje uživateli vybrat den v měsíci pomocí Windows Powershellu 3.0 a novějších verzí.
 
-## <a name="create-a-graphical-date-picker-control"></a>Vytvoření ovládacího prvku grafické výběr data
+## <a name="create-a-graphical-date-picker-control"></a>Vytvoření ovládacího prvku grafického výběr data
 
-Zkopírujte a vložte následující do systému Windows PowerShell ISE a pak ho uložte jako skript prostředí Windows PowerShell (.ps1).
+Zkopírujte a vložte následující do Windows PowerShell ISE a pak ho uložte jako skript Windows Powershellu (.ps1).
 
 ```powershell
 Add-Type -AssemblyName System.Windows.Forms
@@ -60,19 +60,19 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 }
 ```
 
-Zahájí skript načtením dvě třídy rozhraní .NET Framework: **System.Drawing** a **System.Windows.Forms**. Spusťte novou instanci třídy rozhraní .NET Framework **Windows.Forms.Form**; který poskytuje prázdného formuláře nebo okna, do kterého můžete začít přidávat ovládací prvky.
+Spustí skript načtením dvou tříd rozhraní .NET Framework: **System.Drawing** a **System.Windows.Forms**. Spusťte novou instanci třídy rozhraní .NET Framework **Windows.Forms.Form**; který obsahuje prázdný formulář nebo ovládací prvky okna, do kterého můžete začít přidávat.
 
 ```powershell
 $form = New-Object Windows.Forms.Form
 ```
 
-Po vytvoření instance třídy formuláře, hodnoty přiřadíte tři vlastnosti této třídy.
+Po vytvoření instance třídy formuláře přiřadíte hodnoty třem vlastnostem této třídy.
 
-- **Text.** To všechno bude v záhlaví okna.
+- **Text.** Tím se změní záhlaví okna.
 
-- **Velikost.** Toto je velikost formuláře v pixelech. Předchozí skript vytvoří formulář, který je 243 pixelů o talovat 230 pixelů.
+- **Velikost.** Toto je velikost formuláře v pixelech. Předchozí skript vytvoří formulář, který je 243 pixelů na šířku a 230 pixelů na výšku.
 
-- **StartingPosition.** Tato volitelná vlastnost nastavena na **CenterScreen** v předchozí skript. Pokud přidáte nemusíte tuto vlastnost, systém Windows vybere umístění při otevření formuláře. Nastavením **StartingPosition** k **CenterScreen**, automaticky zobrazujete formuláře uprostřed obrazovky pokaždé, když ho načte.
+- **Počáteční pozice.** Tato volitelná vlastnost nastavena na **CenterScreen** v předchozím skriptu. Pokud tuto vlastnost nepřidáte, vybere Windows umístění při otevření formuláře. Tím, že nastavíte **počáteční pozice** k **CenterScreen**, automaticky zobrazená formuláři uprostřed obrazovky pokaždé, když ho načte.
 
 ```powershell
 $form.Text = 'Select a Date'
@@ -80,7 +80,7 @@ $form.Size = New-Object Drawing.Size @(243,230)
 $form.StartPosition = 'CenterScreen'
 ```
 
-V dalším kroku vytvořte a pak přidejte ovládacího prvku kalendář do formuláře. V tomto příkladu není po aktuálním dni zvýrazněná nebo v kroužku. Uživatelé mohou vybrat pouze jeden den v kalendáři v jednom okamžiku.
+V dalším kroku vytvořte a pak přidejte ovládací prvek calendar ve formuláři. V tomto příkladu není aktuální den zvýrazněny nebo v kruhu. Uživatelé mohou vybrat pouze jeden den v kalendáři najednou.
 
 ```powershell
 $calendar = New-Object System.Windows.Forms.MonthCalendar
@@ -89,7 +89,7 @@ $calendar.MaxSelectionCount = 1
 $form.Controls.Add($calendar)
 ```
 
-Dále vytvořte **OK** tlačítko pro daný formulář. Zadejte velikost a chování **OK** tlačítko. V tomto příkladu je pozice tlačítko 165 pixelů od horního okraje formuláře a 38 pixelů od levého okraje. Výška tlačítko je 23 pixelů, zatímco tlačítko délka je 75 pixelů. Skript používá předdefinovaných typů Windows Forms k určení chování tlačítko.
+Dále vytvořte **OK** tlačítko pro daný formulář. Zadejte velikost a chování **OK** tlačítko. V tomto příkladu je pozice tlačítko 165 pixelů od horního okraje formuláře a 38 pixelů od levého okraje. Výška tlačítka je 23 pixelů, zatímco tlačítko délka je 75 pixelů. Tento skript využívá k určení chování tlačítka předdefinovaných typů formulářů Windows.
 
 ```powershell
 $OKButton = New-Object System.Windows.Forms.Button
@@ -101,7 +101,7 @@ $form.AcceptButton = $OKButton
 $form.Controls.Add($OKButton)
 ```
 
-Podobně můžete vytvořit **zrušit** tlačítko. **Zrušit** tlačítko je 165 pixelů z horní části, ale 113 pixelů od levého okraje okna.
+Podobně můžete vytvořit **zrušit** tlačítko. **Zrušit** je tlačítko 165 pixelů od horního, ale 113 pixelů od levého okraje okna.
 
 ```powershell
 $CancelButton = New-Object System.Windows.Forms.Button
@@ -113,19 +113,19 @@ $form.CancelButton = $CancelButton
 $form.Controls.Add($CancelButton)
 ```
 
-Nastavte **Topmost** vlastnost **$true** vynutit okno Otevřít na otevřená okna a dialogová okna.
+Nastavte **nejvíce nahoře** vlastnost **$true** přinutit okně pro otevření imitovaná otevřená okna a dialogová okna.
 
 ```powershell
 $form.Topmost = $true
 ```
 
-Přidejte následující řádek kódu k zobrazení formuláře v systému Windows.
+Přidejte následující řádek kódu k zobrazení formuláře ve Windows.
 
 ```powershell
 $result = $form.ShowDialog()
 ```
 
-Nakonec se kód uvnitř **Pokud** bloku dá pokyn Windows co dělat s formulářem po uživatelům vybrat den v kalendáři a pak klikněte na tlačítko **OK** tlačítko nebo klikněte na tlačítko **Enter** klíč. Prostředí Windows PowerShell zobrazí vybraným datem pro uživatele.
+Nakonec se kód uvnitř **Pokud** bloku instruuje Windows, co dělat s formuláři uživatele vyberte den v kalendáři a pak klikněte na tlačítko **OK** tlačítko nebo stisknutím klávesy **Enter** klíč. Prostředí Windows PowerShell zobrazí vybrané datum pro uživatele.
 
 ```powershell
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
@@ -137,6 +137,6 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 
 ## <a name="see-also"></a>Viz také
 
-- [Hey Scripting Guy: Proč se nepodporují tyto příklady prostředí PowerShell grafického uživatelského rozhraní?](http://go.microsoft.com/fwlink/?LinkId=506644)
-- [Githubu: WinFormsExampleUpdates Dave Wyatt](https://github.com/dlwyatt/WinFormsExampleUpdates)
-- [Windows PowerShell Tip v týdnu: vytváření výběr grafické data](http://technet.microsoft.com/library/ff730942.aspx)
+- [Hey Scripting Guy: Proč nefungují tyto příklady prostředí PowerShell grafického uživatelského rozhraní?](https://go.microsoft.com/fwlink/?LinkId=506644)
+- [Githubu: Dave Wyatt WinFormsExampleUpdates](https://github.com/dlwyatt/WinFormsExampleUpdates)
+- [Windows PowerShell tipu týdne přišel: vytvoření ovládacího prvku pro výběr grafické datum](https://technet.microsoft.com/library/ff730942.aspx)

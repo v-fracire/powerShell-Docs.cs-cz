@@ -2,12 +2,12 @@
 ms.date: 08/23/2017
 keywords: rutiny prostředí PowerShell
 title: instalace a používání windows powershell web Accessu
-ms.openlocfilehash: d718d9b286a8a2189f44f10983cdc0061e41d4b9
-ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
+ms.openlocfilehash: a129dfeb61531a1f4d333af3e872d16defa1d12f
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48851320"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320682"
 ---
 # <a name="install-and-use-windows-powershell-web-access"></a>Instalace a používání Windows PowerShell Web Accessu
 
@@ -25,7 +25,7 @@ Po úspěšném nastavení a nakonfigurování brány mohou uživatelé konzoly 
 
 Windows PowerShell Web Accessu nastavení a konfigurace je třech krocích:
 
-1. [Instalace Windows PowerShell Web Accessu](#install-windows-powershell-web-access)
+1. [Instalace Windows PowerShell Web Accessu](#install-windows-powershell-web-access-using-powershell-cmdlets)
 1. [Konfigurace brány](#configure-the-gateway)
 1. [Konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule)
 
@@ -58,10 +58,10 @@ Jiné prohlížeče, které používají soubory cookie a umožňují spouštět
 
 ### <a name="minimally-tested-mobile-devices-or-browsers"></a>Mobilní zařízení nebo prohlížeče, které byly jenom minimálně testované
 
-- Windows Phone 7 a 7.5
-- Google Android WebKit 3.1 prohlížeče Android 2.2.1 (jádro 2.6)
+- Windows Phone 7 a 7.5
+- Google Android WebKit 3.1 Browser Android 2.2.1 (Kernel 2.6)
 - Apple Safari pro operační systém iPhonu – 5.0.1
-- Apple Safari pro operační systém Ipadu 2 – 5.0.1
+- Apple Safari pro operační systém iPadu 2 – 5.0.1
 
 ### <a name="browser-requirements"></a>Požadavky na prohlížeč
 
@@ -75,7 +75,7 @@ Použití prostředí Windows PowerShell Web Accessu webové konzoly, postupujte
 
 Brána Windows PowerShell Web Accessu můžete nainstalovat na serveru, na kterém běží Windows Server 2012 R2 nebo Windows Server 2012 pomocí buď rutin Windows Powershellu nebo pomocí Přidat role a funkce průvodce, která je otevřena z v rámci správce serveru. Pro rychlou instalaci a konfiguraci použijte rutiny prostředí Windows PowerShell, jak je popsáno v této části.
 
-1. [Instalace Windows PowerShell Web Accessu](#install-Windows-powershell-web-access)
+1. [Instalace Windows PowerShell Web Accessu](#install-windows-powershell-web-access-using-powershell-cmdlets)
 1. [Konfigurace brány](#configure-the-gateway)
 1. [Konfigurace omezujícího autorizačního pravidla](#configure-a-restrictive-authorization-rule)
 
@@ -189,7 +189,7 @@ Ve výchozím nastavení rutina nainstaluje webovou aplikaci **pswa** (a její f
 
 ### <a name="configure-a-restrictive-authorization-rule"></a>Konfigurace omezujícího autorizačního pravidla
 
-Po nainstalování Windows PowerShell Web Accessu a je brána nakonfigurovaná, uživatelé mohou otevřít přihlašovací stránku v prohlížeči, ale nemůže přihlásit do správce Windows PowerShell Web Accessu explicitně neudělí přístup. Řízení přístupu na Windows PowerShell Web Accessu se spravuje pomocí sady rutin Windows Powershellu jsou popsané v následující tabulce. Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel. Podrobné informace o rutinách Windows PowerShell Web Accessu, naleznete v tématu referenční témata rutiny [rutiny Windows Powershellu webového přístupu](cmdlets/web-access-cmdlets.md).
+Po nainstalování Windows PowerShell Web Accessu a je brána nakonfigurovaná, uživatelé mohou otevřít přihlašovací stránku v prohlížeči, ale nemůže přihlásit do správce Windows PowerShell Web Accessu explicitně neudělí přístup. Řízení přístupu na Windows PowerShell Web Accessu se spravuje pomocí sady rutin Windows Powershellu jsou popsané v následující tabulce. Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel. Podrobné informace o rutinách Windows PowerShell Web Accessu, naleznete v tématu referenční témata rutiny [rutiny Windows Powershellu webového přístupu](/powershell/module/powershellwebaccess/?view=winserver2012r2-ps).
 
 Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravidel a zabezpečení, najdete v části [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
@@ -360,7 +360,7 @@ Pokyny v této části jsou určené pro instalaci Windows PowerShell Web Access
 
 ### <a name="configuring-a-restrictive-authorization-rule"></a>Konfigurace omezujícího autorizačního pravidla
 
-Po nainstalování Windows PowerShell Web Accessu a je brána nakonfigurovaná, uživatelé mohou otevřít přihlašovací stránku v prohlížeči, ale nemůže přihlásit do správce Windows PowerShell Web Accessu explicitně neudělí přístup. Řízení přístupu na Windows PowerShell Web Accessu se spravuje pomocí sady rutin Windows Powershellu jsou popsané v následující tabulce. Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel. Podrobné informace o rutinách Windows PowerShell Web Accessu, naleznete v tématu referenční témata rutiny [rutiny Windows Powershellu webového přístupu](cmdlets/web-access-cmdlets.md).
+Po nainstalování Windows PowerShell Web Accessu a je brána nakonfigurovaná, uživatelé mohou otevřít přihlašovací stránku v prohlížeči, ale nemůže přihlásit do správce Windows PowerShell Web Accessu explicitně neudělí přístup. Řízení přístupu na Windows PowerShell Web Accessu se spravuje pomocí sady rutin Windows Powershellu jsou popsané v následující tabulce. Neexistuje žádné srovnatelné grafické uživatelské rozhraní pro přidávání nebo správu autorizačních pravidel. Podrobné informace o rutinách Windows PowerShell Web Accessu, naleznete v tématu referenční témata rutiny [rutiny Windows Powershellu webového přístupu](/powershell/module/powershellwebaccess/?view=winserver2012r2-ps).
 
 Podrobnější informace o Windows PowerShell Web Accessu autorizačních pravidel a zabezpečení, najdete v části [autorizačních pravidel a zabezpečení funkce systému Windows PowerShell Web Accessu](authorization-rules-and-security-features-of-windows-powershell-web-access.md).
 
@@ -404,7 +404,7 @@ Aby bylo produkční prostředí zabezpečené, používejte vždy platný certi
 1. V **akce** podokno, proveďte jednu z následujících akcí. Další informace o konfiguraci certifikátů serveru ve službě IIS najdete v tématu [konfigurace certifikátů serveru ve službě IIS 7](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732230(v=ws.10)).
 
    - Klikněte na tlačítko **importovat** k naimportovat stávající platný certifikát z umístění v síti.
-   - Klikněte na tlačítko **vytvořit žádost o certifikát** požádat o certifikát od certifikační Autority, jako [VeriSign](http://www.verisign.com/), [Thawte](https://www.thawte.com/), nebo [GeoTrust](https://www.geotrust.com/). Běžný název certifikátu musí odpovídat hlavičce hostitele v žádosti.
+   - Klikněte na tlačítko **vytvořit žádost o certifikát** požádat o certifikát od certifikační Autority, jako [VeriSign](https://www.verisign.com/), [Thawte](https://www.thawte.com/), nebo [GeoTrust](https://www.geotrust.com/). Běžný název certifikátu musí odpovídat hlavičce hostitele v žádosti.
 
      Například, pokud prohlížeč klienta požaduje `http://www.contoso.com/`, pak musí také být běžný název `http://www.contoso.com/`. Toto je nejbezpečnější a doporučená možnost poskytnutí brány Windows PowerShell Web Accessu pomocí certifikátu.
 
