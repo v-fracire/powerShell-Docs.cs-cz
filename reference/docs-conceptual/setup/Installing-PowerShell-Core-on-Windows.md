@@ -2,12 +2,12 @@
 title: Instalace PowerShellu Core ve Windows
 description: Informace o instalaci Powershellu Core ve Windows
 ms.date: 08/06/2018
-ms.openlocfilehash: 2b21908c38796117308f2ac1219db00ff9086408
-ms.sourcegitcommit: 6749f67c32e05999e10deb9d45f90f45ac21a599
+ms.openlocfilehash: ba159a69df7e117e90e21dd26228b61146260475
+ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850975"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52320887"
 ---
 # <a name="installing-powershell-core-on-windows"></a>Instalace PowerShellu Core ve Windows
 
@@ -99,7 +99,7 @@ V obou případech je nutné na verzi Windows 10 x64 ZIP balíčku a bude nutné
 1. Použijte váš nástroj pro zipování Oblíbené dekomprimovat balíček do adresáře v rámci připojené image Nano serveru.
 2. Odpojte image a spustit ho.
 3. Připojte se k instanci doručených zpráv Windows powershellu.
-4. Postupujte podle pokynů a vytvořte koncový bod pomocí vzdálené komunikace ["Další instance technikou"](#executed-by-another-instance-of-powershell-on-behalf-of-the-instance-that-it-will-register).
+4. Postupujte podle pokynů a vytvořte koncový bod pomocí vzdálené komunikace ["Další instance technikou"](../core-powershell/wsman-remoting-in-powershell-core.md#executed-by-another-instance-of-powershell-on-behalf-of-the-instance-that-it-will-register).
 
 ### <a name="online-deployment-of-powershell-core"></a>Online nasazení Powershellu Core
 
