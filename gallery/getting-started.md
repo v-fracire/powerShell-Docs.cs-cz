@@ -3,16 +3,16 @@ ms.date: 06/12/2017
 contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 title: Začínáme s Galerie prostředí PowerShell
-ms.openlocfilehash: 85b0a754aba25d850dc918024419318554f92b33
-ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
+ms.openlocfilehash: c8beba3009e462ce52cdecd34fc0313d9234f289
+ms.sourcegitcommit: 1082b13115c5c5be4b76574ba55307b3e567983f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50225671"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52576885"
 ---
 # <a name="getting-started-with-the-powershell-gallery"></a>Začínáme s Galerie prostředí PowerShell
 
-Správný způsob, jak nainstalovat balíčky z Galerie prostředí PowerShell je mohli používat rutiny v [PowerShellGet](/powershell/module/powershellget) modulu. Není nutné se přihlásit ke stažení položek z Galerie prostředí PowerShell.
+Galerie prostředí PowerShell je úložiště balíčků, který obsahuje skripty, moduly a prostředky DSC můžete stáhnout a využít. Pomocí rutin v [PowerShellGet](/powershell/module/powershellget) modulu k instalaci balíčků z Galerie prostředí PowerShell. Není nutné se přihlásit ke stažení položek z Galerie prostředí PowerShell.
 
 > [!NOTE]
 > Je možné stáhnout balíček přímo z Galerie prostředí PowerShell, ale toto není doporučený postup.
@@ -20,9 +20,9 @@ Správný způsob, jak nainstalovat balíčky z Galerie prostředí PowerShell j
 
 ## <a name="discovering-packages-from-the-powershell-gallery"></a>Vyhledávání balíčků z Galerie prostředí PowerShell
 
-Balíčky můžete najít v galerii prostředí PowerShell pomocí **hledání** ovládacího prvku na tomto webu, nebo tak, že přejdete na stránkách moduly a skripty. Můžete také vyhledat balíčky z Galerie prostředí PowerShell spuštěním [Find-Module][] a [Find-Script][] rutin, v závislosti na typu položky s `-Repository PSGallery`.
+Balíčky můžete najít v galerii prostředí PowerShell pomocí **hledání** ovládací prvek v galerii prostředí PowerShell [domovskou stránku](https://www.powershellgallery.com), nebo že si projdete moduly a skripty z [balíčky stránky ](https://www.powershellgallery.com/packages). Můžete také vyhledat balíčky z Galerie prostředí PowerShell spuštěním [Find-Module][], [Find-DscResource], a [Find-Script][] rutin, v závislosti na typu balíčku s `-Repository PSGallery`.
 
-Filtrování výsledků z galerie můžete provést pomocí následujících parametrů:
+Můžete filtrovat výsledky z galerie s použitím následujících parametrů:
 
 - Název
 - AllVersions
@@ -75,15 +75,15 @@ Chcete-li nainstalovat starší verzi balíčku, přidejte `-RequiredVersion` pa
 
 ### <a name="deploy"></a>Nasazení
 
-Chcete-li nasadit balíček z Galerie prostředí PowerShell pro Azure Automation, klikněte na tlačítko **nasadit do Azure Automation** na stránce s podrobnostmi balíčku. Budete přesměrováni na portálu pro správu Azure, ve kterém se přihlásíte pomocí přihlašovacích údajů k účtu Azure. Všimněte si, že nasazení balíčků se závislostmi nasadí všechny závislosti na službě Azure Automation. Tlačítko 'Nasazení do služby Azure Automation' můžete zakázat přidáním **AzureAutomationNotSupported** značka, které vaše metadata balíčku.
+Chcete-li nasadit balíček z Galerie prostředí PowerShell pro Azure Automation, klikněte na tlačítko **Azure Automation**, klikněte na **nasadit do Azure Automation** na stránce s podrobnostmi balíčku. Budete přesměrováni na portálu pro správu Azure, ve kterém se přihlásíte pomocí přihlašovacích údajů k účtu Azure. Všimněte si, že nasazení balíčků se závislostmi všechny závislosti nasadí do služby Azure Automation. Tlačítko 'Nasazení do služby Azure Automation' můžete zakázat přidáním **AzureAutomationNotSupported** značka, které vaše metadata balíčku.
 
 Další informace o Azure Automation najdete v tématu [Azure Automation](/azure/automation) dokumentaci.
 
 ## <a name="updating-packages-from-the-powershell-gallery"></a>Aktualizace balíčků z Galerie prostředí PowerShell
 
-Pokud chcete aktualizovat balíčky nainstalované z Galerie prostředí PowerShell, spusťte rutiny [Update-skriptu] [] nebo [[Update-Module]]. Po spuštění bez žádné další parametry []. [Update-Module] pokusí aktualizovat každý modul nainstalovat spuštěním [Install-Module][]. Pokud chcete selektivně aktualizovat moduly, přidejte `-Name` parametru.
+Pokud chcete aktualizovat balíčky nainstalované z Galerie prostředí PowerShell, spusťte rutiny [Update-skriptu] [] nebo [[Update-Module]]. Při spuštění bez žádné další parametry, [[Update-Module]] pokusí aktualizovat všechny moduly nainstalované spuštěním [Install-Module][]. Pokud chcete selektivně aktualizovat moduly, přidejte `-Name` parametru. 
 
-Podobně při spuštění bez žádné další parametry, [[Update-skriptu]] taky automatický pokus o aktualizaci každý skript instalaci spuštěním [Install-Script][]. Pokud chcete selektivně aktualizovat skripty, přidejte `-Name` parametru.
+Podobně při spuštění bez žádné další parametry, [] [-skript pro aktualizaci] taky automatický pokus o aktualizaci nainstalovat spuštěním všechny skripty [Install-Script][]. Pokud chcete selektivně aktualizovat skripty, přidejte `-Name` parametru.
 
 ## <a name="list-packages-that-you-have-installed-from-the-powershell-gallery"></a>Seznam balíčků, které jste nainstalovali z Galerie prostředí PowerShell
 
