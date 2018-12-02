@@ -3,22 +3,23 @@ ms.date: 06/12/2017
 contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 title: Syntaxe hledání v galerii
-ms.openlocfilehash: 9aadb6771c85845cc3fa05cb56f0194b060d1c1b
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.openlocfilehash: aabcaa1f1b5b641ab5033c9ba2e358477c84a23b
+ms.sourcegitcommit: e24525046dd37166b9d83eeecdc534726316f429
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50004010"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742852"
 ---
 # <a name="gallery-search-syntax"></a>Syntaxe hledání v galerii
 
-Galerie prostředí PowerShell nabízí searchbox text, ve kterém můžete použít slova, fráze a výrazy – klíčové slovo můžete zúžit výsledky hledání.
+Můžete vyhledávat pomocí Galerie prostředí PowerShell [webu Galerie prostředí PowerShell](https://www.powershellgallery.com/).
+Webu Galerie prostředí PowerShell nabízí searchbox text, ve kterém můžete použít slova, fráze a výrazy – klíčové slovo můžete zúžit výsledky hledání.
 
 ## <a name="search-by-keywords"></a>Hledat podle klíčových slov
 
     dsc azure sql
 
-Vyhledávání bude dělat jeho pokusí najít relevantní dokumenty, které obsahují všechna klíčová slova 3 a vrátí odpovídající dokumenty.
+Hledání se pokusí najít relevantní dokumenty, které obsahují všechna klíčová slova 3 a vrátí odpovídající dokumenty.
 
 ## <a name="search-using-phrases-and-keywords"></a>Vyhledávání pomocí klíčových slov a vět
 
@@ -37,10 +38,9 @@ Aktuálně jsou prohledávatelná pole 'Id', 'Version', 'Značky', "Autor", "Vla
 
 ## <a name="examples"></a>Příklady
 
-    ID:"PSReadline"
-    id:"AzureRM.Profile"
-
-Vyhledá balíčky s "PSReadline" nebo "AzureRM.Profile" v jejich pole ID v uvedeném pořadí.
+    ID:PSReadline
+    
+Vyhledá balíčky s ID obsahující "PSReadline".
 
     Id:"AzureRM.Profile"
 
@@ -50,40 +50,35 @@ Filtr "Id" je dílčí řetězec shodovat, tak při hledání následující:
 
     Id:"azure"
 
-Zobrazí se výsledky, jako jsou "AzureRM.Profile" a "Azure.Storage".
+To poskytuje výsledky, které zahrnují AzureRM.Profile "a"Azure.Storage".
 
-Můžete také vyhledat více klíčových slov do jednoho pole. Nebo kombinovat a Párovat pole.
+Můžete také vyhledat více klíčových slov do jednoho pole. 
 
     id:azure tags:intellisense
-    id:azure id:storage
 
-A můžete provádět vyhledávání frází:
+A můžete provádět vyhledávání frází pomocí dvojitých uvozovek:
 
     id:"azure.storage"
 
-
 K vyhledání všech balíčků značkou DSC.
 
-    Tags:"DSC"
+    Tags:DSC
 
 K vyhledání všech balíčků pomocí zadané funkce.
 
-    Functions:"Update-AzureRM"
+    Functions:Get-TreeSize
 
 K vyhledání všech balíčků pomocí zadaného rutiny.
 
-    Cmdlets:"Get-AzureRmEnvironment"
+    Cmdlets:Get-AzureRmEnvironment
 
 K vyhledání všech balíčků se zadaným názvem prostředku DSC.
 
-    DscResources:"xArchive"
+    DscResources:xArchive
 
 K vyhledání všech balíčků pomocí zadané verze prostředí PowerShell
 
-    PowerShellVersion:"5.0"
-    PowerShellVersion:"3.0"
-    PowerShellVersion:"2.0"
-
+    PowerShellVersion:2.0
 
 Nakonec pokud používáte pole, které nepodporujeme, jako je například "příkazy", vytvoříme právě ho ignorovat a hledat všechna pole. Proto následující dotaz
 

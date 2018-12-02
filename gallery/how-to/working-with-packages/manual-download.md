@@ -3,16 +3,16 @@ ms.date: 09/11/2018
 contributor: JKeithB
 keywords: Galerie prostředí powershell, psgallery
 title: Ruční stažení balíčku
-ms.openlocfilehash: 0952aa4ec474850af5219fb2e0e9ee3e954b0f9a
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.openlocfilehash: 57baa14089b803f58c42ccb54553ecace841e34b
+ms.sourcegitcommit: e24525046dd37166b9d83eeecdc534726316f429
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50004009"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742818"
 ---
 # <a name="manual-package-download"></a>Ruční stažení balíčku
 
-Galerie prostředí Powershell podporuje stahování balíčku z webu přímo, bez použití rutiny Správce balíčků PowerShellGet. Balíček se stáhne jako soubor balíčku (.nupkg) NuGet, který je pak snadno zkopírovat do interní úložiště.
+Galerie prostředí Powershell podporuje stahování balíčku z webu přímo, bez použití rutiny Správce balíčků PowerShellGet. Libovolný balíček si můžete stáhnout jako soubor balíčku (.nupkg) NuGet, který pak můžete zkopírovat do interní úložiště.
 
 > [!NOTE]
 > Stažení balíčku ruční **není** určené jako náhrada za rutinu Install-Module.
@@ -45,7 +45,7 @@ Nejjednodušší způsob je NuGet specifické prvky odeberete ze složky. Kvůli
 1. Extrahujte obsah balíčku NuGet do místní složky.
 2. Odstraňte NuGet specifické prvky ze složky.
 3. Přejmenujte složku. Výchozí název složky je obvykle `<name>.<version>`. Verze může obsahovat "-předprodejní" Pokud modul je označený jako zkušební verzi. Přejmenujte složku pouze na název modulu. Například "azurerm.storage.5.0.4 ve verzi preview" se změní na "azurerm.storage".
-4. Zkopírujte složku pro váš PSModulePath.
+4. Zkopírujte složku do jedné ze složek v `$env:PSModulePath value`. `$env:PSModulePath` je oddělený středníky sadu cest, ve kterých by měl vypadat prostředí PowerShell pro moduly.
 
 > [!IMPORTANT]
 > Ruční stažení neobsahuje žádné závislosti, které vyžaduje modulem. Pokud balíček obsahuje závislosti, musí být nainstalovány v systému pro tento modul fungovat správně. Galerie prostředí PowerShell ukazuje všechny závislosti, které vyžaduje balíček.
