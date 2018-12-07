@@ -2,12 +2,12 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Co je nového ve Windows Powershellu 5.0
-ms.openlocfilehash: 78304b0eac6e58e43bffc3abb7059a1e4b02de23
-ms.sourcegitcommit: 221b7daab7f597f8b2e4864cf9b5d9dda9b9879b
+ms.openlocfilehash: 9bd18b37b53890713faeeabc634876e5f48725da
+ms.sourcegitcommit: 7ed6ff9a3ce0b8b485d12dc2f5107c23d4b6e68b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52320716"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978891"
 ---
 # <a name="whats-new-in-windows-powershell-50"></a>Co je nového ve Windows Powershellu 5.0
 Windows PowerShell 5.0 obsahuje důležité nové funkce, které rozšiřují jeho použití, lepší použitelnost a umožňují řídit a spravovat prostředí Windows snadněji a komplexněji.
@@ -410,7 +410,7 @@ Počínaje Windows Powershellu 3.0 se autoři C# rutiny můžete naplnit **HelpU
 
 Můžete použít také **HelpUri** hodnoty v první související odkaz k souboru nápovědy rutiny založené na XML nebo. Direktiva odkazu založená na komentářích nápovědy ve funkci.
 
-Další informace o podpoře online nápovědy najdete v tématu [podpora Online nápovědy](https://go.microsoft.com/fwlink/?LinkId=242132) na webu MSDN.
+Další informace o podpoře online nápovědy najdete v tématu [podpora Online nápovědy](/powershell/developer/module/supporting-online-help) v Microsoft Docs.
 
 ### <a name="cim-integration"></a>Integrace CIM
 
