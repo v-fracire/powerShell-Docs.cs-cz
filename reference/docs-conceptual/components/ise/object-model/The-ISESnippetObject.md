@@ -1,0 +1,58 @@
+---
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Objekt ISESnippetObject
+ms.assetid: 98bc8113-c3cd-4201-bdb9-9d9bdb7e266c
+ms.openlocfilehash: f80080f4207cf226fb7466c4842446d08c081347
+ms.sourcegitcommit: 00ff76d7d9414fe585c04740b739b9cf14d711e1
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53404089"
+---
+# <a name="the-isesnippetobject"></a>Objekt ISESnippetObject
+
+**ISESnippet** je objekt instancí třídy Microsoft.PowerShell.Host.ISE.ISESnippet. Členové **$psISE.CurrentPowerShellTab.Snippets** kolekce jsou všechny příklady **ISESnippet** objekty. Nejjednodušší způsob, jak vytvořit fragment kódu je použít [New-IseSnippet&#91;PSITPro5_ISE&#93; ](https://technet.microsoft.com/library/0a6339a3-2683-4a8e-8929-90ad9a95c3e0) rutiny.
+
+## <a name="properties"></a>Properties
+
+### <a name="author"></a>Autor
+
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a není k dispozici v dřívějších verzích.
+
+Vlastnost jen pro čtení, která získá jméno autora fragmentu kódu.
+
+```powershell
+# Get the author of the first snippet item
+$psISE.CurrentPowerShellTab.Snippets.Item(0).Author
+```
+
+### <a name="codefragment"></a>CodeFragment
+
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a není k dispozici v dřívějších verzích.
+
+Vlastnost jen pro čtení, která získá fragment kódu vložit do editoru.
+
+```powershell
+# Get the code fragment associated with the first snippet item.
+$psISE.CurrentPowerShellTab.Snippets.Item(0).CodeFragment
+```
+
+### <a name="shortcut"></a>Místní
+
+Podporované v prostředí Windows PowerShell ISE 3.0 a novější a není k dispozici v dřívějších verzích.
+
+Vlastnost jen pro čtení, který získá Windows klávesové zkratky pro položku nabídky.
+
+```powershell
+# Get the shortcut for the first submenu item.
+$psISE.CurrentPowerShellTab.AddOnsMenu.Submenus.Clear()
+$psISE.CurrentPowerShellTab.AddOnsMenu.Submenus.Add('_Process', {Get-Process}, 'Alt+P')
+$psISE.CurrentPowerShellTab.AddOnsMenu.Submenus[0].Shortcut
+```
+
+## <a name="see-also"></a>Viz také
+
+- [Objekt ISESnippetCollection](The-ISESnippetCollection-Object.md)
+- [Účel skriptovacího objektového modelu prostředí Windows PowerShell ISE](purpose-of-the-windows-powershell-ise-scripting-object-model.md)
+- [Hierarchie objektového modelu prostředí ISE](The-ISE-Object-Model-Hierarchy.md)

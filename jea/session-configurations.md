@@ -2,12 +2,12 @@
 ms.date: 06/12/2017
 keywords: jea, powershell, zabezpečení
 title: Konfigurace relace JEA
-ms.openlocfilehash: bdf3659357045203d90e8083613e51cce657da1a
-ms.sourcegitcommit: e46b868f56f359909ff7c8230b1d1770935cce0e
+ms.openlocfilehash: 1b598522d43b2c1a26a739a67cee5181b21a7c32
+ms.sourcegitcommit: 548547b2d5fc73e726bb9fec6175d452a351d975
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45522950"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53655459"
 ---
 # <a name="jea-session-configurations"></a>Konfigurace relace JEA
 
@@ -80,6 +80,8 @@ Pokud je zadána jedna nebo více skupin zabezpečení, virtuální účet se u�
 RunAsVirtualAccount = $true
 RunAsVirtualAccountGroups = 'NetworkOperator', 'NetworkAuditor'
 ```
+> [!NOTE]
+> Virtuální účty jsou dočasně udělena přihlášení jako služba vpravo v zásadách zabezpečení místního serveru.  Pokud jeden z VirtualAccountGroups zadaný již byla udělena tato práva v zásadách, budou jednotlivé virtuální účet už přidávat a odebírat z této zásady.  To může být užitečné v situacích, jako jsou řadiče domény, ve kterém jsou úzce auditovat revize pro zásady zabezpečení řadiče domény.  To je k dispozici pouze ve Windows serveru 2016 a listopadu 2018 nebo novější kumulativní a 2019 systému Windows Server s 2019. ledna nebo pozdější kumulativní.
 
 #### <a name="group-managed-service-account"></a>Účet spravované služby skupiny
 

@@ -3,19 +3,19 @@ ms.date: 06/12/2017
 contributor: manikb
 keywords: Galerie prostředí powershell, rutina, psget
 title: Moduly s kompatibilní edice Powershellu
-ms.openlocfilehash: 0a95b47b506fbdddbb98b455a1d10d0f08ce402b
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.openlocfilehash: bda924393d37ea1596fbf0d813c10cbdea33c218
+ms.sourcegitcommit: 548547b2d5fc73e726bb9fec6175d452a351d975
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50002680"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53655323"
 ---
 # <a name="modules-with-compatible-powershell-editions"></a>Moduly s kompatibilní edice Powershellu
 
 Od verze 5.1 je PowerShell k dispozici v různých edicích, které uvádějí různé sady funkcí a kompatibilitu platformy.
 
-- **Desktop Edition:** Tato edice je založená na rozhraní .NET Framework a zajišťuje kompatibilitu se skripty a moduly cílenými na verze PowerShellu spouštěné na plných edicích Windows, jako je Jádro serveru a Windows Desktop.
-- **Core Edition:** Tato edice je založená na rozhraní .NET Core a zajišťuje kompatibilitu se skripty a moduly cílenými na verze PowerShellu spouštěné na edicích Windows s nízkými nároky na prostředky, jako je Nano Server a Windows IoT.
+- **Desktop Edition:** Založený na rozhraní .NET Framework a zajišťuje kompatibilitu se skripty a moduly cílenými na verze Powershellu spouštěné na plných edicích Windows, jako je jádro serveru a Windows Desktop.
+- **Core Edition:** Založená na prostředí .NET Core a zajišťuje kompatibilitu se skripty a moduly cílenými na verze Powershellu spouštěné na edicích Windows, jako je Nano Server a Windows IoT nízké nároky.
 
 Verze powershellu je zobrazena ve vlastnosti PSEdition `$PSVersionTable`.
 
@@ -174,7 +174,7 @@ $PSModule.OnRemove = {
 }
 ```
 
-### <a name="option-2-use-psedition-variable-in-the-psd1-file-to-load-the-proper-dlls-and-nestedrequired-modules"></a>Možnost 2: Použití proměnné $PSEdition soubor PSD1 načíst správné knihovny DLL a vnořené/požadované moduly
+### <a name="option-2-use-psedition-variable-in-the-psd1-file-to-load-the-proper-dlls-and-nestedrequired-modules"></a>Možnost 2: Pomocí proměnné $PSEdition v soubor PSD1 načíst správné knihovny DLL a vnořené/požadované moduly
 
 PS 5.1 nebo novější je v souboru manifestu modulu povolen $PSEdition globální proměnné. Pomocí této proměnné, Autor modulu můžete určit podmíněného hodnoty v souboru manifestu modulu. $PSEdition proměnné může být odkazováno v režimu s omezeným přístupem jazyka nebo datové části.
 
@@ -260,6 +260,6 @@ Find-Module -Tag PSEdition_Core
 
 [Skripty s PSEditions](script-psedition-support.md)
 
-[Podpora PSEditions na PowerShellGallery](../how-to/finding-packages/searching-by-psedition.md)
+[Podpora PSEditions na PowerShellGallery](../how-to/finding-packages/searching-by-compatibility.md)
 
 [Aktualizace manifestu modulu](/powershell/module/powershellget/update-modulemanifest)

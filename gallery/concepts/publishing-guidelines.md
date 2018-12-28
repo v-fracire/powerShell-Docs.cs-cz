@@ -4,12 +4,12 @@ contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 description: Pokyny pro vydavatele
 title: Galerie prostředí PowerShell pro publikování pokyny a osvědčené postupy
-ms.openlocfilehash: 7e9eca8d3372ddf0b94ab42e125991b857456551
-ms.sourcegitcommit: aa1129cc2b0ae6e18918b2b0ea70c74915ed019b
+ms.openlocfilehash: a996a820d6bd52e796a41659c6f468662dbff0f4
+ms.sourcegitcommit: 548547b2d5fc73e726bb9fec6175d452a351d975
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235401"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53655391"
 ---
 # <a name="powershellgallery-publishing-guidelines-and-best-practices"></a>PowerShellGallery publikování pokyny a osvědčené postupy
 
@@ -33,6 +33,7 @@ Balíčky, které postupujte podle následujících pokynů je mnohem pravděpod
 - Možné reagovat na zpětnou vazbu
 - Zadejte moduly, místo skriptů
 - Poskytuje odkazy na projekt webu
+- Označit váš balíček se kompatibilní PSEdition(s) a platformy 
 - Zahrnout testy s moduly
 - Zahrnout a/nebo propojit s licenčními podmínkami
 - Podepisování kódu
@@ -92,8 +93,8 @@ Uživatelé, kteří poskytovat konstruktivní zpětnou vazbu jsou důležité p
 
 V galerii prostředí PowerShell jsou k dispozici dvě metody zpětnou vazbu:
 
-- Požádejte vlastníka: Umožňuje uživateli pošlete e-mail na počet vlastníků balíčku. Jako vlastníka balíčku je důležité monitorovat e-mailovou adresu používat s balíčky Galerie prostředí PowerShell a reagovat na problémy, které jsou vyvolány. Jednou nevýhodou této metodě se, že pouze uživatele a vlastník někdy zobrazí komunikace, takže vlastník může být nutné odpovědět na otázku, stejné v mnoha případech.
-- Poznámka: V dolní části stránky balíčku je pole komentář.
+- Obraťte se na vlastníka: To umožňuje uživateli pošlete e-mail na počet vlastníků balíčku. Jako vlastníka balíčku je důležité monitorovat e-mailovou adresu používat s balíčky Galerie prostředí PowerShell a reagovat na problémy, které jsou vyvolány. Jednou nevýhodou této metodě se, že pouze uživatele a vlastník někdy zobrazí komunikace, takže vlastník může být nutné odpovědět na otázku, stejné v mnoha případech.
+- Poznámka: V dolní části balíček stránka je pole komentář.
   Výhodou tohoto systému je, že další viděli komentáře a odpovědi, což snižuje počet pokusů, které se musí se odpovědět na každou otázku jeden.
   Jako vlastník balíčku důrazně doporučujeme, abyste postupovali podle připomínky pro každý balíček.
 Zobrazit [poskytování zpětné vazby na sociálních sítích a v komentářích](../how-to/working-with-packages/social-media-feedback.md) podrobnosti o tom, jak to udělat.
@@ -134,6 +135,16 @@ Přidání propojení se provádí zahrnutím ProjectURI v části PSData manife
         ProjectUri = 'https://github.com/powershell/powershell'
 
 Pokud je k dispozici ProjectURI, galerie prostředí PowerShell bude obsahovat odkaz na web projektu na levé straně stránky balíčku.
+
+## <a name="tag-your-package-with-the-compatible-pseditions-and-platforms"></a>Označit váš balíček se kompatibilní PSEdition(s) a platformy 
+
+Pomocí následujících značek k předvedení pro uživatele, které balíčky budou fungovat s jejich prostředí:
+
+- PSEdition_Desktop: Balíčky, které jsou kompatibilní s prostředím Windows PowerShell 
+- PSEdition_Core: Balíčky, které jsou kompatibilní s Powershellu Core 
+- Windows: Balíčky, které jsou kompatibilní s operačním systémem Windows
+- Linux: Balíčky, které jsou kompatibilní s operačních systémů Linux 
+- MacOS: Balíčky, které jsou kompatibilní se systémem Mac
 
 ## <a name="include-tests"></a>Zahrnout testy
 

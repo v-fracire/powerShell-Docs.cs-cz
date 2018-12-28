@@ -3,12 +3,12 @@ ms.date: 06/09/2017
 schema: 2.0.0
 keywords: prostředí PowerShell
 title: Balíček manifestu hodnoty, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
-ms.openlocfilehash: 63f5055dff6de404343f80be81a1c786147c0e33
-ms.sourcegitcommit: e76665315fd928bf85210778f1fea2be15264fea
+ms.openlocfilehash: dcba56d9f7edf0c08a3b9e3f2326b39a6b3be3fa
+ms.sourcegitcommit: 548547b2d5fc73e726bb9fec6175d452a351d975
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50225824"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53655341"
 ---
 # <a name="package-manifest-values-that-impact-the-powershell-gallery-ui"></a>Balíček manifestu hodnoty, které mají vliv uživatelské rozhraní Galerie prostředí PowerShell
 
@@ -137,5 +137,5 @@ Pro referenci Zde jsou některé běžně používané značky k 12/14/2017. V n
 | AzureRm | Používá hlavně pro moduly AzureRM |
 | PSČ |  |
 | INSTALAČNÍ SLUŽBY MSI |  |
-| Mac |  |
+| macOS |  |
 | PoshBot |  |

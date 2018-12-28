@@ -3,12 +3,12 @@ ms.date: 06/12/2017
 contributor: JKeithB
 keywords: Galerie prostředí powershell, rutina, psgallery
 title: Vytvoření a publikování položky
-ms.openlocfilehash: ced892b558b81c3ef9575b5a01e74932515b412a
-ms.sourcegitcommit: 98b7cfd8ad5718efa8e320526ca76c3cc4141d78
+ms.openlocfilehash: 3875c7ae8231f254e655f149c788503cb0b3077c
+ms.sourcegitcommit: 548547b2d5fc73e726bb9fec6175d452a351d975
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50004011"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53655425"
 ---
 # <a name="creating-and-publishing-an-item"></a>Vytvoření a publikování položky
 
@@ -56,10 +56,11 @@ PrivateData podporuje přidávání nových klíčů, tak, aby elementy, které 
 Jsou manifestu prvky, které jsou nejdůležitější vyplnit pro položku, kterou budete publikovat v galerii prostředí PowerShell:
 
 - Skript nebo název modulu – ty jsou vykreslovány vedle od názvů. PS1 pro skript, nebo. PSD1 pro modul.
-- Verze – to je požadovaná primární klíč, formát by měl postupovat podle pokynů SemVer (podrobnosti naleznete v tématu Doporučené postupy)
-- Autor – to je požadovaná primární klíč a obsahuje název, který má být přidružená k položce (viz autoři a vlastníci níže)
+- Verze – to je požadovaná primární klíč, formát by měl postupovat podle pokynů SemVer. Podrobnosti najdete v části osvědčené postupy.
+- Autor – to je požadovaná primární klíč a obsahuje název, který má být přidružená k položce. Podívejte se autoři a vlastníci níže.
 - Popis – to je požadovaná primární klíč, umožňuje stručně popisují, co dělá tuto položku a případné požadavky pro použití
 - ProjectURI – to je důrazně ho doporučujeme pole identifikátoru URI v PSData, který poskytuje odkaz na úložiště Github nebo podobně jako umístění, kde provádíte vývoj na položku
+- Značky – je silné doporučení k označení vašeho balíčku založené na kompatibilitu s PSEditions a platformy. Zobrazit [pokyny pro publikování](/powershell/gallery/concepts/publishing-guidelines.md#tag-your-package-with-the-compatible-pseditions-and-platforms) podrobnosti.
 
 Autoři a vlastníci Galerie prostředí PowerShell položky jsou souvisejí, ale vždy neshodují.
 Vlastníci položky jsou uživatelé s účty Galerie prostředí PowerShell, které mají oprávnění spravovat položky. Může existovat mnoho vlastníků, kdo může aktualizovat všechny položky.
@@ -104,7 +105,7 @@ Většinu dalších možností v příkazovém řádku musí být v manifestu da
 Aby nedocházelo k chybám, důrazně doporučujeme, zkuste příkazy pomocí - Whatif-Verbose, před publikováním.
 To vám ušetří docela dlouho, protože pokaždé, když publikujete v galerii prostředí PowerShell, je nutné aktualizovat číslo verze do oddílu manifestu položky.
 
-Příklady by: "Publish-Module – cestu". \MyModule "- RequiredVersion"0.0.1"- NugetAPIKey"GUID"- Whatif – podrobné" "Publish-Script – cesty".\MyScriptFile.PS1"- NugetAPIKey"GUID"- Whatif-Verbose"
+Příklady by byl: "Publish-Module-cesta". \MyModule "- RequiredVersion"0.0.1"- NugetAPIKey"GUID"- Whatif – podrobné" "Publish-Script – - NugetAPIKey".\MyScriptFile.PS1"cesty"GUID"- Whatif-Verbose"
 
 Pečlivě zkontrolujte výstup a pokud se zobrazí, žádné chyby nebo upozornění, opakujte příkaz bez - Whatif.
 
