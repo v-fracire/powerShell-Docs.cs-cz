@@ -1,0 +1,55 @@
+---
+ms.date: 06/05/2017
+keywords: rutiny prostředí PowerShell
+title: Účel skriptovacího objektového modelu prostředí Windows PowerShell ISE
+ms.assetid: d176a131-ab0c-43ee-80c1-f824ab8e4a05
+ms.openlocfilehash: fd5ac2c34b173d4eba7636bb5760b1ac9abb4277
+ms.sourcegitcommit: 00ff76d7d9414fe585c04740b739b9cf14d711e1
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53404091"
+---
+# <a name="purpose-of-the-windows-powershell-ise-scripting-object-model"></a><span data-ttu-id="95e34-103">Účel skriptovacího objektového modelu prostředí Windows PowerShell ISE</span><span class="sxs-lookup"><span data-stu-id="95e34-103">Purpose of the Windows PowerShell ISE Scripting Object Model</span></span>
+
+<span data-ttu-id="95e34-104">Objekty jsou spojeny s formuláře a funkce z Windows Powershellu integrovaném skriptovacím prostředí (ISE).</span><span class="sxs-lookup"><span data-stu-id="95e34-104">Objects are associated with the form and function of Windows PowerShell Integrated Scripting Environment (ISE).</span></span> <span data-ttu-id="95e34-105">Referenční dokumentace objektového modelu obsahuje podrobné informace o členu vlastnostem a metodám, které zveřejňují tyto objekty.</span><span class="sxs-lookup"><span data-stu-id="95e34-105">The object model reference provides details about the member properties and methods that these objects expose.</span></span> <span data-ttu-id="95e34-106">Příklady jsou k dispozici k zobrazení, jak můžete použít skripty pro přímý přístup k těmto metodám a vlastnostem.</span><span class="sxs-lookup"><span data-stu-id="95e34-106">Examples are provided to show how you can use scripts to directly access these methods and properties.</span></span> <span data-ttu-id="95e34-107">Skriptovací objektový model usnadňuje následující řadu úloh.</span><span class="sxs-lookup"><span data-stu-id="95e34-107">The scripting object model makes the following range of tasks easier.</span></span>
+
+## <a name="customizing-the-appearance-of-windows-powershell-ise"></a><span data-ttu-id="95e34-108">Přizpůsobení vzhledu Windows PowerShell ISE</span><span class="sxs-lookup"><span data-stu-id="95e34-108">Customizing the appearance of Windows PowerShell ISE</span></span>
+
+<span data-ttu-id="95e34-109">Objektový model můžete upravit nastavení aplikace a možnosti.</span><span class="sxs-lookup"><span data-stu-id="95e34-109">You can use the object model to modify the application settings and options.</span></span> <span data-ttu-id="95e34-110">Například můžete upravit následujícím způsobem:</span><span class="sxs-lookup"><span data-stu-id="95e34-110">For example, you can modify them as follows:</span></span>
+
+- <span data-ttu-id="95e34-111">Můžete změnit barvu chyby, upozornění, verbose výstupy a výstup ladění.</span><span class="sxs-lookup"><span data-stu-id="95e34-111">You can change the color of errors, warnings, verbose outputs, and debug outputs.</span></span>
+- <span data-ttu-id="95e34-112">Můžete získat nebo nastavit barvy pozadí v příkazovém podokně, v podokně výstup a v podokně skriptu.</span><span class="sxs-lookup"><span data-stu-id="95e34-112">You can get or set the background colors for the Command pane, the Output pane, and the Script pane.</span></span>
+- <span data-ttu-id="95e34-113">Můžete nastavit barvu popředí pro podokno výstup.</span><span class="sxs-lookup"><span data-stu-id="95e34-113">You can set the foreground color for the Output pane.</span></span>
+- <span data-ttu-id="95e34-114">Název písma a velikost písma lze nastavit pro Windows PowerShell ISE.</span><span class="sxs-lookup"><span data-stu-id="95e34-114">You can set the font name and font size for Windows PowerShell ISE.</span></span>
+- <span data-ttu-id="95e34-115">Můžete nakonfigurovat upozornění.</span><span class="sxs-lookup"><span data-stu-id="95e34-115">You can configure warnings.</span></span> <span data-ttu-id="95e34-116">Toto nastavení obsahuje upozornění, které jsou vydány, když je soubor otevřen v několika karty Powershellu nebo při spuštění skriptu v souboru dříve, než byl uložen soubor.</span><span class="sxs-lookup"><span data-stu-id="95e34-116">This setting includes warnings that are issued when a file is opened in multiple PowerShell tabs or when a script in the file is run before the file has been saved.</span></span>
+- <span data-ttu-id="95e34-117">Můžete přepínat mezi zobrazením kde skriptovacím podokně a v podokně výstupu jsou vedle sebe a zobrazení se v podokně skriptu nad podokno výstup.</span><span class="sxs-lookup"><span data-stu-id="95e34-117">You can switch between a view where the Script pane and the Output pane are side-by-side and a view where the Script pane is on top of the Output pane.</span></span> <span data-ttu-id="95e34-118">V příkazovém podokně můžete ukotvit dolní nebo horní podokno výstup.</span><span class="sxs-lookup"><span data-stu-id="95e34-118">You can dock the Command pane to the bottom or the top of the Output pane.</span></span>
+
+## <a name="enhancing-the-functionality-of-windows-powershell-ise"></a><span data-ttu-id="95e34-119">Vylepšení funkce Windows PowerShell ISE</span><span class="sxs-lookup"><span data-stu-id="95e34-119">Enhancing the functionality of Windows PowerShell ISE</span></span>
+
+<span data-ttu-id="95e34-120">Objektový model můžete použít k rozšíření funkcí Windows PowerShell ISE.</span><span class="sxs-lookup"><span data-stu-id="95e34-120">You can use the object model to enhance the functionality of Windows PowerShell ISE.</span></span> <span data-ttu-id="95e34-121">Například můžete:</span><span class="sxs-lookup"><span data-stu-id="95e34-121">For example, you can:</span></span>
+
+- <span data-ttu-id="95e34-122">Přidat a upravit instance Windows PowerShell ISE samotný.</span><span class="sxs-lookup"><span data-stu-id="95e34-122">Add and modify the instance of Windows PowerShell ISE itself.</span></span> <span data-ttu-id="95e34-123">Chcete-li změnit nabídky, můžete například přidávat nové položky nabídky a mapování nových položek nabídky do skriptů.</span><span class="sxs-lookup"><span data-stu-id="95e34-123">For example, to change the menus, you can add new menu items and map the new menu items to scripts.</span></span>
+- <span data-ttu-id="95e34-124">Vytváření skriptů, které provádějí některé úlohy, které můžete provádět pomocí příkazů nabídky a tlačítka v prostředí Windows PowerShell ISE.</span><span class="sxs-lookup"><span data-stu-id="95e34-124">Create scripts that perform some of the tasks that you can perform by using the menu commands and buttons in Windows PowerShell ISE.</span></span> <span data-ttu-id="95e34-125">Například můžete přidat, odebrat nebo vyberte kartu prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="95e34-125">For example, you can add, remove, or select a PowerShell tab.</span></span>
+- <span data-ttu-id="95e34-126">Doplněk úkoly, které lze provést pomocí příkazů nabídky a tlačítka.</span><span class="sxs-lookup"><span data-stu-id="95e34-126">Complement tasks that can be performed by using menu commands and buttons.</span></span> <span data-ttu-id="95e34-127">Například můžete přejmenovat kartu prostředí PowerShell.</span><span class="sxs-lookup"><span data-stu-id="95e34-127">For example, you can rename a PowerShell tab.</span></span>
+- <span data-ttu-id="95e34-128">Manipulace s vyrovnávací paměti textu v příkazovém podokně, v podokně výstup a v podokně skriptu, které jsou spojeny se souborem.</span><span class="sxs-lookup"><span data-stu-id="95e34-128">Manipulate text buffers for the Command pane, the Output pane, and the Script pane that are associated with a file.</span></span> <span data-ttu-id="95e34-129">Například můžete:</span><span class="sxs-lookup"><span data-stu-id="95e34-129">For example, you can:</span></span>
+  - <span data-ttu-id="95e34-130">Získání nebo nastavení veškerý text.</span><span class="sxs-lookup"><span data-stu-id="95e34-130">Get or set all text.</span></span>
+  - <span data-ttu-id="95e34-131">Získání nebo nastavení výběru textu.</span><span class="sxs-lookup"><span data-stu-id="95e34-131">Get or set a text selection.</span></span>
+  - <span data-ttu-id="95e34-132">Spustit skript nebo vybrané části skriptu.</span><span class="sxs-lookup"><span data-stu-id="95e34-132">Run a script or run a selected portion of a script.</span></span>
+  - <span data-ttu-id="95e34-133">Posuňte řádek do zobrazení.</span><span class="sxs-lookup"><span data-stu-id="95e34-133">Scroll a line into view.</span></span>
+  - <span data-ttu-id="95e34-134">Vložení textu na pozici blikajícího kurzoru.</span><span class="sxs-lookup"><span data-stu-id="95e34-134">Insert text at a caret position.</span></span>
+  - <span data-ttu-id="95e34-135">Vyberte blok textu.</span><span class="sxs-lookup"><span data-stu-id="95e34-135">Select a block of text.</span></span>
+  - <span data-ttu-id="95e34-136">Vrátí poslední číslo řádku.</span><span class="sxs-lookup"><span data-stu-id="95e34-136">Get the last line number.</span></span>
+- <span data-ttu-id="95e34-137">Provedení operace se soubory.</span><span class="sxs-lookup"><span data-stu-id="95e34-137">Perform file operations.</span></span> <span data-ttu-id="95e34-138">Například můžete:</span><span class="sxs-lookup"><span data-stu-id="95e34-138">For example, you can:</span></span>
+  - <span data-ttu-id="95e34-139">Otevřete soubor, uložit soubor nebo uložit soubor s použitím jiný název.</span><span class="sxs-lookup"><span data-stu-id="95e34-139">Open a file, save a file, or save a file by using a different name.</span></span>
+  - <span data-ttu-id="95e34-140">Určení, zda soubor po posledního uložení změněn.</span><span class="sxs-lookup"><span data-stu-id="95e34-140">Determine whether a file has been changed after it was last saved.</span></span>
+  - <span data-ttu-id="95e34-141">Získání názvu souboru.</span><span class="sxs-lookup"><span data-stu-id="95e34-141">Get the file name.</span></span>
+  - <span data-ttu-id="95e34-142">Vyberte soubor.</span><span class="sxs-lookup"><span data-stu-id="95e34-142">Select a file.</span></span>
+
+## <a name="automating-tasks"></a><span data-ttu-id="95e34-143">Automatizace úloh</span><span class="sxs-lookup"><span data-stu-id="95e34-143">Automating tasks</span></span>
+
+<span data-ttu-id="95e34-144">Skriptovací objektový model slouží k vytvoření klávesové zkratky pro časté operace.</span><span class="sxs-lookup"><span data-stu-id="95e34-144">You can use the scripting object model to create keyboard shortcuts for frequent operations.</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="95e34-145">Viz taky</span><span class="sxs-lookup"><span data-stu-id="95e34-145">See also</span></span>
+
+- [<span data-ttu-id="95e34-146">Hierarchie objektového modelu prostředí ISE</span><span class="sxs-lookup"><span data-stu-id="95e34-146">The ISE Object Model Hierarchy</span></span>](The-ISE-Object-Model-Hierarchy.md)
