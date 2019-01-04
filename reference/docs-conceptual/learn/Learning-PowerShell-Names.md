@@ -1,16 +1,16 @@
 ---
 ms.date: 08/24/2018
 keywords: rutiny prostředí PowerShell
-title: Učení powershellových názvů
+title: Učení názvů příkazů prostředí PowerShell
 ms.assetid: b4d0fd22-8298-4ee6-82ae-9b6f2907c986
-ms.openlocfilehash: 6ed1f99513f00c174147876e1982c0d12869cacb
-ms.sourcegitcommit: 00ff76d7d9414fe585c04740b739b9cf14d711e1
+ms.openlocfilehash: 3f8ef2648709c4bb5d2eacf30fe9d8fb4f032c13
+ms.sourcegitcommit: 9df29dfc637191b62ca591893c251c1e02d4eb4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53403871"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54012462"
 ---
-# <a name="learning-powershell-names"></a>Učení powershellových názvů
+# <a name="learning-powershell-command-names"></a>Učení názvů příkazů prostředí PowerShell
 
 Učení názvů příkazů a parametry vyžaduje spoustu času investici se většina rozhraní příkazového řádku. Problém je, že existuje několik vzorových postupů. Zapamatování je jediný způsob, jak další příkazy a parametry, které je třeba použít v pravidelných intervalech.
 

@@ -2,12 +2,12 @@
 ms.date: 12/12/2018
 keywords: DSC, powershell, konfigurace, instalační program
 title: Prostředky DSC
-ms.openlocfilehash: 542a210ab47c650eac625108a78e76bc2cd55572
-ms.sourcegitcommit: 00ff76d7d9414fe585c04740b739b9cf14d711e1
+ms.openlocfilehash: 02e1b9856942cf28e77d83dac89681a08cf6bb74
+ms.sourcegitcommit: 9df29dfc637191b62ca591893c251c1e02d4eb4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53403680"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54012445"
 ---
 # <a name="dsc-resources"></a>Prostředky DSC
 
@@ -103,4 +103,4 @@ Configuration TestConfig
 > [!NOTE]
 > Od v Powershellu 5.0, byl přidán technologie intellisense pro DSC. Tato nová funkce umožňuje používat \<kartu\> a \<kombinace kláves Ctrl + mezerník\> pro automatické dokončování názvů klíčů.
 
-![Prostředek Tab k dokončování příkazů](/media/resource-tabcompletion.png)
+![Prostředek Tab k dokončování příkazů](../media/resource-tabcompletion.png)

@@ -2,12 +2,12 @@
 ms.date: 06/05/2017
 keywords: rutiny prostředí PowerShell
 title: Další zdroje informací o PowerShellu
-ms.openlocfilehash: da9dfeca3d2d2cfadf6ace0aa98007d16a548aae
-ms.sourcegitcommit: 00ff76d7d9414fe585c04740b739b9cf14d711e1
+ms.openlocfilehash: 5e81801df99a55a358d1d1405bdc79f882aae92f
+ms.sourcegitcommit: 9df29dfc637191b62ca591893c251c1e02d4eb4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53403818"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54012547"
 ---
 # <a name="more-powershell-learning"></a>Další zdroje informací o PowerShellu
 
@@ -29,23 +29,9 @@ Kromě nápovědy k dispozici na příkazovém řádku následující zdroje obs
 - [Začínáme s prostředím PowerShell 3.0 kurz Jump Start zaměřený](https://mva.microsoft.com/en-US/training-courses/getting-started-with-powershell-30-jump-start-8276)
 - [Pokročilé nástroje a skriptování s Jump Start zaměřený na prostředí PowerShell 3.0](https://mva.microsoft.com/en-US/training-courses/advanced-tools-scripting-with-powershell-30-jump-start-8277)
 
-### <a name="script-center-learn"></a>Přečtěte si centra skriptů
+### <a name="channel-9-videos"></a>Videa Channel 9
 
-#### <a name="windows-powershell-essentials-for-the-busy-admin-series"></a>Windows PowerShell Essentials zaneprázdněný řady správce
-
-- [Prostředí PowerShell "SmowerShell" – Proč zjistíte Windows Powershellu, část 1](https://dlbmodigital.microsoft.com/webcasts/wmv/23976_Dnl_L.wmv)
-- [Slyšeli prostřednictvím kanálu – jak na složené příkazy Windows Powershellu pro zábavu a zisk 2. část](https://dlbmodigital.microsoft.com/webcasts/wmv/23977_Dnl_L.wmv)
-- [Jediný poskytovatel? Není téměř – podívejte se na část poskytovatelé Windows Powershellu 3](https://dlbmodigital.microsoft.com/webcasts/wmv/23978_Dnl_L.wmv)
-- [Hlavní události – prostředí Windows PowerShell se 4. část protokoly událostí](https://dlbmodigital.microsoft.com/webcasts/wmv/23979_Dnl_L.wmv)
-- [Více než vzdáleně možné – použití Windows Powershellu ke správě vzdálené plochy část 5](https://dlbmodigital.microsoft.com/webcasts/wmv/23980_Dnl_L.wmv)
-
-#### <a name="learn-it-now-before-its-an-emergency"></a>Přečtěte si ho hned teď dřív, než bude nouzovém stavu
-
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 1](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481530_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – část 2](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481542_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze - 3. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481548_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 4. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481552_Dnl_L.wmv)
-- [Prostředí Windows PowerShell: Přečtěte si ho hned teď dřív, než bude nouze – 5. část](https://dlbmodigital.microsoft.com/webcasts/wmv/1032481554_Dnl_L.wmv)
+Channel 9 je naše platforma pro publikování videa. K dispozici jsou stovky videí o prostředí PowerShell. [Vyhledejte "PowerShell"](https://channel9.msdn.com/Search?term=PowerShell&sortBy=top-rated) videa, jsou k dispozici.
 
 ## <a name="resources-for-windows-powershell-developers"></a>Materiály pro vývojáře Windows Powershellu
 
