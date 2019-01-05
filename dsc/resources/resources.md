@@ -2,12 +2,12 @@
 ms.date: 12/12/2018
 keywords: DSC, powershell, konfigurace, instalační program
 title: Prostředky DSC
-ms.openlocfilehash: 02e1b9856942cf28e77d83dac89681a08cf6bb74
-ms.sourcegitcommit: 9df29dfc637191b62ca591893c251c1e02d4eb4c
+ms.openlocfilehash: 1f77b5e6630a2e3de6e1d1a05638f94d2df039ae
+ms.sourcegitcommit: e04292a9c10de9a8391d529b7f7aa3753b362dbe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54012445"
+ms.locfileid: "54046687"
 ---
 # <a name="dsc-resources"></a>Prostředky DSC
 
@@ -104,3 +104,53 @@ Configuration TestConfig
 > Od v Powershellu 5.0, byl přidán technologie intellisense pro DSC. Tato nová funkce umožňuje používat \<kartu\> a \<kombinace kláves Ctrl + mezerník\> pro automatické dokončování názvů klíčů.
 
 ![Prostředek Tab k dokončování příkazů](../media/resource-tabcompletion.png)
+
+## <a name="built-in-resources"></a>Integrované prostředky
+
+Kromě komunitní zdroje jsou integrované prostředky pro Windows, prostředky pro Linux a prostředky pro závislost mezi uzly. Výše uvedené kroky můžete použít k určení syntaxe těchto prostředků a jejich použití. Na stránkách, které slouží tyto prostředky byly archivovány v rámci **odkaz**.
+
+Integrované prostředky pro Windows
+
+* [Prostředek Archive](../reference/resources/windows/archiveResource.md)
+* [Prostředek Environment](../reference/resources/windows/environmentResource.md)
+* [Prostředek File](../reference/resources/windows/fileResource.md)
+* [Prostředek Group](../reference/resources/windows/groupResource.md)
+* [Prostředek GroupSet](../reference/resources/windows/groupSetResource.md)
+* [Prostředek Log](../reference/resources/windows/logResource.md)
+* [Prostředek Package](../reference/resources/windows/packageResource.md)
+* [Prostředek ProcessSet](../reference/resources/windows/ProcessSetResource.md)
+* [Prostředek Registry](../reference/resources/windows/registryResource.md)
+* [Prostředek Script](../reference/resources/windows/scriptResource.md)
+* [Prostředek Service](../reference/resources/windows/serviceResource.md)
+* [Prostředek ServiceSet](../reference/resources/windows/serviceSetResource.md)
+* [Prostředek User](../reference/resources/windows/userResource.md)
+* [Prostředek WindowsFeature](../reference/resources/windows/windowsFeatureResource.md)
+* [Prostředek WindowsFeatureSet](../reference/resources/windows/windowsFeatureSetResource.md)
+* [Prostředek WindowsOptionalFeature](../reference/resources/windows/windowsOptionalFeatureResource.md)
+* [Prostředek WindowsOptionalFeatureSet](../reference/resources/windows/windowsOptionalFeatureSetResource.md)
+* [WindowsPackageCabResource prostředků](../reference/resources/windows/windowsPackageCabResource.md)
+* [Prostředek WindowsProcess](../reference/resources/windows/windowsProcessResource.md)
+
+[Závislost mezi uzly](../configurations/crossNodeDependencies.md) prostředky
+
+* [WaitForAll prostředků](../reference/resources/windows/waitForAllResource.md)
+* [WaitForSome prostředků](../reference/resources/windows/waitForSomeResource.md)
+* [WaitForAny prostředků](../reference/resources/windows/waitForAnyResource.md)
+
+Balíček správy prostředků
+
+* [PackageManagement prostředků](../reference/resources/packagemanagement/PackageManagementDscResource.md)
+* [PackageManagementSource prostředků](../reference/resources/packagemanagement/PackageManagementSourceDscResource.md)
+
+Prostředky pro Linux
+
+* [Prostředek Linux Archive](../reference/resources/linux/lnxArchiveResource.md)
+* [Zdroje prostředí Linux](../reference/resources/linux/lnxEnvironmentResource.md)
+* [Linux FileLine prostředků](../reference/resources/linux/lnxFileLineResource.md)
+* [Linuxový soubor prostředků](../reference/resources/linux/lnxFileResource.md)
+* [Linuxové skupiny prostředků](../reference/resources/linux/lnxGroupResource.md)
+* [Prostředek Linux Package](../reference/resources/linux/lnxPackageResource.md)
+* [Prostředek Linux Script](../reference/resources/linux/lnxScriptResource.md)
+* [Prostředek služby Linux](../reference/resources/linux/lnxServiceResource.md)
+* [Linux SshAuthorizedKeys prostředků](../reference/resources/linux/lnxSshAuthorizedKeysResource.md)
+* [Prostředek uživatele Linuxu](../reference/resources/linux/lnxUserResource.md)

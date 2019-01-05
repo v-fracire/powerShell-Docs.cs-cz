@@ -2,12 +2,12 @@
 ms.date: 06/12/2017
 keywords: DSC, powershell, konfigurace, instalační program
 title: Možnosti přihlašovacích údajů v konfiguračních datech
-ms.openlocfilehash: c4057457bf6beb2c5fc9dffef9122cd488ccdcd7
-ms.sourcegitcommit: 9df29dfc637191b62ca591893c251c1e02d4eb4c
+ms.openlocfilehash: 10cf3456fcc7104b7dd779db30aebace54ba087a
+ms.sourcegitcommit: e04292a9c10de9a8391d529b7f7aa3753b362dbe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54012428"
+ms.locfileid: "54046637"
 ---
 # <a name="credentials-options-in-configuration-data"></a>Možnosti přihlašovacích údajů v konfiguračních datech
 >Platí pro: Windows PowerShell 5.0
@@ -115,7 +115,8 @@ configuration unencryptedPasswordDemo
     }
 }
 
-# We declared the ConfigurationData in a local variable, but we need to pass it in to our configuration function
+# We declared the ConfigurationData in a local variable, but we need to pass it
+# in to our configuration function
 # We need to invoke the configuration function we created to generate a MOF
 unencryptedPasswordDemo -ConfigurationData $ConfigurationData
 
@@ -127,7 +128,7 @@ unencryptedPasswordDemo -ConfigurationData $ConfigurationData
 Start-DscConfiguration ./unencryptedPasswordDemo -verbose -wait -force
 ```
 
-Toto je výňatek ze souboru ".mof" vygenerované konfigurace pro "TestMachine1". `System.Security.SecureString` Používá v konfiguraci byl převeden na prostý text a uloženy v souboru "MOF" jako `MSF_Credential`. A `SecureString` je zašifrovaný pomocí aktuálního profilu uživatele. Tento postup funguje dobře s všechny formy Vzdálená správa prostředí PowerShell. Soubor ".mof" byla navržena jako samotný konfigurační mechanizmus stojanu. Od v Powershellu 5.0, jsou ".mof" soubory v uzlu šifrované v klidovém stavu, ale ne v cestě k uzlu. To znamená, že v souboru ".mof" hesel jako nešifrovaný text při použití na uzlu. K šifrování přihlašovacích údajů, budete muset použít **serveru vyžádané replikace**. Další informace najdete v tématu [soubory MOF zabezpečení pomocí certifikátů](./pull-server/secureMOF.md).
+Toto je výňatek ze souboru ".mof" vygenerované konfigurace pro "TestMachine1". `System.Security.SecureString` Používá v konfiguraci byl převeden na prostý text a uloženy v souboru "MOF" jako `MSF_Credential`. A `SecureString` je zašifrovaný pomocí aktuálního profilu uživatele. Tento postup funguje dobře s všechny formy Vzdálená správa prostředí PowerShell. Soubor ".mof" byla navržena jako samotný konfigurační mechanizmus stojanu. Od v Powershellu 5.0, jsou ".mof" soubory v uzlu šifrované v klidovém stavu, ale ne v cestě k uzlu. To znamená, že v souboru ".mof" hesel jako nešifrovaný text při použití na uzlu. K šifrování přihlašovacích údajů, budete muset použít **serveru vyžádané replikace**. Další informace najdete v tématu [soubory MOF zabezpečení pomocí certifikátů](../pull-server/secureMOF.md).
 
 ```syntax
 instance of MSFT_Credential as $MSFT_Credential1ref
